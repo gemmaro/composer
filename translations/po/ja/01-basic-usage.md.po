@@ -1,30 +1,29 @@
-# SOME DESCRIPTIVE TITLE
-# Copyright (C) YEAR Free Software Foundation, Inc.
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Japanese translation of Composer document
+# Composerのドキュメントの和訳
+# Copyright (C) 2023 gemmaro
+# This file is distributed under the same license as the Composer.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: Composer 2.5.1\n"
 "POT-Creation-Date: 2023-01-14 16:11+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2023-02-06 19:44+0900\n"
+"Last-Translator: gemmaro <gemmaro.dev@gmail.com>\n"
+"Language-Team: none\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #. type: Title ##
 #: ../doc/00-intro.md:1 ../doc/01-basic-usage.md:3
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "Introduction"
-msgstr "イントロダクション"
+msgstr "導入"
 
 #. type: Title #
 #: ../doc/01-basic-usage.md:1
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "Basic usage"
 msgstr "基本的な使い方"
 
@@ -35,6 +34,8 @@ msgid ""
 "logging library. If you have not yet installed Composer, refer to the [Intro]"
 "(00-intro.md) chapter."
 msgstr ""
+"基礎的な使い方の導入として、ここではログライブラリである`monolog/monolog`をインストールします。\n"
+"まだComposerをインストールしていなければ、[はじめに](00-intro.md)章を参照してください。"
 
 #. type: Plain text
 #: ../doc/01-basic-usage.md:11
@@ -42,13 +43,13 @@ msgstr ""
 msgid ""
 "> **Note:** for the sake of simplicity, this introduction will assume you\n"
 "> have performed a [local](00-intro.md#locally) install of Composer.\n"
-msgstr ""
+msgstr "> **補足：** 簡潔のために、この導入ではComposerの[ローカル](00-intro.md#locally)インストールを実施した前提で進めます。\n"
 
 #. type: Title ##
 #: ../doc/01-basic-usage.md:12
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "`composer.json`: Project setup"
-msgstr "`composer.json`: プロジェクトのセットアップ"
+msgstr "`composer.json`: プロジェクトの立ち上げ"
 
 #. type: Plain text
 #: ../doc/01-basic-usage.md:20
@@ -60,28 +61,36 @@ msgid ""
 "if you want to publish a package to Packagist.org, it will have to be able "
 "to find the file at the top of your VCS repository."
 msgstr ""
+"プロジェクトでComposerを使い始めるにあたって必要なのは`composer.json`ファイル"
+"だけです。\n"
+"このファイルにはプロジェクトの依存関係が記述され、他のメタデータも含まれるこ"
+"とがあります。\n"
+"典型的にはプロジェクトやVCSリポジトリの最上位ディレクトリにあります。\n"
+"技術的にはComposerをどこで実行することもできますが、パッケージをPackagist.org"
+"に公開したいならば、VCSリポジトリの一番上の階層にファイルが見付けられなくては"
+"なりません。"
 
 #. type: Title ###
 #: ../doc/01-basic-usage.md:21
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "The `require` key"
 msgstr "`require`キー"
 
 #. type: Plain text
 #: ../doc/01-basic-usage.md:26
-#, fuzzy
 msgid ""
 "The first thing you specify in `composer.json` is the [`require`](04-schema."
 "md#require) key. You are telling Composer which packages your project "
 "depends on."
 msgstr ""
-"最初に（そして、しばしばただひとつの）あなたが`composer.json`で指定するもの"
-"は、`require`キーです。 あなたはComposerにプロジェクトが依存しているパッケー"
-"ジがどれであるかを、単に定義するだけです。"
+"最初に`composer.json`で指定するものは、[`require`](04-schema.md#require)キー"
+"です。\n"
+"Composerにプロジェクトが依存しているパッケージがどれであるかを伝えるもので"
+"す。"
 
 #. type: Fenced code block (json)
 #: ../doc/01-basic-usage.md:27
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "{\n"
 "    \"require\": {\n"
@@ -89,22 +98,22 @@ msgid ""
 "    }\n"
 "}\n"
 msgstr ""
-"    {\n"
-"        \"require\": {\n"
-"            \"monolog/monolog\": \"1.0.*\"\n"
-"        }\n"
+"{\n"
+"    \"require\": {\n"
+"        \"monolog/monolog\": \"2.0.*\"\n"
 "    }\n"
+"}\n"
 
 #. type: Plain text
 #: ../doc/01-basic-usage.md:38
-#, fuzzy
 msgid ""
 "As you can see, [`require`](04-schema.md#require) takes an object that maps "
 "**package names** (e.g. `monolog/monolog`) to **version constraints** (e.g.  "
 "`1.0.*`)."
 msgstr ""
-"見たとおり、`require`は**パッケージ名** (例:`monolog/monolog`) と **パッケー"
-"ジバージョン** (例:`1.0.*`) で指定されたオブジェクトを扱います。"
+"見ての通り、[`require`](04-schema.md#require)は**パッケージ名**（例:`monolog/"
+"monolog`）と **パッケージバージョン**（例:`1.0.*`）を対応付けるオブジェクトを"
+"取ります。"
 
 #. type: Plain text
 #: ../doc/01-basic-usage.md:46
@@ -118,16 +127,23 @@ msgid ""
 "more [about Packagist](#packagist), and [about repositories](05-repositories."
 "md))."
 msgstr ""
+"Composerはこの情報を使って、[`repositories`](04-schema.md#repositories)キーか"
+"らパッケージ「リポジトリ」や、既定のパッケージレジストリである[Packagist.org]"
+"(https://packagist.org)にある正しいファイル一式を探します。\n"
+"上の例ではこれといったリポジトリは`composer.json`ファイルに登録されていないの"
+"で、`monolog/monolog`パッケージはPackagist.orgに登録されているものと推定され"
+"ます。\n"
+"（詳細は[Packagistについて](#packagist)と[リポジトリについて](05-"
+"repositories.md)を参照）"
 
 #. type: Title ###
 #: ../doc/01-basic-usage.md:47
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "Package names"
 msgstr "パッケージ名"
 
 #. type: Plain text
 #: ../doc/01-basic-usage.md:53
-#, fuzzy
 msgid ""
 "The package name consists of a vendor name and the project's name. Often "
 "these will be identical - the vendor name only exists to prevent naming "
@@ -135,10 +151,11 @@ msgid ""
 "library named `json`.  One might be named `igorw/json` while the other might "
 "be `seldaek/json`."
 msgstr ""
-"パッケージ名はベンダー名とプロジェクト名から成ります。これらはしばしば同一に"
-"なります。 - ベンダー名はネーミングが衝突するのを避けるためだけにあります。 "
-"異なった二人の人物が`json`という名前のライブラリ、`igorw/json`と`seldaek/"
-"json`を作成できます。"
+"パッケージ名はベンダー名とプロジェクト名から成ります。\n"
+"これらはしばしば同一になります。\n"
+"すなわち、ベンダー名は命名が衝突するのを避けるためだけにあります。\n"
+"例えば異なる2人の人物が`json`という名前のライブラリを`igorw/json`と`seldaek/"
+"json`とそれぞれ命名して作成できます。"
 
 #. type: Plain text
 #: ../doc/01-basic-usage.md:58
@@ -148,12 +165,17 @@ msgid ""
 "allowing you to require certain versions of server software. See [platform "
 "packages](#platform-packages) below.)"
 msgstr ""
+"詳細は[パッケージの公開とパッケージの命名](02-libraries.md)を読んでくださ"
+"い。\n"
+"（なお「プラットフォームパッケージ」を依存関係として指定することも可能で、\n"
+"サーバーのソフトウェアの特定のバージョンを要求することができます。\n"
+"[プラットフォームパッケージ](#platform-packages)で後述します。）"
 
 #. type: Title ###
 #: ../doc/01-basic-usage.md:59
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "Package version constraints"
-msgstr "パッケージバージョン"
+msgstr "パッケージバージョン制約"
 
 #. type: Plain text
 #: ../doc/01-basic-usage.md:65
@@ -164,6 +186,8 @@ msgid ""
 "This means any version in the `2.0` development branch, or any version that is\n"
 "greater than or equal to 2.0 and less than 2.1 (`>=2.0 <2.1`).\n"
 msgstr ""
+"ここの例ではバージョン制約[`2.0.*`](https://semver.mwl.be/#?package=monolog%2Fmonolog&version=2.0.*)のMonologパッケージを要求しています。\n"
+"これが意味するものは`2.0`の開発ブランチの任意のバージョン、言い換えると2.0以上で2.1より小さい（`>=2.0 <2.1`）任意のバージョンのことを指します。\n"
 
 #. type: Plain text
 #: ../doc/01-basic-usage.md:68
@@ -171,6 +195,8 @@ msgid ""
 "Please read [versions](articles/versions.md) for more in-depth information "
 "on versions, how versions relate to each other, and on version constraints."
 msgstr ""
+"バージョン、バージョン間でどう関連するか、そしてバージョン制約についてのより"
+"詳しい情報は[バージョン](articles/versions.md)を読んでください。"
 
 #. type: Plain text
 #: ../doc/01-basic-usage.md:80
@@ -188,6 +214,12 @@ msgid ""
 "> to attempt to find the best match for the version constraint you have specified. Be sure to read\n"
 "> about versions and package resolution in the [versions article](articles/versions.md).\n"
 msgstr ""
+"> **どうやってComposerは正しいファイルをダウンロードしているのか。**\n"
+"> `composer.json`に依存関係を指定したとき、Composerはまず要求されたパッケージの名前を取って、[`repositories`](04-schema.md#repositories)キーを使って登録された全てのリポジトリを対象に検索します。\n"
+"> もし1つも追加でリポジトリを登録していなかったり、指定したリポジトリにその名前を持つパッケージが見付からなかったときは、Packagist.org（[後述](#packagist)）に落ち着きます。\n"
+">\n"
+"> ComposerがPackagist.orgないし指定したリポジトリで正しいパッケージを見付けたときは、パッケージのVCSのバージョン機能（つまりブランチとタグ）を使って、指定したバージョン制約に最も合致するものを見つけ出そうとします。\n"
+"> 必ず[バージョンについての記事](articles/versions.md)でバージョンとパッケージについて読んでください。\n"
 
 #. type: Plain text
 #: ../doc/01-basic-usage.md:89
@@ -202,10 +234,15 @@ msgid ""
 "> versions of a package. Read more about stability flags and the `minimum-stability`\n"
 "> key on the [schema page](04-schema.md).\n"
 msgstr ""
+"> **補足：** もしパッケージを要求したもののComposerがパッケージの安定性の理由で例外を投げた場合は、指定したバージョンが既定の最小安定要件をに見合わない可能性があります。\n"
+"> VCSで妥当なパッケージバージョンを探す際、既定では安定リリースのみが考慮されます。\n"
+">\n"
+"> パッケージの開発版、アルファ版、ベータ版、リリース候補のバージョンを要求しようとしたときに、この例外に遭遇するかもしれません。\n"
+"> 安定性フラグと`minimum-stability`キーについての詳細は[スキーマのページ](04-schema.md)をお読みください。\n"
 
 #. type: Title ##
 #: ../doc/01-basic-usage.md:90
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "Installing dependencies"
 msgstr "依存物をインストール"
 
@@ -215,19 +252,20 @@ msgid ""
 "To initially install the defined dependencies for your project, you should "
 "run the [`update`](03-cli.md#update-u) command."
 msgstr ""
+"定義された依存関係をプロジェクトに初めてインストールするときは、[`update`]"
+"(03-cli.md#update-u)コマンドを走らせるとよいです。"
 
 #. type: Fenced code block (shell)
 #: ../doc/01-basic-usage.md:95 ../doc/01-basic-usage.md:163
 #: ../doc/03-cli.md:145
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "php composer.phar update\n"
-msgstr "    $ php composer.phar update\n"
+msgstr "php composer.phar update\n"
 
 #. type: Plain text
 #: ../doc/01-basic-usage.md:100
-#, fuzzy
 msgid "This will make Composer do two things:"
-msgstr "Composerが解決する問題は以下の通りです："
+msgstr "こうするとComposerは2つのことをします。"
 
 #. type: Bullet: '- '
 #: ../doc/01-basic-usage.md:112
@@ -239,6 +277,10 @@ msgid ""
 "project are locked to the same versions of dependencies (more below). This "
 "is the main role of the `update` command."
 msgstr ""
+"`composer.json`ファイルに挙げられている全ての依存関係を解決して、全てのアッケージとその厳密なバージョンを、プロジェクトを特定のバージョンに固める`composer.lock`ファイルに書き込みます。\n"
+"`composer.lock`ファイルはプロジェクトのリポジトリにコミットすべきです。\n"
+"そうすればプロジェクトに参画する全員にとって同じバージョンの依存関係に固定されたものになります（詳細は後述）。\n"
+"これが`update`コマンドの主な役割です。"
 
 #. type: Bullet: '- '
 #: ../doc/01-basic-usage.md:112
@@ -251,27 +293,30 @@ msgid ""
 "dependency on `psr/log`, that package's files can also be found inside "
 "`vendor/`."
 msgstr ""
+"それから暗黙裡に[`install`](03-cli.md#install-i)コマンドが走ります。\n"
+"これにより依存関係のファイルがプロジェクトの`vendor`ディレクトリにダウンロードされます（`vendor`ディレクトリはプロジェクトの全てのサードパーティコード用の定番の場所です）。\n"
+"上の例では最終的にMonologのソースファイルが`vendor/monolog/monolog`にあることになります。\n"
+"Monologには`psr/log`への依存関係があるため、そのパッケージのファイルもまた`vendor/`の中に見付けられます。"
 
 #. type: Plain text
 #: ../doc/01-basic-usage.md:116
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "> **Tip:** If you are using git for your project, you probably want to add\n"
 "> `vendor` in your `.gitignore`. You really don't want to add all of that\n"
 "> third-party code to your versioned repository.\n"
 msgstr ""
 "> **Tip:** gitをプロジェクトで使っているのなら、多分`.gitignore`に`vendor`を追加したいでしょう。\n"
-"> リポジトリにコードを追加したくないので。\n"
+"> 実際のところサードパーティ製のコード全てをバージョン管理されたリポジトリに追加したくないので。\n"
 
 #. type: Title ###
 #: ../doc/01-basic-usage.md:117
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "Commit your `composer.lock` file to version control"
-msgstr "**アプリケーションの `composer.lock`を(`composer.json`と一緒に)バージョンコントロールにコミットしてください。 **\n"
+msgstr "`composer.lock`ファイルをバージョン管理にコミットすること"
 
 #. type: Plain text
 #: ../doc/01-basic-usage.md:128
-#, fuzzy
 msgid ""
 "Committing this file to version control is important because it will cause "
 "anyone who sets up the project to use the exact same versions of the "
@@ -283,29 +328,32 @@ msgid ""
 "are still working even if your dependencies released many new versions since "
 "then.  (See note below about using the `update` command.)"
 msgstr ""
-"これはプロジェクトをセットアップするのが誰であっても厳密に同じバージョンの依"
-"存物をダウンロードする、ということです。 CIサーバ、プロダクションマシン、チー"
-"ム内の他のデベロッパー、全てで、誰でも同じ依存物を実行します。 これは、開発へ"
-"の潜在的なバグの影響を軽減します。 たとえあなたが一人で開発していたとしても、"
-"6ヶ月の間にプロジェクトを再インストールしたとき、 依存物がその後多くの新しい"
-"バージョンをリリースしていたとしても、 あなたはインストールされた依存物がちゃ"
-"んと動くことを確信できます。"
+"このファイルをバージョン管理にコミットすることは大事です。\n"
+"なぜならこうすることでプロジェクトをセットアップする誰もが、自分が使っている"
+"ものと全く同じバージョンの依存関係を使えるようになるからです。\n"
+"CIサーバ、プロダクションマシン、チーム内の他の開発者、全てのものとあまねく"
+"人々が同じ依存関係で実行するのです。\n"
+"これにより特定のデプロイでのみ影響を与える潜在的なバグを低減されます。\n"
+"たとえ一人で開発していて6ヶ月経ってからプロジェクトを再インストールしたとして"
+"も、そして依存関係が多くの新しいバージョンをリリースされていたとしても、イン"
+"ストールされた依存関係がちゃんと動くことは疑いありません。\n"
+"（`update`コマンドの使用については以下の補足を参照してください。）"
 
 #. type: Plain text
 #: ../doc/01-basic-usage.md:131
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "> **Note:** For libraries it is not necessary to commit the lock\n"
 "> file, see also: [Libraries - Lock file](02-libraries.md#lock-file).\n"
 msgstr ""
-"> **注意:** ライブラリの場合はロックファイルのコミットは不必要です。\n"
-"> [ライブラリ - ロックファイル](02-libraries.html#lock-file)を参照してください。\n"
+"> **補足：** ライブラリの場合はロックファイルのコミットは不必要です。\n"
+"> [ライブラリ - ロックファイル](02-libraries.html#lock-file)も参照してください。\n"
 
 #. type: Title ###
 #: ../doc/01-basic-usage.md:132
 #, no-wrap
 msgid "Installing from `composer.lock`"
-msgstr ""
+msgstr "`composer.lock`からインストールする"
 
 #. type: Plain text
 #: ../doc/01-basic-usage.md:137
@@ -315,6 +363,10 @@ msgid ""
 "ran the `update` command and committed the `composer.lock` file to the "
 "project (which is good)."
 msgstr ""
+"既に`composer.lock`ファイルがプロジェクトフォルダにあるなら、それは前に自分で"
+"`update`コマンドを走らせたか、プロジェクトの誰かが`update`コマンドを走らせて"
+"`composer.lock`ファイルをプロジェクトにコミットしたからかのどちらかです（これ"
+"はいいことです）。"
 
 #. type: Plain text
 #: ../doc/01-basic-usage.md:146
@@ -330,6 +382,9 @@ msgid ""
 "it ensures that your project does not break because of unexpected changes in "
 "dependencies."
 msgstr ""
+"いずれにせよ`composer.lock`ファイルが存在しているときに`install`を走らせると`composer.lock`に挙がっている全ての依存関係を解決してインストールするのですが、プロジェクトの作業をしている人全員にとってパッケージのバージョンが必ず一貫したものになるように`composer.lock`に挙げられた厳密なバージョンをComposerは使用します。\n"
+"結果として`composer.json`ファイルで要求された全ての依存関係が取得されるのですが、必ずしも利用できるごく最新のバージョンとはなっていないかもしれません（`composer.lock`ファイルで挙げられた依存関係はファイルが作成されてからより新しいバージョンがリリースされる可能性があります）。\n"
+"これは設計上意図されたものであり、依存関係での予期しない変更による不具合がプロジェクトで絶対に発生しないようにするものです。"
 
 #. type: Plain text
 #: ../doc/01-basic-usage.md:150
@@ -338,22 +393,24 @@ msgid ""
 "run a Composer `install` to make sure the vendor directory is up in sync "
 "with your `composer.lock` file."
 msgstr ""
+"なのでVCSリポジトリから新しい変更を取得したあとは、Composerの`install`を走ら"
+"せてvendorディレクトリが`composer.lock`ファイルと同期していることを確かめるこ"
+"とをお勧めします。"
 
 #. type: Fenced code block (shell)
 #: ../doc/01-basic-usage.md:151 ../doc/03-cli.md:86
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "php composer.phar install\n"
-msgstr "    $ php composer.phar install\n"
+msgstr "php composer.phar install\n"
 
 #. type: Title ##
 #: ../doc/01-basic-usage.md:155
 #, no-wrap
 msgid "Updating dependencies to their latest versions"
-msgstr ""
+msgstr "最新版に依存関係を更新する"
 
 #. type: Plain text
 #: ../doc/01-basic-usage.md:162
-#, fuzzy
 msgid ""
 "As mentioned above, the `composer.lock` file prevents you from automatically "
 "getting the latest versions of your dependencies. To update to the latest "
@@ -361,10 +418,12 @@ msgid ""
 "the latest matching versions (according to your `composer.json` file) and "
 "update the lock file with the new versions."
 msgstr ""
-"これは、依存物に新しいバージョンがあった場合に自動的にはアップデートしないと"
-"いうことです。 新しいバージョンにアップデートするためには、`update`コマンドを"
-"使います。 これはマッチする最新のバージョン(`composer.json`ファイルによりま"
-"す)をフェッチしロックファイルをその新しいバージョンで アップデートします。"
+"前述したように`composer.lock`ファイルは自動的に依存関係の最新版が取得されるの"
+"を防ぎます。\n"
+"最新のバージョンに更新するには[`update`](03-cli.md#update-u)コマンドを使いま"
+"す。\n"
+"こうすると（`composer.json`ファイルに沿うように）照合する最新バージョンを取得"
+"して新しいバージョンでロックファイルを更新します。"
 
 #. type: Plain text
 #: ../doc/01-basic-usage.md:170
@@ -373,33 +432,31 @@ msgid ""
 "> **Note:** Composer will display a Warning when executing an `install` command\n"
 "> if the `composer.lock` has not been updated since changes were made to the\n"
 "> `composer.json` that might affect dependency resolution.\n"
-msgstr ""
+msgstr "> **補足：** `composer.json`に依存関係解決に影響し得る変更が加えられてから`composer.lock`が更新されていなければ、`install`コマンドを実行するときに、Composerが警告を表示します。\n"
 
 #. type: Plain text
 #: ../doc/01-basic-usage.md:172
-#, fuzzy
 msgid ""
 "If you only want to install, upgrade or remove one dependency, you can "
 "explicitly list it as an argument:"
 msgstr ""
-"一つの依存物をインストール、またはアップデートしたいだけなら、ホワイトリスト"
-"が使えます。"
+"1つの依存関係をインストール、更新、削除したいだけなら、引数として明示的に列挙"
+"することができます。"
 
 #. type: Fenced code block (shell)
 #: ../doc/01-basic-usage.md:173
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "php composer.phar update monolog/monolog [...]\n"
-msgstr "    $ php composer.phar update monolog/monolog [...]\n"
+msgstr "php composer.phar update monolog/monolog [...]\n"
 
 #. type: Title ##
 #: ../doc/01-basic-usage.md:177
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "Packagist"
 msgstr "Packagist"
 
 #. type: Plain text
 #: ../doc/01-basic-usage.md:184
-#, fuzzy
 msgid ""
 "[Packagist.org](https://packagist.org/) is the main Composer repository. A "
 "Composer repository is basically a package source: a place where you can get "
@@ -408,65 +465,65 @@ msgid ""
 "available there, without further specifying where Composer should look for "
 "the package."
 msgstr ""
-"[Packagist](https://packagist.org/)はメインのComposerリポジトリです。 "
-"Composerリポジトリは基本的なパッケージソースになります。 これはパッケージを取"
-"得元となる場所のことです。 Packagistは全ての人が利用できる中央リポジトリであ"
-"ることを目的としています。 この場所で利用できるパッケージは自動的に`require`"
-"できるということです。"
+"[Packagist](https://packagist.org/)はメインのComposerリポジトリです。\n"
+"Composerリポジトリは基本的にはパッケージの源です。\n"
+"つまりパッケージを取ってくることができる場所のことです。\n"
+"Packagistは全ての人が利用できる中央リポジトリであることを目指しています。\n"
+"要はここで利用できるいかなるパッケージも自動的に`require`できるということで"
+"す。\n"
+"追加でComposerがパッケージを探す場所を指定しなくてよいのです。"
 
 #. type: Plain text
 #: ../doc/01-basic-usage.md:187
-#, fuzzy
 msgid ""
 "If you go to the [Packagist.org website](https://packagist.org/), you can "
 "browse and search for packages."
 msgstr ""
 "[packagistのWebサイト](https://packagist.org/) (packagist.org)ではパッケージ"
-"を参照、検索できます。"
+"を閲覧したり検索したりできます。"
 
 #. type: Plain text
 #: ../doc/01-basic-usage.md:191
-#, fuzzy
 msgid ""
 "Any open source project using Composer is recommended to publish their "
 "packages on Packagist. A library does not need to be on Packagist to be used "
 "by Composer, but it enables discovery and adoption by other developers more "
 "quickly."
 msgstr ""
-"Composerを使っているオープンソースプロジェクトはそのパッケージをpackagist上で"
-"公開するべきです。 Composerを使うために、ライブラリをpackagistに載せる必要あ"
-"りません。 しかしそうすることで人生がかなりシンプルになります。"
+"Composerを使っているオープンソースプロジェクトはパッケージをPackagist上で公開"
+"するべきです。\n"
+"Composerを使うためにはライブラリをPackagistに載せる必要ありません。\n"
+"しかしそうすることで、他の開発者にとってはより素早くパッケージを発見して取り"
+"入れることができるようになります。"
 
 #. type: Title ##
 #: ../doc/01-basic-usage.md:192
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "Platform packages"
 msgstr "プラットフォームパッケージ"
 
 #. type: Plain text
 #: ../doc/01-basic-usage.md:197
-#, fuzzy
 msgid ""
 "Composer has platform packages, which are virtual packages for things that "
 "are installed on the system but are not actually installable by Composer. "
 "This includes PHP itself, PHP extensions and some system libraries."
 msgstr ""
-"Composerはプラットフォームパッケージを持っています。これはシステムにインス"
-"トールされる仮想的なパッケージで、 実際にはComposerではインストールされませ"
-"ん。 これはPHP自身やPHPのエクステンション、システムライブライリを含みます。"
+"Composerにはプラットフォームパッケージがあります。\n"
+"これはシステムにインストールされる仮想的なパッケージで、実際にはComposerでは"
+"インストールされないものを指します。\n"
+"これはPHP自身やPHP拡張、システムライブライリを含みます。"
 
 #. type: Bullet: '* '
 #: ../doc/01-basic-usage.md:201
-#, fuzzy
 msgid ""
 "`php` represents the PHP version of the user, allowing you to apply "
 "constraints, e.g. `^7.1`. To require a 64bit version of php, you can require "
 "the `php-64bit` package."
 msgstr ""
-"* `php`はユーザのPHPバージョンを表します。これには`>=5.4.0`のような制約を適用"
-"できます。\n"
-"    PHPの64bitバージョンを要求するため、`php-64bit`のパッケージを指定出来ま"
+"`php`はユーザのPHPバージョンを表しており、`^7.1`のような制約を適用できま"
 "す。\n"
+"PHPの64bitバージョンを要求するには、`php-64bit`パッケージを指定出来ます。"
 
 #. type: Bullet: '* '
 #: ../doc/01-basic-usage.md:204
@@ -474,62 +531,64 @@ msgid ""
 "`hhvm` represents the version of the HHVM runtime and allows you to apply a "
 "constraint, e.g., `^2.3`."
 msgstr ""
+"`hhvm`はHHVMランタイムのバージョンを表しており`^2.3`のように制約を適用するこ"
+"とができます。"
 
 #. type: Bullet: '* '
 #: ../doc/01-basic-usage.md:209
-#, fuzzy
 msgid ""
 "`ext-<name>` allows you to require PHP extensions (includes core "
 "extensions). Versioning can be quite inconsistent here, so it's often a good "
 "idea to set the constraint to `*`.  An example of an extension package name "
 "is `ext-gd`."
 msgstr ""
-"`ext-<name>`はPHPのエクステンションを要求します。(コアエクステンション含みま"
-"す)。 バージョニングには全く一致しないことがあります。なので制約には`*`を設定"
-"するのが概ね良い方法です。 エクステンションのパッケージ名の例は`ext-gd`です。"
+"`ext-<name>`とすることでPHPの中核拡張を要件とすることができます（中核拡張を含"
+"みます）。\n"
+"バージョニングはかなり一貫性がないことがあるので、大体の場合は制約に`*`を設定"
+"するのとよいです。\n"
+"拡張パッケージ名の例は`ext-gd`です。"
 
 #. type: Bullet: '* '
 #: ../doc/01-basic-usage.md:213
-#, fuzzy
 msgid ""
 "`lib-<name>` allows constraints to be made on versions of libraries used by "
 "PHP. The following are available: `curl`, `iconv`, `icu`, `libxml`, "
 "`openssl`, `pcre`, `uuid`, `xsl`."
 msgstr ""
-"`lib-<name>`はPHPで使われるライブラリのバージョンを制約します。 次のものが利"
-"用できます: `curl`, `iconv`, `libxml`, `openssl`, `pcre`, `uuid`, `xsl`."
+"`lib-<name>`はPHPで使われるライブラリのバージョンを制約します。\n"
+"次のものが利用できます：`curl`, `iconv`, `icu`, `libxml`, `openssl`, `pcre`, "
+"`uuid`, `xsl`。"
 
 #. type: Plain text
 #: ../doc/01-basic-usage.md:216
-#, fuzzy
 msgid ""
 "You can use [`show --platform`](03-cli.md#show) to get a list of your "
 "locally available platform packages."
 msgstr ""
-"`composer show --platform`を使うと、ローカルで利用できるプラットフォームパッ"
-"ケージのリストを得ることができます。"
+"[`show --platform`](03-cli.md#show)を使うと、ローカルで利用できるプラット"
+"フォームパッケージのリストが得られます。"
 
 #. type: Title ##
 #: ../doc/01-basic-usage.md:217
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "Autoloading"
 msgstr "オートローディング"
 
 #. type: Plain text
 #: ../doc/01-basic-usage.md:222
-#, fuzzy
 msgid ""
 "For libraries that specify autoload information, Composer generates a "
 "`vendor/autoload.php` file. You can include this file and start using the "
 "classes that those libraries provide without any extra work:"
 msgstr ""
-"オートロード情報を指定するライブラリのためにComposerは`vendor/autoload.php`"
-"ファイルを生成します。 単にこのファイルをインクルードすれば、オートローディン"
-"グを自由に手に入れることができます。"
+"自動読み込み情報を指定するライブラリ用に、Composerは`vendor/autoload.php`ファ"
+"イルを生成します。\n"
+"単にこのファイルを含めれば、他に手間を掛けずにそれらのライブラリが提供するク"
+"ラスを使い始められます。"
 
 #. type: Fenced code block (php)
 #: ../doc/01-basic-usage.md:223
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "require __DIR__ . '/vendor/autoload.php';\n"
 "\n"
@@ -537,22 +596,24 @@ msgid ""
 "$log->pushHandler(new Monolog\\Handler\\StreamHandler('app.log', Monolog\\Logger::WARNING));\n"
 "$log->warning('Foo');\n"
 msgstr ""
-"    $log = new Monolog\\Logger('name');\n"
-"    $log->pushHandler(new Monolog\\Handler\\StreamHandler('app.log', Monolog\\Logger::WARNING));\n"
+"require __DIR__ . '/vendor/autoload.php';\n"
+"\n"
+"$log = new Monolog\\Logger('name');\n"
+"$log->pushHandler(new Monolog\\Handler\\StreamHandler('app.log', Monolog\\Logger::WARNING));\n"
+"$log->warning('Foo');\n"
 
 #. type: Plain text
 #: ../doc/01-basic-usage.md:233
-#, fuzzy
 msgid ""
 "You can even add your own code to the autoloader by adding an [`autoload`]"
 "(04-schema.md#autoload) field to `composer.json`."
 msgstr ""
-"`composer.json`に`autoload`フィールドを追加すれば、自分のコードでさえオート"
-"ローダに追加することができます。"
+"`composer.json`に[`autoload`](04-schema.md#autoload)フィールドを追加すれば、"
+"自分のコードさえもオートローダに追加することができます。"
 
 #. type: Fenced code block (json)
 #: ../doc/01-basic-usage.md:234
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "{\n"
 "    \"autoload\": {\n"
@@ -560,49 +621,47 @@ msgid ""
 "    }\n"
 "}\n"
 msgstr ""
-"    {\n"
-"        \"autoload\": {\n"
-"            \"psr-0\": {\"Acme\\\\\": \"src/\"}\n"
-"        }\n"
+"{\n"
+"    \"autoload\": {\n"
+"        \"psr-4\": {\"Acme\\\\\": \"src/\"}\n"
 "    }\n"
+"}\n"
 
 #. type: Plain text
 #: ../doc/01-basic-usage.md:244
-#, fuzzy
 msgid ""
 "Composer will register a [PSR-4](https://www.php-fig.org/psr/psr-4/) "
 "autoloader for the `Acme` namespace."
 msgstr ""
-"Composerは[PSR-0](https://github.com/php-fig/fig-standards/blob/master/"
-"accepted/PSR-0.md)オートローダを`Acme`ネームスペースに登録します。"
+"Composerは[PSR-4](https://www.php-fig.org/psr/psr-4/)オートローダを`Acme`名前"
+"空間に登録しています。"
 
 #. type: Plain text
 #: ../doc/01-basic-usage.md:248
-#, fuzzy
 msgid ""
 "You define a mapping from namespaces to directories. The `src` directory "
 "would be in your project root, on the same level as the `vendor` directory. "
 "An example filename would be `src/Foo.php` containing an `Acme\\Foo` class."
 msgstr ""
-"ネームスペースからディレクトリへのマッピングを定義しています。 `src`ディレク"
-"トリはプロジェクトルートにあるとします。同じ階層に`vendor`もあります。 例え"
-"ば、ファイル名が`src/Acme/Foo.php`は`Acme\\Foo`クラスを含みます。"
+"名前空間からディレクトリへの対応付けを定義します。\n"
+"`src`ディレクトリはプロジェクトルートにあり、同じ階層に`vendor`もあるとしま"
+"しょう。\n"
+"ファイル名の例としては`Acme\\Foo`クラスを含む`src/Foo.php`があります。"
 
 #. type: Plain text
 #: ../doc/01-basic-usage.md:251
-#, fuzzy
 msgid ""
 "After adding the [`autoload`](04-schema.md#autoload) field, you have to re-"
 "run this command:"
 msgstr ""
-"`autoload`フィールドを追加したあと、`vendor/autoload.php`を再生成するため"
-"`install`を再実行しなければなりません。"
+"[`autoload`](04-schema.md#autoload)フィールドを追加したあとは、このコマンドを"
+"再び走らせなくてはなりません。"
 
 #. type: Fenced code block (shell)
 #: ../doc/01-basic-usage.md:252
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "php composer.phar dump-autoload\n"
-msgstr "    $ php composer.phar update\n"
+msgstr "php composer.phar dump-autoload\n"
 
 #. type: Plain text
 #: ../doc/01-basic-usage.md:259
@@ -611,42 +670,44 @@ msgid ""
 "[`dump-autoload`](03-cli.md#dump-autoload-dumpautoload-) section for more "
 "information."
 msgstr ""
+"このコマンドは`vendor/autoload.php`ファイルを再生成します。\n"
+"詳細は[`dump-autoload`](03-cli.md#dump-autoload-dumpautoload-)節を参照してく"
+"ださい。"
 
 #. type: Plain text
 #: ../doc/01-basic-usage.md:263
-#, fuzzy
 msgid ""
 "Including that file will also return the autoloader instance, so you can "
 "store the return value of the include call in a variable and add more "
 "namespaces.  This can be useful for autoloading classes in a test suite, for "
 "example."
 msgstr ""
-"オートロードファイルのインクルードはまた、autoloaderインスタンスを戻します。 "
-"なのでインクルード呼び出しの戻り値を変数に保持しておくことができます。 そし"
-"て、ネームスペースを追加することができます。 これはテストスイート内で便利で"
-"す。例えば、"
+"自動読み込みファイルを含めるとautoloaderインスタンスを返します。\n"
+"そのためインクルード呼び出しの返り値を変数に保持し、さらに名前空間を追加する"
+"ことができます。\n"
+"これはテストスイート内での自動読み込みクラスに便利です。\n"
+"例えば以下です。"
 
 #. type: Fenced code block (php)
 #: ../doc/01-basic-usage.md:264
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "$loader = require __DIR__ . '/vendor/autoload.php';\n"
 "$loader->addPsr4('Acme\\\\Test\\\\', __DIR__);\n"
 msgstr ""
-"    $loader = require 'vendor/autoload.php';\n"
-"    $loader->add('Acme\\\\Test\\\\', __DIR__);\n"
+"$loader = require __DIR__ . '/vendor/autoload.php';\n"
+"$loader->addPsr4('Acme\\\\Test\\\\', __DIR__);\n"
 
 #. type: Plain text
 #: ../doc/01-basic-usage.md:272
-#, fuzzy
 msgid ""
 "In addition to PSR-4 autoloading, Composer also supports PSR-0, classmap and "
 "files autoloading. See the [`autoload`](04-schema.md#autoload) reference for "
 "more information."
 msgstr ""
-"PSR-0オートローディングに加えて、クラスマップもまたサポートしています。 これ"
-"はPSR-0に準拠していなくてもクラスをオートロードすることができます。 詳細は"
-"[オートロードリファレンス](04-schema.html#autoload)を参照してください。"
+"PSR-4自動読み込みに加えて、ComposerはPSR-0、クラスマップ、ファイル自動読み込"
+"みにも対応しています。\n"
+"詳細は[`autoload`](04-schema.html#autoload)リファレンスを参照してください。"
 
 #. type: Plain text
 #: ../doc/01-basic-usage.md:274
@@ -654,25 +715,23 @@ msgid ""
 "See also the docs on [optimizing the autoloader](articles/autoloader-"
 "optimization.md)."
 msgstr ""
+"[autoloaderの最適化](articles/autoloader-optimization.md)についてのドキュメン"
+"トも参照してください。"
 
 #. type: Plain text
 #: ../doc/01-basic-usage.md:278
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "> **Note:** Composer provides its own autoloader. If you don't want to use that\n"
 "> one, you can include `vendor/composer/autoload_*.php` files, which return\n"
 "> associative arrays allowing you to configure your own autoloader.\n"
 msgstr ""
-"> **注意:** Composerは自前のオートローダを提供しています. もしそれを使いたくない場合は\n"
-"> 単に`vendor/composer/autoload_namespaces.php`をインクルードすることができます。\n"
-"> これはネームスペースとディレクトリをマッピングしている連想配列を戻します。\n"
+"> **注意：** Composerは自前の自動読み込み器を提供しています。\n"
+"> もしそれを使いたくない場合は単に`vendor/composer/autoload_*.php`ファイルを含められます。\n"
+"> これは自前の自動読み込み器を設定することができる連想配列を返します。\n"
 
 #. type: Plain text
 #: ../doc/01-basic-usage.md:279
-#, fuzzy
 msgid "&larr; [Intro](00-intro.md)  | [Libraries](02-libraries.md) &rarr;"
 msgstr ""
-"<p class=\"prev-next\">\n"
-"  &larr; [イントロダクション](00-intro.html)  |  [ライブラリ](02-libraries."
-"html) &rarr;\n"
-"</p>\n"
+"&larr; [導入](00-intro.html)  |  [ライブラリ](02-libraries.html) &rarr;"

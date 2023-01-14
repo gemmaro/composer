@@ -19,15 +19,15 @@ msgstr ""
 #. type: Fenced code block (shell)
 #: ../doc/01-basic-usage.md:95 ../doc/01-basic-usage.md:163
 #: ../doc/03-cli.md:145
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "php composer.phar update\n"
-msgstr "    $ php composer.phar update\n"
+msgstr "php composer.phar update\n"
 
 #. type: Fenced code block (shell)
 #: ../doc/01-basic-usage.md:151 ../doc/03-cli.md:86
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "php composer.phar install\n"
-msgstr "    $ php composer.phar install\n"
+msgstr "php composer.phar install\n"
 
 #. type: Title #
 #: ../doc/03-cli.md:1

@@ -18,9 +18,9 @@ msgstr ""
 
 #. type: Title ##
 #: ../doc/00-intro.md:1 ../doc/01-basic-usage.md:3
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "Introduction"
-msgstr "イントロダクション"
+msgstr "導入"
 
 #. type: Plain text
 #: ../doc/00-intro.md:6

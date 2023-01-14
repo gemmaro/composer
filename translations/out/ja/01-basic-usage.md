@@ -1,0 +1,241 @@
+# 基本的な使い方
+
+## 導入
+
+基礎的な使い方の導入として、ここではログライブラリである`monolog/monolog`をインストールします。
+まだComposerをインストールしていなければ、[Intro](00-intro.md)章を参照してください。
+
+> **補足：** 簡潔のために、この導入ではComposerの[ローカル](00-intro.md#locally)インストールを実施した前提で進めます。
+
+## `composer.json`: プロジェクトの立ち上げ
+
+プロジェクトでComposerを使い始めるにあたって必要なのは`composer.json`ファイルだけです。
+このファイルにはプロジェクトの依存関係が記述され、他のメタデータも含まれることがあります。
+典型的にはプロジェクトやVCSリポジトリの最上位ディレクトリにあります。
+技術的にはComposerをどこで実行することもできますが、パッケージをPackagist.orgに公開したいならば、VCSリポジトリの一番上の階層にファイルが見付けられなくてはなりません。
+
+### `require`キー
+
+最初に`composer.json`で指定するものは、[`require`](04-schema.md#require)キーです。
+Composerにプロジェクトが依存しているパッケージがどれであるかを伝えるものです。
+
+```json
+{
+    "require": {
+        "monolog/monolog": "2.0.*"
+    }
+}
+```
+
+見ての通り、[`require`](04-schema.md#require)は**パッケージ名**（例:`monolog/monolog`）と
+**パッケージバージョン**（例:`1.0.*`）を対応付けるオブジェクトを取ります。
+
+Composerはこの情報を使って、[`repositories`](04-schema.md#repositories)キーからパッケージ「リポジトリ」や、既定のパッケージレジストリである[Packagist.org](https://packagist.org)にある正しいファイル一式を探します。
+上の例ではこれといったリポジトリは`composer.json`ファイルに登録されていないので、`monolog/monolog`パッケージはPackagist.orgに登録されているものと推定されます。
+（詳細は[Packagistについて](#packagist)と[リポジトリについて](05-repositories.md)を参照）
+
+### パッケージ名
+
+パッケージ名はベンダー名とプロジェクト名から成ります。
+これらはしばしば同一になります。
+すなわち、ベンダー名は命名が衝突するのを避けるためだけにあります。
+例えば異なる2人の人物が`json`という名前のライブラリを`igorw/json`と`seldaek/json`とそれぞれ命名して作成できます。
+
+詳細は[パッケージの公開とパッケージの命名](02-libraries.md)を読んでください。
+（なお「プラットフォームパッケージ」を依存関係として指定することも可能で、
+サーバーのソフトウェアの特定のバージョンを要求することができます。
+[プラットフォームパッケージ](#platform-packages)で後述します。）
+
+### パッケージバージョン制約
+
+ここの例ではバージョン制約[`2.0.*`](https://semver.mwl.be/#?package=monolog%2Fmonolog&version=2.0.*)のMonologパッケージを要求しています。
+これが意味するものは`2.0`の開発ブランチの任意のバージョン、言い換えると2.0以上で2.1より小さい（`>=2.0 <2.1`）任意のバージョンのことを指します。
+
+バージョン、バージョン間でどう関連するか、そしてバージョン制約についてのより詳しい情報は[バージョン](articles/versions.md)を読んでください。
+
+> **どうやってComposerは正しいファイルをダウンロードしているのか。**
+> `composer.json`に依存関係を指定したとき、Composerはまず要求されたパッケージの名前を取って、[`repositories`](04-schema.md#repositories)キーを使って登録された全てのリポジトリを対象に検索します。
+> もし1つも追加でリポジトリを登録していなかったり、指定したリポジトリにその名前を持つパッケージが見付からなかったときは、Packagist.org（[後述](#packagist)）に落ち着きます。
+>
+> ComposerがPackagist.orgないし指定したリポジトリで正しいパッケージを見付けたときは、パッケージのVCSのバージョン機能（つまりブランチとタグ）を使って、指定したバージョン制約に最も合致するものを見つけ出そうとします。
+> 必ず[バージョンについての記事](articles/versions.md)でバージョンとパッケージについて読んでください。
+
+> **補足：** もしパッケージを要求したもののComposerがパッケージの安定性の理由で例外を投げた場合は、指定したバージョンが既定の最小安定要件をに見合わない可能性があります。
+> VCSで妥当なパッケージバージョンを探す際、既定では安定リリースのみが考慮されます。
+>
+> パッケージの開発版、アルファ版、ベータ版、リリース候補のバージョンを要求しようとしたときに、この例外に遭遇するかもしれません。
+> 安定性フラグと`minimum-stability`キーについての詳細は[スキーマのページ](04-schema.md)をお読みください。
+
+## 依存物をインストール
+
+定義された依存関係をプロジェクトに初めてインストールするときは、[`update`](03-cli.md#update-u)コマンドを走らせるとよいです。
+
+```shell
+php composer.phar update
+```
+
+こうするとComposerは2つのことをします。
+
+- It resolves all dependencies listed in your `composer.json` file and
+  writes all of the packages and their exact versions to the `composer.lock`
+  file, locking the project to those specific versions. You should commit
+  the `composer.lock` file to your project repo so that all people working
+  on the project are locked to the same versions of dependencies (more
+  below). This is the main role of the `update` command.
+- It then implicitly runs the [`install`](03-cli.md#install-i) command. This
+  will download the dependencies' files into the `vendor` directory in your
+  project. (The `vendor` directory is the conventional location for all
+  third-party code in a project). In our example from above, you would end
+  up with the Monolog source files in `vendor/monolog/monolog/`. As Monolog
+  has a dependency on `psr/log`, that package's files can also be found
+  inside `vendor/`.
+
+> **Tip:** gitをプロジェクトで使っているのなら、多分`.gitignore`に`vendor`を追加したいでしょう。
+> 実際のところサードパーティ製のコード全てをバージョン管理されたリポジトリに追加したくないので。
+
+### `composer.lock`ファイルをバージョン管理にコミットすること
+
+このファイルをバージョン管理にコミットすることは大事です。
+なぜならこうすることでプロジェクトをセットアップする誰もが、自分が使っているものと全く同じバージョンの依存関係を使えるようになるからです。
+CIサーバ、プロダクションマシン、チーム内の他の開発者、全てのものとあまねく人々が同じ依存関係で実行するのです。
+これにより特定のデプロイでのみ影響を与える潜在的なバグを低減されます。
+たとえ一人で開発していて6ヶ月経ってからプロジェクトを再インストールしたとしても、そして依存関係が多くの新しいバージョンをリリースされていたとしても、インストールされた依存関係がちゃんと動くことは疑いありません。
+（`update`コマンドの使用については以下の補足を参照してください。）
+
+> **補足：** ライブラリの場合はロックファイルのコミットは不必要です。
+> [ライブラリ - ロックファイル](02-libraries.html#lock-file)も参照してください。
+
+### `composer.lock`からインストールする
+
+既に`composer.lock`ファイルがプロジェクトフォルダにあるなら、それは前に自分で`update`コマンドを走らせたか、プロジェクトの誰かが`update`コマンドを走らせて`composer.lock`ファイルをプロジェクトにコミットしたからかのどちらかです（これはいいことです）。
+
+Either way, running `install` when a `composer.lock` file is present
+resolves and installs all dependencies that you listed in `composer.json`,
+but Composer uses the exact versions listed in `composer.lock` to ensure
+that the package versions are consistent for everyone working on your
+project. As a result you will have all dependencies requested by your
+`composer.json` file, but they may not all be at the very latest available
+versions (some of the dependencies listed in the `composer.lock` file may
+have released newer versions since the file was created). This is by design,
+it ensures that your project does not break because of unexpected changes in
+dependencies.
+
+なのでVCSリポジトリから新しい変更を取得したあとは、Composerの`install`を走らせてvendorディレクトリが`composer.lock`ファイルと同期していることを確かめることをお勧めします。
+
+```shell
+php composer.phar install
+```
+
+## 最新版に依存関係を更新する
+
+前述したように`composer.lock`ファイルは自動的に依存関係の最新版が取得されるのを防ぎます。
+最新のバージョンに更新するには[`update`](03-cli.md#update-u)コマンドを使います。
+こうすると（`composer.json`ファイルに沿うように）照合する最新バージョンを取得して新しいバージョンでロックファイルを更新します。
+
+```shell
+php composer.phar update
+```
+
+> **補足：** `composer.json`に依存関係解決に影響し得る変更が加えられてから`composer.lock`が更新されていなければ、`install`コマンドを実行するときに、Composerが警告を表示します。
+
+1つの依存関係をインストール、更新、削除したいだけなら、引数として明示的に列挙することができます。
+
+```shell
+php composer.phar update monolog/monolog [...]
+```
+
+## Packagist
+
+[Packagist](https://packagist.org/)はメインのComposerリポジトリです。
+Composerリポジトリは基本的にはパッケージの源です。
+つまりパッケージを取ってくることができる場所のことです。
+Packagistは全ての人が利用できる中央リポジトリであることを目指しています。
+要はここで利用できるいかなるパッケージも自動的に`require`できるということです。
+追加でComposerがパッケージを探す場所を指定しなくてよいのです。
+
+[packagistのWebサイト](https://packagist.org/)
+(packagist.org)ではパッケージを閲覧したり検索したりできます。
+
+Composerを使っているオープンソースプロジェクトはパッケージをPackagist上で公開するべきです。
+Composerを使うためにはライブラリをPackagistに載せる必要ありません。
+しかしそうすることで、他の開発者にとってはより素早くパッケージを発見して取り入れることができるようになります。
+
+## プラットフォームパッケージ
+
+Composerにはプラットフォームパッケージがあります。
+これはシステムにインストールされる仮想的なパッケージで、実際にはComposerではインストールされないものを指します。
+これはPHP自身やPHP拡張、システムライブライリを含みます。
+
+* `php`はユーザのPHPバージョンを表しており、`^7.1`のような制約を適用できます。
+  PHPの64bitバージョンを要求するには、`php-64bit`パッケージを指定出来ます。
+
+* `hhvm`はHHVMランタイムのバージョンを表しており`^2.3`のように制約を適用することができます。
+
+* `ext-<name>`とすることでPHPの中核拡張を要件とすることができます（中核拡張を含みます）。
+  バージョニングはかなり一貫性がないことがあるので、大体の場合は制約に`*`を設定するのとよいです。
+  拡張パッケージ名の例は`ext-gd`です。
+
+* `lib-<name>`はPHPで使われるライブラリのバージョンを制約します。
+  次のものが利用できます：`curl`, `iconv`, `icu`, `libxml`, `openssl`, `pcre`, `uuid`,
+  `xsl`。
+
+[`show --platform`](03-cli.md#show)を使うと、ローカルで利用できるプラットフォームパッケージのリストが得られます。
+
+## オートローディング
+
+自動読み込み情報を指定するライブラリ用に、Composerは`vendor/autoload.php`ファイルを生成します。
+単にこのファイルを含めれば、他に手間を掛けずにそれらのライブラリが提供するクラスを使い始められます。
+
+```php
+require __DIR__ . '/vendor/autoload.php';
+
+$log = new Monolog\Logger('name');
+$log->pushHandler(new Monolog\Handler\StreamHandler('app.log', Monolog\Logger::WARNING));
+$log->warning('Foo');
+```
+
+`composer.json`に[`autoload`](04-schema.md#autoload)フィールドを追加すれば、自分のコードさえもオートローダに追加することができます。
+
+```json
+{
+    "autoload": {
+        "psr-4": {"Acme\\": "src/"}
+    }
+}
+```
+
+Composerは[PSR-4](https://www.php-fig.org/psr/psr-4/)オートローダを`Acme`名前空間に登録しています。
+
+名前空間からディレクトリへの対応付けを定義します。
+`src`ディレクトリはプロジェクトルートにあり、同じ階層に`vendor`もあるとしましょう。
+ファイル名の例としては`Acme\Foo`クラスを含む`src/Foo.php`があります。
+
+[`autoload`](04-schema.md#autoload)フィールドを追加したあとは、このコマンドを再び走らせなくてはなりません。
+
+```shell
+php composer.phar dump-autoload
+```
+
+このコマンドは`vendor/autoload.php`ファイルを再生成します。
+詳細は[`dump-autoload`](03-cli.md#dump-autoload-dumpautoload-)節を参照してください。
+
+自動読み込みファイルを含めるとautoloaderインスタンスを返します。
+そのためインクルード呼び出しの返り値を変数に保持し、さらに名前空間を追加することができます。
+これはテストスイート内での自動読み込みクラスに便利です。
+例えば以下です。
+
+```php
+$loader = require __DIR__ . '/vendor/autoload.php';
+$loader->addPsr4('Acme\\Test\\', __DIR__);
+```
+
+PSR-4自動読み込みに加えて、ComposerはPSR-0、クラスマップ、ファイル自動読み込みにも対応しています。
+詳細は[`autoload`](04-schema.html#autoload)リファレンスを参照してください。
+
+[autoloaderの最適化](articles/autoloader-optimization.md)についてのドキュメントも参照してください。
+
+> **注意：** Composerは自前の自動読み込み器を提供しています。
+> もしそれを使いたくない場合は単に`vendor/composer/autoload_*.php`ファイルを含められます。
+> これは自前の自動読み込み器を設定することができる連想配列を返します。
+
+&larr; [導入](00-intro.html)  |  [ライブラリ](02-libraries.html) &rarr;
