@@ -1,0 +1,3378 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2023-01-14 16:11+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Fenced code block (shell)
+#: ../doc/01-basic-usage.md:95 ../doc/01-basic-usage.md:163
+#: ../doc/03-cli.md:145
+#, fuzzy, no-wrap
+msgid "php composer.phar update\n"
+msgstr "    $ php composer.phar update\n"
+
+#. type: Fenced code block (shell)
+#: ../doc/01-basic-usage.md:151 ../doc/03-cli.md:86
+#, fuzzy, no-wrap
+msgid "php composer.phar install\n"
+msgstr "    $ php composer.phar install\n"
+
+#. type: Title #
+#: ../doc/03-cli.md:1
+#, fuzzy, no-wrap
+msgid "Command-line interface / Commands"
+msgstr "コマンドラインインターフェース"
+
+#. type: Plain text
+#: ../doc/03-cli.md:5
+#, fuzzy
+msgid ""
+"You've already learned how to use the command-line interface to do some "
+"things. This chapter documents all the available commands."
+msgstr ""
+"すでにいくつかのことをするために、コマンドラインインターフェースの使い方は学"
+"びました。 この章は全ての利用可能なコマンドを説明します。"
+
+#. type: Plain text
+#: ../doc/03-cli.md:9
+#, fuzzy
+msgid ""
+"To get help from the command-line, call `composer` or `composer list` to see "
+"the complete list of commands, then `--help` combined with any of those can "
+"give you more information."
+msgstr ""
+"コマンドラインからヘルプを得るためには、単純に`composer`または`composer list`"
+"を実行します。 全てのコマンドのリストが見ることができます。 さらに`--help`を"
+"それらのコマンドに組み合わせればより多くの情報を得られます。"
+
+#. type: Plain text
+#: ../doc/03-cli.md:11
+msgid ""
+"As Composer uses [symfony/console](https://github.com/symfony/console) you "
+"can call commands by short name if it's not ambiguous."
+msgstr ""
+
+#. type: Fenced code block (shell)
+#: ../doc/03-cli.md:11
+#, fuzzy, no-wrap
+msgid "php composer.phar dump\n"
+msgstr "    $ php composer.phar update\n"
+
+#. type: Plain text
+#: ../doc/03-cli.md:15
+msgid "calls `composer dump-autoload`."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/03-cli.md:16
+#, no-wrap
+msgid "Bash Completions"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/03-cli.md:20
+#, no-wrap
+msgid ""
+"To install bash completions you can run `composer completion bash > completion.bash`.\n"
+"This will create a `completion.bash` file in the current directory.\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/03-cli.md:22
+msgid ""
+"Then execute `source completion.bash` to enable it in the current terminal "
+"session."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/03-cli.md:25
+msgid ""
+"Move and rename the `completion.bash` file to `/etc/bash_completion.d/"
+"composer` to make it load automatically in new terminals."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/03-cli.md:26
+#, fuzzy, no-wrap
+msgid "Global Options"
+msgstr "グローバルオプション"
+
+#. type: Plain text
+#: ../doc/03-cli.md:29
+#, fuzzy
+msgid "The following options are available with every command:"
+msgstr "以下のオプションは全てのコマンドで利用できます。"
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:43
+#, fuzzy
+msgid "**--verbose (-v):** Increase verbosity of messages."
+msgstr "**--verbose (-v):** メッセージの冗長さを増やす。"
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:43
+#, fuzzy
+msgid "**--help (-h):** Display help information."
+msgstr "**--help (-h):** ヘルプ情報を表示する。"
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:43
+#, fuzzy
+msgid "**--quiet (-q):** Do not output any message."
+msgstr "**--quiet (-q):** メッセージを出力しない。"
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:43
+#, fuzzy
+msgid "**--no-interaction (-n):** Do not ask any interactive question."
+msgstr ""
+"**--no-interaction (-n):** インタラクティブな質問の問い合わせをおこなわない。"
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:43
+#, fuzzy
+msgid "**--no-plugins:** Disables plugins."
+msgstr "**--no-plugins:** Disables plugins."
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:43
+#, fuzzy
+msgid ""
+"**--no-scripts:** Skips execution of scripts defined in `composer.json`."
+msgstr ""
+"**--no-scripts:** Skips execution of scripts defined in `composer.json`."
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:43
+msgid ""
+"**--no-cache:** Disables the use of the cache directory. Same as setting the "
+"COMPOSER_CACHE_DIR env var to /dev/null (or NUL on Windows)."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:43
+#, fuzzy
+msgid ""
+"**--working-dir (-d):** If specified, use the given directory as working "
+"directory."
+msgstr ""
+"**--working-dir (-d):** 指定すると、与えられたディレクトリを作業ディレクトリ"
+"に使う。"
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:43
+#, fuzzy
+msgid "**--profile:** Display timing and memory usage information"
+msgstr "**--profile:** タイムとメモリ使用量を表示する。"
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:43
+#, fuzzy
+msgid "**--ansi:** Force ANSI output."
+msgstr "**--ansi:** ANSI出力を強制する。"
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:43
+#, fuzzy
+msgid "**--no-ansi:** Disable ANSI output."
+msgstr "**--no-ansi:** ANSI出力を行わない。"
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:43
+#, fuzzy
+msgid "**--version (-V):** Display this application version."
+msgstr "**--version (-V):** アプリケーションのバージョンを表示する。"
+
+#. type: Title ##
+#: ../doc/03-cli.md:44
+#, fuzzy, no-wrap
+msgid "Process Exit Codes"
+msgstr "プロセスの終了コード"
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:49
+#, fuzzy
+msgid "**0:** OK"
+msgstr "**0:** OK"
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:49
+#, fuzzy
+msgid "**1:** Generic/unknown error code"
+msgstr "**1:** 一般エラー"
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:49
+#, fuzzy
+msgid "**2:** Dependency solving error code"
+msgstr "**2:** 依存解決エラー"
+
+#. type: Title ##
+#: ../doc/03-cli.md:50
+#, fuzzy, no-wrap
+msgid "init"
+msgstr "init"
+
+#. type: Plain text
+#: ../doc/03-cli.md:54
+#, fuzzy
+msgid ""
+"In the [Libraries](02-libraries.md) chapter we looked at how to create a "
+"`composer.json` by hand. There is also an `init` command available to do "
+"this."
+msgstr ""
+"[ライブラリ](02-libraries.html)の章で`composer.json`を手動で作成する方法を確"
+"認しました。 それを少し簡単に行うために`init`コマンドがあります。"
+
+#. type: Plain text
+#: ../doc/03-cli.md:57
+#, fuzzy
+msgid ""
+"When you run the command it will interactively ask you to fill in the "
+"fields, while using some smart defaults."
+msgstr ""
+"このコマンドを実行すると、スマートなデフォルト値を使いながら、 フィールドに入"
+"力するよう対話的な問い合わせがあります。"
+
+#. type: Fenced code block (shell)
+#: ../doc/03-cli.md:58
+#, fuzzy, no-wrap
+msgid "php composer.phar init\n"
+msgstr "    $ php composer.phar init\n"
+
+#. type: Title ###
+#: ../doc/03-cli.md:62 ../doc/03-cli.md:97 ../doc/03-cli.md:185
+#: ../doc/03-cli.md:258 ../doc/03-cli.md:313 ../doc/03-cli.md:358
+#: ../doc/03-cli.md:382 ../doc/03-cli.md:421 ../doc/03-cli.md:468
+#: ../doc/03-cli.md:535 ../doc/03-cli.md:577 ../doc/03-cli.md:601
+#: ../doc/03-cli.md:617 ../doc/03-cli.md:632 ../doc/03-cli.md:669
+#: ../doc/03-cli.md:703 ../doc/03-cli.md:718 ../doc/03-cli.md:773
+#: ../doc/03-cli.md:813 ../doc/03-cli.md:896 ../doc/03-cli.md:952
+#: ../doc/03-cli.md:978 ../doc/03-cli.md:987 ../doc/03-cli.md:994
+#: ../doc/03-cli.md:1010 ../doc/03-cli.md:1034 ../doc/03-cli.md:1054
+#, fuzzy, no-wrap
+msgid "Options"
+msgstr ""
+"#-#-#-#-#  getcomposer.org_doc_jp-master/src/doc/03-cli.md:40 getcomposer.org_doc_jp-master/src/doc/03-cli.md:63 (type Title ###)  #-#-#-#-#\n"
+"オプション\n"
+"#-#-#-#-#  getcomposer.org_doc_jp-master/src/doc/03-cli.md:108 getcomposer.org_doc_jp-master/src/doc/03-cli.md:142 getcomposer.org_doc_jp-master/src/doc/03-cli.md:179 getcomposer.org_doc_jp-master/src/doc/03-cli.md:214 getcomposer.org_doc_jp-master/src/doc/03-cli.md:234 getcomposer.org_doc_jp-master/src/doc/03-cli.md:293 getcomposer.org_doc_jp-master/src/doc/03-cli.md:340 getcomposer.org_doc_jp-master/src/doc/03-cli.md:372 (type: Title ###)  #-#-#-#-#\n"
+"Options\n"
+"#-#-#-#-#  getcomposer.org_doc_jp-master/src/doc/03-cli.md:108 getcomposer.org_doc_jp-master/src/doc/03-cli.md:142 getcomposer.org_doc_jp-master/src/doc/03-cli.md:179 getcomposer.org_doc_jp-master/src/doc/03-cli.md:214 getcomposer.org_doc_jp-master/src/doc/03-cli.md:234 getcomposer.org_doc_jp-master/src/doc/03-cli.md:293 getcomposer.org_doc_jp-master/src/doc/03-cli.md:340 getcomposer.org_doc_jp-master/src/doc/03-cli.md:372 (type: Title ###)  #-#-#-#-#\n"
+"Options\n"
+"#-#-#-#-#  getcomposer.org_doc_jp-master/src/doc/03-cli.md:108 getcomposer.org_doc_jp-master/src/doc/03-cli.md:142 getcomposer.org_doc_jp-master/src/doc/03-cli.md:179 getcomposer.org_doc_jp-master/src/doc/03-cli.md:214 getcomposer.org_doc_jp-master/src/doc/03-cli.md:234 getcomposer.org_doc_jp-master/src/doc/03-cli.md:293 getcomposer.org_doc_jp-master/src/doc/03-cli.md:340 getcomposer.org_doc_jp-master/src/doc/03-cli.md:372 (type: Title ###)  #-#-#-#-#\n"
+"Options\n"
+"#-#-#-#-#  getcomposer.org_doc_jp-master/src/doc/03-cli.md:108 getcomposer.org_doc_jp-master/src/doc/03-cli.md:142 getcomposer.org_doc_jp-master/src/doc/03-cli.md:179 getcomposer.org_doc_jp-master/src/doc/03-cli.md:214 getcomposer.org_doc_jp-master/src/doc/03-cli.md:234 getcomposer.org_doc_jp-master/src/doc/03-cli.md:293 getcomposer.org_doc_jp-master/src/doc/03-cli.md:340 getcomposer.org_doc_jp-master/src/doc/03-cli.md:372 (type: Title ###)  #-#-#-#-#\n"
+"Options\n"
+"#-#-#-#-#  getcomposer.org_doc_jp-master/src/doc/03-cli.md:108 getcomposer.org_doc_jp-master/src/doc/03-cli.md:142 getcomposer.org_doc_jp-master/src/doc/03-cli.md:179 getcomposer.org_doc_jp-master/src/doc/03-cli.md:214 getcomposer.org_doc_jp-master/src/doc/03-cli.md:234 getcomposer.org_doc_jp-master/src/doc/03-cli.md:293 getcomposer.org_doc_jp-master/src/doc/03-cli.md:340 getcomposer.org_doc_jp-master/src/doc/03-cli.md:372 (type: Title ###)  #-#-#-#-#\n"
+"Options\n"
+"#-#-#-#-#  getcomposer.org_doc_jp-master/src/doc/03-cli.md:108 getcomposer.org_doc_jp-master/src/doc/03-cli.md:142 getcomposer.org_doc_jp-master/src/doc/03-cli.md:179 getcomposer.org_doc_jp-master/src/doc/03-cli.md:214 getcomposer.org_doc_jp-master/src/doc/03-cli.md:234 getcomposer.org_doc_jp-master/src/doc/03-cli.md:293 getcomposer.org_doc_jp-master/src/doc/03-cli.md:340 getcomposer.org_doc_jp-master/src/doc/03-cli.md:372 (type: Title ###)  #-#-#-#-#\n"
+"Options\n"
+"#-#-#-#-#  getcomposer.org_doc_jp-master/src/doc/03-cli.md:108 getcomposer.org_doc_jp-master/src/doc/03-cli.md:142 getcomposer.org_doc_jp-master/src/doc/03-cli.md:179 getcomposer.org_doc_jp-master/src/doc/03-cli.md:214 getcomposer.org_doc_jp-master/src/doc/03-cli.md:234 getcomposer.org_doc_jp-master/src/doc/03-cli.md:293 getcomposer.org_doc_jp-master/src/doc/03-cli.md:340 getcomposer.org_doc_jp-master/src/doc/03-cli.md:372 (type: Title ###)  #-#-#-#-#\n"
+"Options\n"
+"#-#-#-#-#  getcomposer.org_doc_jp-master/src/doc/03-cli.md:108 getcomposer.org_doc_jp-master/src/doc/03-cli.md:142 getcomposer.org_doc_jp-master/src/doc/03-cli.md:179 getcomposer.org_doc_jp-master/src/doc/03-cli.md:214 getcomposer.org_doc_jp-master/src/doc/03-cli.md:234 getcomposer.org_doc_jp-master/src/doc/03-cli.md:293 getcomposer.org_doc_jp-master/src/doc/03-cli.md:340 getcomposer.org_doc_jp-master/src/doc/03-cli.md:372 (type: Title ###)  #-#-#-#-#\n"
+"Options"
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:80
+#, fuzzy
+msgid "**--name:** Name of the package."
+msgstr "**--name:** パッケージの名前。"
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:80
+#, fuzzy
+msgid "**--description:** Description of the package."
+msgstr "**--description:** パッケージの説明。"
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:80
+#, fuzzy
+msgid "**--author:** Author name of the package."
+msgstr "**--author:** パッケージの作者。"
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:80
+#, fuzzy
+msgid "**--type:** Type of package."
+msgstr "**--name:** パッケージの名前。"
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:80
+#, fuzzy
+msgid "**--homepage:** Homepage of the package."
+msgstr "**--homepage:** パッケージのホームページ。"
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:80
+#, fuzzy
+msgid ""
+"**--require:** Package to require with a version constraint. Should be in "
+"format `foo/bar:1.0.0`."
+msgstr ""
+"**--require:** バージョン制約を必要とするパッケージ。フォーマットは`foo/"
+"bar:1.0.0`のようにするべき。"
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:80
+#, fuzzy
+msgid "**--require-dev:** Development requirements, see **--require**."
+msgstr "**--require-dev:** Development requirements, see **--require**."
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:80
+#, fuzzy
+msgid "**--stability (-s):** Value for the `minimum-stability` field."
+msgstr "**--stability (-s):** Value for the `minimum-stability` field."
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:80
+#, fuzzy
+msgid "**--license (-l):** License of package."
+msgstr "**--self (-s):** List the root package info."
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:80
+msgid ""
+"**--repository:** Provide one (or more) custom repositories. They will be "
+"stored in the generated composer.json, and used for auto-completion when "
+"prompting for the list of requires. Every repository can be either an HTTP "
+"URL pointing to a `composer` repository or a JSON string which similar to "
+"what the [repositories](04-schema.md#repositories) key accepts."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:80
+msgid ""
+"**--autoload (-a):** Add a PSR-4 autoload mapping to the composer.json. "
+"Automatically maps your package's namespace to the provided directory. "
+"(Expects a relative path, e.g. src/) See also [PSR-4 autoload](04-schema."
+"md#psr-4)."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/03-cli.md:81
+#, fuzzy, no-wrap
+msgid "install / i"
+msgstr "install"
+
+#. type: Plain text
+#: ../doc/03-cli.md:85
+#, fuzzy
+msgid ""
+"The `install` command reads the `composer.json` file from the current "
+"directory, resolves the dependencies, and installs them into `vendor`."
+msgstr ""
+"`install`コマンドはカレントディレクトリから`composer.json`ファイルを読み込"
+"み、 依存物を解決し、それらを`vendor`配下にインストールします。"
+
+#. type: Plain text
+#: ../doc/03-cli.md:93
+#, fuzzy
+msgid ""
+"If there is a `composer.lock` file in the current directory, it will use the "
+"exact versions from there instead of resolving them. This ensures that "
+"everyone using the library will get the same versions of the dependencies."
+msgstr ""
+"カレントディレクトリに`composer.lock`ファイルが存在する場合は、 依存物を解決"
+"する代わりに、そこから厳密なバージョンを使います。 これはライブラリを使う全て"
+"のユーザが同じバージョンの依存物を得ることを保証します。"
+
+#. type: Plain text
+#: ../doc/03-cli.md:96
+#, fuzzy
+msgid ""
+"If there is no `composer.lock` file, Composer will create one after "
+"dependency resolution."
+msgstr ""
+"`composer.lock`ファイルがない場合、composerは依存物を解決したあと、これを作成"
+"します。"
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:137 ../doc/03-cli.md:234 ../doc/03-cli.md:300
+#: ../doc/03-cli.md:409 ../doc/03-cli.md:938
+#, fuzzy
+msgid ""
+"**--prefer-install:** There are two ways of downloading a package: `source` "
+"and `dist`. Composer uses `dist` by default. If you pass `--prefer-"
+"install=source` (or `--prefer-source`) Composer will install from `source` "
+"if there is one. This is useful if you want to make a bugfix to a project "
+"and get a local git clone of the dependency directly.  To get the legacy "
+"behavior where Composer use `source` automatically for dev versions of "
+"packages, use `--prefer-install=auto`. See also [config.preferred-install]"
+"(06-config.md#preferred-install).  Passing this flag will override the "
+"config value."
+msgstr ""
+"**--prefer-source:** パッケージをダウンロードする方法は２つあります: "
+"`source` と`dist`です。安定したバージョンのため、composerは`dist`をデフォルト"
+"で使います。 `source`はバージョンコントールリポジトリです。`--prefer-source`"
+"を有効にすると、 composerはそれが存在する場合`source`からインストールします。"
+"これは プロジェクトのバグフィックスを行いたい場合便利です。 依存物をローカル"
+"にcloneしたgitから直接取得します。"
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:137
+#, fuzzy
+msgid ""
+"**--dry-run:** If you want to run through an installation without actually "
+"installing a package, you can use `--dry-run`. This will simulate the "
+"installation and show you what would happen."
+msgstr ""
+"**--dry-run:** If you want to run through an installation without actually "
+"installing a package, you can use `--dry-run`. This will simulate the "
+"installation and show you what would happen."
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:137
+msgid "**--download-only:** Download only, do not install packages."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:137 ../doc/03-cli.md:234
+#, fuzzy
+msgid ""
+"**--dev:** Install packages listed in `require-dev` (this is the default "
+"behavior)."
+msgstr ""
+"**--dev:** Install packages listed in `require-dev` (this is the default "
+"behavior)."
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:137 ../doc/03-cli.md:234
+msgid ""
+"**--no-dev:** Skip installing packages listed in `require-dev`. The "
+"autoloader generation skips the `autoload-dev` rules. Also see "
+"[COMPOSER_NO_DEV](#composer-no-dev)."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:137 ../doc/03-cli.md:234 ../doc/03-cli.md:409
+msgid "**--no-autoloader:** Skips autoloader generation."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:137 ../doc/03-cli.md:234 ../doc/03-cli.md:300
+#: ../doc/03-cli.md:344 ../doc/03-cli.md:409 ../doc/03-cli.md:938
+#, fuzzy
+msgid ""
+"**--no-progress:** Removes the progress display that can mess with some "
+"terminals or scripts which don't handle backspace characters."
+msgstr ""
+"**--no-progress:** Removes the progress display that can mess with some "
+"terminals or scripts which don't handle backspace characters."
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:137
+msgid "**--audit:** Run an audit after installation is complete."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:137 ../doc/03-cli.md:234 ../doc/03-cli.md:300
+#: ../doc/03-cli.md:344 ../doc/03-cli.md:938
+msgid ""
+"**--audit-format:** Audit output format. Must be \"table\", \"plain\", \"json"
+"\", or \"summary\" (default)."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:137 ../doc/03-cli.md:344 ../doc/03-cli.md:409
+#, fuzzy
+msgid ""
+"**--optimize-autoloader (-o):** Convert PSR-0/4 autoloading to classmap to "
+"get a faster autoloader. This is recommended especially for production, but "
+"can take a bit of time to run so it is currently not done by default."
+msgstr ""
+"**--optimize-autoloader (-o):** Convert PSR-0 autoloading to classmap to get "
+"a faster autoloader. This is recommended especially for production, but can "
+"take a bit of time to run so it is currently not done by default."
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:137 ../doc/03-cli.md:234 ../doc/03-cli.md:300
+#: ../doc/03-cli.md:344 ../doc/03-cli.md:409
+msgid ""
+"**--classmap-authoritative (-a):** Autoload classes from the classmap only.  "
+"Implicitly enables `--optimize-autoloader`."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:137 ../doc/03-cli.md:234 ../doc/03-cli.md:300
+#: ../doc/03-cli.md:344 ../doc/03-cli.md:409
+msgid "**--apcu-autoloader:** Use APCu to cache found/not-found classes."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:137 ../doc/03-cli.md:234 ../doc/03-cli.md:300
+#: ../doc/03-cli.md:344 ../doc/03-cli.md:409
+msgid ""
+"**--apcu-autoloader-prefix:** Use a custom prefix for the APCu autoloader "
+"cache.  Implicitly enables `--apcu-autoloader`."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:137 ../doc/03-cli.md:234 ../doc/03-cli.md:300
+#: ../doc/03-cli.md:344 ../doc/03-cli.md:938
+msgid ""
+"**--ignore-platform-reqs:** ignore all platform requirements (`php`, `hhvm`, "
+"`lib-*` and `ext-*`) and force the installation even if the local machine "
+"does not fulfill these.  See also the [`platform`](06-config.md#platform) "
+"config option."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:137 ../doc/03-cli.md:234
+msgid ""
+"**--ignore-platform-req:** ignore a specific platform requirement(`php`, "
+"`hhvm`, `lib-*` and `ext-*`) and force the installation even if the local "
+"machine does not fulfill it. Multiple requirements can be ignored via "
+"wildcard. Appending a `+` makes it only ignore the upper-bound of the "
+"requirements. For example, if a package requires `php: ^7`, then the option "
+"`--ignore-platform-req=php+` would allow installing on PHP 8, but "
+"installation on PHP 5.6 would still fail."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/03-cli.md:138
+#, no-wrap
+msgid "update / u / upgrade"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/03-cli.md:144
+#, fuzzy
+msgid ""
+"In order to get the latest versions of the dependencies and to update the "
+"`composer.lock` file, you should use the `update` command. This command is "
+"also aliased as `upgrade` as it does the same as `upgrade` does if you are "
+"thinking of `apt-get` or similar package managers."
+msgstr ""
+"In order to get the latest versions of the dependencies and to update the "
+"`composer.lock` file, you should use the `update` command."
+
+#. type: Plain text
+#: ../doc/03-cli.md:151
+#, fuzzy
+msgid ""
+"This will resolve all dependencies of the project and write the exact "
+"versions into `composer.lock`."
+msgstr ""
+"This will resolve all dependencies of the project and write the exact "
+"versions into `composer.lock`."
+
+#. type: Plain text
+#: ../doc/03-cli.md:153
+#, fuzzy
+msgid ""
+"If you only want to update a few packages and not all, you can list them as "
+"such:"
+msgstr ""
+"If you just want to update a few packages and not all, you can list them as "
+"such:"
+
+#. type: Fenced code block (shell)
+#: ../doc/03-cli.md:154
+#, fuzzy, no-wrap
+msgid "php composer.phar update vendor/package vendor/package2\n"
+msgstr "    $ php composer.phar update vendor/package vendor/package2\n"
+
+#. type: Plain text
+#: ../doc/03-cli.md:159
+#, fuzzy
+msgid "You can also use wildcards to update a bunch of packages at once:"
+msgstr "You can also use wildcards to update a bunch of packages at once:"
+
+#. type: Fenced code block (shell)
+#: ../doc/03-cli.md:160
+#, fuzzy, no-wrap
+msgid "php composer.phar update \"vendor/*\"\n"
+msgstr "    $ php composer.phar update vendor/*\n"
+
+#. type: Plain text
+#: ../doc/03-cli.md:167
+msgid ""
+"If you want to downgrade a package to a specific version without changing "
+"your composer.json you can use `--with` and provide a custom version "
+"constraint:"
+msgstr ""
+
+#. type: Fenced code block (shell)
+#: ../doc/03-cli.md:168
+#, fuzzy, no-wrap
+msgid "php composer.phar update --with vendor/package:2.0.1\n"
+msgstr "    $ php composer.phar update vendor/package vendor/package2\n"
+
+#. type: Plain text
+#: ../doc/03-cli.md:175
+msgid ""
+"Note that with the above all packages will be updated. If you only want to "
+"update the package(s) for which you provide custom constraints using `--"
+"with`, you can skip `--with` and instead use constraints with the partial "
+"update syntax:"
+msgstr ""
+
+#. type: Fenced code block (shell)
+#: ../doc/03-cli.md:176
+#, fuzzy, no-wrap
+msgid "php composer.phar update vendor/package:2.0.1 vendor/package2:3.0.*\n"
+msgstr "    $ php composer.phar update vendor/package vendor/package2\n"
+
+#. type: Plain text
+#: ../doc/03-cli.md:183
+#, no-wrap
+msgid ""
+"> **Note:** For packages also required in your composer.json the custom constraint\n"
+"> must be a subset of the existing constraint. The composer.json constraints still\n"
+"> apply and the composer.json is not modified by these temporary update constraints.\n"
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:234 ../doc/03-cli.md:300 ../doc/03-cli.md:344
+#, fuzzy
+msgid "**--dry-run:** Simulate the command without actually doing anything."
+msgstr "**--dry-run:** Simulate the command without actually doing anything."
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:234 ../doc/03-cli.md:300 ../doc/03-cli.md:344
+msgid ""
+"**--no-install:** Does not run the install step after updating the composer."
+"lock file."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:234 ../doc/03-cli.md:300
+msgid ""
+"**--no-audit:** Does not run the audit steps after updating the composer."
+"lock file. Also see [COMPOSER_NO_AUDIT](#composer-no-audit)."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:234
+#, fuzzy
+msgid ""
+"**--lock:** Only updates the lock file hash to suppress warning about the "
+"lock file being out of date."
+msgstr ""
+"**--lock:** Only updates the lock file hash to suppress warning about the "
+"lock file being out of date."
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:234
+msgid ""
+"**--with:** Temporary version constraint to add, e.g. foo/bar:1.0.0 or foo/"
+"bar=1.0.0"
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:234
+#, fuzzy
+msgid ""
+"**--with-dependencies (-w):** Update also dependencies of packages in the "
+"argument list, except those which are root requirements."
+msgstr ""
+"**--with-dependencies** Add also all dependencies of whitelisted packages to "
+"the whitelist.  So all packages with their dependencies are updated "
+"recursively."
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:234
+#, fuzzy
+msgid ""
+"**--with-all-dependencies (-W):** Update also dependencies of packages in "
+"the argument list, including those which are root requirements."
+msgstr ""
+"**--with-dependencies** Add also all dependencies of whitelisted packages to "
+"the whitelist.  So all packages with their dependencies are updated "
+"recursively."
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:234 ../doc/03-cli.md:300
+#, fuzzy
+msgid ""
+"**--optimize-autoloader (-o):** Convert PSR-0/4 autoloading to classmap to "
+"get a faster autoloader. This is recommended especially for production, but "
+"can take a bit of time to run, so it is currently not done by default."
+msgstr ""
+"**--optimize-autoloader (-o):** Convert PSR-0 autoloading to classmap to get "
+"a faster autoloader. This is recommended especially for production, but can "
+"take a bit of time to run so it is currently not done by default."
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:234 ../doc/03-cli.md:300
+msgid ""
+"**--prefer-stable:** Prefer stable versions of dependencies. Can also be set "
+"via the COMPOSER_PREFER_STABLE=1 env var."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:234 ../doc/03-cli.md:300
+msgid ""
+"**--prefer-lowest:** Prefer lowest versions of dependencies. Useful for "
+"testing minimal versions of requirements, generally used with `--prefer-"
+"stable`. Can also be set via the COMPOSER_PREFER_LOWEST=1 env var."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:234
+msgid ""
+"**--interactive:** Interactive interface with autocompletion to select the "
+"packages to update."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:234
+#, fuzzy
+msgid ""
+"**--root-reqs:** Restricts the update to your first degree dependencies."
+msgstr "**--no-update:** Disables the automatic update of the dependencies."
+
+#. type: Plain text
+#: ../doc/03-cli.md:236
+msgid ""
+"Specifying one of the words `mirrors`, `lock`, or `nothing` as an argument "
+"has the same effect as specifying the option `--lock`, for example `composer "
+"update mirrors` is exactly the same as `composer update --lock`."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/03-cli.md:237
+#, fuzzy, no-wrap
+msgid "require / r"
+msgstr "require"
+
+#. type: Plain text
+#: ../doc/03-cli.md:241
+#, fuzzy
+msgid ""
+"The `require` command adds new packages to the `composer.json` file from the "
+"current directory. If no file exists one will be created on the fly."
+msgstr ""
+"The `require` command adds new packages to the `composer.json` file from the "
+"current directory."
+
+#. type: Fenced code block (shell)
+#: ../doc/03-cli.md:242
+#, fuzzy, no-wrap
+msgid "php composer.phar require\n"
+msgstr "    $ php composer.phar require\n"
+
+#. type: Plain text
+#: ../doc/03-cli.md:248
+#, fuzzy
+msgid ""
+"After adding/changing the requirements, the modified requirements will be "
+"installed or updated."
+msgstr ""
+"After adding/changing the requirements, the modified requirements will be "
+"installed or updated."
+
+#. type: Plain text
+#: ../doc/03-cli.md:251
+#, fuzzy
+msgid ""
+"If you do not want to choose requirements interactively, you can pass them "
+"to the command."
+msgstr ""
+"If you do not want to choose requirements interactively, you can just pass "
+"them to the command."
+
+#. type: Fenced code block (shell)
+#: ../doc/03-cli.md:252
+#, fuzzy, no-wrap
+msgid "php composer.phar require \"vendor/package:2.*\" vendor/package2:dev-master\n"
+msgstr "    $ php composer.phar require vendor/package:2.* vendor/package2:dev-master\n"
+
+#. type: Plain text
+#: ../doc/03-cli.md:257
+msgid ""
+"If you do not specify a package, Composer will prompt you to search for a "
+"package, and given results, provide a list of matches to require."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:300
+#, fuzzy
+msgid "**--dev:** Add packages to `require-dev`."
+msgstr "**--dev:** Add packages to `require-dev`."
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:300 ../doc/03-cli.md:344
+#, fuzzy
+msgid ""
+"**--no-update:** Disables the automatic update of the dependencies (implies "
+"--no-install)."
+msgstr "**--no-update:** Disables the automatic update of the dependencies."
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:300
+msgid ""
+"**--update-no-dev:** Run the dependency update with the `--no-dev` option. "
+"Also see [COMPOSER_NO_DEV](#composer-no-dev)."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:300
+msgid ""
+"**--update-with-dependencies (-w):** Also update dependencies of the newly "
+"required packages, except those that are root requirements."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:300
+msgid ""
+"**--update-with-all-dependencies (-W):** Also update dependencies of the "
+"newly required packages, including those that are root requirements."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:300 ../doc/03-cli.md:344 ../doc/03-cli.md:595
+#: ../doc/03-cli.md:938
+msgid ""
+"**--ignore-platform-req:** ignore a specific platform requirement(`php`, "
+"`hhvm`, `lib-*` and `ext-*`) and force the installation even if the local "
+"machine does not fulfill it. Multiple requirements can be ignored via "
+"wildcard."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:300
+#, fuzzy
+msgid "**--sort-packages:** Keep packages sorted in `composer.json`."
+msgstr ""
+"**--no-scripts:** Skips execution of scripts defined in `composer.json`."
+
+#. type: Title ##
+#: ../doc/03-cli.md:301
+#, no-wrap
+msgid "remove"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/03-cli.md:305
+#, fuzzy
+msgid ""
+"The `remove` command removes packages from the `composer.json` file from the "
+"current directory."
+msgstr ""
+"The `require` command adds new packages to the `composer.json` file from the "
+"current directory."
+
+#. type: Fenced code block (shell)
+#: ../doc/03-cli.md:306
+#, fuzzy, no-wrap
+msgid "php composer.phar remove vendor/package vendor/package2\n"
+msgstr "    $ php composer.phar update vendor/package vendor/package2\n"
+
+#. type: Plain text
+#: ../doc/03-cli.md:312
+#, fuzzy
+msgid ""
+"After removing the requirements, the modified requirements will be "
+"uninstalled."
+msgstr ""
+"After adding/changing the requirements, the modified requirements will be "
+"installed or updated."
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:344
+msgid ""
+"**--unused** Remove unused packages that are not a direct or indirect "
+"dependency (anymore)"
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:344
+#, fuzzy
+msgid "**--dev:** Remove packages from `require-dev`."
+msgstr "**--dev:** Add packages to `require-dev`."
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:344 ../doc/03-cli.md:938
+msgid ""
+"**--no-audit:** Does not run the audit steps after installation is complete. "
+"Also see [COMPOSER_NO_AUDIT](#composer-no-audit)."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:344
+msgid ""
+"**--update-no-dev:** Run the dependency update with the --no-dev option. "
+"Also see [COMPOSER_NO_DEV](#composer-no-dev)."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:344
+msgid ""
+"**--update-with-dependencies (-w):** Also update dependencies of the removed "
+"packages.  (Deprecated, is now default behavior)"
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:344
+msgid ""
+"**--update-with-all-dependencies (-W):** Allows all inherited dependencies "
+"to be updated, including those that are root requirements."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/03-cli.md:345
+#, no-wrap
+msgid "bump"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/03-cli.md:352
+msgid ""
+"The `bump` command increases the lower limit of your composer.json "
+"requirements to the currently installed versions. This helps to ensure your "
+"dependencies do not accidentally get downgraded due to some other conflict, "
+"and can slightly improve dependency resolution performance as it limits the "
+"amount of package versions Composer has to look at."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/03-cli.md:357
+msgid ""
+"Running this blindly on libraries is **NOT** recommended as it will narrow "
+"down your allowed dependencies, which may cause dependency hell for your "
+"users.  Running it with `--dev-only` on libraries may be fine however as dev "
+"requirements are local to the library and do not affect consumers of the "
+"package."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:363
+#, fuzzy
+msgid "**--dev-only:** Only bump requirements in \"require-dev\"."
+msgstr "**--dev:** Install packages listed in `require-dev`."
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:363
+#, fuzzy
+msgid "**--no-dev-only:** Only bump requirements in \"require\"."
+msgstr "**--require-dev:** Development requirements, see **--require**."
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:363
+#, fuzzy
+msgid ""
+"**--dry-run:** Outputs the packages to bump, but will not execute anything."
+msgstr "**--dry-run:** Simulate the command without actually doing anything."
+
+#. type: Title ##
+#: ../doc/03-cli.md:364
+#, fuzzy, no-wrap
+msgid "reinstall"
+msgstr "install"
+
+#. type: Plain text
+#: ../doc/03-cli.md:370
+msgid ""
+"The `reinstall` command looks up installed packages by name, uninstalls them "
+"and reinstalls them. This lets you do a clean install of a package if you "
+"messed with its files, or if you wish to change the installation type using "
+"--prefer-install."
+msgstr ""
+
+#. type: Fenced code block (shell)
+#: ../doc/03-cli.md:371
+#, fuzzy, no-wrap
+msgid "php composer.phar reinstall acme/foo acme/bar\n"
+msgstr "    $ php composer.phar install\n"
+
+#. type: Plain text
+#: ../doc/03-cli.md:377
+msgid ""
+"You can specify more than one package name to reinstall, or use a wildcard "
+"to select several packages at once:"
+msgstr ""
+
+#. type: Fenced code block (shell)
+#: ../doc/03-cli.md:378
+#, fuzzy, no-wrap
+msgid "php composer.phar reinstall \"acme/*\"\n"
+msgstr "    $ php composer.phar install\n"
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:409
+msgid ""
+"**--ignore-platform-reqs:** ignore all platform requirements. This only has "
+"an effect in the context of the autoloader generation for the reinstall "
+"command."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:409
+msgid ""
+"**--ignore-platform-req:** ignore a specific platform requirement. This only "
+"has an effect in the context of the autoloader generation for the reinstall "
+"command.  Multiple requirements can be ignored via wildcard."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/03-cli.md:410
+#, no-wrap
+msgid "check-platform-reqs"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/03-cli.md:416
+msgid ""
+"The check-platform-reqs command checks that your PHP and extensions versions "
+"match the platform requirements of the installed packages. This can be used "
+"to verify that a production server has all the extensions needed to run a "
+"project after installing it for example."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/03-cli.md:420
+msgid ""
+"Unlike update/install, this command will ignore config.platform settings and "
+"check the real platform packages so you can be certain you have the required "
+"platform dependencies."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:426
+msgid ""
+"**--lock:** Checks requirements only from the lock file, not from installed "
+"packages."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:426
+#, fuzzy
+msgid "**--no-dev:** Disables checking of require-dev packages requirements."
+msgstr "**--no-dev:** Skip installing packages listed in `require-dev`."
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:426
+msgid "**--format (-f):** Format of the output: text (default) or json"
+msgstr ""
+
+#. type: Title ##
+#: ../doc/03-cli.md:427
+#, fuzzy, no-wrap
+msgid "global"
+msgstr "global"
+
+#. type: Plain text
+#: ../doc/03-cli.md:432
+#, fuzzy
+msgid ""
+"The global command allows you to run other commands like `install`, "
+"`remove`, `require` or `update` as if you were running them from the "
+"[COMPOSER_HOME](#composer-home)  directory."
+msgstr ""
+"The global command allows you to run other commands like `install`, "
+"`require` or `update` as if you were running them from the [COMPOSER_HOME]"
+"(#composer-home)  directory."
+
+#. type: Plain text
+#: ../doc/03-cli.md:435
+msgid ""
+"This is merely a helper to manage a project stored in a central location "
+"that can hold CLI tools or Composer plugins that you want to have available "
+"everywhere."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/03-cli.md:437
+#, fuzzy
+msgid "This can be used to install CLI utilities globally. Here is an example:"
+msgstr ""
+"This can be used to install CLI utilities globally and if you add `"
+"$COMPOSER_HOME/vendor/bin` to your `$PATH` environment variable. Here is an "
+"example:"
+
+#. type: Fenced code block (shell)
+#: ../doc/03-cli.md:438
+#, fuzzy, no-wrap
+msgid "php composer.phar global require friendsofphp/php-cs-fixer\n"
+msgstr "    $ php composer.phar global require fabpot/php-cs-fixer:dev-master\n"
+
+#. type: Plain text
+#: ../doc/03-cli.md:445
+msgid ""
+"Now the `php-cs-fixer` binary is available globally. Make sure your global "
+"[vendor binaries](articles/vendor-binaries.md) directory is in your `$PATH` "
+"environment variable, you can get its location with the following command :"
+msgstr ""
+
+#. type: Fenced code block (shell)
+#: ../doc/03-cli.md:446
+#, fuzzy, no-wrap
+msgid "php composer.phar global config bin-dir --absolute\n"
+msgstr "    $ php composer.phar global update\n"
+
+#. type: Plain text
+#: ../doc/03-cli.md:451
+#, fuzzy
+msgid "If you wish to update the binary later on you can run a global update:"
+msgstr ""
+"Now the `php-cs-fixer` binary is available globally (assuming you adjusted "
+"your PATH). If you wish to update the binary later on you can just run a "
+"global update:"
+
+#. type: Fenced code block (shell)
+#: ../doc/03-cli.md:452
+#, fuzzy, no-wrap
+msgid "php composer.phar global update\n"
+msgstr "    $ php composer.phar global update\n"
+
+#. type: Title ##
+#: ../doc/03-cli.md:456
+#, fuzzy, no-wrap
+msgid "search"
+msgstr "search"
+
+#. type: Plain text
+#: ../doc/03-cli.md:461
+#, fuzzy
+msgid ""
+"The search command allows you to search through the current project's "
+"package repositories. Usually this will be packagist. You pass it the terms "
+"you want to search for."
+msgstr ""
+"The search command allows you to search through the current project's "
+"package repositories. Usually this will be just packagist. You simply pass "
+"it the terms you want to search for."
+
+#. type: Fenced code block (shell)
+#: ../doc/03-cli.md:462
+#, fuzzy, no-wrap
+msgid "php composer.phar search monolog\n"
+msgstr "    $ php composer.phar search monolog\n"
+
+#. type: Plain text
+#: ../doc/03-cli.md:467
+#, fuzzy
+msgid ""
+"You can also search for more than one term by passing multiple arguments."
+msgstr ""
+"You can also search for more than one term by passing multiple arguments."
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:479
+#, fuzzy
+msgid "**--only-name (-N):** Search only in package names."
+msgstr "**--only-name (-N):** Search only in name."
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:479
+msgid ""
+"**--only-vendor (-O):** Search only for vendor / organization names, returns "
+"only \"vendor\" as a result."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:479
+msgid "**--type (-t):** Search for a specific package type."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:479
+msgid ""
+"**--format (-f):** Lets you pick between text (default) or json output "
+"format.  Note that in the json, only the name and description keys are "
+"guaranteed to be present. The rest (`url`, `repository`, `downloads` and "
+"`favers`) are available for Packagist.org search results and other "
+"repositories may return more or less data."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/03-cli.md:480
+#, no-wrap
+msgid "show / info"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/03-cli.md:483
+#, fuzzy
+msgid "To list all of the available packages, you can use the `show` command."
+msgstr "To list all of the available packages, you can use the `show` command."
+
+#. type: Fenced code block (shell)
+#: ../doc/03-cli.md:484
+#, fuzzy, no-wrap
+msgid "php composer.phar show\n"
+msgstr "    $ php composer.phar show\n"
+
+#. type: Plain text
+#: ../doc/03-cli.md:489
+msgid "To filter the list you can pass a package mask using wildcards."
+msgstr ""
+
+#. type: Fenced code block (shell)
+#: ../doc/03-cli.md:490
+#, fuzzy, no-wrap
+msgid "php composer.phar show \"monolog/*\"\n"
+msgstr "    $ php composer.phar show monolog/monolog\n"
+
+#. type: Fenced code block (text)
+#: ../doc/03-cli.md:493
+#, no-wrap
+msgid "monolog/monolog 2.4.0 Sends your logs to files, sockets, inboxes, databases and various web services\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/03-cli.md:499
+#, fuzzy
+msgid ""
+"If you want to see the details of a certain package, you can pass the "
+"package name."
+msgstr ""
+"If you want to see the details of a certain package, you can pass the "
+"package name."
+
+#. type: Fenced code block (shell)
+#: ../doc/03-cli.md:500
+#, fuzzy, no-wrap
+msgid "php composer.phar show monolog/monolog\n"
+msgstr "    $ php composer.phar show monolog/monolog\n"
+
+#. type: Fenced code block (text)
+#: ../doc/03-cli.md:503
+#, no-wrap
+msgid ""
+"name     : monolog/monolog\n"
+"descrip. : Sends your logs to files, sockets, inboxes, databases and various web services\n"
+"keywords : log, logging, psr-3\n"
+"versions : * 1.27.1\n"
+"type     : library\n"
+"license  : MIT License (MIT) (OSI approved) https://spdx.org/licenses/MIT.html#licenseText\n"
+"homepage : http://github.com/Seldaek/monolog\n"
+"source   : [git] https://github.com/Seldaek/monolog.git 904713c5929655dc9b97288b69cfeedad610c9a1\n"
+"dist     : [zip] https://api.github.com/repos/Seldaek/monolog/zipball/904713c5929655dc9b97288b69cfeedad610c9a1 904713c5929655dc9b97288b69cfeedad610c9a1\n"
+"names    : monolog/monolog, psr/log-implementation\n"
+"\n"
+"support\n"
+"issues : https://github.com/Seldaek/monolog/issues\n"
+"source : https://github.com/Seldaek/monolog/tree/1.27.1\n"
+"\n"
+"autoload\n"
+"psr-4\n"
+"Monolog\\ => src/Monolog\n"
+"\n"
+"requires\n"
+"php >=5.3.0\n"
+"psr/log ~1.0\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/03-cli.md:530
+#, fuzzy
+msgid ""
+"You can even pass the package version, which will tell you the details of "
+"that specific version."
+msgstr ""
+"You can even pass the package version, which will tell you the details of "
+"that specific version."
+
+#. type: Fenced code block (shell)
+#: ../doc/03-cli.md:531
+#, fuzzy, no-wrap
+msgid "php composer.phar show monolog/monolog 1.0.2\n"
+msgstr "    $ php composer.phar show monolog/monolog 1.0.2\n"
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:563
+#, fuzzy
+msgid "**--all:** List all packages available in all your repositories."
+msgstr "**--dev:** Install packages listed in `require-dev`."
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:563
+#, fuzzy
+msgid ""
+"**--installed (-i):** List the packages that are installed (this is enabled "
+"by default, and deprecated)."
+msgstr "**--installed (-i):** List the packages that are installed."
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:563
+#, fuzzy
+msgid "**--locked:** List the locked packages from composer.lock."
+msgstr "**--self (-s):** List the root package info."
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:563
+#, fuzzy
+msgid "**--platform (-p):** List only platform packages (php & extensions)."
+msgstr "**--platform (-p):** List only platform packages (php & extensions)."
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:563
+#, fuzzy
+msgid "**--available (-a):** List available packages only."
+msgstr "**--installed (-i):** List the packages that are installed."
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:563
+#, fuzzy
+msgid "**--self (-s):** List the root package info."
+msgstr "**--self (-s):** List the root package info."
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:563
+#, fuzzy
+msgid "**--name-only (-N):** List package names only."
+msgstr "**--self (-s):** List the root package info."
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:563
+#, fuzzy
+msgid "**--path (-P):** List package paths."
+msgstr "**--self (-s):** List the root package info."
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:563
+msgid ""
+"**--tree (-t):** List your dependencies as a tree. If you pass a package "
+"name it will show the dependency tree for that package."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:563
+msgid ""
+"**--latest (-l):** List all installed packages including their latest "
+"version."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:563
+msgid ""
+"**--outdated (-o):** Implies --latest, but this lists *only* packages that "
+"have a newer version available."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:563
+msgid ""
+"**--ignore:** Ignore specified package(s). Use it with the --outdated option "
+"if you don't want to be informed about new versions of some packages"
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:563
+msgid "**--no-dev:** Filters dev dependencies from the package list."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:563
+msgid ""
+"**--major-only (-M):** Use with --latest or --outdated. Only shows packages "
+"that have major SemVer-compatible updates."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:563
+msgid ""
+"**--minor-only (-m):** Use with --latest or --outdated. Only shows packages "
+"that have minor SemVer-compatible updates."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:563
+msgid ""
+"**--patch-only:** Use with --latest or --outdated. Only shows packages that "
+"have patch-level SemVer-compatible updates."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:563 ../doc/03-cli.md:595
+msgid ""
+"**--direct (-D):** Restricts the list of packages to your direct "
+"dependencies."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:563
+msgid ""
+"**--strict:** Return a non-zero exit code when there are outdated packages."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:563 ../doc/03-cli.md:595 ../doc/03-cli.md:635
+msgid ""
+"**--format (-f):** Lets you pick between text (default) or json output "
+"format."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:563
+msgid ""
+"**--ignore-platform-reqs:** ignore all platform requirements (`php`, `hhvm`, "
+"`lib-*` and `ext-*`) and force the installation even if the local machine "
+"does not fulfill these. Use with the --outdated option."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:563
+msgid ""
+"**--ignore-platform-req:** ignore a specific platform requirement(`php`, "
+"`hhvm`, `lib-*` and `ext-*`) and force the installation even if the local "
+"machine does not fulfill it. Multiple requirements can be ignored via "
+"wildcard. Use with the --outdated option."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/03-cli.md:564
+#, fuzzy, no-wrap
+msgid "outdated"
+msgstr "update"
+
+#. type: Plain text
+#: ../doc/03-cli.md:569
+msgid ""
+"The `outdated` command shows a list of installed packages that have updates "
+"available, including their current and latest versions. This is basically an "
+"alias for `composer show -lo`."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/03-cli.md:571
+msgid "The color coding is as such:"
+msgstr ""
+
+#. type: Bullet: '- '
+#: ../doc/03-cli.md:576
+msgid "**green (=)**: Dependency is in the latest version and is up to date."
+msgstr ""
+
+#. type: Bullet: '- '
+#: ../doc/03-cli.md:576
+msgid ""
+"**yellow (`~`)**: Dependency has a new version available that includes "
+"backwards compatibility breaks according to semver, so upgrade when you can "
+"but it may involve work."
+msgstr ""
+
+#. type: Bullet: '- '
+#: ../doc/03-cli.md:576
+msgid ""
+"**red (!)**: Dependency has a new version that is semver-compatible and you "
+"should upgrade it."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:595
+msgid ""
+"**--all (-a):** Show all packages, not just outdated (alias for `composer "
+"show --latest`)."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:595
+msgid "**--strict:** Returns non-zero exit code if any package is outdated."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:595
+msgid ""
+"**--ignore:** Ignore specified package(s). Use it if you don't want to be "
+"informed about new versions of some packages"
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:595
+msgid ""
+"**--major-only (-M):** Only shows packages that have major SemVer-compatible "
+"updates."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:595
+msgid ""
+"**--minor-only (-m):** Only shows packages that have minor SemVer-compatible "
+"updates."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:595
+msgid ""
+"**--patch-only (-p):** Only shows packages that have patch-level SemVer-"
+"compatible updates."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:595
+#, fuzzy
+msgid "**--no-dev:** Do not show outdated dev dependencies."
+msgstr "**--no-update:** Disables the automatic update of the dependencies."
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:595
+msgid ""
+"**--locked:** Shows updates for packages from the lock file, regardless of "
+"what is currently in vendor dir."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:595
+msgid ""
+"**--ignore-platform-reqs:** ignore all platform requirements (`php`, `hhvm`, "
+"`lib-*` and `ext-*`) and force the installation even if the local machine "
+"does not fulfill these."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/03-cli.md:596
+#, no-wrap
+msgid "browse / home"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/03-cli.md:600
+msgid ""
+"The `browse` (aliased to `home`) opens a package's repository URL or "
+"homepage in your browser."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:605
+#, fuzzy
+msgid "**--homepage (-H):** Open the homepage instead of the repository URL."
+msgstr "**--homepage:** パッケージのホームページ。"
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:605
+msgid "**--show (-s):** Only show the homepage or repository URL."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/03-cli.md:606
+#, fuzzy, no-wrap
+msgid "suggests"
+msgstr "suggest"
+
+#. type: Plain text
+#: ../doc/03-cli.md:611
+msgid ""
+"Lists all packages suggested by the currently installed set of packages. You "
+"can optionally pass one or multiple package names in the format of `vendor/"
+"package` to limit output to suggestions made by those packages only."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/03-cli.md:614
+msgid ""
+"Use the `--by-package` (default) or `--by-suggestion` flags to group the "
+"output by the package offering the suggestions or the suggested packages "
+"respectively."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/03-cli.md:616
+msgid "If you only want a list of suggested package names, use `--list`."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:625
+msgid "**--by-package:** Groups output by suggesting package (default)."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:625
+msgid "**--by-suggestion:** Groups output by suggested package."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:625
+msgid ""
+"**--all:** Show suggestions from all dependencies, including transitive ones "
+"(by default only direct dependencies' suggestions are shown)."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:625
+msgid "**--list:** Show only list of suggested package names."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:625
+#, fuzzy
+msgid "**--no-dev:** Excludes suggestions from `require-dev` packages."
+msgstr "**--dev:** Add packages to `require-dev`."
+
+#. type: Title ##
+#: ../doc/03-cli.md:626
+#, no-wrap
+msgid "fund"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/03-cli.md:631
+#, fuzzy
+msgid ""
+"Discover how to help fund the maintenance of your dependencies. This lists "
+"all funding links from the installed dependencies. Use `--format=json` to "
+"get machine-readable output."
+msgstr ""
+"Lists the name, version and license of every package installed. Use `--"
+"format=json` to get machine readable output."
+
+#. type: Title ##
+#: ../doc/03-cli.md:636
+#, fuzzy, no-wrap
+msgid "depends / why"
+msgstr "depends"
+
+#. type: Plain text
+#: ../doc/03-cli.md:641
+#, fuzzy
+msgid ""
+"The `depends` command tells you which other packages depend on a certain "
+"package. As with installation `require-dev` relationships are only "
+"considered for the root package."
+msgstr ""
+"The `depends` command tells you which other packages depend on a certain "
+"package. You can specify which link types (`require`, `require-dev`)  should "
+"be included in the listing. By default both are used."
+
+#. type: Fenced code block (shell)
+#: ../doc/03-cli.md:642
+#, fuzzy, no-wrap
+msgid "php composer.phar depends doctrine/lexer\n"
+msgstr "    $ php composer.phar update vendor/*\n"
+
+#. type: Fenced code block (text)
+#: ../doc/03-cli.md:645
+#, no-wrap
+msgid ""
+"doctrine/annotations  1.13.3 requires doctrine/lexer (1.*)\n"
+"doctrine/common       2.13.3 requires doctrine/lexer (^1.0)\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/03-cli.md:652
+msgid ""
+"You can optionally specify a version constraint after the package to limit "
+"the search."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/03-cli.md:655
+msgid ""
+"Add the `--tree` or `-t` flag to show a recursive tree of why the package is "
+"depended upon, for example:"
+msgstr ""
+
+#. type: Fenced code block (shell)
+#: ../doc/03-cli.md:656
+#, fuzzy, no-wrap
+msgid "php composer.phar depends psr/log -t\n"
+msgstr "    $ php composer.phar update vendor/*\n"
+
+#. type: Fenced code block (text)
+#: ../doc/03-cli.md:659
+#, no-wrap
+msgid ""
+"psr/log 1.1.4 Common interface for logging libraries\n"
+"├──composer/composer 2.4.x-dev (requires psr/log ^1.0 || ^2.0 || ^3.0)\n"
+"├──composer/composer dev-main (requires psr/log ^1.0 || ^2.0 || ^3.0)\n"
+"├──composer/xdebug-handler 3.0.3 (requires psr/log ^1 || ^2 || ^3)\n"
+"│  ├──composer/composer 2.4.x-dev (requires composer/xdebug-handler ^2.0.2 || ^3.0.3)\n"
+"│  └──composer/composer dev-main (requires composer/xdebug-handler ^2.0.2 || ^3.0.3)\n"
+"└──symfony/console v5.4.11 (conflicts psr/log >=3) (circular dependency aborted here)\n"
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:673 ../doc/03-cli.md:707
+#, fuzzy
+msgid "**--recursive (-r):** Recursively resolves up to the root package."
+msgstr "**--self (-s):** List the root package info."
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:673 ../doc/03-cli.md:707
+msgid "**--tree (-t):** Prints the results as a nested tree, implies -r."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/03-cli.md:674
+#, no-wrap
+msgid "prohibits / why-not"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/03-cli.md:680
+msgid ""
+"The `prohibits` command tells you which packages are blocking a given "
+"package from being installed. Specify a version constraint to verify whether "
+"upgrades can be performed in your project, and if not why not. See the "
+"following example:"
+msgstr ""
+
+#. type: Fenced code block (shell)
+#: ../doc/03-cli.md:681
+#, fuzzy, no-wrap
+msgid "php composer.phar prohibits symfony/symfony 3.1\n"
+msgstr "    $ php composer.phar update monolog/monolog [...]\n"
+
+#. type: Fenced code block (text)
+#: ../doc/03-cli.md:684
+#, no-wrap
+msgid "laravel/framework v5.2.16 requires symfony/var-dumper (2.8.*|3.0.*)\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/03-cli.md:690
+msgid ""
+"Note that you can also specify platform requirements, for example to check "
+"whether you can upgrade your server to PHP 8.0:"
+msgstr ""
+
+#. type: Fenced code block (shell)
+#: ../doc/03-cli.md:691
+#, fuzzy, no-wrap
+msgid "php composer.phar prohibits php 8\n"
+msgstr "    $ php composer.phar init\n"
+
+#. type: Fenced code block (text)
+#: ../doc/03-cli.md:694
+#, no-wrap
+msgid ""
+"doctrine/cache        v1.6.0 requires php (~5.5|~7.0)\n"
+"doctrine/common       v2.6.1 requires php (~5.5|~7.0)\n"
+"doctrine/instantiator 1.0.5  requires php (>=5.3,<8.0-DEV)\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/03-cli.md:702
+msgid ""
+"As with `depends` you can request a recursive lookup, which will list all "
+"packages depending on the packages that cause the conflict."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/03-cli.md:708
+#, fuzzy, no-wrap
+msgid "validate"
+msgstr "validate"
+
+#. type: Plain text
+#: ../doc/03-cli.md:713
+#, fuzzy
+msgid ""
+"You should always run the `validate` command before you commit your "
+"`composer.json` file, and before you tag a release. It will check if your "
+"`composer.json` is valid."
+msgstr ""
+"You should always run the `validate` command before you commit your "
+"`composer.json` file, and before you tag a release. It will check if your "
+"`composer.json` is valid."
+
+#. type: Fenced code block (shell)
+#: ../doc/03-cli.md:714
+#, fuzzy, no-wrap
+msgid "php composer.phar validate\n"
+msgstr "    $ php composer.phar validate\n"
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:725
+msgid ""
+"**--no-check-all:** Do not emit a warning if requirements in `composer.json` "
+"use unbound or overly strict version constraints."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:725
+msgid ""
+"**--no-check-lock:** Do not emit an error if `composer.lock` exists and is "
+"not up to date."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:725
+msgid ""
+"**--no-check-publish:** Do not emit an error if `composer.json` is "
+"unsuitable for publishing as a package on Packagist but is otherwise valid."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:725
+msgid ""
+"**--with-dependencies:** Also validate the composer.json of all installed "
+"dependencies."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:725
+msgid ""
+"**--strict:** Return a non-zero exit code for warnings as well as errors."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/03-cli.md:726
+#, fuzzy, no-wrap
+msgid "status"
+msgstr "status"
+
+#. type: Plain text
+#: ../doc/03-cli.md:731
+#, fuzzy
+msgid ""
+"If you often need to modify the code of your dependencies and they are "
+"installed from source, the `status` command allows you to check if you have "
+"local changes in any of them."
+msgstr ""
+"If you often need to modify the code of your dependencies and they are "
+"installed from source, the `status` command allows you to check if you have "
+"local changes in any of them."
+
+#. type: Fenced code block (shell)
+#: ../doc/03-cli.md:732
+#, fuzzy, no-wrap
+msgid "php composer.phar status\n"
+msgstr "    $ php composer.phar status\n"
+
+#. type: Plain text
+#: ../doc/03-cli.md:738
+#, fuzzy
+msgid ""
+"With the `--verbose` option you get some more information about what was "
+"changed:"
+msgstr ""
+"With the `--verbose` option you get some more information about what was "
+"changed:"
+
+#. type: Fenced code block (shell)
+#: ../doc/03-cli.md:739
+#, fuzzy, no-wrap
+msgid "php composer.phar status -v\n"
+msgstr "    $ php composer.phar status\n"
+
+#. type: Fenced code block (text)
+#: ../doc/03-cli.md:742
+#, fuzzy, no-wrap
+msgid ""
+"You have changes in the following dependencies:\n"
+"vendor/seld/jsonlint:\n"
+"    M README.mdown\n"
+msgstr ""
+"    $ php composer.phar status -v\n"
+"    You have changes in the following dependencies:\n"
+"    vendor/seld/jsonlint:\n"
+"        M README.mdown\n"
+
+#. type: Title ##
+#: ../doc/03-cli.md:748
+#, fuzzy, no-wrap
+msgid "self-update / selfupdate"
+msgstr "self-update"
+
+#. type: Plain text
+#: ../doc/03-cli.md:752
+#, fuzzy
+msgid ""
+"To update Composer itself to the latest version, run the `self-update` "
+"command. It will replace your `composer.phar` with the latest version."
+msgstr ""
+"To update composer itself to the latest version, just run the `self-update` "
+"command. It will replace your `composer.phar` with the latest version."
+
+#. type: Fenced code block (shell)
+#: ../doc/03-cli.md:753
+#, fuzzy, no-wrap
+msgid "php composer.phar self-update\n"
+msgstr "    $ php composer.phar self-update\n"
+
+#. type: Plain text
+#: ../doc/03-cli.md:758
+msgid "If you would like to instead update to a specific release specify it:"
+msgstr ""
+
+#. type: Fenced code block (shell)
+#: ../doc/03-cli.md:759
+#, fuzzy, no-wrap
+msgid "php composer.phar self-update 2.4.0-RC1\n"
+msgstr "    $ php composer.phar self-update\n"
+
+#. type: Plain text
+#: ../doc/03-cli.md:765
+#, fuzzy
+msgid ""
+"If you have installed Composer for your entire system (see [global "
+"installation](00-intro.md#globally)), you may have to run the command with "
+"`root` privileges"
+msgstr ""
+"If you have installed composer for your entire system (see [global "
+"installation](00-intro.md#globally)), you have to run the command with "
+"`root` privileges"
+
+#. type: Fenced code block (shell)
+#: ../doc/03-cli.md:766
+#, fuzzy, no-wrap
+msgid "sudo -H composer self-update\n"
+msgstr "    $ sudo composer self-update\n"
+
+#. type: Plain text
+#: ../doc/03-cli.md:772
+msgid ""
+"If Composer was not installed as a PHAR, this command is not available.  "
+"(This is sometimes the case when Composer was installed by an operating "
+"system package manager.)"
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:786
+msgid "**--rollback (-r):** Rollback to the last version you had installed."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:786
+msgid ""
+"**--clean-backups:** Delete old backups during an update. This makes the "
+"current version of Composer the only backup available after the update."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:786
+#, fuzzy
+msgid "**--no-progress:** Do not output download progress."
+msgstr "**--quiet (-q):** メッセージを出力しない。"
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:786
+msgid "**--update-keys:** Prompt user for a key update."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:786
+msgid "**--stable:** Force an update to the stable channel."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:786
+msgid "**--preview:** Force an update to the preview channel."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:786
+msgid "**--snapshot:** Force an update to the snapshot channel."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:786
+msgid ""
+"**--1:** Force an update to the stable channel, but only use 1.x versions"
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:786
+msgid ""
+"**--2:** Force an update to the stable channel, but only use 2.x versions"
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:786
+msgid ""
+"**--set-channel-only:** Only store the channel as the default one and then "
+"exit"
+msgstr ""
+
+#. type: Title ##
+#: ../doc/03-cli.md:787
+#, fuzzy, no-wrap
+msgid "config"
+msgstr "config"
+
+#. type: Plain text
+#: ../doc/03-cli.md:791
+#, fuzzy
+msgid ""
+"The `config` command allows you to edit Composer config settings and "
+"repositories in either the local `composer.json` file or the global `config."
+"json` file."
+msgstr ""
+"The `config` command allows you to edit some basic composer settings in "
+"either the local composer.json file or the global config.json file."
+
+#. type: Plain text
+#: ../doc/03-cli.md:793
+msgid ""
+"Additionally it lets you edit most properties in the local `composer.json`."
+msgstr ""
+
+#. type: Fenced code block (shell)
+#: ../doc/03-cli.md:794
+#, fuzzy, no-wrap
+msgid "php composer.phar config --list\n"
+msgstr "    $ php composer.phar config --list\n"
+
+#. type: Title ###
+#: ../doc/03-cli.md:798
+#, fuzzy, no-wrap
+msgid "Usage"
+msgstr "Usage"
+
+#. type: Plain text
+#: ../doc/03-cli.md:801
+#, fuzzy
+msgid "`config [options] [setting-key] [setting-value1] ... [setting-valueN]`"
+msgstr "`config [options] [setting-key] [setting-value1] ... [setting-valueN]`"
+
+#. type: Plain text
+#: ../doc/03-cli.md:805
+#, fuzzy
+msgid ""
+"`setting-key` is a configuration option name and `setting-value1` is a "
+"configuration value.  For settings that can take an array of values (like "
+"`github-protocols`), multiple setting-value arguments are allowed."
+msgstr ""
+"`setting-key` is a configuration option name and `setting-value1` is a "
+"configuration value.  For settings that can take an array of values (like "
+"`github-protocols`), more than one setting-value arguments are allowed."
+
+#. type: Plain text
+#: ../doc/03-cli.md:807
+#, fuzzy
+msgid "You can also edit the values of the following properties:"
+msgstr "Each author object can have following properties:"
+
+#. type: Plain text
+#: ../doc/03-cli.md:810
+msgid ""
+"`description`, `homepage`, `keywords`, `license`, `minimum-stability`, "
+"`name`, `prefer-stable`, `type` and `version`."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/03-cli.md:812
+#, fuzzy
+msgid "See the [Config](06-config.md) chapter for valid configuration options."
+msgstr ""
+"See the [config schema section](04-schema.md#config) for valid configuration "
+"options."
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:833
+msgid ""
+"**--global (-g):** Operate on the global config file located at `"
+"$COMPOSER_HOME/config.json` by default.  Without this option, this command "
+"affects the local composer.json file or a file specified by `--file`."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:833
+msgid ""
+"**--editor (-e):** Open the local composer.json file using in a text editor "
+"as defined by the `EDITOR` env variable.  With the `--global` option, this "
+"opens the global config file."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:833
+msgid "**--auth (-a):** Affect auth config file (only used for --editor)."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:833
+msgid "**--unset:** Remove the configuration element named by `setting-key`."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:833
+msgid ""
+"**--list (-l):** Show the list of current config variables.  With the `--"
+"global` option this lists the global configuration only."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:833
+msgid ""
+"**--file=\"...\" (-f):** Operate on a specific file instead of composer."
+"json. Note that this cannot be used in conjunction with the `--global` "
+"option."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:833
+msgid ""
+"**--absolute:** Returns absolute paths when fetching `*-dir` config values "
+"instead of relative."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:833
+msgid ""
+"**--json:** JSON decode the setting value, to be used with `extra.*` keys."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:833
+msgid ""
+"**--merge:** Merge the setting value with the current value, to be used with "
+"`extra.*` keys in combination with `--json`."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:833
+msgid ""
+"**--append:** When adding a repository, append it (lowest priority) to the "
+"existing ones instead of prepending it (highest priority)."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:833
+msgid "**--source:** Display where the config value is loaded from."
+msgstr ""
+
+#. type: Title ###
+#: ../doc/03-cli.md:834
+#, fuzzy, no-wrap
+msgid "Modifying Repositories"
+msgstr "Modifying Repositories"
+
+#. type: Plain text
+#: ../doc/03-cli.md:838
+#, fuzzy
+msgid ""
+"In addition to modifying the config section, the `config` command also "
+"supports making changes to the repositories section by using it the "
+"following way:"
+msgstr ""
+"In addition to modifying the config section, the `config` command also "
+"supports making changes to the repositories section by using it the "
+"following way:"
+
+#. type: Fenced code block (shell)
+#: ../doc/03-cli.md:839
+#, fuzzy, no-wrap
+msgid "php composer.phar config repositories.foo vcs https://github.com/foo/bar\n"
+msgstr "    $ php composer.phar config repositories.foo vcs http://github.com/foo/bar\n"
+
+#. type: Plain text
+#: ../doc/03-cli.md:844
+msgid ""
+"If your repository requires more configuration options, you can instead pass "
+"its JSON representation :"
+msgstr ""
+
+#. type: Fenced code block (shell)
+#: ../doc/03-cli.md:845
+#, no-wrap
+msgid "php composer.phar config repositories.foo '{\"type\": \"vcs\", \"url\": \"http://svn.example.org/my-project/\", \"trunk-path\": \"master\"}'\n"
+msgstr ""
+
+#. type: Title ###
+#: ../doc/03-cli.md:849
+#, fuzzy, no-wrap
+msgid "Modifying Extra Values"
+msgstr "Modifying Repositories"
+
+#. type: Plain text
+#: ../doc/03-cli.md:853
+#, fuzzy
+msgid ""
+"In addition to modifying the config section, the `config` command also "
+"supports making changes to the extra section by using it the following way:"
+msgstr ""
+"In addition to modifying the config section, the `config` command also "
+"supports making changes to the repositories section by using it the "
+"following way:"
+
+#. type: Fenced code block (shell)
+#: ../doc/03-cli.md:854
+#, fuzzy, no-wrap
+msgid "php composer.phar config extra.foo.bar value\n"
+msgstr "    $ php composer.phar config --list\n"
+
+#. type: Plain text
+#: ../doc/03-cli.md:860
+msgid ""
+"The dots indicate array nesting, a max depth of 3 levels is allowed though. "
+"The above would set `\"extra\": { \"foo\": { \"bar\": \"value\" } }`."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/03-cli.md:863
+msgid ""
+"If you have a complex value to add/modify, you can use the `--json` and `--"
+"merge` flags to edit extra fields as json:"
+msgstr ""
+
+#. type: Fenced code block (shell)
+#: ../doc/03-cli.md:864
+#, no-wrap
+msgid "php composer.phar config --json extra.foo.bar '{\"baz\": true, \"qux\": []}'\n"
+msgstr ""
+
+#. type: Title ##
+#: ../doc/03-cli.md:868
+#, fuzzy, no-wrap
+msgid "create-project"
+msgstr "create-project"
+
+#. type: Plain text
+#: ../doc/03-cli.md:873
+#, fuzzy
+msgid ""
+"You can use Composer to create new projects from an existing package. This "
+"is the equivalent of doing a git clone/svn checkout followed by a `composer "
+"install` of the vendors."
+msgstr ""
+"You can use Composer to create new projects from an existing package. This "
+"is the equivalent of doing a git clone/svn checkout followed by a composer "
+"install of the vendors."
+
+#. type: Plain text
+#: ../doc/03-cli.md:875
+#, fuzzy
+msgid "There are several applications for this:"
+msgstr "There are several applications for this:"
+
+#. type: Bullet: '1. '
+#: ../doc/03-cli.md:880
+#, fuzzy
+msgid "You can deploy application packages."
+msgstr "You can deploy application packages."
+
+#. type: Bullet: '2. '
+#: ../doc/03-cli.md:880
+#, fuzzy
+msgid ""
+"You can check out any package and start developing on patches for example."
+msgstr ""
+"You can check out any package and start developing on patches for example."
+
+#. type: Bullet: '3. '
+#: ../doc/03-cli.md:880
+#, fuzzy
+msgid ""
+"Projects with multiple developers can use this feature to bootstrap the "
+"initial application for development."
+msgstr ""
+"Projects with multiple developers can use this feature to bootstrap the "
+"initial application for development."
+
+#. type: Plain text
+#: ../doc/03-cli.md:884
+#, fuzzy
+msgid ""
+"To create a new project using Composer you can use the `create-project` "
+"command.  Pass it a package name, and the directory to create the project "
+"in. You can also provide a version as a third argument, otherwise the latest "
+"version is used."
+msgstr ""
+"To create a new project using composer you can use the \"create-project\" "
+"command.  Pass it a package name, and the directory to create the project "
+"in. You can also provide a version as third argument, otherwise the latest "
+"version is used."
+
+#. type: Plain text
+#: ../doc/03-cli.md:886
+#, fuzzy
+msgid ""
+"If the directory does not currently exist, it will be created during "
+"installation."
+msgstr ""
+"If the directory does not currently exist, it will be created during "
+"installation."
+
+#. type: Fenced code block (shell)
+#: ../doc/03-cli.md:887
+#, fuzzy, no-wrap
+msgid "php composer.phar create-project doctrine/orm path \"2.2.*\"\n"
+msgstr "    php composer.phar create-project doctrine/orm path 2.2.0\n"
+
+#. type: Plain text
+#: ../doc/03-cli.md:893
+#, fuzzy
+msgid ""
+"It is also possible to run the command without params in a directory with an "
+"existing `composer.json` file to bootstrap a project."
+msgstr ""
+"It is also possible to run the command without params in a directory with an "
+"existing `composer.json` file to bootstrap a project."
+
+#. type: Plain text
+#: ../doc/03-cli.md:895
+#, fuzzy
+msgid "By default the command checks for the packages on packagist.org."
+msgstr "By default the command checks for the packages on packagist.org."
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:938
+#, fuzzy
+msgid ""
+"**--stability (-s):** Minimum stability of package. Defaults to `stable`."
+msgstr ""
+"**--stability (-s):** Minimum stability of package. Defaults to `stable`."
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:938
+#, fuzzy
+msgid ""
+"**--repository:** Provide a custom repository to search for the package, "
+"which will be used instead of packagist. Can be either an HTTP URL pointing "
+"to a `composer` repository, a path to a local `packages.json` file, or a "
+"JSON string which similar to what the [repositories](04-schema."
+"md#repositories)  key accepts. You can use this multiple times to configure "
+"multiple repositories."
+msgstr ""
+"**--repository-url:** Provide a custom repository to search for the package, "
+"which will be used instead of packagist. Can be either an HTTP URL pointing "
+"to a `composer` repository, or a path to a local `packages.json` file."
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:938
+msgid ""
+"**--add-repository:** Add the custom repository in the composer.json. If a "
+"lock file is present, it will be deleted and an update will be run instead "
+"of an install."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:938
+#, fuzzy
+msgid "**--dev:** Install packages listed in `require-dev`."
+msgstr "**--dev:** Install packages listed in `require-dev`."
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:938
+#, fuzzy
+msgid "**--no-dev:** Disables installation of require-dev packages."
+msgstr "**--no-install:** Disables installation of the vendors."
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:938
+#, fuzzy
+msgid ""
+"**--no-scripts:** Disables the execution of the scripts defined in the root "
+"package."
+msgstr ""
+"**--no-scripts:** Disables the execution of the scripts defined in the root "
+"package."
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:938
+msgid ""
+"**--no-secure-http:** Disable the secure-http config option temporarily "
+"while installing the root package. Use at your own risk. Using this flag is "
+"a bad idea."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:938
+#, fuzzy
+msgid ""
+"**--keep-vcs:** Skip the deletion of the VCS metadata for the created "
+"project. This is mostly useful if you run the command in non-interactive "
+"mode."
+msgstr ""
+"**--keep-vcs:** Skip the deletion of the VCS metadata for the created "
+"project. This is mostly useful if you run the command in non-interactive "
+"mode."
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:938
+msgid "**--remove-vcs:** Force-remove the VCS metadata without prompting."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:938
+#, fuzzy
+msgid "**--no-install:** Disables installation of the vendors."
+msgstr "**--no-install:** Disables installation of the vendors."
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:938
+msgid ""
+"**--ask:** Ask the user to provide a target directory for the new project."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/03-cli.md:939
+#, fuzzy, no-wrap
+msgid "dump-autoload / dumpautoload"
+msgstr "dump-autoload"
+
+#. type: Plain text
+#: ../doc/03-cli.md:944
+#, fuzzy
+msgid ""
+"If you need to update the autoloader because of new classes in a classmap "
+"package for example, you can use `dump-autoload` to do that without having "
+"to go through an install or update."
+msgstr ""
+"If you need to update the autoloader because of new classes in a classmap "
+"package for example, you can use \"dump-autoload\" to do that without having "
+"to go through an install or update."
+
+#. type: Plain text
+#: ../doc/03-cli.md:951
+#, fuzzy
+msgid ""
+"Additionally, it can dump an optimized autoloader that converts PSR-0/4 "
+"packages into classmap ones for performance reasons. In large applications "
+"with many classes, the autoloader can take up a substantial portion of every "
+"request's time. Using classmaps for everything is less convenient in "
+"development, but using this option you can still use PSR-0/4 for convenience "
+"and classmaps for performance."
+msgstr ""
+"Additionally, it can dump an optimized autoloader that converts PSR-0 "
+"packages into classmap ones for performance reasons. In large applications "
+"with many classes, the autoloader can take up a substantial portion of every "
+"request's time. Using classmaps for everything is less convenient in "
+"development, but using this option you can still use PSR-0 for convenience "
+"and classmaps for performance."
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:973
+#, fuzzy
+msgid ""
+"**--optimize (-o):** Convert PSR-0/4 autoloading to classmap to get a faster "
+"autoloader. This is recommended especially for production, but can take a "
+"bit of time to run, so it is currently not done by default."
+msgstr ""
+"**--optimize (-o):** Convert PSR-0 autoloading to classmap to get a faster "
+"autoloader. This is recommended especially for production, but can take a "
+"bit of time to run so it is currently not done by default."
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:973
+msgid ""
+"**--classmap-authoritative (-a):** Autoload classes from the classmap only.  "
+"Implicitly enables `--optimize`."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:973
+msgid "**--apcu:** Use APCu to cache found/not-found classes."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:973
+msgid ""
+"**--apcu-prefix:** Use a custom prefix for the APCu autoloader cache.  "
+"Implicitly enables `--apcu`."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:973
+msgid ""
+"**--no-dev:** Disables autoload-dev rules. Composer will by default infer "
+"this automatically according to the last `install` or `update` `--no-dev` "
+"state."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:973
+msgid ""
+"**--dev:** Enables autoload-dev rules. Composer will by default infer this "
+"automatically according to the last `install` or `update` `--no-dev` state."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:973
+msgid ""
+"**--ignore-platform-reqs:** ignore all `php`, `hhvm`, `lib-*` and `ext-*` "
+"requirements and skip the [platform check](07-runtime.md#platform-check) for "
+"these.  See also the [`platform`](06-config.md#platform) config option."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:973
+msgid ""
+"**--ignore-platform-req:** ignore a specific platform requirement (`php`, "
+"`hhvm`, `lib-*` and `ext-*`) and skip the [platform check](07-runtime."
+"md#platform-check) for it.  Multiple requirements can be ignored via "
+"wildcard."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:973
+msgid ""
+"**--strict-psr:** Return a failed status code (1) if PSR-4 or PSR-0 mapping "
+"errors are present. Requires --optimize to work."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/03-cli.md:974
+#, no-wrap
+msgid "clear-cache / clearcache / cc"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/03-cli.md:977
+msgid "Deletes all content from Composer's cache directories."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:981
+msgid "**--gc:** Only run garbage collection, not a full cache clear"
+msgstr ""
+
+#. type: Title ##
+#: ../doc/03-cli.md:982
+#, fuzzy, no-wrap
+msgid "licenses"
+msgstr "licenses"
+
+#. type: Plain text
+#: ../doc/03-cli.md:986
+#, fuzzy
+msgid ""
+"Lists the name, version and license of every package installed. Use `--"
+"format=json` to get machine-readable output."
+msgstr ""
+"Lists the name, version and license of every package installed. Use `--"
+"format=json` to get machine readable output."
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:991
+msgid ""
+"**--format:** Format of the output: text, json or summary (default: \"text\")"
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:991
+msgid "**--no-dev:** Remove dev dependencies from the output"
+msgstr ""
+
+#. type: Title ##
+#: ../doc/03-cli.md:992
+#, fuzzy, no-wrap
+msgid "run-script / run"
+msgstr "run-script"
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:1000
+msgid "**--timeout:** Set the script timeout in seconds, or 0 for no timeout."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:1000
+msgid "**--dev:** Sets the dev mode."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:1000
+#, fuzzy
+msgid "**--no-dev:** Disable dev mode."
+msgstr "**--no-ansi:** ANSI出力を行わない。"
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:1000
+msgid "**--list (-l):** List user defined scripts."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/03-cli.md:1003
+#, fuzzy
+msgid ""
+"To run [scripts](articles/scripts.md) manually you can use this command, "
+"give it the script name and optionally any required arguments."
+msgstr ""
+"To run [scripts](articles/scripts.md) manually you can use this command, "
+"just give it the script name and optionally --no-dev to disable the dev mode."
+
+#. type: Title ##
+#: ../doc/03-cli.md:1004
+#, no-wrap
+msgid "exec"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/03-cli.md:1009
+msgid ""
+"Executes a vendored binary/script. You can execute any command and this will "
+"ensure that the Composer bin-dir is pushed on your PATH before the command "
+"runs."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:1013
+#, fuzzy
+msgid "**--list (-l):** List the available Composer binaries."
+msgstr "**--installed (-i):** List the packages that are installed."
+
+#. type: Title ##
+#: ../doc/03-cli.md:1014
+#, fuzzy, no-wrap
+msgid "diagnose"
+msgstr "diagnose"
+
+#. type: Plain text
+#: ../doc/03-cli.md:1019
+#, fuzzy
+msgid ""
+"If you think you found a bug, or something is behaving strangely, you might "
+"want to run the `diagnose` command to perform automated checks for many "
+"common problems."
+msgstr ""
+"If you think you found a bug, or something is behaving strangely, you might "
+"want to run the `diagnose` command to perform automated checks for many "
+"common problems."
+
+#. type: Fenced code block (shell)
+#: ../doc/03-cli.md:1020
+#, fuzzy, no-wrap
+msgid "php composer.phar diagnose\n"
+msgstr "    $ php composer.phar diagnose\n"
+
+#. type: Title ###
+#: ../doc/03-cli.md:1024 ../doc/04-schema.md:909
+#, fuzzy, no-wrap
+msgid "archive"
+msgstr "archive"
+
+#. type: Plain text
+#: ../doc/03-cli.md:1029
+msgid ""
+"This command is used to generate a zip/tar archive for a given package in a "
+"given version. It can also be used to archive your entire project without "
+"excluded/ignored files."
+msgstr ""
+
+#. type: Fenced code block (shell)
+#: ../doc/03-cli.md:1030
+#, fuzzy, no-wrap
+msgid "php composer.phar archive vendor/package 2.0.21 --format=zip\n"
+msgstr "    $ php composer.phar update vendor/package vendor/package2\n"
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:1040
+msgid ""
+"**--format (-f):** Format of the resulting archive: tar, tar.gz, tar.bz2 or "
+"zip (default: \"tar\")."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:1040
+msgid "**--dir:** Write the archive to this directory (default: \".\")"
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:1040
+msgid "**--file:** Write the archive with the given file name."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/03-cli.md:1041
+#, no-wrap
+msgid "audit"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/03-cli.md:1047
+msgid ""
+"This command is used to audit the packages you have installed for possible "
+"security issues. It checks for and lists security vulnerability advisories "
+"according to the [Packagist.org api](https://packagist.org/apidoc#list-"
+"security-advisories)."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/03-cli.md:1049
+msgid ""
+"The audit command returns the amount of vulnerabilities found. `0` if "
+"successful, and up to `255` otherwise."
+msgstr ""
+
+#. type: Fenced code block (shell)
+#: ../doc/03-cli.md:1050
+#, fuzzy, no-wrap
+msgid "php composer.phar audit\n"
+msgstr "    $ php composer.phar update\n"
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:1059
+#, fuzzy
+msgid "**--no-dev:** Disables auditing of require-dev packages."
+msgstr "**--no-dev:** Skip installing packages listed in `require-dev`."
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:1059
+msgid ""
+"**--format (-f):** Audit output format. Must be \"table\" (default), \"plain"
+"\", \"json\", or \"summary\"."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:1059
+msgid ""
+"**--locked:** Audit packages from the lock file, regardless of what is "
+"currently in vendor dir."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/03-cli.md:1060
+#, fuzzy, no-wrap
+msgid "help"
+msgstr "help"
+
+#. type: Plain text
+#: ../doc/03-cli.md:1063
+#, fuzzy
+msgid "To get more information about a certain command, you can use `help`."
+msgstr "To get more information about a certain command, just use `help`."
+
+#. type: Fenced code block (shell)
+#: ../doc/03-cli.md:1064
+#, fuzzy, no-wrap
+msgid "php composer.phar help install\n"
+msgstr "    $ php composer.phar help install\n"
+
+#. type: Title ##
+#: ../doc/03-cli.md:1068
+#, fuzzy, no-wrap
+msgid "Command-line completion"
+msgstr "コマンドラインインターフェース"
+
+#. type: Plain text
+#: ../doc/03-cli.md:1072
+msgid ""
+"Command-line completion can be enabled by following instructions [on this "
+"page](https://github.com/bamarni/symfony-console-autocomplete)."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/03-cli.md:1073
+#, fuzzy, no-wrap
+msgid "Environment variables"
+msgstr "Environment variables"
+
+#. type: Plain text
+#: ../doc/03-cli.md:1079
+#, fuzzy
+msgid ""
+"You can set a number of environment variables that override certain "
+"settings.  Whenever possible it is recommended to specify these settings in "
+"the `config` section of `composer.json` instead. It is worth noting that the "
+"env vars will always take precedence over the values specified in `composer."
+"json`."
+msgstr ""
+"You can set a number of environment variables that override certain "
+"settings.  Whenever possible it is recommended to specify these settings in "
+"the `config` section of `composer.json` instead. It is worth noting that the "
+"env vars will always take precedence over the values specified in `composer."
+"json`."
+
+#. type: Title ###
+#: ../doc/03-cli.md:1080
+#, fuzzy, no-wrap
+msgid "COMPOSER"
+msgstr "COMPOSER"
+
+#. type: Plain text
+#: ../doc/03-cli.md:1084
+#, fuzzy
+msgid ""
+"By setting the `COMPOSER` env variable it is possible to set the filename of "
+"`composer.json` to something else."
+msgstr ""
+"By setting the `COMPOSER` env variable it is possible to set the filename of "
+"`composer.json` to something else."
+
+#. type: Plain text
+#: ../doc/03-cli.md:1086
+#, fuzzy
+msgid "For example:"
+msgstr "For example:"
+
+#. type: Fenced code block (shell)
+#: ../doc/03-cli.md:1087
+#, fuzzy, no-wrap
+msgid "COMPOSER=composer-other.json php composer.phar install\n"
+msgstr "    $ COMPOSER=composer-other.json php composer.phar install\n"
+
+#. type: Plain text
+#: ../doc/03-cli.md:1092
+msgid ""
+"The generated lock file will use the same name: `composer-other.lock` in "
+"this example."
+msgstr ""
+
+#. type: Title ###
+#: ../doc/03-cli.md:1093
+#, fuzzy, no-wrap
+msgid "COMPOSER_ALLOW_SUPERUSER"
+msgstr "COMPOSER_ROOT_VERSION"
+
+#. type: Plain text
+#: ../doc/03-cli.md:1098
+msgid ""
+"If set to 1, this env disables the warning about running commands as root/"
+"super user.  It also disables automatic clearing of sudo sessions, so you "
+"should really only set this if you use Composer as a super user at all times "
+"like in docker containers."
+msgstr ""
+
+#. type: Title ###
+#: ../doc/03-cli.md:1099
+#, fuzzy, no-wrap
+msgid "COMPOSER_ALLOW_XDEBUG"
+msgstr "COMPOSER_HOME"
+
+#. type: Plain text
+#: ../doc/03-cli.md:1102
+msgid ""
+"If set to 1, this env allows running Composer when the Xdebug extension is "
+"enabled, without restarting PHP without it."
+msgstr ""
+
+#. type: Title ###
+#: ../doc/03-cli.md:1103
+#, fuzzy, no-wrap
+msgid "COMPOSER_AUTH"
+msgstr "COMPOSER_HOME"
+
+#. type: Plain text
+#: ../doc/03-cli.md:1110
+msgid ""
+"The `COMPOSER_AUTH` var allows you to set up authentication as an "
+"environment variable.  The contents of the variable should be a JSON "
+"formatted object containing [http-basic, github-oauth, bitbucket-oauth, ... "
+"objects as needed](articles/authentication-for-private-packages.md), and "
+"following the [spec from the config](06-config.md)."
+msgstr ""
+
+#. type: Title ###
+#: ../doc/03-cli.md:1111
+#, fuzzy, no-wrap
+msgid "COMPOSER_BIN_DIR"
+msgstr "COMPOSER_BIN_DIR"
+
+#. type: Plain text
+#: ../doc/03-cli.md:1115
+#, fuzzy
+msgid ""
+"By setting this option you can change the `bin` ([Vendor Binaries](articles/"
+"vendor-binaries.md))  directory to something other than `vendor/bin`."
+msgstr ""
+"By setting this option you can change the `bin` ([Vendor Binaries](articles/"
+"vendor-binaries.md))  directory to something other than `vendor/bin`."
+
+#. type: Title ###
+#: ../doc/03-cli.md:1116
+#, fuzzy, no-wrap
+msgid "COMPOSER_CACHE_DIR"
+msgstr "COMPOSER_CACHE_DIR"
+
+#. type: Plain text
+#: ../doc/03-cli.md:1120
+#, fuzzy
+msgid ""
+"The `COMPOSER_CACHE_DIR` var allows you to change the Composer cache "
+"directory, which is also configurable via the [`cache-dir`](06-config."
+"md#cache-dir) option."
+msgstr ""
+"The `COMPOSER_CACHE_DIR` var allows you to change the composer cache "
+"directory, which is also configurable via the [`cache-dir`](04-schema."
+"md#config) option."
+
+#. type: Plain text
+#: ../doc/03-cli.md:1126
+#, no-wrap
+msgid ""
+"By default, it points to `C:\\Users\\<user>\\AppData\\Local\\Composer` (or `%LOCALAPPDATA%/Composer`) on Windows.\n"
+"On \\*nix systems that follow the [XDG Base\n"
+"Directory Specifications](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html),\n"
+"it points to `$XDG_CACHE_HOME/composer`. On other \\*nix systems and on macOS, it points to\n"
+"`$COMPOSER_HOME/cache`.\n"
+msgstr ""
+
+#. type: Title ###
+#: ../doc/03-cli.md:1127
+#, fuzzy, no-wrap
+msgid "COMPOSER_CAFILE"
+msgstr "COMPOSER_CACHE_DIR"
+
+#. type: Plain text
+#: ../doc/03-cli.md:1131
+msgid ""
+"By setting this environmental value, you can set a path to a certificate "
+"bundle file to be used during SSL/TLS peer verification."
+msgstr ""
+
+#. type: Title ###
+#: ../doc/03-cli.md:1132
+#, fuzzy, no-wrap
+msgid "COMPOSER_DISABLE_XDEBUG_WARN"
+msgstr "COMPOSER_DISCARD_CHANGES"
+
+#. type: Plain text
+#: ../doc/03-cli.md:1135
+msgid ""
+"If set to 1, this env suppresses a warning when Composer is running with the "
+"Xdebug extension enabled."
+msgstr ""
+
+#. type: Title ###
+#: ../doc/03-cli.md:1136
+#, fuzzy, no-wrap
+msgid "COMPOSER_DISCARD_CHANGES"
+msgstr "COMPOSER_DISCARD_CHANGES"
+
+#. type: Plain text
+#: ../doc/03-cli.md:1139
+#, fuzzy
+msgid ""
+"This env var controls the [`discard-changes`](06-config.md#discard-changes) "
+"config option."
+msgstr ""
+"This env var controls the discard-changes [config option](04-schema."
+"md#config)."
+
+#. type: Title ###
+#: ../doc/03-cli.md:1140
+#, fuzzy, no-wrap
+msgid "COMPOSER_HOME"
+msgstr "COMPOSER_HOME"
+
+#. type: Plain text
+#: ../doc/03-cli.md:1145
+#, fuzzy
+msgid ""
+"The `COMPOSER_HOME` var allows you to change the Composer home directory. "
+"This is a hidden, global (per-user on the machine) directory that is shared "
+"between all projects."
+msgstr ""
+"The `COMPOSER_HOME` var allows you to change the composer home directory. "
+"This is a hidden, global (per-user on the machine) directory that is shared "
+"between all projects."
+
+#. type: Plain text
+#: ../doc/03-cli.md:1147
+msgid ""
+"Use `composer config --global home` to see the location of the home "
+"directory."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/03-cli.md:1153
+#, no-wrap
+msgid ""
+"By default, it points to `C:\\Users\\<user>\\AppData\\Roaming\\Composer` on Windows\n"
+"and `/Users/<user>/.composer` on macOS. On \\*nix systems that follow the [XDG Base\n"
+"Directory Specifications](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html),\n"
+"it points to `$XDG_CONFIG_HOME/composer`. On other \\*nix systems, it points to\n"
+"`/home/<user>/.composer`.\n"
+msgstr ""
+
+#. type: Title ####
+#: ../doc/03-cli.md:1154
+#, fuzzy, no-wrap
+msgid "COMPOSER_HOME/config.json"
+msgstr "COMPOSER_HOME/config.json"
+
+#. type: Plain text
+#: ../doc/03-cli.md:1160
+#, fuzzy
+msgid ""
+"You may put a `config.json` file into the location which `COMPOSER_HOME` "
+"points to. Composer will partially (only `config` and `repositories` keys) "
+"merge this configuration with your project's `composer.json` when you run "
+"the `install` and `update` commands."
+msgstr ""
+"You may put a `config.json` file into the location which `COMPOSER_HOME` "
+"points to. Composer will merge this configuration with your project's "
+"`composer.json` when you run the `install` and `update` commands."
+
+#. type: Plain text
+#: ../doc/03-cli.md:1163
+#, fuzzy
+msgid ""
+"This file allows you to set [repositories](05-repositories.md) and "
+"[configuration](06-config.md) for the user's projects."
+msgstr ""
+"This file allows you to set [configuration](04-schema.md#config) and "
+"[repositories](05-repositories.md) for the user's projects."
+
+#. type: Plain text
+#: ../doc/03-cli.md:1166
+#, fuzzy
+msgid ""
+"In case global configuration matches _local_ configuration, the _local_ "
+"configuration in the project's `composer.json` always wins."
+msgstr ""
+"In case global configuration matches _local_ configuration, the _local_ "
+"configuration in the project's `composer.json` always wins."
+
+#. type: Title ###
+#: ../doc/03-cli.md:1167
+#, fuzzy, no-wrap
+msgid "COMPOSER_HTACCESS_PROTECT"
+msgstr "COMPOSER_PROCESS_TIMEOUT"
+
+#. type: Plain text
+#: ../doc/03-cli.md:1171
+msgid ""
+"Defaults to `1`. If set to `0`, Composer will not create `.htaccess` files "
+"in the Composer home, cache, and data directories."
+msgstr ""
+
+#. type: Title ###
+#: ../doc/03-cli.md:1172
+#, fuzzy, no-wrap
+msgid "COMPOSER_MEMORY_LIMIT"
+msgstr "COMPOSER_VENDOR_DIR"
+
+#. type: Plain text
+#: ../doc/03-cli.md:1175
+msgid "If set, the value is used as php's memory_limit."
+msgstr ""
+
+#. type: Title ###
+#: ../doc/03-cli.md:1176
+#, fuzzy, no-wrap
+msgid "COMPOSER_MIRROR_PATH_REPOS"
+msgstr "COMPOSER_ROOT_VERSION"
+
+#. type: Plain text
+#: ../doc/03-cli.md:1181
+msgid ""
+"If set to 1, this env changes the default path repository strategy to "
+"`mirror` instead of `symlink`. As it is the default strategy being set it "
+"can still be overwritten by repository options."
+msgstr ""
+
+#. type: Title ###
+#: ../doc/03-cli.md:1182
+#, fuzzy, no-wrap
+msgid "COMPOSER_NO_INTERACTION"
+msgstr "COMPOSER_NO_INTERACTION"
+
+#. type: Plain text
+#: ../doc/03-cli.md:1186
+#, fuzzy
+msgid ""
+"If set to 1, this env var will make Composer behave as if you passed the `--"
+"no-interaction` flag to every command. This can be set on build boxes/CI."
+msgstr ""
+"If set to 1, this env var will make composer behave as if you passed the `--"
+"no-interaction` flag to every command. This can be set on build boxes/CI."
+
+#. type: Title ###
+#: ../doc/03-cli.md:1187
+#, fuzzy, no-wrap
+msgid "COMPOSER_PROCESS_TIMEOUT"
+msgstr "COMPOSER_PROCESS_TIMEOUT"
+
+#. type: Plain text
+#: ../doc/03-cli.md:1191
+#, fuzzy
+msgid ""
+"This env var controls the time Composer waits for commands (such as git "
+"commands) to finish executing. The default value is 300 seconds (5 minutes)."
+msgstr ""
+"This env var controls the time composer waits for commands (such as git "
+"commands) to finish executing. The default value is 300 seconds (5 minutes)."
+
+#. type: Title ###
+#: ../doc/03-cli.md:1192
+#, fuzzy, no-wrap
+msgid "COMPOSER_ROOT_VERSION"
+msgstr "COMPOSER_ROOT_VERSION"
+
+#. type: Plain text
+#: ../doc/03-cli.md:1196
+#, fuzzy
+msgid ""
+"By setting this var you can specify the version of the root package, if it "
+"cannot be guessed from VCS info and is not present in `composer.json`."
+msgstr ""
+"By setting this var you can specify the version of the root package, if it "
+"can not be guessed from VCS info and is not present in `composer.json`."
+
+#. type: Title ###
+#: ../doc/03-cli.md:1197
+#, fuzzy, no-wrap
+msgid "COMPOSER_VENDOR_DIR"
+msgstr "COMPOSER_VENDOR_DIR"
+
+#. type: Plain text
+#: ../doc/03-cli.md:1201
+#, fuzzy
+msgid ""
+"By setting this var you can make Composer install the dependencies into a "
+"directory other than `vendor`."
+msgstr ""
+"By setting this var you can make composer install the dependencies into a "
+"directory other than `vendor`."
+
+#. type: Title ###
+#: ../doc/03-cli.md:1202
+#, fuzzy, no-wrap
+msgid "COMPOSER_RUNTIME_ENV"
+msgstr "COMPOSER_ROOT_VERSION"
+
+#. type: Plain text
+#: ../doc/03-cli.md:1210
+msgid ""
+"This lets you hint under which environment Composer is running, which can "
+"help Composer work around some environment specific issues. The only value "
+"currently supported is `virtualbox`, which then enables some short `sleep()` "
+"calls to wait for the filesystem to have written files properly before we "
+"attempt reading them. You can set the environment variable if you use "
+"Vagrant or VirtualBox and experience issues with files not being found "
+"during installation even though they should be present."
+msgstr ""
+
+#. type: Title ###
+#: ../doc/03-cli.md:1211
+#, fuzzy, no-wrap
+msgid "http_proxy or HTTP_PROXY"
+msgstr "http_proxy or HTTP_PROXY"
+
+#. type: Plain text
+#: ../doc/03-cli.md:1216
+#, fuzzy
+msgid ""
+"If you are using Composer from behind an HTTP proxy, you can use the "
+"standard `http_proxy` or `HTTP_PROXY` env vars. Set it to the URL of your "
+"proxy.  Many operating systems already set this variable for you."
+msgstr ""
+"If you are using composer from behind an HTTP proxy, you can use the "
+"standard `http_proxy` or `HTTP_PROXY` env vars. Simply set it to the URL of "
+"your proxy.  Many operating systems already set this variable for you."
+
+#. type: Plain text
+#: ../doc/03-cli.md:1221
+#, fuzzy, no-wrap
+msgid ""
+"Using `http_proxy` (lowercased) or even defining both might be preferable since\n"
+"some tools like git or curl will only use the lower-cased `http_proxy` version.\n"
+"Alternatively you can also define the git proxy using\n"
+"`git config --global http.proxy <proxy url>`.\n"
+msgstr ""
+"Using `http_proxy` (lowercased) or even defining both might be preferable since\n"
+"some tools like git or curl will only use the lower-cased `http_proxy` version.\n"
+"Alternatively you can also define the git proxy using\n"
+"`git config --global http.proxy <proxy url>`.\n"
+
+#. type: Plain text
+#: ../doc/03-cli.md:1226
+msgid ""
+"If you are using Composer in a non-CLI context (i.e. integration into a CMS "
+"or similar use case), and need to support proxies, please provide the "
+"`CGI_HTTP_PROXY` environment variable instead. See [httpoxy.org](https://"
+"httpoxy.org/) for further details."
+msgstr ""
+
+#. type: Title ###
+#: ../doc/03-cli.md:1227
+#, fuzzy, no-wrap
+msgid "COMPOSER_MAX_PARALLEL_HTTP"
+msgstr "COMPOSER_PROCESS_TIMEOUT"
+
+#. type: Plain text
+#: ../doc/03-cli.md:1233
+msgid ""
+"Set to an integer to configure how many files can be downloaded in parallel. "
+"This defaults to 12 and must be between 1 and 50. If your proxy has issues "
+"with concurrency maybe you want to lower this. Increasing it should "
+"generally not result in performance gains."
+msgstr ""
+
+#. type: Title ###
+#: ../doc/03-cli.md:1234
+#, fuzzy, no-wrap
+msgid "HTTP_PROXY_REQUEST_FULLURI"
+msgstr "HTTP_PROXY_REQUEST_FULLURI"
+
+#. type: Plain text
+#: ../doc/03-cli.md:1239
+#, fuzzy
+msgid ""
+"If you use a proxy, but it does not support the request_fulluri flag, then "
+"you should set this env var to `false` or `0` to prevent Composer from "
+"setting the request_fulluri option."
+msgstr ""
+"If you use a proxy but it does not support the request_fulluri flag, then "
+"you should set this env var to `false` or `0` to prevent composer from "
+"setting the request_fulluri option."
+
+#. type: Title ###
+#: ../doc/03-cli.md:1240
+#, fuzzy, no-wrap
+msgid "HTTPS_PROXY_REQUEST_FULLURI"
+msgstr "HTTPS_PROXY_REQUEST_FULLURI"
+
+#. type: Plain text
+#: ../doc/03-cli.md:1245
+#, fuzzy
+msgid ""
+"If you use a proxy, but it does not support the request_fulluri flag for "
+"HTTPS requests, then you should set this env var to `false` or `0` to "
+"prevent Composer from setting the request_fulluri option."
+msgstr ""
+"If you use a proxy but it does not support the request_fulluri flag for "
+"HTTPS requests, then you should set this env var to `false` or `0` to "
+"prevent composer from setting the request_fulluri option."
+
+#. type: Title ###
+#: ../doc/03-cli.md:1246
+#, no-wrap
+msgid "COMPOSER_SELF_UPDATE_TARGET"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/03-cli.md:1249
+msgid ""
+"If set, makes the self-update command write the new Composer phar file into "
+"that path instead of overwriting itself. Useful for updating Composer on a "
+"read-only filesystem."
+msgstr ""
+
+#. type: Title ###
+#: ../doc/03-cli.md:1250
+#, fuzzy, no-wrap
+msgid "no_proxy or NO_PROXY"
+msgstr "http_proxy or HTTP_PROXY"
+
+#. type: Plain text
+#: ../doc/03-cli.md:1255
+#, fuzzy
+msgid ""
+"If you are behind a proxy and would like to disable it for certain domains, "
+"you can use the `no_proxy` or `NO_PROXY` env var. Set it to a comma "
+"separated list of domains the proxy should *not* be used for."
+msgstr ""
+"If you are behind a proxy and would like to disable it for certain domains, "
+"you can use the `no_proxy` env var. Simply set it to a comma separated list "
+"of domains the proxy should *not* be used for."
+
+#. type: Plain text
+#: ../doc/03-cli.md:1259
+#, fuzzy
+msgid ""
+"The env var accepts domains, IP addresses, and IP address blocks in CIDR "
+"notation. You can restrict the filter to a particular port (e.g. `:80`). You "
+"can also set it to `*` to ignore the proxy for all HTTP requests."
+msgstr ""
+"The env var accepts domains, IP addresses, and IP address blocks in CIDR "
+"notation. You can restrict the filter to a particular port (e.g. `:80`). You "
+"can also set it to `*` to ignore the proxy for all HTTP requests."
+
+#. type: Title ###
+#: ../doc/03-cli.md:1260
+#, fuzzy, no-wrap
+msgid "COMPOSER_DISABLE_NETWORK"
+msgstr "COMPOSER_DISCARD_CHANGES"
+
+#. type: Plain text
+#: ../doc/03-cli.md:1264
+msgid ""
+"If set to `1`, disables network access (best effort). This can be used for "
+"debugging or to run Composer on a plane or a starship with poor connectivity."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/03-cli.md:1267
+msgid ""
+"If set to `prime`, GitHub VCS repositories will prime the cache, so it can "
+"then be used fully offline with `1`."
+msgstr ""
+
+#. type: Title ###
+#: ../doc/03-cli.md:1268
+#, fuzzy, no-wrap
+msgid "COMPOSER_DEBUG_EVENTS"
+msgstr "COMPOSER_ROOT_VERSION"
+
+#. type: Plain text
+#: ../doc/03-cli.md:1272
+msgid ""
+"If set to `1`, outputs information about events being dispatched, which can "
+"be useful for plugin authors to identify what is firing when exactly."
+msgstr ""
+
+#. type: Title ###
+#: ../doc/03-cli.md:1273
+#, fuzzy, no-wrap
+msgid "COMPOSER_NO_AUDIT"
+msgstr "COMPOSER_BIN_DIR"
+
+#. type: Plain text
+#: ../doc/03-cli.md:1276
+msgid ""
+"If set to `1`, it is the equivalent of passing the `--no-audit` option to "
+"`require`, `update`, `remove` or `create-project` command."
+msgstr ""
+
+#. type: Title ###
+#: ../doc/03-cli.md:1277
+#, fuzzy, no-wrap
+msgid "COMPOSER_NO_DEV"
+msgstr "COMPOSER_HOME"
+
+#. type: Plain text
+#: ../doc/03-cli.md:1281
+msgid ""
+"If set to `1`, it is the equivalent of passing the `--no-dev` option to "
+"`install` or `update`. You can override this for a single command by setting "
+"`COMPOSER_NO_DEV=0`."
+msgstr ""
+
+#. type: Title ###
+#: ../doc/03-cli.md:1282
+#, fuzzy, no-wrap
+msgid "COMPOSER_PREFER_STABLE"
+msgstr "COMPOSER_PROCESS_TIMEOUT"
+
+#. type: Plain text
+#: ../doc/03-cli.md:1286
+msgid ""
+"If set to `1`, it is the equivalent of passing the `--prefer-stable` option "
+"to `update` or `require`."
+msgstr ""
+
+#. type: Title ###
+#: ../doc/03-cli.md:1287
+#, fuzzy, no-wrap
+msgid "COMPOSER_PREFER_LOWEST"
+msgstr "COMPOSER_PROCESS_TIMEOUT"
+
+#. type: Plain text
+#: ../doc/03-cli.md:1291
+msgid ""
+"If set to `1`, it is the equivalent of passing the `--prefer-lowest` option "
+"to `update` or `require`."
+msgstr ""
+
+#. type: Title ###
+#: ../doc/03-cli.md:1292
+#, no-wrap
+msgid "COMPOSER_IGNORE_PLATFORM_REQ or COMPOSER_IGNORE_PLATFORM_REQS"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/03-cli.md:1296
+msgid ""
+"If `COMPOSER_IGNORE_PLATFORM_REQS` set to `1`, it is the equivalent of "
+"passing the `--ignore-platform-reqs` argument.  Otherwise, specifying a "
+"comma separated list in `COMPOSER_IGNORE_PLATFORM_REQ` will ignore those "
+"specific requirements."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/03-cli.md:1298
+msgid ""
+"For example, if a development workstation will never run database queries, "
+"this can be used to ignore the requirement for the database extensions to be "
+"available. If you set `COMPOSER_IGNORE_PLATFORM_REQ=ext-oci8`, then composer "
+"will allow packages to be installed even if the `oci8` PHP extension is not "
+"enabled."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/03-cli.md:1299
+#, fuzzy
+msgid "&larr; [Libraries](02-libraries.md)  | [Schema](04-schema.md) &rarr;"
+msgstr ""
+"<p class=\"prev-next\">\n"
+"  &larr; [ライブラリ](02-libraries.html)  |  [スキーマ](04-schema.html) "
+"&rarr;\n"
+"</p>\n"
