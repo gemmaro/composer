@@ -1,0 +1,32 @@
+{
+  "name": "composer",
+  "version": "1.0.0",
+  "description": "<p align=\"center\">     <a href=\"https://getcomposer.org\">         <img src=\"https://getcomposer.org/img/logo-composer-transparent.png\" alt=\"Composer\">     </a> </p> <h1 align=\"center\">Dependency Management for PHP</h1>",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc",
+    "test": "tests"
+  },
+  "scripts": {
+    "test:md": "markdownlint ./translations/ja/*.md",
+    "test:ja": "textlint ./translations/ja/*.md",
+    "fix": "textlint --fix ./translations/ja/*.md"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/composer/composer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/composer/composer/issues"
+  },
+  "homepage": "https://github.com/composer/composer#readme",
+  "devDependencies": {
+    "markdownlint-cli": "^0.34.0",
+    "textlint": "^13.3.2",
+    "textlint-rule-preset-ja-technical-writing": "^7.0.0",
+    "textlint-rule-preset-jtf-style": "^2.3.13"
+  }
+}

@@ -95,12 +95,14 @@
     "scripts": {
         "compile": "@php -dphar.readonly=0 bin/compile",
         "test": "@php simple-phpunit",
-        "phpstan": "@php vendor/bin/phpstan analyse --configuration=phpstan/config.neon"
+        "phpstan": "@php vendor/bin/phpstan analyse --configuration=phpstan/config.neon",
+        "translate": "make -C translations"
     },
     "scripts-descriptions": {
         "compile": "Compile composer.phar",
         "test": "Run all tests",
-        "phpstan": "Runs PHPStan"
+        "phpstan": "Runs PHPStan",
+        "translate": "Translate documents"
     },
     "support": {
         "issues": "https://github.com/composer/composer/issues",
