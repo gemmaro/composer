@@ -3,7 +3,7 @@
 ## 導入
 
 基礎的な使い方の導入として、ここではログライブラリである`monolog/monolog`をインストールします。
-まだComposerをインストールしていなければ、[Intro](00-intro.md)章を参照してください。
+まだComposerをインストールしていなければ、[はじめに](00-intro.md)章を参照してください。
 
 > **補足：** 簡潔のために、この導入ではComposerの[ローカル](00-intro.md#locally)インストールを実施した前提で進めます。
 
@@ -76,19 +76,14 @@ php composer.phar update
 
 こうするとComposerは2つのことをします。
 
-- It resolves all dependencies listed in your `composer.json` file and
-  writes all of the packages and their exact versions to the `composer.lock`
-  file, locking the project to those specific versions. You should commit
-  the `composer.lock` file to your project repo so that all people working
-  on the project are locked to the same versions of dependencies (more
-  below). This is the main role of the `update` command.
-- It then implicitly runs the [`install`](03-cli.md#install-i) command. This
-  will download the dependencies' files into the `vendor` directory in your
-  project. (The `vendor` directory is the conventional location for all
-  third-party code in a project). In our example from above, you would end
-  up with the Monolog source files in `vendor/monolog/monolog/`. As Monolog
-  has a dependency on `psr/log`, that package's files can also be found
-  inside `vendor/`.
+- `composer.json`ファイルに挙げられている全ての依存関係を解決して、全てのアッケージとその厳密なバージョンを、プロジェクトを特定のバージョンに固める`composer.lock`ファイルに書き込みます。
+  `composer.lock`ファイルはプロジェクトのリポジトリにコミットすべきです。
+  そうすればプロジェクトに参画する全員にとって同じバージョンの依存関係に固定されたものになります（詳細は後述）。
+  これが`update`コマンドの主な役割です。
+- それから暗黙裡に[`install`](03-cli.md#install-i)コマンドが走ります。
+  これにより依存関係のファイルがプロジェクトの`vendor`ディレクトリにダウンロードされます（`vendor`ディレクトリはプロジェクトの全てのサードパーティコード用の定番の場所です）。
+  上の例では最終的にMonologのソースファイルが`vendor/monolog/monolog`にあることになります。
+  Monologには`psr/log`への依存関係があるため、そのパッケージのファイルもまた`vendor/`の中に見付けられます。
 
 > **Tip:** gitをプロジェクトで使っているのなら、多分`.gitignore`に`vendor`を追加したいでしょう。
 > 実際のところサードパーティ製のコード全てをバージョン管理されたリポジトリに追加したくないので。
@@ -109,16 +104,9 @@ CIサーバ、プロダクションマシン、チーム内の他の開発者、
 
 既に`composer.lock`ファイルがプロジェクトフォルダにあるなら、それは前に自分で`update`コマンドを走らせたか、プロジェクトの誰かが`update`コマンドを走らせて`composer.lock`ファイルをプロジェクトにコミットしたからかのどちらかです（これはいいことです）。
 
-Either way, running `install` when a `composer.lock` file is present
-resolves and installs all dependencies that you listed in `composer.json`,
-but Composer uses the exact versions listed in `composer.lock` to ensure
-that the package versions are consistent for everyone working on your
-project. As a result you will have all dependencies requested by your
-`composer.json` file, but they may not all be at the very latest available
-versions (some of the dependencies listed in the `composer.lock` file may
-have released newer versions since the file was created). This is by design,
-it ensures that your project does not break because of unexpected changes in
-dependencies.
+いずれにせよ`composer.lock`ファイルが存在しているときに`install`を走らせると`composer.lock`に挙がっている全ての依存関係を解決してインストールするのですが、プロジェクトの作業をしている人全員にとってパッケージのバージョンが必ず一貫したものになるように`composer.lock`に挙げられた厳密なバージョンをComposerは使用します。
+結果として`composer.json`ファイルで要求された全ての依存関係が取得されるのですが、必ずしも利用できるごく最新のバージョンとはなっていないかもしれません（`composer.lock`ファイルで挙げられた依存関係はファイルが作成されてからより新しいバージョンがリリースされる可能性があります）。
+これは設計上意図されたものであり、依存関係での予期しない変更による不具合がプロジェクトで絶対に発生しないようにするものです。
 
 なのでVCSリポジトリから新しい変更を取得したあとは、Composerの`install`を走らせてvendorディレクトリが`composer.lock`ファイルと同期していることを確かめることをお勧めします。
 
@@ -238,4 +226,4 @@ PSR-4自動読み込みに加えて、ComposerはPSR-0、クラスマップ、�
 > もしそれを使いたくない場合は単に`vendor/composer/autoload_*.php`ファイルを含められます。
 > これは自前の自動読み込み器を設定することができる連想配列を返します。
 
-&larr; [導入](00-intro.html)  |  [ライブラリ](02-libraries.html) &rarr;
+&larr; [導入](00-intro.md)  |  [ライブラリ](02-libraries.md) &rarr;
