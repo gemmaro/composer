@@ -3,12 +3,11 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Composer VERSION\n"
 "POT-Creation-Date: 2023-01-14 16:11+0900\n"
-"PO-Revision-Date: 2023-01-21 22:49+0900\n"
+"PO-Revision-Date: 2023-02-11 13:36+0900\n"
 "Last-Translator: gemmaro <gemmaro.dev@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
