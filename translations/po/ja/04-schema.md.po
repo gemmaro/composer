@@ -18,7 +18,7 @@ msgstr ""
 
 #. type: Title ###
 #: ../doc/03-cli.md:1024 ../doc/04-schema.md:909
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "archive"
 msgstr "archive"
 
