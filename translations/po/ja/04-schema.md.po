@@ -3,15 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: Composer VERSION\n"
 "POT-Creation-Date: 2023-01-14 16:11+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2023-04-06 22:43+0900\n"
+"Last-Translator: gemmaro <gemmaro.dev@gmail.com>\n"
+"Language-Team: none\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,13 +23,12 @@ msgstr "archive"
 
 #. type: Title #
 #: ../doc/04-schema.md:1
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "The composer.json schema"
-msgstr "composer.json"
+msgstr "composer.jsonのスキーマ"
 
 #. type: Plain text
 #: ../doc/04-schema.md:4
-#, fuzzy
 msgid ""
 "This chapter will explain all of the fields available in `composer.json`."
 msgstr ""
@@ -38,101 +36,90 @@ msgstr ""
 
 #. type: Title ##
 #: ../doc/04-schema.md:5
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "JSON schema"
 msgstr "JSONスキーマ"
 
 #. type: Plain text
 #: ../doc/04-schema.md:10
-#, fuzzy
 msgid ""
 "We have a [JSON schema](https://json-schema.org) that documents the format "
 "and can also be used to validate your `composer.json`. In fact, it is used "
 "by the `validate` command. You can find it at: https://getcomposer.org/"
 "schema.json"
 msgstr ""
-"We have a [JSON schema](http://json-schema.org) that documents the format "
-"and can also be used to validate your `composer.json`. In fact, it is used "
-"by the `validate` command. You can find it at: [`res/composer-schema.json`]"
-"(https://github.com/composer/composer/blob/master/res/composer-schema.json)."
+"形式をドキュメント化する[JSON schema](https://json-schema.org)があり、"
+"`composer.json`を検証するのにも使えます。実際、`validate`コマンドによって使わ"
+"れています。 https://getcomposer.org/schema.json から取得できます。"
 
 #. type: Title ##
 #: ../doc/04-schema.md:11
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "Root Package"
-msgstr "Root Package"
+msgstr "ルートパッケージ"
 
 #. type: Plain text
 #: ../doc/04-schema.md:16
-#, fuzzy
 msgid ""
 "The root package is the package defined by the `composer.json` at the root "
 "of your project. It is the main `composer.json` that defines your project "
 "requirements."
 msgstr ""
-"The root package is the package defined by the `composer.json` at the root "
-"of your project. It is the main `composer.json` that defines your project "
-"requirements."
+"ルートパッケージは`composer.json`でプロジェクトのルートに定義されたパッケージ"
+"のことです。プロジェクトの要件を定義しているのがメインの`composer.json`なので"
+"す。"
 
 #. type: Plain text
 #: ../doc/04-schema.md:21
-#, fuzzy
 msgid ""
 "Certain fields only apply when in the root package context. One example of "
 "this is the `config` field. Only the root package can define configuration.  "
 "The config of dependencies is ignored. This makes the `config` field `root-"
 "only`."
 msgstr ""
-"Certain fields only apply when in the root package context. One example of "
-"this is the `config` field. Only the root package can define configuration.  "
-"The config of dependencies is ignored. This makes the `config` field `root-"
-"only`."
+"フィールドの中にはルートパッケージの文脈でのみ適用されるものがあります。この"
+"一例は`config`フィールドです。ルートパッケージのみが設定を定義できます。依存"
+"関係の設定は無視されます。このようにして`config`フィールドは`root-only`になる"
+"のです。"
 
 #. type: Plain text
 #: ../doc/04-schema.md:26
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "> **Note:** A package can be the root package or not, depending on the context.\n"
 "> For example, if your project depends on the `monolog` library, your project\n"
 "> is the root package. However, if you clone `monolog` from GitHub in order to\n"
 "> fix a bug in it, then `monolog` is the root package.\n"
-msgstr ""
-"> **Note:** A package can be the root package or not, depending on the context.\n"
-"> For example, if your project depends on the `monolog` library, your project\n"
-"> is the root package. However, if you clone `monolog` from GitHub in order to\n"
-"> fix a bug in it, then `monolog` is the root package.\n"
+msgstr "> **補足：**パッケージは文脈によってルートパッケージになったりならなかったりします。例えばプロジェクトが`monolog`ライブラリに依存している場合、そのプロジェクトはルートパッケージです。しかしもしバグ修正のためにGitHubから`monolog`をクローンしてきたとすれば、`monolog`はルートパッケージになります。\n"
 
 #. type: Title ##
 #: ../doc/04-schema.md:27
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "Properties"
-msgstr "Properties"
+msgstr "プロパティ"
 
 #. type: Title ###
 #: ../doc/04-schema.md:29
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "name"
 msgstr "name"
 
 #. type: Plain text
 #: ../doc/04-schema.md:33
-#, fuzzy
 msgid ""
 "The name of the package. It consists of vendor name and project name, "
 "separated by `/`. Examples:"
 msgstr ""
-"The name of the package. It consists of vendor name and project name, "
-"separated by `/`."
+"パッケージ名です。ベンダー名とプロジェクト名から構成され、`/`で区切られます。"
+"例えば："
 
 #. type: Bullet: '* '
 #: ../doc/04-schema.md:36
-#, fuzzy
 msgid "monolog/monolog"
 msgstr "monolog/monolog"
 
 #. type: Bullet: '* '
 #: ../doc/04-schema.md:36
-#, fuzzy
 msgid "igorw/event-source"
 msgstr "igorw/event-source"
 
@@ -143,156 +130,147 @@ msgid ""
 "`_`.  The complete name should match `^[a-z0-9]([_.-]?[a-z0-9]+)*/[a-z0-9]"
 "(([_.]?|-{0,2})[a-z0-9]+)*$`."
 msgstr ""
+"名前は小文字で、単語は`-`や`.`や`_`で区切られていなくてはなりません。名前全体"
+"は`^[a-z0-9]([_.-]?[a-z0-9]+)*/[a-z0-9](([_.]?|-{0,2})[a-z0-9]+)*$`に照合する"
+"でしょう。"
 
 #. type: Plain text
 #: ../doc/04-schema.md:41
-#, fuzzy
 msgid "The `name` property is required for published packages (libraries)."
-msgstr "Required for published packages (libraries)."
+msgstr "`name`プロパティは公開されるパッケージ（ライブラリ）には必須です。"
 
 #. type: Plain text
 #: ../doc/04-schema.md:43
 #, no-wrap
 msgid "> **Note:** Before Composer version 2.0, a name could contain any character, including white spaces.\n"
-msgstr ""
+msgstr "> **補足：**Composerのバージョン2.0より前は、名前には空白込みでどんな文字も含められました。\n"
 
 #. type: Title ###
 #: ../doc/04-schema.md:44
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "description"
 msgstr "description"
 
 #. type: Plain text
 #: ../doc/04-schema.md:47
-#, fuzzy
 msgid "A short description of the package. Usually this is one line long."
-msgstr ""
-"A short description of the package. Usually this is just one line long."
+msgstr "パッケージの短い説明です。大抵これは1行分の長さです。"
 
 #. type: Plain text
 #: ../doc/04-schema.md:49
-#, fuzzy
 msgid "Required for published packages (libraries)."
-msgstr "Required for published packages (libraries)."
+msgstr "公開されるパッケージ（ライブラリ）には必須です。"
 
 #. type: Title ###
 #: ../doc/04-schema.md:50
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "version"
 msgstr "version"
 
 #. type: Plain text
 #: ../doc/04-schema.md:54
-#, fuzzy
 msgid ""
 "The version of the package. In most cases this is not required and should be "
 "omitted (see below)."
 msgstr ""
-"The version of the package. In most cases this is not required and should be "
-"omitted (see below)."
+"パッケージのバージョンです。ほとんどの場合これは必須ではなく省略すべきです"
+"（後述）。"
 
 #. type: Plain text
 #: ../doc/04-schema.md:58
-#, fuzzy
 msgid ""
 "This must follow the format of `X.Y.Z` or `vX.Y.Z` with an optional suffix "
 "of `-dev`, `-patch` (`-p`), `-alpha` (`-a`), `-beta` (`-b`) or `-RC`.  The "
 "patch, alpha, beta and RC suffixes can also be followed by a number."
 msgstr ""
-"This must follow the format of `X.Y.Z` or `vX.Y.Z` with an optional suffix "
-"of `-dev`, `-patch`, `-alpha`, `-beta` or `-RC`. The patch, alpha, beta and "
-"RC suffixes can also be followed by a number."
+"これは`X.Y.Z`や`vX.Y.Z`の形式にしたがっていなければなりません。オプションで`-"
+"dev`、`-patch` (`-p`)、`-alpha` (`-a`)、`-beta` (`-b`)、`-RC`を接尾辞に付けて"
+"も構いません。また、patch、alpha、beta、RCの接尾辞には数字が続けても大丈夫で"
+"す。"
 
 #. type: Plain text
 #: ../doc/04-schema.md:60 ../doc/04-schema.md:115 ../doc/04-schema.md:958
-#, fuzzy
 msgid "Examples:"
-msgstr "Examples:"
+msgstr "例："
 
 #. type: Bullet: '- '
 #: ../doc/04-schema.md:70
 msgid "1.0.0"
-msgstr ""
+msgstr "1.0.0"
 
 #. type: Bullet: '- '
 #: ../doc/04-schema.md:70
 msgid "1.0.2"
-msgstr ""
+msgstr "1.0.2"
 
 #. type: Bullet: '- '
 #: ../doc/04-schema.md:70
 msgid "1.1.0"
-msgstr ""
+msgstr "1.1.0"
 
 #. type: Bullet: '- '
 #: ../doc/04-schema.md:70
 msgid "0.2.5"
-msgstr ""
+msgstr "0.2.5"
 
 #. type: Bullet: '- '
 #: ../doc/04-schema.md:70
 msgid "1.0.0-dev"
-msgstr ""
+msgstr "1.0.0-dev"
 
 #. type: Bullet: '- '
 #: ../doc/04-schema.md:70
 msgid "1.0.0-alpha3"
-msgstr ""
+msgstr "1.0.0-alpha3"
 
 #. type: Bullet: '- '
 #: ../doc/04-schema.md:70
 msgid "1.0.0-beta2"
-msgstr ""
+msgstr "1.0.0-beta2"
 
 #. type: Bullet: '- '
 #: ../doc/04-schema.md:70
 msgid "1.0.0-RC5"
-msgstr ""
+msgstr "1.0.0-RC5"
 
 #. type: Bullet: '- '
 #: ../doc/04-schema.md:70
 msgid "v2.0.4-p1"
-msgstr ""
+msgstr "v2.0.4-p1"
 
 #. type: Plain text
 #: ../doc/04-schema.md:74
-#, fuzzy
 msgid ""
 "Optional if the package repository can infer the version from somewhere, "
 "such as the VCS tag name in the VCS repository. In that case it is also "
 "recommended to omit it."
 msgstr ""
-"Optional if the package repository can infer the version from somewhere, "
-"such as the VCS tag name in the VCS repository. In that case it is also "
-"recommended to omit it."
+"パッケージのリポジトリのどこかしらからバージョンが推測できるのであればこのプ"
+"ロパティはオプションです。例えばVCSリポジトリのVCSのタグ名などです。その場合"
+"は省略することが推奨されます。"
 
 #. type: Plain text
 #: ../doc/04-schema.md:78
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "> **Note:** Packagist uses VCS repositories, so the statement above is very\n"
 "> much true for Packagist as well. Specifying the version yourself will\n"
 "> most likely end up creating problems at some point due to human error.\n"
-msgstr ""
-"> **Note:** Packagist uses VCS repositories, so the statement above is very\n"
-"> much true for Packagist as well. Specifying the version yourself will\n"
-"> most likely end up creating problems at some point due to human error.\n"
+msgstr "> **補足：** PackagistはVCSリポジトリを使うため、上の記載はPackagistにも全く同じことが言えます。自分でバージョンを指定するとほぼ確実にいつかヒューマンエラーにより問題が生じることでしょう。\n"
 
 #. type: Title ###
 #: ../doc/04-schema.md:79
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "type"
 msgstr "type"
 
 #. type: Plain text
 #: ../doc/04-schema.md:82
-#, fuzzy
 msgid "The type of the package. It defaults to `library`."
-msgstr "The type of the package. It defaults to `library`."
+msgstr "パッケージの種別です。既定は`library`です。"
 
 #. type: Plain text
 #: ../doc/04-schema.md:88
-#, fuzzy
 msgid ""
 "Package types are used for custom installation logic. If you have a package "
 "that needs some special logic, you can define a custom type. This could be a "
@@ -300,28 +278,24 @@ msgid ""
 "types will all be specific to certain projects, and they will need to "
 "provide an installer capable of installing packages of that type."
 msgstr ""
-"Package types are used for custom installation logic. If you have a package "
-"that needs some special logic, you can define a custom type. This could be a "
-"`symfony-bundle`, a `wordpress-plugin` or a `typo3-module`. These types will "
-"all be specific to certain projects, and they will need to provide an "
-"installer capable of installing packages of that type."
+"パッケージの種別は独自のインストールの仕組みに使われます。何らかの特別な仕組"
+"みが必要なパッケージがあるとき、独自の種別を定義することができます。これは"
+"`symfony-bundle`、`wordpress-plugin`、`typo3-cms-extension`とできます。これら"
+"の種別は全て特定のプロジェクトに特有のものであって、その種別のパッケージのイ"
+"ンストールができるようなインストーラを提供する必要があります。"
 
 #. type: Plain text
 #: ../doc/04-schema.md:90
-#, fuzzy
 msgid "Out of the box, Composer supports four types:"
-msgstr "Out of the box, composer supports four types:"
+msgstr "その中でも特にComposerは4つの種別に対応しています。"
 
 #. type: Bullet: '- '
 #: ../doc/04-schema.md:105
-#, fuzzy
 msgid "**library:** This is the default. It will copy the files to `vendor`."
-msgstr ""
-"**library:** This is the default. It will simply copy the files to `vendor`."
+msgstr "**library:**これは既定です。ファイルを`vendor`に複製します。"
 
 #. type: Bullet: '- '
 #: ../doc/04-schema.md:105
-#, fuzzy
 msgid ""
 "**project:** This denotes a project rather than a library. For example "
 "application shells like the [Symfony standard edition](https://github.com/"
@@ -330,89 +304,83 @@ msgid ""
 "applications distributed as packages. This can for example be used by IDEs "
 "to provide listings of projects to initialize when creating a new workspace."
 msgstr ""
-"**project:** This denotes a project rather than a library. For example "
-"application shells like the [Symfony standard edition](https://github.com/"
-"symfony/symfony-standard), CMSs like the [SilverStripe installer](https://"
-"github.com/silverstripe/silverstripe-installer)  or full fledged "
-"applications distributed as packages. This can for example be used by IDEs "
-"to provide listings of projects to initialize when creating a new workspace."
+"**project:**これは、ライブラリではなくプロジェクトであることを示しています。"
+"例えば[Symfony標準エディション](https://github.com/symfony/symfony-standard)"
+"のようなアプリケーションのシェル、[SilverStripeインストーラ](https://github."
+"com/silverstripe/silverstripe-installer)のようなCMS、あるいはパッケージとして"
+"配布される完全なアプリケーションがこれにあたります。例としてIDEから新しいワー"
+"クスペースを作る際に初期化するプロジェクトの一覧を提供するのに使うことができ"
+"ます。"
 
 #. type: Bullet: '- '
 #: ../doc/04-schema.md:105
-#, fuzzy
 msgid ""
 "**metapackage:** An empty package that contains requirements and will "
 "trigger their installation, but contains no files and will not write "
 "anything to the filesystem. As such, it does not require a dist or source "
 "key to be installable."
 msgstr ""
-"**metapackage:** An empty package that contains requirements and will "
-"trigger their installation, but contains no files and will not write "
-"anything to the filesystem. As such, it does not require a dist or source "
-"key to be installable."
+"**metapackage:**要件を含む空のパッケージでありインストールの条件になります"
+"が、ファイルを含んでおらずファイルシステムに何も書き込まないものです。そうし"
+"たわけなので、インストールできるdistやsourceキーを必要としません。"
 
 #. type: Bullet: '- '
 #: ../doc/04-schema.md:105
-#, fuzzy
 msgid ""
 "**composer-plugin:** A package of type `composer-plugin` may provide an "
 "installer for other packages that have a custom type. Read more in the "
 "[dedicated article](articles/custom-installers.md)."
 msgstr ""
-"**composer-plugin:** A package of type `composer-plugin` may provide an "
-"installer for other packages that have a custom type. Read more in the "
-"[dedicated article](articles/custom-installers.md)."
+"**composer-plugin:**種別`composer-plugin`のパッケージは独自の種別を持つ他の"
+"パッケージのインストーラを提供することがあります。詳細は[専門記事](articles/"
+"custom-installers.md)を参照してください。"
 
 #. type: Plain text
 #: ../doc/04-schema.md:108
-#, fuzzy
 msgid ""
 "Only use a custom type if you need custom logic during installation. It is "
 "recommended to omit this field and have it default to `library`."
 msgstr ""
-"Only use a custom type if you need custom logic during installation. It is "
-"recommended to omit this field and have it just default to `library`."
+"インストール時に独自の仕組みが必要な場合にのみ独自の種別を使ってください。こ"
+"のフィールドを省略し既定の`library`にするのがお勧めです。"
 
 #. type: Title ###
 #: ../doc/04-schema.md:109
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "keywords"
 msgstr "keywords"
 
 #. type: Plain text
 #: ../doc/04-schema.md:113
-#, fuzzy
 msgid ""
 "An array of keywords that the package is related to. These can be used for "
 "searching and filtering."
-msgstr ""
-"An array of keywords that the package is related to. These can be used for "
-"searching and filtering."
+msgstr "パッケージに関係するキーワードの配列です。検索と絞り込みに使えます。"
 
 #. type: Bullet: '- '
 #: ../doc/04-schema.md:121
 msgid "logging"
-msgstr ""
+msgstr "logging"
 
 #. type: Bullet: '- '
 #: ../doc/04-schema.md:121
 msgid "events"
-msgstr ""
+msgstr "events"
 
 #. type: Bullet: '- '
 #: ../doc/04-schema.md:121
 msgid "database"
-msgstr ""
+msgstr "database"
 
 #. type: Bullet: '- '
 #: ../doc/04-schema.md:121
 msgid "redis"
-msgstr ""
+msgstr "redis"
 
 #. type: Bullet: '- '
 #: ../doc/04-schema.md:121
 msgid "templating"
-msgstr ""
+msgstr "templating"
 
 #. type: Plain text
 #: ../doc/04-schema.md:125
@@ -421,7 +389,7 @@ msgid ""
 "> **Note**: Some special keywords trigger `composer require` without the\n"
 "> `--dev` option to prompt users if they would like to add these packages to\n"
 "> `require-dev` instead of `require`. These are: `dev`, `testing`, `static analysis`.\n"
-msgstr ""
+msgstr "> **補足**：`--dev`オプションなしで`composer require`するようにし、パッケージを`require`ではなく`require-dev`に追加してもよいか利用者にプロンプトを出す特別なキーワードがあります。`dev`、`testing`、`static analysis`がそれです。\n"
 
 #. type: Plain text
 #: ../doc/04-schema.md:127 ../doc/04-schema.md:133 ../doc/04-schema.md:139
@@ -429,175 +397,157 @@ msgstr ""
 #: ../doc/04-schema.md:732 ../doc/04-schema.md:763 ../doc/04-schema.md:899
 #: ../doc/04-schema.md:908 ../doc/04-schema.md:950 ../doc/04-schema.md:966
 #: ../doc/04-schema.md:1001
-#, fuzzy
 msgid "Optional."
-msgstr "Optional."
+msgstr "任意のものです。"
 
 #. type: Title ###
 #: ../doc/04-schema.md:128
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "homepage"
 msgstr "homepage"
 
 #. type: Plain text
 #: ../doc/04-schema.md:131
-#, fuzzy
 msgid "A URL to the website of the project."
-msgstr "An URL to the website of the project."
+msgstr "プロジェクトのwebサイトへのURLです。"
 
 #. type: Title ###
 #: ../doc/04-schema.md:134
 #, no-wrap
 msgid "readme"
-msgstr ""
+msgstr "readme"
 
 #. type: Plain text
 #: ../doc/04-schema.md:137
 msgid "A relative path to the readme document."
-msgstr ""
+msgstr "readmeドキュメントへの相対パスです。"
 
 #. type: Title ###
 #: ../doc/04-schema.md:140
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "time"
 msgstr "time"
 
 #. type: Plain text
 #: ../doc/04-schema.md:143
-#, fuzzy
 msgid "Release date of the version."
-msgstr "Release date of the version."
+msgstr "当該バージョンのリリース日です。"
 
 #. type: Plain text
 #: ../doc/04-schema.md:145
-#, fuzzy
 msgid "Must be in `YYYY-MM-DD` or `YYYY-MM-DD HH:MM:SS` format."
-msgstr "Must be in `YYYY-MM-DD` or `YYYY-MM-DD HH:MM:SS` format."
+msgstr "`YYYY-MM-DD`または`YYYY-MM-DD HH:MM:SS`の形式でなければなりません。"
 
 #. type: Title ###
 #: ../doc/04-schema.md:148
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "license"
 msgstr "license"
 
 #. type: Plain text
 #: ../doc/04-schema.md:151
-#, fuzzy
 msgid ""
 "The license of the package. This can be either a string or an array of "
 "strings."
-msgstr ""
-"The license of the package. This can be either a string or an array of "
-"strings."
+msgstr "パッケージの利用許諾です。これは文字列または文字列の配列にできます。"
 
 #. type: Plain text
 #: ../doc/04-schema.md:153
-#, fuzzy
 msgid ""
 "The recommended notation for the most common licenses is (alphabetical):"
-msgstr ""
-"The recommended notation for the most common licenses is (alphabetical):"
+msgstr "最頻出の利用許諾についての推奨される記法は以下の通り（辞書順）。"
 
 #. type: Bullet: '- '
 #: ../doc/04-schema.md:163
 msgid "Apache-2.0"
-msgstr ""
+msgstr "Apache-2.0"
 
 #. type: Bullet: '- '
 #: ../doc/04-schema.md:163
 msgid "BSD-2-Clause"
-msgstr ""
+msgstr "BSD-2-Clause"
 
 #. type: Bullet: '- '
 #: ../doc/04-schema.md:163
 msgid "BSD-3-Clause"
-msgstr ""
+msgstr "BSD-3-Clause"
 
 #. type: Bullet: '- '
 #: ../doc/04-schema.md:163
 msgid "BSD-4-Clause"
-msgstr ""
+msgstr "BSD-4-Clause"
 
 #. type: Bullet: '- '
 #: ../doc/04-schema.md:163
 msgid "GPL-2.0-only / GPL-2.0-or-later"
-msgstr ""
+msgstr "GPL-2.0-only / GPL-2.0-or-later"
 
 #. type: Bullet: '- '
 #: ../doc/04-schema.md:163
 msgid "GPL-3.0-only / GPL-3.0-or-later"
-msgstr ""
+msgstr "GPL-3.0-only / GPL-3.0-or-later"
 
 #. type: Bullet: '- '
 #: ../doc/04-schema.md:163
 msgid "LGPL-2.1-only / LGPL-2.1-or-later"
-msgstr ""
+msgstr "LGPL-2.1-only / LGPL-2.1-or-later"
 
 #. type: Bullet: '- '
 #: ../doc/04-schema.md:163
 msgid "LGPL-3.0-only / LGPL-3.0-or-later"
-msgstr ""
+msgstr "LGPL-3.0-only / LGPL-3.0-or-later"
 
 #. type: Bullet: '- '
 #: ../doc/04-schema.md:163
 msgid "MIT"
-msgstr ""
+msgstr "MIT"
 
 #. type: Plain text
 #: ../doc/04-schema.md:166
-#, fuzzy
 msgid ""
 "Optional, but it is highly recommended to supply this. More identifiers are "
 "listed at the [SPDX Open Source License Registry](https://spdx.org/"
 "licenses/)."
-msgstr ""
-"Optional, but it is highly recommended to supply this. More identifiers are "
-"listed at the [SPDX Open Source License Registry](http://www.spdx.org/"
-"licenses/)."
+msgstr "オプションにはなりますが、このプロパティを付けることは強く推奨されます。他の識別子は[SPDX Open Source License Registry](https://spdx.org/licenses/)に一覧になっています。"
 
 #. type: Plain text
 #: ../doc/04-schema.md:168
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "> **Note:** For closed-source software, you may use `\"proprietary\"` as the license identifier.\n"
-msgstr "For closed-source software, you may use `\"proprietary\"` as the license identifier."
+msgstr "> **Note:** ソースが閉鎖的なソフトウェアについては利用許諾の識別子として `\"proprietary\"` を使うことができます。\n"
 
 #. type: Plain text
 #: ../doc/04-schema.md:170
-#, fuzzy
 msgid "An Example:"
-msgstr "An Example:"
+msgstr "一例："
 
 #. type: Fenced code block (json)
 #: ../doc/04-schema.md:171
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "{\n"
 "    \"license\": \"MIT\"\n"
 "}\n"
 msgstr ""
-"    {\n"
-"        \"license\": \"MIT\"\n"
-"    }\n"
+"{\n"
+"    \"license\": \"MIT\"\n"
+"}\n"
 
 #. type: Plain text
 #: ../doc/04-schema.md:179
-#, fuzzy
 msgid ""
 "For a package, when there is a choice between licenses (\"disjunctive license"
 "\"), multiple can be specified as an array."
-msgstr ""
-"For a package, when there is a choice between licenses (\"disjunctive license"
-"\"), multiple can be specified as array."
+msgstr "あるパッケージについて、複数の利用許諾から選択できる場合（「離接的利用許諾」）、複数のものを配列として指定できます。"
 
 #. type: Plain text
 #: ../doc/04-schema.md:181
-#, fuzzy
 msgid "An Example for disjunctive licenses:"
-msgstr "An Example for disjunctive licenses:"
+msgstr "離接的利用許諾の例です。"
 
 #. type: Fenced code block (json)
 #: ../doc/04-schema.md:182
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "{\n"
 "    \"license\": [\n"
@@ -606,97 +556,84 @@ msgid ""
 "    ]\n"
 "}\n"
 msgstr ""
-"    {\n"
-"        \"license\": [\n"
-"           \"LGPL-2.1\",\n"
-"           \"GPL-3.0+\"\n"
-"        ]\n"
-"    }\n"
+"{\n"
+"    \"license\": [\n"
+"        \"LGPL-2.1-only\",\n"
+"        \"GPL-3.0-or-later\"\n"
+"    ]\n"
+"}\n"
 
 #. type: Plain text
 #: ../doc/04-schema.md:192
-#, fuzzy
 msgid ""
 "Alternatively they can be separated with \"or\" and enclosed in parentheses;"
-msgstr ""
-"Alternatively they can be separated with \"or\" and enclosed in parenthesis;"
+msgstr "代わりに「or」で区切って括弧で囲むこともできます。"
 
 #. type: Fenced code block (json)
 #: ../doc/04-schema.md:193
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "{\n"
 "    \"license\": \"(LGPL-2.1-only or GPL-3.0-or-later)\"\n"
 "}\n"
 msgstr ""
-"    {\n"
-"        \"license\": \"(LGPL-2.1 or GPL-3.0+)\"\n"
-"    }\n"
+"{\n"
+"    \"license\": \"(LGPL-2.1-only or GPL-3.0-or-later)\"\n"
+"}\n"
 
 #. type: Plain text
 #: ../doc/04-schema.md:201
-#, fuzzy
 msgid ""
 "Similarly, when multiple licenses need to be applied (\"conjunctive license"
 "\"), they should be separated with \"and\" and enclosed in parentheses."
-msgstr ""
-"Similarly when multiple licenses need to be applied (\"conjunctive license"
-"\"), they should be separated with \"and\" and enclosed in parenthesis."
+msgstr "これに似ていますが、複数の利用許諾が適用される必要があるときは（「結合的利用許諾」）、「and」で区切って（）で囲むことになります。"
 
 #. type: Title ###
 #: ../doc/04-schema.md:202
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "authors"
 msgstr "authors"
 
 #. type: Plain text
 #: ../doc/04-schema.md:205
-#, fuzzy
 msgid "The authors of the package. This is an array of objects."
-msgstr "The authors of the package. This is an array of objects."
+msgstr "パッケージの作者です。これはオブジェクトの配列です。"
 
 #. type: Plain text
 #: ../doc/04-schema.md:207
-#, fuzzy
 msgid "Each author object can have following properties:"
-msgstr "Each author object can have following properties:"
+msgstr "それぞれの作者オブジェクトは以下のプロパティを持つことができます。"
 
 #. type: Bullet: '* '
 #: ../doc/04-schema.md:212
-#, fuzzy
 msgid "**name:** The author's name. Usually their real name."
-msgstr "**name:** The author's name. Usually his real name."
+msgstr "**name:** 作者名です。大抵は実名です。"
 
 #. type: Bullet: '* '
 #: ../doc/04-schema.md:212
-#, fuzzy
 msgid "**email:** The author's email address."
-msgstr "**email:** The author's email address."
+msgstr "**email:** 作者のEメールアドレスです。"
 
 #. type: Bullet: '* '
 #: ../doc/04-schema.md:212
-#, fuzzy
 msgid "**homepage:** URL to the author's website."
-msgstr "**homepage:** An URL to the author's website."
+msgstr "**homepage:** 作者のwebサイトへのURLです。"
 
 #. type: Bullet: '* '
 #: ../doc/04-schema.md:212
-#, fuzzy
 msgid ""
 "**role:** The author's role in the project (e.g. developer or translator)"
-msgstr ""
-"**role:** The authors' role in the project (e.g. developer or translator)"
+msgstr "**role:** プロジェクトにおける作者の役割です（例：開発者や翻訳者）"
 
 #. type: Plain text
 #: ../doc/04-schema.md:214 ../doc/04-schema.md:253 ../doc/04-schema.md:276
 #: ../doc/04-schema.md:986
-#, fuzzy
 msgid "An example:"
-msgstr "An example:"
+msgstr "一例："
 
 #. type: Fenced code block (json)
 #: ../doc/04-schema.md:215
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "{\n"
 "    \"authors\": [\n"
@@ -715,104 +652,92 @@ msgid ""
 "    ]\n"
 "}\n"
 msgstr ""
-"    {\n"
-"        \"authors\": [\n"
-"            {\n"
-"                \"name\": \"Nils Adermann\",\n"
-"                \"email\": \"naderman@naderman.de\",\n"
-"                \"homepage\": \"http://www.naderman.de\",\n"
-"                \"role\": \"Developer\"\n"
-"            },\n"
-"            {\n"
-"                \"name\": \"Jordi Boggiano\",\n"
-"                \"email\": \"j.boggiano@seld.be\",\n"
-"                \"homepage\": \"http://seld.be\",\n"
-"                \"role\": \"Developer\"\n"
-"            }\n"
-"        ]\n"
-"    }\n"
+"{\n"
+"    \"authors\": [\n"
+"        {\n"
+"            \"name\": \"Nils Adermann\",\n"
+"            \"email\": \"naderman@naderman.de\",\n"
+"            \"homepage\": \"https://www.naderman.de\",\n"
+"            \"role\": \"Developer\"\n"
+"        },\n"
+"        {\n"
+"            \"name\": \"Jordi Boggiano\",\n"
+"            \"email\": \"j.boggiano@seld.be\",\n"
+"            \"homepage\": \"https://seld.be\",\n"
+"            \"role\": \"Developer\"\n"
+"        }\n"
+"    ]\n"
+"}\n"
 
 #. type: Plain text
 #: ../doc/04-schema.md:235
-#, fuzzy
 msgid "Optional, but highly recommended."
-msgstr "Optional, but highly recommended."
+msgstr "任意のプロパティですが、付けることを強く推奨します。"
 
 #. type: Title ###
 #: ../doc/04-schema.md:236
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "support"
 msgstr "support"
 
 #. type: Plain text
 #: ../doc/04-schema.md:239
-#, fuzzy
 msgid "Various information to get support about the project."
-msgstr "Various information to get support about the project."
+msgstr "プロジェクトについてのサポートを得るための様々な情報です。"
 
 #. type: Plain text
 #: ../doc/04-schema.md:241
-#, fuzzy
 msgid "Support information includes the following:"
-msgstr "Support information includes the following:"
+msgstr "サポート情報には以下が含まれます。"
 
 #. type: Bullet: '* '
 #: ../doc/04-schema.md:251
-#, fuzzy
 msgid "**email:** Email address for support."
-msgstr "**email:** Email address for support."
+msgstr "**email:** サポート用Eメールアドレスです。"
 
 #. type: Bullet: '* '
 #: ../doc/04-schema.md:251
-#, fuzzy
 msgid "**issues:** URL to the issue tracker."
-msgstr "**issues:** URL to the Issue Tracker."
+msgstr "**issues:** 課題管理表へのURLです。"
 
 #. type: Bullet: '* '
 #: ../doc/04-schema.md:251
-#, fuzzy
 msgid "**forum:** URL to the forum."
-msgstr "**forum:** URL to the Forum."
+msgstr "**forum:** フォーラムへのURLです。"
 
 #. type: Bullet: '* '
 #: ../doc/04-schema.md:251
-#, fuzzy
 msgid "**wiki:** URL to the wiki."
-msgstr "**wiki:** URL to the Wiki."
+msgstr "**wiki:** wikiへのURLです。"
 
 #. type: Bullet: '* '
 #: ../doc/04-schema.md:251
-#, fuzzy
 msgid "**irc:** IRC channel for support, as irc://server/channel."
-msgstr "**irc:** IRC channel for support, as irc://server/channel."
+msgstr "**irc:** irc://server/channel のような、サポート用IRCチャンネルです。"
 
 #. type: Bullet: '* '
 #: ../doc/04-schema.md:251
-#, fuzzy
 msgid "**source:** URL to browse or download the sources."
-msgstr "**source:** URL to browse or download the sources."
+msgstr "**source:** ソースを閲覧したりダウンロードしたりするURLです。"
 
 #. type: Bullet: '* '
 #: ../doc/04-schema.md:251
-#, fuzzy
 msgid "**docs:** URL to the documentation."
-msgstr "**forum:** URL to the Forum."
+msgstr "**docs:** ドキュメントへのURLです。"
 
 #. type: Bullet: '* '
 #: ../doc/04-schema.md:251
-#, fuzzy
 msgid "**rss:** URL to the RSS feed."
-msgstr "**issues:** URL to the Issue Tracker."
+msgstr "**rss:** RSSフィードへのURLです。"
 
 #. type: Bullet: '* '
 #: ../doc/04-schema.md:251
-#, fuzzy
 msgid "**chat:** URL to the chat channel."
-msgstr "**homepage:** An URL to the author's website."
+msgstr "**chat:** チャットチャンネルへのURLです。"
 
 #. type: Fenced code block (json)
 #: ../doc/04-schema.md:254
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "{\n"
 "    \"support\": {\n"
@@ -821,46 +746,46 @@ msgid ""
 "    }\n"
 "}\n"
 msgstr ""
-"    {\n"
-"        \"support\": {\n"
-"            \"email\": \"support@example.org\",\n"
-"            \"irc\": \"irc://irc.freenode.org/composer\"\n"
-"        }\n"
+"{\n"
+"    \"support\": {\n"
+"        \"email\": \"support@example.org\",\n"
+"        \"irc\": \"irc://irc.freenode.org/composer\"\n"
 "    }\n"
+"}\n"
 
 #. type: Title ###
 #: ../doc/04-schema.md:265
 #, no-wrap
 msgid "funding"
-msgstr ""
+msgstr "funding"
 
 #. type: Plain text
 #: ../doc/04-schema.md:269
 msgid ""
 "A list of URLs to provide funding to the package authors for maintenance and "
 "development of new functionality."
-msgstr ""
+msgstr "パッケージの作者が維持管理と新しい機能の開発を行えるよう投資を提供するためのURLの一覧です。"
 
 #. type: Plain text
 #: ../doc/04-schema.md:271
 msgid "Each entry consists of the following"
-msgstr ""
+msgstr "それぞれの項目は以下のものからなります。"
 
 #. type: Bullet: '* '
 #: ../doc/04-schema.md:274
 msgid ""
 "**type:** The type of funding, or the platform through which funding can be "
 "provided, e.g. patreon, opencollective, tidelift or github."
-msgstr ""
+msgstr "**type:** 投資の種別、または投資を行えるプラットフォームです。例えばpatreon、opencollective、tidelift、githubです。"
 
 #. type: Bullet: '* '
 #: ../doc/04-schema.md:274
 msgid "**url:** URL to a website with details, and a way to fund the package."
-msgstr ""
+msgstr "**url:** 詳細が記載されたwebサイトへのURLとパッケージに投資する方法です。"
 
 #. type: Fenced code block (json)
 #: ../doc/04-schema.md:277
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "{\n"
 "    \"funding\": [\n"
@@ -879,35 +804,36 @@ msgid ""
 "    ]\n"
 "}\n"
 msgstr ""
-"    {\n"
-"        \"name\": \"acme/blog\",\n"
-"        \"repositories\": [\n"
-"            {\n"
-"                \"type\": \"vcs\",\n"
-"                \"url\": \"https://github.com/username/hello-world\"\n"
-"            }\n"
-"        ],\n"
-"        \"require\": {\n"
-"            \"acme/hello-world\": \"dev-master\"\n"
+"{\n"
+"    \"funding\": [\n"
+"        {\n"
+"            \"type\": \"patreon\",\n"
+"            \"url\": \"https://www.patreon.com/phpdoctrine\"\n"
+"        },\n"
+"        {\n"
+"            \"type\": \"tidelift\",\n"
+"            \"url\": \"https://tidelift.com/subscription/pkg/packagist-doctrine_doctrine-bundle\"\n"
+"        },\n"
+"        {\n"
+"            \"type\": \"other\",\n"
+"            \"url\": \"https://www.doctrine-project.org/sponsorship.html\"\n"
 "        }\n"
-"    }\n"
+"    ]\n"
+"}\n"
 
 #. type: Title ###
 #: ../doc/04-schema.md:298
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "Package links"
-msgstr "Package links"
+msgstr "パッケージのリンク"
 
 #. type: Plain text
 #: ../doc/04-schema.md:303
-#, fuzzy
 msgid ""
 "All of the following take an object which maps package names to versions of "
 "the package via version constraints. Read more about versions [here]"
 "(articles/versions.md)."
-msgstr ""
-"All of the following take an object which maps package names to [version "
-"constraints](01-basic-usage.md#package-versions)."
+msgstr "以下の全てはバージョン制約を介してパッケージ名とパッケージのバージョンを対応付けるオブジェクトを取ります。バージョンについての詳細は[こちら](articles/versions.md)をお読みください。"
 
 #. type: Plain text
 #: ../doc/04-schema.md:305 ../doc/04-schema.md:324 ../doc/04-schema.md:338
@@ -916,13 +842,12 @@ msgstr ""
 #: ../doc/04-schema.md:628 ../doc/04-schema.md:644 ../doc/04-schema.md:675
 #: ../doc/04-schema.md:703 ../doc/04-schema.md:724 ../doc/04-schema.md:815
 #: ../doc/04-schema.md:920 ../doc/04-schema.md:937
-#, fuzzy
 msgid "Example:"
-msgstr "Example:"
+msgstr "例："
 
 #. type: Fenced code block (json)
 #: ../doc/04-schema.md:306
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "{\n"
 "    \"require\": {\n"
@@ -930,21 +855,19 @@ msgid ""
 "    }\n"
 "}\n"
 msgstr ""
-"    {\n"
-"        \"require\": {\n"
-"            \"monolog/monolog\": \"1.0.*\"\n"
-"        }\n"
+"{\n"
+"    \"require\": {\n"
+"        \"monolog/monolog\": \"1.0.*\"\n"
 "    }\n"
+"}\n"
 
 #. type: Plain text
 #: ../doc/04-schema.md:315
-#, fuzzy
 msgid "All links are optional fields."
-msgstr "All links are optional fields."
+msgstr "全てのリンクは任意で付けてよいフィールドです。"
 
 #. type: Plain text
 #: ../doc/04-schema.md:322
-#, fuzzy
 msgid ""
 "`require` and `require-dev` additionally support _stability flags_ ([root-"
 "only](04-schema.md#root-package)).  They take the form "
@@ -953,17 +876,11 @@ msgid ""
 "(#minimum-stability) setting. You can apply them to a constraint, or apply "
 "them to an empty _constraint_ if you want to allow unstable packages of a "
 "dependency for example."
-msgstr ""
-"`require` and `require-dev` additionally support stability flags (root-"
-"only).  These allow you to further restrict or expand the stability of a "
-"package beyond the scope of the [minimum-stability](#minimum-stability) "
-"setting. You can apply them to a constraint, or just apply them to an empty "
-"constraint if you want to allow unstable packages of a dependency for "
-"example."
+msgstr "`require`と`require-dev`は追加で _安定性フラグ_ （[ルート限定](04-schema.md#root-package)）に対応しています。\"_constraint_@_stability flag_\" の形式を取っています。これらによりパッケージの安定性を、[最小安定性](#minimum-stability)の範疇を超え、さらに制限したり拡張したりすることができます。こうしたフラグは制約や空の _制約_ に適用することができます。後者は例えば依存関係に不安定なパッケージを許容したい場合などです。"
 
 #. type: Fenced code block (json)
 #: ../doc/04-schema.md:325
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "{\n"
 "    \"require\": {\n"
@@ -972,22 +889,19 @@ msgid ""
 "    }\n"
 "}\n"
 msgstr ""
-"    {\n"
-"        \"require\": {\n"
-"            \"monolog/monolog\": \"1.0.*@beta\",\n"
-"            \"acme/foo\": \"@dev\"\n"
-"        }\n"
+"{\n"
+"    \"require\": {\n"
+"        \"monolog/monolog\": \"1.0.*@beta\",\n"
+"        \"acme/foo\": \"@dev\"\n"
 "    }\n"
+"}\n"
 
 #. type: Plain text
 #: ../doc/04-schema.md:336
-#, fuzzy
 msgid ""
 "If one of your dependencies has a dependency on an unstable package you need "
 "to explicitly require it as well, along with its sufficient stability flag."
-msgstr ""
-"If one of your dependencies has a dependency on an unstable package you need "
-"to explicitly require it as well, along with its sufficient stability flag."
+msgstr "依存関係のうち不安定なパッケージに依存しているものがあれば、同様に明示的に必要安定性フラグと共に要件に加えなければなりません。"
 
 #. type: Plain text
 #: ../doc/04-schema.md:342
@@ -996,11 +910,11 @@ msgid ""
 "fixtures\": \"dev-master\"` then inside the root composer.json you need to "
 "add the second line below to allow dev releases for the `doctrine/data-"
 "fixtures` package :"
-msgstr ""
+msgstr "`doctrine/doctrine-fixtures-bundle`が`\"doctrine/data-fixtures\": \"dev-master\"`を要件としているとすると、ルートのcomposer.jsonの中で以下の2行目を加えて`doctrine/data-fixtures`パッケージの開発版リリースを許容する必要があります。"
 
 #. type: Fenced code block (json)
 #: ../doc/04-schema.md:343
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "{\n"
 "    \"require\": {\n"
@@ -1009,16 +923,16 @@ msgid ""
 "    }\n"
 "}\n"
 msgstr ""
-"    {\n"
-"        \"require\": {\n"
-"            \"doctrine/doctrine-fixtures-bundle\": \"dev-master\",\n"
-"            \"doctrine/data-fixtures\": \"@dev\"\n"
-"        }\n"
+"{\n"
+"    \"require\": {\n"
+"        \"doctrine/doctrine-fixtures-bundle\": \"dev-master\",\n"
+"        \"doctrine/data-fixtures\": \"@dev\"\n"
 "    }\n"
+"}\n"
 
 #. type: Plain text
 #: ../doc/04-schema.md:358
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "`require` and `require-dev` additionally support explicit references (i.e.\n"
 "commit) for dev versions to make sure they are locked to a given state, even\n"
@@ -1026,15 +940,11 @@ msgid ""
 "and append the reference with `#<ref>`. This is also a\n"
 "[root-only](04-schema.md#root-package) feature and will be ignored in\n"
 "dependencies.\n"
-msgstr ""
-"`require` and `require-dev` additionally support explicit references (i.e.\n"
-"commit) for dev versions to make sure they are locked to a given state, even\n"
-"when you run update. These only work if you explicitly require a dev version\n"
-"and append the reference with `#<ref>`.\n"
+msgstr "`require`と`require-dev`は追加で明示的な参照（つまりコミット）に対応しており、たとえ更新を走らせたとしても開発版のバージョンが与えられた状態で確実に固定されているようにします。これは明示的に開発版を要件にして参照に`#<ref>`を付けたときにのみ動作します。これはまた[ルート限定](04-schema.md#root-package)の機能であり依存関係では無視されます。\n"
 
 #. type: Fenced code block (json)
 #: ../doc/04-schema.md:361
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "{\n"
 "    \"require\": {\n"
@@ -1043,12 +953,12 @@ msgid ""
 "    }\n"
 "}\n"
 msgstr ""
-"    {\n"
-"        \"require\": {\n"
-"            \"monolog/monolog\": \"dev-master#2eb0c0978d290a1c45346a1955188929cb4e5db7\",\n"
-"            \"acme/foo\": \"1.0.x-dev#abc123\"\n"
-"        }\n"
+"{\n"
+"    \"require\": {\n"
+"        \"monolog/monolog\": \"dev-master#2eb0c0978d290a1c45346a1955188929cb4e5db7\",\n"
+"        \"acme/foo\": \"1.0.x-dev#abc123\"\n"
 "    }\n"
+"}\n"
 
 #. type: Plain text
 #: ../doc/04-schema.md:376
@@ -1060,30 +970,26 @@ msgid ""
 "> during development to remediate transient issues, until you can switch to\n"
 "> tagged releases. The Composer team does not actively support this feature\n"
 "> and will not accept bug reports related to it.\n"
-msgstr ""
+msgstr "> **補足：**この機能には厳しい技術的制約があり、composer.jsonのメタデータはハッシュの前に指定されたブランチ名から読み込んでしまいます。したがってこの機能は一時的な問題を矯正するためにタグ付けされたリリースに切り替えられるまでに開発時に一時的に取る解決法とするべきです。Composerチームはこの機能に活発に対応しておらずこれに関するバグ報告を受け付けません。\n"
 
 #. type: Plain text
 #: ../doc/04-schema.md:380
-#, fuzzy
 msgid ""
 "It is also possible to inline-alias a package constraint so that it matches "
 "a constraint that it otherwise would not. For more information [see the "
 "aliases article](articles/aliases.md)."
-msgstr ""
-"It is also possible to inline-alias a package constraint so that it matches "
-"a constraint that it otherwise would not. For more information [see the "
-"aliases article](articles/aliases.md)."
+msgstr "パッケージ制約をインラインエイリアスすることも可能で、そうでなければ合致しない制約に合致させられます。詳細については[エイリアスの記事を参照してください](articles/aliases.md)。"
 
 #. type: Plain text
 #: ../doc/04-schema.md:383
 msgid ""
 "`require` and `require-dev` also support references to specific PHP versions "
 "and PHP extensions your project needs to run successfully."
-msgstr ""
+msgstr "`require`と`require-dev`はまた、プロジェクトを正常に走らせるために必要な特定のPHPとPHPの拡張のバージョンとへの参照に対応しています。"
 
 #. type: Fenced code block (json)
 #: ../doc/04-schema.md:386
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "{\n"
 "    \"require\": {\n"
@@ -1092,11 +998,12 @@ msgid ""
 "    }\n"
 "}\n"
 msgstr ""
-"    {\n"
-"        \"require\": {\n"
-"            \"monolog/monolog\": \"1.2.*\"\n"
-"        }\n"
+"{\n"
+"    \"require\": {\n"
+"        \"php\": \">=7.4\",\n"
+"        \"ext-mbstring\": \"*\"\n"
 "    }\n"
+"}\n"
 
 #. type: Plain text
 #: ../doc/04-schema.md:405
@@ -1112,146 +1019,109 @@ msgid ""
 "> your system. You may use it to help you compile the list of extensions you\n"
 "> use and require. Alternatively you may use third party tools to analyze\n"
 "> your project for the list of extensions used.\n"
-msgstr ""
+msgstr "> **補足：**プロジェクトが要件とするPHP拡張を一覧にすることは重要です。PHPのインストールが全て同じようになされるとは限りません。標準と考えている拡張が欠けているものもあるでしょう（例えば`ext-mysqli`はFedora/CentOSの最小インストールシステムでは既定ではインストールされません）。必要なPHPの要件を一覧にし損ねると利用者体験が悪化することに繋がります。Composerはパケージをインストールするときはエラーを1つも出さないものの、実行時に失敗するからです。`composer show --platform`コマンドはシステムで利用できる全てのPHP拡張を一覧にします。これを使えば、使用する拡張の一覧をコンパイルして要件に加える補助になるでしょう。代えてサードパーティーツールを使ってプロジェクトを解析し、使用されている拡張の一覧が得られるかもしれません。\n"
 
 #. type: Title ####
 #: ../doc/04-schema.md:406
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "require"
 msgstr "require"
 
 #. type: Plain text
 #: ../doc/04-schema.md:410
-#, fuzzy
 msgid ""
 "Map of packages required by this package. The package will not be installed "
 "unless those requirements can be met."
-msgstr ""
-"Lists packages required by this package. The package will not be installed "
-"unless those requirements can be met."
+msgstr "このパッケージが必要とするパッケージの対応付けです。これらの要件が満たされない限りパッケージはインストールされません。"
 
 #. type: Title ####
 #: ../doc/04-schema.md:411
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "require-dev <span>([root-only](04-schema.md#root-package))</span>"
-msgstr "require-dev <span>(root-only)</span>"
+msgstr "require-dev <span>([root-only](04-schema.md#root-package))</span>"
 
 #. type: Plain text
 #: ../doc/04-schema.md:417
-#, fuzzy
 msgid ""
 "Map of packages required for developing this package, or running tests, etc. "
 "The dev requirements of the root package are installed by default.  Both "
 "`install` or `update` support the `--no-dev` option that prevents dev "
 "dependencies from being installed."
-msgstr ""
-"Lists packages required for developing this package, or running tests, etc. "
-"The dev requirements of the root package are installed by default.  Both "
-"`install` or `update` support the `--no-dev` option that prevents dev "
-"dependencies from being installed."
+msgstr "このパッケージの開発したりテストを走らせたりなどするのに必要なパッケージへの対応付けです。ルートパッケージの開発要件は既定でインストールされます。`install`と`update`の両方とも`--no-dev`オプションに対応しており開発依存関係がインストールされるのを阻止できます。"
 
 #. type: Title ####
 #: ../doc/04-schema.md:418
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "conflict"
 msgstr "conflict"
 
 #. type: Plain text
 #: ../doc/04-schema.md:422
-#, fuzzy
 msgid ""
 "Map of packages that conflict with this version of this package. They will "
 "not be allowed to be installed together with your package."
-msgstr ""
-"Lists packages that conflict with this version of this package. They will "
-"not be allowed to be installed together with your package."
+msgstr "このバージョンのパッケージと競合するパッケージへの対応付けです。それらのパッケージがこのパッケージと共にインストールされるのを許容しないようにします。"
 
 #. type: Plain text
 #: ../doc/04-schema.md:427
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "Note that when specifying ranges like `<1.0 >=1.1` in a `conflict` link,\n"
 "this will state a conflict with all versions that are less than 1.0 *and* equal\n"
 "or newer than 1.1 at the same time, which is probably not what you want. You\n"
 "probably want to go for `<1.0 || >=1.1` in this case.\n"
-msgstr ""
-"Note that when specifying ranges like `<1.0, >= 1.1` in a `conflict` link,\n"
-"this will state a conflict with all versions that are less than 1.0 *and* equal\n"
-"or newer than 1.1 at the same time, which is probably not what you want. You\n"
-"probably want to go for `<1.0 | >= 1.1` in this case.\n"
+msgstr "なお、`conflict`リンクで`<1.0 >=1.1`のような範囲を指定する場合、1.0より小さく*且つ*同時に1.1かそれより新しい全てのバージョンと競合しているという意味になります。これは恐らくやりたいことではないでしょう。この場合は`<1.0 || >=1.1`としたいことでしょう。\n"
 
 #. type: Title ####
 #: ../doc/04-schema.md:428
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "replace"
 msgstr "replace"
 
 #. type: Plain text
 #: ../doc/04-schema.md:434
-#, fuzzy
 msgid ""
 "Map of packages that are replaced by this package. This allows you to fork a "
 "package, publish it under a different name with its own version numbers, "
 "while packages requiring the original package continue to work with your "
 "fork because it replaces the original package."
-msgstr ""
-"Lists packages that are replaced by this package. This allows you to fork a "
-"package, publish it under a different name with its own version numbers, "
-"while packages requiring the original package continue to work with your "
-"fork because it replaces the original package."
+msgstr "このパッケージが置き換えるパッケージへの対応付けです。これによりパッケージをフォークし、独自のバージョン番号を持つ異なる名前で公開することができます。また元のパッケージが置き換わっているため、元のパッケージを要件とするパッケージはフォークしたパッケージを使って動作し続けることになります。"
 
 #. type: Plain text
 #: ../doc/04-schema.md:440
-#, fuzzy
 msgid ""
 "This is also useful for packages that contain sub-packages, for example the "
 "main symfony/symfony package contains all the Symfony Components which are "
 "also available as individual packages. If you require the main package it "
 "will automatically fulfill any requirement of one of the individual "
 "components, since it replaces them."
-msgstr ""
-"This is also useful for packages that contain sub-packages, for example the "
-"main symfony/symfony package contains all the Symfony Components which are "
-"also available as individual packages. If you require the main package it "
-"will automatically fulfill any requirement of one of the individual "
-"components, since it replaces them."
+msgstr "これは副パッケージを含むパッケージについても有用です。例えばメインのsymfony/symfonyパッケージには個々のパッケージとしても使える全てのSymfony Componentが含まれています。メインパッケージを要件にすると自動的に個々のコンポーネントのうちどれか1つの要件が充足されます。メインパッケージがコンポーネントを置き換えるからです。"
 
 #. type: Plain text
 #: ../doc/04-schema.md:445
-#, fuzzy
 msgid ""
 "Caution is advised when using replace for the sub-package purpose explained "
 "above. You should then typically only replace using `self.version` as a "
 "version constraint, to make sure the main package only replaces the sub-"
 "packages of that exact version, and not any other version, which would be "
 "incorrect."
-msgstr ""
-"Caution is advised when using replace for the sub-package purpose explained "
-"above. You should then typically only replace using `self.version` as a "
-"version constraint, to make sure the main package only replaces the sub-"
-"packages of that exact version, and not any other version, which would be "
-"incorrect."
+msgstr "上記で説明した副パッケージの目的で置き換えを使う際は忠告があります。メインパッケージがその厳密なバージョンの副パッケージのみを置き換えるようにするため、通常は`self.version`をバージョン制約として使い置き換えるだけで、他のバージョンは変えないようにするべきです。他のバージョンが変わるとおかしなことになるでしょう。"
 
 #. type: Title ####
 #: ../doc/04-schema.md:446
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "provide"
 msgstr "provide"
 
 #. type: Plain text
 #: ../doc/04-schema.md:453
-#, fuzzy
 msgid ""
 "Map of packages that are provided by this package. This is mostly useful for "
 "implementations of common interfaces. A package could depend on some virtual "
 "package e.g. `psr/logger-implementation`, any library that implements this "
 "logger interface would list it in `provide`. Implementors can then be [found "
 "on Packagist.org](https://packagist.org/providers/psr/log-implementation)."
-msgstr ""
-"List of other packages that are provided by this package. This is mostly "
-"useful for common interfaces. A package could depend on some virtual "
-"`logger` package, any library that implements this logger interface would "
-"simply list it in `provide`."
+msgstr "このパッケージにより提供されるパッケージの対応付けです。これが大体において役立つのは共通化されたインターフェースの実装です。何らかのパッケージが仮想的なパッケージに依存することができるようになるでしょう。例として`psr/logger-implementation`で、このロガーインターフェースを実装するライブラリは`provide`に挙げることになります。実装しているパッケージは[Packagist.org](https://packagist.org/providers/psr/log-implementation)で探すことができます。"
 
 #. type: Plain text
 #: ../doc/04-schema.md:460
@@ -1263,41 +1133,33 @@ msgid ""
 "implementation (for instance the PSR interfaces) is to use a `-"
 "implementation` suffix for the name of the virtual package corresponding to "
 "the interface package."
-msgstr ""
+msgstr "仮想的なパッケージではなく実際のパッケージの名前で`provide`を使うことはそのパッケージのコードも世に出しているということを暗示しています。その場合一般的には`replace`がより良い選択です。インターフェースを提供して実装を提供する他のパッケージに任せる際（例えばPSRのインターフェース）のよくある慣習は、インターフェースパッケージに対応する仮想パッケージの名前に`-implementation`後置詞を使うことです。"
 
 #. type: Title ####
 #: ../doc/04-schema.md:461
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "suggest"
 msgstr "suggest"
 
 #. type: Plain text
 #: ../doc/04-schema.md:467
-#, fuzzy
 msgid ""
 "Suggested packages that can enhance or work well with this package. These "
 "are informational and are displayed after the package is installed, to give "
 "your users a hint that they could add more packages, even though they are "
 "not strictly required."
-msgstr ""
-"Suggested packages that can enhance or work well with this package. These "
-"are just informational and are displayed after the package is installed, to "
-"give your users a hint that they could add more packages, even though they "
-"are not strictly required."
+msgstr "このパッケージを向上させたりいい感じに動かせたりするようなお勧めのパッケージです。これらはお知らせ的なもので、パッケージがインストールされた後に表示されます。利用者にもっとパッケージを加えてもらえるような手掛かりを与えるためのもので、厳密には必要でなかったとしても大丈夫です。"
 
 #. type: Plain text
 #: ../doc/04-schema.md:470
-#, fuzzy
 msgid ""
 "The format is like package links above, except that the values are free text "
 "and not version constraints."
-msgstr ""
-"The format is like package links above, except that the values are free text "
-"and not version constraints."
+msgstr "形式は上述のパッケージリンクと同様ですが、値が自由な内容のテキストでバージョン制約ではない点は異なります。"
 
 #. type: Fenced code block (json)
 #: ../doc/04-schema.md:473
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "{\n"
 "    \"suggest\": {\n"
@@ -1306,23 +1168,23 @@ msgid ""
 "    }\n"
 "}\n"
 msgstr ""
-"    {\n"
-"        \"suggest\": {\n"
-"            \"monolog/monolog\": \"Allows more advanced logging of the application flow\"\n"
-"        }\n"
+"{\n"
+"    \"suggest\": {\n"
+"        \"monolog/monolog\": \"Allows more advanced logging of the application flow\",\n"
+"        \"ext-xml\": \"Needed to support XML format in class Foo\"\n"
 "    }\n"
+"}\n"
 
 #. type: Title ###
 #: ../doc/04-schema.md:482
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "autoload"
 msgstr "autoload"
 
 #. type: Plain text
 #: ../doc/04-schema.md:485
-#, fuzzy
 msgid "Autoload mapping for a PHP autoloader."
-msgstr "Autoload mapping for a PHP autoloader."
+msgstr "PHPの自動読み込み器用の自動読み込みの対応付けです。"
 
 #. type: Plain text
 #: ../doc/04-schema.md:488
@@ -1341,9 +1203,9 @@ msgstr ""
 
 #. type: Title ####
 #: ../doc/04-schema.md:492
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "PSR-4"
-msgstr "PSR-0"
+msgstr "PSR-4"
 
 #. type: Plain text
 #: ../doc/04-schema.md:499
@@ -1358,32 +1220,25 @@ msgstr ""
 
 #. type: Plain text
 #: ../doc/04-schema.md:503
-#, fuzzy
 msgid ""
 "Namespace prefixes must end in `\\\\` to avoid conflicts between similar "
 "prefixes.  For example `Foo` would match classes in the `FooBar` namespace "
 "so the trailing backslashes solve the problem: `Foo\\\\` and `FooBar\\\\` "
 "are distinct."
-msgstr ""
-"Please note namespace declarations should end in `\\\\` to make sure the "
-"autoloader responds exactly. For example `Foo` would match in `FooBar` so "
-"the trailing backslashes solve the problem: `Foo\\\\` and `FooBar\\\\` are "
-"distinct."
+msgstr "名前空間の前置詞は似た前置詞との競合を避けるため、`\\\\`で終わっていなければなりません。例えば`Foo`は`FooBar`名前空間のクラスに照合するので、後ろにバックスラッシュを付けると問題が解決します。`Foo\\\\`と`FooBar\\\\`は独立しています。"
 
 #. type: Plain text
 #: ../doc/04-schema.md:507
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "The PSR-4 references are all combined, during install/update, into a single\n"
 "key => value array which may be found in the generated file\n"
 "`vendor/composer/autoload_psr4.php`.\n"
-msgstr ""
-"The PSR-0 references are all combined, during install/update, into a single key => value\n"
-"array which may be found in the generated file `vendor/composer/autoload_namespaces.php`.\n"
+msgstr "PSR-4の参照は、installやupdateの際に、単一のキー=>バリュー配列に全て結合されます。生成されるファイル`vendor/composer/autoload_psr4.php`で確認できます。\n"
 
 #. type: Fenced code block (json)
 #: ../doc/04-schema.md:510
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "{\n"
 "    \"autoload\": {\n"
@@ -1394,29 +1249,25 @@ msgid ""
 "    }\n"
 "}\n"
 msgstr ""
-"    {\n"
-"        \"autoload\": {\n"
-"            \"psr-0\": {\n"
-"                \"Monolog\\\\\": \"src/\",\n"
-"                \"Vendor\\\\Namespace\\\\\": \"src/\",\n"
-"                \"Vendor_Namespace_\": \"src/\"\n"
-"            }\n"
+"{\n"
+"    \"autoload\": {\n"
+"        \"psr-4\": {\n"
+"            \"Monolog\\\\\": \"src/\",\n"
+"            \"Vendor\\\\Namespace\\\\\": \"\"\n"
 "        }\n"
 "    }\n"
+"}\n"
 
 #. type: Plain text
 #: ../doc/04-schema.md:523 ../doc/04-schema.md:571
-#, fuzzy
 msgid ""
 "If you need to search for a same prefix in multiple directories, you can "
 "specify them as an array as such:"
-msgstr ""
-"If you need to search for a same prefix in multiple directories, you can "
-"specify them as an array as such:"
+msgstr "複数のディレクトリで同じ前置詞を検索する必要がある場合は、以下のように配列として指定することができます。"
 
 #. type: Fenced code block (json)
 #: ../doc/04-schema.md:524
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "{\n"
 "    \"autoload\": {\n"
@@ -1424,25 +1275,22 @@ msgid ""
 "    }\n"
 "}\n"
 msgstr ""
-"    {\n"
-"        \"autoload\": {\n"
-"            \"psr-0\": { \"Monolog\\\\\": [\"src/\", \"lib/\"] }\n"
-"        }\n"
+"{\n"
+"    \"autoload\": {\n"
+"        \"psr-4\": { \"Monolog\\\\\": [\"src/\", \"lib/\"] }\n"
 "    }\n"
+"}\n"
 
 #. type: Plain text
 #: ../doc/04-schema.md:534
-#, fuzzy
 msgid ""
 "If you want to have a fallback directory where any namespace will be looked "
 "for, you can use an empty prefix like:"
-msgstr ""
-"If you want to have a fallback directory where any namespace can be, you can "
-"use an empty prefix like:"
+msgstr "どの名前空間も見付かるようなフォールバックディレクトリを持たせたければ、次のように空の前置詞を使うことができます。"
 
 #. type: Fenced code block (json)
 #: ../doc/04-schema.md:535
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "{\n"
 "    \"autoload\": {\n"
@@ -1450,15 +1298,15 @@ msgid ""
 "    }\n"
 "}\n"
 msgstr ""
-"    {\n"
-"        \"autoload\": {\n"
-"            \"psr-0\": { \"\": \"src/\" }\n"
-"        }\n"
+"{\n"
+"    \"autoload\": {\n"
+"        \"psr-4\": { \"\": \"src/\" }\n"
 "    }\n"
+"}\n"
 
 #. type: Title ####
 #: ../doc/04-schema.md:543
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "PSR-0"
 msgstr "PSR-0"
 
@@ -1500,7 +1348,7 @@ msgstr ""
 
 #. type: Fenced code block (json)
 #: ../doc/04-schema.md:557
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "{\n"
 "    \"autoload\": {\n"
@@ -1512,19 +1360,19 @@ msgid ""
 "    }\n"
 "}\n"
 msgstr ""
-"    {\n"
-"        \"autoload\": {\n"
-"            \"psr-0\": {\n"
-"                \"Monolog\\\\\": \"src/\",\n"
-"                \"Vendor\\\\Namespace\\\\\": \"src/\",\n"
-"                \"Vendor_Namespace_\": \"src/\"\n"
-"            }\n"
+"{\n"
+"    \"autoload\": {\n"
+"        \"psr-0\": {\n"
+"            \"Monolog\\\\\": \"src/\",\n"
+"            \"Vendor\\\\Namespace\\\\\": \"src/\",\n"
+"            \"Vendor_Namespace_\": \"src/\"\n"
 "        }\n"
 "    }\n"
+"}\n"
 
 #. type: Fenced code block (json)
 #: ../doc/04-schema.md:572
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "{\n"
 "    \"autoload\": {\n"
@@ -1532,11 +1380,11 @@ msgid ""
 "    }\n"
 "}\n"
 msgstr ""
-"    {\n"
-"        \"autoload\": {\n"
-"            \"psr-0\": { \"Monolog\\\\\": [\"src/\", \"lib/\"] }\n"
-"        }\n"
+"{\n"
+"    \"autoload\": {\n"
+"        \"psr-0\": { \"Monolog\\\\\": [\"src/\", \"lib/\"] }\n"
 "    }\n"
+"}\n"
 
 #. type: Plain text
 #: ../doc/04-schema.md:584
@@ -1556,7 +1404,7 @@ msgstr ""
 
 #. type: Fenced code block (json)
 #: ../doc/04-schema.md:585
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "{\n"
 "    \"autoload\": {\n"
@@ -1564,25 +1412,22 @@ msgid ""
 "    }\n"
 "}\n"
 msgstr ""
-"    {\n"
-"        \"autoload\": {\n"
-"            \"psr-0\": { \"UniqueGlobalClass\": \"\" }\n"
-"        }\n"
+"{\n"
+"    \"autoload\": {\n"
+"        \"psr-0\": { \"UniqueGlobalClass\": \"\" }\n"
 "    }\n"
+"}\n"
 
 #. type: Plain text
 #: ../doc/04-schema.md:595
-#, fuzzy
 msgid ""
 "If you want to have a fallback directory where any namespace can be, you can "
 "use an empty prefix like:"
-msgstr ""
-"If you want to have a fallback directory where any namespace can be, you can "
-"use an empty prefix like:"
+msgstr "どの名前空間にもなれるフォールバックディレクトリを持たせたければ、次のような空の前置詞を使うことができます。"
 
 #. type: Fenced code block (json)
 #: ../doc/04-schema.md:596
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "{\n"
 "    \"autoload\": {\n"
@@ -1590,17 +1435,17 @@ msgid ""
 "    }\n"
 "}\n"
 msgstr ""
-"    {\n"
-"        \"autoload\": {\n"
-"            \"psr-0\": { \"\": \"src/\" }\n"
-"        }\n"
+"{\n"
+"    \"autoload\": {\n"
+"        \"psr-0\": { \"\": \"src/\" }\n"
 "    }\n"
+"}\n"
 
 #. type: Title ####
 #: ../doc/04-schema.md:604
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "Classmap"
-msgstr "Classmap"
+msgstr "クラスマップ"
 
 #. type: Plain text
 #: ../doc/04-schema.md:610
@@ -1630,7 +1475,7 @@ msgstr ""
 
 #. type: Fenced code block (json)
 #: ../doc/04-schema.md:617
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "{\n"
 "    \"autoload\": {\n"
@@ -1638,11 +1483,11 @@ msgid ""
 "    }\n"
 "}\n"
 msgstr ""
-"    {\n"
-"        \"autoload\": {\n"
-"            \"classmap\": [\"src/\", \"lib/\", \"Something.php\"]\n"
-"        }\n"
+"{\n"
+"    \"autoload\": {\n"
+"        \"classmap\": [\"src/\", \"lib/\", \"Something.php\"]\n"
 "    }\n"
+"}\n"
 
 #. type: Plain text
 #: ../doc/04-schema.md:626
@@ -1653,7 +1498,7 @@ msgstr ""
 
 #. type: Fenced code block (json)
 #: ../doc/04-schema.md:629
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "{\n"
 "    \"autoload\": {\n"
@@ -1661,17 +1506,17 @@ msgid ""
 "    }\n"
 "}\n"
 msgstr ""
-"    {\n"
-"        \"autoload\": {\n"
-"            \"classmap\": [\"src/\", \"lib/\", \"Something.php\"]\n"
-"        }\n"
+"{\n"
+"    \"autoload\": {\n"
+"        \"classmap\": [\"src/addons/*/lib/\", \"3rd-party/*\", \"Something.php\"]\n"
 "    }\n"
+"}\n"
 
 #. type: Title ####
 #: ../doc/04-schema.md:637
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "Files"
-msgstr "Files"
+msgstr "ファイル"
 
 #. type: Plain text
 #: ../doc/04-schema.md:642
@@ -1687,7 +1532,7 @@ msgstr ""
 
 #. type: Fenced code block (json)
 #: ../doc/04-schema.md:645
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "{\n"
 "    \"autoload\": {\n"
@@ -1695,11 +1540,11 @@ msgid ""
 "    }\n"
 "}\n"
 msgstr ""
-"    {\n"
-"        \"autoload\": {\n"
-"            \"files\": [\"src/MyLibrary/functions.php\"]\n"
-"        }\n"
+"{\n"
+"    \"autoload\": {\n"
+"        \"files\": [\"src/MyLibrary/functions.php\"]\n"
 "    }\n"
+"}\n"
 
 #. type: Plain text
 #: ../doc/04-schema.md:657
@@ -1731,7 +1576,7 @@ msgstr ""
 #: ../doc/04-schema.md:664
 #, no-wrap
 msgid "Exclude files from classmaps"
-msgstr ""
+msgstr "クラスマップからファイルを除外する"
 
 #. type: Plain text
 #: ../doc/04-schema.md:669
@@ -1753,7 +1598,7 @@ msgstr ""
 
 #. type: Fenced code block (json)
 #: ../doc/04-schema.md:676
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "{\n"
 "    \"autoload\": {\n"
@@ -1761,11 +1606,11 @@ msgid ""
 "    }\n"
 "}\n"
 msgstr ""
-"    {\n"
-"        \"autoload\": {\n"
-"            \"classmap\": [\"src/\", \"lib/\", \"Something.php\"]\n"
-"        }\n"
+"{\n"
+"    \"autoload\": {\n"
+"        \"exclude-from-classmap\": [\"/Tests/\", \"/test/\", \"/tests/\"]\n"
 "    }\n"
+"}\n"
 
 #. type: Title ####
 #: ../doc/04-schema.md:684
@@ -1824,7 +1669,7 @@ msgstr ""
 
 #. type: Title ###
 #: ../doc/04-schema.md:715
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "include-path"
 msgstr "include-path"
 
@@ -1842,25 +1687,24 @@ msgstr ""
 
 #. type: Plain text
 #: ../doc/04-schema.md:722
-#, fuzzy
 msgid "A list of paths which should get appended to PHP's `include_path`."
-msgstr "A list of paths which should get appended to PHP's `include_path`."
+msgstr "PHPの`include_path`に後付けされるパスのリストです。"
 
 #. type: Fenced code block (json)
 #: ../doc/04-schema.md:725
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "{\n"
 "    \"include-path\": [\"lib/\"]\n"
 "}\n"
 msgstr ""
-"    {\n"
-"        \"include-path\": [\"lib/\"]\n"
-"    }\n"
+"{\n"
+"    \"include-path\": [\"lib/\"]\n"
+"}\n"
 
 #. type: Title ###
 #: ../doc/04-schema.md:733
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "target-dir"
 msgstr "target-dir"
 
@@ -1878,19 +1722,15 @@ msgstr ""
 
 #. type: Plain text
 #: ../doc/04-schema.md:740
-#, fuzzy
 msgid "Defines the installation target."
-msgstr "Defines the installation target."
+msgstr "インストール対象を定義します。"
 
 #. type: Plain text
 #: ../doc/04-schema.md:743
-#, fuzzy
 msgid ""
 "In case the package root is below the namespace declaration you cannot "
 "autoload properly. `target-dir` solves this problem."
-msgstr ""
-"In case the package root is below the namespace declaration you cannot "
-"autoload properly. `target-dir` solves this problem."
+msgstr "パッケージのルートが名前空間宣言の元にある場合は適切に自動読み込みできません。`target-dir`はこの問題を解決します。"
 
 #. type: Plain text
 #: ../doc/04-schema.md:750
@@ -1912,13 +1752,12 @@ msgstr ""
 
 #. type: Plain text
 #: ../doc/04-schema.md:752
-#, fuzzy
 msgid "To do that, `autoload` and `target-dir` are defined as follows:"
-msgstr "To do that, `autoload` and `target-dir` are defined as follows:"
+msgstr "そうするために、`autoload`と`target-dir`は以下のように定義されています。"
 
 #. type: Fenced code block (json)
 #: ../doc/04-schema.md:753
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "{\n"
 "    \"autoload\": {\n"
@@ -1927,18 +1766,18 @@ msgid ""
 "    \"target-dir\": \"Symfony/Component/Yaml\"\n"
 "}\n"
 msgstr ""
-"    {\n"
-"        \"autoload\": {\n"
-"            \"psr-0\": { \"Symfony\\\\Component\\\\Yaml\\\\\": \"\" }\n"
-"        },\n"
-"        \"target-dir\": \"Symfony/Component/Yaml\"\n"
-"    }\n"
+"{\n"
+"    \"autoload\": {\n"
+"        \"psr-0\": { \"Symfony\\\\Component\\\\Yaml\\\\\": \"\" }\n"
+"    },\n"
+"    \"target-dir\": \"Symfony/Component/Yaml\"\n"
+"}\n"
 
 #. type: Title ###
 #: ../doc/04-schema.md:764
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "minimum-stability <span>([root-only](04-schema.md#root-package))</span>"
-msgstr "minimum-stability <span>(root-only)</span>"
+msgstr "minimum-stability <span>([root-only](04-schema.md#root-package))</span>"
 
 #. type: Plain text
 #: ../doc/04-schema.md:769
@@ -1971,19 +1810,16 @@ msgstr ""
 
 #. type: Plain text
 #: ../doc/04-schema.md:778
-#, fuzzy
 msgid ""
 "Available options (in order of stability) are `dev`, `alpha`, `beta`, `RC`, "
 "and `stable`."
-msgstr ""
-"Available options (in order of stability) are `dev`, `alpha`, `beta`, `RC`, "
-"and `stable`."
+msgstr "使えるオプションは（安定性の順番で）`dev`、`alpha`、`beta`、`RC`、`stable`です。"
 
 #. type: Title ###
 #: ../doc/04-schema.md:779
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "prefer-stable <span>([root-only](04-schema.md#root-package))</span>"
-msgstr "prefer-stable <span>(root-only)</span>"
+msgstr "prefer-stable <span>([root-only](04-schema.md#root-package))</span>"
 
 #. type: Plain text
 #: ../doc/04-schema.md:785
@@ -2001,31 +1837,26 @@ msgstr ""
 
 #. type: Plain text
 #: ../doc/04-schema.md:787
-#, fuzzy
 msgid "Use `\"prefer-stable\": true` to enable."
-msgstr "Use `\"prefer-stable\": true` to enable."
+msgstr "有効にするには`\"prefer-stable\": true`を使ってください。"
 
 #. type: Title ###
 #: ../doc/04-schema.md:788
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "repositories <span>([root-only](04-schema.md#root-package))</span>"
-msgstr "repositories <span>(root-only)</span>"
+msgstr "repositories <span>([root-only](04-schema.md#root-package))</span>"
 
 #. type: Plain text
 #: ../doc/04-schema.md:791
-#, fuzzy
 msgid "Custom package repositories to use."
-msgstr "Custom package repositories to use."
+msgstr "独自に使用するパッケージリポジトリです。"
 
 #. type: Plain text
 #: ../doc/04-schema.md:794
-#, fuzzy
 msgid ""
 "By default Composer only uses the packagist repository. By specifying "
 "repositories you can get packages from elsewhere."
-msgstr ""
-"By default composer just uses the packagist repository. By specifying "
-"repositories you can get packages from elsewhere."
+msgstr "既定ではComposerはpackagistリポジトリのみを使います。リポジトリを指定することによってパッケージとどこからでも取得できます。"
 
 #. type: Plain text
 #: ../doc/04-schema.md:798
@@ -2041,9 +1872,8 @@ msgstr ""
 
 #. type: Plain text
 #: ../doc/04-schema.md:800
-#, fuzzy
 msgid "The following repository types are supported:"
-msgstr "The following repository types are supported:"
+msgstr "以下のリポジトリの種別に対応しています。"
 
 #. type: Bullet: '* '
 #: ../doc/04-schema.md:811
@@ -2085,15 +1915,13 @@ msgstr ""
 
 #. type: Plain text
 #: ../doc/04-schema.md:813
-#, fuzzy
 msgid ""
 "For more information on any of these, see [Repositories](05-repositories.md)."
-msgstr ""
-"For more information on any of these, see [Repositories](05-repositories.md)."
+msgstr "これらについての詳細な情報については[リポジトリ](05-repositories.md)を参照してください。"
 
 #. type: Fenced code block (json)
 #: ../doc/04-schema.md:816
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "{\n"
 "    \"repositories\": [\n"
@@ -2133,47 +1961,43 @@ msgid ""
 "    ]\n"
 "}\n"
 msgstr ""
-"    {\n"
-"        \"repositories\": [\n"
-"            {\n"
-"                \"type\": \"composer\",\n"
-"                \"url\": \"http://packages.example.com\"\n"
-"            },\n"
-"            {\n"
-"                \"type\": \"composer\",\n"
-"                \"url\": \"https://packages.example.com\",\n"
-"                \"options\": {\n"
-"                    \"ssl\": {\n"
-"                        \"verify_peer\": \"true\"\n"
-"                    }\n"
-"                }\n"
-"            },\n"
-"            {\n"
-"                \"type\": \"vcs\",\n"
-"                \"url\": \"https://github.com/Seldaek/monolog\"\n"
-"            },\n"
-"            {\n"
-"                \"type\": \"pear\",\n"
-"                \"url\": \"http://pear2.php.net\"\n"
-"            },\n"
-"            {\n"
-"                \"type\": \"package\",\n"
-"                \"package\": {\n"
-"                    \"name\": \"smarty/smarty\",\n"
-"                    \"version\": \"3.1.7\",\n"
-"                    \"dist\": {\n"
-"                        \"url\": \"http://www.smarty.net/files/Smarty-3.1.7.zip\",\n"
-"                        \"type\": \"zip\"\n"
-"                    },\n"
-"                    \"source\": {\n"
-"                        \"url\": \"http://smarty-php.googlecode.com/svn/\",\n"
-"                        \"type\": \"svn\",\n"
-"                        \"reference\": \"tags/Smarty_3_1_7/distribution/\"\n"
-"                    }\n"
+"{\n"
+"    \"repositories\": [\n"
+"        {\n"
+"            \"type\": \"composer\",\n"
+"            \"url\": \"http://packages.example.com\"\n"
+"        },\n"
+"        {\n"
+"            \"type\": \"composer\",\n"
+"            \"url\": \"https://packages.example.com\",\n"
+"            \"options\": {\n"
+"                \"ssl\": {\n"
+"                    \"verify_peer\": \"true\"\n"
 "                }\n"
 "            }\n"
-"        ]\n"
-"    }\n"
+"        },\n"
+"        {\n"
+"            \"type\": \"vcs\",\n"
+"            \"url\": \"https://github.com/Seldaek/monolog\"\n"
+"        },\n"
+"        {\n"
+"            \"type\": \"package\",\n"
+"            \"package\": {\n"
+"                \"name\": \"smarty/smarty\",\n"
+"                \"version\": \"3.1.7\",\n"
+"                \"dist\": {\n"
+"                    \"url\": \"https://www.smarty.net/files/Smarty-3.1.7.zip\",\n"
+"                    \"type\": \"zip\"\n"
+"                },\n"
+"                \"source\": {\n"
+"                    \"url\": \"https://smarty-php.googlecode.com/svn/\",\n"
+"                    \"type\": \"svn\",\n"
+"                    \"reference\": \"tags/Smarty_3_1_7/distribution/\"\n"
+"                }\n"
+"            }\n"
+"        }\n"
+"    ]\n"
+"}\n"
 
 #. type: Plain text
 #: ../doc/04-schema.md:860
@@ -2198,7 +2022,7 @@ msgstr ""
 
 #. type: Fenced code block (json)
 #: ../doc/04-schema.md:864
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "{\n"
 "    \"repositories\": {\n"
@@ -2209,18 +2033,20 @@ msgid ""
 "    }\n"
 "}\n"
 msgstr ""
-"    {\n"
-"        \"support\": {\n"
-"            \"email\": \"support@example.org\",\n"
-"            \"irc\": \"irc://irc.freenode.org/composer\"\n"
+"{\n"
+"    \"repositories\": {\n"
+"        \"foo\": {\n"
+"            \"type\": \"composer\",\n"
+"            \"url\": \"http://packages.foo.com\"\n"
 "        }\n"
 "    }\n"
+"}\n"
 
 #. type: Title ###
 #: ../doc/04-schema.md:875
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "config <span>([root-only](04-schema.md#root-package))</span>"
-msgstr "config <span>(root-only)</span>"
+msgstr "config <span>([root-only](04-schema.md#root-package))</span>"
 
 #. type: Plain text
 #: ../doc/04-schema.md:879
@@ -2232,9 +2058,9 @@ msgstr "A set of configuration options. It is only used for projects."
 
 #. type: Title ###
 #: ../doc/04-schema.md:880
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "scripts <span>([root-only](04-schema.md#root-package))</span>"
-msgstr "scripts <span>(root-only)</span>"
+msgstr "scripts <span>([root-only](04-schema.md#root-package))</span>"
 
 #. type: Plain text
 #: ../doc/04-schema.md:884
@@ -2248,21 +2074,19 @@ msgstr ""
 
 #. type: Plain text
 #: ../doc/04-schema.md:886
-#, fuzzy
 msgid "See [Scripts](articles/scripts.md) for events details and examples."
-msgstr "See [Scripts](articles/scripts.md) for events details and examples."
+msgstr "イベントについての詳細と例については[スクリプト](articles/scripts.md)を参照してください。"
 
 #. type: Title ###
 #: ../doc/04-schema.md:887
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "extra"
 msgstr "extra"
 
 #. type: Plain text
 #: ../doc/04-schema.md:890
-#, fuzzy
 msgid "Arbitrary extra data for consumption by `scripts`."
-msgstr "Arbitrary extra data for consumption by `scripts`."
+msgstr "`scripts`によって消費される任意の追加データです。"
 
 #. type: Plain text
 #: ../doc/04-schema.md:893
@@ -2276,13 +2100,13 @@ msgstr ""
 
 #. type: Fenced code block (php)
 #: ../doc/04-schema.md:894
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "$extra = $event->getComposer()->getPackage()->getExtra();\n"
-msgstr "    $extra = $event->getComposer()->getPackage()->getExtra();\n"
+msgstr "$extra = $event->getComposer()->getPackage()->getExtra();\n"
 
 #. type: Title ###
 #: ../doc/04-schema.md:900
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "bin"
 msgstr "bin"
 
@@ -2298,21 +2122,18 @@ msgstr ""
 
 #. type: Plain text
 #: ../doc/04-schema.md:906
-#, fuzzy
 msgid "See [Vendor Binaries](articles/vendor-binaries.md) for more details."
-msgstr "See [Vendor Binaries](articles/vendor-binaries.md) for more details."
+msgstr "詳細は[ベンダーバイナリ](articles/vendor-binaries.md)を参照してください。"
 
 #. type: Plain text
 #: ../doc/04-schema.md:912
-#, fuzzy
 msgid "A set of options for creating package archives."
-msgstr "A set of options for creating package archives."
+msgstr "パッケージアーカイブをつくるためのオプションの集合です。"
 
 #. type: Plain text
 #: ../doc/04-schema.md:914
-#, fuzzy
 msgid "The following options are supported:"
-msgstr "The following options are supported:"
+msgstr "以下のオプションに対応しています。"
 
 #. type: Bullet: '* '
 #: ../doc/04-schema.md:918
@@ -2324,7 +2145,7 @@ msgstr ""
 
 #. type: Fenced code block (json)
 #: ../doc/04-schema.md:921
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "{\n"
 "    \"name\": \"org/strangeName\",\n"
@@ -2333,12 +2154,12 @@ msgid ""
 "    }\n"
 "}\n"
 msgstr ""
-"    {\n"
-"        \"name\": \"acme/blog\",\n"
-"        \"require\": {\n"
-"            \"acme/hello-world\": \"dev-master\"\n"
-"        }\n"
+"{\n"
+"    \"name\": \"org/strangeName\",\n"
+"    \"archive\": {\n"
+"        \"name\": \"Strange_name\"\n"
 "    }\n"
+"}\n"
 
 #. type: Bullet: '* '
 #: ../doc/04-schema.md:935
@@ -2358,7 +2179,7 @@ msgstr ""
 
 #. type: Fenced code block (json)
 #: ../doc/04-schema.md:938
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "{\n"
 "    \"archive\": {\n"
@@ -2366,11 +2187,11 @@ msgid ""
 "    }\n"
 "}\n"
 msgstr ""
-"    {\n"
-"        \"archive\": {\n"
-"            \"exclude\": [\"/foo/bar\", \"baz\", \"/*.test\", \"!/foo/bar/baz\"]\n"
-"        }\n"
+"{\n"
+"    \"archive\": {\n"
+"        \"exclude\": [\"/foo/bar\", \"baz\", \"/*.test\", \"!/foo/bar/baz\"]\n"
 "    }\n"
+"}\n"
 
 #. type: Plain text
 #: ../doc/04-schema.md:948
@@ -2486,12 +2307,9 @@ msgstr ""
 
 #. type: Plain text
 #: ../doc/04-schema.md:1002
-#, fuzzy
 msgid ""
 "&larr; [Command-line interface](03-cli.md)  | [Repositories](05-repositories."
 "md) &rarr;"
 msgstr ""
-"<p class=\"prev-next\">\n"
-"  &larr; [コマンドラインインターフェース](03-cli.html)  |  [リポジトリ](05-"
-"repositories.html) &rarr;\n"
-"</p>\n"
+"&larr; [コマンドラインインターフェース](03-cli.md)  | [リポジトリ](05-"
+"repositories.md) &rarr;"

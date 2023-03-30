@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Composer VERSION\n"
 "POT-Creation-Date: 2023-01-14 16:11+0900\n"
-"PO-Revision-Date: 2023-03-30 22:47+0900\n"
+"PO-Revision-Date: 2023-03-31 23:52+0900\n"
 "Last-Translator: gemmaro <gemmaro.dev@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -310,6 +310,7 @@ msgstr "**--stability (-s):** `minimum-stability`フィールド用の値。"
 msgid "**--license (-l):** License of package."
 msgstr "**--license (-l):** パッケージの利用許諾。"
 
+# **の内側に空白を入れると強調表示されない点に注意です
 #. type: Bullet: '* '
 #: ../doc/03-cli.md:80
 msgid ""
@@ -319,12 +320,9 @@ msgid ""
 "URL pointing to a `composer` repository or a JSON string which similar to "
 "what the [repositories](04-schema.md#repositories) key accepts."
 msgstr ""
-"**--repository: ** 1つ（かそれ以上）の個別のリポジトリを与えます。\n"
-"これらのリポジトリは生成されるcomposer.jsonに収められ、要件の一覧を提案する際"
-"の自動補完に使われます。\n"
-"全てのリポジトリは`composer`リポジトリを指すHTTPのURLないし[repositories](04-"
-"schema.md#repositories)キーが受け付けるものに似たようなJSON文字列のいずれかを"
-"取ります。"
+"**--repository:** 1つ（かそれ以上）の個別のリポジトリを与えます。\n"
+"これらのリポジトリは生成されるcomposer.jsonに収められ、要件の一覧を提案する際の自動補完に使われます。\n"
+"全てのリポジトリは`composer`リポジトリを指すHTTPのURLないし[repositories](04-schema.md#repositories)キーが受け付けるものに似たようなJSON文字列のいずれかを取ります。"
 
 #. type: Bullet: '* '
 #: ../doc/03-cli.md:80
