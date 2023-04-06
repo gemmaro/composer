@@ -68,7 +68,7 @@ php composer.phar init
 * **--require-dev:** 開発のための要件です。**--require**を参照。
 * **--stability (-s):** `minimum-stability`フィールド用の値。
 * **--license (-l):** パッケージの利用許諾。
-* **--repository: ** 1つ（かそれ以上）の個別のリポジトリを与えます。
+* **--repository:** 1つ（かそれ以上）の個別のリポジトリを与えます。
   これらのリポジトリは生成されるcomposer.jsonに収められ、要件の一覧を提案する際の自動補完に使われます。
   全てのリポジトリは`composer`リポジトリを指すHTTPのURLないし[repositories](04-schema.md#repositories)キーが受け付けるものに似たようなJSON文字列のいずれかを取ります。
 * **--autoload (-a):** composer.jsonへのPSR-4自動読み込みの対応付けを加えます。
