@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2023-04-29 10:08+0900\n"
+"POT-Creation-Date: 2023-04-29 10:11+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2224,7 +2224,7 @@ msgstr ""
 #. type: Title ##
 #: ../doc/03-cli.md:301
 #, markdown-text, no-wrap
-msgid "remove"
+msgid "remove / rm"
 msgstr ""
 
 #. type: Plain text
@@ -4014,7 +4014,7 @@ msgid "php composer.phar diagnose\n"
 msgstr ""
 
 #. type: Title ###
-#: ../doc/03-cli.md:1024 ../doc/04-schema.md:909
+#: ../doc/03-cli.md:1024 ../doc/04-schema.md:912
 #, markdown-text, no-wrap
 msgid "archive"
 msgstr ""
@@ -4920,7 +4920,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:60 ../doc/04-schema.md:115 ../doc/04-schema.md:958
+#: ../doc/04-schema.md:60 ../doc/04-schema.md:115 ../doc/04-schema.md:961
 #, markdown-text
 msgid "Examples:"
 msgstr ""
@@ -5130,11 +5130,11 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:127 ../doc/04-schema.md:133 ../doc/04-schema.md:139
-#: ../doc/04-schema.md:147 ../doc/04-schema.md:264 ../doc/04-schema.md:297
-#: ../doc/04-schema.md:732 ../doc/04-schema.md:763 ../doc/04-schema.md:899
-#: ../doc/04-schema.md:908 ../doc/04-schema.md:950 ../doc/04-schema.md:966
-#: ../doc/04-schema.md:1001
+#: ../doc/04-schema.md:127 ../doc/04-schema.md:133 ../doc/04-schema.md:141
+#: ../doc/04-schema.md:149 ../doc/04-schema.md:267 ../doc/04-schema.md:300
+#: ../doc/04-schema.md:735 ../doc/04-schema.md:766 ../doc/04-schema.md:902
+#: ../doc/04-schema.md:911 ../doc/04-schema.md:953 ../doc/04-schema.md:969
+#: ../doc/04-schema.md:1004
 #, markdown-text
 msgid "Optional."
 msgstr ""
@@ -5160,35 +5160,43 @@ msgstr ""
 #. type: Plain text
 #: ../doc/04-schema.md:137
 #, markdown-text
-msgid "A relative path to the readme document."
+msgid "A relative path to the readme document. Defaults to `README.md`."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/04-schema.md:139
+#, markdown-text
+msgid ""
+"This is mainly useful for packages not on GitHub, as for GitHub packages "
+"Packagist.org will use the readme API to fetch the one detected by GitHub."
 msgstr ""
 
 #. type: Title ###
-#: ../doc/04-schema.md:140
+#: ../doc/04-schema.md:142
 #, markdown-text, no-wrap
 msgid "time"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:143
+#: ../doc/04-schema.md:145
 #, markdown-text
 msgid "Release date of the version."
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:145
+#: ../doc/04-schema.md:147
 #, markdown-text
 msgid "Must be in `YYYY-MM-DD` or `YYYY-MM-DD HH:MM:SS` format."
 msgstr ""
 
 #. type: Title ###
-#: ../doc/04-schema.md:148
+#: ../doc/04-schema.md:150
 #, markdown-text, no-wrap
 msgid "license"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:151
+#: ../doc/04-schema.md:153
 #, markdown-text
 msgid ""
 "The license of the package. This can be either a string or an array of "
@@ -5196,67 +5204,67 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:153
+#: ../doc/04-schema.md:155
 #, markdown-text
 msgid "The recommended notation for the most common licenses is (alphabetical):"
 msgstr ""
 
 #. type: Bullet: '- '
-#: ../doc/04-schema.md:163
+#: ../doc/04-schema.md:165
 #, markdown-text
 msgid "Apache-2.0"
 msgstr ""
 
 #. type: Bullet: '- '
-#: ../doc/04-schema.md:163
+#: ../doc/04-schema.md:165
 #, markdown-text
 msgid "BSD-2-Clause"
 msgstr ""
 
 #. type: Bullet: '- '
-#: ../doc/04-schema.md:163
+#: ../doc/04-schema.md:165
 #, markdown-text
 msgid "BSD-3-Clause"
 msgstr ""
 
 #. type: Bullet: '- '
-#: ../doc/04-schema.md:163
+#: ../doc/04-schema.md:165
 #, markdown-text
 msgid "BSD-4-Clause"
 msgstr ""
 
 #. type: Bullet: '- '
-#: ../doc/04-schema.md:163
+#: ../doc/04-schema.md:165
 #, markdown-text
 msgid "GPL-2.0-only / GPL-2.0-or-later"
 msgstr ""
 
 #. type: Bullet: '- '
-#: ../doc/04-schema.md:163
+#: ../doc/04-schema.md:165
 #, markdown-text
 msgid "GPL-3.0-only / GPL-3.0-or-later"
 msgstr ""
 
 #. type: Bullet: '- '
-#: ../doc/04-schema.md:163
+#: ../doc/04-schema.md:165
 #, markdown-text
 msgid "LGPL-2.1-only / LGPL-2.1-or-later"
 msgstr ""
 
 #. type: Bullet: '- '
-#: ../doc/04-schema.md:163
+#: ../doc/04-schema.md:165
 #, markdown-text
 msgid "LGPL-3.0-only / LGPL-3.0-or-later"
 msgstr ""
 
 #. type: Bullet: '- '
-#: ../doc/04-schema.md:163
+#: ../doc/04-schema.md:165
 #, markdown-text
 msgid "MIT"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:166
+#: ../doc/04-schema.md:168
 #, markdown-text
 msgid ""
 "Optional, but it is highly recommended to supply this. More identifiers are "
@@ -5265,7 +5273,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:168
+#: ../doc/04-schema.md:170
 #, markdown-text, no-wrap
 msgid ""
 "> **Note:** For closed-source software, you may use `\"proprietary\"` as the "
@@ -5273,13 +5281,13 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:170
+#: ../doc/04-schema.md:172
 #, markdown-text
 msgid "An Example:"
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:171
+#: ../doc/04-schema.md:173
 #, no-wrap
 msgid ""
 "{\n"
@@ -5288,7 +5296,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:179
+#: ../doc/04-schema.md:181
 #, markdown-text
 msgid ""
 "For a package, when there is a choice between licenses (\"disjunctive "
@@ -5296,13 +5304,13 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:181
+#: ../doc/04-schema.md:183
 #, markdown-text
 msgid "An Example for disjunctive licenses:"
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:182
+#: ../doc/04-schema.md:184
 #, no-wrap
 msgid ""
 "{\n"
@@ -5314,13 +5322,13 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:192
+#: ../doc/04-schema.md:194
 #, markdown-text
 msgid "Alternatively they can be separated with \"or\" and enclosed in parentheses;"
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:193
+#: ../doc/04-schema.md:195
 #, no-wrap
 msgid ""
 "{\n"
@@ -5329,7 +5337,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:201
+#: ../doc/04-schema.md:203
 #, markdown-text
 msgid ""
 "Similarly, when multiple licenses need to be applied (\"conjunctive "
@@ -5338,57 +5346,57 @@ msgid ""
 msgstr ""
 
 #. type: Title ###
-#: ../doc/04-schema.md:202
+#: ../doc/04-schema.md:204
 #, markdown-text, no-wrap
 msgid "authors"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:205
+#: ../doc/04-schema.md:207
 #, markdown-text
 msgid "The authors of the package. This is an array of objects."
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:207
+#: ../doc/04-schema.md:209
 #, markdown-text
 msgid "Each author object can have following properties:"
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/04-schema.md:212
+#: ../doc/04-schema.md:214
 #, markdown-text
 msgid "**name:** The author's name. Usually their real name."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/04-schema.md:212
+#: ../doc/04-schema.md:214
 #, markdown-text
 msgid "**email:** The author's email address."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/04-schema.md:212
+#: ../doc/04-schema.md:214
 #, markdown-text
 msgid "**homepage:** URL to the author's website."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/04-schema.md:212
+#: ../doc/04-schema.md:214
 #, markdown-text
 msgid "**role:** The author's role in the project (e.g. developer or translator)"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:214 ../doc/04-schema.md:253 ../doc/04-schema.md:276
-#: ../doc/04-schema.md:986 ../doc/05-repositories.md:165
+#: ../doc/04-schema.md:216 ../doc/04-schema.md:256 ../doc/04-schema.md:279
+#: ../doc/04-schema.md:989 ../doc/05-repositories.md:165
 #: ../doc/05-repositories.md:262
 #, markdown-text
 msgid "An example:"
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:215
+#: ../doc/04-schema.md:217
 #, no-wrap
 msgid ""
 "{\n"
@@ -5410,85 +5418,91 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:235
+#: ../doc/04-schema.md:237
 #, markdown-text
 msgid "Optional, but highly recommended."
 msgstr ""
 
 #. type: Title ###
-#: ../doc/04-schema.md:236
+#: ../doc/04-schema.md:238
 #, markdown-text, no-wrap
 msgid "support"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:239
+#: ../doc/04-schema.md:241
 #, markdown-text
 msgid "Various information to get support about the project."
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:241
+#: ../doc/04-schema.md:243
 #, markdown-text
 msgid "Support information includes the following:"
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/04-schema.md:251
+#: ../doc/04-schema.md:254
 #, markdown-text
 msgid "**email:** Email address for support."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/04-schema.md:251
+#: ../doc/04-schema.md:254
 #, markdown-text
 msgid "**issues:** URL to the issue tracker."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/04-schema.md:251
+#: ../doc/04-schema.md:254
 #, markdown-text
 msgid "**forum:** URL to the forum."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/04-schema.md:251
+#: ../doc/04-schema.md:254
 #, markdown-text
 msgid "**wiki:** URL to the wiki."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/04-schema.md:251
+#: ../doc/04-schema.md:254
 #, markdown-text
 msgid "**irc:** IRC channel for support, as irc://server/channel."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/04-schema.md:251
+#: ../doc/04-schema.md:254
 #, markdown-text
 msgid "**source:** URL to browse or download the sources."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/04-schema.md:251
+#: ../doc/04-schema.md:254
 #, markdown-text
 msgid "**docs:** URL to the documentation."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/04-schema.md:251
+#: ../doc/04-schema.md:254
 #, markdown-text
 msgid "**rss:** URL to the RSS feed."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/04-schema.md:251
+#: ../doc/04-schema.md:254
 #, markdown-text
 msgid "**chat:** URL to the chat channel."
 msgstr ""
 
-#. type: Fenced code block (json)
+#. type: Bullet: '* '
 #: ../doc/04-schema.md:254
+#, markdown-text
+msgid "**security:** URL to the vulnerability disclosure policy (VDP)."
+msgstr ""
+
+#. type: Fenced code block (json)
+#: ../doc/04-schema.md:257
 #, no-wrap
 msgid ""
 "{\n"
@@ -5500,13 +5514,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ###
-#: ../doc/04-schema.md:265
+#: ../doc/04-schema.md:268
 #, markdown-text, no-wrap
 msgid "funding"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:269
+#: ../doc/04-schema.md:272
 #, markdown-text
 msgid ""
 "A list of URLs to provide funding to the package authors for maintenance and "
@@ -5514,13 +5528,13 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:271
+#: ../doc/04-schema.md:274
 #, markdown-text
 msgid "Each entry consists of the following"
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/04-schema.md:274
+#: ../doc/04-schema.md:277
 #, markdown-text
 msgid ""
 "**type:** The type of funding, or the platform through which funding can be "
@@ -5528,13 +5542,13 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/04-schema.md:274
+#: ../doc/04-schema.md:277
 #, markdown-text
 msgid "**url:** URL to a website with details, and a way to fund the package."
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:277
+#: ../doc/04-schema.md:280
 #, no-wrap
 msgid ""
 "{\n"
@@ -5557,13 +5571,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ###
-#: ../doc/04-schema.md:298
+#: ../doc/04-schema.md:301
 #, markdown-text, no-wrap
 msgid "Package links"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:303
+#: ../doc/04-schema.md:306
 #, markdown-text
 msgid ""
 "All of the following take an object which maps package names to versions of "
@@ -5572,18 +5586,18 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:305 ../doc/04-schema.md:324 ../doc/04-schema.md:338
-#: ../doc/04-schema.md:360 ../doc/04-schema.md:385 ../doc/04-schema.md:472
-#: ../doc/04-schema.md:509 ../doc/04-schema.md:556 ../doc/04-schema.md:616
-#: ../doc/04-schema.md:628 ../doc/04-schema.md:644 ../doc/04-schema.md:675
-#: ../doc/04-schema.md:703 ../doc/04-schema.md:724 ../doc/04-schema.md:815
-#: ../doc/04-schema.md:920 ../doc/04-schema.md:937
+#: ../doc/04-schema.md:308 ../doc/04-schema.md:327 ../doc/04-schema.md:341
+#: ../doc/04-schema.md:363 ../doc/04-schema.md:388 ../doc/04-schema.md:475
+#: ../doc/04-schema.md:512 ../doc/04-schema.md:559 ../doc/04-schema.md:619
+#: ../doc/04-schema.md:631 ../doc/04-schema.md:647 ../doc/04-schema.md:678
+#: ../doc/04-schema.md:706 ../doc/04-schema.md:727 ../doc/04-schema.md:818
+#: ../doc/04-schema.md:923 ../doc/04-schema.md:940 ../doc/06-config.md:390
 #, markdown-text
 msgid "Example:"
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:306
+#: ../doc/04-schema.md:309
 #, no-wrap
 msgid ""
 "{\n"
@@ -5594,13 +5608,13 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:315
+#: ../doc/04-schema.md:318
 #, markdown-text
 msgid "All links are optional fields."
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:322
+#: ../doc/04-schema.md:325
 #, markdown-text
 msgid ""
 "`require` and `require-dev` additionally support _stability flags_ "
@@ -5613,7 +5627,7 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:325
+#: ../doc/04-schema.md:328
 #, no-wrap
 msgid ""
 "{\n"
@@ -5625,7 +5639,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:336
+#: ../doc/04-schema.md:339
 #, markdown-text
 msgid ""
 "If one of your dependencies has a dependency on an unstable package you need "
@@ -5633,7 +5647,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:342
+#: ../doc/04-schema.md:345
 #, markdown-text
 msgid ""
 "Assuming `doctrine/doctrine-fixtures-bundle` requires "
@@ -5643,7 +5657,7 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:343
+#: ../doc/04-schema.md:346
 #, no-wrap
 msgid ""
 "{\n"
@@ -5655,7 +5669,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:358
+#: ../doc/04-schema.md:361
 #, markdown-text, no-wrap
 msgid ""
 "`require` and `require-dev` additionally support explicit references (i.e.\n"
@@ -5669,7 +5683,7 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:361
+#: ../doc/04-schema.md:364
 #, no-wrap
 msgid ""
 "{\n"
@@ -5682,7 +5696,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:376
+#: ../doc/04-schema.md:379
 #, markdown-text, no-wrap
 msgid ""
 "> **Note:** This feature has severe technical limitations, as the\n"
@@ -5698,7 +5712,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:380
+#: ../doc/04-schema.md:383
 #, markdown-text
 msgid ""
 "It is also possible to inline-alias a package constraint so that it matches "
@@ -5707,7 +5721,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:383
+#: ../doc/04-schema.md:386
 #, markdown-text
 msgid ""
 "`require` and `require-dev` also support references to specific PHP versions "
@@ -5715,7 +5729,7 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:386
+#: ../doc/04-schema.md:389
 #, no-wrap
 msgid ""
 "{\n"
@@ -5727,7 +5741,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:405
+#: ../doc/04-schema.md:408
 #, markdown-text, no-wrap
 msgid ""
 "> **Note:** It is important to list PHP extensions your project requires.\n"
@@ -5747,13 +5761,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ####
-#: ../doc/04-schema.md:406
+#: ../doc/04-schema.md:409
 #, markdown-text, no-wrap
 msgid "require"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:410
+#: ../doc/04-schema.md:413
 #, markdown-text
 msgid ""
 "Map of packages required by this package. The package will not be installed "
@@ -5761,13 +5775,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ####
-#: ../doc/04-schema.md:411
+#: ../doc/04-schema.md:414
 #, markdown-text, no-wrap
 msgid "require-dev <span>([root-only](04-schema.md#root-package))</span>"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:417
+#: ../doc/04-schema.md:420
 #, markdown-text
 msgid ""
 "Map of packages required for developing this package, or running tests, "
@@ -5777,13 +5791,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ####
-#: ../doc/04-schema.md:418
+#: ../doc/04-schema.md:421
 #, markdown-text, no-wrap
 msgid "conflict"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:422
+#: ../doc/04-schema.md:425
 #, markdown-text
 msgid ""
 "Map of packages that conflict with this version of this package. They will "
@@ -5791,7 +5805,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:427
+#: ../doc/04-schema.md:430
 #, markdown-text, no-wrap
 msgid ""
 "Note that when specifying ranges like `<1.0 >=1.1` in a `conflict` link,\n"
@@ -5803,13 +5817,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ####
-#: ../doc/04-schema.md:428
+#: ../doc/04-schema.md:431
 #, markdown-text, no-wrap
 msgid "replace"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:434
+#: ../doc/04-schema.md:437
 #, markdown-text
 msgid ""
 "Map of packages that are replaced by this package. This allows you to fork a "
@@ -5819,7 +5833,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:440
+#: ../doc/04-schema.md:443
 #, markdown-text
 msgid ""
 "This is also useful for packages that contain sub-packages, for example the "
@@ -5830,7 +5844,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:445
+#: ../doc/04-schema.md:448
 #, markdown-text
 msgid ""
 "Caution is advised when using replace for the sub-package purpose explained "
@@ -5841,13 +5855,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ####
-#: ../doc/04-schema.md:446
+#: ../doc/04-schema.md:449
 #, markdown-text, no-wrap
 msgid "provide"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:453
+#: ../doc/04-schema.md:456
 #, markdown-text
 msgid ""
 "Map of packages that are provided by this package. This is mostly useful for "
@@ -5858,7 +5872,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:460
+#: ../doc/04-schema.md:463
 #, markdown-text
 msgid ""
 "Using `provide` with the name of an actual package rather than a virtual one "
@@ -5871,13 +5885,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ####
-#: ../doc/04-schema.md:461
+#: ../doc/04-schema.md:464
 #, markdown-text, no-wrap
 msgid "suggest"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:467
+#: ../doc/04-schema.md:470
 #, markdown-text
 msgid ""
 "Suggested packages that can enhance or work well with this package. These "
@@ -5887,7 +5901,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:470
+#: ../doc/04-schema.md:473
 #, markdown-text
 msgid ""
 "The format is like package links above, except that the values are free text "
@@ -5895,7 +5909,7 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:473
+#: ../doc/04-schema.md:476
 #, no-wrap
 msgid ""
 "{\n"
@@ -5908,19 +5922,19 @@ msgid ""
 msgstr ""
 
 #. type: Title ###
-#: ../doc/04-schema.md:482
+#: ../doc/04-schema.md:485
 #, markdown-text, no-wrap
 msgid "autoload"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:485
+#: ../doc/04-schema.md:488
 #, markdown-text
 msgid "Autoload mapping for a PHP autoloader."
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:488
+#: ../doc/04-schema.md:491
 #, markdown-text
 msgid ""
 "[`PSR-4`](https://www.php-fig.org/psr/psr-4/) and "
@@ -5929,7 +5943,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:491
+#: ../doc/04-schema.md:494
 #, markdown-text
 msgid ""
 "PSR-4 is the recommended way since it offers greater ease of use (no need to "
@@ -5937,13 +5951,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ####
-#: ../doc/04-schema.md:492
+#: ../doc/04-schema.md:495
 #, markdown-text, no-wrap
 msgid "PSR-4"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:499
+#: ../doc/04-schema.md:502
 #, markdown-text
 msgid ""
 "Under the `psr-4` key you define a mapping from namespaces to paths, "
@@ -5956,7 +5970,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:503
+#: ../doc/04-schema.md:506
 #, markdown-text
 msgid ""
 "Namespace prefixes must end in `\\\\` to avoid conflicts between similar "
@@ -5966,7 +5980,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:507
+#: ../doc/04-schema.md:510
 #, markdown-text, no-wrap
 msgid ""
 "The PSR-4 references are all combined, during install/update, into a "
@@ -5976,7 +5990,7 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:510
+#: ../doc/04-schema.md:513
 #, no-wrap
 msgid ""
 "{\n"
@@ -5990,7 +6004,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:523 ../doc/04-schema.md:571
+#: ../doc/04-schema.md:526 ../doc/04-schema.md:574
 #, markdown-text
 msgid ""
 "If you need to search for a same prefix in multiple directories, you can "
@@ -5998,7 +6012,7 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:524
+#: ../doc/04-schema.md:527
 #, no-wrap
 msgid ""
 "{\n"
@@ -6009,7 +6023,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:534
+#: ../doc/04-schema.md:537
 #, markdown-text
 msgid ""
 "If you want to have a fallback directory where any namespace will be looked "
@@ -6017,7 +6031,7 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:535
+#: ../doc/04-schema.md:538
 #, no-wrap
 msgid ""
 "{\n"
@@ -6028,13 +6042,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ####
-#: ../doc/04-schema.md:543
+#: ../doc/04-schema.md:546
 #, markdown-text, no-wrap
 msgid "PSR-0"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:547
+#: ../doc/04-schema.md:550
 #, markdown-text
 msgid ""
 "Under the `psr-0` key you define a mapping from namespaces to paths, "
@@ -6043,7 +6057,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:551
+#: ../doc/04-schema.md:554
 #, markdown-text
 msgid ""
 "Please note namespace declarations should end in `\\\\` to make sure the "
@@ -6053,7 +6067,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:554
+#: ../doc/04-schema.md:557
 #, markdown-text, no-wrap
 msgid ""
 "The PSR-0 references are all combined, during install/update, into a single "
@@ -6063,7 +6077,7 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:557
+#: ../doc/04-schema.md:560
 #, no-wrap
 msgid ""
 "{\n"
@@ -6078,7 +6092,7 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:572
+#: ../doc/04-schema.md:575
 #, no-wrap
 msgid ""
 "{\n"
@@ -6089,7 +6103,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:584
+#: ../doc/04-schema.md:587
 #, markdown-text
 msgid ""
 "The PSR-0 style is not limited to namespace declarations only but may be "
@@ -6100,7 +6114,7 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:585
+#: ../doc/04-schema.md:588
 #, no-wrap
 msgid ""
 "{\n"
@@ -6111,7 +6125,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:595
+#: ../doc/04-schema.md:598
 #, markdown-text
 msgid ""
 "If you want to have a fallback directory where any namespace can be, you can "
@@ -6119,7 +6133,7 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:596
+#: ../doc/04-schema.md:599
 #, no-wrap
 msgid ""
 "{\n"
@@ -6130,13 +6144,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ####
-#: ../doc/04-schema.md:604
+#: ../doc/04-schema.md:607
 #, markdown-text, no-wrap
 msgid "Classmap"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:610
+#: ../doc/04-schema.md:613
 #, markdown-text, no-wrap
 msgid ""
 "The `classmap` references are all combined, during install/update, into a "
@@ -6147,7 +6161,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:614
+#: ../doc/04-schema.md:617
 #, markdown-text
 msgid ""
 "You can use the classmap generation support to define autoloading for all "
@@ -6156,7 +6170,7 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:617
+#: ../doc/04-schema.md:620
 #, no-wrap
 msgid ""
 "{\n"
@@ -6167,7 +6181,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:626
+#: ../doc/04-schema.md:629
 #, markdown-text
 msgid ""
 "Wildcards (`*`) are also supported in a classmap paths, and expand to match "
@@ -6175,7 +6189,7 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:629
+#: ../doc/04-schema.md:632
 #, no-wrap
 msgid ""
 "{\n"
@@ -6187,13 +6201,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ####
-#: ../doc/04-schema.md:637
+#: ../doc/04-schema.md:640
 #, markdown-text, no-wrap
 msgid "Files"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:642
+#: ../doc/04-schema.md:645
 #, markdown-text
 msgid ""
 "If you want to require certain files explicitly on every request then you "
@@ -6202,7 +6216,7 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:645
+#: ../doc/04-schema.md:648
 #, no-wrap
 msgid ""
 "{\n"
@@ -6213,7 +6227,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:657
+#: ../doc/04-schema.md:660
 #, markdown-text
 msgid ""
 "Files autoload rules are included whenever `vendor/autoload.php` is "
@@ -6224,7 +6238,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:659
+#: ../doc/04-schema.md:662
 #, markdown-text
 msgid ""
 "If two packages have the same amount of dependents or no dependencies, the "
@@ -6232,7 +6246,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:663
+#: ../doc/04-schema.md:666
 #, markdown-text
 msgid ""
 "Files from the root package are always loaded last, and you cannot use files "
@@ -6242,13 +6256,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ####
-#: ../doc/04-schema.md:664
+#: ../doc/04-schema.md:667
 #, markdown-text, no-wrap
 msgid "Exclude files from classmaps"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:669
+#: ../doc/04-schema.md:672
 #, markdown-text
 msgid ""
 "If you want to exclude some files or folders from the classmap you can use "
@@ -6258,7 +6272,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:673
+#: ../doc/04-schema.md:676
 #, markdown-text
 msgid ""
 "The classmap generator will ignore all files in the paths configured "
@@ -6269,7 +6283,7 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:676
+#: ../doc/04-schema.md:679
 #, no-wrap
 msgid ""
 "{\n"
@@ -6280,13 +6294,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ####
-#: ../doc/04-schema.md:684
+#: ../doc/04-schema.md:687
 #, markdown-text, no-wrap
 msgid "Optimizing the autoloader"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:690
+#: ../doc/04-schema.md:693
 #, markdown-text
 msgid ""
 "The autoloader can have quite a substantial impact on your request time "
@@ -6297,19 +6311,19 @@ msgid ""
 msgstr ""
 
 #. type: Title ###
-#: ../doc/04-schema.md:691
+#: ../doc/04-schema.md:694
 #, markdown-text, no-wrap
 msgid "autoload-dev <span>([root-only](04-schema.md#root-package))</span>"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:694
+#: ../doc/04-schema.md:697
 #, markdown-text
 msgid "This section allows defining autoload rules for development purposes."
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:698
+#: ../doc/04-schema.md:701
 #, markdown-text
 msgid ""
 "Classes needed to run the test suite should not be included in the main "
@@ -6318,7 +6332,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:701
+#: ../doc/04-schema.md:704
 #, markdown-text
 msgid ""
 "Therefore, it is a good idea to rely on a dedicated path for your unit tests "
@@ -6326,7 +6340,7 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:704
+#: ../doc/04-schema.md:707
 #, no-wrap
 msgid ""
 "{\n"
@@ -6340,13 +6354,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ###
-#: ../doc/04-schema.md:715
+#: ../doc/04-schema.md:718
 #, markdown-text, no-wrap
 msgid "include-path"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:720
+#: ../doc/04-schema.md:723
 #, markdown-text, no-wrap
 msgid ""
 "> **DEPRECATED**: This is only present to support legacy projects, and all "
@@ -6357,13 +6371,13 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:722
+#: ../doc/04-schema.md:725
 #, markdown-text
 msgid "A list of paths which should get appended to PHP's `include_path`."
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:725
+#: ../doc/04-schema.md:728
 #, no-wrap
 msgid ""
 "{\n"
@@ -6372,13 +6386,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ###
-#: ../doc/04-schema.md:733
+#: ../doc/04-schema.md:736
 #, markdown-text, no-wrap
 msgid "target-dir"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:738
+#: ../doc/04-schema.md:741
 #, markdown-text, no-wrap
 msgid ""
 "> **DEPRECATED**: This is only present to support legacy PSR-0 style "
@@ -6390,13 +6404,13 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:740
+#: ../doc/04-schema.md:743
 #, markdown-text
 msgid "Defines the installation target."
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:743
+#: ../doc/04-schema.md:746
 #, markdown-text
 msgid ""
 "In case the package root is below the namespace declaration you cannot "
@@ -6404,7 +6418,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:750
+#: ../doc/04-schema.md:753
 #, markdown-text
 msgid ""
 "An example is Symfony. There are individual packages for the components. The "
@@ -6416,13 +6430,13 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:752
+#: ../doc/04-schema.md:755
 #, markdown-text
 msgid "To do that, `autoload` and `target-dir` are defined as follows:"
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:753
+#: ../doc/04-schema.md:756
 #, no-wrap
 msgid ""
 "{\n"
@@ -6434,13 +6448,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ###
-#: ../doc/04-schema.md:764
+#: ../doc/04-schema.md:767
 #, markdown-text, no-wrap
 msgid "minimum-stability <span>([root-only](04-schema.md#root-package))</span>"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:769
+#: ../doc/04-schema.md:772
 #, markdown-text
 msgid ""
 "This defines the default behavior for filtering packages by stability. This "
@@ -6449,7 +6463,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:775
+#: ../doc/04-schema.md:778
 #, markdown-text
 msgid ""
 "All versions of each package are checked for stability, and those that are "
@@ -6461,7 +6475,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:778
+#: ../doc/04-schema.md:781
 #, markdown-text
 msgid ""
 "Available options (in order of stability) are `dev`, `alpha`, `beta`, `RC`, "
@@ -6469,13 +6483,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ###
-#: ../doc/04-schema.md:779
+#: ../doc/04-schema.md:782
 #, markdown-text, no-wrap
 msgid "prefer-stable <span>([root-only](04-schema.md#root-package))</span>"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:785
+#: ../doc/04-schema.md:788
 #, markdown-text
 msgid ""
 "When this is enabled, Composer will prefer more stable packages over "
@@ -6485,25 +6499,25 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:787
+#: ../doc/04-schema.md:790
 #, markdown-text
 msgid "Use `\"prefer-stable\": true` to enable."
 msgstr ""
 
 #. type: Title ###
-#: ../doc/04-schema.md:788
+#: ../doc/04-schema.md:791
 #, markdown-text, no-wrap
 msgid "repositories <span>([root-only](04-schema.md#root-package))</span>"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:791
+#: ../doc/04-schema.md:794
 #, markdown-text
 msgid "Custom package repositories to use."
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:794
+#: ../doc/04-schema.md:797
 #, markdown-text
 msgid ""
 "By default Composer only uses the packagist repository. By specifying "
@@ -6511,7 +6525,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:798
+#: ../doc/04-schema.md:801
 #, markdown-text
 msgid ""
 "Repositories are not resolved recursively. You can only add them to your "
@@ -6520,13 +6534,13 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:800
+#: ../doc/04-schema.md:803
 #, markdown-text
 msgid "The following repository types are supported:"
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/04-schema.md:811
+#: ../doc/04-schema.md:814
 #, markdown-text
 msgid ""
 "**composer:** A Composer repository is a `packages.json` file served via the "
@@ -6537,7 +6551,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/04-schema.md:811
+#: ../doc/04-schema.md:814
 #, markdown-text
 msgid ""
 "**vcs:** The version control system repository can fetch packages from git, "
@@ -6545,7 +6559,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/04-schema.md:811
+#: ../doc/04-schema.md:814
 #, markdown-text
 msgid ""
 "**package:** If you depend on a project that does not have any support for "
@@ -6554,7 +6568,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:813
+#: ../doc/04-schema.md:816
 #, markdown-text
 msgid ""
 "For more information on any of these, see "
@@ -6562,7 +6576,7 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:816
+#: ../doc/04-schema.md:819
 #, no-wrap
 msgid ""
 "{\n"
@@ -6606,7 +6620,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:860
+#: ../doc/04-schema.md:863
 #, markdown-text, no-wrap
 msgid ""
 "> **Note:** Order is significant here. When looking for a package, "
@@ -6618,7 +6632,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:863
+#: ../doc/04-schema.md:866
 #, markdown-text
 msgid ""
 "Using JSON object notation is also possible. However, JSON key/value pairs "
@@ -6626,7 +6640,7 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:864
+#: ../doc/04-schema.md:867
 #, no-wrap
 msgid ""
 "{\n"
@@ -6640,13 +6654,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ###
-#: ../doc/04-schema.md:875
+#: ../doc/04-schema.md:878
 #, markdown-text, no-wrap
 msgid "config <span>([root-only](04-schema.md#root-package))</span>"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:879
+#: ../doc/04-schema.md:882
 #, markdown-text
 msgid ""
 "A set of configuration options. It is only used for projects. See "
@@ -6654,13 +6668,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ###
-#: ../doc/04-schema.md:880
+#: ../doc/04-schema.md:883
 #, markdown-text, no-wrap
 msgid "scripts <span>([root-only](04-schema.md#root-package))</span>"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:884
+#: ../doc/04-schema.md:887
 #, markdown-text
 msgid ""
 "Composer allows you to hook into various parts of the installation process "
@@ -6668,25 +6682,25 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:886
+#: ../doc/04-schema.md:889
 #, markdown-text
 msgid "See [Scripts](articles/scripts.md) for events details and examples."
 msgstr ""
 
 #. type: Title ###
-#: ../doc/04-schema.md:887
+#: ../doc/04-schema.md:890
 #, markdown-text, no-wrap
 msgid "extra"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:890
+#: ../doc/04-schema.md:893
 #, markdown-text
 msgid "Arbitrary extra data for consumption by `scripts`."
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:893
+#: ../doc/04-schema.md:896
 #, markdown-text
 msgid ""
 "This can be virtually anything. To access it from within a script event "
@@ -6694,19 +6708,19 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (php)
-#: ../doc/04-schema.md:894
+#: ../doc/04-schema.md:897
 #, no-wrap
 msgid "$extra = $event->getComposer()->getPackage()->getExtra();\n"
 msgstr ""
 
 #. type: Title ###
-#: ../doc/04-schema.md:900
+#: ../doc/04-schema.md:903
 #, markdown-text, no-wrap
 msgid "bin"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:904
+#: ../doc/04-schema.md:907
 #, markdown-text
 msgid ""
 "A set of files that should be treated as binaries and made available into "
@@ -6714,25 +6728,25 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:906
+#: ../doc/04-schema.md:909
 #, markdown-text
 msgid "See [Vendor Binaries](articles/vendor-binaries.md) for more details."
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:912
+#: ../doc/04-schema.md:915
 #, markdown-text
 msgid "A set of options for creating package archives."
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:914
+#: ../doc/04-schema.md:917
 #, markdown-text
 msgid "The following options are supported:"
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/04-schema.md:918
+#: ../doc/04-schema.md:921
 #, markdown-text
 msgid ""
 "**name:** Allows configuring base name for archive.  By default (if not "
@@ -6741,7 +6755,7 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:921
+#: ../doc/04-schema.md:924
 #, no-wrap
 msgid ""
 "{\n"
@@ -6753,7 +6767,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/04-schema.md:935
+#: ../doc/04-schema.md:938
 #, markdown-text
 msgid ""
 "**exclude:** Allows configuring a list of patterns for excluded paths. The "
@@ -6764,7 +6778,7 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:938
+#: ../doc/04-schema.md:941
 #, no-wrap
 msgid ""
 "{\n"
@@ -6776,7 +6790,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:948
+#: ../doc/04-schema.md:951
 #, markdown-text
 msgid ""
 "The example will include `/dir/foo/bar/file`, `/foo/bar/baz`, `/file.php`, "
@@ -6785,19 +6799,19 @@ msgid ""
 msgstr ""
 
 #. type: Title ###
-#: ../doc/04-schema.md:951
+#: ../doc/04-schema.md:954
 #, markdown-text, no-wrap
 msgid "abandoned"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:954
+#: ../doc/04-schema.md:957
 #, markdown-text
 msgid "Indicates whether this package has been abandoned."
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:956
+#: ../doc/04-schema.md:959
 #, markdown-text
 msgid ""
 "It can be boolean or a package name/URL pointing to a recommended "
@@ -6805,7 +6819,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:962
+#: ../doc/04-schema.md:965
 #, markdown-text
 msgid ""
 "Use `\"abandoned\": true` to indicate this package is abandoned.  Use "
@@ -6814,19 +6828,19 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:964
+#: ../doc/04-schema.md:967
 #, markdown-text
 msgid "Defaults to false."
 msgstr ""
 
 #. type: Title ###
-#: ../doc/04-schema.md:967
+#: ../doc/04-schema.md:970
 #, markdown-text, no-wrap
 msgid "non-feature-branches"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:971
+#: ../doc/04-schema.md:974
 #, markdown-text
 msgid ""
 "A list of regex patterns of branch names that are non-numeric "
@@ -6835,7 +6849,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:977
+#: ../doc/04-schema.md:980
 #, markdown-text
 msgid ""
 "If you have non-numeric branch names, for example like \"latest\", "
@@ -6847,7 +6861,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:981
+#: ../doc/04-schema.md:984
 #, markdown-text
 msgid ""
 "To handle non-numeric named branches as versions instead of searching for a "
@@ -6857,7 +6871,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:984
+#: ../doc/04-schema.md:987
 #, markdown-text
 msgid ""
 "This is really helpful when you have dependencies using \"self.version\", so "
@@ -6866,7 +6880,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:989
+#: ../doc/04-schema.md:992
 #, markdown-text
 msgid ""
 "If you have a testing branch, that is heavily maintained during a testing "
@@ -6875,7 +6889,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:991
+#: ../doc/04-schema.md:994
 #, markdown-text
 msgid ""
 "If you configure `latest-.*` as a pattern for non-feature-branches like "
@@ -6883,7 +6897,7 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:992
+#: ../doc/04-schema.md:995
 #, no-wrap
 msgid ""
 "{\n"
@@ -6892,13 +6906,13 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:999
+#: ../doc/04-schema.md:1002
 #, markdown-text
 msgid "Then `composer show -s` will give you `versions : * dev-latest-testing`."
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:1002
+#: ../doc/04-schema.md:1005
 #, markdown-text
 msgid ""
 "&larr; [Command-line interface](03-cli.md)  | "
@@ -8426,6 +8440,990 @@ msgstr ""
 #: ../doc/05-repositories.md:805
 #, markdown-text
 msgid "&larr; [Schema](04-schema.md)  | [Config](06-config.md) &rarr;"
+msgstr ""
+
+#. type: Title #
+#: ../doc/06-config.md:1
+#, markdown-text, no-wrap
+msgid "Config"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:5
+#, markdown-text
+msgid ""
+"This chapter will describe the `config` section of the `composer.json` "
+"[schema](04-schema.md)."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/06-config.md:6
+#, markdown-text, no-wrap
+msgid "process-timeout"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:12
+#, markdown-text
+msgid ""
+"The timeout in seconds for process executions, defaults to 300 (5mins).  The "
+"duration processes like git clones can run before Composer assumes they died "
+"out. You may need to make this higher if you have a slow connection or huge "
+"vendors."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:15
+#, markdown-text
+msgid ""
+"To disable the process timeout on a custom command under `scripts`, a static "
+"helper is available:"
+msgstr ""
+
+#. type: Fenced code block (json)
+#: ../doc/06-config.md:16
+#, no-wrap
+msgid ""
+"{\n"
+"    \"scripts\": {\n"
+"        \"test\": [\n"
+"            \"Composer\\\\Config::disableProcessTimeout\",\n"
+"            \"phpunit\"\n"
+"        ]\n"
+"    }\n"
+"}\n"
+msgstr ""
+
+#. type: Title ##
+#: ../doc/06-config.md:27
+#, markdown-text, no-wrap
+msgid "allow-plugins"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:30
+#, markdown-text
+msgid "Defaults to `{}` which does not allow any plugins to be loaded."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:34
+#, markdown-text
+msgid ""
+"As of Composer 2.2.0, the `allow-plugins` option adds a layer of security "
+"allowing you to restrict which Composer plugins are able to execute code "
+"during a Composer run."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:38
+#, markdown-text
+msgid ""
+"When a new plugin is first activated, which is not yet listed in the config "
+"option, Composer will print a warning. If you run Composer interactively it "
+"will prompt you to decide if you want to execute the plugin or not."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:42
+#, markdown-text
+msgid ""
+"Use this setting to allow only packages you trust to execute code. Set it to "
+"an object with package name patterns as keys. The values are **true** to "
+"allow and **false** to disallow while suppressing further warnings and "
+"prompts."
+msgstr ""
+
+#. type: Fenced code block (json)
+#: ../doc/06-config.md:43
+#, no-wrap
+msgid ""
+"{\n"
+"    \"config\": {\n"
+"        \"allow-plugins\": {\n"
+"            \"third-party/required-plugin\": true,\n"
+"            \"my-organization/*\": true,\n"
+"            \"unnecessary/plugin\": false\n"
+"        }\n"
+"    }\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:56
+#, markdown-text
+msgid ""
+"You can also set the config option itself to `false` to disallow all "
+"plugins, or `true` to allow all plugins to run (NOT recommended). For "
+"example:"
+msgstr ""
+
+#. type: Fenced code block (json)
+#: ../doc/06-config.md:57
+#, no-wrap
+msgid ""
+"{\n"
+"    \"config\": {\n"
+"        \"allow-plugins\": false\n"
+"    }\n"
+"}\n"
+msgstr ""
+
+#. type: Title ##
+#: ../doc/06-config.md:65
+#, markdown-text, no-wrap
+msgid "use-include-path"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:69
+#, markdown-text
+msgid ""
+"Defaults to `false`. If `true`, the Composer autoloader will also look for "
+"classes in the PHP include path."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/06-config.md:70
+#, markdown-text, no-wrap
+msgid "preferred-install"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:75
+#, markdown-text
+msgid ""
+"Defaults to `dist` and can be any of `source`, `dist` or `auto`. This option "
+"allows you to set the install method Composer will prefer to use. Can "
+"optionally be an object with package name patterns for keys for more "
+"granular install preferences."
+msgstr ""
+
+#. type: Fenced code block (json)
+#: ../doc/06-config.md:76
+#, no-wrap
+msgid ""
+"{\n"
+"    \"config\": {\n"
+"        \"preferred-install\": {\n"
+"            \"my-organization/stable-package\": \"dist\",\n"
+"            \"my-organization/*\": \"source\",\n"
+"            \"partner-organization/*\": \"auto\",\n"
+"            \"*\": \"dist\"\n"
+"        }\n"
+"    }\n"
+"}\n"
+msgstr ""
+
+#. type: Bullet: '- '
+#: ../doc/06-config.md:98
+#, markdown-text
+msgid ""
+"`source` means Composer will install packages from their `source` if there "
+"is one. This is typically a git clone or equivalent checkout of the version "
+"control system the package uses. This is useful if you want to make a bugfix "
+"to a project and get a local git clone of the dependency directly."
+msgstr ""
+
+#. type: Bullet: '- '
+#: ../doc/06-config.md:98
+#, markdown-text
+msgid ""
+"`auto` is the legacy behavior where Composer uses `source` automatically for "
+"dev versions, and `dist` otherwise."
+msgstr ""
+
+#. type: Bullet: '- '
+#: ../doc/06-config.md:98
+#, markdown-text
+msgid ""
+"`dist` (the default as of Composer 2.1) means Composer installs from `dist`, "
+"where possible. This is typically a zip file download, which is faster than "
+"cloning the entire repository."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:103
+#, markdown-text, no-wrap
+msgid ""
+"> **Note:** Order matters. More specific patterns should be earlier than\n"
+"> more relaxed patterns. When mixing the string notation with the hash\n"
+"> configuration in global and package configurations the string notation\n"
+"> is translated to a `*` package pattern.\n"
+msgstr ""
+
+#. type: Title ##
+#: ../doc/06-config.md:104
+#, markdown-text, no-wrap
+msgid "use-parent-dir"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:109
+#, markdown-text
+msgid ""
+"When running Composer in a directory where there is no composer.json, if "
+"there is one present in a directory above Composer will by default ask you "
+"whether you want to use that directory's composer.json instead."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:112
+#, markdown-text
+msgid ""
+"If you always want to answer yes to this prompt, you can set this config "
+"value to `true`. To never be prompted, set it to `false`. The default is "
+"`\"prompt\"`."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:116
+#, markdown-text, no-wrap
+msgid ""
+"> **Note:** This config must be set in your global user-wide config for it\n"
+"> to work. Use for example `php composer.phar config --global use-parent-dir "
+"true`\n"
+"> to set it.\n"
+msgstr ""
+
+#. type: Title ##
+#: ../doc/06-config.md:117
+#, markdown-text, no-wrap
+msgid "store-auths"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:121
+#, markdown-text
+msgid ""
+"What to do after prompting for authentication, one of: `true` (always "
+"store), `false` (do not store) and `\"prompt\"` (ask every time), defaults "
+"to `\"prompt\"`."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/06-config.md:122
+#, markdown-text, no-wrap
+msgid "github-protocols"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:130
+#, markdown-text
+msgid ""
+"Defaults to `[\"https\", \"ssh\", \"git\"]`. A list of protocols to use when "
+"cloning from github.com, in priority order. By default `git` is present but "
+"only if [secure-http](#secure-http)  is disabled, as the git protocol is not "
+"encrypted. If you want your origin remote push URLs to be using https and "
+"not ssh (`git@github.com:...`), then set the protocol list to be only "
+"`[\"https\"]` and Composer will stop overwriting the push URL to an ssh URL."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/06-config.md:131
+#, markdown-text, no-wrap
+msgid "github-oauth"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:139
+#, markdown-text
+msgid ""
+"A list of domain names and oauth keys. For example using `{\"github.com\": "
+"\"oauthtoken\"}` as the value of this option will use `oauthtoken` to access "
+"private repositories on github and to circumvent the low IP-based rate "
+"limiting of their API. Composer may prompt for credentials when needed, but "
+"these can also be manually set. Read more on how to get an OAuth token for "
+"GitHub and cli syntax "
+"[here](articles/authentication-for-private-packages.md#github-oauth)."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/06-config.md:140
+#, markdown-text, no-wrap
+msgid "gitlab-domains"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:144
+#, markdown-text
+msgid ""
+"Defaults to `[\"gitlab.com\"]`. A list of domains of GitLab servers.  This "
+"is used if you use the `gitlab` repository type."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/06-config.md:145
+#, markdown-text, no-wrap
+msgid "gitlab-oauth"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:153
+#, markdown-text
+msgid ""
+"A list of domain names and oauth keys. For example using `{\"gitlab.com\": "
+"\"oauthtoken\"}` as the value of this option will use `oauthtoken` to access "
+"private repositories on gitlab. Please note: If the package is not hosted at "
+"gitlab.com the domain names must be also specified with the "
+"[`gitlab-domains`](06-config.md#gitlab-domains) option.  Further info can "
+"also be found "
+"[here](articles/authentication-for-private-packages.md#gitlab-oauth)"
+msgstr ""
+
+#. type: Title ##
+#: ../doc/06-config.md:154
+#, markdown-text, no-wrap
+msgid "gitlab-token"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:167
+#, markdown-text, no-wrap
+msgid ""
+"A list of domain names and private tokens. Private token can be either "
+"simple\n"
+"string, or array with username and token. For example using "
+"`{\"gitlab.com\":\n"
+"\"privatetoken\"}` as the value of this option will use `privatetoken` to "
+"access\n"
+"private repositories on gitlab. Using `{\"gitlab.com\": {\"username\": "
+"\"gitlabuser\",\n"
+" \"token\": \"privatetoken\"}}` will use both username and token for gitlab "
+"deploy\n"
+"token functionality "
+"(https://docs.gitlab.com/ee/user/project/deploy_tokens/)\n"
+"Please note: If the package is not hosted at\n"
+"gitlab.com the domain names must be also specified with the\n"
+"[`gitlab-domains`](06-config.md#gitlab-domains) option. The token must "
+"have\n"
+"`api` or `read_api` scope.\n"
+"Further info can also be found "
+"[here](articles/authentication-for-private-packages.md#gitlab-token)\n"
+msgstr ""
+
+#. type: Title ##
+#: ../doc/06-config.md:168
+#, markdown-text, no-wrap
+msgid "gitlab-protocol"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:177
+#, markdown-text
+msgid ""
+"A protocol to force use of when creating a repository URL for the `source` "
+"value of the package metadata. One of `git` or `http`. (`https` is treated "
+"as a synonym for `http`.) Helpful when working with projects referencing "
+"private repositories which will later be cloned in GitLab CI jobs with a "
+"[GitLab "
+"CI_JOB_TOKEN](https://docs.gitlab.com/ee/ci/variables/predefined_variables.html#predefined-variables-reference)  "
+"using HTTP basic auth. By default, Composer will generate a git-over-SSH URL "
+"for private repositories and HTTP(S) only for public."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/06-config.md:178
+#, markdown-text, no-wrap
+msgid "disable-tls"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:185
+#, markdown-text
+msgid ""
+"Defaults to `false`. If set to true all HTTPS URLs will be tried with HTTP "
+"instead and no network level encryption is performed. Enabling this is a "
+"security risk and is NOT recommended. The better way is to enable the "
+"php_openssl extension in php.ini. Enabling this will implicitly disable the "
+"`secure-http` option."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/06-config.md:186
+#, markdown-text, no-wrap
+msgid "secure-http"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:192
+#, markdown-text
+msgid ""
+"Defaults to `true`. If set to true only HTTPS URLs are allowed to be "
+"downloaded via Composer. If you really absolutely need HTTP access to "
+"something then you can disable it, but using [Let's "
+"Encrypt](https://letsencrypt.org/) to get a free SSL certificate is "
+"generally a better alternative."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/06-config.md:193
+#, markdown-text, no-wrap
+msgid "bitbucket-oauth"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:198
+#, markdown-text
+msgid ""
+"A list of domain names and consumers. For example using `{\"bitbucket.org\": "
+"{\"consumer-key\": \"myKey\", \"consumer-secret\": \"mySecret\"}}`.  Read "
+"more "
+"[here](articles/authentication-for-private-packages.md#bitbucket-oauth)."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/06-config.md:199
+#, markdown-text, no-wrap
+msgid "cafile"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:204
+#, markdown-text
+msgid ""
+"Location of Certificate Authority file on local filesystem. In PHP 5.6+ you "
+"should rather set this via openssl.cafile in php.ini, although PHP 5.6+ "
+"should be able to detect your system CA file automatically."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/06-config.md:205
+#, markdown-text, no-wrap
+msgid "capath"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:210
+#, markdown-text
+msgid ""
+"If cafile is not specified or if the certificate is not found there, the "
+"directory pointed to by capath is searched for a suitable certificate.  "
+"capath must be a correctly hashed certificate directory."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/06-config.md:211
+#, markdown-text, no-wrap
+msgid "http-basic"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:217
+#, markdown-text
+msgid ""
+"A list of domain names and username/passwords to authenticate against "
+"them. For example using `{\"example.org\": {\"username\": \"alice\", "
+"\"password\": \"foo\"}}` as the value of this option will let Composer "
+"authenticate against example.org.  More info can be found "
+"[here](articles/authentication-for-private-packages.md#http-basic)."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/06-config.md:218
+#, markdown-text, no-wrap
+msgid "bearer"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:223
+#, markdown-text
+msgid ""
+"A list of domain names and tokens to authenticate against them. For example "
+"using `{\"example.org\": \"foo\"}` as the value of this option will let "
+"Composer authenticate against example.org using an `Authorization: Bearer "
+"foo` header."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/06-config.md:224
+#, markdown-text, no-wrap
+msgid "platform"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:229
+#, markdown-text
+msgid ""
+"Lets you fake platform packages (PHP and extensions) so that you can emulate "
+"a production env or define your target platform in the config. Example: "
+"`{\"php\": \"7.0.3\", \"ext-something\": \"4.0.3\"}`."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:235
+#, markdown-text
+msgid ""
+"This will make sure that no package requiring more than PHP 7.0.3 can be "
+"installed regardless of the actual PHP version you run locally. However it "
+"also means the dependencies are not checked correctly anymore, if you run "
+"PHP 5.6 it will install fine as it assumes 7.0.3, but then it will fail at "
+"runtime. This also means if `{\"php\":\"7.4\"}` is specified; no packages "
+"will be used that define `7.4.1` as minimum."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:239
+#, markdown-text
+msgid ""
+"Therefore if you use this it is recommended, and safer, to also run the "
+"[`check-platform-reqs`](03-cli.md#check-platform-reqs) command as part of "
+"your deployment strategy."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:245
+#, markdown-text
+msgid ""
+"If a dependency requires some extension that you do not have installed "
+"locally you may ignore it instead by passing `--ignore-platform-req=ext-foo` "
+"to `update`, `install` or `require`. In the long run though you should "
+"install required extensions as if you ignore one now and a new package you "
+"add a month later also requires it, you may introduce issues in production "
+"unknowingly."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:248
+#, markdown-text
+msgid ""
+"If you have an extension installed locally but *not* on production, you may "
+"want to artificially hide it from Composer using `{\"ext-foo\": false}`."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/06-config.md:249
+#, markdown-text, no-wrap
+msgid "vendor-dir"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:254
+#, markdown-text
+msgid ""
+"Defaults to `vendor`. You can install dependencies into a different "
+"directory if you want to. `$HOME` and `~` will be replaced by your home "
+"directory's path in vendor-dir and all `*-dir` options below."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/06-config.md:255
+#, markdown-text, no-wrap
+msgid "bin-dir"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:259
+#, markdown-text
+msgid ""
+"Defaults to `vendor/bin`. If a project includes binaries, they will be "
+"symlinked into this directory."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/06-config.md:260
+#, markdown-text, no-wrap
+msgid "data-dir"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:267
+#, markdown-text, no-wrap
+msgid ""
+"Defaults to `C:\\Users\\<user>\\AppData\\Roaming\\Composer` on Windows,\n"
+"`$XDG_DATA_HOME/composer` on unix systems that follow the XDG Base "
+"Directory\n"
+"Specifications, and `$COMPOSER_HOME` on other unix systems. Right now it is "
+"only\n"
+"used for storing past composer.phar files to be able to roll back to older\n"
+"versions. See also [COMPOSER_HOME](03-cli.md#composer-home).\n"
+msgstr ""
+
+#. type: Title ##
+#: ../doc/06-config.md:268
+#, markdown-text, no-wrap
+msgid "cache-dir"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:275
+#, markdown-text, no-wrap
+msgid ""
+"Defaults to `C:\\Users\\<user>\\AppData\\Local\\Composer` on Windows,\n"
+"`/Users/<user>/Library/Caches/composer` on macOS, "
+"`$XDG_CACHE_HOME/composer`\n"
+"on unix systems that follow the XDG Base Directory Specifications, and\n"
+"`$COMPOSER_HOME/cache` on other unix systems. Stores all the caches used "
+"by\n"
+"Composer. See also [COMPOSER_HOME](03-cli.md#composer-home).\n"
+msgstr ""
+
+#. type: Title ##
+#: ../doc/06-config.md:276
+#, markdown-text, no-wrap
+msgid "cache-files-dir"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:279
+#, markdown-text
+msgid "Defaults to `$cache-dir/files`. Stores the zip archives of packages."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/06-config.md:280
+#, markdown-text, no-wrap
+msgid "cache-repo-dir"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:284
+#, markdown-text
+msgid ""
+"Defaults to `$cache-dir/repo`. Stores repository metadata for the `composer` "
+"type and the VCS repos of type `svn`, `fossil`, `github` and `bitbucket`."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/06-config.md:285
+#, markdown-text, no-wrap
+msgid "cache-vcs-dir"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:289
+#, markdown-text
+msgid ""
+"Defaults to `$cache-dir/vcs`. Stores VCS clones for loading VCS repository "
+"metadata for the `git`/`hg` types and to speed up installs."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/06-config.md:290
+#, markdown-text, no-wrap
+msgid "cache-files-ttl"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:296
+#, markdown-text
+msgid ""
+"Defaults to `15552000` (6 months). Composer caches all dist (zip, tar, ...)  "
+"packages that it downloads. Those are purged after six months of being "
+"unused by default. This option allows you to tweak this duration (in "
+"seconds) or disable it completely by setting it to 0."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/06-config.md:297
+#, markdown-text, no-wrap
+msgid "cache-files-maxsize"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:303
+#, markdown-text
+msgid ""
+"Defaults to `300MiB`. Composer caches all dist (zip, tar, ...) packages that "
+"it downloads. When the garbage collection is periodically ran, this is the "
+"maximum size the cache will be able to use. Older (less used) files will be "
+"removed first until the cache fits."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/06-config.md:304
+#, markdown-text, no-wrap
+msgid "cache-read-only"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:307
+#, markdown-text
+msgid "Defaults to `false`. Whether to use the Composer cache in read-only mode."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/06-config.md:308
+#, markdown-text, no-wrap
+msgid "bin-compat"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:317
+#, markdown-text
+msgid ""
+"Defaults to `auto`. Determines the compatibility of the binaries to be "
+"installed.  If it is `auto` then Composer only installs .bat proxy files "
+"when on Windows or WSL. If set to `full` then both .bat files for Windows "
+"and scripts for Unix-based operating systems will be installed for each "
+"binary. This is mainly useful if you run Composer inside a linux VM but "
+"still want the `.bat` proxies available for use in the Windows host OS. If "
+"set to `proxy` Composer will only create bash/Unix-style proxy files and no "
+".bat files even on Windows/WSL."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/06-config.md:318
+#, markdown-text, no-wrap
+msgid "prepend-autoloader"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:323
+#, markdown-text
+msgid ""
+"Defaults to `true`. If `false`, the Composer autoloader will not be "
+"prepended to existing autoloaders. This is sometimes required to fix "
+"interoperability issues with other autoloaders."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/06-config.md:324
+#, markdown-text, no-wrap
+msgid "autoloader-suffix"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:328
+#, markdown-text
+msgid ""
+"Defaults to `null`. Non-empty string to be used as a suffix for the "
+"generated Composer autoloader. When null a random one will be generated."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/06-config.md:329
+#, markdown-text, no-wrap
+msgid "optimize-autoloader"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:332
+#, markdown-text
+msgid "Defaults to `false`. If `true`, always optimize when dumping the autoloader."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/06-config.md:333
+#, markdown-text, no-wrap
+msgid "sort-packages"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:337
+#, markdown-text
+msgid ""
+"Defaults to `false`. If `true`, the `require` command keeps packages sorted "
+"by name in `composer.json` when adding a new package."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/06-config.md:338
+#, markdown-text, no-wrap
+msgid "classmap-authoritative"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:342
+#, markdown-text
+msgid ""
+"Defaults to `false`. If `true`, the Composer autoloader will only load "
+"classes from the classmap. Implies `optimize-autoloader`."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/06-config.md:343
+#, markdown-text, no-wrap
+msgid "apcu-autoloader"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:347
+#, markdown-text
+msgid ""
+"Defaults to `false`. If `true`, the Composer autoloader will check for APCu "
+"and use it to cache found/not-found classes when the extension is enabled."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/06-config.md:348
+#, markdown-text, no-wrap
+msgid "github-domains"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:352
+#, markdown-text
+msgid ""
+"Defaults to `[\"github.com\"]`. A list of domains to use in github "
+"mode. This is used for GitHub Enterprise setups."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/06-config.md:353
+#, markdown-text, no-wrap
+msgid "github-expose-hostname"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:357
+#, markdown-text
+msgid ""
+"Defaults to `true`. If `false`, the OAuth tokens created to access the "
+"github API will have a date instead of the machine hostname."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/06-config.md:358
+#, markdown-text, no-wrap
+msgid "use-github-api"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:365
+#, markdown-text
+msgid ""
+"Defaults to `true`.  Similar to the `no-api` key on a specific repository, "
+"setting `use-github-api` to `false` will define the global behavior for all "
+"GitHub repositories to clone the repository as it would with any other git "
+"repository instead of using the GitHub API. But unlike using the `git` "
+"driver directly, Composer will still attempt to use GitHub's zip files."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/06-config.md:366
+#, markdown-text, no-wrap
+msgid "notify-on-install"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:371
+#, markdown-text
+msgid ""
+"Defaults to `true`. Composer allows repositories to define a notification "
+"URL, so that they get notified whenever a package from that repository is "
+"installed.  This option allows you to disable that behavior."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/06-config.md:372
+#, markdown-text, no-wrap
+msgid "discard-changes"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:379
+#, markdown-text
+msgid ""
+"Defaults to `false` and can be any of `true`, `false` or `\"stash\"`. This "
+"option allows you to set the default style of handling dirty updates when in "
+"non-interactive mode. `true` will always discard changes in vendors, while "
+"`\"stash\"` will try to stash and reapply. Use this for CI servers or deploy "
+"scripts if you tend to have modified vendors."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/06-config.md:380
+#, markdown-text, no-wrap
+msgid "archive-format"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:383
+#, markdown-text
+msgid "Defaults to `tar`. Overrides the default format used by the archive command."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/06-config.md:384
+#, markdown-text, no-wrap
+msgid "archive-dir"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:388
+#, markdown-text
+msgid ""
+"Defaults to `.`. Default destination for archives created by the archive "
+"command."
+msgstr ""
+
+#. type: Fenced code block (json)
+#: ../doc/06-config.md:391
+#, no-wrap
+msgid ""
+"{\n"
+"    \"config\": {\n"
+"        \"archive-dir\": \"/home/user/.composer/repo\"\n"
+"    }\n"
+"}\n"
+msgstr ""
+
+#. type: Title ##
+#: ../doc/06-config.md:399
+#, markdown-text, no-wrap
+msgid "htaccess-protect"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:403
+#, markdown-text
+msgid ""
+"Defaults to `true`. If set to `false`, Composer will not create `.htaccess` "
+"files in the Composer home, cache, and data directories."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/06-config.md:404
+#, markdown-text, no-wrap
+msgid "lock"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:408
+#, markdown-text
+msgid ""
+"Defaults to `true`. If set to `false`, Composer will not create a "
+"`composer.lock` file and will ignore it if one is present."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/06-config.md:409
+#, markdown-text, no-wrap
+msgid "platform-check"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:414
+#, markdown-text
+msgid ""
+"Defaults to `php-only` which only checks the PHP version. Set to `true` to "
+"also check the presence of extension. If set to `false`, Composer will not "
+"create and require a `platform_check.php` file as part of the autoloader "
+"bootstrap."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/06-config.md:415
+#, markdown-text, no-wrap
+msgid "secure-svn-domains"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:422
+#, markdown-text
+msgid ""
+"Defaults to `[]`. Lists domains which should be trusted/marked as using a "
+"secure Subversion/SVN transport. By default svn:// protocol is seen as "
+"insecure and will throw, but you can set this config option to "
+"`[\"example.org\"]` to allow using svn URLs on that hostname. This is a "
+"better/safer alternative to disabling `secure-http` altogether."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:423
+#, markdown-text
+msgid "&larr; [Repositories](05-repositories.md)  | [Runtime](07-runtime.md) &rarr;"
 msgstr ""
 
 #. type: Title #

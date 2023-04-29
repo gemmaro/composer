@@ -101,6 +101,10 @@ https://getcomposer.org/schema.json から取得できます。
 ### readme
 
 readmeドキュメントへの相対パスです。
+既定では`README.md`です。
+
+これは主にパッケージがGitHubにないときに有用です。
+GitHubパッケージについて、Packagist.orgではGitHub側で検出されたものを取得するreadme APIを使うからです。
 
 任意のものです。
 
@@ -213,6 +217,7 @@ Registry](https://spdx.org/licenses/)に一覧になっています。
 * **docs:** ドキュメントへのURLです。
 * **rss:** RSSフィードへのURLです。
 * **chat:** チャットチャンネルへのURLです。
+* **security:** 脆弱性公表ポリシー (vulnerability disclosure policy; VDP) へのURLです。
 
 一例：
 

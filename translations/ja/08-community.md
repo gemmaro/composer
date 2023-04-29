@@ -4,7 +4,7 @@
 
 ## 貢献
 
-あなたがComposerに貢献したいときは、[README](https://github.com/composer/composer)と[CONTRIBUTING](https://github.com/composer/composer/blob/main/.github/CONTRIBUTING.md)のドキュメントを読んでください。
+Composerに貢献したいときは、[README](https://github.com/composer/composer)と[CONTRIBUTING](https://github.com/composer/composer/blob/main/.github/CONTRIBUTING.md)のドキュメントを読んでください。
 
 もっとも重要なガイドラインは以下に記述されます。
 
