@@ -1,7 +1,7 @@
 # 導入
 
 ComposerはPHPの依存管理ツールです。
-Composerはプロジェクトが依存するライブラリを宣言し管理（インストールやアップデート）できるようにするのです。
+Composerはプロジェクトが依存するライブラリを宣言し管理（インストールやアップデート）できるようにするものです。
 
 ## 依存管理
 
@@ -21,7 +21,7 @@ Composerはnodeの[npm](https://www.npmjs.org/)やrubyの[bundler](https://bundl
 
 Composerでは次のことができます。
 
-1. 依存するライブラリを宣言することができる。
+1. 依存するライブラリを宣言できる。
 2. どのパッケージのどのバージョンをインストールする必要があるのかを調べて、インストールする（つまりプロジェクト内にパッケージをダウンロードします）。
 3. 1つのコマンドで全ての依存関係を更新できます。
 
@@ -56,11 +56,11 @@ Composerをローカルにインストールするためには、プロジェク
 
 インストーラははいくつかのPHPの設定内容を確認して、`composer.phar`を作業ディレクトリにダウンロードします。
 このファイルはComposerのバイナリです。
-PHAR (PHP archive) はPHPのためのアーカイブ形式であり、コマンドラインから実行することができますし、他の方法もあります
+PHAR (PHP archive) はPHPのためのアーカイブ形式であり、コマンドラインから実行できますし、他の方法もあります
 
 ここでComposerを走らせるには`php composer.phar`としてください。
 
-`--install-dir`オプションを使って特定のディレクトリに、さらに`--filename`オプションを使って名前を付け（変え）たりしつつ、Composerをインストールすることができます。
+`--install-dir`オプションを使って特定のディレクトリに、さらに`--filename`オプションを使って名前を付け（変え）たりしつつ、Composerをインストールできます。
 [ダウンロードページの説明](https://getcomposer.org/download/)にしたがってインストーラを走らせるときは以下の引数を加えてください。
 
 ```shell
@@ -69,10 +69,10 @@ php composer-setup.php --install-dir=bin --filename=composer
 
 それではComposerを走らせるために`php bin/composer`としてください。
 
-#### グローバル
+#### 大域的に使う
 
 Composer PHARは好きな場所に置くことができます。
-`PATH`の通った場所に置くことで、グローバルにアクセスすることができます。
+`PATH`の通った場所に置くことで大域的にアクセスできます。
 Unix系のシステムでは実行形式にして`php`インタプリタを直接使わずに呼び出すこともできます。
 
 [ダウンロードページの説明](https://getcomposer.org/download/)にしたがってインストーラを走らせたあとは、以下を走らせてパスにあるディレクトリにcomposer.pharを移動させられます。
@@ -96,7 +96,7 @@ mv composer.phar /usr/local/bin/composer
 
 ### インストーラを使う
 
-これはComposerをマシンにセットアップする最も簡単な方法です。
+これはComposerをマシンに用意する最も簡単な方法です。
 
 [Composer-Setup.exe](https://getcomposer.org/Composer-Setup.exe)をダウンロードして実行してください。
 最新バージョンのComposerがインストールされパスが設定されるため、どのディレクトリからも`composer`をコマンドラインから呼ぶことができます。
@@ -148,7 +148,7 @@ docker pull composer/composer
 docker run --rm -it -v "$(pwd):/app" composer/composer install
 ```
 
-既存の**Dockerfile**にComposerを加えるには、単に既にビルドされた小さいサイズのイメージからバイナリファイルを複製することができます。
+既存の**Dockerfile**にComposerを加えるには、単に既にビルドされた小さいサイズのイメージからバイナリファイルを複製できます。
 
 ```Dockerfile
 # 最新リリース

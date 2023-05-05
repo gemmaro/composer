@@ -22,7 +22,7 @@ Bashの補完をインストールするには`composer completion bash > comple
 
 `completion.bash`を`/etc/bash_completion.d/composer`に移動しつつ改名すれば新しい端末で自動的に読み込まれるようにできます。
 
-## グローバルオプション
+## 大域オプション
 
 以下のオプションは全てのコマンドで利用できます。
 
@@ -122,11 +122,11 @@ php composer.phar install
   [`platform`](06-config.md#platform)設定オプションも参照してください。
 * **--ignore-platform-req:**
   特定のプラットフォーム要件（`php`、`hhvm`、`lib-*`、`ext-*`）を無視し、ローカルマシンがたとえこれらを満たしていなくてもインストールを強行します。
-  ワイルドカードを使って複数の要件を無視することができます。
-  `+`を後ろに付けることで要件の上限値だけを無視することができます。
+  ワイルドカードを使って複数の要件を無視できます。
+  `+`を後ろに付けることで要件の上限値だけを無視できます。
   例えばパッケージが`php:
   ^7`を要求しているとき、オプション`--ignore-platform-req=php+`はPHP8のインストールを許しますが、PHP
-  5.6のインストールについては失敗するままになります。
+  5.6のインストールについては失敗したままになります。
 
 ## update / u / upgrade
 
@@ -138,7 +138,7 @@ php composer.phar update
 
 これはプロジェクトの全ての依存関係を解決し厳密なバージョンを`composer.lock`に書き込みます。
 
-全てではなく2、3のパッケージのみを更新したい場合は、それらを以下のように列挙することができます。
+全てではなく、2、3のパッケージのみを更新したい場合は、それらを以下のように列挙できます。
 
 ```shell
 php composer.phar update vendor/package vendor/package2
@@ -204,11 +204,11 @@ php composer.phar update vendor/package:2.0.1 vendor/package2:3.0.*
   [`platform`](06-config.md#platform)設定オプションも参照してください。
 * **--ignore-platform-req:**
   特定のプラットフォーム要件（`php`、`hhvm`、`lib-*`、`ext-*`）を無視し、ローカルマシンがたとえこれらを満たしていなくてもインストールを強行します。
-  ワイルドカードを使って複数の要件を無視することができます。
-  `+`を後ろに付けることで要件の上限値だけを無視することができます。
+  ワイルドカードを使って複数の要件を無視できます。
+  `+`を後ろに付けることで要件の上限値だけを無視できます。
   例えばパッケージが`php:
   ^7`を要求しているとき、オプション`--ignore-platform-req=php+`はPHP8のインストールを許しますが、PHP
-  5.6のインストールについては失敗するままになります。
+  5.6のインストールについては失敗したままになります。
 * **--prefer-stable:**
   依存関係の安定板を選ぶようにします。COMPOSER_PREFER_STABLE=1環境変数を介しても設定できます。
 * **--prefer-lowest:**
@@ -265,7 +265,8 @@ php composer.phar require "vendor/package:2.*" vendor/package2:dev-master
   全てのプラットフォーム要件（`php`、`hhvm`、`lib-*`、`ext-*`）を無視し、ローカルマシンがたとえこれらを満たしていなくてもインストールを強行します。
   [`platform`](06-config.md#platform)設定オプションも参照してください。
 * **--ignore-platform-req:**
-  特定のプラットフォーム要件（`php`、`hhvm`、`lib-*`それから`ext-*`）を無視してたとえローカルマシンが満たしていなかったとしてもインストールを強行します。ワイルドカードを使って複数の要件を無視することができます。
+  特定のプラットフォーム要件（`php`、`hhvm`、`lib-*`それから`ext-*`）を無視して、たとえローカルマシンが満たしていなかったとしても、インストールを強行します。
+  ワイルドカードを使って複数の要件を無視できます。
 * **--prefer-stable:**
   依存関係の安定板を選ぶようにします。COMPOSER_PREFER_STABLE=1環境変数を介しても設定できます。
 * **--prefer-lowest:**
@@ -291,7 +292,7 @@ php composer.phar remove vendor/package vendor/package2
 
 ### オプション
 
-* **--unused** （もう）直接ないし間接の依存関係ではない使われていないパッケージを削除します。
+* **--unused**（もう）直接ないし間接の依存関係ではない、使われていないパッケージを削除します。
 * **--dev:** `require-dev`からパッケージを削除します。
 * **--dry-run:** 実際に何もせずにコマンドを模擬します。
 * **--no-progress:** 端末を散らかしかねない進捗表示やバックスペース文字を扱わないスクリプトを除きます。
@@ -311,7 +312,8 @@ php composer.phar remove vendor/package vendor/package2
   全てのプラットフォーム要件（`php`、`hhvm`、`lib-*`、`ext-*`）を無視し、ローカルマシンがたとえこれらを満たしていなくてもインストールを強行します。
   [`platform`](06-config.md#platform)設定オプションも参照してください。
 * **--ignore-platform-req:**
-  特定のプラットフォーム要件（`php`、`hhvm`、`lib-*`それから`ext-*`）を無視してたとえローカルマシンが満たしていなかったとしてもインストールを強行します。ワイルドカードを使って複数の要件を無視することができます。
+  特定のプラットフォーム要件（`php`、`hhvm`、`lib-*`それから`ext-*`）を無視して、たとえローカルマシンが満たしていなかったとしても、インストールを強行します。
+  ワイルドカードを使って複数の要件を無視できます。
 * **--optimize-autoloader (-o):** PSR-0の自動読み込みをクラス対応表に変換して自動読み込みを高速にします。
   実運用では特にお勧めしますが、走らせるのに少し時間が掛かることがあるので現在は既定ではされません。
 * **--classmap-authoritative (-a):** クラス対応表からクラスのみを自動読み込みします。
@@ -334,13 +336,15 @@ php composer.phar remove vendor/package vendor/package2
 
 ## reinstall
 
-`reinstall`コマンドは名前からインストールされているパッケージを見付けだし、アンインストールと再インストールをします。こうすることでファイルを散らかしたり--prefer-installを使ってインストールの種類を変えたいと思ったりしたときにクリーンインストールすることができるのです。
+`reinstall`コマンドは名前からインストールされているパッケージを見付けだし、アンインストールと再インストールをします。
+こうすることでファイルを散らかしたり--prefer-installを使ってインストールの種類を変えたいと思ったりしたときにクリーンインストールできるのです。
 
 ```shell
 php composer.phar reinstall acme/foo acme/bar
 ```
 
-再インストールするパッケージ名を1つ以上指定することができます。またはワイルドカードを使っていくつかのパッケージを一度に選択することもできます。
+再インストールするパッケージ名を1つ以上指定できます。
+またはワイルドカードを使って複数パッケージの一括選択もできます。
 
 ```shell
 php composer.phar reinstall "acme/*"
@@ -366,14 +370,16 @@ php composer.phar reinstall "acme/*"
   暗黙裡に`--apcu-autoloader`を有効にします。
 * **--ignore-platform-reqs:**
   全てのプラットフォーム要件を無視します。これは再インストールコマンド用の自動読み込み器の生成のときにのみ効果があります。
-* **--ignore-platform-req:**
-  特定のプラットフォーム要件を無視します。再インストールコマンド用の自動読み込み器の生成のときにのみ効果があります。複数の要件をワイルドカードで無視することができます。
+* **--ignore-platform-req:** 特定のプラットフォーム要件を無視します。
+  再インストールコマンド用の自動読み込み器の生成のときにのみ効果があります。
+  複数の要件をワイルドカードで無視できます。
 
 ## check-platform-reqs
 
 check-platform-reqsコマンドはPHPと拡張のバージョンがインストールされているパッケージのプラットフォーム要件を満たしているかを確認します。例えばこれは実運用サーバーでインストール後にプロジェクトを走らせるのに必要な全ての拡張があることを検証したいときに使えます。
 
-updateやinstallとは異なり、このコマンドはconfig.platform設定を無視し実際のプラットフォームパッケージを検査します。そのため要求されているプラットフォーム依存関係があることを確信することができるのです。
+updateやinstallとは異なり、このコマンドはconfig.platform設定を無視し、実際のプラットフォームパッケージを検査します。
+そのため要求されているプラットフォーム依存関係があることを確かめられます。
 
 ### オプション
 
@@ -383,7 +389,7 @@ updateやinstallとは異なり、このコマンドはconfig.platform設定を�
 
 ## global
 
-globalコマンドは`install`、`remove`、`require`、`update`のようなコマンドをあたかも[COMPOSER_HOME](#composer-home)ディレクトリから走らせているように実行することができます。
+globalコマンドは`install`、`remove`、`require`、`update`のようなコマンドをあたかも[COMPOSER_HOME](#composer-home)ディレクトリから走らせているように実行できます。
 
 これは中心的な場所に保管されたプロジェクトを管理するためのただの補助であり、CLIツールやComposerプラグインのようなどこでも使えるようにしたいものを置いておけます。
 
@@ -407,7 +413,9 @@ php composer.phar global update
 
 ## search
 
-searchコマンドを使うと現在のプロジェクトのパッケージリポジトリ全体を検索することができます。大抵はこれはpackagistです。検索したい用語を渡すことができます。
+searchコマンドを使うと現在のプロジェクトのパッケージリポジトリ全体を検索できます。
+大抵これはpackagistです。
+検索したい用語を渡せます。
 
 ```shell
 php composer.phar search monolog
@@ -482,7 +490,7 @@ php composer.phar show monolog/monolog 1.0.2
 * **--installed (-i):**
   インストールされているパッケージを一覧にします（これは既定で有効になっており、時代遅れのオプションです）。
 * **--locked:** composer.lockからロックされたパッケージを一覧にします。
-* **--platform (-p):** プラットフォームパッケージ (phpと拡張) のみを一覧にします。
+* **--platform (-p):** プラットフォームパッケージ（phpと拡張）のみを一覧にします。
 * **--available (-a):** 利用できるパッケージのみにします。
 * **--self (-s):** ルートパッケージ情報を一覧にします。
 * **--name-only (-N):** パッケージ名のみを一覧にします。
@@ -505,7 +513,9 @@ php composer.phar show monolog/monolog 1.0.2
 * **--ignore-platform-reqs:**
   全てのプラットフォーム要件（`php`、`hhvm`、`lib-*`、`ext-*`）を無視し、たとえローカルマシンがこれらの要件を満たしていなくても、インストールを強行します。--outdatedオプションと一緒に使ってください。
 * **--ignore-platform-req:**
-  特定のプラットフォーム要件（`php`、`hhvm`、`lib-*`、`ext-*`）を無視し、たとえローカルマシンがその要件を満たしていなくても、インストールを強行します。ワイルドカードを介して複数の要件を無視することができます。--outdatedオプションと一緒に使ってください。
+  特定のプラットフォーム要件（`php`、`hhvm`、`lib-*`、`ext-*`）を無視し、たとえローカルマシンがその要件を満たしていなくても、インストールを強行します。
+  ワイルドカードを介して複数の要件を無視できます。
+  --outdatedオプションと一緒に使ってください。
 
 ## outdated
 
@@ -534,7 +544,8 @@ show -lo`の別名になっています。
 * **--ignore-platform-reqs:**
   全てのプラットフォーム要件（`php`、`hhvm`、`lib-*`、`ext-*`）を無視し、たとえローカルマシンがこれらの要件を満たしていなくても、インストールを強行します。
 * **--ignore-platform-req:**
-  特定のプラットフォーム要件（`php`、`hhvm`、`lib-*`それから`ext-*`）を無視してたとえローカルマシンが満たしていなかったとしてもインストールを強行します。ワイルドカードを使って複数の要件を無視することができます。
+  特定のプラットフォーム要件（`php`、`hhvm`、`lib-*`それから`ext-*`）を無視して、たとえローカルマシンが満たしていなかったとしても、インストールを強行します。
+  ワイルドカードを使って複数の要件を無視できます。
 
 ## browse / home
 
@@ -547,7 +558,8 @@ show -lo`の別名になっています。
 
 ## suggests
 
-現在インストールされているパッケージの集合から提案される全てのパッケージを一覧にします。おまけとして複数のパッケージ名を`vendor/package`の形式で渡し、これらのパッケージのみについて提案を出力するように制限することができます。
+現在インストールされているパッケージの集合から提案される全てのパッケージを一覧にします。
+おまけとして複数のパッケージ名を`vendor/package`の形式で渡し、これらのパッケージのみについて提案を出力するように制限できます。
 
 `--by-package`（既定）ないし`--by-suggestion`フラグを使って出力をグループ分けできます。それぞれ提案を行うパッケージによるグループ分けと提案されたパッケージによるグループ分けになっています。
 
@@ -614,7 +626,8 @@ php composer.phar prohibits symfony/symfony 3.1
 laravel/framework v5.2.16 requires symfony/var-dumper (2.8.*|3.0.*)
 ```
 
-なおプラットフォーム要件も指定することができます。例えばサーバーをPHP 8.0に更新できるかどうかを確認するにはこうします。
+なおプラットフォーム要件も指定できます。
+例えばサーバーをPHP 8.0に更新できるかどうかを確認するにはこうします。
 
 ```shell
 php composer.phar prohibits php 8
@@ -652,7 +665,7 @@ php composer.phar validate
 
 ## status
 
-依存関係のコードを変更したりソースからインストールしたりする必要がしばしばある場合は、`status`コマンドを使うとその中からローカルで加えた変更があるか確認することができます。
+依存関係のコードを変更したりソースからインストールしたりする必要がしばしばある場合は、`status`コマンドを使うとその中からローカルで加えた変更があるか確認できます。
 
 ```shell
 php composer.phar status
@@ -707,9 +720,9 @@ ComposerがPHARとしてインストールされていなければこのコマ�
 
 ## config
 
-`config`コマンドではローカルの`composer.json`ファイルまたは大域的な`config.json`ファイルにあるComposerの設定やリポジトリを編集することができます。
+`config`コマンドではローカルの`composer.json`ファイルまたは大域的な`config.json`ファイルにあるComposerの設定やリポジトリを編集できます。
 
-加えてローカルの`composer.json`にあるほとんどのプロパティを編集することができます。
+加えてローカルの`composer.json`にあるほとんどのプロパティを編集できます。
 
 ```shell
 php composer.phar config --list
@@ -783,8 +796,8 @@ checkoutをしてからベンダーにあるものを`composer install`するこ
 このコマンドにはいくつかの活用法があります。
 
 1. アプリケーションパッケージをデプロイできます。
-2. 任意のパッケージをチェックアウトして、例えばパッチを開発することができます。
-3. 複数人の開発者がいるプロジェクトでこの機能を使い、開発のための初期のアプリケーションに着手することができます。
+2. 任意のパッケージをチェックアウトして、例えばパッチを開発できます。
+3. 複数人の開発者がいるプロジェクトでこの機能を使い、開発のための初期のアプリケーションに着手できます。
 
 Composerで新しいプロジェクトを作るためには`create-project`コマンドが使えます。パッケージ名とプロジェクトを作成するディレクトリを渡してください。また、3つ目の引数としてバージョンを与えることもでき、与えない場合は最新版が使われます。
 
@@ -831,7 +844,8 @@ php composer.phar create-project doctrine/orm path "2.2.*"
   全てのプラットフォーム要件（`php`、`hhvm`、`lib-*`、`ext-*`）を無視し、ローカルマシンがたとえこれらを満たしていなくてもインストールを強行します。
   [`platform`](06-config.md#platform)設定オプションも参照してください。
 * **--ignore-platform-req:**
-  特定のプラットフォーム要件（`php`、`hhvm`、`lib-*`それから`ext-*`）を無視してたとえローカルマシンが満たしていなかったとしてもインストールを強行します。ワイルドカードを使って複数の要件を無視することができます。
+  特定のプラットフォーム要件（`php`、`hhvm`、`lib-*`それから`ext-*`）を無視して、たとえローカルマシンが満たしていなかったとしても、インストールを強行します。
+  ワイルドカードを使って複数の要件を無視できます。
 * **--ask:** 利用者に新しいプロジェクトの対象ディレクトリを入れてもらうようにします。
 
 ## dump-autoload / dumpautoload
@@ -854,7 +868,8 @@ php composer.phar create-project doctrine/orm path "2.2.*"
 * **--ignore-platform-reqs:**
   全ての`php`、`hhvm`、`lib-*`、`ext-*`要件を無視し、これらの[プラットフォーム検査](07-runtime.md#platform-check)を飛ばします。[`platform`](06-config.md#platform)設定オプションも参照してください。
 * **--ignore-platform-req:**
-  特定のプラットフォーム要件（`php`、`hhvm`、`lib-*`、`ext-*`）を無視し、それについての[プラットフォーム検査](07-runtime.md#platform-check)を飛ばします。ワイルドカードを使って複数の要件を無視することができます。
+  特定のプラットフォーム要件（`php`、`hhvm`、`lib-*`、`ext-*`）を無視し、それについての[プラットフォーム検査](07-runtime.md#platform-check)を飛ばします。
+  ワイルドカードを使って複数の要件を無視できます。
 * **--strict-psr:** PSR-4またはPSR-0の対応付けエラーが存在する場合は失敗の終了コード (1)
   を返します。動作には--optimizeが必要です。
 
@@ -944,15 +959,17 @@ php composer.phar help install
 
 ## コマンドラインインターフェース
 
-コマンドライン補完は[このページにある](https://github.com/bamarni/symfony-console-autocomplete)説明に従って有効にすることができます。
+コマンドライン補完は[このページにある](https://github.com/bamarni/symfony-console-autocomplete)説明に従って有効にできます。
 
 ## 環境変数
 
-環境変数を設定して多くの設定を上書きすることができます。できる限りこうした設定は環境変数ではなく`composer.json`の`config`部分で指定することをお勧めします。環境変数は`composer.json`で指定された値より常に優先されるということ以外に利点はありません。
+環境変数を設定して多くの設定を上書きできます。
+できる限りこうした設定は環境変数ではなく`composer.json`の`config`部分で指定することをお勧めします。
+環境変数は`composer.json`で指定された値より常に優先されるということ以外に利点はありません。
 
 ### COMPOSER
 
-`COMPOSER`環境変数を設定することにより`composer.json`のファイル名を何か別のものに設定することができます。
+`COMPOSER`環境変数を設定することにより`composer.json`のファイル名を何か別のものに設定できます。
 
 例えば：
 
@@ -972,15 +989,18 @@ COMPOSER=composer-other.json php composer.phar install
 
 ### COMPOSER_AUTH
 
-`COMPOSER_AUTH`変数では、環境変数として認証を設定することができます。変数の内容はJSON形式のオブジェクトで、[http-basic、github-oauth、bitbucket-oauth、……といった必要に応じたもの](articles/authentication-for-private-packages.md)です。オブジェクトは[設定の仕様](06-config.md)にしたがいます。
+`COMPOSER_AUTH`変数では、環境変数として認証を設定できます。
+変数の内容はJSON形式のオブジェクトで、[http-basic、github-oauth、bitbucket-oauth、……といった必要に応じたもの](articles/authentication-for-private-packages.md)です。
+オブジェクトは[設定の仕様](06-config.md)にしたがいます。
 
 ### COMPOSER_BIN_DIR
 
-このオプションを設定すると`bin`ディレクトリ（[ベンダーバイナリ](articles/vendor-binaries.md)）を`vendor/bin`とは違う別のどこかに変更することができます。
+このオプションを設定すると`bin`ディレクトリ（[ベンダーバイナリ](articles/vendor-binaries.md)）を`vendor/bin`とは違う別のどこかに変更できます。
 
 ### COMPOSER_CACHE_DIR
 
-`COMPOSER_CACHE_DIR`変数ではComposerのキャッシュディレクトリを変更することができます。これは[`cache-dir`](06-config.md#cache-dir)オプションを介しても設定できます。
+`COMPOSER_CACHE_DIR`変数ではComposerのキャッシュディレクトリを変更できます。
+これは[`cache-dir`](06-config.md#cache-dir)オプションを介しても設定できます。
 
 Windowsにおいて既定では`C:\Users\<user>\AppData\Local\Composer`（もしくは`%LOCALAPPDATA%/Composer`）を指します。
 \*nixシステムでは[XDG Base Directory Specifications](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html)にしたがい、`$XDG_CACHE_HOME/composer`を指します。他の\*nixシステムとmacOSにおいては`$COMPOSER_HOME/cache`を指します。
@@ -1010,7 +1030,7 @@ Directory Specifications](https://specifications.freedesktop.org/basedir-spec/ba
 
 `config.json`ファイルを`COMPOSER_HOME`が指す場所に置くことができます。Composerは`install`及び`update`コマンドを走らせたとき、部分的に（`config`および`repositories`キーのみ）この設定をプロジェクトの`composer.json`と統合します。
 
-このファイルがあれば使用者のプロジェクト用に[リポジトリ](05-repositories.md)と[設定](06-config.md)を設定することができます。
+このファイルがあれば使用者のプロジェクト用に[リポジトリ](05-repositories.md)と[構成](06-config.md)を設定できます。
 
 大域的な設定が _ローカルの_ 設定に合致した場合、プロジェクトの`composer.json`が常に優先されます。
 
@@ -1037,7 +1057,7 @@ box/CIで設定できます。
 
 ### COMPOSER_ROOT_VERSION
 
-この変数を設定することで、ルートパッケージのバージョンがVCSの情報から推測できず、`composer.json`にもないときに、そのバージョンを指定することができます。
+この変数を設定することで、ルートパッケージのバージョンがVCSの情報から推測できず、`composer.json`にもないときに、そのバージョンを指定できます。
 
 ### COMPOSER_VENDOR_DIR
 
@@ -1075,7 +1095,9 @@ ComposerをCLIの文脈で使っておらず、プロキシの対応が必要で
 
 プロキシの背後にあって特定のドメインを無効にしたい場合は、`no_proxy`または`NO_PROXY`環境変数を使うことができます。プロキシが使われ*ない*ドメインのコンマ区切りリストを設定します。
 
-環境変数はCIDR記法でドメイン、IPアドレス、IPアドレスブロックを受け付けます。フィルタを特定のポートに制限することができます（例：`:80`）。`*`を設定して全てのHTTPリクエストについてプロキシを無効にすることもできます。
+環境変数はCIDR記法でドメイン、IPアドレス、IPアドレスブロックを受け付けます。
+フィルタを特定のポートに制限できます（例：`:80`）。
+`*`を設定して全てのHTTPリクエストについてプロキシを無効にもできます。
 
 ### COMPOSER_DISABLE_NETWORK
 
@@ -1093,7 +1115,8 @@ ComposerをCLIの文脈で使っておらず、プロキシの対応が必要で
 
 ### COMPOSER_NO_DEV
 
-`1`に設定すると`install`、`update`に`--no-dev`オプションを渡すのと等価になります。`COMPOSER_NO_DEV=0`を設定することで1度のコマンドについてこの設定を上書きできます。
+`1`に設定すると`--update-no-dev`を`require`に渡したり`install`、`update`に`--no-dev`オプションを渡すのと等価になります。
+`COMPOSER_NO_DEV=0`を設定することで1回のコマンドについてこの設定を上書きできます。
 
 ### COMPOSER_PREFER_STABLE
 

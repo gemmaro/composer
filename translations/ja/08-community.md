@@ -17,7 +17,7 @@ Composerに貢献したいときは、[README](https://github.com/composer/compo
 
 ## サポート
 
-IRCチャンネルは irc.libera.chat の
+IRCチャンネルは<irc.libera.chat>の
 [#composer](ircs://irc.libera.chat:6697/composer) にあります。
 
 [Stack Overflow](https://stackoverflow.com/questions/tagged/composer-php) と

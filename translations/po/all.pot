@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2023-05-05 15:52+0900\n"
+"POT-Creation-Date: 2023-05-05 17:32+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4688,22 +4688,24 @@ msgid "COMPOSER_NO_DEV"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1281
-#, markdown-text
+#: ../doc/03-cli.md:1282
+#, markdown-text, no-wrap
 msgid ""
-"If set to `1`, it is the equivalent of passing the `--no-dev` option to "
-"`install` or `update`. You can override this for a single command by setting "
-"`COMPOSER_NO_DEV=0`."
+"If set to `1`, it is the equivalent of passing the `--update-no-dev` option "
+"to `require`\n"
+" or the `--no-dev` option to `install` or `update`.  You can override this "
+"for a single\n"
+"command by setting `COMPOSER_NO_DEV=0`.\n"
 msgstr ""
 
 #. type: Title ###
-#: ../doc/03-cli.md:1282
+#: ../doc/03-cli.md:1283
 #, markdown-text, no-wrap
 msgid "COMPOSER_PREFER_STABLE"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1286
+#: ../doc/03-cli.md:1287
 #, markdown-text
 msgid ""
 "If set to `1`, it is the equivalent of passing the `--prefer-stable` option "
@@ -4711,13 +4713,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ###
-#: ../doc/03-cli.md:1287
+#: ../doc/03-cli.md:1288
 #, markdown-text, no-wrap
 msgid "COMPOSER_PREFER_LOWEST"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1291
+#: ../doc/03-cli.md:1292
 #, markdown-text
 msgid ""
 "If set to `1`, it is the equivalent of passing the `--prefer-lowest` option "
@@ -4725,13 +4727,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ###
-#: ../doc/03-cli.md:1292
+#: ../doc/03-cli.md:1293
 #, markdown-text, no-wrap
 msgid "COMPOSER_IGNORE_PLATFORM_REQ or COMPOSER_IGNORE_PLATFORM_REQS"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1296
+#: ../doc/03-cli.md:1297
 #, markdown-text
 msgid ""
 "If `COMPOSER_IGNORE_PLATFORM_REQS` set to `1`, it is the equivalent of "
@@ -4741,7 +4743,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1298
+#: ../doc/03-cli.md:1299
 #, markdown-text
 msgid ""
 "For example, if a development workstation will never run database queries, "
@@ -4752,7 +4754,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1299
+#: ../doc/03-cli.md:1300
 #, markdown-text
 msgid "&larr; [Libraries](02-libraries.md)  | [Schema](04-schema.md) &rarr;"
 msgstr ""

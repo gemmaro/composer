@@ -11,3 +11,4 @@ Vagrantfile
 .idea
 .vscode
 .php-cs-fixer.cache
+/node_modules/
