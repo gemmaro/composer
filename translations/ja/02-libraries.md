@@ -117,8 +117,7 @@ Composerの[`install`](03-cli.md#install)コマンドを実行することで、
 これはどのような仕組みなのでしょうか？
 答えはPackagistです。
 
-[Packagist](https://packagist.org/)はComposerのメインパッケージリポジトリで、
-デフォルトで有効になっています。
+[Packagist](https://packagist.org/)はComposerのメインパッケージリポジトリで、 既定で有効になっています。
 Packagistで公開されている全てのものは自動的にComposerで利用可能です。
 [monologはPackagistにある](https://packagist.org/packages/monolog/monolog)ので、追加のリポジトリ指定なくして依存できるのです。
 

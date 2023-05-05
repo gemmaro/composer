@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2023-04-29 10:11+0900\n"
+"POT-Creation-Date: 2023-05-05 15:52+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -9424,6 +9424,429 @@ msgstr ""
 #: ../doc/06-config.md:423
 #, markdown-text
 msgid "&larr; [Repositories](05-repositories.md)  | [Runtime](07-runtime.md) &rarr;"
+msgstr ""
+
+#. type: Title #
+#: ../doc/07-runtime.md:1
+#, markdown-text, no-wrap
+msgid "Runtime Composer utilities"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/07-runtime.md:5
+#, markdown-text
+msgid ""
+"While Composer is mostly used around your project to install its "
+"dependencies, there are a few things which are made available to you at "
+"runtime."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/07-runtime.md:8
+#, markdown-text
+msgid ""
+"If you need to rely on some of these in a specific version, you can require "
+"the `composer-runtime-api` package."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/07-runtime.md:9
+#, markdown-text, no-wrap
+msgid "Autoload"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/07-runtime.md:14
+#, markdown-text
+msgid ""
+"The autoloader is the most used one, and is already covered in our [basic "
+"usage guide](01-basic-usage.md#autoloading). It is available in all Composer "
+"versions."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/07-runtime.md:15
+#, markdown-text, no-wrap
+msgid "Installed versions"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/07-runtime.md:20
+#, markdown-text
+msgid ""
+"composer-runtime-api 2.0 introduced a new `Composer\\InstalledVersions` "
+"class which offers a few static methods to inspect which versions are "
+"currently installed. This is automatically available to your code as long as "
+"you include the Composer autoloader."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/07-runtime.md:22
+#, markdown-text
+msgid "The main use cases for this class are the following:"
+msgstr ""
+
+#. type: Title ###
+#: ../doc/07-runtime.md:23
+#, markdown-text, no-wrap
+msgid "Knowing whether package X (or virtual package) is present"
+msgstr ""
+
+#. type: Fenced code block (php)
+#: ../doc/07-runtime.md:25
+#, no-wrap
+msgid ""
+"\\Composer\\InstalledVersions::isInstalled('vendor/package'); // returns "
+"bool\n"
+"\\Composer\\InstalledVersions::isInstalled('psr/log-implementation'); // "
+"returns bool\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/07-runtime.md:32
+#, markdown-text
+msgid ""
+"As of Composer 2.1, you may also check if something was installed via "
+"require-dev or not by passing false as second argument:"
+msgstr ""
+
+#. type: Fenced code block (php)
+#: ../doc/07-runtime.md:33
+#, no-wrap
+msgid ""
+"\\Composer\\InstalledVersions::isInstalled('vendor/package'); // returns "
+"true assuming this package is installed\n"
+"\\Composer\\InstalledVersions::isInstalled('vendor/package', false); // "
+"returns true if vendor/package is in require, false if in require-dev\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/07-runtime.md:39
+#, markdown-text
+msgid ""
+"Note that this can not be used to check whether platform packages are "
+"installed."
+msgstr ""
+
+#. type: Title ###
+#: ../doc/07-runtime.md:40
+#, markdown-text, no-wrap
+msgid "Knowing whether package X is installed in version Y"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/07-runtime.md:43
+#, markdown-text, no-wrap
+msgid ""
+"> **Note:** To use this, your package must require `\"composer/semver\": "
+"\"^3.0\"`.\n"
+msgstr ""
+
+#. type: Fenced code block (php)
+#: ../doc/07-runtime.md:44
+#, no-wrap
+msgid ""
+"use Composer\\Semver\\VersionParser;\n"
+"\n"
+"\\Composer\\InstalledVersions::satisfies(new VersionParser, "
+"'vendor/package', '2.0.*');\n"
+"\\Composer\\InstalledVersions::satisfies(new VersionParser, "
+"'psr/log-implementation', '^1.0');\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/07-runtime.md:54
+#, markdown-text
+msgid ""
+"This will return true if e.g. vendor/package is installed in a version "
+"matching `2.0.*`, but also if the given package name is replaced or provided "
+"by some other package."
+msgstr ""
+
+#. type: Title ###
+#: ../doc/07-runtime.md:55
+#, markdown-text, no-wrap
+msgid "Knowing the version of package X"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/07-runtime.md:61
+#, markdown-text, no-wrap
+msgid ""
+"> **Note:** This will return `null` if the package name you ask for is not "
+"itself installed\n"
+"> but merely provided or replaced by another package. We therefore recommend "
+"using satisfies()\n"
+"> in library code at least. In application code you have a bit more control "
+"and it is less\n"
+"> important.\n"
+msgstr ""
+
+#. type: Fenced code block (php)
+#: ../doc/07-runtime.md:62
+#, no-wrap
+msgid ""
+"// returns a normalized version (e.g. 1.2.3.0) if vendor/package is "
+"installed,\n"
+"// or null if it is provided/replaced,\n"
+"// or throws OutOfBoundsException if the package is not installed at all\n"
+"\\Composer\\InstalledVersions::getVersion('vendor/package');\n"
+msgstr ""
+
+#. type: Fenced code block (php)
+#: ../doc/07-runtime.md:69
+#, no-wrap
+msgid ""
+"// returns the original version (e.g. v1.2.3) if vendor/package is "
+"installed,\n"
+"// or null if it is provided/replaced,\n"
+"// or throws OutOfBoundsException if the package is not installed at all\n"
+"\\Composer\\InstalledVersions::getPrettyVersion('vendor/package');\n"
+msgstr ""
+
+#. type: Fenced code block (php)
+#: ../doc/07-runtime.md:76
+#, no-wrap
+msgid ""
+"// returns the package dist or source reference (e.g. a git commit hash) if "
+"vendor/package is installed,\n"
+"// or null if it is provided/replaced,\n"
+"// or throws OutOfBoundsException if the package is not installed at all\n"
+"\\Composer\\InstalledVersions::getReference('vendor/package');\n"
+msgstr ""
+
+#. type: Title ###
+#: ../doc/07-runtime.md:83
+#, markdown-text, no-wrap
+msgid "Knowing a package's own installed version"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/07-runtime.md:88
+#, markdown-text
+msgid ""
+"If you are only interested in getting a package's own version, e.g. in the "
+"source of acme/foo you want to know which version acme/foo is currently "
+"running to display that to the user, then it is acceptable to use "
+"getVersion/getPrettyVersion/getReference."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/07-runtime.md:91
+#, markdown-text
+msgid ""
+"The warning in the section above does not apply in this case as you are sure "
+"the package is present and not being replaced if your code is running."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/07-runtime.md:94
+#, markdown-text
+msgid ""
+"It is nonetheless a good idea to make sure you handle the `null` return "
+"value as gracefully as possible for safety."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/07-runtime.md:99
+#, markdown-text
+msgid ""
+"A few other methods are available for more complex usages, please refer to "
+"the source/docblocks of [the class "
+"itself](https://github.com/composer/composer/blob/main/src/Composer/InstalledVersions.php)."
+msgstr ""
+
+#. type: Title ###
+#: ../doc/07-runtime.md:100
+#, markdown-text, no-wrap
+msgid "Knowing the path in which a package is installed"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/07-runtime.md:103
+#, markdown-text
+msgid "The `getInstallPath` method to retrieve a package's absolute install path."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/07-runtime.md:107
+#, markdown-text, no-wrap
+msgid ""
+"> **Note:** The path, while absolute, may contain `../` or symlinks. It is\n"
+"> not guaranteed to be equivalent to a `realpath()` so you should run a\n"
+"> realpath on it if that matters to you.\n"
+msgstr ""
+
+#. type: Fenced code block (php)
+#: ../doc/07-runtime.md:108
+#, no-wrap
+msgid ""
+"// returns an absolute path to the package installation location if "
+"vendor/package is installed,\n"
+"// or null if it is provided/replaced, or the package is a metapackage\n"
+"// or throws OutOfBoundsException if the package is not installed at all\n"
+"\\Composer\\InstalledVersions::getInstallPath('vendor/package');\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/07-runtime.md:116 ../doc/07-runtime.md:132
+#, markdown-text, no-wrap
+msgid "> Available as of Composer 2.1 (i.e. `composer-runtime-api ^2.1`)\n"
+msgstr ""
+
+#. type: Title ###
+#: ../doc/07-runtime.md:117
+#, markdown-text, no-wrap
+msgid "Knowing which packages of a given type are installed"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/07-runtime.md:122
+#, markdown-text
+msgid ""
+"The `getInstalledPackagesByType` method accepts a package type "
+"(e.g. foo-plugin) and lists the packages of that type which are "
+"installed. You can then use the methods above to retrieve more information "
+"about each package if needed."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/07-runtime.md:126
+#, markdown-text
+msgid ""
+"This method should alleviate the need for custom installers placing plugins "
+"in a specific path instead of leaving them in the vendor dir. You can then "
+"find plugins to initialize at runtime via InstalledVersions, including their "
+"paths via getInstallPath if needed."
+msgstr ""
+
+#. type: Fenced code block (php)
+#: ../doc/07-runtime.md:127
+#, no-wrap
+msgid "\\Composer\\InstalledVersions::getInstalledPackagesByType('foo-plugin');\n"
+msgstr ""
+
+#. type: Title ##
+#: ../doc/07-runtime.md:133
+#, markdown-text, no-wrap
+msgid "Platform check"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/07-runtime.md:137
+#, markdown-text
+msgid ""
+"composer-runtime-api 2.0 introduced a new "
+"`vendor/composer/platform_check.php` file, which is included automatically "
+"when you include the Composer autoloader."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/07-runtime.md:141
+#, markdown-text
+msgid ""
+"It verifies that platform requirements (i.e. php and php extensions) are "
+"fulfilled by the PHP process currently running. If the requirements are not "
+"met, the script prints a warning with the missing requirements and exits "
+"with code 104."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/07-runtime.md:145
+#, markdown-text
+msgid ""
+"To avoid an unexpected white page of death with some obscure PHP extension "
+"warning in production, you can run `composer check-platform-reqs` as part of "
+"your deployment/build and if that returns a non-0 code you should abort."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/07-runtime.md:147
+#, markdown-text
+msgid "The default value is `php-only` which only checks the PHP version."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/07-runtime.md:151
+#, markdown-text
+msgid ""
+"If you for some reason do not want to use this safety check, and would "
+"rather risk runtime errors when your code executes, you can disable this by "
+"setting the [`platform-check`](06-config.md#platform-check) config option to "
+"`false`."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/07-runtime.md:156
+#, markdown-text
+msgid ""
+"If you want the check to include verifying the presence of PHP extensions, "
+"set the config option to `true`. `ext-*` requirements will then be verified "
+"but for performance reasons Composer only checks the extension is present, "
+"not its exact version."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/07-runtime.md:158
+#, markdown-text
+msgid ""
+"`lib-*` requirements are never supported/checked by the platform check "
+"feature."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/07-runtime.md:159
+#, markdown-text, no-wrap
+msgid "Autoloader path in binaries"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/07-runtime.md:164
+#, markdown-text
+msgid ""
+"composer-runtime-api 2.2 introduced a new `$_composer_autoload_path` global "
+"variable set when running binaries installed with Composer. Read more about "
+"this [on the vendor binaries "
+"docs](articles/vendor-binaries.md#finding-the-composer-autoloader-from-a-binary)."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/07-runtime.md:168
+#, markdown-text
+msgid ""
+"This is set by the binary proxy and as such is not made available to "
+"projects by Composer's `vendor/autoload.php`, which would be useless as it "
+"would point back to itself."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/07-runtime.md:169
+#, markdown-text, no-wrap
+msgid "Binary (bin-dir) path in binaries"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/07-runtime.md:174
+#, markdown-text
+msgid ""
+"composer-runtime-api 2.2.2 introduced a new `$_composer_bin_dir` global "
+"variable set when running binaries installed with Composer. Read more about "
+"this [on the vendor binaries "
+"docs](articles/vendor-binaries.md#finding-the-composer-bin-dir-from-a-binary)."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/07-runtime.md:177
+#, markdown-text
+msgid ""
+"This is set by the binary proxy and as such is not made available to "
+"projects by Composer's `vendor/autoload.php`."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/07-runtime.md:178
+#, markdown-text
+msgid "&larr; [Config](06-config.md)  | [Community](08-community.md) &rarr;"
 msgstr ""
 
 #. type: Title #
