@@ -5,7 +5,7 @@ Composerはプロジェクトが依存するライブラリを宣言し管理（
 
 ## 依存管理
 
-ComposerはYumやAptの伝で言うとパッケージ管理ツールではありません。
+ComposerはYumやAptの伝で言うとパッケージ管理ツールでは**ありません**。
 まあ、「パッケージ」やライブラリを扱いはしますが、プロジェクト毎の管理であって、プロジェクトの内部のディレクトリ（例：`vendor`）にインストールするのです。
 既定では大域的には決してインストールしません。
 したがって、これは依存管理なわけです。
@@ -160,7 +160,7 @@ COPY --from=composer/composer:2-bin /composer /usr/bin/composer
 
 さらなる使い方の情報については[イメージの説明](https://hub.docker.com/r/composer/composer)をお読みください。
 
-**Note:** Docker固有の問題は[composer/dockerリポジトリ](https://github.com/composer/docker/issues)に報告されるとよいでしょう。
+**補足：** Docker固有の問題は[composer/dockerリポジトリ](https://github.com/composer/docker/issues)に報告されるとよいでしょう。
 
 **補足：** 上のイメージ名では`composer/composer`の代わりに`composer`を使うこともできます。
 名前が短かくDockerの公式イメージですが直接私達が公開したものではないので新しいリリースが数日送れで来ることが普通です。
