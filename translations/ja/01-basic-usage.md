@@ -83,7 +83,7 @@ php composer.phar update
   上の例では最終的にMonologのソースファイルが`vendor/monolog/monolog`にあることになります。
   Monologには`psr/log`への依存関係があるため、そのパッケージのファイルもまた`vendor/`の中に見付けられます。
 
-> **Tip:** gitをプロジェクトで使っているのなら、多分`.gitignore`に`vendor`を追加したいでしょう。
+> **コツ：** gitをプロジェクトで使っているのなら、多分`.gitignore`に`vendor`を追加したいでしょう。
 > 実際のところサードパーティ製のコード全てをバージョン管理されたリポジトリに追加したくないので。
 
 ### `composer.lock`ファイルをバージョン管理にコミットすること

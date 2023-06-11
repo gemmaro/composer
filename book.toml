@@ -1,0 +1,6 @@
+[book]
+authors = ["Composer authors", "gemmaro"]
+language = "ja"
+multilingual = false
+src = "translations/ja"
+title = "Composer"
