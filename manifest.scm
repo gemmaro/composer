@@ -3,4 +3,4 @@
              (gnu packages node)
              (gemmaro packages mdbook))
 
-(packages->manifest (list php po4a node-lts mdbook))
+(packages->manifest (list php po4a node-lts))

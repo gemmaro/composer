@@ -27,7 +27,8 @@ https://getcomposer.org/schema.json から取得できます。
 * monolog/monolog
 * igorw/event-source
 
-名前は小文字で、単語は`-`や`.`や`_`で区切られていなくてはなりません。名前全体は`^[a-z0-9]([_.-]?[a-z0-9]+)*/[a-z0-9](([_.]?|-{0,2})[a-z0-9]+)*$`に照合するでしょう。
+名前は小文字で、単語は`-`や`.`や`_`で区切られていなくてはなりません。
+名前全体は`^[a-z0-9]([_.-]?[a-z0-9]+)*/[a-z0-9](([_.]|-{1,2})?[a-z0-9]+)*$`に照合します。
 
 `name`プロパティは公開されるパッケージ（ライブラリ）には必須です。
 
@@ -75,7 +76,10 @@ https://getcomposer.org/schema.json から取得できます。
 その中でも特にComposerは4つの種別に対応しています。
 
 - **library:**これは既定です。ファイルを`vendor`に複製します。
-- **project:**これは、ライブラリではなくプロジェクトであることを示しています。例えば[Symfony標準エディション](https://github.com/symfony/symfony-standard)のようなアプリケーションのシェル、[SilverStripeインストーラ](https://github.com/silverstripe/silverstripe-installer)のようなCMS、あるいはパッケージとして配布される完全なアプリケーションがこれにあたります。例としてIDEから新しいワークスペースを作る際に初期化するプロジェクトの一覧を提供するのに使うことができます。
+- **project:**
+  これは、ライブラリではなくプロジェクトであることを示しています。
+  例えば[標準版Symfony](https://github.com/symfony/symfony-standard)のようなアプリケーションのシェル、[Silverstripeインストーラ](https://github.com/silverstripe/silverstripe-installer)のようなCMS、あるいはパッケージとして配布される完全なアプリケーションがこれにあたります。
+  例として、IDEから新しいワークスペースを作る際に、初期化するプロジェクトの一覧を提供するのに使えます。
 - **metapackage:**要件を含む空のパッケージでありインストールの条件になりますが、ファイルを含んでおらずファイルシステムに何も書き込まないものです。そうしたわけなので、インストールできるdistやsourceキーを必要としません。
 - **composer-plugin:**種別`composer-plugin`のパッケージは独自の種別を持つ他のパッケージのインストーラを提供することがあります。詳細は[専門記事](articles/custom-installers.md)を参照してください。
 
