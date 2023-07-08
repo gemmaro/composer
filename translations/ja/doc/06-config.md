@@ -96,6 +96,50 @@ Composerを対話的に実行すると、プラグインを実行するかどう
 > より限定されたパターンは、より緩いパターンの前に来るべきです。
 > 大域構成やパッケージ構成で文字列表記とハッシュ構成を混在させると、文字列表記は`*`パッケージパターンに解釈されます。
 
+## audit
+
+セキュリティ監査の構成オプション
+
+### ignore
+
+勧告の識別子、リモートの識別子、CVEの識別子のリストです。
+報告はされますが監査コマンドは通過させます。
+
+```json
+{
+    "config": {
+        "audit": {
+            "ignore": {
+                "CVE-1234": "The affected component is not in use.",
+                "GHSA-xx": "The security fix was applied as a patch.",
+                "PKSA-yy": "Due to mitigations in place the update can be delayed."
+            }
+        }
+    }
+}
+```
+
+もしくは以下です。
+
+```json
+{
+    "config": {
+        "audit": {
+            "ignore": ["CVE-1234", "GHSA-xx", "PKSA-yy"]
+        }
+    }
+}
+```
+
+### abandoned
+
+Composer 2.6では`report`が既定値であり、Composer 2.7以降では`fail`が既定値です。
+監査コマンドが放棄されたパッケージを報告するかどうかを定義するもので、3つの値を取り得ます。
+
+- `ignore`は監査コマンドは放棄されたパッケージを全く考慮しないという意味です。
+- `report`は放棄されたパッケージがエラーとして報告されるものの、非ゼロコードでコマンドが終了してしまわないようにする意味です。
+- `fail`は監査が放棄されたパッケージにより非ゼロコードで失敗するようになる意味です。
+
 ## use-parent-dir
 
 composer.jsonがないディレクトリでComposerを実行しており、その上のディレクトリにcomposer.jsonがある場合、Composerは既定でそのディレクトリのcomposer.jsonを代わりに使用するかどうかを尋ねます。

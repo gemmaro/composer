@@ -870,8 +870,8 @@ php composer.phar create-project doctrine/orm path "2.2.*"
 * **--ignore-platform-req:**
   特定のプラットフォーム要件（`php`、`hhvm`、`lib-*`、`ext-*`）を無視し、それについての[プラットフォーム検査](07-runtime.md#platform-check)を飛ばします。
   ワイルドカードを使って複数の要件を無視できます。
-* **--strict-psr:** PSR-4またはPSR-0の対応付けエラーが存在する場合は失敗の終了コード (1)
-  を返します。動作には--optimizeが必要です。
+* **--strict-psr:** PSR-4またはPSR-0の対応付けエラーが存在する場合は失敗の終了コード (1) を返します。
+  動作には--optimizeが必要です。
 
 ## clear-cache / clearcache / cc
 

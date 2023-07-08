@@ -31,10 +31,13 @@ Composerでは次のことができます。
 
 最新のComposerが動作するためにはPHP 7.2.5が必要です。
 歴史的なPHPのバージョンで止まっている場合は長期サポート版 (2.2.x) がまだPHP 5.3.2以上に対応しています。
-また、いくつかの細かいPHPの設定とコンパイルフラグも必要ですが、要件を合っていない箇所については、インストーラが警告を出すでしょう。
+また、いくつかの細かいPHPの設定とコンパイルフラグも必要ですが、要件が合っていない箇所については、インストーラが警告を出すでしょう。
 
-単純なzipアーカイブではなくソースからパッケージをインストールするには、パッケージのバージョン管理方法によってgit、svn,
-fossilまたはhgが必要です。
+Composerが効率的に動作するには、幾つかの補助的なアプリケーションが必要です。
+これらはパッケージの依存関係を扱う処理をより効率的にするものです。
+ファイルを解凍するために、Composerは`7z`（或いは`7zz`）、`gzip`、`tar`、`unrar`、`unzip`、`xz`のようなツールに依っています。
+バージョン管理システムについては、ComposerはFossil、Git、Mercurial、Perforce、Subversionと間断なく協調し、これにより円滑なアプリケーションの操作とライブラリのリポジトリの管理を確実にします。
+Composerを使う前にこれらの依存関係が正しくシステムにインストールされていることをご確認ください。
 
 Composerはマルチプラットフォームであり、Windows、Linux、macOSのそれぞれで同じように動作するよう努めています。
 
@@ -172,29 +175,3 @@ COPY --from=composer/composer:2-bin /composer /usr/bin/composer
 簡単な実演があるので次の章に向かいましょう。
 
 [基本的な使い方](01-basic-usage.md) &rarr;
-
-- - -
-
-<small>
-
-本和訳にあたっての著作権表示を以下に示します。
-
-Copyright (C) 2013--2015 kohkimakimoto.<br>
-Copyright (C) 2022, 2023 gemmaro.
-
-この翻訳は[kohkimakimoto](https://github.com/kohkimakimoto)氏による翻訳を元に改変を加えています。
-同氏の翻訳リポジトリは[`kohkimakimoto/getcomposer.org_doc_jp`](https://github.com/kohkimakimoto/getcomposer.org_doc_jp)に、Webサイトは[『Composer ドキュメント日本語訳』の「はじめに」](https://kohkimakimoto.github.io/getcomposer.org_doc_jp/doc/00-intro.html)にあります。
-翻訳されていた範囲は以下の通りです。
-
-* [イントロダクション](https://kohkimakimoto.github.io/getcomposer.org_doc_jp/doc/00-intro.html)
-* [基本的な使い方](https://kohkimakimoto.github.io/getcomposer.org_doc_jp/doc/01-basic-usage.html)
-* [ライブラリ](https://kohkimakimoto.github.io/getcomposer.org_doc_jp/doc/02-libraries.html)
-* [コマンドラインインターフェース](https://kohkimakimoto.github.io/getcomposer.org_doc_jp/doc/03-cli.html)のうち、「install」節の「オプション」小節まで。
-* [composer.json](https://kohkimakimoto.github.io/getcomposer.org_doc_jp/doc/04-schema.html)の冒頭。
-* [コミュニティ](https://kohkimakimoto.github.io/getcomposer.org_doc_jp/doc/06-community.html)
-
-本翻訳は上記既訳を最新版に追従することを目的としています。
-そのため既訳の修正に加えて新規に追加された原文への訳が含まれます。
-本翻訳も原文にしたがい、[MITライセンス](https://github.com/composer/composer/blob/main/LICENSE)の下に使用が許諾されます。
-
-</small>
