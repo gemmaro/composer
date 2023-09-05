@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2023-08-04 22:15+0900\n"
+"POT-Creation-Date: 2023-09-16 13:30+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2047,7 +2047,7 @@ msgid ""
 "**--repository:** Provide one (or more) custom repositories. They will be "
 "stored in the generated composer.json, and used for auto-completion when "
 "prompting for the list of requires. Every repository can be either an HTTP "
-"URL pointing to a `composer` repository or a JSON string which similar to "
+"URL pointing to a `composer` repository or a JSON string which is similar to "
 "what the [repositories](04-schema.md#repositories) key accepts."
 msgstr ""
 
@@ -5903,7 +5903,7 @@ msgstr ""
 #: ../doc/04-schema.md:512 ../doc/04-schema.md:559 ../doc/04-schema.md:619
 #: ../doc/04-schema.md:631 ../doc/04-schema.md:647 ../doc/04-schema.md:678
 #: ../doc/04-schema.md:706 ../doc/04-schema.md:727 ../doc/04-schema.md:818
-#: ../doc/04-schema.md:923 ../doc/04-schema.md:940 ../doc/06-config.md:408
+#: ../doc/04-schema.md:923 ../doc/04-schema.md:940 ../doc/06-config.md:432
 #, markdown-text
 msgid "Example:"
 msgstr ""
@@ -7111,7 +7111,7 @@ msgid ""
 msgstr ""
 
 #. type: Title ###
-#: ../doc/04-schema.md:954
+#: ../doc/04-schema.md:954 ../doc/06-config.md:138
 #, markdown-text, no-wrap
 msgid "abandoned"
 msgstr ""
@@ -7689,7 +7689,7 @@ msgstr ""
 #, markdown-text
 msgid ""
 "The `list` field allows you to return the names of packages which match a "
-"given field (or all names if no filter is present). It should accept an "
+"given filter (or all names if no filter is present). It should accept an "
 "optional `?filter=xx` query param, which can contain `*` as wildcards "
 "matching any substring."
 msgstr ""
@@ -8973,15 +8973,15 @@ msgstr ""
 #. type: Title ###
 #: ../doc/06-config.md:108
 #, markdown-text, no-wrap
-msgid "ignored"
+msgid "ignore"
 msgstr ""
 
 #. type: Plain text
 #: ../doc/06-config.md:111
 #, markdown-text
 msgid ""
-"A set of advisory ids, remote ids or CVE ids that should be ignored and not "
-"reported as part of an audit."
+"A list of advisory ids, remote ids or CVE ids that are reported but let the "
+"audit command pass."
 msgstr ""
 
 #. type: Fenced code block (json)
@@ -8991,20 +8991,77 @@ msgid ""
 "{\n"
 "    \"config\": {\n"
 "        \"audit\": {\n"
-"            \"ignored\": [\"CVE-1234\", \"GHSA-xx\", \"PKSA-yy\"]\n"
+"            \"ignore\": {\n"
+"                \"CVE-1234\": \"The affected component is not in use.\",\n"
+"                \"GHSA-xx\": \"The security fix was applied as a patch.\",\n"
+"                \"PKSA-yy\": \"Due to mitigations in place the update can be "
+"delayed.\"\n"
+"            }\n"
 "        }\n"
 "    }\n"
 "}\n"
 msgstr ""
 
+#. type: Plain text
+#: ../doc/06-config.md:127
+#, markdown-text
+msgid "or"
+msgstr ""
+
+#. type: Fenced code block (json)
+#: ../doc/06-config.md:128
+#, no-wrap
+msgid ""
+"{\n"
+"    \"config\": {\n"
+"        \"audit\": {\n"
+"            \"ignore\": [\"CVE-1234\", \"GHSA-xx\", \"PKSA-yy\"]\n"
+"        }\n"
+"    }\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/06-config.md:141
+#, markdown-text
+msgid ""
+"Defaults to `report` in Composer 2.6, and defaults to `fail` from Composer "
+"2.7 on. Defines whether the audit command reports abandoned packages or not, "
+"this has three possible values:"
+msgstr ""
+
+#. type: Bullet: '- '
+#: ../doc/06-config.md:145
+#, markdown-text
+msgid ""
+"`ignore` means the audit command does not consider abandoned packages at "
+"all."
+msgstr ""
+
+#. type: Bullet: '- '
+#: ../doc/06-config.md:145
+#, markdown-text
+msgid ""
+"`report` means abandoned packages are reported as an error but do not cause "
+"the command to exit with a non-zero code."
+msgstr ""
+
+#. type: Bullet: '- '
+#: ../doc/06-config.md:145
+#, markdown-text
+msgid ""
+"`fail` means abandoned packages will cause audits to fail with a non-zero "
+"code."
+msgstr ""
+
 #. type: Title ##
-#: ../doc/06-config.md:122
+#: ../doc/06-config.md:146
 #, markdown-text, no-wrap
 msgid "use-parent-dir"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:127
+#: ../doc/06-config.md:151
 #, markdown-text
 msgid ""
 "When running Composer in a directory where there is no composer.json, if "
@@ -9013,7 +9070,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:130
+#: ../doc/06-config.md:154
 #, markdown-text
 msgid ""
 "If you always want to answer yes to this prompt, you can set this config "
@@ -9022,7 +9079,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:134
+#: ../doc/06-config.md:158
 #, markdown-text, no-wrap
 msgid ""
 "> **Note:** This config must be set in your global user-wide config for it\n"
@@ -9032,13 +9089,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/06-config.md:135
+#: ../doc/06-config.md:159
 #, markdown-text, no-wrap
 msgid "store-auths"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:139
+#: ../doc/06-config.md:163
 #, markdown-text
 msgid ""
 "What to do after prompting for authentication, one of: `true` (always "
@@ -9047,13 +9104,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/06-config.md:140
+#: ../doc/06-config.md:164
 #, markdown-text, no-wrap
 msgid "github-protocols"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:148
+#: ../doc/06-config.md:172
 #, markdown-text
 msgid ""
 "Defaults to `[\"https\", \"ssh\", \"git\"]`. A list of protocols to use when "
@@ -9065,13 +9122,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/06-config.md:149
+#: ../doc/06-config.md:173
 #, markdown-text, no-wrap
 msgid "github-oauth"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:157
+#: ../doc/06-config.md:181
 #, markdown-text
 msgid ""
 "A list of domain names and oauth keys. For example using `{\"github.com\": "
@@ -9084,13 +9141,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/06-config.md:158
+#: ../doc/06-config.md:182
 #, markdown-text, no-wrap
 msgid "gitlab-domains"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:162
+#: ../doc/06-config.md:186
 #, markdown-text
 msgid ""
 "Defaults to `[\"gitlab.com\"]`. A list of domains of GitLab servers.  This "
@@ -9098,13 +9155,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/06-config.md:163
+#: ../doc/06-config.md:187
 #, markdown-text, no-wrap
 msgid "gitlab-oauth"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:171
+#: ../doc/06-config.md:195
 #, markdown-text
 msgid ""
 "A list of domain names and oauth keys. For example using `{\"gitlab.com\": "
@@ -9117,13 +9174,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/06-config.md:172
+#: ../doc/06-config.md:196
 #, markdown-text, no-wrap
 msgid "gitlab-token"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:185
+#: ../doc/06-config.md:209
 #, markdown-text, no-wrap
 msgid ""
 "A list of domain names and private tokens. Private token can be either "
@@ -9148,13 +9205,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/06-config.md:186
+#: ../doc/06-config.md:210
 #, markdown-text, no-wrap
 msgid "gitlab-protocol"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:195
+#: ../doc/06-config.md:219
 #, markdown-text
 msgid ""
 "A protocol to force use of when creating a repository URL for the `source` "
@@ -9168,13 +9225,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/06-config.md:196
+#: ../doc/06-config.md:220
 #, markdown-text, no-wrap
 msgid "disable-tls"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:203
+#: ../doc/06-config.md:227
 #, markdown-text
 msgid ""
 "Defaults to `false`. If set to true all HTTPS URLs will be tried with HTTP "
@@ -9185,13 +9242,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/06-config.md:204
+#: ../doc/06-config.md:228
 #, markdown-text, no-wrap
 msgid "secure-http"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:210
+#: ../doc/06-config.md:234
 #, markdown-text
 msgid ""
 "Defaults to `true`. If set to true only HTTPS URLs are allowed to be "
@@ -9202,13 +9259,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/06-config.md:211
+#: ../doc/06-config.md:235
 #, markdown-text, no-wrap
 msgid "bitbucket-oauth"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:216
+#: ../doc/06-config.md:240
 #, markdown-text
 msgid ""
 "A list of domain names and consumers. For example using `{\"bitbucket.org\": "
@@ -9218,13 +9275,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/06-config.md:217
+#: ../doc/06-config.md:241
 #, markdown-text, no-wrap
 msgid "cafile"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:222
+#: ../doc/06-config.md:246
 #, markdown-text
 msgid ""
 "Location of Certificate Authority file on local filesystem. In PHP 5.6+ you "
@@ -9233,13 +9290,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/06-config.md:223
+#: ../doc/06-config.md:247
 #, markdown-text, no-wrap
 msgid "capath"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:228
+#: ../doc/06-config.md:252
 #, markdown-text
 msgid ""
 "If cafile is not specified or if the certificate is not found there, the "
@@ -9248,13 +9305,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/06-config.md:229
+#: ../doc/06-config.md:253
 #, markdown-text, no-wrap
 msgid "http-basic"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:235
+#: ../doc/06-config.md:259
 #, markdown-text
 msgid ""
 "A list of domain names and username/passwords to authenticate against "
@@ -9265,13 +9322,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/06-config.md:236
+#: ../doc/06-config.md:260
 #, markdown-text, no-wrap
 msgid "bearer"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:241
+#: ../doc/06-config.md:265
 #, markdown-text
 msgid ""
 "A list of domain names and tokens to authenticate against them. For example "
@@ -9281,13 +9338,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/06-config.md:242
+#: ../doc/06-config.md:266
 #, markdown-text, no-wrap
 msgid "platform"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:247
+#: ../doc/06-config.md:271
 #, markdown-text
 msgid ""
 "Lets you fake platform packages (PHP and extensions) so that you can emulate "
@@ -9296,7 +9353,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:253
+#: ../doc/06-config.md:277
 #, markdown-text
 msgid ""
 "This will make sure that no package requiring more than PHP 7.0.3 can be "
@@ -9308,7 +9365,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:257
+#: ../doc/06-config.md:281
 #, markdown-text
 msgid ""
 "Therefore if you use this it is recommended, and safer, to also run the "
@@ -9317,7 +9374,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:263
+#: ../doc/06-config.md:287
 #, markdown-text
 msgid ""
 "If a dependency requires some extension that you do not have installed "
@@ -9329,7 +9386,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:266
+#: ../doc/06-config.md:290
 #, markdown-text
 msgid ""
 "If you have an extension installed locally but *not* on production, you may "
@@ -9337,13 +9394,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/06-config.md:267
+#: ../doc/06-config.md:291
 #, markdown-text, no-wrap
 msgid "vendor-dir"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:272
+#: ../doc/06-config.md:296
 #, markdown-text
 msgid ""
 "Defaults to `vendor`. You can install dependencies into a different "
@@ -9352,13 +9409,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/06-config.md:273
+#: ../doc/06-config.md:297
 #, markdown-text, no-wrap
 msgid "bin-dir"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:277
+#: ../doc/06-config.md:301
 #, markdown-text
 msgid ""
 "Defaults to `vendor/bin`. If a project includes binaries, they will be "
@@ -9366,13 +9423,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/06-config.md:278
+#: ../doc/06-config.md:302
 #, markdown-text, no-wrap
 msgid "data-dir"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:285
+#: ../doc/06-config.md:309
 #, markdown-text, no-wrap
 msgid ""
 "Defaults to `C:\\Users\\<user>\\AppData\\Roaming\\Composer` on Windows,\n"
@@ -9385,13 +9442,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/06-config.md:286
+#: ../doc/06-config.md:310
 #, markdown-text, no-wrap
 msgid "cache-dir"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:293
+#: ../doc/06-config.md:317
 #, markdown-text, no-wrap
 msgid ""
 "Defaults to `C:\\Users\\<user>\\AppData\\Local\\Composer` on Windows,\n"
@@ -9404,25 +9461,25 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/06-config.md:294
+#: ../doc/06-config.md:318
 #, markdown-text, no-wrap
 msgid "cache-files-dir"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:297
+#: ../doc/06-config.md:321
 #, markdown-text
 msgid "Defaults to `$cache-dir/files`. Stores the zip archives of packages."
 msgstr ""
 
 #. type: Title ##
-#: ../doc/06-config.md:298
+#: ../doc/06-config.md:322
 #, markdown-text, no-wrap
 msgid "cache-repo-dir"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:302
+#: ../doc/06-config.md:326
 #, markdown-text
 msgid ""
 "Defaults to `$cache-dir/repo`. Stores repository metadata for the `composer` "
@@ -9430,13 +9487,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/06-config.md:303
+#: ../doc/06-config.md:327
 #, markdown-text, no-wrap
 msgid "cache-vcs-dir"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:307
+#: ../doc/06-config.md:331
 #, markdown-text
 msgid ""
 "Defaults to `$cache-dir/vcs`. Stores VCS clones for loading VCS repository "
@@ -9444,13 +9501,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/06-config.md:308
+#: ../doc/06-config.md:332
 #, markdown-text, no-wrap
 msgid "cache-files-ttl"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:314
+#: ../doc/06-config.md:338
 #, markdown-text
 msgid ""
 "Defaults to `15552000` (6 months). Composer caches all dist (zip, tar, ...)  "
@@ -9460,13 +9517,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/06-config.md:315
+#: ../doc/06-config.md:339
 #, markdown-text, no-wrap
 msgid "cache-files-maxsize"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:321
+#: ../doc/06-config.md:345
 #, markdown-text
 msgid ""
 "Defaults to `300MiB`. Composer caches all dist (zip, tar, ...) packages that "
@@ -9476,25 +9533,25 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/06-config.md:322
+#: ../doc/06-config.md:346
 #, markdown-text, no-wrap
 msgid "cache-read-only"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:325
+#: ../doc/06-config.md:349
 #, markdown-text
 msgid "Defaults to `false`. Whether to use the Composer cache in read-only mode."
 msgstr ""
 
 #. type: Title ##
-#: ../doc/06-config.md:326
+#: ../doc/06-config.md:350
 #, markdown-text, no-wrap
 msgid "bin-compat"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:335
+#: ../doc/06-config.md:359
 #, markdown-text
 msgid ""
 "Defaults to `auto`. Determines the compatibility of the binaries to be "
@@ -9508,13 +9565,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/06-config.md:336
+#: ../doc/06-config.md:360
 #, markdown-text, no-wrap
 msgid "prepend-autoloader"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:341
+#: ../doc/06-config.md:365
 #, markdown-text
 msgid ""
 "Defaults to `true`. If `false`, the Composer autoloader will not be "
@@ -9523,13 +9580,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/06-config.md:342
+#: ../doc/06-config.md:366
 #, markdown-text, no-wrap
 msgid "autoloader-suffix"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:346
+#: ../doc/06-config.md:370
 #, markdown-text
 msgid ""
 "Defaults to `null`. Non-empty string to be used as a suffix for the "
@@ -9537,25 +9594,25 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/06-config.md:347
+#: ../doc/06-config.md:371
 #, markdown-text, no-wrap
 msgid "optimize-autoloader"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:350
+#: ../doc/06-config.md:374
 #, markdown-text
 msgid "Defaults to `false`. If `true`, always optimize when dumping the autoloader."
 msgstr ""
 
 #. type: Title ##
-#: ../doc/06-config.md:351
+#: ../doc/06-config.md:375
 #, markdown-text, no-wrap
 msgid "sort-packages"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:355
+#: ../doc/06-config.md:379
 #, markdown-text
 msgid ""
 "Defaults to `false`. If `true`, the `require` command keeps packages sorted "
@@ -9563,13 +9620,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/06-config.md:356
+#: ../doc/06-config.md:380
 #, markdown-text, no-wrap
 msgid "classmap-authoritative"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:360
+#: ../doc/06-config.md:384
 #, markdown-text
 msgid ""
 "Defaults to `false`. If `true`, the Composer autoloader will only load "
@@ -9577,13 +9634,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/06-config.md:361
+#: ../doc/06-config.md:385
 #, markdown-text, no-wrap
 msgid "apcu-autoloader"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:365
+#: ../doc/06-config.md:389
 #, markdown-text
 msgid ""
 "Defaults to `false`. If `true`, the Composer autoloader will check for APCu "
@@ -9591,13 +9648,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/06-config.md:366
+#: ../doc/06-config.md:390
 #, markdown-text, no-wrap
 msgid "github-domains"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:370
+#: ../doc/06-config.md:394
 #, markdown-text
 msgid ""
 "Defaults to `[\"github.com\"]`. A list of domains to use in github "
@@ -9605,13 +9662,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/06-config.md:371
+#: ../doc/06-config.md:395
 #, markdown-text, no-wrap
 msgid "github-expose-hostname"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:375
+#: ../doc/06-config.md:399
 #, markdown-text
 msgid ""
 "Defaults to `true`. If `false`, the OAuth tokens created to access the "
@@ -9619,13 +9676,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/06-config.md:376
+#: ../doc/06-config.md:400
 #, markdown-text, no-wrap
 msgid "use-github-api"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:383
+#: ../doc/06-config.md:407
 #, markdown-text
 msgid ""
 "Defaults to `true`.  Similar to the `no-api` key on a specific repository, "
@@ -9636,13 +9693,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/06-config.md:384
+#: ../doc/06-config.md:408
 #, markdown-text, no-wrap
 msgid "notify-on-install"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:389
+#: ../doc/06-config.md:413
 #, markdown-text
 msgid ""
 "Defaults to `true`. Composer allows repositories to define a notification "
@@ -9651,13 +9708,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/06-config.md:390
+#: ../doc/06-config.md:414
 #, markdown-text, no-wrap
 msgid "discard-changes"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:397
+#: ../doc/06-config.md:421
 #, markdown-text
 msgid ""
 "Defaults to `false` and can be any of `true`, `false` or `\"stash\"`. This "
@@ -9668,25 +9725,25 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/06-config.md:398
+#: ../doc/06-config.md:422
 #, markdown-text, no-wrap
 msgid "archive-format"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:401
+#: ../doc/06-config.md:425
 #, markdown-text
 msgid "Defaults to `tar`. Overrides the default format used by the archive command."
 msgstr ""
 
 #. type: Title ##
-#: ../doc/06-config.md:402
+#: ../doc/06-config.md:426
 #, markdown-text, no-wrap
 msgid "archive-dir"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:406
+#: ../doc/06-config.md:430
 #, markdown-text
 msgid ""
 "Defaults to `.`. Default destination for archives created by the archive "
@@ -9694,7 +9751,7 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/06-config.md:409
+#: ../doc/06-config.md:433
 #, no-wrap
 msgid ""
 "{\n"
@@ -9705,13 +9762,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/06-config.md:417
+#: ../doc/06-config.md:441
 #, markdown-text, no-wrap
 msgid "htaccess-protect"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:421
+#: ../doc/06-config.md:445
 #, markdown-text
 msgid ""
 "Defaults to `true`. If set to `false`, Composer will not create `.htaccess` "
@@ -9719,13 +9776,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/06-config.md:422
+#: ../doc/06-config.md:446
 #, markdown-text, no-wrap
 msgid "lock"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:426
+#: ../doc/06-config.md:450
 #, markdown-text
 msgid ""
 "Defaults to `true`. If set to `false`, Composer will not create a "
@@ -9733,13 +9790,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/06-config.md:427
+#: ../doc/06-config.md:451
 #, markdown-text, no-wrap
 msgid "platform-check"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:432
+#: ../doc/06-config.md:456
 #, markdown-text
 msgid ""
 "Defaults to `php-only` which only checks the PHP version. Set to `true` to "
@@ -9749,13 +9806,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/06-config.md:433
+#: ../doc/06-config.md:457
 #, markdown-text, no-wrap
 msgid "secure-svn-domains"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:440
+#: ../doc/06-config.md:464
 #, markdown-text
 msgid ""
 "Defaults to `[]`. Lists domains which should be trusted/marked as using a "
@@ -9766,7 +9823,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:441
+#: ../doc/06-config.md:465
 #, markdown-text
 msgid "&larr; [Repositories](05-repositories.md)  | [Runtime](07-runtime.md) &rarr;"
 msgstr ""
