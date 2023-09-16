@@ -114,7 +114,7 @@ php composer.phar install
   実運用では特にお勧めしますが、走らせるのに少し時間が掛かることがあるので現在は既定ではされません。
 * **--classmap-authoritative (-a):** クラス対応表からクラスのみを自動読み込みします。
   暗黙裡に`--optimize-autoloader`を有効にします。
-* **--apcu-autoloader:** APCuを使って見付かったり見付からなかったりするクラスをキャッシュします。
+* **--apcu-autoloader:** APCuを使ってクラスの有無をキャッシュします。
 * **--apcu-autoloader-prefix:** APCu自動読み込み器のキャッシュ用に独自の接頭辞を使います。
   暗黙裡に`--apcu-autoloader`を有効にします。
 * **--ignore-platform-reqs:**
@@ -196,7 +196,7 @@ php composer.phar update vendor/package:2.0.1 vendor/package2:3.0.*
   PSR-0自動読み込みをクラスマップに変換してより高速な自動読み込み器を取得します。これは特に実運用で推奨されますが、走らせるのに少し時間が掛かるため現時点では既定では有効になっていません。
 * **--classmap-authoritative (-a):** クラス対応表からクラスのみを自動読み込みします。
   暗黙裡に`--optimize-autoloader`を有効にします。
-* **--apcu-autoloader:** APCuを使って見付かったり見付からなかったりするクラスをキャッシュします。
+* **--apcu-autoloader:** APCuを使ってクラスの有無をキャッシュします。
 * **--apcu-autoloader-prefix:** APCu自動読み込み器のキャッシュ用に独自の接頭辞を使います。
   暗黙裡に`--apcu-autoloader`を有効にします。
 * **--ignore-platform-reqs:**
@@ -276,7 +276,7 @@ php composer.phar require "vendor/package:2.*" vendor/package2:dev-master
   PSR-0自動読み込みをクラスマップに変換してより高速な自動読み込み器を取得します。これは特に実運用で推奨されますが、走らせるのに少し時間が掛かるため現時点では既定では有効になっていません。
 * **--classmap-authoritative (-a):** クラス対応表からクラスのみを自動読み込みします。
   暗黙裡に`--optimize-autoloader`を有効にします。
-* **--apcu-autoloader:** APCuを使って見付かったり見付からなかったりするクラスをキャッシュします。
+* **--apcu-autoloader:** APCuを使ってクラスの有無をキャッシュします。
 * **--apcu-autoloader-prefix:** APCu自動読み込み器のキャッシュ用に独自の接頭辞を使います。
   暗黙裡に`--apcu-autoloader`を有効にします。
 
@@ -318,7 +318,7 @@ php composer.phar remove vendor/package vendor/package2
   実運用では特にお勧めしますが、走らせるのに少し時間が掛かることがあるので現在は既定ではされません。
 * **--classmap-authoritative (-a):** クラス対応表からクラスのみを自動読み込みします。
   暗黙裡に`--optimize-autoloader`を有効にします。
-* **--apcu-autoloader:** APCuを使って見付かったり見付からなかったりするクラスをキャッシュします。
+* **--apcu-autoloader:** APCuを使ってクラスの有無をキャッシュします。
 * **--apcu-autoloader-prefix:** APCu自動読み込み器のキャッシュ用に独自の接頭辞を使います。
   暗黙裡に`--apcu-autoloader`を有効にします。
 
@@ -365,7 +365,7 @@ php composer.phar reinstall "acme/*"
   実運用では特にお勧めしますが、走らせるのに少し時間が掛かることがあるので現在は既定ではされません。
 * **--classmap-authoritative (-a):** クラス対応表からクラスのみを自動読み込みします。
   暗黙裡に`--optimize-autoloader`を有効にします。
-* **--apcu-autoloader:** APCuを使って見付かったり見付からなかったりするクラスをキャッシュします。
+* **--apcu-autoloader:** APCuを使ってクラスの有無をキャッシュします。
 * **--apcu-autoloader-prefix:** APCu自動読み込み器のキャッシュ用に独自の接頭辞を使います。
   暗黙裡に`--apcu-autoloader`を有効にします。
 * **--ignore-platform-reqs:**
@@ -526,7 +526,8 @@ show -lo`の別名になっています。
 
 - **green (=)**: 依存関係は最新バージョンであり、最新式です。
 - **yellow (`~`)**:
-  依存関係に新しいバージョンが利用できるものがありますが、セマンティックバージョニングによると後方互換性の破壊が含まれます。そのため更新できそうならしてもよいですが作業が発生する可能性があります。
+  依存関係に新しいバージョンが利用できるものがありますが、セマンティックバージョニングによると後方互換性の破壊が含まれます。
+  そのため更新できそうならしても良いですが、作業が発生する可能性があります。
 - **red (!)**: 依存関係にはセマンティックバージョニング上互換性のある新しいバージョンがあり更新するべきです。
 
 ### オプション
@@ -575,7 +576,9 @@ show -lo`の別名になっています。
 
 ## fund
 
-依存関係の維持管理に投資して支える方法を見付けます。このコマンドはインストールされている依存関係から全ての投資のリンクを一覧にします。機械が読むことのできる出力を得るには`--format=json`を使ってください。
+依存関係の維持管理に投資して支える方法を見付けます。
+このコマンドはインストールされている依存関係から全ての投資のリンクを一覧にします。
+機械が読むことのできる出力を得るには`--format=json`を使ってください。
 
 ### オプション
 
@@ -859,12 +862,14 @@ php composer.phar create-project doctrine/orm path "2.2.*"
   PSR-0/4自動読み込みをクラスマップに変換し、より高速な自動読み込み器を得ます。これは実運用で特に推奨されますが、走らせるのに少し時間が掛かるため現時点では既定で有効になっていません。
 * **--classmap-authoritative (-a):**
   クラスマップからのみクラスを自動読み込みします。暗に`--optimize`を有効します。
-* **--apcu:** APCuを使って、見付かったり見付からなかったりするクラスの情報をキャッシュします。
+* **--apcu:** APCuを使ってクラスの有無をキャッシュします。
 * **--apcu-prefix:** APCu自動読み込み器のキャッシュに独自の接頭辞を使います。暗に`--apcu`を有効にします。
-* **--no-dev:** autoload-dev規則を無効にします。既定では、Composerは直近の`install
-  --no-dev`または`update --no-dev`の状態にしたがって自動的にこれを推測します。
-* **--dev:** autoload-dev規則を有効にします。既定では、Composerは直近の`install
-  --no-dev`または`update --no-dev`の状態にしたがって自動的にこれを推測します。
+* **--no-dev:** autoload-dev規則を無効にします。
+  既定では、Composerは直近の`install --no-dev`または`update
+  --no-dev`の状態に随って自動的にこれを推測します。
+* **--dev:** autoload-dev規則を有効にします。
+  既定では、Composerは直近の`install --no-dev`または`update
+  --no-dev`の状態に随って自動的にこれを推測します。
 * **--ignore-platform-reqs:**
   全ての`php`、`hhvm`、`lib-*`、`ext-*`要件を無視し、これらの[プラットフォーム検査](07-runtime.md#platform-check)を飛ばします。[`platform`](06-config.md#platform)設定オプションも参照してください。
 * **--ignore-platform-req:**
@@ -933,10 +938,13 @@ php composer.phar archive vendor/package 2.0.21 --format=zip
 
 ## audit
 
-このコマンドを使うとインストールしたパッケージをセキュリティ上の問題があるか監査できます。[Packagist.org
-api](https://packagist.org/apidoc#list-security-advisories)にしたがってセキュリティ上の脆弱性に対する推奨事項を確認して一覧にします。
+このコマンドを使うとインストールしたパッケージをセキュリティ上の問題があるか監査できます。
+[Packagist.org api][api]に従って、セキュリティ上の脆弱性に対する推奨事項を確認して一覧にします。
 
-auditコマンドは見付かった脆弱性の量を返します。成功時は`0`を、それ以外は最大`255`の数を返します。
+[api]: https://packagist.org/apidoc#list-security-advisories
+
+auditコマンドは見付かった脆弱性の量を返します。
+成功時は`0`を、それ以外は最大`255`の数を返します。
 
 ```shell
 php composer.phar audit
@@ -990,8 +998,10 @@ COMPOSER=composer-other.json php composer.phar install
 ### COMPOSER_AUTH
 
 `COMPOSER_AUTH`変数では、環境変数として認証を設定できます。
-変数の内容はJSON形式のオブジェクトで、[http-basic、github-oauth、bitbucket-oauth、……といった必要に応じたもの](articles/authentication-for-private-packages.md)です。
-オブジェクトは[設定の仕様](06-config.md)にしたがいます。
+変数の内容はJSON形式のオブジェクトで、[http-basic、github-oauth、bitbucket-oauth、……といった必要に応じたもの][auth]です。
+オブジェクトは[設定の仕様](06-config.md)に従います。
+
+[auth]: articles/authentication-for-private-packages.md
 
 ### COMPOSER_BIN_DIR
 
@@ -1003,7 +1013,9 @@ COMPOSER=composer-other.json php composer.phar install
 これは[`cache-dir`](06-config.md#cache-dir)オプションを介しても設定できます。
 
 Windowsにおいて既定では`C:\Users\<user>\AppData\Local\Composer`（もしくは`%LOCALAPPDATA%/Composer`）を指します。
-\*nixシステムでは[XDG Base Directory Specifications](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html)にしたがい、`$XDG_CACHE_HOME/composer`を指します。他の\*nixシステムとmacOSにおいては`$COMPOSER_HOME/cache`を指します。
+\*nixシステムでは[XDG Base Directory Specifications][xdg]に従い、`$XDG_CACHE_HOME/composer`を指します。他の\*nixシステムとmacOSにおいては`$COMPOSER_HOME/cache`を指します。
+
+[xdg]: https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
 
 ### COMPOSER_CAFILE
 
@@ -1023,8 +1035,9 @@ Windowsにおいて既定では`C:\Users\<user>\AppData\Local\Composer`（もし
 
 `composer config --global home`を使ってホームディレクトリの場所を確認してください。
 
-既定では、Windowsにおいては`C:\Users\<user>\AppData\Roaming\Composer`を、macOSにおいては`/Users/<user>/.composer`を指します。\*nixシステムでは[XDG Base
-Directory Specifications](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html)にしたがい、`$XDG_CONFIG_HOME/composer`を指します。他の\*nixシステムでは`/home/<user>/.composer`を指します。
+既定では、Windowsにおいては`C:\Users\<user>\AppData\Roaming\Composer`を、macOSにおいては`/Users/<user>/.composer`を指します。\*nixシステムでは[XDG Base Directory Specifications][xdg]に従い、`$XDG_CONFIG_HOME/composer`を指します。他の\*nixシステムでは`/home/<user>/.composer`を指します。
+
+[xdg]: https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
 
 #### COMPOSER_HOME/config.json
 
@@ -1065,13 +1078,16 @@ box/CIで設定できます。
 
 ### COMPOSER_RUNTIME_ENV
 
-これによりどの環境でComposerが走っているのかの手掛かりが得られ、Composerで何らかの環境特有の問題を回避するための助けになります。現在対応している唯一の値は`virtualbox`で、こうするといくつかの短い`sleep()`呼び出しを有効にして、ファイルシステムが適切にファイルに書き込むのを待ってからそのファイルを読み込むようにします。VagrantやVirtualboxを使っていてファイルが存在しているのにも関わらずインストール時にファイルが見付からない旨問題に遭遇したときは、この環境変数を設定するとよいでしょう。
+これによりどの環境でComposerが走っているのかの手掛かりが得られ、Composerで何らかの環境特有の問題を回避するための助けになります。
+現在対応している唯一の値は`virtualbox`で、こうするといくつかの短い`sleep()`呼び出しを有効にして、ファイルシステムが適切にファイルに書き込むのを待ってからそのファイルを読み込むようにします。
+VagrantやVirtualboxを使っていてファイルが存在しているのにも関わらずインストール時にファイルがない旨問題に遭遇したときは、この環境変数を設定すると良いでしょう。
 
 ### http_proxyやHTTP_PROXY
 
 ComposerをHTTPプロキシの背後から使っている場合、標準的な`http_proxy`や`HTTP_PROXY`環境変数を使うことができます。変数はプロキシのURLに設定してください。多くのオペレーティングシステムは既にこの変数を設定してくれています。
 
-gitやcurlのようなツールが小文字の`http_proxy`版のみを使っているために、`http_proxy`（小文字）を使ったり両方とも定義するすることがよいこともあるでしょう。代替案として`git config --global http.proxy <proxy url>`を使ってgitのプロキシを定義することもできます。
+gitやcurlのようなツールが小文字の`http_proxy`版のみを使っているために、`http_proxy`（小文字）を使ったり両方とも定義するすることが良いこともあるでしょう。
+代替案として`git config --global http.proxy <proxy url>`を使ってgitのプロキシを定義することもできます。
 
 ComposerをCLIの文脈で使っておらず、プロキシの対応が必要であれば、代替として`CGI_HTTP_PROXY`環境変数を与えてください。詳細は[httpoxy.org](https://httpoxy.org/)を参照してください。
 
@@ -1081,11 +1097,11 @@ ComposerをCLIの文脈で使っておらず、プロキシの対応が必要で
 
 ### HTTP_PROXY_REQUEST_FULLURI
 
-プロキシを使っているものの、request_fulluriフラグに対応していなければ、この環境変数を`false`や`0`に設定してComposerがrequest_fulluriオプションを設定するのを防ぐとよいでしょう。
+プロキシを使っているものの、request_fulluriフラグに対応していなければ、この環境変数を`false`や`0`に設定してComposerがrequest_fulluriオプションを設定するのを防ぐと良いでしょう。
 
 ### HTTPS_PROXY_REQUEST_FULLURI
 
-プロキシを使っているが、HTTPSリクエストについてrequest_fulluriに対応していなければ、この環境変数を`false`や`0`に設定してComposerがrequest_fulluriオプションを設定するのを防ぐとよいでしょう。
+プロキシを使っているが、HTTPSリクエストについてrequest_fulluriに対応していなければ、この環境変数を`false`や`0`に設定してComposerがrequest_fulluriオプションを設定するのを防ぐと良いでしょう。
 
 ### COMPOSER_SELF_UPDATE_TARGET
 

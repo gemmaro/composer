@@ -168,7 +168,7 @@ originのリモートプッシュURLでssh (`git@github.com:...`)
 
 ドメイン名とoauthキーのリストです。
 たとえば、このオプションの値として`{"github.com":
-"oauthtoken"}`を使用すると、`oauthtoken`を使用してgithubのプライベートリポジトリにアクセスし、APIのIPに基づく低いレート制限を回避します。
+"oauthtoken"}`を使用すると、`oauthtoken`を使用してgithubの私有リポジトリにアクセスし、APIのIPに基づく低いレート制限を回避します。
 Composerは、必要に応じて資格情報を要求する場合がありますが、これらは手動で設定することもできます。
 GitHubのOAuthトークンを取得する方法およびcliの構文の詳細については、[こちら](articles/authentication-for-private-packages.md#github-oauth)を参照してください。
 
@@ -182,15 +182,15 @@ GitLabサーバーのドメインのリストです。
 
 ドメイン名とoauthキーのリストです。
 たとえば、このオプションの値として`{"gitlab.com":
-"oauthtoken"}`を使用すると、`oauthtoken`を使用してgitlabのプライベートリポジトリにアクセスします。
+"oauthtoken"}`を使用すると、`oauthtoken`を使用してgitlabの私有リポジトリにアクセスします。
 なお、パッケージがgitlab.comでホストされていない場合、ドメイン名も[`gitlab-domains`](06-config.md#gitlab-domains)オプションで指定する必要があります。
 詳細情報は[こちら](articles/authentication-for-private-packages.md#gitlab-oauth)にもあります。
 
 ## gitlab-token
 
-ドメイン名とプライベートトークンのリストです。
-プライベートトークンは、単純な文字列、またはユーザー名とトークンを含む配列のいずれかです。
-たとえば、このオプションの値として`{"gitlab.com": "privatetoken"}`を使用すると、`privatetoken`を使用してgitlabのプライベートリポジトリにアクセスします。
+ドメイン名と私有トークンのリストです。
+私有トークンは、単純な文字列、またはユーザー名とトークンを含む配列のいずれかです。
+たとえば、このオプションの値として`{"gitlab.com": "privatetoken"}`を使用すると、`privatetoken`を使用してgitlabの私有リポジトリにアクセスします。
 `{"gitlab.com": {"username": "gitlabuser", "token": "privatetoken"}}`を使用すると、ユーザー名とトークンの両方を使ってgitlabのデプロイトークン機能 (https://docs.gitlab.com/ ee/user/project/deploy_tokens/) を使用します。
 なお、パッケージがgitlab.comでホストされていない場合、ドメイン名も[`gitlab-domains`](06-config.md#gitlab-domains)オプションで指定する必要があります。
 トークンには`api`または`read_api`スコープが必要です。
@@ -201,8 +201,8 @@ GitLabサーバーのドメインのリストです。
 パッケージメタデータの`source`値用にリポジトリのURLを作成するときに強制的に使用するプロトコルです。
 `git`または`http`のいずれかです（`https`は`http`の同義語として扱われます）。
 HTTPベーシック認証を使った[GitLabのCI_JOB_TOKEN](https://docs.gitlab.com/ee/ci/variables/predefined_variables.html#predefined-variables-reference)で後々GitLab
-CIのジョブでクローンされるプライベートリポジトリを参照するプロジェクトを扱う際に役立ちます。
-既定では、Composerはプライベートリポジトリについてはgit-over-SSHのURLを生成し、パブリックなリポジトリについてはHTTP(S)のみを生成します。
+CIのジョブでクローンされる私有リポジトリを参照するプロジェクトを扱う際に役立ちます。
+既定では、Composerは私有リポジトリについてはgit-over-SSHのURLを生成し、公開リポジトリについてはHTTP(S)のみを生成します。
 
 ## disable-tls
 
@@ -234,7 +234,7 @@ PHP 5.6以降ではシステムCAファイルを自動的に検出ができま�
 
 ## capath
 
-cafileが指定されていない場合、またはそこに証明書が見つからない場合は、capathが指すディレクトリで適切な証明書が探索されます。
+cafileが指定されていない場合、またはそこに証明書がない場合は、capathが指すディレクトリで適切な証明書が探索されます。
 capathは正しくハッシュされた証明書ディレクトリでなければなりません。
 
 ## http-basic
@@ -367,7 +367,7 @@ Composerのキャッシュを読取専用モードで使うかどうかを決め
 ## apcu-autoloader
 
 既定では`false`です。
-`true`の場合、Composerの自動読み込み器はAPCuを確認し、拡張が有効になった場合に見付かったり見付からなかったりしたクラスをキャッシュするのに使います。
+`true`の場合、Composerの自動読み込み器はAPCuを確認し、拡張が有効になった場合にクラスの有無をキャッシュするのに使います。
 
 ## github-domains
 

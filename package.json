@@ -8,8 +8,11 @@
     "test": "tests"
   },
   "scripts": {
+    "translate": "make --directory translations",
+    "pretranslate": "touch translations/po4a.cfg",
     "test:md": "markdownlint ./translations/ja/*.md",
     "test:ja": "textlint ./translations/ja/*.md",
+    "pretest:ja": "npm run translate",
     "fix": "textlint --fix ./translations/ja/*.md"
   },
   "repository": {

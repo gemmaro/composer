@@ -1,0 +1,16 @@
+PO4A-HEADER: position=## サポート; mode=before; endboundary=確認すべきです。
+
+### 翻訳
+
+日本語訳の改善を歓迎します。
+`translations/po/ja.po`に原文と翻訳の対応があり、このファイルから日本語用のMarkdownファイル`translations/ja/**/*.md`が生成されます。
+したがって後者のMarkdownファイルではなく、前者のGettext POファイルを編集してください。
+
+翻訳は[po4a][]で管理されています。
+`npm run translate`とするとPOファイルの更新とMarkdownファイルの生成が行われます。
+また、`package.json`には`test:ja`と`test:md`のnpm scriptsが定義されています。
+`test:ja`は[Textlint][]により日本語を検査し、`test:md`は[markdownlint][]によりMarkdownの構文を検査します。
+
+[Textlint]: https://textlint.github.io/
+[markdownlint]: https://github.com/igorshubovych/markdownlint-cli/
+[po4a]: https://po4a.org/
