@@ -44,9 +44,10 @@ https://getcomposer.org/schema.json から取得できます。
 
 パッケージのバージョンです。ほとんどの場合これは必須ではなく省略すべきです（後述）。
 
-これは`X.Y.Z`や`vX.Y.Z`の形式にしたがっていなければなりません。オプションで`-dev`、`-patch` (`-p`)、`-alpha`
-(`-a`)、`-beta`
-(`-b`)、`-RC`を接尾辞に付けても構いません。また、patch、alpha、beta、RCの接尾辞には数字が続けても大丈夫です。
+`X.Y.Z`や`vX.Y.Z`の形式に従っていなければなりません。
+オプションで`-dev`、`-patch` (`-p`)、`-alpha` (`-a`)、`-beta`
+(`-b`)、`-RC`を接尾辞に付けても構いません。
+また、patch、alpha、beta、RCの接尾辞には数字を続けても大丈夫です。
 
 例：
 
@@ -97,15 +98,16 @@ https://getcomposer.org/schema.json から取得できます。
 - redis
 - templating
 
-> **補足**：`--dev`オプションなしで`composer require`するようにし、パッケージを`require`ではなく`require-dev`に追加してもよいか利用者にプロンプトを出す特別なキーワードがあります。`dev`、`testing`、`static analysis`がそれです。
+> **補足**：`--dev`オプションなしで`composer require`するようにし、パッケージを`require`ではなく`require-dev`に追加しても良いか利用者にプロンプトを出す特別なキーワードがあります。
+`dev`、`testing`、`static analysis`がそれです。
 
-任意のものです。
+省略可能です。
 
 ### homepage
 
 プロジェクトのwebサイトへのURLです。
 
-任意のものです。
+省略可能です。
 
 ### readme
 
@@ -115,7 +117,7 @@ readmeドキュメントへの相対パスです。
 これは主にパッケージがGitHubにないときに有用です。
 GitHubパッケージについて、Packagist.orgではGitHub側で検出されたものを取得するreadme APIを使うからです。
 
-任意のものです。
+省略可能です。
 
 ### time
 
@@ -123,7 +125,7 @@ GitHubパッケージについて、Packagist.orgではGitHub側で検出され�
 
 `YYYY-MM-DD`または`YYYY-MM-DD HH:MM:SS`の形式でなければなりません。
 
-任意のものです。
+省略可能です。
 
 ### license
 
@@ -209,7 +211,7 @@ Registry](https://spdx.org/licenses/)に一覧になっています。
 }
 ```
 
-任意のプロパティですが、付けることを強く推奨します。
+省略可能なプロパティですが、付けることを強く推奨します。
 
 ### support
 
@@ -239,7 +241,7 @@ Registry](https://spdx.org/licenses/)に一覧になっています。
 }
 ```
 
-任意のものです。
+省略可能です。
 
 ### funding
 
@@ -272,7 +274,7 @@ Registry](https://spdx.org/licenses/)に一覧になっています。
 }
 ```
 
-任意のものです。
+省略可能です。
 
 ### パッケージのリンク
 
@@ -288,7 +290,7 @@ Registry](https://spdx.org/licenses/)に一覧になっています。
 }
 ```
 
-全てのリンクは任意で付けてよいフィールドです。
+全てのリンクは省略可能なフィールドです。
 
 `require`と`require-dev`は追加で*安定性フラグ*（[ルート限定](04-schema.md#root-package)）に対応しています。
 "*constraint*@*stability flag*" の形式を取っています。
@@ -456,7 +458,7 @@ PSR-4の参照は、installやupdateの際に、単一のキー=>バリュー配
 }
 ```
 
-どの名前空間も見付かるようなフォールバックディレクトリを持たせたければ、次のように空の前置詞を使うことができます。
+任意の名前空間が探索されるようなフォールバックディレクトリを持たせたければ、次のように空の前置詞が使えます。
 
 ```json
 {
@@ -624,7 +626,7 @@ PHPの`include_path`に後付けされるパスのリストです。
 }
 ```
 
-任意のものです。
+省略可能です。
 
 ### target-dir
 
@@ -647,7 +649,7 @@ PHPの`include_path`に後付けされるパスのリストです。
 }
 ```
 
-任意のものです。
+省略可能です。
 
 ### minimum-stability <span>([root-only](04-schema.md#root-package))</span>
 
@@ -762,7 +764,7 @@ Composerではスクリプトの使用を通じてインストールの過程の
 $extra = $event->getComposer()->getPackage()->getExtra();
 ```
 
-任意のものです。
+省略可能です。
 
 ### bin
 
@@ -770,7 +772,7 @@ $extra = $event->getComposer()->getPackage()->getExtra();
 
 詳細は[ベンダーバイナリ](articles/vendor-binaries.md)を参照してください。
 
-任意のものです。
+省略可能です。
 
 ### archive
 
@@ -812,7 +814,7 @@ $extra = $event->getComposer()->getPackage()->getExtra();
 例では`/dir/foo/bar/file`、`/foo/bar/baz`、`/file.php`、`/foo/my.test`を含みますが
 `/foo/bar/any`、`/foo/baz`、`/my.test`は除外します。
 
-任意のものです。
+省略可能です。
 
 ### abandoned
 
@@ -827,7 +829,7 @@ $extra = $event->getComposer()->getPackage()->getExtra();
 
 既定では偽です。
 
-任意のものです。
+省略可能です。
 
 ### non-feature-branches
 
@@ -854,6 +856,6 @@ $extra = $event->getComposer()->getPackage()->getExtra();
 
 それから`composer show -s`とすると`versions : * dev-latest-testing`になります。
 
-任意のものです。
+省略可能です。
 
 &larr; [コマンドラインインターフェース](03-cli.md)  | [リポジトリ](05-repositories.md) &rarr;

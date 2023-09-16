@@ -4,3 +4,6 @@ language = "ja"
 multilingual = false
 src = "translations/ja"
 title = "Composer"
+
+[output.html]
+git-repository-url = "https://github.com/gemmaro/composer"

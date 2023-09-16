@@ -1,0 +1,40 @@
+PO4A-HEADER: mode=eof
+
+- - -
+
+本和訳にあたっての著作権表示を以下に示します。
+
+Copyright (C) 2013--2015 kohkimakimoto.<br>
+Copyright (C) 2022, 2023 gemmaro.
+
+この翻訳は[kohkimakimoto][]氏による翻訳を元に改変を加えています。
+同氏の翻訳リポジトリは[`kohkimakimoto/getcomposer.org_doc_jp`][repo]に、Webサイトは[『Composer ドキュメント日本語訳』の「はじめに」][site]にあります。
+コミット[`9b7073bf08140994039b4c008650a0ce1e3173fb`][commit]時点で翻訳されていた範囲は以下の通りです。
+
+| 章名                                  | ファイル                | 備考                                  |
+|---------------------------------------|-------------------------|---------------------------------------|
+| [イントロダクション][intro]           | `doc/00-intro.md`       |                                       |
+| [基本的な使い方][basic]               | `doc/01-basic-usage.md` |                                       |
+| [ライブラリ][lib]                     | `doc/02-libraries.md`   |                                       |
+| [コマンドラインインターフェース][cli] | `doc/03-cli.md`         | 「install」節の「オプション」小節まで |
+| [composer.json][schema]               | `doc/04-schema.md`      | 冒頭部分                              |
+| [コミュニティ][community]             | `doc/06-community.md`   |                                       |
+
+また、対応するComposer本体のコミットは[`a1e4ca4f9bacfd3dc08e0546bff2d30cb006ea27`][original-commit]としました。
+
+本翻訳は上記既訳を最新版に追従することを目的としています。
+そのため既訳の修正に加えて新規に追加された原文への訳が含まれます。
+本翻訳も原文にしたがい、[MITライセンス][license]の下に使用が許諾されます。
+
+[basic]: https://kohkimakimoto.github.io/getcomposer.org_doc_jp/doc/01-basic-usage.html
+[cli]: https://kohkimakimoto.github.io/getcomposer.org_doc_jp/doc/03-cli.html
+[commit]: https://github.com/kohkimakimoto/getcomposer.org_doc_jp/commit/9b7073bf08140994039b4c008650a0ce1e3173fb
+[community]: https://kohkimakimoto.github.io/getcomposer.org_doc_jp/doc/06-community.html
+[intro]: https://kohkimakimoto.github.io/getcomposer.org_doc_jp/doc/00-intro.html
+[kohkimakimoto]: https://github.com/kohkimakimoto
+[lib]: https://kohkimakimoto.github.io/getcomposer.org_doc_jp/doc/02-libraries.html
+[license]: https://github.com/composer/composer/blob/main/LICENSE
+[original-commit]: https://github.com/composer/composer/commit/a1e4ca4f9bacfd3dc08e0546bff2d30cb006ea27
+[repo]: https://github.com/kohkimakimoto/getcomposer.org_doc_jp
+[schema]: https://kohkimakimoto.github.io/getcomposer.org_doc_jp/doc/04-schema.html
+[site]: https://kohkimakimoto.github.io/getcomposer.org_doc_jp/doc/00-intro.html

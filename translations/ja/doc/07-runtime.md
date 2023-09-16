@@ -110,7 +110,7 @@ use Composer\Semver\VersionParser;
 その後、上記のメソッドを使用して、必要に応じて各パッケージに関する詳細情報を取得できます。
 
 この方法により、プラグインをベンダーディレクトリに残すのではなく、特定のパスに配置するカスタムインストーラーの必要性が軽減されます。
-それからInstalledVersionsを介して実行時に初期化するプラグインを見つけ、必要に応じてgetInstallPathを介してそれらのパスを含めることができます。
+それからInstalledVersionsを介して実行時に初期化するプラグインを見付け、必要に応じてgetInstallPathを介してそれらのパスを含めることができます。
 
 ```php
 \Composer\InstalledVersions::getInstalledPackagesByType('foo-plugin');
@@ -128,7 +128,7 @@ composer-runtime-api
 要件が満たされていない場合、スクリプトは不足している要件に関する警告を出力し、コード104で終了します。
 
 実稼働環境でPHP拡張機能の曖昧な警告が表示される予期せず失敗した際の空白ページを回避するには、デプロイやビルドの工程の一部として`composer
-check-platform-reqs`を実行し、0以外のコードが返された場合に中止するとよいでしょう。
+check-platform-reqs`を実行し、0以外のコードが返された場合に中止すると良いでしょう。
 
 既定値は`php-only`であり、PHPのバージョンのみを検査します。
 

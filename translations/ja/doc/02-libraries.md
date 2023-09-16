@@ -81,7 +81,7 @@ Composerがタグとブランチを扱う方法とパッケージのバージョ
 このブログをライブラリとして公開することはないからです。
 ここではどの`composer.json`が説明されているのかを明確にするために加えられています。
 
-このブログアプリに依存物`hello-world`がどこで見つけられるのか知らせる必要があります。
+このブログアプリに依存物`hello-world`の所在を知らせる必要があります。
 これにはパッケージのリポジトリ指定をこのブログの`composer.json`に追加します。
 
 ```json
@@ -120,7 +120,7 @@ Composerの[`install`](03-cli.md#install)コマンドを実行すれば依存関
 Packagistで公開されている全てのものは自動的にComposerで利用可能です。
 [monologはPackagistにある](https://packagist.org/packages/monolog/monolog)ので、追加のリポジトリ指定なくして依存できるのです。
 
-`hello-world`を世界に共有したければ、同様にPackagistに公開するのがよいでしょう。
+`hello-world`を世界に共有したければ、同様にPackagistに公開するのが良いでしょう。
 
 [Packagist](https://packagist.org)を開いて"Submit"ボタンを押します。
 まだサインアップしていなかったらその旨の表示がされます。

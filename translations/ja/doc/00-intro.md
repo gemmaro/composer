@@ -6,8 +6,8 @@ Composerはプロジェクトが依存するライブラリを宣言し管理（
 ## 依存管理
 
 ComposerはYumやAptの伝で言うとパッケージ管理ツールでは**ありません**。
-まあ、「パッケージ」やライブラリを扱いはしますが、プロジェクト毎の管理であって、プロジェクトの内部のディレクトリ（例：`vendor`）にインストールするのです。
-既定では大域的には決してインストールしません。
+「パッケージ」やライブラリを扱いはしますが、プロジェクト毎の管理であって、プロジェクトの内部のディレクトリ（例：`vendor`）にインストールするのです。
+既定では決して大域的にインストールしません。
 したがって、これは依存管理なわけです。
 とはいえ便宜上[global](03-cli.md#global)コマンドを介して「大域的な」プロジェクトに対応してはいます。
 
@@ -46,11 +46,14 @@ Composerはマルチプラットフォームであり、Windows、Linux、macOS�
 ### 実行形式のComposerをダウンロード
 
 Composerには便利なインストーラがあり、コマンドラインから直接実行できます。
-気兼ねなく[このファイルをダウンロード](https://getcomposer.org/installer)したり、またはインストーラの内部のはたらきについてもっと知りたいと思ったら[GitHub](https://github.com/composer/getcomposer.org/blob/main/web/installer)で確認したりしてください。
+気兼ねなく[このファイルをダウンロード][dl]したり、インストーラの内部のはたらきについてもっと知りたいと思ったら[GitHub][gh]で確認したりしてください。
 ソースは単なるPHPです。
 
+[dl]: https://getcomposer.org/installer
+[gh]: https://github.com/composer/getcomposer.org/blob/main/web/installer
+
 平たく言うとComposerのインストールには2つの方法があります。
-プロジェクトにローカルに入れる方法と、システム全域の実行ファイルとしてグローバルに入れる方法です。
+プロジェクトへローカルに入れる方法と、システム全域の実行ファイルとしてグローバルに入れる方法です。
 
 #### ローカル
 
@@ -64,13 +67,15 @@ PHAR (PHP archive) はPHPのためのアーカイブ形式であり、コマン�
 ここでComposerを走らせるには`php composer.phar`としてください。
 
 `--install-dir`オプションを使って特定のディレクトリに、さらに`--filename`オプションを使って名前を付け（変え）たりしつつ、Composerをインストールできます。
-[ダウンロードページの説明](https://getcomposer.org/download/)にしたがってインストーラを走らせるときは以下の引数を加えてください。
+[ダウンロードページの説明][dl]に従ってインストーラを走らせるときは、以下の引数を加えてください。
+
+[dl]: https://getcomposer.org/download/
 
 ```shell
 php composer-setup.php --install-dir=bin --filename=composer
 ```
 
-それではComposerを走らせるために`php bin/composer`としてください。
+それから、`php bin/composer`とするとComposerが走ります。
 
 #### 大域的に使う
 
@@ -78,41 +83,46 @@ Composer PHARは好きな場所に置くことができます。
 `PATH`の通った場所に置くことで大域的にアクセスできます。
 Unix系のシステムでは実行形式にして`php`インタプリタを直接使わずに呼び出すこともできます。
 
-[ダウンロードページの説明](https://getcomposer.org/download/)にしたがってインストーラを走らせたあとは、以下を走らせてパスにあるディレクトリにcomposer.pharを移動させられます。
+[ダウンロードページの説明][dl]に従ってインストーラを走らせたあとは、以下を走らせてパスにあるディレクトリにcomposer.pharを移動させられます。
+
+[dl]: https://getcomposer.org/download/
 
 ```shell
 mv composer.phar /usr/local/bin/composer
 ```
 
-ユーザーのためだけにインストールしルート権限を避けたいようでしたら、代わりにLinuxディストリビューションで既定で使うことができることがある`~/.local/bin`を使うこともできます。
+ユーザーのためだけにインストールしてルート権限を避けたいようでしたら、代わりに`~/.local/bin`を使うこともできます。
+これはLinuxディストリビューションで既定で使えることがあります。
 
 > **注意:** 上記がパーミッションによって失敗する場合、sudoで改めて実行する必要があるかもしれません。
 
-> **補足：** macOSのバージョンによっては既定では`/usr`ディレクトリが存在しないことがあります。
-> エラー「/usr/local/bin/composer: No such file or directory」が出たら進める前に`mkdir -p /usr/local/bin`としてディレクトリを手作りしなければなりません。
+> **補足：** macOSのバージョンによって、既定では`/usr`ディレクトリが存在しないことがあります。
+> エラー「/usr/local/bin/composer: No such file or directory」が出たら、予め`mkdir -p /usr/local/bin`としてディレクトリを手作りしなければなりません。
 
 > **補足：** パスを変えることに関しては[Wikipediaの記事](https://en.wikipedia.org/wiki/PATH_(variable))を読んだりお好みの検索エンジンに掛けてみてください。
 
-それではComposerを走らせるために`php composer.phar`の代わりに`composer`としてください。
+これで`php composer.phar`の代わりに`composer`とすれば、Composerが走るようになりました。
 
 ## Windowsへインストール
 
 ### インストーラを使う
 
-これはComposerをマシンに用意する最も簡単な方法です。
+Composerをマシンに用意する最も簡単な方法です。
 
 [Composer-Setup.exe](https://getcomposer.org/Composer-Setup.exe)をダウンロードして実行してください。
 最新バージョンのComposerがインストールされパスが設定されるため、どのディレクトリからも`composer`をコマンドラインから呼ぶことができます。
 
-> **補足：** 現在のターミナルを閉じてください。
-新しいターミナルで使えるか試してみてください。
-パスはターミナルが始まったときのみ読み込まれるので一旦閉じるのは大事です。
+> **補足：** 現在の端末を閉じてください。
+新しい端末で使えるか試してみてください。
+パスは端末が起動したときにのみ読み込まれるので、一旦閉じるのは大事です。
 
 ### 手動でインストール
 
-`composer.phar`をダウンロードするために`PATH`の通っているディレクトリに移動して[ダウンロードページの説明](https://getcomposer.org/download/)にしたがってインストーラを走らせてください。
+`composer.phar`をダウンロードするため、`PATH`の通っているディレクトリに移動して[ダウンロードページの説明][dl]に従い、インストーラを走らせてください。
 
-新しく`composer.bat`ファイルを`composer.phar`と同じ場所に作成してください。
+[dl]: https://getcomposer.org/download/
+
+`composer.bat`ファイルを`composer.phar`と同じ場所に新規作成してください。
 
 cmd.exeを使う場合：
 
@@ -129,8 +139,8 @@ PS C:\bin> Set-Content composer.bat '@php "%~dp0composer.phar" %*'
 まだPATH環境変数にディレクトリがなければ追加してください。
 PATH変数を変えることに関しては[この記事](https://www.computerhope.com/issues/ch000549.htm)を参照したりお好みの検索エンジンに掛けてみたりしてください。
 
-現在のターミナルを閉じてください。
-新しいターミナルで使えるかテストします。
+現在の端末を閉じてください。
+新しい端末で使えるか試してください。
 
 ```shell
 C:\Users\username>composer -V
@@ -163,11 +173,11 @@ COPY --from=composer/composer:2-bin /composer /usr/bin/composer
 
 さらなる使い方の情報については[イメージの説明](https://hub.docker.com/r/composer/composer)をお読みください。
 
-**補足：** Docker固有の問題は[composer/dockerリポジトリ](https://github.com/composer/docker/issues)に報告されるとよいでしょう。
+**補足：** Docker固有の問題は[composer/dockerリポジトリ](https://github.com/composer/docker/issues)に報告されると良いでしょう。
 
 **補足：** 上のイメージ名では`composer/composer`の代わりに`composer`を使うこともできます。
-名前が短かくDockerの公式イメージですが直接私達が公開したものではないので新しいリリースが数日送れで来ることが普通です。
-**重要**：短く別名が付けられたイメージにはバイナリのみの同じものがないため、`COPY --from`の方法については`composer/composer`のほうを使う方がよいです。
+名前が短かく、Dockerの公式イメージですが、直接私達が公開したものではないので新しいリリースが数日送れで来ることが普通です。
+**重要**：短い別名が付けられたイメージにはバイナリのみの同じものがないため、`COPY --from`の方法については`composer/composer`のほうを使う方が良いです。
 
 ## Composerを使う
 
