@@ -35,7 +35,7 @@ Composerを対話的に実行すると、プラグインを実行するかどう
 この設定を使うと、信頼できるパッケージのみがコードを実行できるようになります。
 パッケージ名パターンをキーに持つオブジェクトに設定します。
 値は、許可する場合は**true**で、許可しない場合は**false**です。
-いずれもこれ以外の警告とプロンプトは抑制されます。
+何れもこれ以外の警告とプロンプトは抑制されます。
 
 ```json
 {
@@ -154,7 +154,7 @@ composer.jsonがないディレクトリでComposerを実行しており、そ�
 ## store-auths
 
 認証のプロンプトの後にする動作です。
-`true`（常に保存する）、`false`（保存しない）、`"prompt"`（毎回確認する）のいずれか1つで、既定では`"prompt"`です。
+`true`（常に保存する）、`false`（保存しない）、`"prompt"`（毎回確認する）の何れか1つで、既定では`"prompt"`です。
 
 ## github-protocols
 
@@ -189,9 +189,9 @@ GitLabサーバーのドメインのリストです。
 ## gitlab-token
 
 ドメイン名と私有トークンのリストです。
-私有トークンは、単純な文字列、またはユーザー名とトークンを含む配列のいずれかです。
+私有トークンは、単純な文字列、または利用者名とトークンを含む配列の何れかです。
 たとえば、このオプションの値として`{"gitlab.com": "privatetoken"}`を使用すると、`privatetoken`を使用してgitlabの私有リポジトリにアクセスします。
-`{"gitlab.com": {"username": "gitlabuser", "token": "privatetoken"}}`を使用すると、ユーザー名とトークンの両方を使ってgitlabのデプロイトークン機能 (https://docs.gitlab.com/ ee/user/project/deploy_tokens/) を使用します。
+`{"gitlab.com": {"username": "gitlabuser", "token": "privatetoken"}}`を使用すると、利用者名とトークンの両方を使ってgitlabのデプロイトークン機能 (https://docs.gitlab.com/ ee/user/project/deploy_tokens/) を使用します。
 なお、パッケージがgitlab.comでホストされていない場合、ドメイン名も[`gitlab-domains`](06-config.md#gitlab-domains)オプションで指定する必要があります。
 トークンには`api`または`read_api`スコープが必要です。
 詳細情報は[こちら](articles/authentication-for-private-packages.md#gitlab-token)にもあります。
@@ -199,7 +199,7 @@ GitLabサーバーのドメインのリストです。
 ## gitlab-protocol
 
 パッケージメタデータの`source`値用にリポジトリのURLを作成するときに強制的に使用するプロトコルです。
-`git`または`http`のいずれかです（`https`は`http`の同義語として扱われます）。
+`git`または`http`の何れかです（`https`は`http`の同義語として扱われます）。
 HTTPベーシック認証を使った[GitLabのCI_JOB_TOKEN](https://docs.gitlab.com/ee/ci/variables/predefined_variables.html#predefined-variables-reference)で後々GitLab
 CIのジョブでクローンされる私有リポジトリを参照するプロジェクトを扱う際に役立ちます。
 既定では、Composerは私有リポジトリについてはgit-over-SSHのURLを生成し、公開リポジトリについてはHTTP(S)のみを生成します。
@@ -239,7 +239,7 @@ capathは正しくハッシュされた証明書ディレクトリでなけれ�
 
 ## http-basic
 
-認証するためのドメイン名と、ユーザー名とパスワードのリストです。
+認証するためのドメイン名と、利用者名とパスワードのリストです。
 たとえば、このオプションの値として`{"example.org": {"username": "alice", "password":
 "foo"}}`を使用すると、Composerはexample.orgに対して認証します。
 詳細については、[こちら](articles/authentication-for-private-packages.md#http-basic)を参照してください。
@@ -345,8 +345,9 @@ Composerのキャッシュを読取専用モードで使うかどうかを決め
 ## autoloader-suffix
 
 既定では`null`です。
-空でない文字列は生成されたComposerの自動読み込み器の拡張子に使われます。
-空の場合乱択されたものが生成されます。
+空でない文字列に設定した場合、生成されたComposerの自動読み込み器の接尾辞に使われます。
+`null`に設定された場合、可能であれば`composer.lock`ファイルの`content-hash`値が使われます。
+そうでなければ、乱択された接尾辞が生成されます。
 
 ## optimize-autoloader
 
@@ -395,7 +396,7 @@ Composerではリポジトリが通知のURLを定義できるようにしてお
 
 ## discard-changes
 
-既定では`false`で、`true`、`false`、または`stash`のいずれかにできます。
+既定では`false`で、`true`、`false`、または`stash`の何れかにできます。
 このオプションでは非対話モードでダーティアップデートを制御する既定の方式を設定できます。
 `true`はベンダーの変更を常に破棄しますが、`"stash"`は取っておいて再適用しようとします。
 よくベンダーを変更する場合はCIサーバーやデプロイスクリプトにこれを使ってください。

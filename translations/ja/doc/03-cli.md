@@ -70,7 +70,7 @@ php composer.phar init
 * **--license (-l):** パッケージの利用許諾。
 * **--repository:** 1つ（かそれ以上）の個別のリポジトリを与えます。
   これらのリポジトリは生成されるcomposer.jsonに収められ、要件の一覧を提案する際の自動補完に使われます。
-  全てのリポジトリは`composer`リポジトリを指すHTTPのURLないし[repositories](04-schema.md#repositories)キーが受け付けるものに似たようなJSON文字列のいずれかを取ります。
+  全てのリポジトリは`composer`リポジトリを指すHTTPのURLないし[repositories](04-schema.md#repositories)キーが受け付けるものに似たようなJSON文字列の何れかを取ります。
 * **--autoload (-a):** composer.jsonへのPSR-4自動読み込みの対応付けを加えます。
   自動的にパッケージの名前空間を与えられたディレクトリに対応付けます（src/のような相対パスを想定しています）。
   [PSR-4自動読み込み](04-schema.md#psr-4)も参照してください。
@@ -190,8 +190,10 @@ php composer.phar update vendor/package:2.0.1 vendor/package2:3.0.*
 * **--with:** 一時的に追加するバージョン制約です。例えばfoo/bar:1.0.0やfoo/bar=1.0.0です。
 * **--no-autoloader:** 自動読み込み器の生成を飛ばします。
 * **--no-progress:** 端末を散らかしかねない進捗表示やバックスペース文字を扱わないスクリプトを除きます。
-* **--with-dependencies (-w):** 引数リストにあるパッケージの依存関係も更新します。ただしルート要件は除きます。
-* **--with-all-dependencies (-W):** 引数リスト中にあるパッケージの依存関係を更新します。ルート要件を含みます。
+* **--with-dependencies (-w):** 引数リストにあるパッケージの依存関係も更新します。
+  ただしルート要件は除きます。
+* **--with-all-dependencies (-W):** 引数リスト中にあるパッケージの依存関係を更新します。
+  ルート要件を含みます。
 * **--optimize-autoloader (-o):**
   PSR-0自動読み込みをクラスマップに変換してより高速な自動読み込み器を取得します。これは特に実運用で推奨されますが、走らせるのに少し時間が掛かるため現時点では既定では有効になっていません。
 * **--classmap-authoritative (-a):** クラス対応表からクラスのみを自動読み込みします。
@@ -439,7 +441,7 @@ php composer.phar search monolog
 php composer.phar show
 ```
 
-リストを絞り込むにはワイルドカードを使ってパッケージマスクを渡すことができます。
+リストを絞り込むには、ワイルドカードを使ってパッケージマスクを渡せます。
 
 ```shell
 php composer.phar show "monolog/*"
@@ -713,7 +715,7 @@ ComposerがPHARとしてインストールされていなければこのコマ�
 * **--clean-backups:**
   更新時に古いバックアップを削除します。更新後は現在のComposerのバージョンのみがバックアップとして残ります。
 * **--no-progress:** ダウンロードのプログレスバーを出力しません。
-* **--update-keys:** キーの更新をユーザーに尋ねます。
+* **--update-keys:** キーの更新を利用者に尋ねます。
 * **--stable:** 更新を安定チャンネルに強制します。
 * **--preview:** 更新をプレビューチャンネルに強制します。
 * **--snapshot:** 更新をスナップショットチャンネルに強制します。
@@ -892,7 +894,7 @@ Composerのキャッシュディレクトリから全ての内容を削除しま
 
 ### オプション
 
-* **--format:** 出力の形式です。text、json、summaryのいずれかです（既定では「text」）。
+* **--format:** 出力の形式です。text、json、summaryの何れかです（既定では「text」）。
 * **--no-dev:** 出力から開発依存関係を除きます。
 
 ## run-script / run
@@ -989,7 +991,8 @@ COMPOSER=composer-other.json php composer.phar install
 
 ### COMPOSER_ALLOW_SUPERUSER
 
-1に設定するとこの環境変数はコマンドをルートないしスーパーユーザーとして走らせることについての警告を無効にします。自動的なsudoセッションの消去も無効にするため、必ずDockerコンテナのような常時スーパーユーザーとしてComposerを使うときにのみ設定するようにしてください。
+1に設定すると、この環境変数はコマンドをルートないし特権のある利用者として走らせることについての警告を無効にします。
+自動的なsudoセッションの消去も無効にするため、必ずDockerコンテナのような特権のある利用者として、常時Composerを使うときにのみ設定するようにしてください。
 
 ### COMPOSER_ALLOW_XDEBUG
 
@@ -1109,7 +1112,8 @@ ComposerをCLIの文脈で使っておらず、プロキシの対応が必要で
 
 ### no_proxyやNO_PROXY
 
-プロキシの背後にあって特定のドメインを無効にしたい場合は、`no_proxy`または`NO_PROXY`環境変数を使うことができます。プロキシが使われ*ない*ドメインのコンマ区切りリストを設定します。
+プロキシの背後にあって特定のドメインを無効にしたい場合は、`no_proxy`または`NO_PROXY`環境変数を使えます。
+プロキシが使われ*ない*ドメインのコンマ区切りリストを設定します。
 
 環境変数はCIDR記法でドメイン、IPアドレス、IPアドレスブロックを受け付けます。
 フィルタを特定のポートに制限できます（例：`:80`）。
@@ -1144,7 +1148,8 @@ ComposerをCLIの文脈で使っておらず、プロキシの対応が必要で
 
 ### COMPOSER_IGNORE_PLATFORM_REQやCOMPOSER_IGNORE_PLATFORM_REQS
 
-`COMPOSER_IGNORE_PLATFORM_REQS`を`1`に設定すると、`--ignore-platform-reqs`引数を渡すことと等価になります。他方で`COMPOSER_IGNORE_PLATFORM_REQ`でコンマ区切りのリストを指定するとこれらの特定の要件を無視します。
+`COMPOSER_IGNORE_PLATFORM_REQS`を`1`に設定すると、`--ignore-platform-reqs`引数を渡すことと等価になります。
+他方で`COMPOSER_IGNORE_PLATFORM_REQ`でコンマ区切りのリストを指定すると、これらの特定の要件を無視します。
 
 例えば開発ワークステーションが全くデータベースクエリを走らせない場合、データベースの要件が利用できることの要件を無視するのに使うことができます。`COMPOSER_IGNORE_PLATFORM_REQ=ext-oci8`を設定すると、Composerは`oci8`PHP拡張が有効になっていなくともパッケージをインストールします。
 

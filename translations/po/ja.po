@@ -19,8 +19,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Composer\n"
-"POT-Creation-Date: 2023-09-16 13:30+0900\n"
-"PO-Revision-Date: 2023-09-21 02:08+0900\n"
+"POT-Creation-Date: 2023-09-30 00:00+0900\n"
+"PO-Revision-Date: 2023-09-30 00:13+0900\n"
 "Last-Translator: gemmaro <gemmaro.dev@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -105,7 +105,8 @@ msgstr "パッケージ"
 #. type: Plain text
 #: ../README.md:25
 msgid "Find public packages on [Packagist.org](https://packagist.org)."
-msgstr "[Packagist.org](https://packagist.org)に公開されているパッケージがあります。"
+msgstr ""
+"[Packagist.org](https://packagist.org)に公開されているパッケージがあります。"
 
 # private: 私有
 # https://mitome.in/ での訳しかたが気に入ったのでこれを使います。
@@ -114,7 +115,9 @@ msgstr "[Packagist.org](https://packagist.org)に公開されているパッケ�
 msgid ""
 "For private package hosting take a look at [Private Packagist](https://"
 "packagist.com)."
-msgstr "私有パッケージのホスティングについては[私有Packagist](https://packagist.com)をご確認ください。"
+msgstr ""
+"私有パッケージのホスティングについては[私有Packagist](https://packagist.com)"
+"をご確認ください。"
 
 #. type: Title #
 #: ../README.md:29 ../doc/08-community.md:1
@@ -129,7 +132,11 @@ msgid ""
 "twitter.com/seldaek) on Twitter for announcements, or check the "
 "[#composerphp](https://twitter.com/search?"
 "q=%23composerphp&src=typed_query&f=live) hashtag."
-msgstr "告知についてはTwitterで[@packagist](https://twitter.com/packagist)または[@seldaek](https://twitter.com/seldaek)をフォローしたり、[#composerphp](https://twitter.com/search?q=%23composerphp&src=typed_query&f=live)ハッシュタグを確認したりしてください。"
+msgstr ""
+"告知についてはTwitterで[@packagist](https://twitter.com/packagist)または"
+"[@seldaek](https://twitter.com/seldaek)をフォローしたり、[#composerphp]"
+"(https://twitter.com/search?q=%23composerphp&src=typed_query&f=live)ハッシュ"
+"タグを確認したりしてください。"
 
 #. type: Plain text
 #: ../README.md:35
@@ -139,8 +146,10 @@ msgid ""
 "can use the [GitHub discussions](https://github.com/composer/composer/"
 "discussions)."
 msgstr ""
-"サポートについては、Stack Overflowで[Composerに関係する良い質問](https://stackoverflow.com/questions/tagged/composer-php)がされてきました。\n"
-"また、[GitHubディスカッション](https://github.com/composer/composer/discussions)も使えます。"
+"サポートについては、Stack Overflowで[Composerに関係する良い質問](https://"
+"stackoverflow.com/questions/tagged/composer-php)がされてきました。\n"
+"また、[GitHubディスカッション](https://github.com/composer/composer/"
+"discussions)も使えます。"
 
 #. type: Plain text
 #: ../README.md:39
@@ -150,8 +159,10 @@ msgid ""
 "conduct/).  By participating in this project and its community you agree to "
 "abide by those terms."
 msgstr ""
-"本プロジェクトは[貢献者の行動規範](https://www.contributor-covenant.org/version/1/4/code-of-conduct/)の元でリリースされている点にご留意ください。\n"
-"本プロジェクトとコミュニティへ参加すると、これらの条項を遵守することに同意したこととなります。"
+"本プロジェクトは[貢献者の行動規範](https://www.contributor-covenant.org/"
+"version/1/4/code-of-conduct/)の元でリリースされている点にご留意ください。\n"
+"本プロジェクトとコミュニティへ参加すると、これらの条項を遵守することに同意し"
+"たこととなります。"
 
 #. type: Title -
 #: ../README.md:41
@@ -183,8 +194,10 @@ msgid ""
 "Composer (2.2.x). If you run the installer or the `self-update` command the "
 "appropriate Composer version for your PHP should be automatically selected."
 msgstr ""
-"PHPのバージョン5.3.2から8.1まではComposer (2.2.x)のLTS対応でまだ対応されています。\n"
-"インストーラの`self-update`コマンドを走らせると、手元のPHPに見合う適切なComposerのバージョンが自動的に選択されるでしょう。"
+"PHPのバージョン5.3.2から8.1まではComposer (2.2.x)のLTS対応でまだ対応されてい"
+"ます。\n"
+"インストーラの`self-update`コマンドを走らせると、手元のPHPに見合う適切な"
+"Composerのバージョンが自動的に選択されるでしょう。"
 
 #. type: Title ####
 #: ../README.md:53
@@ -255,7 +268,8 @@ msgid ""
 "dependencies are essential for Composer: `7z` (or `7zz` or `unzip`), and "
 "`git`."
 msgstr ""
-"大事なことですが、これらのバイナリの依存関係の必要性は個々の用途によって様々です。\n"
+"大事なことですが、これらのバイナリの依存関係の必要性は個々の用途によって様々"
+"です。\n"
 "しかしほとんどの利用者にとっては、Composerに必須な依存関係はたった2つです。\n"
 "`7z`（または`7zz`や`unzip`）と`git`です。"
 
@@ -374,10 +388,12 @@ msgid ""
 "convenience via the [global](03-cli.md#global) command."
 msgstr ""
 "ComposerはYumやAptの伝で言うとパッケージ管理ツールでは**ありません**。\n"
-"「パッケージ」やライブラリを扱いはしますが、プロジェクト毎の管理であって、プロジェクトの内部のディレクトリ（例：`vendor`）にインストールするのです。\n"
+"「パッケージ」やライブラリを扱いはしますが、プロジェクト毎の管理であって、プ"
+"ロジェクトの内部のディレクトリ（例：`vendor`）にインストールするのです。\n"
 "既定では決して大域的にインストールしません。\n"
 "したがって、これは依存管理なわけです。\n"
-"とはいえ便宜上[global](03-cli.md#global)コマンドを介して「大域的な」プロジェクトに対応してはいます。"
+"とはいえ便宜上[global](03-cli.md#global)コマンドを介して「大域的な」プロジェ"
+"クトに対応してはいます。"
 
 #. type: Plain text
 #: ../doc/00-intro.md:18
@@ -513,7 +529,8 @@ msgid ""
 "workings of the installer. The source is plain PHP."
 msgstr ""
 "Composerには便利なインストーラがあり、コマンドラインから直接実行できます。\n"
-"気兼ねなく[このファイルをダウンロード][dl]したり、インストーラの内部のはたらきについてもっと知りたいと思ったら[GitHub][gh]で確認したりしてください。\n"
+"気兼ねなく[このファイルをダウンロード][dl]したり、インストーラの内部のはたら"
+"きについてもっと知りたいと思ったら[GitHub][gh]で確認したりしてください。\n"
 "ソースは単なるPHPです。\n"
 "\n"
 "[dl]: https://getcomposer.org/installer\n"
@@ -526,7 +543,8 @@ msgid ""
 "project, or globally as a system wide executable."
 msgstr ""
 "平たく言うとComposerのインストールには2つの方法があります。\n"
-"プロジェクトへローカルに入れる方法と、システム全域の実行ファイルとしてグローバルに入れる方法です。"
+"プロジェクトへローカルに入れる方法と、システム全域の実行ファイルとしてグロー"
+"バルに入れる方法です。"
 
 #. type: Title ####
 #: ../doc/00-intro.md:67
@@ -574,8 +592,10 @@ msgid ""
 "instructions](https://getcomposer.org/download/) add the following "
 "parameters:"
 msgstr ""
-"`--install-dir`オプションを使って特定のディレクトリに、さらに`--filename`オプションを使って命名（改名）しつつ、Composerをインストールできます。\n"
-"[ダウンロードページの説明][dl]に従ってインストーラを走らせるときは、以下の引数を加えてください。\n"
+"`--install-dir`オプションを使って特定のディレクトリに、さらに`--filename`オプ"
+"ションを使って命名（改名）しつつ、Composerをインストールできます。\n"
+"[ダウンロードページの説明][dl]に従ってインストーラを走らせるときは、以下の引"
+"数を加えてください。\n"
 "\n"
 "[dl]: https://getcomposer.org/download/"
 
@@ -616,7 +636,8 @@ msgid ""
 "(https://getcomposer.org/download/)  you can run this to move composer.phar "
 "to a directory that is in your path:"
 msgstr ""
-"[ダウンロードページの説明][dl]に従ってインストーラを走らせたあとは、以下を走らせてパスにあるディレクトリにcomposer.pharを移動させられます。\n"
+"[ダウンロードページの説明][dl]に従ってインストーラを走らせたあとは、以下を走"
+"らせてパスにあるディレクトリにcomposer.pharを移動させられます。\n"
 "\n"
 "[dl]: https://getcomposer.org/download/"
 
@@ -633,7 +654,8 @@ msgid ""
 "permissions, you can use `~/.local/bin` instead which is available by "
 "default on some Linux distributions."
 msgstr ""
-"利用者のためだけにインストールしてルート権限を避けたいようでしたら、代わりに`~/.local/bin`を使うこともできます。\n"
+"利用者のためだけにインストールしてルート権限を避けたいようでしたら、代わりに"
+"`~/.local/bin`を使うこともできます。\n"
 "これはLinuxディストリビューションで既定で使えることがあります。"
 
 #. type: Plain text
@@ -669,7 +691,9 @@ msgstr "> **補足：** パスを変えることに関しては[Wikipediaの記�
 #: ../doc/00-intro.md:122
 msgid ""
 "Now run `composer` in order to run Composer instead of `php composer.phar`."
-msgstr "これで`php composer.phar`の代わりに`composer`とすれば、Composerが走るようになりました。"
+msgstr ""
+"これで`php composer.phar`の代わりに`composer`とすれば、Composerが走るようにな"
+"りました。"
 
 #. type: Title ##
 #: ../doc/00-intro.md:123
@@ -725,14 +749,16 @@ msgid ""
 "Download page instructions](https://getcomposer.org/download/)  to download "
 "`composer.phar`."
 msgstr ""
-"`composer.phar`をダウンロードするため、`PATH`の通っているディレクトリに移動して[ダウンロードページの説明][dl]に従い、インストーラを走らせてください。\n"
+"`composer.phar`をダウンロードするため、`PATH`の通っているディレクトリに移動し"
+"て[ダウンロードページの説明][dl]に従い、インストーラを走らせてください。\n"
 "\n"
 "[dl]: https://getcomposer.org/download/"
 
 #. type: Plain text
 #: ../doc/00-intro.md:144
 msgid "Create a new `composer.bat` file alongside `composer.phar`:"
-msgstr "`composer.bat`ファイルを`composer.phar`と同じ場所に新規作成してください。"
+msgstr ""
+"`composer.bat`ファイルを`composer.phar`と同じ場所に新規作成してください。"
 
 #. type: Plain text
 #: ../doc/00-intro.md:146
@@ -929,10 +955,14 @@ msgid ""
 "if you want to publish a package to Packagist.org, it will have to be able "
 "to find the file at the top of your VCS repository."
 msgstr ""
-"プロジェクトでComposerを使い始めるにあたって必要なのは`composer.json`ファイルだけです。\n"
-"このファイルにはプロジェクトの依存関係が記述され、他のメタデータも含まれることがあります。\n"
+"プロジェクトでComposerを使い始めるにあたって必要なのは`composer.json`ファイル"
+"だけです。\n"
+"このファイルにはプロジェクトの依存関係が記述され、他のメタデータも含まれるこ"
+"とがあります。\n"
 "大抵プロジェクトやVCSリポジトリの最上位ディレクトリにあります。\n"
-"技術的にはComposerをどこで実行することもできますが、パッケージをPackagist.orgに公開したいならば、VCSリポジトリの一番上の階層にファイルがなければなりません。"
+"技術的にはComposerをどこで実行することもできますが、パッケージをPackagist.org"
+"に公開したいならば、VCSリポジトリの一番上の階層にファイルがなければなりませ"
+"ん。"
 
 #. type: Title ###
 #: ../doc/01-basic-usage.md:21
@@ -991,8 +1021,13 @@ msgid ""
 "more [about Packagist](#packagist), and [about repositories](05-repositories."
 "md))."
 msgstr ""
-"Composerはこの情報を使って、[`repositories`](04-schema.md#repositories)キーからパッケージ「リポジトリ」や、既定のパッケージレジストリである[Packagist.org][p]にある正しいファイル一式を探します。\n"
-"上の例ではこれといったリポジトリは`composer.json`ファイルに登録されていないので、`monolog/monolog`パッケージはPackagist.orgに登録されているものと推定されます（詳細は[Packagistについて](#packagist)と[リポジトリについて](05-repositories.md)を参照）。\n"
+"Composerはこの情報を使って、[`repositories`](04-schema.md#repositories)キーか"
+"らパッケージ「リポジトリ」や、既定のパッケージレジストリである[Packagist.org]"
+"[p]にある正しいファイル一式を探します。\n"
+"上の例ではこれといったリポジトリは`composer.json`ファイルに登録されていないの"
+"で、`monolog/monolog`パッケージはPackagist.orgに登録されているものと推定され"
+"ます（詳細は[Packagistについて](#packagist)と[リポジトリについて](05-"
+"repositories.md)を参照）。\n"
 "\n"
 "[p]: https://packagist.org"
 
@@ -1056,7 +1091,8 @@ msgid ""
 "Please read [versions](articles/versions.md) for more in-depth information "
 "on versions, how versions relate to each other, and on version constraints."
 msgstr ""
-"バージョンとバージョン間の関連、バージョン制約についてのより詳しい情報は[バージョン][v]を読んでください。\n"
+"バージョンとバージョン間の関連、バージョン制約についてのより詳しい情報は[バー"
+"ジョン][v]を読んでください。\n"
 "\n"
 "[v]: articles/versions.md"
 
@@ -1114,12 +1150,13 @@ msgid ""
 "To initially install the defined dependencies for your project, you should "
 "run the [`update`](03-cli.md#update-u) command."
 msgstr ""
-"定義された依存関係をプロジェクトに初めてインストールするときは、[`update`][u]コマンドを走らせると良いです。\n"
+"定義された依存関係をプロジェクトに初めてインストールするときは、[`update`][u]"
+"コマンドを走らせると良いです。\n"
 "\n"
 "[u]: 03-cli.md#update-u"
 
 #. type: Fenced code block (shell)
-#: ../doc/01-basic-usage.md:95 ../doc/01-basic-usage.md:163
+#: ../doc/01-basic-usage.md:95 ../doc/01-basic-usage.md:170
 #: ../doc/03-cli.md:145
 #, no-wrap
 msgid "php composer.phar update\n"
@@ -1140,10 +1177,12 @@ msgid ""
 "project are locked to the same versions of dependencies (more below). This "
 "is the main role of the `update` command."
 msgstr ""
-"`composer.json`ファイルに挙げられている全ての依存関係を解決して、全てのアッケージとその厳密なバージョンを`composer.lock`ファイルに書き込みます。\n"
+"`composer.json`ファイルに挙げられている全ての依存関係を解決して、全てのアッ"
+"ケージとその厳密なバージョンを`composer.lock`ファイルに書き込みます。\n"
 "このファイルによりプロジェクトが特定のバージョンに固定されます。\n"
 "`composer.lock`ファイルはプロジェクトのリポジトリにコミットすべきです。\n"
-"そうすればプロジェクトに参画する全員にとって、同じバージョンの依存関係に固定されたものになります（詳細は後述）。\n"
+"そうすればプロジェクトに参画する全員にとって、同じバージョンの依存関係に固定"
+"されたものになります（詳細は後述）。\n"
 "これが`update`コマンドの主な役割です。"
 
 #. type: Bullet: '- '
@@ -1158,9 +1197,13 @@ msgid ""
 "`vendor/`."
 msgstr ""
 "それから暗黙裡に[`install`](03-cli.md#install-i)コマンドが走ります。\n"
-"これにより依存関係のファイルがプロジェクトの`vendor`ディレクトリにダウンロードされます（`vendor`ディレクトリはプロジェクトの全てのサードパーティコード用の定番の場所です）。\n"
-"上の例では最終的にMonologのソースファイルが`vendor/monolog/monolog`にあることになります。\n"
-"Monologには`psr/log`への依存関係があるため、そのパッケージのファイルもまた`vendor/`の中にあります。"
+"これにより依存関係のファイルがプロジェクトの`vendor`ディレクトリにダウンロー"
+"ドされます（`vendor`ディレクトリはプロジェクトの全てのサードパーティコード用"
+"の定番の場所です）。\n"
+"上の例では最終的にMonologのソースファイルが`vendor/monolog/monolog`にあること"
+"になります。\n"
+"Monologには`psr/log`への依存関係があるため、そのパッケージのファイルもまた"
+"`vendor/`の中にあります。"
 
 #. type: Plain text
 #: ../doc/01-basic-usage.md:116
@@ -1193,10 +1236,15 @@ msgid ""
 "then.  (See note below about using the `update` command.)"
 msgstr ""
 "このファイルをバージョン管理にコミットすることは大事です。\n"
-"なぜならこうすることでプロジェクトの準備をする誰もが、自分が使っているものと全く同じバージョンの依存関係を使えるようになるからです。\n"
-"CIサーバ、実運用マシン、チーム内の他の開発者、万物万人が同じ依存関係で実行するのです。\n"
+"なぜならこうすることでプロジェクトの準備をする誰もが、自分が使っているものと"
+"全く同じバージョンの依存関係を使えるようになるからです。\n"
+"CIサーバ、実運用マシン、チーム内の他の開発者、万物万人が同じ依存関係で実行す"
+"るのです。\n"
 "これにより特定のデプロイでのみ影響する潜在的なバグが低減されます。\n"
-"たとえ一人で開発していて、6箇月経ってからプロジェクトを再インストールしたとしても、そして依存関係が多くの新しいバージョンをリリースされていたとしても、インストールされた依存関係がちゃんと動くことは疑いありません（`update`コマンドの使用については以下の補足を参照してください）。"
+"たとえ一人で開発していて、6箇月経ってからプロジェクトを再インストールしたとし"
+"ても、そして依存関係が多くの新しいバージョンをリリースされていたとしても、イ"
+"ンストールされた依存関係がちゃんと動くことは疑いありません（`update`コマンド"
+"の使用については以下の補足を参照してください）。"
 
 #. type: Plain text
 #: ../doc/01-basic-usage.md:131
@@ -1221,7 +1269,11 @@ msgid ""
 "either you ran the `update` command before, or someone else on the project "
 "ran the `update` command and committed the `composer.lock` file to the "
 "project (which is good)."
-msgstr "既に`composer.lock`ファイルがプロジェクトフォルダにあるなら、それは前に自分で`update`コマンドを走らせたか、プロジェクトの誰かが`update`コマンドを走らせて`composer.lock`ファイルをプロジェクトにコミットしたからかのどちらかです（いいことです）。"
+msgstr ""
+"既に`composer.lock`ファイルがプロジェクトフォルダにあるなら、それは前に自分で"
+"`update`コマンドを走らせたか、プロジェクトの誰かが`update`コマンドを走らせて"
+"`composer.lock`ファイルをプロジェクトにコミットしたからかのどちらかです（いい"
+"ことです）。"
 
 #. type: Plain text
 #: ../doc/01-basic-usage.md:146
@@ -1237,10 +1289,17 @@ msgid ""
 "it ensures that your project does not break because of unexpected changes in "
 "dependencies."
 msgstr ""
-"何れにせよ、`composer.lock`ファイルが存在しているときに`install`を走らせると`composer.lock`に挙がっている全ての依存関係を解決してインストールします。\n"
-"その際はプロジェクトの作業をしている人全員にとってパッケージのバージョンが必ず一貫したものになるように、Composerは`composer.lock`に挙げられた厳密なバージョンを使用します。\n"
-"結果として`composer.json`ファイルで要求された全ての依存関係が取得されるのですが、必ずしも利用できるごく最新のバージョンとはなっていないかもしれません（ファイルが作成された後に、`composer.lock`ファイルで挙げられた依存関係のより新しいバージョンがリリースされる可能性があります）。\n"
-"これは設計上意図されたものであり、依存関係での予期しない変更による不具合がプロジェクトで絶対に発生しないようになっています。"
+"何れにせよ、`composer.lock`ファイルが存在しているときに`install`を走らせると"
+"`composer.lock`に挙がっている全ての依存関係を解決してインストールします。\n"
+"その際はプロジェクトの作業をしている人全員にとってパッケージのバージョンが必"
+"ず一貫したものになるように、Composerは`composer.lock`に挙げられた厳密なバー"
+"ジョンを使用します。\n"
+"結果として`composer.json`ファイルで要求された全ての依存関係が取得されるのです"
+"が、必ずしも利用できるごく最新のバージョンとはなっていないかもしれません"
+"（ファイルが作成された後に、`composer.lock`ファイルで挙げられた依存関係のより"
+"新しいバージョンがリリースされる可能性があります）。\n"
+"これは設計上意図されたものであり、依存関係での予期しない変更による不具合がプ"
+"ロジェクトで絶対に発生しないようになっています。"
 
 #. type: Plain text
 #: ../doc/01-basic-usage.md:150
@@ -1248,7 +1307,10 @@ msgid ""
 "So after fetching new changes from your VCS repository it is recommended to "
 "run a Composer `install` to make sure the vendor directory is up in sync "
 "with your `composer.lock` file."
-msgstr "そのためVCSリポジトリから新しい変更を取得したあとは、Composerの`install`を走らせて、vendorディレクトリが`composer.lock`ファイルと同期していることを確かめることをお勧めします。"
+msgstr ""
+"そのためVCSリポジトリから新しい変更を取得したあとは、Composerの`install`を走"
+"らせて、vendorディレクトリが`composer.lock`ファイルと同期していることを確かめ"
+"ることをお勧めします。"
 
 #. type: Fenced code block (shell)
 #: ../doc/01-basic-usage.md:151 ../doc/03-cli.md:86
@@ -1256,14 +1318,28 @@ msgstr "そのためVCSリポジトリから新しい変更を取得したあと
 msgid "php composer.phar install\n"
 msgstr "php composer.phar install\n"
 
+#. type: Plain text
+#: ../doc/01-basic-usage.md:161
+msgid ""
+"Composer enables reproducible builds by default. This means that running the "
+"same command multiple times will produce a `vendor/` directory containing "
+"files that are identical (*except their timestamps*), including the "
+"autoloader files.  It is especially beneficial for environments that require "
+"strict verification processes, as well as for Linux distributions aiming to "
+"package PHP applications in a secure and predictable manner."
+msgstr ""
+"Composerは既定で再生成可能な構築を有効にします。\n"
+"つまり同じコマンドを複数回走らせると、自動読み込み器のファイルを含め、（*タイムスタンプ以外*）同値なファイルを含む`vendor/`ディレクトリを生成するのです。\n"
+"厳密な検証過程を要求する環境や、PHPアプリケーションを安全で予測可能なやり方でパッケージ化することを目指すLinuxディストリビューションにおいては、特に有益です。"
+
 #. type: Title ##
-#: ../doc/01-basic-usage.md:155
+#: ../doc/01-basic-usage.md:162
 #, no-wrap
 msgid "Updating dependencies to their latest versions"
 msgstr "最新版に依存関係を更新する"
 
 #. type: Plain text
-#: ../doc/01-basic-usage.md:162
+#: ../doc/01-basic-usage.md:169
 msgid ""
 "As mentioned above, the `composer.lock` file prevents you from automatically "
 "getting the latest versions of your dependencies. To update to the latest "
@@ -1271,12 +1347,15 @@ msgid ""
 "the latest matching versions (according to your `composer.json` file) and "
 "update the lock file with the new versions."
 msgstr ""
-"前述したように、`composer.lock`ファイルは自動的に依存関係の最新版が取得されるのを防ぎます。\n"
-"最新のバージョンに更新するには[`update`](03-cli.md#update-u)コマンドを使います。\n"
-"こうすると（`composer.json`ファイルに沿うように）照合する最新バージョンを取得して新しいバージョンでロックファイルを更新します。"
+"前述したように、`composer.lock`ファイルは自動的に依存関係の最新版が取得される"
+"のを防ぎます。\n"
+"最新のバージョンに更新するには[`update`](03-cli.md#update-u)コマンドを使いま"
+"す。\n"
+"こうすると（`composer.json`ファイルに沿うように）照合する最新バージョンを取得"
+"して新しいバージョンでロックファイルを更新します。"
 
 #. type: Plain text
-#: ../doc/01-basic-usage.md:170
+#: ../doc/01-basic-usage.md:177
 #, no-wrap
 msgid ""
 "> **Note:** Composer will display a Warning when executing an `install` command\n"
@@ -1285,7 +1364,7 @@ msgid ""
 msgstr "> **補足：** `composer.json`に依存関係解決に影響し得る変更が加えられた後に`composer.lock`が更新されていなければ、`install`コマンドを実行するときに、Composerが警告を表示します。\n"
 
 #. type: Plain text
-#: ../doc/01-basic-usage.md:172
+#: ../doc/01-basic-usage.md:179
 msgid ""
 "If you only want to install, upgrade or remove one dependency, you can "
 "explicitly list it as an argument:"
@@ -1294,19 +1373,19 @@ msgstr ""
 "できます。"
 
 #. type: Fenced code block (shell)
-#: ../doc/01-basic-usage.md:173
+#: ../doc/01-basic-usage.md:180
 #, no-wrap
 msgid "php composer.phar update monolog/monolog [...]\n"
 msgstr "php composer.phar update monolog/monolog [...]\n"
 
 #. type: Title ##
-#: ../doc/01-basic-usage.md:177
+#: ../doc/01-basic-usage.md:184
 #, no-wrap
 msgid "Packagist"
 msgstr "Packagist"
 
 #. type: Plain text
-#: ../doc/01-basic-usage.md:184
+#: ../doc/01-basic-usage.md:191
 msgid ""
 "[Packagist.org](https://packagist.org/) is the main Composer repository. A "
 "Composer repository is basically a package source: a place where you can get "
@@ -1319,11 +1398,12 @@ msgstr ""
 "Composerリポジトリは基本的にはパッケージの源です。\n"
 "つまりパッケージを取ってくることができる場所のことです。\n"
 "Packagistは全ての人が利用できる中央リポジトリであることを目指しています。\n"
-"要はここで利用できるいかなるパッケージも自動的に`require`できるということです。\n"
+"要はここで利用できるいかなるパッケージも自動的に`require`できるということで"
+"す。\n"
 "Composerがパッケージを探す場所を追加で指定しなくて良いのです。"
 
 #. type: Plain text
-#: ../doc/01-basic-usage.md:187
+#: ../doc/01-basic-usage.md:194
 msgid ""
 "If you go to the [Packagist.org website](https://packagist.org/), you can "
 "browse and search for packages."
@@ -1333,46 +1413,50 @@ msgstr ""
 "[p]: https://packagist.org/"
 
 #. type: Plain text
-#: ../doc/01-basic-usage.md:191
+#: ../doc/01-basic-usage.md:198
 msgid ""
 "Any open source project using Composer is recommended to publish their "
 "packages on Packagist. A library does not need to be on Packagist to be used "
 "by Composer, but it enables discovery and adoption by other developers more "
 "quickly."
 msgstr ""
-"Composerを使っているオープンソースプロジェクトはパッケージをPackagist上で公開するべきです。\n"
+"Composerを使っているオープンソースプロジェクトはパッケージをPackagist上で公開"
+"するべきです。\n"
 "Composerを使う上で、ライブラリをPackagistに載せる必要はありません。\n"
-"しかし公開することで、他の開発者がより素早くパッケージを発見して取り入れられるようになります。"
+"しかし公開することで、他の開発者がより素早くパッケージを発見して取り入れられ"
+"るようになります。"
 
 #. type: Title ##
-#: ../doc/01-basic-usage.md:192
+#: ../doc/01-basic-usage.md:199
 #, no-wrap
 msgid "Platform packages"
 msgstr "プラットフォームパッケージ"
 
 #. type: Plain text
-#: ../doc/01-basic-usage.md:197
+#: ../doc/01-basic-usage.md:204
 msgid ""
 "Composer has platform packages, which are virtual packages for things that "
 "are installed on the system but are not actually installable by Composer. "
 "This includes PHP itself, PHP extensions and some system libraries."
 msgstr ""
 "Composerにはプラットフォームパッケージがあります。\n"
-"システムにインストールされる仮想的なパッケージで、実際にはComposerではインストールされないものを指します。\n"
+"システムにインストールされる仮想的なパッケージで、実際にはComposerではインス"
+"トールされないものを指します。\n"
 "PHP自身やPHP拡張、システムライブライリが含まれます。"
 
 #. type: Bullet: '* '
-#: ../doc/01-basic-usage.md:201
+#: ../doc/01-basic-usage.md:208
 msgid ""
 "`php` represents the PHP version of the user, allowing you to apply "
 "constraints, e.g. `^7.1`. To require a 64bit version of php, you can require "
 "the `php-64bit` package."
 msgstr ""
-"`php`は利用者のPHPバージョンを表しており、`^7.1`のような制約を適用できます。\n"
+"`php`は利用者のPHPバージョンを表しており、`^7.1`のような制約を適用できま"
+"す。\n"
 "PHPの64bitバージョンを要求するには、`php-64bit`パッケージを指定できます。"
 
 #. type: Bullet: '* '
-#: ../doc/01-basic-usage.md:204
+#: ../doc/01-basic-usage.md:211
 msgid ""
 "`hhvm` represents the version of the HHVM runtime and allows you to apply a "
 "constraint, e.g., `^2.3`."
@@ -1381,7 +1465,7 @@ msgstr ""
 "ます。"
 
 #. type: Bullet: '* '
-#: ../doc/01-basic-usage.md:209
+#: ../doc/01-basic-usage.md:216
 msgid ""
 "`ext-<name>` allows you to require PHP extensions (includes core "
 "extensions). Versioning can be quite inconsistent here, so it's often a good "
@@ -1389,11 +1473,12 @@ msgid ""
 "is `ext-gd`."
 msgstr ""
 "`ext-<name>`とすることでPHPの拡張を要件にできます（中核拡張を含みます）。\n"
-"バージョニングはかなり一貫性がないことがあるので、大体の場合は制約に`*`を設定するのと良いです。\n"
+"バージョニングはかなり一貫性がないことがあるので、大体の場合は制約に`*`を設定"
+"するのと良いです。\n"
 "拡張パッケージ名の例は`ext-gd`です。"
 
 #. type: Bullet: '* '
-#: ../doc/01-basic-usage.md:213
+#: ../doc/01-basic-usage.md:220
 msgid ""
 "`lib-<name>` allows constraints to be made on versions of libraries used by "
 "PHP. The following are available: `curl`, `iconv`, `icu`, `libxml`, "
@@ -1404,20 +1489,22 @@ msgstr ""
 "`uuid`, `xsl`。"
 
 #. type: Plain text
-#: ../doc/01-basic-usage.md:216
+#: ../doc/01-basic-usage.md:223
 msgid ""
 "You can use [`show --platform`](03-cli.md#show) to get a list of your "
 "locally available platform packages."
-msgstr "[`show --platform`](03-cli.md#show)を使うと、ローカルで利用できるプラットフォームパッケージの一覧が得られます。"
+msgstr ""
+"[`show --platform`](03-cli.md#show)を使うと、ローカルで利用できるプラット"
+"フォームパッケージの一覧が得られます。"
 
 #. type: Title ##
-#: ../doc/01-basic-usage.md:217
+#: ../doc/01-basic-usage.md:224
 #, no-wrap
 msgid "Autoloading"
 msgstr "自動読み込み"
 
 #. type: Plain text
-#: ../doc/01-basic-usage.md:222
+#: ../doc/01-basic-usage.md:229
 msgid ""
 "For libraries that specify autoload information, Composer generates a "
 "`vendor/autoload.php` file. You can include this file and start using the "
@@ -1429,7 +1516,7 @@ msgstr ""
 "ラスを使い始められます。"
 
 #. type: Fenced code block (php)
-#: ../doc/01-basic-usage.md:223
+#: ../doc/01-basic-usage.md:230
 #, no-wrap
 msgid ""
 "require __DIR__ . '/vendor/autoload.php';\n"
@@ -1445,14 +1532,16 @@ msgstr ""
 "$log->warning('Foo');\n"
 
 #. type: Plain text
-#: ../doc/01-basic-usage.md:233
+#: ../doc/01-basic-usage.md:240
 msgid ""
 "You can even add your own code to the autoloader by adding an [`autoload`]"
 "(04-schema.md#autoload) field to `composer.json`."
-msgstr "`composer.json`に[`autoload`](04-schema.md#autoload)フィールドを追加すれば、自分のコードについても自動読み込み器に追加できます。"
+msgstr ""
+"`composer.json`に[`autoload`](04-schema.md#autoload)フィールドを追加すれば、"
+"自分のコードについても自動読み込み器に追加できます。"
 
 #. type: Fenced code block (json)
-#: ../doc/01-basic-usage.md:234
+#: ../doc/01-basic-usage.md:241
 #, no-wrap
 msgid ""
 "{\n"
@@ -1468,7 +1557,7 @@ msgstr ""
 "}\n"
 
 #. type: Plain text
-#: ../doc/01-basic-usage.md:244
+#: ../doc/01-basic-usage.md:251
 msgid ""
 "Composer will register a [PSR-4](https://www.php-fig.org/psr/psr-4/) "
 "autoloader for the `Acme` namespace."
@@ -1478,18 +1567,19 @@ msgstr ""
 "[PSR-4]: https://www.php-fig.org/psr/psr-4/"
 
 #. type: Plain text
-#: ../doc/01-basic-usage.md:248
+#: ../doc/01-basic-usage.md:255
 msgid ""
 "You define a mapping from namespaces to directories. The `src` directory "
 "would be in your project root, on the same level as the `vendor` directory. "
 "An example filename would be `src/Foo.php` containing an `Acme\\Foo` class."
 msgstr ""
 "名前空間からディレクトリへの対応付けが定義されます。\n"
-"`src`ディレクトリはプロジェクトルートにあり、同じ階層に`vendor`もあるとしましょう。\n"
+"`src`ディレクトリはプロジェクトルートにあり、同じ階層に`vendor`もあるとしま"
+"しょう。\n"
 "ファイル名の例としては`Acme\\Foo`クラスを含む`src/Foo.php`があります。"
 
 #. type: Plain text
-#: ../doc/01-basic-usage.md:251
+#: ../doc/01-basic-usage.md:258
 msgid ""
 "After adding the [`autoload`](04-schema.md#autoload) field, you have to re-"
 "run this command:"
@@ -1498,13 +1588,13 @@ msgstr ""
 "再び走らせなくてはなりません。"
 
 #. type: Fenced code block (shell)
-#: ../doc/01-basic-usage.md:252
+#: ../doc/01-basic-usage.md:259
 #, no-wrap
 msgid "php composer.phar dump-autoload\n"
 msgstr "php composer.phar dump-autoload\n"
 
 #. type: Plain text
-#: ../doc/01-basic-usage.md:259
+#: ../doc/01-basic-usage.md:266
 msgid ""
 "This command will re-generate the `vendor/autoload.php` file.  See the "
 "[`dump-autoload`](03-cli.md#dump-autoload-dumpautoload-) section for more "
@@ -1515,7 +1605,7 @@ msgstr ""
 "ださい。"
 
 #. type: Plain text
-#: ../doc/01-basic-usage.md:263
+#: ../doc/01-basic-usage.md:270
 msgid ""
 "Including that file will also return the autoloader instance, so you can "
 "store the return value of the include call in a variable and add more "
@@ -1523,12 +1613,13 @@ msgid ""
 "example."
 msgstr ""
 "自動読み込みファイルを含めるとautoloaderインスタンスを返します。\n"
-"そのためインクルード呼び出しの返り値を変数に保持し、さらに名前空間を追加できます。\n"
+"そのためインクルード呼び出しの返り値を変数に保持し、さらに名前空間を追加でき"
+"ます。\n"
 "テストスイート内での自動読み込みクラスに便利です。\n"
 "例えば以下です。"
 
 #. type: Fenced code block (php)
-#: ../doc/01-basic-usage.md:264
+#: ../doc/01-basic-usage.md:271
 #, no-wrap
 msgid ""
 "$loader = require __DIR__ . '/vendor/autoload.php';\n"
@@ -1538,7 +1629,7 @@ msgstr ""
 "$loader->addPsr4('Acme\\\\Test\\\\', __DIR__);\n"
 
 #. type: Plain text
-#: ../doc/01-basic-usage.md:272
+#: ../doc/01-basic-usage.md:279
 msgid ""
 "In addition to PSR-4 autoloading, Composer also supports PSR-0, classmap and "
 "files autoloading. See the [`autoload`](04-schema.md#autoload) reference for "
@@ -1549,7 +1640,7 @@ msgstr ""
 "詳細は[`autoload`](04-schema.html#autoload)リファレンスを参照してください。"
 
 #. type: Plain text
-#: ../doc/01-basic-usage.md:274
+#: ../doc/01-basic-usage.md:281
 msgid ""
 "See also the docs on [optimizing the autoloader](articles/autoloader-"
 "optimization.md)."
@@ -1558,7 +1649,7 @@ msgstr ""
 "トも参照してください。"
 
 #. type: Plain text
-#: ../doc/01-basic-usage.md:278
+#: ../doc/01-basic-usage.md:285
 #, no-wrap
 msgid ""
 "> **Note:** Composer provides its own autoloader. If you don't want to use that\n"
@@ -1570,7 +1661,7 @@ msgstr ""
 "> 自前の自動読み込み器を設定できる連想配列を返します。\n"
 
 #. type: Plain text
-#: ../doc/01-basic-usage.md:279
+#: ../doc/01-basic-usage.md:286
 msgid "&larr; [Intro](00-intro.md)  | [Libraries](02-libraries.md) &rarr;"
 msgstr "&larr; [導入](00-intro.md)  |  [ライブラリ](02-libraries.md) &rarr;"
 
@@ -1956,7 +2047,9 @@ msgstr ""
 msgid ""
 "If we wanted to share `hello-world` with the world, we would publish it on "
 "Packagist as well."
-msgstr "`hello-world`を世界に共有したければ、同様にPackagistに公開するのが良いでしょう。"
+msgstr ""
+"`hello-world`を世界に共有したければ、同様にPackagistに公開するのが良いでしょ"
+"う。"
 
 #. type: Plain text
 #: ../doc/02-libraries.md:152
@@ -2274,8 +2367,11 @@ msgid ""
 "what the [repositories](04-schema.md#repositories) key accepts."
 msgstr ""
 "**--repository:** 1つ（かそれ以上）の個別のリポジトリを与えます。\n"
-"これらのリポジトリは生成されるcomposer.jsonに収められ、要件の一覧を提案する際の自動補完に使われます。\n"
-"全てのリポジトリは`composer`リポジトリを指すHTTPのURLないし[repositories](04-schema.md#repositories)キーが受け付けるものに似たようなJSON文字列の何れかを取ります。"
+"これらのリポジトリは生成されるcomposer.jsonに収められ、要件の一覧を提案する際"
+"の自動補完に使われます。\n"
+"全てのリポジトリは`composer`リポジトリを指すHTTPのURLないし[repositories](04-"
+"schema.md#repositories)キーが受け付けるものに似たようなJSON文字列の何れかを取"
+"ります。"
 
 #. type: Bullet: '* '
 #: ../doc/03-cli.md:80
@@ -2646,7 +2742,8 @@ msgid ""
 "**--with-dependencies (-w):** Update also dependencies of packages in the "
 "argument list, except those which are root requirements."
 msgstr ""
-"**--with-dependencies (-w):** 引数リストにあるパッケージの依存関係も更新します。\n"
+"**--with-dependencies (-w):** 引数リストにあるパッケージの依存関係も更新しま"
+"す。\n"
 "ただしルート要件は除きます。"
 
 #. type: Bullet: '* '
@@ -2655,7 +2752,8 @@ msgid ""
 "**--with-all-dependencies (-W):** Update also dependencies of packages in "
 "the argument list, including those which are root requirements."
 msgstr ""
-"**--with-all-dependencies (-W):** 引数リスト中にあるパッケージの依存関係を更新します。\n"
+"**--with-all-dependencies (-W):** 引数リスト中にあるパッケージの依存関係を更"
+"新します。\n"
 "ルート要件を含みます。"
 
 #. type: Bullet: '* '
@@ -3222,7 +3320,8 @@ msgstr "php composer.phar show\n"
 #. type: Plain text
 #: ../doc/03-cli.md:489
 msgid "To filter the list you can pass a package mask using wildcards."
-msgstr "リストを絞り込むには、ワイルドカードを使ってパッケージマスクを渡せます。"
+msgstr ""
+"リストを絞り込むには、ワイルドカードを使ってパッケージマスクを渡せます。"
 
 #. type: Fenced code block (shell)
 #: ../doc/03-cli.md:490
@@ -3510,7 +3609,8 @@ msgid ""
 "backwards compatibility breaks according to semver, so upgrade when you can "
 "but it may involve work."
 msgstr ""
-"**yellow (`~`)**: 依存関係に新しいバージョンが利用できるものがありますが、セマンティックバージョニングによると後方互換性の破壊が含まれます。\n"
+"**yellow (`~`)**: 依存関係に新しいバージョンが利用できるものがありますが、セ"
+"マンティックバージョニングによると後方互換性の破壊が含まれます。\n"
 "そのため更新できそうならしても良いですが、作業が発生する可能性があります。"
 
 #. type: Bullet: '- '
@@ -3705,7 +3805,8 @@ msgid ""
 "get machine-readable output."
 msgstr ""
 "依存関係の維持管理に投資して支える方法を見付けます。\n"
-"このコマンドはインストールされている依存関係から全ての投資のリンクを一覧にします。\n"
+"このコマンドはインストールされている依存関係から全ての投資のリンクを一覧にし"
+"ます。\n"
 "機械が読むことのできる出力を得るには`--format=json`を使ってください。"
 
 #. type: Title ##
@@ -4590,7 +4691,8 @@ msgid ""
 "state."
 msgstr ""
 "**--no-dev:** autoload-dev規則を無効にします。\n"
-"既定では、Composerは直近の`install --no-dev`または`update --no-dev`の状態に随って自動的にこれを推測します。"
+"既定では、Composerは直近の`install --no-dev`または`update --no-dev`の状態に"
+"随って自動的にこれを推測します。"
 
 #. type: Bullet: '* '
 #: ../doc/03-cli.md:973
@@ -4599,7 +4701,8 @@ msgid ""
 "automatically according to the last `install` or `update` `--no-dev` state."
 msgstr ""
 "**--dev:** autoload-dev規則を有効にします。\n"
-"既定では、Composerは直近の`install --no-dev`または`update --no-dev`の状態に随って自動的にこれを推測します。"
+"既定では、Composerは直近の`install --no-dev`または`update --no-dev`の状態に"
+"随って自動的にこれを推測します。"
 
 #. type: Bullet: '* '
 #: ../doc/03-cli.md:973
@@ -4672,7 +4775,9 @@ msgstr ""
 #: ../doc/03-cli.md:991
 msgid ""
 "**--format:** Format of the output: text, json or summary (default: \"text\")"
-msgstr "**--format:** 出力の形式です。text、json、summaryの何れかです（既定では「text」）。"
+msgstr ""
+"**--format:** 出力の形式です。text、json、summaryの何れかです（既定では"
+"「text」）。"
 
 #. type: Bullet: '* '
 #: ../doc/03-cli.md:991
@@ -4815,8 +4920,10 @@ msgid ""
 "according to the [Packagist.org api](https://packagist.org/apidoc#list-"
 "security-advisories)."
 msgstr ""
-"このコマンドを使うとインストールしたパッケージをセキュリティ上の問題があるか監査できます。\n"
-"[Packagist.org api][api]に従って、セキュリティ上の脆弱性に対する推奨事項を確認して一覧にします。\n"
+"このコマンドを使うとインストールしたパッケージをセキュリティ上の問題があるか"
+"監査できます。\n"
+"[Packagist.org api][api]に従って、セキュリティ上の脆弱性に対する推奨事項を確"
+"認して一覧にします。\n"
 "\n"
 "[api]: https://packagist.org/apidoc#list-security-advisories"
 
@@ -4960,8 +5067,10 @@ msgid ""
 "should really only set this if you use Composer as a super user at all times "
 "like in docker containers."
 msgstr ""
-"1に設定すると、この環境変数はコマンドをルートないし特権のある利用者として走らせることについての警告を無効にします。\n"
-"自動的なsudoセッションの消去も無効にするため、必ずDockerコンテナのような特権のある利用者として、常時Composerを使うときにのみ設定するようにしてください。"
+"1に設定すると、この環境変数はコマンドをルートないし特権のある利用者として走ら"
+"せることについての警告を無効にします。\n"
+"自動的なsudoセッションの消去も無効にするため、必ずDockerコンテナのような特権"
+"のある利用者として、常時Composerを使うときにのみ設定するようにしてください。"
 
 #. type: Title ###
 #: ../doc/03-cli.md:1099
@@ -4994,7 +5103,8 @@ msgid ""
 "following the [spec from the config](06-config.md)."
 msgstr ""
 "`COMPOSER_AUTH`変数では、環境変数として認証を設定できます。\n"
-"変数の内容はJSON形式のオブジェクトで、[http-basic、github-oauth、bitbucket-oauth、……といった必要に応じたもの][auth]です。\n"
+"変数の内容はJSON形式のオブジェクトで、[http-basic、github-oauth、bitbucket-"
+"oauth、……といった必要に応じたもの][auth]です。\n"
 "オブジェクトは[設定の仕様](06-config.md)に従います。\n"
 "\n"
 "[auth]: articles/authentication-for-private-packages.md"
@@ -5290,9 +5400,14 @@ msgid ""
 "Vagrant or VirtualBox and experience issues with files not being found "
 "during installation even though they should be present."
 msgstr ""
-"これによりどの環境でComposerが走っているのかの手掛かりが得られ、Composerで何らかの環境特有の問題を回避するための助けになります。\n"
-"現在対応している唯一の値は`virtualbox`で、こうするといくつかの短い`sleep()`呼び出しを有効にして、ファイルシステムが適切にファイルに書き込むのを待ってからそのファイルを読み込むようにします。\n"
-"VagrantやVirtualboxを使っていてファイルが存在しているのにも関わらずインストール時にファイルがない旨問題に遭遇したときは、この環境変数を設定すると良いでしょう。"
+"これによりどの環境でComposerが走っているのかの手掛かりが得られ、Composerで何"
+"らかの環境特有の問題を回避するための助けになります。\n"
+"現在対応している唯一の値は`virtualbox`で、こうするといくつかの短い`sleep()`呼"
+"び出しを有効にして、ファイルシステムが適切にファイルに書き込むのを待ってから"
+"そのファイルを読み込むようにします。\n"
+"VagrantやVirtualboxを使っていてファイルが存在しているのにも関わらずインストー"
+"ル時にファイルがない旨問題に遭遇したときは、この環境変数を設定すると良いで"
+"しょう。"
 
 #. type: Title ###
 #: ../doc/03-cli.md:1211
@@ -5366,7 +5481,10 @@ msgid ""
 "If you use a proxy, but it does not support the request_fulluri flag, then "
 "you should set this env var to `false` or `0` to prevent Composer from "
 "setting the request_fulluri option."
-msgstr "プロキシを使っているものの、request_fulluriフラグに対応していなければ、この環境変数を`false`や`0`に設定してComposerがrequest_fulluriオプションを設定するのを防ぐと良いでしょう。"
+msgstr ""
+"プロキシを使っているものの、request_fulluriフラグに対応していなければ、この環"
+"境変数を`false`や`0`に設定してComposerがrequest_fulluriオプションを設定するの"
+"を防ぐと良いでしょう。"
 
 #. type: Title ###
 #: ../doc/03-cli.md:1240
@@ -5380,7 +5498,10 @@ msgid ""
 "If you use a proxy, but it does not support the request_fulluri flag for "
 "HTTPS requests, then you should set this env var to `false` or `0` to "
 "prevent Composer from setting the request_fulluri option."
-msgstr "プロキシを使っているが、HTTPSリクエストについてrequest_fulluriに対応していなければ、この環境変数を`false`や`0`に設定してComposerがrequest_fulluriオプションを設定するのを防ぐと良いでしょう。"
+msgstr ""
+"プロキシを使っているが、HTTPSリクエストについてrequest_fulluriに対応していな"
+"ければ、この環境変数を`false`や`0`に設定してComposerがrequest_fulluriオプショ"
+"ンを設定するのを防ぐと良いでしょう。"
 
 #. type: Title ###
 #: ../doc/03-cli.md:1246
@@ -5412,7 +5533,8 @@ msgid ""
 "you can use the `no_proxy` or `NO_PROXY` env var. Set it to a comma "
 "separated list of domains the proxy should *not* be used for."
 msgstr ""
-"プロキシの背後にあって特定のドメインを無効にしたい場合は、`no_proxy`または`NO_PROXY`環境変数を使えます。\n"
+"プロキシの背後にあって特定のドメインを無効にしたい場合は、`no_proxy`または"
+"`NO_PROXY`環境変数を使えます。\n"
 "プロキシが使われ*ない*ドメインのコンマ区切りリストを設定します。"
 
 #. type: Plain text
@@ -5543,8 +5665,10 @@ msgid ""
 "comma separated list in `COMPOSER_IGNORE_PLATFORM_REQ` will ignore those "
 "specific requirements."
 msgstr ""
-"`COMPOSER_IGNORE_PLATFORM_REQS`を`1`に設定すると、`--ignore-platform-reqs`引数を渡すことと等価になります。\n"
-"他方で`COMPOSER_IGNORE_PLATFORM_REQ`でコンマ区切りのリストを指定すると、これらの特定の要件を無視します。"
+"`COMPOSER_IGNORE_PLATFORM_REQS`を`1`に設定すると、`--ignore-platform-reqs`引"
+"数を渡すことと等価になります。\n"
+"他方で`COMPOSER_IGNORE_PLATFORM_REQ`でコンマ区切りのリストを指定すると、これ"
+"らの特定の要件を無視します。"
 
 #. type: Plain text
 #: ../doc/03-cli.md:1299
@@ -5610,7 +5734,8 @@ msgid ""
 "of your project. It is the main `composer.json` that defines your project "
 "requirements."
 msgstr ""
-"ルートパッケージは`composer.json`でプロジェクトのルートに定義されたパッケージのことです。\n"
+"ルートパッケージは`composer.json`でプロジェクトのルートに定義されたパッケージ"
+"のことです。\n"
 "プロジェクトの要件を定義しているのがメインの`composer.json`なのです。"
 
 #. type: Plain text
@@ -5731,7 +5856,8 @@ msgid ""
 "patch, alpha, beta and RC suffixes can also be followed by a number."
 msgstr ""
 "`X.Y.Z`や`vX.Y.Z`の形式に従っていなければなりません。\n"
-"オプションで`-dev`、`-patch` (`-p`)、`-alpha` (`-a`)、`-beta` (`-b`)、`-RC`を接尾辞に付けても構いません。\n"
+"オプションで`-dev`、`-patch` (`-p`)、`-alpha` (`-a`)、`-beta` (`-b`)、`-RC`を"
+"接尾辞に付けても構いません。\n"
 "また、patch、alpha、beta、RCの接尾辞には数字を続けても大丈夫です。"
 
 #. type: Plain text
@@ -5869,7 +5995,8 @@ msgid ""
 "anything to the filesystem. As such, it does not require a dist or source "
 "key to be installable."
 msgstr ""
-"**metapackage:**要件を含む空のパッケージでありインストールの条件になりますが、ファイルを含んでおらずファイルシステムに何も書き込まないものです。\n"
+"**metapackage:**要件を含む空のパッケージでありインストールの条件になります"
+"が、ファイルを含んでおらずファイルシステムに何も書き込まないものです。\n"
 "そうしたわけで、インストールできるdistやsourceキーを必要としません。"
 
 #. type: Bullet: '- '
@@ -6427,7 +6554,7 @@ msgstr ""
 #: ../doc/04-schema.md:512 ../doc/04-schema.md:559 ../doc/04-schema.md:619
 #: ../doc/04-schema.md:631 ../doc/04-schema.md:647 ../doc/04-schema.md:678
 #: ../doc/04-schema.md:706 ../doc/04-schema.md:727 ../doc/04-schema.md:818
-#: ../doc/04-schema.md:923 ../doc/04-schema.md:940 ../doc/06-config.md:432
+#: ../doc/04-schema.md:923 ../doc/04-schema.md:940 ../doc/06-config.md:434
 msgid "Example:"
 msgstr "例："
 
@@ -6756,17 +6883,15 @@ msgstr "provide"
 msgid ""
 "Map of packages that are provided by this package. This is mostly useful for "
 "implementations of common interfaces. A package could depend on some virtual "
-"package e.g. `psr/logger-implementation`, any library that implements this "
+"package e.g. `psr/log-implementation`, any library that implements this "
 "logger interface would list it in `provide`. Implementors can then be [found "
 "on Packagist.org](https://packagist.org/providers/psr/log-implementation)."
 msgstr ""
 "このパッケージにより提供されるパッケージの対応付けです。\n"
-"これが大体において役立つのは共通化されたインターフェースの実装です。\n"
-"何らかのパッケージが仮想的なパッケージに依存できるようになるでしょう。\n"
-"例として`psr/logger-implementation`で、このロガーインターフェースを実装するラ"
-"イブラリは`provide`に挙げることになります。\n"
-"実装しているパッケージは[Packagist.org](https://packagist.org/providers/psr/"
-"log-implementation)で探すことができます。"
+"これが最も役立つのは共通化されたインターフェースの実装です。\n"
+"パッケージは仮想パッケージに依存できます。\n"
+"例としては`psr/log-implementation`で、このロガーインターフェースを実装する任意のライブラリは`provide`の一覧に加えます。\n"
+"実装しているパッケージは[Packagist.orgで探せます](https://packagist.org/providers/psr/log-implementation)。"
 
 #. type: Plain text
 #: ../doc/04-schema.md:463
@@ -6960,7 +7085,9 @@ msgstr ""
 msgid ""
 "If you want to have a fallback directory where any namespace will be looked "
 "for, you can use an empty prefix like:"
-msgstr "任意の名前空間が探索されるようなフォールバックディレクトリを持たせたければ、次のように空の前置詞が使えます。"
+msgstr ""
+"任意の名前空間が探索されるようなフォールバックディレクトリを持たせたければ、"
+"次のように空の前置詞が使えます。"
 
 #. type: Fenced code block (json)
 #: ../doc/04-schema.md:538
@@ -8151,7 +8278,8 @@ msgid ""
 "will be preferred."
 msgstr ""
 "パッケージはこれらの何れか、または両方を与えられます。\n"
-"利用者により与えられたオプションやパッケージの安定性などの何らかの要因により、どちらかが相応ということになるでしょう。"
+"利用者により与えられたオプションやパッケージの安定性などの何らかの要因によ"
+"り、どちらかが相応ということになるでしょう。"
 
 #. type: Title ###
 #: ../doc/05-repositories.md:39
@@ -8167,7 +8295,8 @@ msgid ""
 "requires."
 msgstr ""
 "リポジトリはパッケージソースで、パッケージとバージョンのリストです。\n"
-"Composerは全てのリポジトリを見て回り、プロジェクトに必要なパッケージを見付けてきます。"
+"Composerは全てのリポジトリを見て回り、プロジェクトに必要なパッケージを見付け"
+"てきます。"
 
 #. type: Plain text
 #: ../doc/05-repositories.md:46
@@ -8199,8 +8328,10 @@ msgid ""
 "priorities](articles/repository-priorities.md) article for more details and "
 "to see how to change this behavior."
 msgstr ""
-"依存関係解決をするとき、パッケージはリポジトリを上から下への順で見ていき、どこかにパッケージがあったらComposerは他のリポジトリを見るのを止めます。\n"
-"詳細は[リポジトリの優先度](articles/repository-priorities.md)の記事を読んでこの挙動を変える方法を見てください。"
+"依存関係解決をするとき、パッケージはリポジトリを上から下への順で見ていき、ど"
+"こかにパッケージがあったらComposerは他のリポジトリを見るのを止めます。\n"
+"詳細は[リポジトリの優先度](articles/repository-priorities.md)の記事を読んでこ"
+"の挙動を変える方法を見てください。"
 
 #. type: Title ##
 #: ../doc/05-repositories.md:58
@@ -8345,7 +8476,8 @@ msgstr ""
 msgid ""
 "It may include any of the other fields specified in the [schema](04-schema."
 "md)."
-msgstr "[スキーマ](04-schema.md)には指定される他のフィールドの何れかを含められます。"
+msgstr ""
+"[スキーマ](04-schema.md)には指定される他のフィールドの何れかを含められます。"
 
 # フィールド名なので訳しません。
 #. type: Title ####
@@ -8446,8 +8578,10 @@ msgid ""
 "with both Composer v1 and v2 you ideally want to provide both. New "
 "repository implementations may only need to support v2 however."
 msgstr ""
-"このフィールドはComposer v2で新しく登場したもので、`provider-includes`と`providers-url`が両方とも存在する場合、これらより優先されます。\n"
-"Composer v1とComposer v2両方の互換性のため、理想的には両方とも提供したいでしょう。\n"
+"このフィールドはComposer v2で新しく登場したもので、`provider-includes`と"
+"`providers-url`が両方とも存在する場合、これらより優先されます。\n"
+"Composer v1とComposer v2両方の互換性のため、理想的には両方とも提供したいで"
+"しょう。\n"
 "しかし新しいリポジトリの実装はv2対応のみに対応しさえすれば良いです。"
 
 #. type: Fenced code block (json)
@@ -8506,9 +8640,14 @@ msgid ""
 "expand the version list back into the original data. See https://repo."
 "packagist.org/p2/monolog/monolog.json for an example."
 msgstr ""
-"バージョンの配列は[composer/metadata-minifier][min]の`Composer\\MetadataMinifier\\MetadataMinifier::minify()`を使って最小化することもできます。\n"
-"もしそうした場合、トップレベルに`\"minified\": \"composer/2.0\"`キーを付け、Composerにバージョンのリストを展開して元のデータに戻さなければいけないことを示すべきです。\n"
-"一例として https://repo.packagist.org/p2/monolog/monolog.json を参照してください。\n"
+"バージョンの配列は[composer/metadata-minifier][min]の"
+"`Composer\\MetadataMinifier\\MetadataMinifier::minify()`を使って最小化するこ"
+"ともできます。\n"
+"もしそうした場合、トップレベルに`\"minified\": \"composer/2.0\"`キーを付け、"
+"Composerにバージョンのリストを展開して元のデータに戻さなければいけないことを"
+"示すべきです。\n"
+"一例として https://repo.packagist.org/p2/monolog/monolog.json を参照してくだ"
+"さい。\n"
 "\n"
 "[min]: https://packagist.org/packages/composer/metadata-minifier"
 
@@ -8556,7 +8695,10 @@ msgid ""
 "The `providers-api` field allows you to provide a URL template to serve all "
 "packages which provide a given package name, but not the package which has "
 "that name. It must contain the placeholder `%package%`."
-msgstr "`providers-api`フィールドでは与えられたパッケージ名を提供する全てのパッケージ、ただしその名前のパッケージ以外、を返すURLテンプレートを与えられます。空欄`%package%`を含まなければなりません。"
+msgstr ""
+"`providers-api`フィールドでは与えられたパッケージ名を提供する全てのパッケー"
+"ジ、ただしその名前のパッケージ以外、を返すURLテンプレートを与えられます。空欄"
+"`%package%`を含まなければなりません。"
 
 #. type: Plain text
 #: ../doc/05-repositories.md:216
@@ -8662,7 +8804,8 @@ msgid ""
 "placeholders `%package%` and `%hash%`."
 msgstr ""
 "`providers-url`は提供するファイルをサーバーで見付ける方法を記述します。\n"
-"リポジトリのルートからの絶対パスです。`%package%`と`%hash%`の空欄を含まなければいけません。"
+"リポジトリのルートからの絶対パスです。`%package%`と`%hash%`の空欄を含まなけれ"
+"ばいけません。"
 
 #. type: Plain text
 #: ../doc/05-repositories.md:260
@@ -8745,9 +8888,13 @@ msgid ""
 "field. Those files themselves contain package definitions as described "
 "[above](#packages)."
 msgstr ""
-"上のファイルはこのリポジトリにacme/fooとacme/barがあることを宣言しています。\n"
-"`providers-url`で参照されたファイルを読み込み、ベンダーの名前空間が付いたパッケージ名で`%package%`で、`%hash%`をsha256フィールドで、それぞれ置き換えます。\n"
-"これらのファイル自体には[上](#packages)で前述したパッケージの定義が含まれます。"
+"上のファイルはこのリポジトリにacme/fooとacme/barがあることを宣言していま"
+"す。\n"
+"`providers-url`で参照されたファイルを読み込み、ベンダーの名前空間が付いたパッ"
+"ケージ名で`%package%`で、`%hash%`をsha256フィールドで、それぞれ置き換えま"
+"す。\n"
+"これらのファイル自体には[上](#packages)で前述したパッケージの定義が含まれま"
+"す。"
 
 #. type: Plain text
 #: ../doc/05-repositories.md:301
@@ -8774,11 +8921,14 @@ msgid ""
 "for more information. When cURL is used, only a limited set of `http` and "
 "`ssl` options can be configured."
 msgstr ""
-"リポジトリへはcURL（ext-curlが有効なComposer 2）またはPHPストリームの何れかを使ってアクセスします。\n"
+"リポジトリへはcURL（ext-curlが有効なComposer 2）またはPHPストリームの何れかを"
+"使ってアクセスします。\n"
 "`options`パラメータを使って追加のオプションを設定できます。\n"
-"PHPストリームについては、任意の妥当はPHPストリームコンテキストオプションを設定できます。\n"
+"PHPストリームについては、任意の妥当はPHPストリームコンテキストオプションを設"
+"定できます。\n"
 "詳細は[コンテキストオプションとパラメータ][ctx]を参照してください。\n"
-"cURLが使われているとき、ごく一部の`http`と`ssl`オプションしか設定することはできないように制限されます。\n"
+"cURLが使われているとき、ごく一部の`http`と`ssl`オプションしか設定することはで"
+"きないように制限されます。\n"
 "\n"
 "[ctx]: https://php.net/manual/en/context.php"
 
@@ -8930,9 +9080,13 @@ msgid ""
 "feature branch, since the package name is taken from the default branch."
 msgstr ""
 "長期的にフォークするつもりがない限り、パッケージを改名しないでください。\n"
-"また、もし変更するならするで、元のパッケージから完全に離れたものにする必要があります。\n"
-"独自リポジトリはpackagistよりも優先されるため、Composerは元のパッケージではなく自前のパッケージを正しく選択します。\n"
-"パッケージを改名する場合、パッケージ名が既定のブランチから取得されるため、機能ブランチではなく、既定の（多くの場合マスター）ブランチで行う必要があります。"
+"また、もし変更するならするで、元のパッケージから完全に離れたものにする必要が"
+"あります。\n"
+"独自リポジトリはpackagistよりも優先されるため、Composerは元のパッケージではな"
+"く自前のパッケージを正しく選択します。\n"
+"パッケージを改名する場合、パッケージ名が既定のブランチから取得されるため、機"
+"能ブランチではなく、既定の（多くの場合マスター）ブランチで行う必要がありま"
+"す。"
 
 #. type: Plain text
 #: ../doc/05-repositories.md:379
@@ -9103,9 +9257,13 @@ msgid ""
 msgstr ""
 "以下の点に注意してください。\n"
 "\n"
-"* **Composerに使用するドライバを選ばせるには**、リポジトリの種類は「vcs」として定義されている必要があります\n"
-"* **既に私有リポジトリを使っている場合**、Composerはキャッシュへクローンすることになります。\n"
-" 同じパッケージをドライバと一緒にインストールしたい場合、`composer clearcache`コマンドに続けて`composer update`とすることでComposerのキャッシュを消去しdistからパッケージをインストールさせられることを覚えておきましょう\n"
+"* **Composerに使用するドライバを選ばせるには**、リポジトリの種類は「vcs」とし"
+"て定義されている必要があります\n"
+"* **既に私有リポジトリを使っている場合**、Composerはキャッシュへクローンする"
+"ことになります。\n"
+" 同じパッケージをドライバと一緒にインストールしたい場合、`composer "
+"clearcache`コマンドに続けて`composer update`とすることでComposerのキャッシュ"
+"を消去しdistからパッケージをインストールさせられることを覚えておきましょう\n"
 "* VCSドライバ`git-bitbucket`は`bitbucket`に取って代わられたため時代遅れです"
 
 #. type: Title ####
@@ -9205,7 +9363,9 @@ msgstr ""
 msgid ""
 "If you have a private Subversion repository you can save credentials in the "
 "http-basic section of your config (See [Schema](04-schema.md)):"
-msgstr "私有Subversionリポジトリがあるなら設定のhttp-basic節に資格情報を保存しておけます（[スキーマ](04-schema.md)を参照）。"
+msgstr ""
+"私有Subversionリポジトリがあるなら設定のhttp-basic節に資格情報を保存しておけ"
+"ます（[スキーマ](04-schema.md)を参照）。"
 
 #. type: Fenced code block (json)
 #: ../doc/05-repositories.md:479
@@ -9286,8 +9446,10 @@ msgid ""
 "Again, the minimum required fields are `name`, `version`, and either of "
 "`dist` or `source`."
 msgstr ""
-"基本的に`composer`リポジトリの`package.json`に含まれるのと同じ情報を定義しますが、単一のパッケージ用限定です。\n"
-"繰り返しますが、最小限必要なフィールドは`name`、`version`、そして`dist`または`source`の何れかです。"
+"基本的に`composer`リポジトリの`package.json`に含まれるのと同じ情報を定義しま"
+"すが、単一のパッケージ用限定です。\n"
+"繰り返しますが、最小限必要なフィールドは`name`、`version`、そして`dist`または"
+"`source`の何れかです。"
 
 #. type: Plain text
 #: ../doc/05-repositories.md:519
@@ -9450,7 +9612,9 @@ msgid ""
 "**Private company packages:** If you are part of a company that uses "
 "Composer for their packages internally, you might want to keep those "
 "packages private."
-msgstr "**企業の私有パッケージ：**内部的なパッケージ用にComposerを使っている企業に所属しているなら、それらのパッケージを私有としておきたいかもしれません。"
+msgstr ""
+"**企業の私有パッケージ：**内部的なパッケージ用にComposerを使っている企業に所"
+"属しているなら、それらのパッケージを私有としておきたいかもしれません。"
 
 #. type: Bullet: '* '
 #: ../doc/05-repositories.md:595
@@ -9494,7 +9658,9 @@ msgid ""
 "application providing private package hosting as well as mirroring of "
 "GitHub, Packagist.org and other package repositories."
 msgstr ""
-"[私有Packagist](https://packagist.com/)ではGitHub、Packagist.org、その他のパッケージリポジトリのミラーリングと共に私有パッケージのホスティングを提供するアプリケーションです。\n"
+"[私有Packagist](https://packagist.com/)ではGitHub、Packagist.org、その他の"
+"パッケージリポジトリのミラーリングと共に私有パッケージのホスティングを提供す"
+"るアプリケーションです。\n"
 "Packagistでも立てられていますが、自分で立てることもできます。"
 
 #. type: Plain text
@@ -9561,7 +9727,9 @@ msgstr ""
 "VCSが使われていたとしても例外ではありません。\n"
 "よくある例は、ビルドアーティファクトによる組織間のライブラリ交換です。\n"
 "もちろんほとんどの場合でこれらは私有されます。\n"
-"これらのアーカイブをそのまま使用するには、これらの私有パッケージのZIPまたはTARアーカイブを含むフォルダーに対して、種別`artifact`のリポジトリを使用できます。"
+"これらのアーカイブをそのまま使用するには、これらの私有パッケージのZIPまたは"
+"TARアーカイブを含むフォルダーに対して、種別`artifact`のリポジトリを使用できま"
+"す。"
 
 #. type: Fenced code block (json)
 #: ../doc/05-repositories.md:631
@@ -10079,7 +10247,8 @@ msgid ""
 "allow and **false** to disallow while suppressing further warnings and "
 "prompts."
 msgstr ""
-"この設定を使うと、信頼できるパッケージのみがコードを実行できるようになります。\n"
+"この設定を使うと、信頼できるパッケージのみがコードを実行できるようになりま"
+"す。\n"
 "パッケージ名パターンをキーに持つオブジェクトに設定します。\n"
 "値は、許可する場合は**true**で、許可しない場合は**false**です。\n"
 "何れもこれ以外の警告とプロンプトは抑制されます。"
@@ -10327,28 +10496,35 @@ msgid ""
 "2.7 on. Defines whether the audit command reports abandoned packages or not, "
 "this has three possible values:"
 msgstr ""
-"Composer 2.6では`report`が既定値であり、Composer 2.7以降では`fail`が既定値です。\n"
-"監査コマンドが放棄されたパッケージを報告するかどうかを定義するもので、3つの値を取り得ます。"
+"Composer 2.6では`report`が既定値であり、Composer 2.7以降では`fail`が既定値で"
+"す。\n"
+"監査コマンドが放棄されたパッケージを報告するかどうかを定義するもので、3つの値"
+"を取り得ます。"
 
 #. type: Bullet: '- '
 #: ../doc/06-config.md:145
 msgid ""
 "`ignore` means the audit command does not consider abandoned packages at all."
-msgstr "`ignore`は監査コマンドは放棄されたパッケージを全く考慮しないという意味です。"
+msgstr ""
+"`ignore`は監査コマンドは放棄されたパッケージを全く考慮しないという意味です。"
 
 #. type: Bullet: '- '
 #: ../doc/06-config.md:145
 msgid ""
 "`report` means abandoned packages are reported as an error but do not cause "
 "the command to exit with a non-zero code."
-msgstr "`report`は放棄されたパッケージがエラーとして報告されるものの、非ゼロコードでコマンドが終了してしまわないようにする意味です。"
+msgstr ""
+"`report`は放棄されたパッケージがエラーとして報告されるものの、非ゼロコードで"
+"コマンドが終了してしまわないようにする意味です。"
 
 #. type: Bullet: '- '
 #: ../doc/06-config.md:145
 msgid ""
 "`fail` means abandoned packages will cause audits to fail with a non-zero "
 "code."
-msgstr "`fail`は監査が放棄されたパッケージにより非ゼロコードで失敗するようになる意味です。"
+msgstr ""
+"`fail`は監査が放棄されたパッケージにより非ゼロコードで失敗するようになる意味"
+"です。"
 
 #. type: Title ##
 #: ../doc/06-config.md:146
@@ -10404,7 +10580,8 @@ msgid ""
 "to `\"prompt\"`."
 msgstr ""
 "認証のプロンプトの後にする動作です。\n"
-"`true`（常に保存する）、`false`（保存しない）、`\"prompt\"`（毎回確認する）の何れか1つで、既定では`\"prompt\"`です。"
+"`true`（常に保存する）、`false`（保存しない）、`\"prompt\"`（毎回確認する）の"
+"何れか1つで、既定では`\"prompt\"`です。"
 
 #. type: Title ##
 #: ../doc/06-config.md:164
@@ -10449,9 +10626,14 @@ msgid ""
 "md#github-oauth)."
 msgstr ""
 "ドメイン名とoauthキーのリストです。\n"
-"たとえば、このオプションの値として`{\"github.com\": \"oauthtoken\"}`を使用すると、`oauthtoken`を使用してgithubの私有リポジトリにアクセスし、APIのIPに基づく低いレート制限を回避します。\n"
-"Composerは、必要に応じて資格情報を要求する場合がありますが、これらは手動で設定することもできます。\n"
-"GitHubのOAuthトークンを取得する方法およびcliの構文の詳細については、[こちら](articles/authentication-for-private-packages.md#github-oauth)を参照してください。"
+"たとえば、このオプションの値として`{\"github.com\": \"oauthtoken\"}`を使用す"
+"ると、`oauthtoken`を使用してgithubの私有リポジトリにアクセスし、APIのIPに基づ"
+"く低いレート制限を回避します。\n"
+"Composerは、必要に応じて資格情報を要求する場合がありますが、これらは手動で設"
+"定することもできます。\n"
+"GitHubのOAuthトークンを取得する方法およびcliの構文の詳細については、[こちら]"
+"(articles/authentication-for-private-packages.md#github-oauth)を参照してくだ"
+"さい。"
 
 #. type: Title ##
 #: ../doc/06-config.md:182
@@ -10486,9 +10668,12 @@ msgid ""
 "found [here](articles/authentication-for-private-packages.md#gitlab-oauth)"
 msgstr ""
 "ドメイン名とoauthキーのリストです。\n"
-"たとえば、このオプションの値として`{\"gitlab.com\": \"oauthtoken\"}`を使用すると、`oauthtoken`を使用してgitlabの私有リポジトリにアクセスします。\n"
-"なお、パッケージがgitlab.comでホストされていない場合、ドメイン名も[`gitlab-domains`](06-config.md#gitlab-domains)オプションで指定する必要があります。\n"
-"詳細情報は[こちら](articles/authentication-for-private-packages.md#gitlab-oauth)にもあります。"
+"たとえば、このオプションの値として`{\"gitlab.com\": \"oauthtoken\"}`を使用す"
+"ると、`oauthtoken`を使用してgitlabの私有リポジトリにアクセスします。\n"
+"なお、パッケージがgitlab.comでホストされていない場合、ドメイン名も[`gitlab-"
+"domains`](06-config.md#gitlab-domains)オプションで指定する必要があります。\n"
+"詳細情報は[こちら](articles/authentication-for-private-packages.md#gitlab-"
+"oauth)にもあります。"
 
 #. type: Title ##
 #: ../doc/06-config.md:196
@@ -10538,10 +10723,15 @@ msgid ""
 "auth. By default, Composer will generate a git-over-SSH URL for private "
 "repositories and HTTP(S) only for public."
 msgstr ""
-"パッケージメタデータの`source`値用にリポジトリのURLを作成するときに強制的に使用するプロトコルです。\n"
+"パッケージメタデータの`source`値用にリポジトリのURLを作成するときに強制的に使"
+"用するプロトコルです。\n"
 "`git`または`http`の何れかです（`https`は`http`の同義語として扱われます）。\n"
-"HTTPベーシック認証を使った[GitLabのCI_JOB_TOKEN](https://docs.gitlab.com/ee/ci/variables/predefined_variables.html#predefined-variables-reference)で後々GitLab CIのジョブでクローンされる私有リポジトリを参照するプロジェクトを扱う際に役立ちます。\n"
-"既定では、Composerは私有リポジトリについてはgit-over-SSHのURLを生成し、公開リポジトリについてはHTTP(S)のみを生成します。"
+"HTTPベーシック認証を使った[GitLabのCI_JOB_TOKEN](https://docs.gitlab.com/ee/"
+"ci/variables/predefined_variables.html#predefined-variables-reference)で後々"
+"GitLab CIのジョブでクローンされる私有リポジトリを参照するプロジェクトを扱う際"
+"に役立ちます。\n"
+"既定では、Composerは私有リポジトリについてはgit-over-SSHのURLを生成し、公開リ"
+"ポジトリについてはHTTP(S)のみを生成します。"
 
 #. type: Title ##
 #: ../doc/06-config.md:220
@@ -10636,7 +10826,8 @@ msgid ""
 "directory pointed to by capath is searched for a suitable certificate.  "
 "capath must be a correctly hashed certificate directory."
 msgstr ""
-"cafileが指定されていない場合、またはそこに証明書がない場合は、capathが指すディレクトリで適切な証明書が探索されます。\n"
+"cafileが指定されていない場合、またはそこに証明書がない場合は、capathが指す"
+"ディレクトリで適切な証明書が探索されます。\n"
 "capathは正しくハッシュされた証明書ディレクトリでなければなりません。"
 
 #. type: Title ##
@@ -10655,8 +10846,11 @@ msgid ""
 "for-private-packages.md#http-basic)."
 msgstr ""
 "認証するためのドメイン名と、利用者名とパスワードのリストです。\n"
-"たとえば、このオプションの値として`{\"example.org\": {\"username\": \"alice\", \"password\": \"foo\"}}`を使用すると、Composerはexample.orgに対して認証します。\n"
-"詳細については、[こちら](articles/authentication-for-private-packages.md#http-basic)を参照してください。"
+"たとえば、このオプションの値として`{\"example.org\": {\"username\": "
+"\"alice\", \"password\": \"foo\"}}`を使用すると、Composerはexample.orgに対し"
+"て認証します。\n"
+"詳細については、[こちら](articles/authentication-for-private-packages."
+"md#http-basic)を参照してください。"
 
 #. type: Title ##
 #: ../doc/06-config.md:260
@@ -10979,23 +11173,26 @@ msgid "autoloader-suffix"
 msgstr "autoloader-suffix"
 
 #. type: Plain text
-#: ../doc/06-config.md:370
+#: ../doc/06-config.md:372
 msgid ""
-"Defaults to `null`. Non-empty string to be used as a suffix for the "
-"generated Composer autoloader. When null a random one will be generated."
+"Defaults to `null`. When set to a non-empty string, this value will be used "
+"as a suffix for the generated Composer autoloader. If set to `null`, the "
+"`content-hash` value from the `composer.lock` file will be used if "
+"available; otherwise, a random suffix will be generated."
 msgstr ""
 "既定では`null`です。\n"
-"空でない文字列は生成されたComposerの自動読み込み器の拡張子に使われます。\n"
-"空の場合乱択されたものが生成されます。"
+"空でない文字列に設定した場合、生成されたComposerの自動読み込み器の接尾辞に使われます。\n"
+"`null`に設定された場合、可能であれば`composer.lock`ファイルの`content-hash`値が使われます。\n"
+"そうでなければ、乱択された接尾辞が生成されます。"
 
 #. type: Title ##
-#: ../doc/06-config.md:371
+#: ../doc/06-config.md:373
 #, no-wrap
 msgid "optimize-autoloader"
 msgstr "optimize-autoloader"
 
 #. type: Plain text
-#: ../doc/06-config.md:374
+#: ../doc/06-config.md:376
 msgid ""
 "Defaults to `false`. If `true`, always optimize when dumping the autoloader."
 msgstr ""
@@ -11003,13 +11200,13 @@ msgstr ""
 "`true`の場合、自動読み込み器を吐き出す際に常に最適化されます。"
 
 #. type: Title ##
-#: ../doc/06-config.md:375
+#: ../doc/06-config.md:377
 #, no-wrap
 msgid "sort-packages"
 msgstr "sort-packages"
 
 #. type: Plain text
-#: ../doc/06-config.md:379
+#: ../doc/06-config.md:381
 msgid ""
 "Defaults to `false`. If `true`, the `require` command keeps packages sorted "
 "by name in `composer.json` when adding a new package."
@@ -11019,13 +11216,13 @@ msgstr ""
 "マンドでパッケージが名前順に整列された状態に保ちます。"
 
 #. type: Title ##
-#: ../doc/06-config.md:380
+#: ../doc/06-config.md:382
 #, no-wrap
 msgid "classmap-authoritative"
 msgstr "classmap-authoritative"
 
 #. type: Plain text
-#: ../doc/06-config.md:384
+#: ../doc/06-config.md:386
 msgid ""
 "Defaults to `false`. If `true`, the Composer autoloader will only load "
 "classes from the classmap. Implies `optimize-autoloader`."
@@ -11036,28 +11233,29 @@ msgstr ""
 "暗に`optimize-autoloader`を有効にします。"
 
 #. type: Title ##
-#: ../doc/06-config.md:385
+#: ../doc/06-config.md:387
 #, no-wrap
 msgid "apcu-autoloader"
 msgstr "apcu-autoloader"
 
 #. type: Plain text
-#: ../doc/06-config.md:389
+#: ../doc/06-config.md:391
 msgid ""
 "Defaults to `false`. If `true`, the Composer autoloader will check for APCu "
 "and use it to cache found/not-found classes when the extension is enabled."
 msgstr ""
 "既定では`false`です。\n"
-"`true`の場合、Composerの自動読み込み器はAPCuを確認し、拡張が有効になった場合にクラスの有無をキャッシュするのに使います。"
+"`true`の場合、Composerの自動読み込み器はAPCuを確認し、拡張が有効になった場合"
+"にクラスの有無をキャッシュするのに使います。"
 
 #. type: Title ##
-#: ../doc/06-config.md:390
+#: ../doc/06-config.md:392
 #, no-wrap
 msgid "github-domains"
 msgstr "github-domains"
 
 #. type: Plain text
-#: ../doc/06-config.md:394
+#: ../doc/06-config.md:396
 msgid ""
 "Defaults to `[\"github.com\"]`. A list of domains to use in github mode. "
 "This is used for GitHub Enterprise setups."
@@ -11067,13 +11265,13 @@ msgstr ""
 "これはGitHub Enterpriseの準備で使われます。"
 
 #. type: Title ##
-#: ../doc/06-config.md:395
+#: ../doc/06-config.md:397
 #, no-wrap
 msgid "github-expose-hostname"
 msgstr "github-expose-hostname"
 
 #. type: Plain text
-#: ../doc/06-config.md:399
+#: ../doc/06-config.md:401
 msgid ""
 "Defaults to `true`. If `false`, the OAuth tokens created to access the "
 "github API will have a date instead of the machine hostname."
@@ -11083,13 +11281,13 @@ msgstr ""
 "ホスト名ではなく日付になります。"
 
 #. type: Title ##
-#: ../doc/06-config.md:400
+#: ../doc/06-config.md:402
 #, no-wrap
 msgid "use-github-api"
 msgstr "use-github-api"
 
 #. type: Plain text
-#: ../doc/06-config.md:407
+#: ../doc/06-config.md:409
 msgid ""
 "Defaults to `true`.  Similar to the `no-api` key on a specific repository, "
 "setting `use-github-api` to `false` will define the global behavior for all "
@@ -11105,13 +11303,13 @@ msgstr ""
 "ルを使うことを試みます。"
 
 #. type: Title ##
-#: ../doc/06-config.md:408
+#: ../doc/06-config.md:410
 #, no-wrap
 msgid "notify-on-install"
 msgstr "notify-on-install"
 
 #. type: Plain text
-#: ../doc/06-config.md:413
+#: ../doc/06-config.md:415
 msgid ""
 "Defaults to `true`. Composer allows repositories to define a notification "
 "URL, so that they get notified whenever a package from that repository is "
@@ -11123,13 +11321,13 @@ msgstr ""
 "このオプションはその挙動を無効にできます。"
 
 #. type: Title ##
-#: ../doc/06-config.md:414
+#: ../doc/06-config.md:416
 #, no-wrap
 msgid "discard-changes"
 msgstr "discard-changes"
 
 #. type: Plain text
-#: ../doc/06-config.md:421
+#: ../doc/06-config.md:423
 msgid ""
 "Defaults to `false` and can be any of `true`, `false` or `\"stash\"`. This "
 "option allows you to set the default style of handling dirty updates when in "
@@ -11138,18 +11336,21 @@ msgid ""
 "scripts if you tend to have modified vendors."
 msgstr ""
 "既定では`false`で、`true`、`false`、または`stash`の何れかにできます。\n"
-"このオプションでは非対話モードでダーティアップデートを制御する既定の方式を設定できます。\n"
-"`true`はベンダーの変更を常に破棄しますが、`\"stash\"`は取っておいて再適用しようとします。\n"
-"よくベンダーを変更する場合はCIサーバーやデプロイスクリプトにこれを使ってください。"
+"このオプションでは非対話モードでダーティアップデートを制御する既定の方式を設"
+"定できます。\n"
+"`true`はベンダーの変更を常に破棄しますが、`\"stash\"`は取っておいて再適用しよ"
+"うとします。\n"
+"よくベンダーを変更する場合はCIサーバーやデプロイスクリプトにこれを使ってくだ"
+"さい。"
 
 #. type: Title ##
-#: ../doc/06-config.md:422
+#: ../doc/06-config.md:424
 #, no-wrap
 msgid "archive-format"
 msgstr "archive-format"
 
 #. type: Plain text
-#: ../doc/06-config.md:425
+#: ../doc/06-config.md:427
 msgid ""
 "Defaults to `tar`. Overrides the default format used by the archive command."
 msgstr ""
@@ -11157,13 +11358,13 @@ msgstr ""
 "archiveコマンドにより使われる既定の形式を上書きします。"
 
 #. type: Title ##
-#: ../doc/06-config.md:426
+#: ../doc/06-config.md:428
 #, no-wrap
 msgid "archive-dir"
 msgstr "archive-dir"
 
 #. type: Plain text
-#: ../doc/06-config.md:430
+#: ../doc/06-config.md:432
 msgid ""
 "Defaults to `.`. Default destination for archives created by the archive "
 "command."
@@ -11172,7 +11373,7 @@ msgstr ""
 "archiveコマンドによる作られる、アーカイブの既定の対象パスです。"
 
 #. type: Fenced code block (json)
-#: ../doc/06-config.md:433
+#: ../doc/06-config.md:435
 #, no-wrap
 msgid ""
 "{\n"
@@ -11188,13 +11389,13 @@ msgstr ""
 "}\n"
 
 #. type: Title ##
-#: ../doc/06-config.md:441
+#: ../doc/06-config.md:443
 #, no-wrap
 msgid "htaccess-protect"
 msgstr "htaccess-protect"
 
 #. type: Plain text
-#: ../doc/06-config.md:445
+#: ../doc/06-config.md:447
 msgid ""
 "Defaults to `true`. If set to `false`, Composer will not create `.htaccess` "
 "files in the Composer home, cache, and data directories."
@@ -11204,13 +11405,13 @@ msgstr ""
 "に`.htaccess`ファイルを作りません。"
 
 #. type: Title ##
-#: ../doc/06-config.md:446
+#: ../doc/06-config.md:448
 #, no-wrap
 msgid "lock"
 msgstr "lock"
 
 #. type: Plain text
-#: ../doc/06-config.md:450
+#: ../doc/06-config.md:452
 msgid ""
 "Defaults to `true`. If set to `false`, Composer will not create a `composer."
 "lock` file and will ignore it if one is present."
@@ -11220,13 +11421,13 @@ msgstr ""
 "合は無視します。"
 
 #. type: Title ##
-#: ../doc/06-config.md:451
+#: ../doc/06-config.md:453
 #, no-wrap
 msgid "platform-check"
 msgstr "platform-check"
 
 #. type: Plain text
-#: ../doc/06-config.md:456
+#: ../doc/06-config.md:458
 msgid ""
 "Defaults to `php-only` which only checks the PHP version. Set to `true` to "
 "also check the presence of extension. If set to `false`, Composer will not "
@@ -11239,13 +11440,13 @@ msgstr ""
 "`platform_check.php`ファイルを作成せず、requireもしません。"
 
 #. type: Title ##
-#: ../doc/06-config.md:457
+#: ../doc/06-config.md:459
 #, no-wrap
 msgid "secure-svn-domains"
 msgstr "secure-svn-domains"
 
 #. type: Plain text
-#: ../doc/06-config.md:464
+#: ../doc/06-config.md:466
 msgid ""
 "Defaults to `[]`. Lists domains which should be trusted/marked as using a "
 "secure Subversion/SVN transport. By default svn:// protocol is seen as "
@@ -11262,7 +11463,7 @@ msgstr ""
 "これは、`secure-http`を完全に無効にするよりも優れた安全な代替手段です。"
 
 #. type: Plain text
-#: ../doc/06-config.md:465
+#: ../doc/06-config.md:467
 msgid ""
 "&larr; [Repositories](05-repositories.md)  | [Runtime](07-runtime.md) &rarr;"
 msgstr ""
@@ -11597,8 +11798,10 @@ msgid ""
 "find plugins to initialize at runtime via InstalledVersions, including their "
 "paths via getInstallPath if needed."
 msgstr ""
-"この方法により、プラグインをベンダーディレクトリに残すのではなく、特定のパスに配置するカスタムインストーラーの必要性が軽減されます。\n"
-"それからInstalledVersionsを介して実行時に初期化するプラグインを見付け、必要に応じてgetInstallPathを介してそれらのパスを含めることができます。"
+"この方法により、プラグインをベンダーディレクトリに残すのではなく、特定のパス"
+"に配置するカスタムインストーラーの必要性が軽減されます。\n"
+"それからInstalledVersionsを介して実行時に初期化するプラグインを見付け、必要に"
+"応じてgetInstallPathを介してそれらのパスを含めることができます。"
 
 #. type: Fenced code block (php)
 #: ../doc/07-runtime.md:127
@@ -11642,7 +11845,10 @@ msgid ""
 "To avoid an unexpected white page of death with some obscure PHP extension "
 "warning in production, you can run `composer check-platform-reqs` as part of "
 "your deployment/build and if that returns a non-0 code you should abort."
-msgstr "実稼働環境でPHP拡張機能の曖昧な警告が表示される予期せず失敗した際の空白ページを回避するには、デプロイやビルドの工程の一部として`composer check-platform-reqs`を実行し、0以外のコードが返された場合に中止すると良いでしょう。"
+msgstr ""
+"実稼働環境でPHP拡張機能の曖昧な警告が表示される予期せず失敗した際の空白ページ"
+"を回避するには、デプロイやビルドの工程の一部として`composer check-platform-"
+"reqs`を実行し、0以外のコードが返された場合に中止すると良いでしょう。"
 
 #. type: Plain text
 #: ../doc/07-runtime.md:147

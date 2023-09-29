@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2023-09-16 13:30+0900\n"
+"POT-Creation-Date: 2023-09-30 00:00+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1027,7 +1027,7 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (shell)
-#: ../doc/01-basic-usage.md:95 ../doc/01-basic-usage.md:163
+#: ../doc/01-basic-usage.md:95 ../doc/01-basic-usage.md:170
 #: ../doc/03-cli.md:145
 #, no-wrap
 msgid "php composer.phar update\n"
@@ -1149,14 +1149,26 @@ msgstr ""
 msgid "php composer.phar install\n"
 msgstr ""
 
+#. type: Plain text
+#: ../doc/01-basic-usage.md:161
+#, markdown-text
+msgid ""
+"Composer enables reproducible builds by default. This means that running the "
+"same command multiple times will produce a `vendor/` directory containing "
+"files that are identical (*except their timestamps*), including the "
+"autoloader files.  It is especially beneficial for environments that require "
+"strict verification processes, as well as for Linux distributions aiming to "
+"package PHP applications in a secure and predictable manner."
+msgstr ""
+
 #. type: Title ##
-#: ../doc/01-basic-usage.md:155
+#: ../doc/01-basic-usage.md:162
 #, markdown-text, no-wrap
 msgid "Updating dependencies to their latest versions"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/01-basic-usage.md:162
+#: ../doc/01-basic-usage.md:169
 #, markdown-text
 msgid ""
 "As mentioned above, the `composer.lock` file prevents you from automatically "
@@ -1167,7 +1179,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/01-basic-usage.md:170
+#: ../doc/01-basic-usage.md:177
 #, markdown-text, no-wrap
 msgid ""
 "> **Note:** Composer will display a Warning when executing an `install` "
@@ -1178,7 +1190,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/01-basic-usage.md:172
+#: ../doc/01-basic-usage.md:179
 #, markdown-text
 msgid ""
 "If you only want to install, upgrade or remove one dependency, you can "
@@ -1186,19 +1198,19 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (shell)
-#: ../doc/01-basic-usage.md:173
+#: ../doc/01-basic-usage.md:180
 #, no-wrap
 msgid "php composer.phar update monolog/monolog [...]\n"
 msgstr ""
 
 #. type: Title ##
-#: ../doc/01-basic-usage.md:177
+#: ../doc/01-basic-usage.md:184
 #, markdown-text, no-wrap
 msgid "Packagist"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/01-basic-usage.md:184
+#: ../doc/01-basic-usage.md:191
 #, markdown-text
 msgid ""
 "[Packagist.org](https://packagist.org/) is the main Composer repository. A "
@@ -1210,7 +1222,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/01-basic-usage.md:187
+#: ../doc/01-basic-usage.md:194
 #, markdown-text
 msgid ""
 "If you go to the [Packagist.org website](https://packagist.org/), you can "
@@ -1218,7 +1230,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/01-basic-usage.md:191
+#: ../doc/01-basic-usage.md:198
 #, markdown-text
 msgid ""
 "Any open source project using Composer is recommended to publish their "
@@ -1228,13 +1240,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/01-basic-usage.md:192
+#: ../doc/01-basic-usage.md:199
 #, markdown-text, no-wrap
 msgid "Platform packages"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/01-basic-usage.md:197
+#: ../doc/01-basic-usage.md:204
 #, markdown-text
 msgid ""
 "Composer has platform packages, which are virtual packages for things that "
@@ -1244,7 +1256,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/01-basic-usage.md:201
+#: ../doc/01-basic-usage.md:208
 #, markdown-text
 msgid ""
 "`php` represents the PHP version of the user, allowing you to apply "
@@ -1253,7 +1265,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/01-basic-usage.md:204
+#: ../doc/01-basic-usage.md:211
 #, markdown-text
 msgid ""
 "`hhvm` represents the version of the HHVM runtime and allows you to apply a "
@@ -1261,7 +1273,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/01-basic-usage.md:209
+#: ../doc/01-basic-usage.md:216
 #, markdown-text
 msgid ""
 "`ext-<name>` allows you to require PHP extensions (includes core "
@@ -1271,7 +1283,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/01-basic-usage.md:213
+#: ../doc/01-basic-usage.md:220
 #, markdown-text
 msgid ""
 "`lib-<name>` allows constraints to be made on versions of libraries used by "
@@ -1280,7 +1292,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/01-basic-usage.md:216
+#: ../doc/01-basic-usage.md:223
 #, markdown-text
 msgid ""
 "You can use [`show --platform`](03-cli.md#show) to get a list of your "
@@ -1288,13 +1300,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/01-basic-usage.md:217
+#: ../doc/01-basic-usage.md:224
 #, markdown-text, no-wrap
 msgid "Autoloading"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/01-basic-usage.md:222
+#: ../doc/01-basic-usage.md:229
 #, markdown-text
 msgid ""
 "For libraries that specify autoload information, Composer generates a "
@@ -1303,7 +1315,7 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (php)
-#: ../doc/01-basic-usage.md:223
+#: ../doc/01-basic-usage.md:230
 #, no-wrap
 msgid ""
 "require __DIR__ . '/vendor/autoload.php';\n"
@@ -1315,7 +1327,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/01-basic-usage.md:233
+#: ../doc/01-basic-usage.md:240
 #, markdown-text
 msgid ""
 "You can even add your own code to the autoloader by adding an "
@@ -1323,7 +1335,7 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/01-basic-usage.md:234
+#: ../doc/01-basic-usage.md:241
 #, no-wrap
 msgid ""
 "{\n"
@@ -1334,7 +1346,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/01-basic-usage.md:244
+#: ../doc/01-basic-usage.md:251
 #, markdown-text
 msgid ""
 "Composer will register a [PSR-4](https://www.php-fig.org/psr/psr-4/) "
@@ -1342,7 +1354,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/01-basic-usage.md:248
+#: ../doc/01-basic-usage.md:255
 #, markdown-text
 msgid ""
 "You define a mapping from namespaces to directories. The `src` directory "
@@ -1352,7 +1364,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/01-basic-usage.md:251
+#: ../doc/01-basic-usage.md:258
 #, markdown-text
 msgid ""
 "After adding the [`autoload`](04-schema.md#autoload) field, you have to "
@@ -1360,13 +1372,13 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (shell)
-#: ../doc/01-basic-usage.md:252
+#: ../doc/01-basic-usage.md:259
 #, no-wrap
 msgid "php composer.phar dump-autoload\n"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/01-basic-usage.md:259
+#: ../doc/01-basic-usage.md:266
 #, markdown-text
 msgid ""
 "This command will re-generate the `vendor/autoload.php` file.  See the "
@@ -1375,7 +1387,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/01-basic-usage.md:263
+#: ../doc/01-basic-usage.md:270
 #, markdown-text
 msgid ""
 "Including that file will also return the autoloader instance, so you can "
@@ -1385,7 +1397,7 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (php)
-#: ../doc/01-basic-usage.md:264
+#: ../doc/01-basic-usage.md:271
 #, no-wrap
 msgid ""
 "$loader = require __DIR__ . '/vendor/autoload.php';\n"
@@ -1393,7 +1405,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/01-basic-usage.md:272
+#: ../doc/01-basic-usage.md:279
 #, markdown-text
 msgid ""
 "In addition to PSR-4 autoloading, Composer also supports PSR-0, classmap and "
@@ -1402,7 +1414,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/01-basic-usage.md:274
+#: ../doc/01-basic-usage.md:281
 #, markdown-text
 msgid ""
 "See also the docs on [optimizing the "
@@ -1410,7 +1422,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/01-basic-usage.md:278
+#: ../doc/01-basic-usage.md:285
 #, markdown-text, no-wrap
 msgid ""
 "> **Note:** Composer provides its own autoloader. If you don't want to use "
@@ -1421,7 +1433,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/01-basic-usage.md:279
+#: ../doc/01-basic-usage.md:286
 #, markdown-text
 msgid "&larr; [Intro](00-intro.md)  | [Libraries](02-libraries.md) &rarr;"
 msgstr ""
@@ -5903,7 +5915,7 @@ msgstr ""
 #: ../doc/04-schema.md:512 ../doc/04-schema.md:559 ../doc/04-schema.md:619
 #: ../doc/04-schema.md:631 ../doc/04-schema.md:647 ../doc/04-schema.md:678
 #: ../doc/04-schema.md:706 ../doc/04-schema.md:727 ../doc/04-schema.md:818
-#: ../doc/04-schema.md:923 ../doc/04-schema.md:940 ../doc/06-config.md:432
+#: ../doc/04-schema.md:923 ../doc/04-schema.md:940 ../doc/06-config.md:434
 #, markdown-text
 msgid "Example:"
 msgstr ""
@@ -6178,7 +6190,7 @@ msgstr ""
 msgid ""
 "Map of packages that are provided by this package. This is mostly useful for "
 "implementations of common interfaces. A package could depend on some virtual "
-"package e.g. `psr/logger-implementation`, any library that implements this "
+"package e.g. `psr/log-implementation`, any library that implements this "
 "logger interface would list it in `provide`. Implementors can then be [found "
 "on Packagist.org](https://packagist.org/providers/psr/log-implementation)."
 msgstr ""
@@ -9586,33 +9598,35 @@ msgid "autoloader-suffix"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:370
+#: ../doc/06-config.md:372
 #, markdown-text
 msgid ""
-"Defaults to `null`. Non-empty string to be used as a suffix for the "
-"generated Composer autoloader. When null a random one will be generated."
+"Defaults to `null`. When set to a non-empty string, this value will be used "
+"as a suffix for the generated Composer autoloader. If set to `null`, the "
+"`content-hash` value from the `composer.lock` file will be used if "
+"available; otherwise, a random suffix will be generated."
 msgstr ""
 
 #. type: Title ##
-#: ../doc/06-config.md:371
+#: ../doc/06-config.md:373
 #, markdown-text, no-wrap
 msgid "optimize-autoloader"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:374
+#: ../doc/06-config.md:376
 #, markdown-text
 msgid "Defaults to `false`. If `true`, always optimize when dumping the autoloader."
 msgstr ""
 
 #. type: Title ##
-#: ../doc/06-config.md:375
+#: ../doc/06-config.md:377
 #, markdown-text, no-wrap
 msgid "sort-packages"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:379
+#: ../doc/06-config.md:381
 #, markdown-text
 msgid ""
 "Defaults to `false`. If `true`, the `require` command keeps packages sorted "
@@ -9620,13 +9634,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/06-config.md:380
+#: ../doc/06-config.md:382
 #, markdown-text, no-wrap
 msgid "classmap-authoritative"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:384
+#: ../doc/06-config.md:386
 #, markdown-text
 msgid ""
 "Defaults to `false`. If `true`, the Composer autoloader will only load "
@@ -9634,13 +9648,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/06-config.md:385
+#: ../doc/06-config.md:387
 #, markdown-text, no-wrap
 msgid "apcu-autoloader"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:389
+#: ../doc/06-config.md:391
 #, markdown-text
 msgid ""
 "Defaults to `false`. If `true`, the Composer autoloader will check for APCu "
@@ -9648,13 +9662,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/06-config.md:390
+#: ../doc/06-config.md:392
 #, markdown-text, no-wrap
 msgid "github-domains"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:394
+#: ../doc/06-config.md:396
 #, markdown-text
 msgid ""
 "Defaults to `[\"github.com\"]`. A list of domains to use in github "
@@ -9662,13 +9676,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/06-config.md:395
+#: ../doc/06-config.md:397
 #, markdown-text, no-wrap
 msgid "github-expose-hostname"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:399
+#: ../doc/06-config.md:401
 #, markdown-text
 msgid ""
 "Defaults to `true`. If `false`, the OAuth tokens created to access the "
@@ -9676,13 +9690,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/06-config.md:400
+#: ../doc/06-config.md:402
 #, markdown-text, no-wrap
 msgid "use-github-api"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:407
+#: ../doc/06-config.md:409
 #, markdown-text
 msgid ""
 "Defaults to `true`.  Similar to the `no-api` key on a specific repository, "
@@ -9693,13 +9707,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/06-config.md:408
+#: ../doc/06-config.md:410
 #, markdown-text, no-wrap
 msgid "notify-on-install"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:413
+#: ../doc/06-config.md:415
 #, markdown-text
 msgid ""
 "Defaults to `true`. Composer allows repositories to define a notification "
@@ -9708,13 +9722,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/06-config.md:414
+#: ../doc/06-config.md:416
 #, markdown-text, no-wrap
 msgid "discard-changes"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:421
+#: ../doc/06-config.md:423
 #, markdown-text
 msgid ""
 "Defaults to `false` and can be any of `true`, `false` or `\"stash\"`. This "
@@ -9725,25 +9739,25 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/06-config.md:422
+#: ../doc/06-config.md:424
 #, markdown-text, no-wrap
 msgid "archive-format"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:425
+#: ../doc/06-config.md:427
 #, markdown-text
 msgid "Defaults to `tar`. Overrides the default format used by the archive command."
 msgstr ""
 
 #. type: Title ##
-#: ../doc/06-config.md:426
+#: ../doc/06-config.md:428
 #, markdown-text, no-wrap
 msgid "archive-dir"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:430
+#: ../doc/06-config.md:432
 #, markdown-text
 msgid ""
 "Defaults to `.`. Default destination for archives created by the archive "
@@ -9751,7 +9765,7 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/06-config.md:433
+#: ../doc/06-config.md:435
 #, no-wrap
 msgid ""
 "{\n"
@@ -9762,13 +9776,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/06-config.md:441
+#: ../doc/06-config.md:443
 #, markdown-text, no-wrap
 msgid "htaccess-protect"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:445
+#: ../doc/06-config.md:447
 #, markdown-text
 msgid ""
 "Defaults to `true`. If set to `false`, Composer will not create `.htaccess` "
@@ -9776,13 +9790,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/06-config.md:446
+#: ../doc/06-config.md:448
 #, markdown-text, no-wrap
 msgid "lock"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:450
+#: ../doc/06-config.md:452
 #, markdown-text
 msgid ""
 "Defaults to `true`. If set to `false`, Composer will not create a "
@@ -9790,13 +9804,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/06-config.md:451
+#: ../doc/06-config.md:453
 #, markdown-text, no-wrap
 msgid "platform-check"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:456
+#: ../doc/06-config.md:458
 #, markdown-text
 msgid ""
 "Defaults to `php-only` which only checks the PHP version. Set to `true` to "
@@ -9806,13 +9820,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/06-config.md:457
+#: ../doc/06-config.md:459
 #, markdown-text, no-wrap
 msgid "secure-svn-domains"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:464
+#: ../doc/06-config.md:466
 #, markdown-text
 msgid ""
 "Defaults to `[]`. Lists domains which should be trusted/marked as using a "
@@ -9823,7 +9837,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/06-config.md:465
+#: ../doc/06-config.md:467
 #, markdown-text
 msgid "&larr; [Repositories](05-repositories.md)  | [Runtime](07-runtime.md) &rarr;"
 msgstr ""
