@@ -8,7 +8,7 @@ Composerはプロジェクトが依存するライブラリを宣言し管理（
 ComposerはYumやAptの伝で言うとパッケージ管理ツールでは**ありません**。
 「パッケージ」やライブラリを扱いはしますが、プロジェクト毎の管理であって、プロジェクトの内部のディレクトリ（例：`vendor`）にインストールするのです。
 既定では決して大域的にインストールしません。
-したがって、これは依存管理なわけです。
+したがって、依存管理なわけです。
 とはいえ便宜上[global](03-cli.md#global)コマンドを介して「大域的な」プロジェクトに対応してはいます。
 
 このアイデアは新しいものではありません。
@@ -46,11 +46,8 @@ Composerはマルチプラットフォームであり、Windows、Linux、macOS�
 ### 実行形式のComposerをダウンロード
 
 Composerには便利なインストーラがあり、コマンドラインから直接実行できます。
-気兼ねなく[このファイルをダウンロード][dl]したり、インストーラの内部のはたらきについてもっと知りたいと思ったら[GitHub][gh]で確認したりしてください。
+気兼ねなく[このファイルをダウンロード](https://getcomposer.org/installer)したり、インストーラの内部のはたらきについてもっと知りたいと思ったら[GitHub](https://github.com/composer/getcomposer.org/blob/main/web/installer)で確認したりしてください。
 ソースは単なるPHPです。
-
-[dl]: https://getcomposer.org/installer
-[gh]: https://github.com/composer/getcomposer.org/blob/main/web/installer
 
 平たく言うとComposerのインストールには2つの方法があります。
 プロジェクトへローカルに入れる方法と、システム全域の実行ファイルとしてグローバルに入れる方法です。
@@ -66,10 +63,8 @@ PHAR (PHP archive) はPHPのためのアーカイブ形式であり、コマン�
 
 ここでComposerを走らせるには`php composer.phar`としてください。
 
-`--install-dir`オプションを使って特定のディレクトリに、さらに`--filename`オプションを使って名前を付け（変え）たりしつつ、Composerをインストールできます。
-[ダウンロードページの説明][dl]に従ってインストーラを走らせるときは、以下の引数を加えてください。
-
-[dl]: https://getcomposer.org/download/
+`--install-dir`オプションを使って特定のディレクトリに、更に`--filename`オプションを使って命名（改名）しつつ、Composerをインストールできます。
+[ダウンロードページの説明](https://getcomposer.org/download/)に従ってインストーラを走らせるときは、以下の引数を加えてください。
 
 ```shell
 php composer-setup.php --install-dir=bin --filename=composer
@@ -83,16 +78,14 @@ Composer PHARは好きな場所に置くことができます。
 `PATH`の通った場所に置くことで大域的にアクセスできます。
 Unix系のシステムでは実行形式にして`php`インタプリタを直接使わずに呼び出すこともできます。
 
-[ダウンロードページの説明][dl]に従ってインストーラを走らせたあとは、以下を走らせてパスにあるディレクトリにcomposer.pharを移動させられます。
-
-[dl]: https://getcomposer.org/download/
+[ダウンロードページの説明](https://getcomposer.org/download/)に従ってインストーラを走らせた後は、以下を走らせてパスにあるディレクトリにcomposer.pharを移動させられます。
 
 ```shell
 mv composer.phar /usr/local/bin/composer
 ```
 
-ユーザーのためだけにインストールしてルート権限を避けたいようでしたら、代わりに`~/.local/bin`を使うこともできます。
-これはLinuxディストリビューションで既定で使えることがあります。
+利用者のためだけにインストールしてルート権限を避けたいようでしたら、代わりに`~/.local/bin`を使うこともできます。
+Linuxディストリビューションでは既定で使えることがあります。
 
 > **注意:** 上記がパーミッションによって失敗する場合、sudoで改めて実行する必要があるかもしれません。
 
@@ -118,9 +111,7 @@ Composerをマシンに用意する最も簡単な方法です。
 
 ### 手動でインストール
 
-`composer.phar`をダウンロードするため、`PATH`の通っているディレクトリに移動して[ダウンロードページの説明][dl]に従い、インストーラを走らせてください。
-
-[dl]: https://getcomposer.org/download/
+`composer.phar`をダウンロードするため、`PATH`の通っているディレクトリに移動して[ダウンロードページの説明](https://getcomposer.org/download/)に従い、インストーラを走らせてください。
 
 `composer.bat`ファイルを`composer.phar`と同じ場所に新規作成してください。
 
