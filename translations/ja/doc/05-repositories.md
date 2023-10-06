@@ -148,12 +148,10 @@ Composerがパッケージを探すときは毎回`%package%`をパッケージ�
 
 キャッシュはIf-Modified-Sinceヘッダを使うことで行われます。ですから必ずLast-Modifiedヘッダを返して正確な内容であるようにしてください。
 
-バージョンの配列は[composer/metadata-minifier][min]の`Composer\MetadataMinifier\MetadataMinifier::minify()`を使って最小化することもできます。
+バージョンの配列は[composer/metadata-minifier](https://packagist.org/packages/composer/metadata-minifier)の`Composer\MetadataMinifier\MetadataMinifier::minify()`を使って最小化することもできます。
 もしそうした場合、トップレベルに`"minified":
 "composer/2.0"`キーを付け、Composerにバージョンのリストを展開して元のデータに戻さなければいけないことを示すべきです。
 一例として https://repo.packagist.org/p2/monolog/monolog.json を参照してください。
-
-[min]: https://packagist.org/packages/composer/metadata-minifier
 
 存在しないパッケージを要求されたら404ステータスコードを返さなければなりません。このステータスコードによりComposerにこのパッケージがリポジトリに存在しないことが示されます。404応答は早く返してComposerがブロックされるのを回避するようにしてください。代替の404ページへのリダイレクトは避けてください。
 
@@ -249,10 +247,8 @@ replace/provide規則はここでは考慮すべきではありません。
 リポジトリへはcURL（ext-curlが有効なComposer 2）またはPHPストリームの何れかを使ってアクセスします。
 `options`パラメータを使って追加のオプションを設定できます。
 PHPストリームについては、任意の妥当はPHPストリームコンテキストオプションを設定できます。
-詳細は[コンテキストオプションとパラメータ][ctx]を参照してください。
+詳細は[コンテキストオプションとパラメータ](https://php.net/manual/en/context.php)を参照してください。
 cURLが使われているとき、ごく一部の`http`と`ssl`オプションしか設定することはできないように制限されます。
-
-[ctx]: https://php.net/manual/en/context.php
 
 ```json
 {

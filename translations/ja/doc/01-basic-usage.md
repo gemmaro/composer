@@ -30,10 +30,8 @@ Composerにプロジェクトが依存しているパッケージがどれであ
 見ての通り、[`require`](04-schema.md#require)は**パッケージ名**（例：`monolog/monolog`）と
 **パッケージバージョン**（例：`1.0.*`）を対応付けるオブジェクトを取ります。
 
-Composerはこの情報を使って、[`repositories`](04-schema.md#repositories)キーからパッケージ「リポジトリ」や、既定のパッケージレジストリである[Packagist.org][p]にある正しいファイル一式を探します。
+Composerはこの情報を使って、[`repositories`](04-schema.md#repositories)キーからパッケージ「リポジトリ」や、既定のパッケージレジストリである[Packagist.org](https://packagist.org)にある正しいファイル一式を探します。
 上の例ではこれといったリポジトリは`composer.json`ファイルに登録されていないので、`monolog/monolog`パッケージはPackagist.orgに登録されているものと推定されます（詳細は[Packagistについて](#packagist)と[リポジトリについて](05-repositories.md)を参照）。
-
-[p]: https://packagist.org
 
 ### パッケージ名
 
@@ -47,14 +45,10 @@ Composerはこの情報を使って、[`repositories`](04-schema.md#repositories
 
 ### パッケージバージョン制約
 
-先の例ではバージョン制約[`2.0.*`][v2]のMonologパッケージを要求しています。
+先の例ではバージョン制約[`2.0.*`](https://semver.mwl.be/#?package=monolog%2Fmonolog&version=2.0.*)のMonologパッケージを要求しています。
 これが意味するものは`2.0`の開発ブランチの任意のバージョン、言い換えると2.0以上で2.1より小さい（`>=2.0 <2.1`）任意のバージョンのことを指します。
 
-[v2]: https://semver.mwl.be/#?package=monolog%2Fmonolog&version=2.0.*
-
-バージョンとバージョン間の関連、バージョン制約についてのより詳しい情報は[バージョン][v]を読んでください。
-
-[v]: articles/versions.md
+バージョンとバージョン間の関連、バージョン制約についてのより詳しい情報は[バージョン](articles/versions.md)を読んでください。
 
 > **どうやってComposerは正しいファイルをダウンロードしているのか。**
 > `composer.json`に依存関係を指定したとき、Composerはまず、[`repositories`](04-schema.md#repositories)キーを使って登録された全てのリポジトリを対象に要求されたパッケージの名前を検索します。
@@ -71,9 +65,7 @@ Composerはこの情報を使って、[`repositories`](04-schema.md#repositories
 
 ## 依存物をインストール
 
-定義された依存関係をプロジェクトに初めてインストールするときは、[`update`][u]コマンドを走らせると良いです。
-
-[u]: 03-cli.md#update-u
+定義された依存関係をプロジェクトに初めてインストールするときは、[`update`](03-cli.md#update-u)コマンドを走らせると良いです。
 
 ```shell
 php composer.phar update
@@ -151,9 +143,7 @@ Packagistは全ての人が利用できる中央リポジトリであること�
 要はここで利用できるいかなるパッケージも自動的に`require`できるということです。
 Composerがパッケージを探す場所を追加で指定しなくて良いのです。
 
-[packagistのWebサイト][p]では、パッケージを閲覧したり検索したりできます。
-
-[p]: https://packagist.org/
+[packagistのWebサイト](https://packagist.org/)では、パッケージを閲覧したり検索したりできます。
 
 Composerを使っているオープンソースプロジェクトはパッケージをPackagist上で公開するべきです。
 Composerを使う上で、ライブラリをPackagistに載せる必要はありません。
@@ -203,9 +193,7 @@ $log->warning('Foo');
 }
 ```
 
-ここではComposerが[PSR-4][]自動読み込み器を`Acme`名前空間に登録しています。
-
-[PSR-4]: https://www.php-fig.org/psr/psr-4/
+ここではComposerが[PSR-4](https://www.php-fig.org/psr/psr-4/)自動読み込み器を`Acme`名前空間に登録しています。
 
 名前空間からディレクトリへの対応付けが定義されます。
 `src`ディレクトリはプロジェクトルートにあり、同じ階層に`vendor`もあるとしましょう。

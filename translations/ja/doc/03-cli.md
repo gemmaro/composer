@@ -941,9 +941,8 @@ php composer.phar archive vendor/package 2.0.21 --format=zip
 ## audit
 
 このコマンドを使うとインストールしたパッケージをセキュリティ上の問題があるか監査できます。
-[Packagist.org api][api]に従って、セキュリティ上の脆弱性に対する推奨事項を確認して一覧にします。
-
-[api]: https://packagist.org/apidoc#list-security-advisories
+[Packagist.org
+api](https://packagist.org/apidoc#list-security-advisories)に従って、セキュリティ上の脆弱性に対する推奨事項を確認して一覧にします。
 
 auditコマンドは見付かった脆弱性の量を返します。
 成功時は`0`を、それ以外は最大`255`の数を返します。
@@ -1001,10 +1000,8 @@ COMPOSER=composer-other.json php composer.phar install
 ### COMPOSER_AUTH
 
 `COMPOSER_AUTH`変数では、環境変数として認証を設定できます。
-変数の内容はJSON形式のオブジェクトで、[http-basic、github-oauth、bitbucket-oauth、……といった必要に応じたもの][auth]です。
+変数の内容はJSON形式のオブジェクトで、[http-basic、github-oauth、bitbucket-oauth、……といった必要に応じたもの](articles/authentication-for-private-packages.md)です。
 オブジェクトは[設定の仕様](06-config.md)に従います。
-
-[auth]: articles/authentication-for-private-packages.md
 
 ### COMPOSER_BIN_DIR
 
@@ -1016,9 +1013,7 @@ COMPOSER=composer-other.json php composer.phar install
 これは[`cache-dir`](06-config.md#cache-dir)オプションを介しても設定できます。
 
 Windowsにおいて既定では`C:\Users\<user>\AppData\Local\Composer`（もしくは`%LOCALAPPDATA%/Composer`）を指します。
-\*nixシステムでは[XDG Base Directory Specifications][xdg]に従い、`$XDG_CACHE_HOME/composer`を指します。他の\*nixシステムとmacOSにおいては`$COMPOSER_HOME/cache`を指します。
-
-[xdg]: https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
+\*nixシステムでは[XDG Base Directory Specifications](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html)に従い、`$XDG_CACHE_HOME/composer`を指します。他の\*nixシステムとmacOSにおいては`$COMPOSER_HOME/cache`を指します。
 
 ### COMPOSER_CAFILE
 
@@ -1038,9 +1033,7 @@ Windowsにおいて既定では`C:\Users\<user>\AppData\Local\Composer`（もし
 
 `composer config --global home`を使ってホームディレクトリの場所を確認してください。
 
-既定では、Windowsにおいては`C:\Users\<user>\AppData\Roaming\Composer`を、macOSにおいては`/Users/<user>/.composer`を指します。\*nixシステムでは[XDG Base Directory Specifications][xdg]に従い、`$XDG_CONFIG_HOME/composer`を指します。他の\*nixシステムでは`/home/<user>/.composer`を指します。
-
-[xdg]: https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
+既定では、Windowsにおいては`C:\Users\<user>\AppData\Roaming\Composer`を、macOSにおいては`/Users/<user>/.composer`を指します。\*nixシステムでは[XDG Base Directory Specifications](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html)に従い、`$XDG_CONFIG_HOME/composer`を指します。他の\*nixシステムでは`/home/<user>/.composer`を指します。
 
 #### COMPOSER_HOME/config.json
 
