@@ -19,8 +19,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Composer\n"
-"POT-Creation-Date: 2023-10-06 20:05+0900\n"
-"PO-Revision-Date: 2023-10-07 01:16+0900\n"
+"POT-Creation-Date: 2023-10-23 23:33+0900\n"
+"PO-Revision-Date: 2023-10-23 23:44+0900\n"
 "Last-Translator: gemmaro <gemmaro.dev@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -528,7 +528,10 @@ msgid ""
 "workings of the installer. The source is plain PHP."
 msgstr ""
 "Composerには便利なインストーラがあり、コマンドラインから直接実行できます。\n"
-"気兼ねなく[このファイルをダウンロード](https://getcomposer.org/installer)したり、インストーラの内部のはたらきについてもっと知りたいと思ったら[GitHub](https://github.com/composer/getcomposer.org/blob/main/web/installer)で確認したりしてください。\n"
+"気兼ねなく[このファイルをダウンロード](https://getcomposer.org/installer)した"
+"り、インストーラの内部のはたらきについてもっと知りたいと思ったら[GitHub]"
+"(https://github.com/composer/getcomposer.org/blob/main/web/installer)で確認し"
+"たりしてください。\n"
 "ソースは単なるPHPです。"
 
 #. type: Plain text
@@ -587,8 +590,10 @@ msgid ""
 "instructions](https://getcomposer.org/download/) add the following "
 "parameters:"
 msgstr ""
-"`--install-dir`オプションを使って特定のディレクトリに、さらに`--filename`オプションを使って命名（改名）しつつ、Composerをインストールできます。\n"
-"[ダウンロードページの説明](https://getcomposer.org/download/)に従ってインストーラを走らせるときは、以下の引数を加えてください。"
+"`--install-dir`オプションを使って特定のディレクトリに、さらに`--filename`オプ"
+"ションを使って命名（改名）しつつ、Composerをインストールできます。\n"
+"[ダウンロードページの説明](https://getcomposer.org/download/)に従ってインス"
+"トーラを走らせるときは、以下の引数を加えてください。"
 
 #. type: Fenced code block (shell)
 #: ../doc/00-intro.md:85
@@ -626,7 +631,10 @@ msgid ""
 "After running the installer following [the Download page instructions]"
 "(https://getcomposer.org/download/)  you can run this to move composer.phar "
 "to a directory that is in your path:"
-msgstr "[ダウンロードページの説明](https://getcomposer.org/download/)に従ってインストーラを走らせたあとは、以下を走らせてパスにあるディレクトリにcomposer.pharを移動させられます。"
+msgstr ""
+"[ダウンロードページの説明](https://getcomposer.org/download/)に従ってインス"
+"トーラを走らせたあとは、以下を走らせてパスにあるディレクトリにcomposer.pharを"
+"移動させられます。"
 
 #. type: Fenced code block (shell)
 #: ../doc/00-intro.md:101
@@ -734,7 +742,10 @@ msgid ""
 "Change to a directory on your `PATH` and run the installer following [the "
 "Download page instructions](https://getcomposer.org/download/)  to download "
 "`composer.phar`."
-msgstr "`composer.phar`をダウンロードするため、`PATH`の通っているディレクトリに移動して[ダウンロードページの説明](https://getcomposer.org/download/)に従い、インストーラを走らせてください。"
+msgstr ""
+"`composer.phar`をダウンロードするため、`PATH`の通っているディレクトリに移動し"
+"て[ダウンロードページの説明](https://getcomposer.org/download/)に従い、インス"
+"トーラを走らせてください。"
 
 #. type: Plain text
 #: ../doc/00-intro.md:144
@@ -1003,8 +1014,13 @@ msgid ""
 "more [about Packagist](#packagist), and [about repositories](05-repositories."
 "md))."
 msgstr ""
-"Composerはこの情報を使って、[`repositories`](04-schema.md#repositories)キーからパッケージ「リポジトリ」や、既定のパッケージレジストリである[Packagist.org](https://packagist.org)にある正しいファイル一式を探します。\n"
-"上の例ではこれといったリポジトリは`composer.json`ファイルに登録されていないので、`monolog/monolog`パッケージはPackagist.orgに登録されているものと推定されます（詳細は[Packagistについて](#packagist)と[リポジトリについて](05-repositories.md)を参照）。"
+"Composerはこの情報を使って、[`repositories`](04-schema.md#repositories)キーか"
+"らパッケージ「リポジトリ」や、既定のパッケージレジストリである[Packagist.org]"
+"(https://packagist.org)にある正しいファイル一式を探します。\n"
+"上の例ではこれといったリポジトリは`composer.json`ファイルに登録されていないの"
+"で、`monolog/monolog`パッケージはPackagist.orgに登録されているものと推定され"
+"ます（詳細は[Packagistについて](#packagist)と[リポジトリについて](05-"
+"repositories.md)を参照）。"
 
 #. type: Title ###
 #: ../doc/01-basic-usage.md:47
@@ -1063,7 +1079,9 @@ msgstr ""
 msgid ""
 "Please read [versions](articles/versions.md) for more in-depth information "
 "on versions, how versions relate to each other, and on version constraints."
-msgstr "バージョンとバージョン間の関連、バージョン制約についてのより詳しい情報は[バージョン](articles/versions.md)を読んでください。"
+msgstr ""
+"バージョンとバージョン間の関連、バージョン制約についてのより詳しい情報は[バー"
+"ジョン](articles/versions.md)を読んでください。"
 
 #. type: Plain text
 #: ../doc/01-basic-usage.md:80
@@ -1118,7 +1136,9 @@ msgstr "依存物をインストール"
 msgid ""
 "To initially install the defined dependencies for your project, you should "
 "run the [`update`](03-cli.md#update-u) command."
-msgstr "定義された依存関係をプロジェクトに初めてインストールするときは、[`update`](03-cli.md#update-u)コマンドを走らせると良いです。"
+msgstr ""
+"定義された依存関係をプロジェクトに初めてインストールするときは、[`update`]"
+"(03-cli.md#update-u)コマンドを走らせると良いです。"
 
 #. type: Fenced code block (shell)
 #: ../doc/01-basic-usage.md:95 ../doc/01-basic-usage.md:170
@@ -1376,7 +1396,9 @@ msgstr ""
 msgid ""
 "If you go to the [Packagist.org website](https://packagist.org/), you can "
 "browse and search for packages."
-msgstr "[packagistのWebサイト](https://packagist.org/)では、パッケージを閲覧したり検索したりできます。"
+msgstr ""
+"[packagistのWebサイト](https://packagist.org/)では、パッケージを閲覧したり検"
+"索したりできます。"
 
 #. type: Plain text
 #: ../doc/01-basic-usage.md:198
@@ -1527,7 +1549,9 @@ msgstr ""
 msgid ""
 "Composer will register a [PSR-4](https://www.php-fig.org/psr/psr-4/) "
 "autoloader for the `Acme` namespace."
-msgstr "ここではComposerが[PSR-4](https://www.php-fig.org/psr/psr-4/)自動読み込み器を`Acme`名前空間に登録しています。"
+msgstr ""
+"ここではComposerが[PSR-4](https://www.php-fig.org/psr/psr-4/)自動読み込み器を"
+"`Acme`名前空間に登録しています。"
 
 #. type: Plain text
 #: ../doc/01-basic-usage.md:255
@@ -4883,8 +4907,10 @@ msgid ""
 "according to the [Packagist.org api](https://packagist.org/apidoc#list-"
 "security-advisories)."
 msgstr ""
-"このコマンドを使うとインストールしたパッケージをセキュリティ上の問題があるか監査できます。\n"
-"[Packagist.org api](https://packagist.org/apidoc#list-security-advisories)に従って、セキュリティ上の脆弱性に対する推奨事項を確認して一覧にします。"
+"このコマンドを使うとインストールしたパッケージをセキュリティ上の問題があるか"
+"監査できます。\n"
+"[Packagist.org api](https://packagist.org/apidoc#list-security-advisories)に"
+"従って、セキュリティ上の脆弱性に対する推奨事項を確認して一覧にします。"
 
 #. type: Plain text
 #: ../doc/03-cli.md:1049
@@ -5062,7 +5088,9 @@ msgid ""
 "following the [spec from the config](06-config.md)."
 msgstr ""
 "`COMPOSER_AUTH`変数では、環境変数として認証を設定できます。\n"
-"変数の内容はJSON形式のオブジェクトで、[http-basic、github-oauth、bitbucket-oauth、……といった必要に応じたもの](articles/authentication-for-private-packages.md)です。\n"
+"変数の内容はJSON形式のオブジェクトで、[http-basic、github-oauth、bitbucket-"
+"oauth、……といった必要に応じたもの](articles/authentication-for-private-"
+"packages.md)です。\n"
 "オブジェクトは[設定の仕様](06-config.md)に従います。"
 
 #. type: Title ###
@@ -8593,9 +8621,15 @@ msgid ""
 "expand the version list back into the original data. See https://repo."
 "packagist.org/p2/monolog/monolog.json for an example."
 msgstr ""
-"バージョンの配列は[composer/metadata-minifier](https://packagist.org/packages/composer/metadata-minifier)の`Composer\\MetadataMinifier\\MetadataMinifier::minify()`を使って最小化することもできます。\n"
-"もしそうした場合、トップレベルに`\"minified\": \"composer/2.0\"`キーを付け、Composerにバージョンのリストを展開して元のデータに戻さなければいけないことを示すべきです。\n"
-"一例として https://repo.packagist.org/p2/monolog/monolog.json を参照してください。"
+"バージョンの配列は[composer/metadata-minifier](https://packagist.org/"
+"packages/composer/metadata-minifier)の"
+"`Composer\\MetadataMinifier\\MetadataMinifier::minify()`を使って最小化するこ"
+"ともできます。\n"
+"もしそうした場合、トップレベルに`\"minified\": \"composer/2.0\"`キーを付け、"
+"Composerにバージョンのリストを展開して元のデータに戻さなければいけないことを"
+"示すべきです。\n"
+"一例として https://repo.packagist.org/p2/monolog/monolog.json を参照してくだ"
+"さい。"
 
 #. type: Plain text
 #: ../doc/05-repositories.md:196
@@ -8867,11 +8901,15 @@ msgid ""
 "for more information. When cURL is used, only a limited set of `http` and "
 "`ssl` options can be configured."
 msgstr ""
-"リポジトリへはcURL（ext-curlが有効なComposer 2）またはPHPストリームの何れかを使ってアクセスします。\n"
+"リポジトリへはcURL（ext-curlが有効なComposer 2）またはPHPストリームの何れかを"
+"使ってアクセスします。\n"
 "`options`パラメータを使って追加のオプションを設定できます。\n"
-"PHPストリームについては、任意の妥当はPHPストリームコンテキストオプションを設定できます。\n"
-"詳細は[コンテキストオプションとパラメータ](https://php.net/manual/en/context.php)を参照してください。\n"
-"cURLが使われているとき、ごく一部の`http`と`ssl`オプションしか設定することはできないように制限されます。"
+"PHPストリームについては、任意の妥当はPHPストリームコンテキストオプションを設"
+"定できます。\n"
+"詳細は[コンテキストオプションとパラメータ](https://php.net/manual/en/context."
+"php)を参照してください。\n"
+"cURLが使われているとき、ごく一部の`http`と`ssl`オプションしか設定することはで"
+"きないように制限されます。"
 
 #. type: Fenced code block (json)
 #: ../doc/05-repositories.md:311
@@ -11995,18 +12033,23 @@ msgstr "[2.6.5] 2023-10-06"
 #. type: Bullet: '  * '
 #: ../CHANGELOG.md:6
 msgid "Fixed error when vendor dir contains broken symlinks (#11670)"
-msgstr "vendorディレクトリに壊れたシンボリックリンクが含まれる場合のエラー修正しました (#11670)。"
+msgstr ""
+"vendorディレクトリに壊れたシンボリックリンクが含まれる場合のエラー修正しまし"
+"た (#11670)。"
 
 #. type: Bullet: '  * '
 #: ../CHANGELOG.md:6
 msgid "Fixed composer.lock missing from Composer's zip archives (#11674)"
-msgstr "Composerのzipアーカイブから欠けていたcomposer.lockを修正しました (#11674)。"
+msgstr ""
+"Composerのzipアーカイブから欠けていたcomposer.lockを修正しました (#11674)。"
 
 #. type: Bullet: '  * '
 #: ../CHANGELOG.md:6
 msgid ""
 "Fixed AutoloadGenerator::dump() non-BC signature change in 2.6.4 (cb363b0e8)"
-msgstr "2.6.4で変わったAutoloadGenerator::dump()の非BCシグネチャを修正しました (cb363b0e8)。"
+msgstr ""
+"2.6.4で変わったAutoloadGenerator::dump()の非BCシグネチャを修正しました "
+"(cb363b0e8)。"
 
 #. type: Title ###
 #: ../CHANGELOG.md:7
@@ -20869,3 +20912,64 @@ msgid ""
 "[1.0.0-alpha2]: https://github.com/composer/composer/compare/1.0.0-"
 "alpha1...1.0.0-alpha2"
 msgstr ""
+
+#. type: Title #
+#: ../doc/faqs/why-are-version-constraints-combining-comparisons-and-wildcards-a-bad-idea.md:1
+#, no-wrap
+msgid "Why are version constraints combining comparisons and wildcards a bad idea?"
+msgstr "何故、比較とワイルドカードが組み合わさったバージョン制約が良くないのか"
+
+#. type: Plain text
+#: ../doc/faqs/why-are-version-constraints-combining-comparisons-and-wildcards-a-bad-idea.md:5
+#, no-wrap
+msgid ""
+"This is a fairly common mistake people make, defining version constraints in\n"
+"their package requires like `>=2.*` or `>=1.1.*`.\n"
+msgstr "`>=2.*`や`>=1.1*`のようなパッケージの要件でバージョン制約を定義することは、それなりによく見られる誤りです。\n"
+
+#. type: Plain text
+#: ../doc/faqs/why-are-version-constraints-combining-comparisons-and-wildcards-a-bad-idea.md:9
+#, no-wrap
+msgid ""
+"If you think about it and what it really means though, you will quickly\n"
+"realize that it does not make much sense. If we decompose `>=2.*`, you\n"
+"have two parts:\n"
+msgstr ""
+"ただし本当に意味しているところを考えれば直ちに意味を成さないことに気付かれるでしょう。\n"
+"`>=2.*`を分解すると2つに分けられます。\n"
+
+#. type: Bullet: '- '
+#: ../doc/faqs/why-are-version-constraints-combining-comparisons-and-wildcards-a-bad-idea.md:13
+msgid "`>=2` which says the package should be in version 2.0.0 or above."
+msgstr "`>=2`はパッケージがバージョン2.0.0以上であるべきだとしています。"
+
+#. type: Bullet: '- '
+#: ../doc/faqs/why-are-version-constraints-combining-comparisons-and-wildcards-a-bad-idea.md:13
+msgid ""
+"`2.*` which says the package should be between version 2.0.0 (inclusive)  "
+"and 3.0.0 (exclusive)."
+msgstr "`2.*`は、パッケージがバージョン2.0.0（このバージョンを含む）と3.0.0（このバージョンを含まない）の間にあるべきだとしています。"
+
+#. type: Plain text
+#: ../doc/faqs/why-are-version-constraints-combining-comparisons-and-wildcards-a-bad-idea.md:18
+#, no-wrap
+msgid ""
+"As you see, both rules agree on the fact that the package must be >=2.0.0,\n"
+"but it is not possible to determine if when you wrote that you were thinking\n"
+"of a package in version 3.0.0 or not. Should it match because you asked for\n"
+"`>=2` or should it not match because you asked for a `2.*`?\n"
+msgstr ""
+"見ての通り、両方の規則ではパッケージが2.0.0以上でなければならないという事実について合意されています。\n"
+"しかし、それを書いた時にバージョン3.0.0のパッケージのことを考えていたかについては判定できないのです。\n"
+"`>=2`を求めたので照合すべきでしょうか。\n"
+"それとも`2.*`を求めたので照合しないべきでしょうか。\n"
+
+#. type: Plain text
+#: ../doc/faqs/why-are-version-constraints-combining-comparisons-and-wildcards-a-bad-idea.md:21
+msgid ""
+"For this reason, Composer throws an error and says that this is invalid.  "
+"The way to fix it is to think about what you really mean, and use only one "
+"of those rules."
+msgstr ""
+"こうした理由からComposerはエラーを投げて不当であるとします。\n"
+"修正するには本当に意味しているところについて考え、これらの規則のうち1つだけを使うことです。"
