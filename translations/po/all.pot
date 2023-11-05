@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2023-10-23 23:33+0900\n"
+"POT-Creation-Date: 2023-11-25 21:46+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1984,14 +1984,14 @@ msgstr ""
 
 #. type: Title ###
 #: ../doc/03-cli.md:62 ../doc/03-cli.md:97 ../doc/03-cli.md:185
-#: ../doc/03-cli.md:258 ../doc/03-cli.md:313 ../doc/03-cli.md:358
-#: ../doc/03-cli.md:382 ../doc/03-cli.md:421 ../doc/03-cli.md:468
-#: ../doc/03-cli.md:535 ../doc/03-cli.md:577 ../doc/03-cli.md:601
-#: ../doc/03-cli.md:617 ../doc/03-cli.md:632 ../doc/03-cli.md:669
-#: ../doc/03-cli.md:703 ../doc/03-cli.md:718 ../doc/03-cli.md:773
-#: ../doc/03-cli.md:813 ../doc/03-cli.md:896 ../doc/03-cli.md:952
-#: ../doc/03-cli.md:978 ../doc/03-cli.md:987 ../doc/03-cli.md:994
-#: ../doc/03-cli.md:1010 ../doc/03-cli.md:1034 ../doc/03-cli.md:1054
+#: ../doc/03-cli.md:260 ../doc/03-cli.md:317 ../doc/03-cli.md:364
+#: ../doc/03-cli.md:388 ../doc/03-cli.md:427 ../doc/03-cli.md:474
+#: ../doc/03-cli.md:541 ../doc/03-cli.md:583 ../doc/03-cli.md:607
+#: ../doc/03-cli.md:623 ../doc/03-cli.md:638 ../doc/03-cli.md:675
+#: ../doc/03-cli.md:709 ../doc/03-cli.md:724 ../doc/03-cli.md:779
+#: ../doc/03-cli.md:819 ../doc/03-cli.md:902 ../doc/03-cli.md:958
+#: ../doc/03-cli.md:984 ../doc/03-cli.md:993 ../doc/03-cli.md:1000
+#: ../doc/03-cli.md:1016 ../doc/03-cli.md:1040 ../doc/03-cli.md:1060
 #, markdown-text, no-wrap
 msgid "Options"
 msgstr ""
@@ -2105,8 +2105,8 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:137 ../doc/03-cli.md:234 ../doc/03-cli.md:300
-#: ../doc/03-cli.md:409 ../doc/03-cli.md:938
+#: ../doc/03-cli.md:137 ../doc/03-cli.md:236 ../doc/03-cli.md:304
+#: ../doc/03-cli.md:415 ../doc/03-cli.md:944
 #, markdown-text
 msgid ""
 "**--prefer-install:** There are two ways of downloading a package: `source` "
@@ -2136,7 +2136,7 @@ msgid "**--download-only:** Download only, do not install packages."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:137 ../doc/03-cli.md:234
+#: ../doc/03-cli.md:137 ../doc/03-cli.md:236
 #, markdown-text
 msgid ""
 "**--dev:** Install packages listed in `require-dev` (this is the default "
@@ -2144,7 +2144,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:137 ../doc/03-cli.md:234
+#: ../doc/03-cli.md:137 ../doc/03-cli.md:236
 #, markdown-text
 msgid ""
 "**--no-dev:** Skip installing packages listed in `require-dev`. The "
@@ -2153,14 +2153,14 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:137 ../doc/03-cli.md:234 ../doc/03-cli.md:409
+#: ../doc/03-cli.md:137 ../doc/03-cli.md:236 ../doc/03-cli.md:415
 #, markdown-text
 msgid "**--no-autoloader:** Skips autoloader generation."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:137 ../doc/03-cli.md:234 ../doc/03-cli.md:300
-#: ../doc/03-cli.md:344 ../doc/03-cli.md:409 ../doc/03-cli.md:938
+#: ../doc/03-cli.md:137 ../doc/03-cli.md:236 ../doc/03-cli.md:304
+#: ../doc/03-cli.md:350 ../doc/03-cli.md:415 ../doc/03-cli.md:944
 #, markdown-text
 msgid ""
 "**--no-progress:** Removes the progress display that can mess with some "
@@ -2174,8 +2174,8 @@ msgid "**--audit:** Run an audit after installation is complete."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:137 ../doc/03-cli.md:234 ../doc/03-cli.md:300
-#: ../doc/03-cli.md:344 ../doc/03-cli.md:938
+#: ../doc/03-cli.md:137 ../doc/03-cli.md:236 ../doc/03-cli.md:304
+#: ../doc/03-cli.md:350 ../doc/03-cli.md:944
 #, markdown-text
 msgid ""
 "**--audit-format:** Audit output format. Must be \"table\", \"plain\", "
@@ -2183,7 +2183,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:137 ../doc/03-cli.md:344 ../doc/03-cli.md:409
+#: ../doc/03-cli.md:137 ../doc/03-cli.md:350 ../doc/03-cli.md:415
 #, markdown-text
 msgid ""
 "**--optimize-autoloader (-o):** Convert PSR-0/4 autoloading to classmap to "
@@ -2192,8 +2192,8 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:137 ../doc/03-cli.md:234 ../doc/03-cli.md:300
-#: ../doc/03-cli.md:344 ../doc/03-cli.md:409
+#: ../doc/03-cli.md:137 ../doc/03-cli.md:236 ../doc/03-cli.md:304
+#: ../doc/03-cli.md:350 ../doc/03-cli.md:415
 #, markdown-text
 msgid ""
 "**--classmap-authoritative (-a):** Autoload classes from the classmap only.  "
@@ -2201,15 +2201,15 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:137 ../doc/03-cli.md:234 ../doc/03-cli.md:300
-#: ../doc/03-cli.md:344 ../doc/03-cli.md:409
+#: ../doc/03-cli.md:137 ../doc/03-cli.md:236 ../doc/03-cli.md:304
+#: ../doc/03-cli.md:350 ../doc/03-cli.md:415
 #, markdown-text
 msgid "**--apcu-autoloader:** Use APCu to cache found/not-found classes."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:137 ../doc/03-cli.md:234 ../doc/03-cli.md:300
-#: ../doc/03-cli.md:344 ../doc/03-cli.md:409
+#: ../doc/03-cli.md:137 ../doc/03-cli.md:236 ../doc/03-cli.md:304
+#: ../doc/03-cli.md:350 ../doc/03-cli.md:415
 #, markdown-text
 msgid ""
 "**--apcu-autoloader-prefix:** Use a custom prefix for the APCu autoloader "
@@ -2217,8 +2217,8 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:137 ../doc/03-cli.md:234 ../doc/03-cli.md:300
-#: ../doc/03-cli.md:344 ../doc/03-cli.md:938
+#: ../doc/03-cli.md:137 ../doc/03-cli.md:236 ../doc/03-cli.md:304
+#: ../doc/03-cli.md:350 ../doc/03-cli.md:944
 #, markdown-text
 msgid ""
 "**--ignore-platform-reqs:** ignore all platform requirements (`php`, `hhvm`, "
@@ -2228,7 +2228,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:137 ../doc/03-cli.md:234
+#: ../doc/03-cli.md:137 ../doc/03-cli.md:236
 #, markdown-text
 msgid ""
 "**--ignore-platform-req:** ignore a specific platform requirement(`php`, "
@@ -2334,13 +2334,13 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:234 ../doc/03-cli.md:300 ../doc/03-cli.md:344
+#: ../doc/03-cli.md:236 ../doc/03-cli.md:304 ../doc/03-cli.md:350
 #, markdown-text
 msgid "**--dry-run:** Simulate the command without actually doing anything."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:234 ../doc/03-cli.md:300 ../doc/03-cli.md:344
+#: ../doc/03-cli.md:236 ../doc/03-cli.md:304 ../doc/03-cli.md:350
 #, markdown-text
 msgid ""
 "**--no-install:** Does not run the install step after updating the "
@@ -2348,7 +2348,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:234 ../doc/03-cli.md:300
+#: ../doc/03-cli.md:236 ../doc/03-cli.md:304
 #, markdown-text
 msgid ""
 "**--no-audit:** Does not run the audit steps after updating the "
@@ -2356,7 +2356,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:234
+#: ../doc/03-cli.md:236
 #, markdown-text
 msgid ""
 "**--lock:** Only updates the lock file hash to suppress warning about the "
@@ -2364,7 +2364,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:234
+#: ../doc/03-cli.md:236
 #, markdown-text
 msgid ""
 "**--with:** Temporary version constraint to add, e.g. foo/bar:1.0.0 or "
@@ -2372,7 +2372,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:234
+#: ../doc/03-cli.md:236
 #, markdown-text
 msgid ""
 "**--with-dependencies (-w):** Update also dependencies of packages in the "
@@ -2380,7 +2380,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:234
+#: ../doc/03-cli.md:236
 #, markdown-text
 msgid ""
 "**--with-all-dependencies (-W):** Update also dependencies of packages in "
@@ -2388,7 +2388,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:234 ../doc/03-cli.md:300
+#: ../doc/03-cli.md:236 ../doc/03-cli.md:304
 #, markdown-text
 msgid ""
 "**--optimize-autoloader (-o):** Convert PSR-0/4 autoloading to classmap to "
@@ -2397,7 +2397,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:234 ../doc/03-cli.md:300
+#: ../doc/03-cli.md:236 ../doc/03-cli.md:304
 #, markdown-text
 msgid ""
 "**--prefer-stable:** Prefer stable versions of dependencies. Can also be set "
@@ -2405,7 +2405,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:234 ../doc/03-cli.md:300
+#: ../doc/03-cli.md:236 ../doc/03-cli.md:304
 #, markdown-text
 msgid ""
 "**--prefer-lowest:** Prefer lowest versions of dependencies. Useful for "
@@ -2414,7 +2414,16 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:234
+#: ../doc/03-cli.md:236
+#, markdown-text
+msgid ""
+"**--minimal-changes:** During a partial update with `-w`/`-W`, only perform "
+"absolutely necessary changes to transitive dependencies. Can also be set via "
+"the COMPOSER_MINIMAL_CHANGES=1 env var."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:236
 #, markdown-text
 msgid ""
 "**--interactive:** Interactive interface with autocompletion to select the "
@@ -2422,13 +2431,13 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:234
+#: ../doc/03-cli.md:236
 #, markdown-text
 msgid "**--root-reqs:** Restricts the update to your first degree dependencies."
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:236
+#: ../doc/03-cli.md:238
 #, markdown-text
 msgid ""
 "Specifying one of the words `mirrors`, `lock`, or `nothing` as an argument "
@@ -2437,13 +2446,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/03-cli.md:237
+#: ../doc/03-cli.md:239
 #, markdown-text, no-wrap
 msgid "require / r"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:241
+#: ../doc/03-cli.md:243
 #, markdown-text
 msgid ""
 "The `require` command adds new packages to the `composer.json` file from the "
@@ -2451,13 +2460,13 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (shell)
-#: ../doc/03-cli.md:242
+#: ../doc/03-cli.md:244
 #, no-wrap
 msgid "php composer.phar require\n"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:248
+#: ../doc/03-cli.md:250
 #, markdown-text
 msgid ""
 "After adding/changing the requirements, the modified requirements will be "
@@ -2465,7 +2474,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:251
+#: ../doc/03-cli.md:253
 #, markdown-text
 msgid ""
 "If you do not want to choose requirements interactively, you can pass them "
@@ -2473,7 +2482,7 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (shell)
-#: ../doc/03-cli.md:252
+#: ../doc/03-cli.md:254
 #, no-wrap
 msgid ""
 "php composer.phar require \"vendor/package:2.*\" "
@@ -2481,7 +2490,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:257
+#: ../doc/03-cli.md:259
 #, markdown-text
 msgid ""
 "If you do not specify a package, Composer will prompt you to search for a "
@@ -2489,13 +2498,13 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:300
+#: ../doc/03-cli.md:304
 #, markdown-text
 msgid "**--dev:** Add packages to `require-dev`."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:300 ../doc/03-cli.md:344
+#: ../doc/03-cli.md:304 ../doc/03-cli.md:350
 #, markdown-text
 msgid ""
 "**--no-update:** Disables the automatic update of the dependencies (implies "
@@ -2503,7 +2512,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:300
+#: ../doc/03-cli.md:304
 #, markdown-text
 msgid ""
 "**--update-no-dev:** Run the dependency update with the `--no-dev` "
@@ -2511,7 +2520,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:300
+#: ../doc/03-cli.md:304
 #, markdown-text
 msgid ""
 "**--update-with-dependencies (-w):** Also update dependencies of the newly "
@@ -2519,7 +2528,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:300
+#: ../doc/03-cli.md:304
 #, markdown-text
 msgid ""
 "**--update-with-all-dependencies (-W):** Also update dependencies of the "
@@ -2527,8 +2536,8 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:300 ../doc/03-cli.md:344 ../doc/03-cli.md:595
-#: ../doc/03-cli.md:938
+#: ../doc/03-cli.md:304 ../doc/03-cli.md:350 ../doc/03-cli.md:601
+#: ../doc/03-cli.md:944
 #, markdown-text
 msgid ""
 "**--ignore-platform-req:** ignore a specific platform requirement(`php`, "
@@ -2538,19 +2547,28 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:300
+#: ../doc/03-cli.md:304 ../doc/03-cli.md:350
+#, markdown-text
+msgid ""
+"**--minimal-changes:** During an update with `-w`/`-W`, only perform "
+"absolutely necessary changes to transitive dependencies. Can also be set via "
+"the COMPOSER_MINIMAL_CHANGES=1 env var."
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:304
 #, markdown-text
 msgid "**--sort-packages:** Keep packages sorted in `composer.json`."
 msgstr ""
 
 #. type: Title ##
-#: ../doc/03-cli.md:301
+#: ../doc/03-cli.md:305
 #, markdown-text, no-wrap
 msgid "remove / rm"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:305
+#: ../doc/03-cli.md:309
 #, markdown-text
 msgid ""
 "The `remove` command removes packages from the `composer.json` file from the "
@@ -2558,13 +2576,13 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (shell)
-#: ../doc/03-cli.md:306
+#: ../doc/03-cli.md:310
 #, no-wrap
 msgid "php composer.phar remove vendor/package vendor/package2\n"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:312
+#: ../doc/03-cli.md:316
 #, markdown-text
 msgid ""
 "After removing the requirements, the modified requirements will be "
@@ -2572,7 +2590,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:344
+#: ../doc/03-cli.md:350
 #, markdown-text
 msgid ""
 "**--unused** Remove unused packages that are not a direct or indirect "
@@ -2580,13 +2598,13 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:344
+#: ../doc/03-cli.md:350
 #, markdown-text
 msgid "**--dev:** Remove packages from `require-dev`."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:344 ../doc/03-cli.md:938
+#: ../doc/03-cli.md:350 ../doc/03-cli.md:944
 #, markdown-text
 msgid ""
 "**--no-audit:** Does not run the audit steps after installation is "
@@ -2594,7 +2612,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:344
+#: ../doc/03-cli.md:350
 #, markdown-text
 msgid ""
 "**--update-no-dev:** Run the dependency update with the --no-dev "
@@ -2602,7 +2620,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:344
+#: ../doc/03-cli.md:350
 #, markdown-text
 msgid ""
 "**--update-with-dependencies (-w):** Also update dependencies of the removed "
@@ -2610,7 +2628,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:344
+#: ../doc/03-cli.md:350
 #, markdown-text
 msgid ""
 "**--update-with-all-dependencies (-W):** Allows all inherited dependencies "
@@ -2618,13 +2636,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/03-cli.md:345
+#: ../doc/03-cli.md:351
 #, markdown-text, no-wrap
 msgid "bump"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:352
+#: ../doc/03-cli.md:358
 #, markdown-text
 msgid ""
 "The `bump` command increases the lower limit of your composer.json "
@@ -2635,7 +2653,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:357
+#: ../doc/03-cli.md:363
 #, markdown-text
 msgid ""
 "Running this blindly on libraries is **NOT** recommended as it will narrow "
@@ -2646,31 +2664,31 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:363
+#: ../doc/03-cli.md:369
 #, markdown-text
 msgid "**--dev-only:** Only bump requirements in \"require-dev\"."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:363
+#: ../doc/03-cli.md:369
 #, markdown-text
 msgid "**--no-dev-only:** Only bump requirements in \"require\"."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:363
+#: ../doc/03-cli.md:369
 #, markdown-text
 msgid "**--dry-run:** Outputs the packages to bump, but will not execute anything."
 msgstr ""
 
 #. type: Title ##
-#: ../doc/03-cli.md:364
+#: ../doc/03-cli.md:370
 #, markdown-text, no-wrap
 msgid "reinstall"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:370
+#: ../doc/03-cli.md:376
 #, markdown-text
 msgid ""
 "The `reinstall` command looks up installed packages by name, uninstalls them "
@@ -2680,13 +2698,13 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (shell)
-#: ../doc/03-cli.md:371
+#: ../doc/03-cli.md:377
 #, no-wrap
 msgid "php composer.phar reinstall acme/foo acme/bar\n"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:377
+#: ../doc/03-cli.md:383
 #, markdown-text
 msgid ""
 "You can specify more than one package name to reinstall, or use a wildcard "
@@ -2694,13 +2712,13 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (shell)
-#: ../doc/03-cli.md:378
+#: ../doc/03-cli.md:384
 #, no-wrap
 msgid "php composer.phar reinstall \"acme/*\"\n"
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:409
+#: ../doc/03-cli.md:415
 #, markdown-text
 msgid ""
 "**--ignore-platform-reqs:** ignore all platform requirements. This only has "
@@ -2709,7 +2727,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:409
+#: ../doc/03-cli.md:415
 #, markdown-text
 msgid ""
 "**--ignore-platform-req:** ignore a specific platform requirement. This only "
@@ -2718,13 +2736,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/03-cli.md:410
+#: ../doc/03-cli.md:416
 #, markdown-text, no-wrap
 msgid "check-platform-reqs"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:416
+#: ../doc/03-cli.md:422
 #, markdown-text
 msgid ""
 "The check-platform-reqs command checks that your PHP and extensions versions "
@@ -2734,7 +2752,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:420
+#: ../doc/03-cli.md:426
 #, markdown-text
 msgid ""
 "Unlike update/install, this command will ignore config.platform settings and "
@@ -2743,7 +2761,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:426
+#: ../doc/03-cli.md:432
 #, markdown-text
 msgid ""
 "**--lock:** Checks requirements only from the lock file, not from installed "
@@ -2751,25 +2769,25 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:426
+#: ../doc/03-cli.md:432
 #, markdown-text
 msgid "**--no-dev:** Disables checking of require-dev packages requirements."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:426
+#: ../doc/03-cli.md:432
 #, markdown-text
 msgid "**--format (-f):** Format of the output: text (default) or json"
 msgstr ""
 
 #. type: Title ##
-#: ../doc/03-cli.md:427
+#: ../doc/03-cli.md:433
 #, markdown-text, no-wrap
 msgid "global"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:432
+#: ../doc/03-cli.md:438
 #, markdown-text
 msgid ""
 "The global command allows you to run other commands like `install`, "
@@ -2778,7 +2796,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:435
+#: ../doc/03-cli.md:441
 #, markdown-text
 msgid ""
 "This is merely a helper to manage a project stored in a central location "
@@ -2787,19 +2805,19 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:437
+#: ../doc/03-cli.md:443
 #, markdown-text
 msgid "This can be used to install CLI utilities globally. Here is an example:"
 msgstr ""
 
 #. type: Fenced code block (shell)
-#: ../doc/03-cli.md:438
+#: ../doc/03-cli.md:444
 #, no-wrap
 msgid "php composer.phar global require friendsofphp/php-cs-fixer\n"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:445
+#: ../doc/03-cli.md:451
 #, markdown-text
 msgid ""
 "Now the `php-cs-fixer` binary is available globally. Make sure your global "
@@ -2808,31 +2826,31 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (shell)
-#: ../doc/03-cli.md:446
+#: ../doc/03-cli.md:452
 #, no-wrap
 msgid "php composer.phar global config bin-dir --absolute\n"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:451
+#: ../doc/03-cli.md:457
 #, markdown-text
 msgid "If you wish to update the binary later on you can run a global update:"
 msgstr ""
 
 #. type: Fenced code block (shell)
-#: ../doc/03-cli.md:452
+#: ../doc/03-cli.md:458
 #, no-wrap
 msgid "php composer.phar global update\n"
 msgstr ""
 
 #. type: Title ##
-#: ../doc/03-cli.md:456
+#: ../doc/03-cli.md:462
 #, markdown-text, no-wrap
 msgid "search"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:461
+#: ../doc/03-cli.md:467
 #, markdown-text
 msgid ""
 "The search command allows you to search through the current project's "
@@ -2841,25 +2859,25 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (shell)
-#: ../doc/03-cli.md:462
+#: ../doc/03-cli.md:468
 #, no-wrap
 msgid "php composer.phar search monolog\n"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:467
+#: ../doc/03-cli.md:473
 #, markdown-text
 msgid "You can also search for more than one term by passing multiple arguments."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:479
+#: ../doc/03-cli.md:485
 #, markdown-text
 msgid "**--only-name (-N):** Search only in package names."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:479
+#: ../doc/03-cli.md:485
 #, markdown-text
 msgid ""
 "**--only-vendor (-O):** Search only for vendor / organization names, returns "
@@ -2867,13 +2885,13 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:479
+#: ../doc/03-cli.md:485
 #, markdown-text
 msgid "**--type (-t):** Search for a specific package type."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:479
+#: ../doc/03-cli.md:485
 #, markdown-text
 msgid ""
 "**--format (-f):** Lets you pick between text (default) or json output "
@@ -2884,37 +2902,37 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/03-cli.md:480
+#: ../doc/03-cli.md:486
 #, markdown-text, no-wrap
 msgid "show / info"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:483
+#: ../doc/03-cli.md:489
 #, markdown-text
 msgid "To list all of the available packages, you can use the `show` command."
 msgstr ""
 
 #. type: Fenced code block (shell)
-#: ../doc/03-cli.md:484
+#: ../doc/03-cli.md:490
 #, no-wrap
 msgid "php composer.phar show\n"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:489
+#: ../doc/03-cli.md:495
 #, markdown-text
 msgid "To filter the list you can pass a package mask using wildcards."
 msgstr ""
 
 #. type: Fenced code block (shell)
-#: ../doc/03-cli.md:490
+#: ../doc/03-cli.md:496
 #, no-wrap
 msgid "php composer.phar show \"monolog/*\"\n"
 msgstr ""
 
 #. type: Fenced code block (text)
-#: ../doc/03-cli.md:493
+#: ../doc/03-cli.md:499
 #, no-wrap
 msgid ""
 "monolog/monolog 2.4.0 Sends your logs to files, sockets, inboxes, databases "
@@ -2922,7 +2940,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:499
+#: ../doc/03-cli.md:505
 #, markdown-text
 msgid ""
 "If you want to see the details of a certain package, you can pass the "
@@ -2930,13 +2948,13 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (shell)
-#: ../doc/03-cli.md:500
+#: ../doc/03-cli.md:506
 #, no-wrap
 msgid "php composer.phar show monolog/monolog\n"
 msgstr ""
 
 #. type: Fenced code block (text)
-#: ../doc/03-cli.md:503
+#: ../doc/03-cli.md:509
 #, no-wrap
 msgid ""
 "name     : monolog/monolog\n"
@@ -2969,7 +2987,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:530
+#: ../doc/03-cli.md:536
 #, markdown-text
 msgid ""
 "You can even pass the package version, which will tell you the details of "
@@ -2977,19 +2995,19 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (shell)
-#: ../doc/03-cli.md:531
+#: ../doc/03-cli.md:537
 #, no-wrap
 msgid "php composer.phar show monolog/monolog 1.0.2\n"
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:563
+#: ../doc/03-cli.md:569
 #, markdown-text
 msgid "**--all:** List all packages available in all your repositories."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:563
+#: ../doc/03-cli.md:569
 #, markdown-text
 msgid ""
 "**--installed (-i):** List the packages that are installed (this is enabled "
@@ -2997,43 +3015,43 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:563
+#: ../doc/03-cli.md:569
 #, markdown-text
 msgid "**--locked:** List the locked packages from composer.lock."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:563
+#: ../doc/03-cli.md:569
 #, markdown-text
 msgid "**--platform (-p):** List only platform packages (php & extensions)."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:563
+#: ../doc/03-cli.md:569
 #, markdown-text
 msgid "**--available (-a):** List available packages only."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:563
+#: ../doc/03-cli.md:569
 #, markdown-text
 msgid "**--self (-s):** List the root package info."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:563
+#: ../doc/03-cli.md:569
 #, markdown-text
 msgid "**--name-only (-N):** List package names only."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:563
+#: ../doc/03-cli.md:569
 #, markdown-text
 msgid "**--path (-P):** List package paths."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:563
+#: ../doc/03-cli.md:569
 #, markdown-text
 msgid ""
 "**--tree (-t):** List your dependencies as a tree. If you pass a package "
@@ -3041,7 +3059,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:563
+#: ../doc/03-cli.md:569
 #, markdown-text
 msgid ""
 "**--latest (-l):** List all installed packages including their latest "
@@ -3049,7 +3067,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:563
+#: ../doc/03-cli.md:569
 #, markdown-text
 msgid ""
 "**--outdated (-o):** Implies --latest, but this lists *only* packages that "
@@ -3057,7 +3075,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:563
+#: ../doc/03-cli.md:569
 #, markdown-text
 msgid ""
 "**--ignore:** Ignore specified package(s). Use it with the --outdated option "
@@ -3065,13 +3083,13 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:563
+#: ../doc/03-cli.md:569
 #, markdown-text
 msgid "**--no-dev:** Filters dev dependencies from the package list."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:563
+#: ../doc/03-cli.md:569
 #, markdown-text
 msgid ""
 "**--major-only (-M):** Use with --latest or --outdated. Only shows packages "
@@ -3079,7 +3097,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:563
+#: ../doc/03-cli.md:569
 #, markdown-text
 msgid ""
 "**--minor-only (-m):** Use with --latest or --outdated. Only shows packages "
@@ -3087,7 +3105,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:563
+#: ../doc/03-cli.md:569
 #, markdown-text
 msgid ""
 "**--patch-only:** Use with --latest or --outdated. Only shows packages that "
@@ -3095,7 +3113,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:563 ../doc/03-cli.md:595
+#: ../doc/03-cli.md:569 ../doc/03-cli.md:601
 #, markdown-text
 msgid ""
 "**--direct (-D):** Restricts the list of packages to your direct "
@@ -3103,13 +3121,13 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:563
+#: ../doc/03-cli.md:569
 #, markdown-text
 msgid "**--strict:** Return a non-zero exit code when there are outdated packages."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:563 ../doc/03-cli.md:595 ../doc/03-cli.md:635
+#: ../doc/03-cli.md:569 ../doc/03-cli.md:601 ../doc/03-cli.md:641
 #, markdown-text
 msgid ""
 "**--format (-f):** Lets you pick between text (default) or json output "
@@ -3117,7 +3135,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:563
+#: ../doc/03-cli.md:569
 #, markdown-text
 msgid ""
 "**--ignore-platform-reqs:** ignore all platform requirements (`php`, `hhvm`, "
@@ -3126,7 +3144,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:563
+#: ../doc/03-cli.md:569
 #, markdown-text
 msgid ""
 "**--ignore-platform-req:** ignore a specific platform requirement(`php`, "
@@ -3136,13 +3154,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/03-cli.md:564
+#: ../doc/03-cli.md:570
 #, markdown-text, no-wrap
 msgid "outdated"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:569
+#: ../doc/03-cli.md:575
 #, markdown-text
 msgid ""
 "The `outdated` command shows a list of installed packages that have updates "
@@ -3151,19 +3169,19 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:571
+#: ../doc/03-cli.md:577
 #, markdown-text
 msgid "The color coding is as such:"
 msgstr ""
 
 #. type: Bullet: '- '
-#: ../doc/03-cli.md:576
+#: ../doc/03-cli.md:582
 #, markdown-text
 msgid "**green (=)**: Dependency is in the latest version and is up to date."
 msgstr ""
 
 #. type: Bullet: '- '
-#: ../doc/03-cli.md:576
+#: ../doc/03-cli.md:582
 #, markdown-text
 msgid ""
 "**yellow (`~`)**: Dependency has a new version available that includes "
@@ -3172,7 +3190,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: ../doc/03-cli.md:576
+#: ../doc/03-cli.md:582
 #, markdown-text
 msgid ""
 "**red (!)**: Dependency has a new version that is semver-compatible and you "
@@ -3180,7 +3198,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:595
+#: ../doc/03-cli.md:601
 #, markdown-text
 msgid ""
 "**--all (-a):** Show all packages, not just outdated (alias for `composer "
@@ -3188,13 +3206,13 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:595
+#: ../doc/03-cli.md:601
 #, markdown-text
 msgid "**--strict:** Returns non-zero exit code if any package is outdated."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:595
+#: ../doc/03-cli.md:601
 #, markdown-text
 msgid ""
 "**--ignore:** Ignore specified package(s). Use it if you don't want to be "
@@ -3202,7 +3220,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:595
+#: ../doc/03-cli.md:601
 #, markdown-text
 msgid ""
 "**--major-only (-M):** Only shows packages that have major SemVer-compatible "
@@ -3210,7 +3228,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:595
+#: ../doc/03-cli.md:601
 #, markdown-text
 msgid ""
 "**--minor-only (-m):** Only shows packages that have minor SemVer-compatible "
@@ -3218,7 +3236,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:595
+#: ../doc/03-cli.md:601
 #, markdown-text
 msgid ""
 "**--patch-only (-p):** Only shows packages that have patch-level "
@@ -3226,13 +3244,13 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:595
+#: ../doc/03-cli.md:601
 #, markdown-text
 msgid "**--no-dev:** Do not show outdated dev dependencies."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:595
+#: ../doc/03-cli.md:601
 #, markdown-text
 msgid ""
 "**--locked:** Shows updates for packages from the lock file, regardless of "
@@ -3240,7 +3258,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:595
+#: ../doc/03-cli.md:601
 #, markdown-text
 msgid ""
 "**--ignore-platform-reqs:** ignore all platform requirements (`php`, `hhvm`, "
@@ -3249,13 +3267,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/03-cli.md:596
+#: ../doc/03-cli.md:602
 #, markdown-text, no-wrap
 msgid "browse / home"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:600
+#: ../doc/03-cli.md:606
 #, markdown-text
 msgid ""
 "The `browse` (aliased to `home`) opens a package's repository URL or "
@@ -3263,25 +3281,25 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:605
+#: ../doc/03-cli.md:611
 #, markdown-text
 msgid "**--homepage (-H):** Open the homepage instead of the repository URL."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:605
+#: ../doc/03-cli.md:611
 #, markdown-text
 msgid "**--show (-s):** Only show the homepage or repository URL."
 msgstr ""
 
 #. type: Title ##
-#: ../doc/03-cli.md:606
+#: ../doc/03-cli.md:612
 #, markdown-text, no-wrap
 msgid "suggests"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:611
+#: ../doc/03-cli.md:617
 #, markdown-text
 msgid ""
 "Lists all packages suggested by the currently installed set of packages. You "
@@ -3290,7 +3308,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:614
+#: ../doc/03-cli.md:620
 #, markdown-text
 msgid ""
 "Use the `--by-package` (default) or `--by-suggestion` flags to group the "
@@ -3299,25 +3317,25 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:616
+#: ../doc/03-cli.md:622
 #, markdown-text
 msgid "If you only want a list of suggested package names, use `--list`."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:625
+#: ../doc/03-cli.md:631
 #, markdown-text
 msgid "**--by-package:** Groups output by suggesting package (default)."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:625
+#: ../doc/03-cli.md:631
 #, markdown-text
 msgid "**--by-suggestion:** Groups output by suggested package."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:625
+#: ../doc/03-cli.md:631
 #, markdown-text
 msgid ""
 "**--all:** Show suggestions from all dependencies, including transitive ones "
@@ -3325,25 +3343,25 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:625
+#: ../doc/03-cli.md:631
 #, markdown-text
 msgid "**--list:** Show only list of suggested package names."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:625
+#: ../doc/03-cli.md:631
 #, markdown-text
 msgid "**--no-dev:** Excludes suggestions from `require-dev` packages."
 msgstr ""
 
 #. type: Title ##
-#: ../doc/03-cli.md:626
+#: ../doc/03-cli.md:632
 #, markdown-text, no-wrap
 msgid "fund"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:631
+#: ../doc/03-cli.md:637
 #, markdown-text
 msgid ""
 "Discover how to help fund the maintenance of your dependencies. This lists "
@@ -3352,13 +3370,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/03-cli.md:636
+#: ../doc/03-cli.md:642
 #, markdown-text, no-wrap
 msgid "depends / why"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:641
+#: ../doc/03-cli.md:647
 #, markdown-text
 msgid ""
 "The `depends` command tells you which other packages depend on a certain "
@@ -3367,13 +3385,13 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (shell)
-#: ../doc/03-cli.md:642
+#: ../doc/03-cli.md:648
 #, no-wrap
 msgid "php composer.phar depends doctrine/lexer\n"
 msgstr ""
 
 #. type: Fenced code block (text)
-#: ../doc/03-cli.md:645
+#: ../doc/03-cli.md:651
 #, no-wrap
 msgid ""
 "doctrine/annotations  1.13.3 requires doctrine/lexer (1.*)\n"
@@ -3381,7 +3399,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:652
+#: ../doc/03-cli.md:658
 #, markdown-text
 msgid ""
 "You can optionally specify a version constraint after the package to limit "
@@ -3389,7 +3407,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:655
+#: ../doc/03-cli.md:661
 #, markdown-text
 msgid ""
 "Add the `--tree` or `-t` flag to show a recursive tree of why the package is "
@@ -3397,13 +3415,13 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (shell)
-#: ../doc/03-cli.md:656
+#: ../doc/03-cli.md:662
 #, no-wrap
 msgid "php composer.phar depends psr/log -t\n"
 msgstr ""
 
 #. type: Fenced code block (text)
-#: ../doc/03-cli.md:659
+#: ../doc/03-cli.md:665
 #, no-wrap
 msgid ""
 "psr/log 1.1.4 Common interface for logging libraries\n"
@@ -3419,25 +3437,25 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:673 ../doc/03-cli.md:707
+#: ../doc/03-cli.md:679 ../doc/03-cli.md:713
 #, markdown-text
 msgid "**--recursive (-r):** Recursively resolves up to the root package."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:673 ../doc/03-cli.md:707
+#: ../doc/03-cli.md:679 ../doc/03-cli.md:713
 #, markdown-text
 msgid "**--tree (-t):** Prints the results as a nested tree, implies -r."
 msgstr ""
 
 #. type: Title ##
-#: ../doc/03-cli.md:674
+#: ../doc/03-cli.md:680
 #, markdown-text, no-wrap
 msgid "prohibits / why-not"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:680
+#: ../doc/03-cli.md:686
 #, markdown-text
 msgid ""
 "The `prohibits` command tells you which packages are blocking a given "
@@ -3447,19 +3465,19 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (shell)
-#: ../doc/03-cli.md:681
+#: ../doc/03-cli.md:687
 #, no-wrap
 msgid "php composer.phar prohibits symfony/symfony 3.1\n"
 msgstr ""
 
 #. type: Fenced code block (text)
-#: ../doc/03-cli.md:684
+#: ../doc/03-cli.md:690
 #, no-wrap
 msgid "laravel/framework v5.2.16 requires symfony/var-dumper (2.8.*|3.0.*)\n"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:690
+#: ../doc/03-cli.md:696
 #, markdown-text
 msgid ""
 "Note that you can also specify platform requirements, for example to check "
@@ -3467,13 +3485,13 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (shell)
-#: ../doc/03-cli.md:691
+#: ../doc/03-cli.md:697
 #, no-wrap
 msgid "php composer.phar prohibits php 8\n"
 msgstr ""
 
 #. type: Fenced code block (text)
-#: ../doc/03-cli.md:694
+#: ../doc/03-cli.md:700
 #, no-wrap
 msgid ""
 "doctrine/cache        v1.6.0 requires php (~5.5|~7.0)\n"
@@ -3482,7 +3500,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:702
+#: ../doc/03-cli.md:708
 #, markdown-text
 msgid ""
 "As with `depends` you can request a recursive lookup, which will list all "
@@ -3490,13 +3508,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/03-cli.md:708
+#: ../doc/03-cli.md:714
 #, markdown-text, no-wrap
 msgid "validate"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:713
+#: ../doc/03-cli.md:719
 #, markdown-text
 msgid ""
 "You should always run the `validate` command before you commit your "
@@ -3505,13 +3523,13 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (shell)
-#: ../doc/03-cli.md:714
+#: ../doc/03-cli.md:720
 #, no-wrap
 msgid "php composer.phar validate\n"
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:725
+#: ../doc/03-cli.md:731
 #, markdown-text
 msgid ""
 "**--no-check-all:** Do not emit a warning if requirements in `composer.json` "
@@ -3519,7 +3537,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:725
+#: ../doc/03-cli.md:731
 #, markdown-text
 msgid ""
 "**--no-check-lock:** Do not emit an error if `composer.lock` exists and is "
@@ -3527,7 +3545,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:725
+#: ../doc/03-cli.md:731
 #, markdown-text
 msgid ""
 "**--no-check-publish:** Do not emit an error if `composer.json` is "
@@ -3535,7 +3553,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:725
+#: ../doc/03-cli.md:731
 #, markdown-text
 msgid ""
 "**--with-dependencies:** Also validate the composer.json of all installed "
@@ -3543,19 +3561,19 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:725
+#: ../doc/03-cli.md:731
 #, markdown-text
 msgid "**--strict:** Return a non-zero exit code for warnings as well as errors."
 msgstr ""
 
 #. type: Title ##
-#: ../doc/03-cli.md:726
+#: ../doc/03-cli.md:732
 #, markdown-text, no-wrap
 msgid "status"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:731
+#: ../doc/03-cli.md:737
 #, markdown-text
 msgid ""
 "If you often need to modify the code of your dependencies and they are "
@@ -3564,13 +3582,13 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (shell)
-#: ../doc/03-cli.md:732
+#: ../doc/03-cli.md:738
 #, no-wrap
 msgid "php composer.phar status\n"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:738
+#: ../doc/03-cli.md:744
 #, markdown-text
 msgid ""
 "With the `--verbose` option you get some more information about what was "
@@ -3578,13 +3596,13 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (shell)
-#: ../doc/03-cli.md:739
+#: ../doc/03-cli.md:745
 #, no-wrap
 msgid "php composer.phar status -v\n"
 msgstr ""
 
 #. type: Fenced code block (text)
-#: ../doc/03-cli.md:742
+#: ../doc/03-cli.md:748
 #, no-wrap
 msgid ""
 "You have changes in the following dependencies:\n"
@@ -3593,13 +3611,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/03-cli.md:748
+#: ../doc/03-cli.md:754
 #, markdown-text, no-wrap
 msgid "self-update / selfupdate"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:752
+#: ../doc/03-cli.md:758
 #, markdown-text
 msgid ""
 "To update Composer itself to the latest version, run the `self-update` "
@@ -3607,25 +3625,25 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (shell)
-#: ../doc/03-cli.md:753
+#: ../doc/03-cli.md:759
 #, no-wrap
 msgid "php composer.phar self-update\n"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:758
+#: ../doc/03-cli.md:764
 #, markdown-text
 msgid "If you would like to instead update to a specific release specify it:"
 msgstr ""
 
 #. type: Fenced code block (shell)
-#: ../doc/03-cli.md:759
+#: ../doc/03-cli.md:765
 #, no-wrap
 msgid "php composer.phar self-update 2.4.0-RC1\n"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:765
+#: ../doc/03-cli.md:771
 #, markdown-text
 msgid ""
 "If you have installed Composer for your entire system (see [global "
@@ -3634,13 +3652,13 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (shell)
-#: ../doc/03-cli.md:766
+#: ../doc/03-cli.md:772
 #, no-wrap
 msgid "sudo -H composer self-update\n"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:772
+#: ../doc/03-cli.md:778
 #, markdown-text
 msgid ""
 "If Composer was not installed as a PHAR, this command is not available.  "
@@ -3649,13 +3667,13 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:786
+#: ../doc/03-cli.md:792
 #, markdown-text
 msgid "**--rollback (-r):** Rollback to the last version you had installed."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:786
+#: ../doc/03-cli.md:792
 #, markdown-text
 msgid ""
 "**--clean-backups:** Delete old backups during an update. This makes the "
@@ -3663,49 +3681,49 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:786
+#: ../doc/03-cli.md:792
 #, markdown-text
 msgid "**--no-progress:** Do not output download progress."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:786
+#: ../doc/03-cli.md:792
 #, markdown-text
 msgid "**--update-keys:** Prompt user for a key update."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:786
+#: ../doc/03-cli.md:792
 #, markdown-text
 msgid "**--stable:** Force an update to the stable channel."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:786
+#: ../doc/03-cli.md:792
 #, markdown-text
 msgid "**--preview:** Force an update to the preview channel."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:786
+#: ../doc/03-cli.md:792
 #, markdown-text
 msgid "**--snapshot:** Force an update to the snapshot channel."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:786
+#: ../doc/03-cli.md:792
 #, markdown-text
 msgid "**--1:** Force an update to the stable channel, but only use 1.x versions"
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:786
+#: ../doc/03-cli.md:792
 #, markdown-text
 msgid "**--2:** Force an update to the stable channel, but only use 2.x versions"
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:786
+#: ../doc/03-cli.md:792
 #, markdown-text
 msgid ""
 "**--set-channel-only:** Only store the channel as the default one and then "
@@ -3713,13 +3731,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/03-cli.md:787
+#: ../doc/03-cli.md:793
 #, markdown-text, no-wrap
 msgid "config"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:791
+#: ../doc/03-cli.md:797
 #, markdown-text
 msgid ""
 "The `config` command allows you to edit Composer config settings and "
@@ -3728,31 +3746,31 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:793
+#: ../doc/03-cli.md:799
 #, markdown-text
 msgid "Additionally it lets you edit most properties in the local `composer.json`."
 msgstr ""
 
 #. type: Fenced code block (shell)
-#: ../doc/03-cli.md:794
+#: ../doc/03-cli.md:800
 #, no-wrap
 msgid "php composer.phar config --list\n"
 msgstr ""
 
 #. type: Title ###
-#: ../doc/03-cli.md:798
+#: ../doc/03-cli.md:804
 #, markdown-text, no-wrap
 msgid "Usage"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:801
+#: ../doc/03-cli.md:807
 #, markdown-text
 msgid "`config [options] [setting-key] [setting-value1] ... [setting-valueN]`"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:805
+#: ../doc/03-cli.md:811
 #, markdown-text
 msgid ""
 "`setting-key` is a configuration option name and `setting-value1` is a "
@@ -3761,13 +3779,13 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:807
+#: ../doc/03-cli.md:813
 #, markdown-text
 msgid "You can also edit the values of the following properties:"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:810
+#: ../doc/03-cli.md:816
 #, markdown-text
 msgid ""
 "`description`, `homepage`, `keywords`, `license`, `minimum-stability`, "
@@ -3775,13 +3793,13 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:812
+#: ../doc/03-cli.md:818
 #, markdown-text
 msgid "See the [Config](06-config.md) chapter for valid configuration options."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:833
+#: ../doc/03-cli.md:839
 #, markdown-text
 msgid ""
 "**--global (-g):** Operate on the global config file located at "
@@ -3790,7 +3808,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:833
+#: ../doc/03-cli.md:839
 #, markdown-text
 msgid ""
 "**--editor (-e):** Open the local composer.json file using in a text editor "
@@ -3799,19 +3817,19 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:833
+#: ../doc/03-cli.md:839
 #, markdown-text
 msgid "**--auth (-a):** Affect auth config file (only used for --editor)."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:833
+#: ../doc/03-cli.md:839
 #, markdown-text
 msgid "**--unset:** Remove the configuration element named by `setting-key`."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:833
+#: ../doc/03-cli.md:839
 #, markdown-text
 msgid ""
 "**--list (-l):** Show the list of current config variables.  With the "
@@ -3819,7 +3837,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:833
+#: ../doc/03-cli.md:839
 #, markdown-text
 msgid ""
 "**--file=\"...\" (-f):** Operate on a specific file instead of "
@@ -3828,7 +3846,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:833
+#: ../doc/03-cli.md:839
 #, markdown-text
 msgid ""
 "**--absolute:** Returns absolute paths when fetching `*-dir` config values "
@@ -3836,13 +3854,13 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:833
+#: ../doc/03-cli.md:839
 #, markdown-text
 msgid "**--json:** JSON decode the setting value, to be used with `extra.*` keys."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:833
+#: ../doc/03-cli.md:839
 #, markdown-text
 msgid ""
 "**--merge:** Merge the setting value with the current value, to be used with "
@@ -3850,7 +3868,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:833
+#: ../doc/03-cli.md:839
 #, markdown-text
 msgid ""
 "**--append:** When adding a repository, append it (lowest priority) to the "
@@ -3858,19 +3876,19 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:833
+#: ../doc/03-cli.md:839
 #, markdown-text
 msgid "**--source:** Display where the config value is loaded from."
 msgstr ""
 
 #. type: Title ###
-#: ../doc/03-cli.md:834
+#: ../doc/03-cli.md:840
 #, markdown-text, no-wrap
 msgid "Modifying Repositories"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:838
+#: ../doc/03-cli.md:844
 #, markdown-text
 msgid ""
 "In addition to modifying the config section, the `config` command also "
@@ -3879,13 +3897,13 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (shell)
-#: ../doc/03-cli.md:839
+#: ../doc/03-cli.md:845
 #, no-wrap
 msgid "php composer.phar config repositories.foo vcs https://github.com/foo/bar\n"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:844
+#: ../doc/03-cli.md:850
 #, markdown-text
 msgid ""
 "If your repository requires more configuration options, you can instead pass "
@@ -3893,7 +3911,7 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (shell)
-#: ../doc/03-cli.md:845
+#: ../doc/03-cli.md:851
 #, no-wrap
 msgid ""
 "php composer.phar config repositories.foo '{\"type\": \"vcs\", \"url\": "
@@ -3901,13 +3919,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ###
-#: ../doc/03-cli.md:849
+#: ../doc/03-cli.md:855
 #, markdown-text, no-wrap
 msgid "Modifying Extra Values"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:853
+#: ../doc/03-cli.md:859
 #, markdown-text
 msgid ""
 "In addition to modifying the config section, the `config` command also "
@@ -3915,13 +3933,13 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (shell)
-#: ../doc/03-cli.md:854
+#: ../doc/03-cli.md:860
 #, no-wrap
 msgid "php composer.phar config extra.foo.bar value\n"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:860
+#: ../doc/03-cli.md:866
 #, markdown-text
 msgid ""
 "The dots indicate array nesting, a max depth of 3 levels is allowed "
@@ -3930,7 +3948,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:863
+#: ../doc/03-cli.md:869
 #, markdown-text
 msgid ""
 "If you have a complex value to add/modify, you can use the `--json` and "
@@ -3938,7 +3956,7 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (shell)
-#: ../doc/03-cli.md:864
+#: ../doc/03-cli.md:870
 #, no-wrap
 msgid ""
 "php composer.phar config --json extra.foo.bar '{\"baz\": true, \"qux\": "
@@ -3946,13 +3964,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/03-cli.md:868
+#: ../doc/03-cli.md:874
 #, markdown-text, no-wrap
 msgid "create-project"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:873
+#: ../doc/03-cli.md:879
 #, markdown-text
 msgid ""
 "You can use Composer to create new projects from an existing package. This "
@@ -3961,25 +3979,25 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:875
+#: ../doc/03-cli.md:881
 #, markdown-text
 msgid "There are several applications for this:"
 msgstr ""
 
 #. type: Bullet: '1. '
-#: ../doc/03-cli.md:880
+#: ../doc/03-cli.md:886
 #, markdown-text
 msgid "You can deploy application packages."
 msgstr ""
 
 #. type: Bullet: '2. '
-#: ../doc/03-cli.md:880
+#: ../doc/03-cli.md:886
 #, markdown-text
 msgid "You can check out any package and start developing on patches for example."
 msgstr ""
 
 #. type: Bullet: '3. '
-#: ../doc/03-cli.md:880
+#: ../doc/03-cli.md:886
 #, markdown-text
 msgid ""
 "Projects with multiple developers can use this feature to bootstrap the "
@@ -3987,7 +4005,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:884
+#: ../doc/03-cli.md:890
 #, markdown-text
 msgid ""
 "To create a new project using Composer you can use the `create-project` "
@@ -3997,7 +4015,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:886
+#: ../doc/03-cli.md:892
 #, markdown-text
 msgid ""
 "If the directory does not currently exist, it will be created during "
@@ -4005,13 +4023,13 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (shell)
-#: ../doc/03-cli.md:887
+#: ../doc/03-cli.md:893
 #, no-wrap
 msgid "php composer.phar create-project doctrine/orm path \"2.2.*\"\n"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:893
+#: ../doc/03-cli.md:899
 #, markdown-text
 msgid ""
 "It is also possible to run the command without params in a directory with an "
@@ -4019,19 +4037,19 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:895
+#: ../doc/03-cli.md:901
 #, markdown-text
 msgid "By default the command checks for the packages on packagist.org."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:938
+#: ../doc/03-cli.md:944
 #, markdown-text
 msgid "**--stability (-s):** Minimum stability of package. Defaults to `stable`."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:938
+#: ../doc/03-cli.md:944
 #, markdown-text
 msgid ""
 "**--repository:** Provide a custom repository to search for the package, "
@@ -4043,7 +4061,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:938
+#: ../doc/03-cli.md:944
 #, markdown-text
 msgid ""
 "**--add-repository:** Add the custom repository in the composer.json. If a "
@@ -4052,19 +4070,19 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:938
+#: ../doc/03-cli.md:944
 #, markdown-text
 msgid "**--dev:** Install packages listed in `require-dev`."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:938
+#: ../doc/03-cli.md:944
 #, markdown-text
 msgid "**--no-dev:** Disables installation of require-dev packages."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:938
+#: ../doc/03-cli.md:944
 #, markdown-text
 msgid ""
 "**--no-scripts:** Disables the execution of the scripts defined in the root "
@@ -4072,7 +4090,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:938
+#: ../doc/03-cli.md:944
 #, markdown-text
 msgid ""
 "**--no-secure-http:** Disable the secure-http config option temporarily "
@@ -4081,7 +4099,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:938
+#: ../doc/03-cli.md:944
 #, markdown-text
 msgid ""
 "**--keep-vcs:** Skip the deletion of the VCS metadata for the created "
@@ -4090,31 +4108,31 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:938
+#: ../doc/03-cli.md:944
 #, markdown-text
 msgid "**--remove-vcs:** Force-remove the VCS metadata without prompting."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:938
+#: ../doc/03-cli.md:944
 #, markdown-text
 msgid "**--no-install:** Disables installation of the vendors."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:938
+#: ../doc/03-cli.md:944
 #, markdown-text
 msgid "**--ask:** Ask the user to provide a target directory for the new project."
 msgstr ""
 
 #. type: Title ##
-#: ../doc/03-cli.md:939
+#: ../doc/03-cli.md:945
 #, markdown-text, no-wrap
 msgid "dump-autoload / dumpautoload"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:944
+#: ../doc/03-cli.md:950
 #, markdown-text
 msgid ""
 "If you need to update the autoloader because of new classes in a classmap "
@@ -4123,7 +4141,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:951
+#: ../doc/03-cli.md:957
 #, markdown-text
 msgid ""
 "Additionally, it can dump an optimized autoloader that converts PSR-0/4 "
@@ -4135,7 +4153,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:973
+#: ../doc/03-cli.md:979
 #, markdown-text
 msgid ""
 "**--optimize (-o):** Convert PSR-0/4 autoloading to classmap to get a faster "
@@ -4144,7 +4162,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:973
+#: ../doc/03-cli.md:979
 #, markdown-text
 msgid ""
 "**--classmap-authoritative (-a):** Autoload classes from the classmap only.  "
@@ -4152,13 +4170,13 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:973
+#: ../doc/03-cli.md:979
 #, markdown-text
 msgid "**--apcu:** Use APCu to cache found/not-found classes."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:973
+#: ../doc/03-cli.md:979
 #, markdown-text
 msgid ""
 "**--apcu-prefix:** Use a custom prefix for the APCu autoloader cache.  "
@@ -4166,7 +4184,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:973
+#: ../doc/03-cli.md:979
 #, markdown-text
 msgid ""
 "**--no-dev:** Disables autoload-dev rules. Composer will by default infer "
@@ -4175,7 +4193,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:973
+#: ../doc/03-cli.md:979
 #, markdown-text
 msgid ""
 "**--dev:** Enables autoload-dev rules. Composer will by default infer this "
@@ -4183,7 +4201,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:973
+#: ../doc/03-cli.md:979
 #, markdown-text
 msgid ""
 "**--ignore-platform-reqs:** ignore all `php`, `hhvm`, `lib-*` and `ext-*` "
@@ -4192,7 +4210,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:973
+#: ../doc/03-cli.md:979
 #, markdown-text
 msgid ""
 "**--ignore-platform-req:** ignore a specific platform requirement (`php`, "
@@ -4202,7 +4220,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:973
+#: ../doc/03-cli.md:979
 #, markdown-text
 msgid ""
 "**--strict-psr:** Return a failed exit code (1) if PSR-4 or PSR-0 mapping "
@@ -4210,31 +4228,31 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/03-cli.md:974
+#: ../doc/03-cli.md:980
 #, markdown-text, no-wrap
 msgid "clear-cache / clearcache / cc"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:977
+#: ../doc/03-cli.md:983
 #, markdown-text
 msgid "Deletes all content from Composer's cache directories."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:981
+#: ../doc/03-cli.md:987
 #, markdown-text
 msgid "**--gc:** Only run garbage collection, not a full cache clear"
 msgstr ""
 
 #. type: Title ##
-#: ../doc/03-cli.md:982
+#: ../doc/03-cli.md:988
 #, markdown-text, no-wrap
 msgid "licenses"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:986
+#: ../doc/03-cli.md:992
 #, markdown-text
 msgid ""
 "Lists the name, version and license of every package installed. Use "
@@ -4242,7 +4260,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:991
+#: ../doc/03-cli.md:997
 #, markdown-text
 msgid ""
 "**--format:** Format of the output: text, json or summary (default: "
@@ -4250,43 +4268,43 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:991
+#: ../doc/03-cli.md:997
 #, markdown-text
 msgid "**--no-dev:** Remove dev dependencies from the output"
 msgstr ""
 
 #. type: Title ##
-#: ../doc/03-cli.md:992
+#: ../doc/03-cli.md:998
 #, markdown-text, no-wrap
 msgid "run-script / run"
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:1000
+#: ../doc/03-cli.md:1006
 #, markdown-text
 msgid "**--timeout:** Set the script timeout in seconds, or 0 for no timeout."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:1000
+#: ../doc/03-cli.md:1006
 #, markdown-text
 msgid "**--dev:** Sets the dev mode."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:1000
+#: ../doc/03-cli.md:1006
 #, markdown-text
 msgid "**--no-dev:** Disable dev mode."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:1000
+#: ../doc/03-cli.md:1006
 #, markdown-text
 msgid "**--list (-l):** List user defined scripts."
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1003
+#: ../doc/03-cli.md:1009
 #, markdown-text
 msgid ""
 "To run [scripts](articles/scripts.md) manually you can use this command, "
@@ -4294,13 +4312,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/03-cli.md:1004
+#: ../doc/03-cli.md:1010
 #, markdown-text, no-wrap
 msgid "exec"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1009
+#: ../doc/03-cli.md:1015
 #, markdown-text
 msgid ""
 "Executes a vendored binary/script. You can execute any command and this will "
@@ -4309,19 +4327,19 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:1013
+#: ../doc/03-cli.md:1019
 #, markdown-text
 msgid "**--list (-l):** List the available Composer binaries."
 msgstr ""
 
 #. type: Title ##
-#: ../doc/03-cli.md:1014
+#: ../doc/03-cli.md:1020
 #, markdown-text, no-wrap
 msgid "diagnose"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1019
+#: ../doc/03-cli.md:1025
 #, markdown-text
 msgid ""
 "If you think you found a bug, or something is behaving strangely, you might "
@@ -4330,19 +4348,19 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (shell)
-#: ../doc/03-cli.md:1020
+#: ../doc/03-cli.md:1026
 #, no-wrap
 msgid "php composer.phar diagnose\n"
 msgstr ""
 
 #. type: Title ###
-#: ../doc/03-cli.md:1024 ../doc/04-schema.md:912
+#: ../doc/03-cli.md:1030 ../doc/04-schema.md:912
 #, markdown-text, no-wrap
 msgid "archive"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1029
+#: ../doc/03-cli.md:1035
 #, markdown-text
 msgid ""
 "This command is used to generate a zip/tar archive for a given package in a "
@@ -4351,13 +4369,13 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (shell)
-#: ../doc/03-cli.md:1030
+#: ../doc/03-cli.md:1036
 #, no-wrap
 msgid "php composer.phar archive vendor/package 2.0.21 --format=zip\n"
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:1040
+#: ../doc/03-cli.md:1046
 #, markdown-text
 msgid ""
 "**--format (-f):** Format of the resulting archive: tar, tar.gz, tar.bz2 or "
@@ -4365,25 +4383,25 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:1040
+#: ../doc/03-cli.md:1046
 #, markdown-text
 msgid "**--dir:** Write the archive to this directory (default: \".\")"
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:1040
+#: ../doc/03-cli.md:1046
 #, markdown-text
 msgid "**--file:** Write the archive with the given file name."
 msgstr ""
 
 #. type: Title ##
-#: ../doc/03-cli.md:1041 ../doc/06-config.md:104
+#: ../doc/03-cli.md:1047 ../doc/06-config.md:104
 #, markdown-text, no-wrap
 msgid "audit"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1047
+#: ../doc/03-cli.md:1053
 #, markdown-text
 msgid ""
 "This command is used to audit the packages you have installed for possible "
@@ -4393,7 +4411,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1049
+#: ../doc/03-cli.md:1055
 #, markdown-text
 msgid ""
 "The audit command returns the amount of vulnerabilities found. `0` if "
@@ -4401,19 +4419,19 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (shell)
-#: ../doc/03-cli.md:1050
+#: ../doc/03-cli.md:1056
 #, no-wrap
 msgid "php composer.phar audit\n"
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:1059
+#: ../doc/03-cli.md:1065
 #, markdown-text
 msgid "**--no-dev:** Disables auditing of require-dev packages."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:1059
+#: ../doc/03-cli.md:1065
 #, markdown-text
 msgid ""
 "**--format (-f):** Audit output format. Must be \"table\" (default), "
@@ -4421,7 +4439,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:1059
+#: ../doc/03-cli.md:1065
 #, markdown-text
 msgid ""
 "**--locked:** Audit packages from the lock file, regardless of what is "
@@ -4429,31 +4447,31 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/03-cli.md:1060
+#: ../doc/03-cli.md:1066
 #, markdown-text, no-wrap
 msgid "help"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1063
+#: ../doc/03-cli.md:1069
 #, markdown-text
 msgid "To get more information about a certain command, you can use `help`."
 msgstr ""
 
 #. type: Fenced code block (shell)
-#: ../doc/03-cli.md:1064
+#: ../doc/03-cli.md:1070
 #, no-wrap
 msgid "php composer.phar help install\n"
 msgstr ""
 
 #. type: Title ##
-#: ../doc/03-cli.md:1068
+#: ../doc/03-cli.md:1074
 #, markdown-text, no-wrap
 msgid "Command-line completion"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1072
+#: ../doc/03-cli.md:1078
 #, markdown-text
 msgid ""
 "Command-line completion can be enabled by following instructions [on this "
@@ -4461,13 +4479,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ##
-#: ../doc/03-cli.md:1073
+#: ../doc/03-cli.md:1079
 #, markdown-text, no-wrap
 msgid "Environment variables"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1079
+#: ../doc/03-cli.md:1085
 #, markdown-text
 msgid ""
 "You can set a number of environment variables that override certain "
@@ -4478,13 +4496,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ###
-#: ../doc/03-cli.md:1080
+#: ../doc/03-cli.md:1086
 #, markdown-text, no-wrap
 msgid "COMPOSER"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1084
+#: ../doc/03-cli.md:1090
 #, markdown-text
 msgid ""
 "By setting the `COMPOSER` env variable it is possible to set the filename of "
@@ -4492,19 +4510,19 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1086
+#: ../doc/03-cli.md:1092
 #, markdown-text
 msgid "For example:"
 msgstr ""
 
 #. type: Fenced code block (shell)
-#: ../doc/03-cli.md:1087
+#: ../doc/03-cli.md:1093
 #, no-wrap
 msgid "COMPOSER=composer-other.json php composer.phar install\n"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1092
+#: ../doc/03-cli.md:1098
 #, markdown-text
 msgid ""
 "The generated lock file will use the same name: `composer-other.lock` in "
@@ -4512,13 +4530,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ###
-#: ../doc/03-cli.md:1093
+#: ../doc/03-cli.md:1099
 #, markdown-text, no-wrap
 msgid "COMPOSER_ALLOW_SUPERUSER"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1098
+#: ../doc/03-cli.md:1104
 #, markdown-text
 msgid ""
 "If set to 1, this env disables the warning about running commands as "
@@ -4528,13 +4546,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ###
-#: ../doc/03-cli.md:1099
+#: ../doc/03-cli.md:1105
 #, markdown-text, no-wrap
 msgid "COMPOSER_ALLOW_XDEBUG"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1102
+#: ../doc/03-cli.md:1108
 #, markdown-text
 msgid ""
 "If set to 1, this env allows running Composer when the Xdebug extension is "
@@ -4542,13 +4560,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ###
-#: ../doc/03-cli.md:1103
+#: ../doc/03-cli.md:1109
 #, markdown-text, no-wrap
 msgid "COMPOSER_AUTH"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1110
+#: ../doc/03-cli.md:1116
 #, markdown-text
 msgid ""
 "The `COMPOSER_AUTH` var allows you to set up authentication as an "
@@ -4559,13 +4577,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ###
-#: ../doc/03-cli.md:1111
+#: ../doc/03-cli.md:1117
 #, markdown-text, no-wrap
 msgid "COMPOSER_BIN_DIR"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1115
+#: ../doc/03-cli.md:1121
 #, markdown-text
 msgid ""
 "By setting this option you can change the `bin` ([Vendor "
@@ -4574,13 +4592,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ###
-#: ../doc/03-cli.md:1116
+#: ../doc/03-cli.md:1122
 #, markdown-text, no-wrap
 msgid "COMPOSER_CACHE_DIR"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1120
+#: ../doc/03-cli.md:1126
 #, markdown-text
 msgid ""
 "The `COMPOSER_CACHE_DIR` var allows you to change the Composer cache "
@@ -4589,7 +4607,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1126
+#: ../doc/03-cli.md:1132
 #, markdown-text, no-wrap
 msgid ""
 "By default, it points to `C:\\Users\\<user>\\AppData\\Local\\Composer` (or "
@@ -4603,13 +4621,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ###
-#: ../doc/03-cli.md:1127
+#: ../doc/03-cli.md:1133
 #, markdown-text, no-wrap
 msgid "COMPOSER_CAFILE"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1131
+#: ../doc/03-cli.md:1137
 #, markdown-text
 msgid ""
 "By setting this environmental value, you can set a path to a certificate "
@@ -4617,13 +4635,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ###
-#: ../doc/03-cli.md:1132
+#: ../doc/03-cli.md:1138
 #, markdown-text, no-wrap
 msgid "COMPOSER_DISABLE_XDEBUG_WARN"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1135
+#: ../doc/03-cli.md:1141
 #, markdown-text
 msgid ""
 "If set to 1, this env suppresses a warning when Composer is running with the "
@@ -4631,13 +4649,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ###
-#: ../doc/03-cli.md:1136
+#: ../doc/03-cli.md:1142
 #, markdown-text, no-wrap
 msgid "COMPOSER_DISCARD_CHANGES"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1139
+#: ../doc/03-cli.md:1145
 #, markdown-text
 msgid ""
 "This env var controls the [`discard-changes`](06-config.md#discard-changes) "
@@ -4645,13 +4663,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ###
-#: ../doc/03-cli.md:1140
+#: ../doc/03-cli.md:1146
 #, markdown-text, no-wrap
 msgid "COMPOSER_HOME"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1145
+#: ../doc/03-cli.md:1151
 #, markdown-text
 msgid ""
 "The `COMPOSER_HOME` var allows you to change the Composer home "
@@ -4660,7 +4678,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1147
+#: ../doc/03-cli.md:1153
 #, markdown-text
 msgid ""
 "Use `composer config --global home` to see the location of the home "
@@ -4668,7 +4686,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1153
+#: ../doc/03-cli.md:1159
 #, markdown-text, no-wrap
 msgid ""
 "By default, it points to `C:\\Users\\<user>\\AppData\\Roaming\\Composer` on "
@@ -4683,13 +4701,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ####
-#: ../doc/03-cli.md:1154
+#: ../doc/03-cli.md:1160
 #, markdown-text, no-wrap
 msgid "COMPOSER_HOME/config.json"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1160
+#: ../doc/03-cli.md:1166
 #, markdown-text
 msgid ""
 "You may put a `config.json` file into the location which `COMPOSER_HOME` "
@@ -4699,7 +4717,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1163
+#: ../doc/03-cli.md:1169
 #, markdown-text
 msgid ""
 "This file allows you to set [repositories](05-repositories.md) and "
@@ -4707,7 +4725,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1166
+#: ../doc/03-cli.md:1172
 #, markdown-text
 msgid ""
 "In case global configuration matches _local_ configuration, the _local_ "
@@ -4715,13 +4733,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ###
-#: ../doc/03-cli.md:1167
+#: ../doc/03-cli.md:1173
 #, markdown-text, no-wrap
 msgid "COMPOSER_HTACCESS_PROTECT"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1171
+#: ../doc/03-cli.md:1177
 #, markdown-text
 msgid ""
 "Defaults to `1`. If set to `0`, Composer will not create `.htaccess` files "
@@ -4729,25 +4747,25 @@ msgid ""
 msgstr ""
 
 #. type: Title ###
-#: ../doc/03-cli.md:1172
+#: ../doc/03-cli.md:1178
 #, markdown-text, no-wrap
 msgid "COMPOSER_MEMORY_LIMIT"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1175
+#: ../doc/03-cli.md:1181
 #, markdown-text
 msgid "If set, the value is used as php's memory_limit."
 msgstr ""
 
 #. type: Title ###
-#: ../doc/03-cli.md:1176
+#: ../doc/03-cli.md:1182
 #, markdown-text, no-wrap
 msgid "COMPOSER_MIRROR_PATH_REPOS"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1181
+#: ../doc/03-cli.md:1187
 #, markdown-text
 msgid ""
 "If set to 1, this env changes the default path repository strategy to "
@@ -4756,13 +4774,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ###
-#: ../doc/03-cli.md:1182
+#: ../doc/03-cli.md:1188
 #, markdown-text, no-wrap
 msgid "COMPOSER_NO_INTERACTION"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1186
+#: ../doc/03-cli.md:1192
 #, markdown-text
 msgid ""
 "If set to 1, this env var will make Composer behave as if you passed the "
@@ -4770,13 +4788,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ###
-#: ../doc/03-cli.md:1187
+#: ../doc/03-cli.md:1193
 #, markdown-text, no-wrap
 msgid "COMPOSER_PROCESS_TIMEOUT"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1191
+#: ../doc/03-cli.md:1197
 #, markdown-text
 msgid ""
 "This env var controls the time Composer waits for commands (such as git "
@@ -4784,13 +4802,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ###
-#: ../doc/03-cli.md:1192
+#: ../doc/03-cli.md:1198
 #, markdown-text, no-wrap
 msgid "COMPOSER_ROOT_VERSION"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1196
+#: ../doc/03-cli.md:1202
 #, markdown-text
 msgid ""
 "By setting this var you can specify the version of the root package, if it "
@@ -4798,13 +4816,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ###
-#: ../doc/03-cli.md:1197
+#: ../doc/03-cli.md:1203
 #, markdown-text, no-wrap
 msgid "COMPOSER_VENDOR_DIR"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1201
+#: ../doc/03-cli.md:1207
 #, markdown-text
 msgid ""
 "By setting this var you can make Composer install the dependencies into a "
@@ -4812,13 +4830,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ###
-#: ../doc/03-cli.md:1202
+#: ../doc/03-cli.md:1208
 #, markdown-text, no-wrap
 msgid "COMPOSER_RUNTIME_ENV"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1210
+#: ../doc/03-cli.md:1216
 #, markdown-text
 msgid ""
 "This lets you hint under which environment Composer is running, which can "
@@ -4831,13 +4849,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ###
-#: ../doc/03-cli.md:1211
+#: ../doc/03-cli.md:1217
 #, markdown-text, no-wrap
 msgid "http_proxy or HTTP_PROXY"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1216
+#: ../doc/03-cli.md:1222
 #, markdown-text
 msgid ""
 "If you are using Composer from behind an HTTP proxy, you can use the "
@@ -4846,7 +4864,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1221
+#: ../doc/03-cli.md:1227
 #, markdown-text, no-wrap
 msgid ""
 "Using `http_proxy` (lowercased) or even defining both might be preferable "
@@ -4858,7 +4876,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1226
+#: ../doc/03-cli.md:1232
 #, markdown-text
 msgid ""
 "If you are using Composer in a non-CLI context (i.e. integration into a CMS "
@@ -4868,13 +4886,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ###
-#: ../doc/03-cli.md:1227
+#: ../doc/03-cli.md:1233
 #, markdown-text, no-wrap
 msgid "COMPOSER_MAX_PARALLEL_HTTP"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1233
+#: ../doc/03-cli.md:1239
 #, markdown-text
 msgid ""
 "Set to an integer to configure how many files can be downloaded in "
@@ -4884,13 +4902,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ###
-#: ../doc/03-cli.md:1234
+#: ../doc/03-cli.md:1240
 #, markdown-text, no-wrap
 msgid "HTTP_PROXY_REQUEST_FULLURI"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1239
+#: ../doc/03-cli.md:1245
 #, markdown-text
 msgid ""
 "If you use a proxy, but it does not support the request_fulluri flag, then "
@@ -4899,13 +4917,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ###
-#: ../doc/03-cli.md:1240
+#: ../doc/03-cli.md:1246
 #, markdown-text, no-wrap
 msgid "HTTPS_PROXY_REQUEST_FULLURI"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1245
+#: ../doc/03-cli.md:1251
 #, markdown-text
 msgid ""
 "If you use a proxy, but it does not support the request_fulluri flag for "
@@ -4914,13 +4932,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ###
-#: ../doc/03-cli.md:1246
+#: ../doc/03-cli.md:1252
 #, markdown-text, no-wrap
 msgid "COMPOSER_SELF_UPDATE_TARGET"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1249
+#: ../doc/03-cli.md:1255
 #, markdown-text
 msgid ""
 "If set, makes the self-update command write the new Composer phar file into "
@@ -4929,13 +4947,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ###
-#: ../doc/03-cli.md:1250
+#: ../doc/03-cli.md:1256
 #, markdown-text, no-wrap
 msgid "no_proxy or NO_PROXY"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1255
+#: ../doc/03-cli.md:1261
 #, markdown-text
 msgid ""
 "If you are behind a proxy and would like to disable it for certain domains, "
@@ -4944,7 +4962,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1259
+#: ../doc/03-cli.md:1265
 #, markdown-text
 msgid ""
 "The env var accepts domains, IP addresses, and IP address blocks in CIDR "
@@ -4953,13 +4971,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ###
-#: ../doc/03-cli.md:1260
+#: ../doc/03-cli.md:1266
 #, markdown-text, no-wrap
 msgid "COMPOSER_DISABLE_NETWORK"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1264
+#: ../doc/03-cli.md:1270
 #, markdown-text
 msgid ""
 "If set to `1`, disables network access (best effort). This can be used for "
@@ -4968,7 +4986,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1267
+#: ../doc/03-cli.md:1273
 #, markdown-text
 msgid ""
 "If set to `prime`, GitHub VCS repositories will prime the cache, so it can "
@@ -4976,13 +4994,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ###
-#: ../doc/03-cli.md:1268
+#: ../doc/03-cli.md:1274
 #, markdown-text, no-wrap
 msgid "COMPOSER_DEBUG_EVENTS"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1272
+#: ../doc/03-cli.md:1278
 #, markdown-text
 msgid ""
 "If set to `1`, outputs information about events being dispatched, which can "
@@ -4990,13 +5008,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ###
-#: ../doc/03-cli.md:1273
+#: ../doc/03-cli.md:1279
 #, markdown-text, no-wrap
 msgid "COMPOSER_NO_AUDIT"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1276
+#: ../doc/03-cli.md:1282
 #, markdown-text
 msgid ""
 "If set to `1`, it is the equivalent of passing the `--no-audit` option to "
@@ -5004,13 +5022,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ###
-#: ../doc/03-cli.md:1277
+#: ../doc/03-cli.md:1283
 #, markdown-text, no-wrap
 msgid "COMPOSER_NO_DEV"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1282
+#: ../doc/03-cli.md:1288
 #, markdown-text, no-wrap
 msgid ""
 "If set to `1`, it is the equivalent of passing the `--update-no-dev` option "
@@ -5021,13 +5039,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ###
-#: ../doc/03-cli.md:1283
+#: ../doc/03-cli.md:1289
 #, markdown-text, no-wrap
 msgid "COMPOSER_PREFER_STABLE"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1287
+#: ../doc/03-cli.md:1293
 #, markdown-text
 msgid ""
 "If set to `1`, it is the equivalent of passing the `--prefer-stable` option "
@@ -5035,13 +5053,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ###
-#: ../doc/03-cli.md:1288
+#: ../doc/03-cli.md:1294
 #, markdown-text, no-wrap
 msgid "COMPOSER_PREFER_LOWEST"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1292
+#: ../doc/03-cli.md:1298
 #, markdown-text
 msgid ""
 "If set to `1`, it is the equivalent of passing the `--prefer-lowest` option "
@@ -5049,13 +5067,27 @@ msgid ""
 msgstr ""
 
 #. type: Title ###
-#: ../doc/03-cli.md:1293
+#: ../doc/03-cli.md:1299
+#, markdown-text, no-wrap
+msgid "COMPOSER_MINIMAL_CHANGES"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/03-cli.md:1303
+#, markdown-text
+msgid ""
+"If set to `1`, it is the equivalent of passing the `--minimal-changes` "
+"option to `update`, `require` or `remove`."
+msgstr ""
+
+#. type: Title ###
+#: ../doc/03-cli.md:1304
 #, markdown-text, no-wrap
 msgid "COMPOSER_IGNORE_PLATFORM_REQ or COMPOSER_IGNORE_PLATFORM_REQS"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1297
+#: ../doc/03-cli.md:1308
 #, markdown-text
 msgid ""
 "If `COMPOSER_IGNORE_PLATFORM_REQS` set to `1`, it is the equivalent of "
@@ -5065,7 +5097,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1299
+#: ../doc/03-cli.md:1310
 #, markdown-text
 msgid ""
 "For example, if a development workstation will never run database queries, "
@@ -5076,7 +5108,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1300
+#: ../doc/03-cli.md:1311
 #, markdown-text
 msgid "&larr; [Libraries](02-libraries.md)  | [Schema](04-schema.md) &rarr;"
 msgstr ""
@@ -5245,6 +5277,7 @@ msgstr ""
 
 #. type: Plain text
 #: ../doc/04-schema.md:60 ../doc/04-schema.md:115 ../doc/04-schema.md:961
+#: ../doc/articles/versions.md:139 ../doc/articles/versions.md:213
 #, markdown-text
 msgid "Examples:"
 msgstr ""
@@ -20337,4 +20370,599 @@ msgid ""
 "For this reason, Composer throws an error and says that this is invalid.  "
 "The way to fix it is to think about what you really mean, and use only one "
 "of those rules."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:4
+#, markdown-text, no-wrap
+msgid ""
+"<!--\n"
+"    tagline: Versions explained.\n"
+"-->\n"
+msgstr ""
+
+#. type: Title #
+#: ../doc/articles/versions.md:5
+#, markdown-text, no-wrap
+msgid "Versions and constraints"
+msgstr ""
+
+#. type: Title ##
+#: ../doc/articles/versions.md:7
+#, markdown-text, no-wrap
+msgid "Composer Versions vs VCS Versions"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:16
+#, markdown-text
+msgid ""
+"Because Composer is heavily geared toward utilizing version control systems "
+"like git, the term \"version\" can be a little ambiguous. In the sense of a "
+"version control system, a \"version\" is a specific set of files that "
+"contain specific data. In git terminology, this is a \"ref\", or a specific "
+"commit, which may be represented by a branch HEAD or a tag. When you check "
+"out that version in your VCS -- for example, tag `v1.1` or commit `e35fa0d` "
+"--, you're asking for a single, known set of files, and you always get the "
+"same files back."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:24
+#, markdown-text
+msgid ""
+"In Composer, what's often referred to casually as a version -- that is, the "
+"string that follows the package name in a require line (e.g., `~1.1` or "
+"`1.2.*`) -- is actually more specifically a version constraint. Composer "
+"uses version constraints to figure out which refs in a VCS it should be "
+"checking out (or to verify that a given library is acceptable in the case of "
+"a statically-maintained library with a `version` specification in "
+"`composer.json`)."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/articles/versions.md:25
+#, markdown-text, no-wrap
+msgid "VCS Tags and Branches"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:29
+#, markdown-text, no-wrap
+msgid ""
+"*For the following discussion, let's assume the following sample library\n"
+"repository:*\n"
+msgstr ""
+
+#. type: Fenced code block (shell)
+#: ../doc/articles/versions.md:30
+#, no-wrap
+msgid "~/my-library$ git branch\n"
+msgstr ""
+
+#. type: Fenced code block (text)
+#: ../doc/articles/versions.md:33
+#, no-wrap
+msgid ""
+"v1\n"
+"v2\n"
+"my-feature\n"
+"another-feature\n"
+msgstr ""
+
+#. type: Fenced code block (shell)
+#: ../doc/articles/versions.md:40
+#, no-wrap
+msgid "~/my-library$ git tag\n"
+msgstr ""
+
+#. type: Fenced code block (text)
+#: ../doc/articles/versions.md:43
+#, no-wrap
+msgid ""
+"v1.0\n"
+"v1.0.1\n"
+"v1.0.2\n"
+"v1.1-BETA\n"
+"v1.1-RC1\n"
+"v1.1-RC2\n"
+"v1.1\n"
+"v1.1.1\n"
+"v2.0-BETA\n"
+"v2.0-RC1\n"
+"v2.0\n"
+"v2.0.1\n"
+"v2.0.2\n"
+msgstr ""
+
+#. type: Title ###
+#: ../doc/articles/versions.md:59
+#, markdown-text, no-wrap
+msgid "Tags"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:73
+#, markdown-text, no-wrap
+msgid ""
+"Normally, Composer deals with tags (as opposed to branches -- if you don't\n"
+"know what this means, read up on\n"
+"[version control "
+"systems](https://en.wikipedia.org/wiki/Version_control#Common_terminology)).\n"
+"When you write a version constraint, it may reference a specific tag "
+"(e.g.,\n"
+"`1.1`) or it may reference a valid range of tags (e.g., `>=1.1 <2.0`, or\n"
+"`~4.0`). To resolve these constraints, Composer first asks the VCS to list\n"
+"all available tags, then creates an internal list of available versions "
+"based\n"
+"on these tags. In the above example, composer's internal list includes "
+"versions\n"
+"`1.0`, `1.0.1`, `1.0.2`, the beta release of `1.1`, the first and second\n"
+"release candidates of `1.1`, the final release version `1.1`, "
+"etc.... (Note\n"
+"that Composer automatically removes the 'v' prefix in the actual tagname "
+"to\n"
+"get a valid final version number.)\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:80
+#, markdown-text
+msgid ""
+"When Composer has a complete list of available versions from your VCS, it "
+"then finds the highest version that matches all version constraints in your "
+"project (it's possible that other packages require more specific versions of "
+"the library than you do, so the version it chooses may not always be the "
+"highest available version) and it downloads a zip archive of that tag to "
+"unpack in the correct location in your `vendor` directory."
+msgstr ""
+
+#. type: Title ###
+#: ../doc/articles/versions.md:81
+#, markdown-text, no-wrap
+msgid "Branches"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:84
+#, markdown-text
+msgid ""
+"If you want Composer to check out a branch instead of a tag, you need to "
+"point it to the branch using the special `dev-*` prefix (or sometimes "
+"suffix; see below). If you're checking out a branch, it's assumed that you "
+"want to *work* on the branch and Composer actually clones the repo into the "
+"correct place in your `vendor` directory. For tags, it copies the right "
+"files without actually cloning the repo. (You can modify this behavior with "
+"--prefer-source and --prefer-dist, see [install "
+"options](../03-cli.md#install).)"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:86
+#, markdown-text
+msgid ""
+"In the above example, if you wanted to check out the `my-feature` branch, "
+"you would specify `dev-my-feature` as the version constraint in your "
+"`require` clause. This would result in Composer cloning the `my-library` "
+"repository into my `vendor` directory and checking out the `my-feature` "
+"branch."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:88
+#, markdown-text
+msgid ""
+"When branch names look like versions, we have to clarify for Composer that "
+"we're trying to check out a branch and not a tag. In the above example, we "
+"have two version branches: `v1` and `v2`. To get Composer to check out one "
+"of these branches, you must specify a version constraint that looks like "
+"this: `v1.x-dev`. The `.x` is an arbitrary string that Composer requires to "
+"tell it that we're talking about the `v1` branch and not a `v1` tag "
+"(alternatively, you can name the branch `v1.x` instead of `v1`). In the case "
+"of a branch with a version-like name (`v1`, in this case), you append `-dev` "
+"as a suffix, rather than using `dev-` as a prefix."
+msgstr ""
+
+#. type: Title ###
+#: ../doc/articles/versions.md:89
+#, markdown-text, no-wrap
+msgid "Stabilities"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:99
+#, markdown-text
+msgid ""
+"Composer recognizes the following stabilities (in order of stability): dev, "
+"alpha, beta, RC, and stable where RC stands for release candidate. The "
+"stability of a version is defined by its suffix e.g version `v1.1-BETA` has "
+"a stability of `beta` and `v1.1-RC1` has a stability of `RC`. If such a "
+"suffix is missing e.g. version `v1.1` then Composer considers that version "
+"`stable`. In addition to that Composer automatically adds a `-dev` suffix to "
+"all numeric branches and prefixes all other branches imported from a VCS "
+"repository with `dev-`. In both cases the stability `dev` gets assigned."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:101
+#, markdown-text
+msgid "Keeping this in mind will help you in the next section."
+msgstr ""
+
+#. type: Title ###
+#: ../doc/articles/versions.md:102
+#, markdown-text, no-wrap
+msgid "Minimum Stability"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:105
+#, markdown-text
+msgid ""
+"There's one more thing that will affect which files are checked out of a "
+"library's VCS and added to your project: Composer allows you to specify "
+"stability constraints to limit which tags are considered valid. In the above "
+"example, note that the library released a beta and two release candidates "
+"for version `1.1` before the final official release. To receive these "
+"versions when running `composer install` or `composer update`, we have to "
+"explicitly tell Composer that we are ok with release candidates and beta "
+"releases (and alpha releases, if we want those). This can be done using "
+"either a project-wide `minimum-stability` value in `composer.json` or using "
+"\"stability flags\" in version constraints. Read more on the [schema "
+"page](../04-schema.md#minimum-stability)."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/articles/versions.md:106
+#, markdown-text, no-wrap
+msgid "Writing Version Constraints"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:110
+#, markdown-text
+msgid ""
+"Now that you have an idea of how Composer sees versions, let's talk about "
+"how to specify version constraints for your project dependencies."
+msgstr ""
+
+#. type: Title ###
+#: ../doc/articles/versions.md:111
+#, markdown-text, no-wrap
+msgid "Exact Version Constraint"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:117
+#, markdown-text
+msgid ""
+"You can specify the exact version of a package. This will tell Composer to "
+"install this version and this version only. If other dependencies require a "
+"different version, the solver will ultimately fail and abort any install or "
+"update procedures."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:119
+#, markdown-text
+msgid "Example: `1.0.2`"
+msgstr ""
+
+#. type: Title ###
+#: ../doc/articles/versions.md:120
+#, markdown-text, no-wrap
+msgid "Version Range"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:124
+#, markdown-text, no-wrap
+msgid ""
+"By using comparison operators you can specify ranges of valid "
+"versions. Valid\n"
+"operators are `>`, `>=`, `<`, `<=`, `!=`.\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:128
+#, markdown-text, no-wrap
+msgid ""
+"You can define multiple ranges. Ranges separated by a space "
+"(<code>&nbsp;</code>)\n"
+"or comma (`,`) will be treated as a **logical AND**. A double pipe (`||`)\n"
+"will be treated as a **logical OR**. AND has higher precedence than OR.\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:132
+#, markdown-text, no-wrap
+msgid ""
+"> **Note:** Be careful when using unbounded ranges as you might end up\n"
+"> unexpectedly installing versions that break backwards compatibility.\n"
+"> Consider using the [caret](#caret-version-range-) operator instead for "
+"safety.\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:137
+#, markdown-text, no-wrap
+msgid ""
+"<!--blank line followed by comment markup to separate the block quotes-->\n"
+"> **Note:** In older versions of Composer the single pipe (`|`) was the\n"
+"> recommended alternative to the **logical OR**. Thus for backwards "
+"compatibility\n"
+"> the single pipe (`|`) will still be treated as a **logical OR**.\n"
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/articles/versions.md:143
+#, markdown-text
+msgid "`>=1.0`"
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/articles/versions.md:143
+#, markdown-text
+msgid "`>=1.0 <2.0`"
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/articles/versions.md:143
+#, markdown-text
+msgid "`>=1.0 <1.1 || >=1.2`"
+msgstr ""
+
+#. type: Title ###
+#: ../doc/articles/versions.md:144
+#, markdown-text, no-wrap
+msgid "Hyphenated Version Range (` - `)"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:150
+#, markdown-text, no-wrap
+msgid ""
+"Inclusive set of versions. Partial versions on the right include are "
+"completed\n"
+"with a wildcard. For example `1.0 - 2.0` is equivalent to `>=1.0.0 <2.1` as "
+"the\n"
+"`2.0` becomes `2.0.*`. On the other hand `1.0.0 - 2.1.0` is equivalent to\n"
+"`>=1.0.0 <=2.1.0`.\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:152
+#, markdown-text
+msgid "Example: `1.0 - 2.0`"
+msgstr ""
+
+#. type: Title ###
+#: ../doc/articles/versions.md:153
+#, markdown-text, no-wrap
+msgid "Wildcard Version Range (`.*`)"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:157
+#, markdown-text, no-wrap
+msgid ""
+"You can specify a pattern with a `*` wildcard. `1.0.*` is the equivalent "
+"of\n"
+"`>=1.0 <1.1`.\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:159
+#, markdown-text
+msgid "Example: `1.0.*`"
+msgstr ""
+
+#. type: Title ##
+#: ../doc/articles/versions.md:160
+#, markdown-text, no-wrap
+msgid "Next Significant Release Operators"
+msgstr ""
+
+#. type: Title ###
+#: ../doc/articles/versions.md:162
+#, markdown-text, no-wrap
+msgid "Tilde Version Range (`~`)"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:172
+#, markdown-text, no-wrap
+msgid ""
+"The `~` operator is best explained by example: `~1.2` is equivalent to\n"
+"`>=1.2 <2.0.0`, while `~1.2.3` is equivalent to `>=1.2.3 <1.3.0`. As you can "
+"see\n"
+"it is mostly useful for projects respecting [semantic\n"
+"versioning](https://semver.org/). A common usage would be to mark the "
+"minimum\n"
+"minor version you depend on, like `~1.2` (which allows anything up to, but "
+"not\n"
+"including, 2.0). Since in theory there should be no backwards "
+"compatibility\n"
+"breaks until 2.0, that works well. Another way of looking at it is that "
+"using\n"
+"`~` specifies a minimum version, but allows the last digit specified to go "
+"up.\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:174
+#, markdown-text
+msgid "Example: `~1.2`"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:178
+#, markdown-text, no-wrap
+msgid ""
+"> **Note:** Although `2.0-beta.1` is strictly before `2.0`, a version "
+"constraint\n"
+"> like `~1.2` would not install it. As said above `~1.2` only means the "
+"`.2`\n"
+"> can change but the `1.` part is fixed.\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:183
+#, markdown-text, no-wrap
+msgid ""
+"> **Note:** The `~` operator has an exception on its behavior for the "
+"major\n"
+"> release number. This means for example that `~1` is the same as `~1.0` "
+"as\n"
+"> it will not allow the major number to increase trying to keep backwards\n"
+"> compatibility.\n"
+msgstr ""
+
+#. type: Title ###
+#: ../doc/articles/versions.md:184
+#, markdown-text, no-wrap
+msgid "Caret Version Range (`^`)"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:191
+#, markdown-text, no-wrap
+msgid ""
+"The `^` operator behaves very similarly, but it sticks closer to semantic\n"
+"versioning, and will always allow non-breaking updates. For example "
+"`^1.2.3`\n"
+"is equivalent to `>=1.2.3 <2.0.0` as none of the releases until 2.0 should\n"
+"break backwards compatibility. For pre-1.0 versions it also acts with "
+"safety\n"
+"in mind and treats `^0.3` as `>=0.3.0 <0.4.0` and `^0.0.3` as `>=0.0.3 "
+"<0.0.4`.\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:194
+#, markdown-text
+msgid ""
+"This is the recommended operator for maximum interoperability when writing "
+"library code."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:196
+#, markdown-text
+msgid "Example: `^1.2.3`"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:202
+#, markdown-text, no-wrap
+msgid ""
+"> **Note:** If you are using PowerShell on Windows, you have to escape\n"
+"> carets when using them as argument on the CLI for example when using the\n"
+"> `composer require` command. You have to use four\n"
+"> subsequent caret operators, e.g. `^^^^1.2.3`, to ensure the caret operator "
+"gets\n"
+"> passed to Composer correctly.\n"
+msgstr ""
+
+#. type: Title ##
+#: ../doc/articles/versions.md:203
+#, markdown-text, no-wrap
+msgid "Stability Constraints"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:208
+#, markdown-text
+msgid ""
+"If you are using a constraint that does not explicitly define a stability, "
+"Composer will default internally to `-dev` or `-stable`, depending on the "
+"operator(s) used. This happens transparently."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:211
+#, markdown-text
+msgid ""
+"If you wish to explicitly consider only the stable release in the "
+"comparison, add the suffix `-stable`."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:225
+#, markdown-text, no-wrap
+msgid ""
+" Constraint         | Internally\n"
+"------------------- | ------------------------\n"
+" `1.2.3`            | `=1.2.3.0-stable`\n"
+" `>1.2`             | `>1.2.0.0-stable`\n"
+" `>=1.2`            | `>=1.2.0.0-dev`\n"
+" `>=1.2-stable`     | `>=1.2.0.0-stable`\n"
+" `<1.3`             | `<1.3.0.0-dev`\n"
+" `<=1.3`            | `<=1.3.0.0-stable`\n"
+" `1 - 2`            | `>=1.0.0.0-dev <3.0.0.0-dev`\n"
+" `~1.3`             | `>=1.3.0.0-dev <2.0.0.0-dev`\n"
+" `1.4.*`            | `>=1.4.0.0-dev <1.5.0.0-dev`\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:232
+#, markdown-text, no-wrap
+msgid ""
+"To allow various stabilities without enforcing them at the constraint "
+"level\n"
+"however, you may use [stability-flags](../04-schema.md#package-links) like\n"
+"`@<stability>` (e.g. `@dev`) to let Composer know that a given package\n"
+"can be installed in a different stability than your default "
+"minimum-stability\n"
+"setting. All available stability flags are listed on the minimum-stability\n"
+"section of the [schema page](../04-schema.md#minimum-stability).\n"
+msgstr ""
+
+#. type: Title ##
+#: ../doc/articles/versions.md:233
+#, markdown-text, no-wrap
+msgid "Summary"
+msgstr ""
+
+#. type: Fenced code block (jsonc)
+#: ../doc/articles/versions.md:234
+#, no-wrap
+msgid ""
+"\"require\": {\n"
+"    \"vendor/package\": \"1.3.2\", // exactly 1.3.2\n"
+"\n"
+"    // >, <, >=, <= | specify upper / lower bounds\n"
+"    \"vendor/package\": \">=1.3.2\", // anything above or equal to 1.3.2\n"
+"    \"vendor/package\": \"<1.3.2\", // anything below 1.3.2\n"
+"\n"
+"    // * | wildcard\n"
+"    \"vendor/package\": \"1.3.*\", // >=1.3.0 <1.4.0\n"
+"\n"
+"    // ~ | allows last digit specified to go up\n"
+"    \"vendor/package\": \"~1.3.2\", // >=1.3.2 <1.4.0\n"
+"    \"vendor/package\": \"~1.3\", // >=1.3.0 <2.0.0\n"
+"\n"
+"    // ^ | doesn't allow breaking changes (major version fixed - following "
+"semver)\n"
+"    \"vendor/package\": \"^1.3.2\", // >=1.3.2 <2.0.0\n"
+"    \"vendor/package\": \"^0.3.2\", // >=0.3.2 <0.4.0 // except if major "
+"version is 0\n"
+"}\n"
+msgstr ""
+
+#. type: Title ##
+#: ../doc/articles/versions.md:255
+#, markdown-text, no-wrap
+msgid "Testing Version Constraints"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:260
+#, markdown-text
+msgid ""
+"You can test version constraints using "
+"[semver.madewithlove.com](https://semver.madewithlove.com).  Fill in a "
+"package name and it will autofill the default version constraint which "
+"Composer would add to your `composer.json` file. You can adjust the version "
+"constraint and the tool will highlight all releases that match."
 msgstr ""

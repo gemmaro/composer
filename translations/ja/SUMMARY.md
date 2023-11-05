@@ -10,6 +10,6 @@
 * [実行時Composerユーティリティ](doc/07-runtime.md)
 * [コミュニティ](doc/08-community.md)
 
-# 質疑応答
+# FAQ
 
 * [何故、比較とワイルドカードが組み合わさったバージョン制約が良くないのか](doc/faqs/why-are-version-constraints-combining-comparisons-and-wildcards-a-bad-idea.md)

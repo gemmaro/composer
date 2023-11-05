@@ -1,6 +1,6 @@
 ### [2.6.5] 2023-10-06
 
-  * vendorディレクトリに壊れたシンボリックリンクが含まれる場合のエラー修正しました (#11670)。
+  * vendorディレクトリに壊れたシンボリックリンクが含まれる場合の失敗を修正しました (#11670)。
   * Composerのzipアーカイブから欠けていたcomposer.lockを修正しました (#11674)。
   * 2.6.4で変わったAutoloadGenerator::dump()の非BCシグネチャを修正しました (cb363b0e8)。
 
@@ -92,7 +92,7 @@
 
 ### [2.5.8] 2023-06-09
 
-  * ルートパッケージがインストールの過程で既にリポジトリに追加されている場合のエッジケースにおけるリグレッションを修正 (#11495)
+  * 根幹パッケージがインストールの過程で既にリポジトリに追加されている場合の、エッジケースに於ける回帰問題を修正 (#11495)
   * "@php binary" を使用中にwindowsでバッチファイルを選択するEventDispatcherを修正 (#11490)
   * Fixed ICU CLDR version parsing failing the whole process when ICU cannot
     initialize the resource bundle (#11492)
@@ -483,8 +483,8 @@
     conflicts (#10488)
   * Added automatic removal of allow-plugins rules when removing a plugin
     via the `remove` command (#10615)
-  * Added `COMPOSER_IGNORE_PLATFORM_REQ` & `COMPOSER_IGNORE_PLATFORM_REQS`
-    env vars to configure the equivalent flags (#10616)
+  * `COMPOSER_IGNORE_PLATFORM_REQ`及び`COMPOSER_IGNORE_PLATFORM_REQS`環境変数を加えました。
+    これらと等価なフラグで構成するためのものです (#10616)。
   * Added support for Symfony 6.0 components
   * Added support for psr/log 3.x (#10454)
   * Fixed symlink creation in linux VM guest filesystems to be recognized by
@@ -1061,7 +1061,7 @@
     internally. This alias now only applies to default branches being
     non-numeric (e.g. `dev-main`)
   * Fixed support for older lib-sodium versions
-  * Fixed various minor issues
+  * 様々な小規模な問題を修正しました。
 
 ### [2.0.9] 2021-01-27
 
@@ -1302,8 +1302,8 @@
   * Added `post-file-download` event to be fired after package dist files
     are downloaded, which lets you do additional checks on the files
   * `show`コマンドに--lockedフラグを追加し、composer.lockファイル由来のパッケージが表示されるようにしました。
-  * Added --unused flag to `remove` command to make sure any packages which
-    are not needed anymore get removed
+  * `remove`コマンドに--unusedフラグを追加しました。
+    最早必要ないパッケージが確実に削除されるようにするためのものです。
   * Added --dry-run flag to `require` and `remove` commands
   * Added --no-install flag to `update`, `require` and `remove` commands to
     disable the install step and only do the update step (composer.lock file
@@ -1801,10 +1801,10 @@
   * Improved performance of installs and updates from git clones when
     checking out known commits
   * `check-platform-reqs`コマンドを追加しました。
-    このコマンドはPHPと拡張のバージョンがインストール済みのパッケージのプラットフォーム要件に照合するかを検査するものです。
+    このコマンドは、PHPと拡張のバージョンがインストール済みのパッケージのプラットフォーム要件に照合するかを検査するものです。
   * `update`及び`require`コマンドに`--with-all-dependencies`を追加しました。
-    これは挙げられたパッケージの全ての依存関係を更新します。
-    依存関係には直接のルート要件であるようなパッケージを含みます。
+    挙げられたパッケージの全ての依存関係を更新します。
+    依存関係には直接の根幹要件であるようなパッケージを含みます。
   * Added `scripts-descriptions` key to composer.json to customize the
     description and document your custom commands
   * Added support for the uppercase NO_PROXY env var
@@ -1893,7 +1893,7 @@
     Composer plugins
   * Fixed exclude-from-classmap being ignored when cwd has the wrong case on
     case insensitive filesystems
-  * Fixed several other minor issues
+  * その他の小規模な問題を数点修正しました。
 
 ### [1.4.2] - 2017-05-17
 
@@ -1917,10 +1917,10 @@
 ### [1.4.0] - 2017-03-08
 
   * Improved memory usage of dependency solver
-  * Added `--format json` option to the `outdated` and `show` command to get
-    machine readable package listings
-  * Added `--ignore-filters` flag to `archive` command to bypass the
-    .gitignore and co
+  * `outdated`コマンドと`show`コマンドに`--format json`オプションを追加しました。
+    機械で読み取り易い一覧を得るためのものです。
+  * `archive`コマンドに--ignore-filtersを追加しました。
+    .gitignoreなどを迂回するためのものです。
   * Added support for `outdated` output without ansi colors
   * Added support for Bitbucket API v2
   * Changed the require command to follow minimum-stability / prefer-stable
@@ -2049,8 +2049,8 @@
     support
   * Added `--no-suggest` to `install` and `update` commands to skip output
     of suggestions at the end
-  * Added `--type` to the `search` command to restrict to a given package
-    type
+  * `search`コマンドに--typeを追加しました。
+    与えられたパッケージの種別に制限するためのものです。
   * Added fossil support as alternative to git/svn/.. for package downloads
   * Improved BitBucket OAuth support
   * Added support for blocking cache operations using
@@ -2109,8 +2109,8 @@
     of your dependencies
   * Added `--outdated` to `show` command an `composer outdated` alias for
     it, to show only packages in need of update
-  * Added `--direct` to `show` and `outdated` commands to show only your
-    direct dependencies in the listing
+  * `show`コマンドと`outdated`コマンドに`--direct`を追加しました。
+    一覧で直接の依存関係のみを表示するためのものです。
   * Added support for editing all top-level properties (name,
     minimum-stability, ...) as well as extra values via the `config` command
   * Added abandoned state warning to the `show` and `outdated` commands when
@@ -2227,8 +2227,8 @@
     `gitlab-domains` config options
   * Added `prohibits` / `why-not` command to show what blocks an upgrade to
     a given package:version pair
-  * Added --tree / -t to the `show` command to see all your installed
-    packages in a tree view
+  * `show`コマンドに--tree / -tを追加しました。
+    全てのインストールされたパッケージを木構造で表示するためのものです。
   * Added --interactive / -i to the `update` command, which lets you pick
     packages to update interactively
   * Added `exec` command to run binaries while having bin-dir in the PATH
@@ -2282,8 +2282,8 @@
     `remove` and `dump-autoload` commands, forcing the optimized classmap to
     be authoritative
   * `validate`コマンドに-A及び--with-dependenciesを追加し、全ての依存関係を再帰的に検証できるようにしました。
-  * Added --strict to the `validate` command to treat any warning as an
-    error that then returns a non-zero exit code
+  * `validate`コマンドに`--strict`を追加しました。
+    警告を失敗として扱い、非ゼロの終了コードを返すためのものです。
   * Added a dependency on composer/semver, which is the externalized lib for
     all the version constraints parsing and handling
   * Added support for classmap autoloading to load plugin classes and script
@@ -2319,15 +2319,16 @@
     output to each command is on stderr as per unix best practices.
   * Added support for npm-style semver operators (`^` and `-` ranges, ` ` =
     AND, `||` = OR)
-  * Added --prefer-lowest to `update` command to allow testing a package
-    with the lowest declared dependencies
+  * `update`コマンドに`--prefer-lowest`を追加しました。
+    宣言されている範囲で最小の依存関係のパッケージで試すことができます。
   * Added support for parsing semver build metadata `+anything` at the end
     of versions
-  * Added --sort-packages option to `require` command for sorting
-    dependencies
+  * `require`コマンドに`--sort-packages`オプションを追加しました。
+    依存関係を整列するためのものです。
   * Added --no-autoloader to `install` and `update` commands to skip
     autoload generation
-  * Added --list to `run-script` command to see available scripts
+  * `archive`コマンドに--fileを追加しました。
+    利用できるスクリプトを見られます。
   * Added --absolute to `config` command to get back absolute paths
   * Added `classmap-authoritative` config option, if enabled only the
     classmap info will be used by the composer autoloader
@@ -2362,8 +2363,8 @@
   * Added a `http-basic` config option to store login/pwds to hosts
   * Added failover to source/dist and vice-versa in case a download method
     fails
-  * Added --path (-P) flag to the show command to see the install path of
-    packages
+  * showコマンドに--path (-P) フラグを追加しました。
+    パッケージのインストールパスを見られます。
   * Added --update-with-dependencies and --update-no-dev flags to the
     require command
   * Added `optimize-autoloader` config option to force the `-o` flag from
@@ -2490,8 +2491,8 @@
     indicators
   * Added --available (-a) flag to the `show` command to display only
     available packages
-  * Added --name-only (-N) flag to the `show` command to show only package
-    names (one per line, no formatting)
+  * `show`コマンドに--name-only (-N) フラグを追加しました。
+    パッケージ名のみが（1行毎に書式化無しで）表示されるようにするものです。
   * Added --optimize-autoloader (-o) flag to optimize the autoloader from
     the `install` and `update` commands
   * Added -vv and -vvv flags to get more verbose output, can be useful to
@@ -2609,8 +2610,8 @@
   * Added caching of SVN metadata (faster startup time with custom SVN VCS
     repos)
   * Added support for file:// URLs to GitDriver
-  * Added --self flag to the `show` command to display the infos of the root
-    package
+  * `show`コマンドに--selfフラグを追加しました。
+    根幹パッケージの情報を表示するためのものです。
   * Added --dev flag to `create-project` command
   * Added --no-scripts to `install` and `update` commands to avoid
     triggering the scripts
@@ -2683,7 +2684,7 @@
 
 ### 1.0.0-alpha1 - 2012-03-01
 
-  * Initial release
+  * 初回リリース。
 
 [2.6.5]: https://github.com/composer/composer/compare/2.6.4...2.6.5 [2.6.4]:
 https://github.com/composer/composer/compare/2.6.3...2.6.4 [2.6.3]:
