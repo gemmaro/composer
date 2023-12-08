@@ -19,8 +19,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Composer\n"
-"POT-Creation-Date: 2023-11-25 21:46+0900\n"
-"PO-Revision-Date: 2023-11-25 22:52+0900\n"
+"POT-Creation-Date: 2023-12-09 08:36+0900\n"
+"PO-Revision-Date: 2023-12-09 08:37+0900\n"
 "Last-Translator: gemmaro <gemmaro.dev@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -268,7 +268,8 @@ msgid ""
 "dependencies are essential for Composer: `7z` (or `7zz` or `unzip`), and "
 "`git`."
 msgstr ""
-"大事なことですが、これらのバイナリの依存関係の必要性は個々の用途によって様々です。\n"
+"大事なことですが、これらのバイナリの依存関係の必要性は個々の用途によって様々"
+"です。\n"
 "しかし殆どの利用者にとっては、Composerに必須な依存関係はたった2つです。\n"
 "`7z`（または`7zz`や`unzip`）と`git`です。"
 
@@ -1066,11 +1067,11 @@ msgstr "パッケージバージョン制約"
 #, no-wrap
 msgid ""
 "In our example, we are requesting the Monolog package with the version constraint\n"
-"[`2.0.*`](https://semver.mwl.be/#?package=monolog%2Fmonolog&version=2.0.*).\n"
+"[`2.0.*`](https://semver.madewithlove.com/?package=monolog%2Fmonolog&constraint=2.0.*).\n"
 "This means any version in the `2.0` development branch, or any version that is\n"
 "greater than or equal to 2.0 and less than 2.1 (`>=2.0 <2.1`).\n"
 msgstr ""
-"先の例ではバージョン制約[`2.0.*`](https://semver.mwl.be/#?package=monolog%2Fmonolog&version=2.0.*)のMonologパッケージを要求しています。\n"
+"先の例ではバージョン制約[`2.0.*`](https://semver.madewithlove.com/?package=monolog%2Fmonolog&constraint=2.0.*)のMonologパッケージを要求しています。\n"
 "これが意味するものは`2.0`の開発ブランチの任意のバージョン、言い換えると2.0以上で2.1より小さい（`>=2.0 <2.1`）任意のバージョンのことを指します。\n"
 
 #. type: Plain text
@@ -8332,7 +8333,9 @@ msgstr "概念"
 msgid ""
 "Before we look at the different types of repositories that exist, we need to "
 "understand some basic concepts that Composer is built on."
-msgstr "リポジトリのそれぞれの存在する種別を見ていく前に、Composerが立脚する基礎概念を理解する必要があります。"
+msgstr ""
+"リポジトリのそれぞれの存在する種別を見ていく前に、Composerが立脚する基礎概念"
+"を理解する必要があります。"
 
 #. type: Title ###
 #: ../doc/05-repositories.md:11 ../doc/05-repositories.md:507
@@ -8363,8 +8366,10 @@ msgid ""
 "While this distinction does not matter when you are using Composer, it's "
 "quite important when you want to change it."
 msgstr ""
-"実際、内部的にはComposerはそれぞれのバージョンを個別のパッケージとして見做します。\n"
-"この区別はComposerを使っているときは問題になりませんが、Composer自体を変更したいと思ったときはかなり重要になります。"
+"実際、内部的にはComposerはそれぞれのバージョンを個別のパッケージとして見做し"
+"ます。\n"
+"この区別はComposerを使っているときは問題になりませんが、Composer自体を変更し"
+"たいと思ったときはかなり重要になります。"
 
 #. type: Plain text
 #: ../doc/05-repositories.md:27
@@ -8375,7 +8380,8 @@ msgid ""
 "contents of the package. And there are two options here: dist and source."
 msgstr ""
 "名前とバージョンに加えて有用なメタデータがあります。\n"
-"インストールに最も関係する情報はソースの定義で、どこかでパッケージの内容を取得するのかを記述します。\n"
+"インストールに最も関係する情報はソースの定義で、どこかでパッケージの内容を取"
+"得するのかを記述します。\n"
 "パッケージのデータはパッケージの内容を指します。\n"
 "そしてここで2つの選択肢があります。\n"
 "distとsourceです。"
@@ -8459,8 +8465,10 @@ msgid ""
 "priorities](articles/repository-priorities.md) article for more details and "
 "to see how to change this behavior."
 msgstr ""
-"依存関係解決をするとき、パッケージはリポジトリを上から下への順で見ていき、どこかにパッケージがあったらComposerは他のリポジトリを見るのを止めます。\n"
-"詳細は[リポジトリの優先度](articles/repository-priorities.md)の記事を読んで、この挙動を変える方法を見てください。"
+"依存関係解決をするとき、パッケージはリポジトリを上から下への順で見ていき、ど"
+"こかにパッケージがあったらComposerは他のリポジトリを見るのを止めます。\n"
+"詳細は[リポジトリの優先度](articles/repository-priorities.md)の記事を読んで、"
+"この挙動を変える方法を見てください。"
 
 #. type: Title ##
 #: ../doc/05-repositories.md:58
@@ -8566,7 +8574,9 @@ msgstr ""
 msgid ""
 "The `@composer.json` marker would be the contents of the `composer.json` "
 "from that package version including as a minimum:"
-msgstr "`@composer.json`の印は、最小のものとして含むパッケージのバージョンに由来する`composer.json`の内容になります。"
+msgstr ""
+"`@composer.json`の印は、最小のものとして含むパッケージのバージョンに由来する"
+"`composer.json`の内容になります。"
 
 #. type: Bullet: '* '
 #: ../doc/05-repositories.md:105
@@ -8696,7 +8706,8 @@ msgid ""
 "packages which are in the repository. It must contain the placeholder "
 "`%package%`."
 msgstr ""
-"`metadata-url`フィールドでは、リポジトリにある全てのパッケージを提供するURLテンプレートを与えます。\n"
+"`metadata-url`フィールドでは、リポジトリにある全てのパッケージを提供するURLテ"
+"ンプレートを与えます。\n"
 "プレースホルダー`%package%`を含まなければなりません。"
 
 #. type: Plain text
@@ -8824,7 +8835,8 @@ msgid ""
 "packages which provide a given package name, but not the package which has "
 "that name. It must contain the placeholder `%package%`."
 msgstr ""
-"`providers-api`フィールドでは与えられたパッケージ名を提供する全てのパッケージ、ただしその名前のパッケージ以外、を返すURLテンプレートを与えられます。\n"
+"`providers-api`フィールドでは与えられたパッケージ名を提供する全てのパッケー"
+"ジ、ただしその名前のパッケージ以外、を返すURLテンプレートを与えられます。\n"
 "プレースホルダー`%package%`を含まなければなりません。"
 
 #. type: Plain text
@@ -8919,7 +8931,8 @@ msgid ""
 "package names provided by this repository. The hash should be a sha256 of "
 "the files in this case."
 msgstr ""
-"`provider-includes`フィールドでは、このリポジトリから提供されるパッケージ名を一覧にするファイルの集まりを列挙できます。\n"
+"`provider-includes`フィールドでは、このリポジトリから提供されるパッケージ名を"
+"一覧にするファイルの集まりを列挙できます。\n"
 "この場合ハッシュはファイルのsha256になります。"
 
 #. type: Plain text
@@ -9014,9 +9027,12 @@ msgid ""
 "field. Those files themselves contain package definitions as described "
 "[above](#packages)."
 msgstr ""
-"上のファイルは`providers-url`で参照されたファイルを読み込むことにより、このリポジトリにacme/fooとacme/barがあることを宣言しています。\n"
-"ベンダーの名前空間が付いたパッケージ名で`%package%`を、`%hash%`をsha256フィールドを、それぞれ置き換えます。\n"
-"これらのファイル自体には[上](#packages)で前述したパッケージの定義が含まれます。"
+"上のファイルは`providers-url`で参照されたファイルを読み込むことにより、このリ"
+"ポジトリにacme/fooとacme/barがあることを宣言しています。\n"
+"ベンダーの名前空間が付いたパッケージ名で`%package%`を、`%hash%`をsha256フィー"
+"ルドを、それぞれ置き換えます。\n"
+"これらのファイル自体には[上](#packages)で前述したパッケージの定義が含まれま"
+"す。"
 
 #. type: Plain text
 #: ../doc/05-repositories.md:301
@@ -9043,11 +9059,15 @@ msgid ""
 "for more information. When cURL is used, only a limited set of `http` and "
 "`ssl` options can be configured."
 msgstr ""
-"リポジトリへはcURL（ext-curlが有効なComposer 2）またはPHPストリームの何れかを使ってアクセスします。\n"
+"リポジトリへはcURL（ext-curlが有効なComposer 2）またはPHPストリームの何れかを"
+"使ってアクセスします。\n"
 "`options`パラメータを使って追加のオプションを設定できます。\n"
-"PHPストリームについては、任意の妥当なPHPストリームコンテキストオプションを設定できます。\n"
-"詳細は[コンテキストオプションとパラメータ](https://php.net/manual/en/context.php)を参照してください。\n"
-"cURLが使われているとき、ごく一部の`http`と`ssl`オプションしか設定できないように制限されます。"
+"PHPストリームについては、任意の妥当なPHPストリームコンテキストオプションを設"
+"定できます。\n"
+"詳細は[コンテキストオプションとパラメータ](https://php.net/manual/en/context."
+"php)を参照してください。\n"
+"cURLが使われているとき、ごく一部の`http`と`ssl`オプションしか設定できないよう"
+"に制限されます。"
 
 #. type: Fenced code block (json)
 #: ../doc/05-repositories.md:311
@@ -9127,13 +9147,19 @@ msgid ""
 "see [Libraries](02-libraries.md) for more information."
 msgstr ""
 "これにはいくつかの使い途があります。\n"
-"一番よくあるものとしては、サードパーティライブラリの独自のフォークを維持管理することです。\n"
-"プロジェクトで或るライブラリを使用していて、ライブラリ内の何かを変更し、プロジェクトでパッチを適用したバージョンを使用しようと思ったとします。\n"
-"ライブラリがGitHubにある場合（殆どのライブラリが当てはまります）、フォークして、変更をフォークにプッシュできます。\n"
+"一番よくあるものとしては、サードパーティライブラリの独自のフォークを維持管理"
+"することです。\n"
+"プロジェクトで或るライブラリを使用していて、ライブラリ内の何かを変更し、プロ"
+"ジェクトでパッチを適用したバージョンを使用しようと思ったとします。\n"
+"ライブラリがGitHubにある場合（殆どのライブラリが当てはまります）、フォークし"
+"て、変更をフォークにプッシュできます。\n"
 "その後、プロジェクトの`composer.json`を更新します。\n"
-"する必要があるのは、フォークをリポジトリとして追加し、バージョン制約を更新してカスタム ブランチを指すようにすることだけです。\n"
-"`composer.json` でのみ、カスタムブランチ名の前に`\"dev-\"`を付けるべきです（実際のブランチ名の一部にしないでください）。\n"
-"バージョン制約の命名規則については、[ライブラリ](02-libraries.md)を参照してください。"
+"する必要があるのは、フォークをリポジトリとして追加し、バージョン制約を更新し"
+"てカスタム ブランチを指すようにすることだけです。\n"
+"`composer.json` でのみ、カスタムブランチ名の前に`\"dev-\"`を付けるべきです"
+"（実際のブランチ名の一部にしないでください）。\n"
+"バージョン制約の命名規則については、[ライブラリ](02-libraries.md)を参照してく"
+"ださい。"
 
 #. type: Plain text
 #: ../doc/05-repositories.md:351
@@ -9191,9 +9217,12 @@ msgid ""
 "feature branch, since the package name is taken from the default branch."
 msgstr ""
 "長期的にフォークするつもりがない限り、パッケージを改名しないでください。\n"
-"また、もし変更するならするで、元のパッケージから完全に離れたものにする必要があります。\n"
-"独自リポジトリはpackagistよりも優先されるため、Composerは元のパッケージではなく自前のパッケージを正しく選択します。\n"
-"パッケージを改名する場合、パッケージ名が既定のブランチから取得されるため、機能ブランチではなく、既定の（多くの場合master）ブランチで行う必要があります。"
+"また、もし変更するならするで、元のパッケージから完全に離れたものにする必要が"
+"あります。\n"
+"独自リポジトリはpackagistよりも優先されるため、Composerは元のパッケージではな"
+"く自前のパッケージを正しく選択します。\n"
+"パッケージを改名する場合、パッケージ名が既定のブランチから取得されるため、機"
+"能ブランチではなく、既定の（多くの場合master）ブランチで行う必要があります。"
 
 #. type: Plain text
 #: ../doc/05-repositories.md:379
@@ -9308,8 +9337,11 @@ msgid ""
 "to fetch the packages without having to install the version control system. "
 "The VCS repository provides `dist`s for them that fetch the packages as zips."
 msgstr ""
-"これらのシステムからパッケージを取得するにはそれぞれのクライアントがインストールされてる必要がありますが、これだと不便かもしれません。\n"
-"このため、GitHubとBitbucketについては、これらのサイトが提供するAPIを使用して、バージョン管理システムをインストールせずにパッケージを取得する特別な対応が入っています。\n"
+"これらのシステムからパッケージを取得するにはそれぞれのクライアントがインス"
+"トールされてる必要がありますが、これだと不便かもしれません。\n"
+"このため、GitHubとBitbucketについては、これらのサイトが提供するAPIを使用し"
+"て、バージョン管理システムをインストールせずにパッケージを取得する特別な対応"
+"が入っています。\n"
 "VCSリポジトリは、パッケージをzipとして取得する`dist`を提供します。"
 
 #. type: Bullet: '* '
@@ -9708,7 +9740,9 @@ msgstr "自分でホスティングする"
 msgid ""
 "While you will probably want to put your packages on packagist most of the "
 "time, there are some use cases for hosting your own repository."
-msgstr "多分殆どの場合でパッケージをpackagistに置きたいものと思われますが、自分のリポジトリをホスティングすることによる用途もあります。"
+msgstr ""
+"多分殆どの場合でパッケージをpackagistに置きたいものと思われますが、自分のリポ"
+"ジトリをホスティングすることによる用途もあります。"
 
 #. type: Bullet: '* '
 #: ../doc/05-repositories.md:590
@@ -9718,7 +9752,8 @@ msgid ""
 "packages private."
 msgstr ""
 "**企業の私有パッケージ：**\n"
-"内部的なパッケージ用にComposerを使っている企業に所属しているなら、それらのパッケージを私有としておきたいかもしれません。"
+"内部的なパッケージ用にComposerを使っている企業に所属しているなら、それらの"
+"パッケージを私有としておきたいかもしれません。"
 
 #. type: Bullet: '* '
 #: ../doc/05-repositories.md:595
@@ -9831,7 +9866,9 @@ msgstr ""
 "VCSが使われていたとしても例外ではありません。\n"
 "よくある例は、ビルドアーティファクトによる組織間のライブラリ交換です。\n"
 "もちろん殆どの場合で、これらは私有とされます。\n"
-"これらのアーカイブをそのまま使用するには、これらの私有パッケージのZIPまたはTARアーカイブを含むフォルダーに対して、種別`artifact`のリポジトリを使用できます。"
+"これらのアーカイブをそのまま使用するには、これらの私有パッケージのZIPまたは"
+"TARアーカイブを含むフォルダーに対して、種別`artifact`のリポジトリを使用できま"
+"す。"
 
 #. type: Fenced code block (json)
 #: ../doc/05-repositories.md:631
@@ -10062,8 +10099,11 @@ msgid ""
 "mirroring can be useful when deploying or generating package from a "
 "monolithic repository."
 msgstr ""
-"既定のフォールバック戦略に代えて、`\"symlink\": true`としてシンボリックリンクにしたり、`\"symlink\": false`オプションでミラーリングしたりすることを強制できます。\n"
-"ミラーリングを強制すると、モノリシックレポジトリからパッケージをデプロイしたり生成したりする際に便利なことがあります。"
+"既定のフォールバック戦略に代えて、`\"symlink\": true`としてシンボリックリンク"
+"にしたり、`\"symlink\": false`オプションでミラーリングしたりすることを強制で"
+"きます。\n"
+"ミラーリングを強制すると、モノリシックレポジトリからパッケージをデプロイした"
+"り生成したりする際に便利なことがあります。"
 
 #. type: Plain text
 #: ../doc/05-repositories.md:735
@@ -10268,15 +10308,19 @@ msgid ""
 msgstr ""
 "プロセス実行の制限時間（秒）です。\n"
 "既定では300（5分）です。\n"
-"gitのクローンのような時間の掛かるプロセスは、Composerによりプロセスが異常終了したと推定される前に実行できます。\n"
-"接続が遅い場合やベンダーが大きい場合は、これを増やす必要があるかもしれません。"
+"gitのクローンのような時間の掛かるプロセスは、Composerによりプロセスが異常終了"
+"したと推定される前に実行できます。\n"
+"接続が遅い場合やベンダーが大きい場合は、これを増やす必要があるかもしれませ"
+"ん。"
 
 #. type: Plain text
 #: ../doc/06-config.md:15
 msgid ""
 "To disable the process timeout on a custom command under `scripts`, a static "
 "helper is available:"
-msgstr "`scripts`以下の独自コマンドでプロセスの制限時間を無効にするには、静的ヘルパーが使えます。"
+msgstr ""
+"`scripts`以下の独自コマンドでプロセスの制限時間を無効にするには、静的ヘルパー"
+"が使えます。"
 
 #. type: Fenced code block (json)
 #: ../doc/06-config.md:16
@@ -10379,7 +10423,9 @@ msgid ""
 "plugins, or `true` to allow all plugins to run (NOT recommended). For "
 "example:"
 msgstr ""
-"構成オプション自体を`false`にして全てのプラグインを拒否したり、`true`にして全てのプロラグインが走るのを許可したり（全くお勧めしません）するようにも設定できます。\n"
+"構成オプション自体を`false`にして全てのプラグインを拒否したり、`true`にして全"
+"てのプロラグインが走るのを許可したり（全くお勧めしません）するようにも設定で"
+"きます。\n"
 "例えば以下の通りです。"
 
 #. type: Fenced code block (json)
@@ -10411,7 +10457,8 @@ msgid ""
 "classes in the PHP include path."
 msgstr ""
 "既定では`false`です。\n"
-"`true`にすると、Composerの自動読み込み器はPHPのインクルードパスにあるクラスも探します。"
+"`true`にすると、Composerの自動読み込み器はPHPのインクルードパスにあるクラスも"
+"探します。"
 
 #. type: Title ##
 #: ../doc/06-config.md:70
@@ -10429,7 +10476,8 @@ msgid ""
 msgstr ""
 "既定では`dist`で、`source`、`dist`、`auto`の何れかです。\n"
 "このオプションではComposerが優先して使うインストール方法を設定できます。\n"
-"お好みで、より柔軟なインストール設定のためにキーにパッケージ名のパターンがあるオブジェクトにすることもできます。"
+"お好みで、より柔軟なインストール設定のためにキーにパッケージ名のパターンがあ"
+"るオブジェクトにすることもできます。"
 
 #. type: Fenced code block (json)
 #: ../doc/06-config.md:76
@@ -10479,7 +10527,8 @@ msgid ""
 "dev versions, and `dist` otherwise."
 msgstr ""
 "`auto`は遺物的な動作です。\n"
-"開発バージョンの場合にComposerは`source`を自動的に使用し、それ以外の場合は`dist`を使用します。"
+"開発バージョンの場合にComposerは`source`を自動的に使用し、それ以外の場合は"
+"`dist`を使用します。"
 
 #. type: Bullet: '- '
 #: ../doc/06-config.md:98
@@ -10488,8 +10537,10 @@ msgid ""
 "where possible. This is typically a zip file download, which is faster than "
 "cloning the entire repository."
 msgstr ""
-"`dist`（Composer 2.1以降で既定）は、可能であればComposerが`dist`からインストールすることを意味します。\n"
-"通常、zipファイルのダウンロードであり、リポジトリ全体のクローンよりも高速です。"
+"`dist`（Composer 2.1以降で既定）は、可能であればComposerが`dist`からインス"
+"トールすることを意味します。\n"
+"通常、zipファイルのダウンロードであり、リポジトリ全体のクローンよりも高速で"
+"す。"
 
 #. type: Plain text
 #: ../doc/06-config.md:103
@@ -10584,28 +10635,36 @@ msgid ""
 "2.7 on. Defines whether the audit command reports abandoned packages or not, "
 "this has three possible values:"
 msgstr ""
-"Composer 2.6では`report`が既定値であり、Composer 2.7以降では`fail`が既定値です。\n"
-"監査コマンドが放棄されたパッケージを報告するかどうかを定義するもので、3つの値を取り得ます。"
+"Composer 2.6では`report`が既定値であり、Composer 2.7以降では`fail`が既定値で"
+"す。\n"
+"監査コマンドが放棄されたパッケージを報告するかどうかを定義するもので、3つの値"
+"を取り得ます。"
 
 #. type: Bullet: '- '
 #: ../doc/06-config.md:145
 msgid ""
 "`ignore` means the audit command does not consider abandoned packages at all."
-msgstr "`ignore`は、監査コマンドが放棄されたパッケージを全く考慮しないという意味です。"
+msgstr ""
+"`ignore`は、監査コマンドが放棄されたパッケージを全く考慮しないという意味で"
+"す。"
 
 #. type: Bullet: '- '
 #: ../doc/06-config.md:145
 msgid ""
 "`report` means abandoned packages are reported as an error but do not cause "
 "the command to exit with a non-zero code."
-msgstr "`report`は、放棄されたパッケージが失敗として報告されるものの、非ゼロコードでコマンドが終了してしまわないようにする意味です。"
+msgstr ""
+"`report`は、放棄されたパッケージが失敗として報告されるものの、非ゼロコードで"
+"コマンドが終了してしまわないようにする意味です。"
 
 #. type: Bullet: '- '
 #: ../doc/06-config.md:145
 msgid ""
 "`fail` means abandoned packages will cause audits to fail with a non-zero "
 "code."
-msgstr "`fail`は、放棄されたパッケージにより監査が非ゼロコードで失敗するようになる意味です。"
+msgstr ""
+"`fail`は、放棄されたパッケージにより監査が非ゼロコードで失敗するようになる意"
+"味です。"
 
 #. type: Title ##
 #: ../doc/06-config.md:146
@@ -10619,7 +10678,10 @@ msgid ""
 "When running Composer in a directory where there is no composer.json, if "
 "there is one present in a directory above Composer will by default ask you "
 "whether you want to use that directory's composer.json instead."
-msgstr "composer.jsonがないディレクトリでComposerを実行しており、その上のディレクトリにcomposer.jsonがある場合、Composerは既定で、そのディレクトリのcomposer.jsonを代わりに使用するかどうかを尋ねます。"
+msgstr ""
+"composer.jsonがないディレクトリでComposerを実行しており、その上のディレクトリ"
+"にcomposer.jsonがある場合、Composerは既定で、そのディレクトリのcomposer.json"
+"を代わりに使用するかどうかを尋ねます。"
 
 #. type: Plain text
 #: ../doc/06-config.md:154
@@ -10801,10 +10863,15 @@ msgid ""
 "auth. By default, Composer will generate a git-over-SSH URL for private "
 "repositories and HTTP(S) only for public."
 msgstr ""
-"パッケージメタデータの`source`値用にリポジトリのURLを作成するときに、強制的に使用するプロトコルです。\n"
+"パッケージメタデータの`source`値用にリポジトリのURLを作成するときに、強制的に"
+"使用するプロトコルです。\n"
 "`git`または`http`の何れかです（`https`は`http`の同義語として扱われます）。\n"
-"HTTPベーシック認証を使った[GitLabのCI_JOB_TOKEN](https://docs.gitlab.com/ee/ci/variables/predefined_variables.html#predefined-variables-reference)により、後々GitLab CIのジョブでクローンされる私有リポジトリを参照するプロジェクトを扱う際に役立ちます。\n"
-"既定では、Composerは私有リポジトリについてはgit-over-SSHのURLを生成し、公開リポジトリについてはHTTP(S)のみを生成します。"
+"HTTPベーシック認証を使った[GitLabのCI_JOB_TOKEN](https://docs.gitlab.com/ee/"
+"ci/variables/predefined_variables.html#predefined-variables-reference)によ"
+"り、後々GitLab CIのジョブでクローンされる私有リポジトリを参照するプロジェクト"
+"を扱う際に役立ちます。\n"
+"既定では、Composerは私有リポジトリについてはgit-over-SSHのURLを生成し、公開リ"
+"ポジトリについてはHTTP(S)のみを生成します。"
 
 #. type: Title ##
 #: ../doc/06-config.md:220
@@ -10822,7 +10889,8 @@ msgid ""
 "`secure-http` option."
 msgstr ""
 "既定は`false`です。\n"
-"真に設定すると、すべてのHTTPSのURLが代わりにHTTPで試行され、ネットワークレベルの暗号化は実行されません。\n"
+"真に設定すると、すべてのHTTPSのURLが代わりにHTTPで試行され、ネットワークレベ"
+"ルの暗号化は実行されません。\n"
 "これを有効にすることはセキュリティ上の危険性であり、全く推奨されません。\n"
 "より良い方法は、php.iniでphp_openssl拡張機能を有効にすることです。\n"
 "これを有効にすると、`secure-http`オプションが暗黙に無効になります。"
@@ -10863,8 +10931,10 @@ msgid ""
 "more [here](articles/authentication-for-private-packages.md#bitbucket-oauth)."
 msgstr ""
 "ドメイン名と消費者のリストです。\n"
-"例えば`{\"bitbucket.org\": {\"consumer-key\": \"myKey\", \"consumer-secret\": \"mySecret\"}}`のように使います。\n"
-"より詳しくは[こちら](articles/authentication-for-private-packages.md#bitbucket-oauth)を読んでください。"
+"例えば`{\"bitbucket.org\": {\"consumer-key\": \"myKey\", \"consumer-"
+"secret\": \"mySecret\"}}`のように使います。\n"
+"より詳しくは[こちら](articles/authentication-for-private-packages."
+"md#bitbucket-oauth)を読んでください。"
 
 #. type: Title ##
 #: ../doc/06-config.md:241
@@ -10880,7 +10950,8 @@ msgid ""
 "should be able to detect your system CA file automatically."
 msgstr ""
 "ローカルファイルシステム上の認証局ファイルの配置場所です。\n"
-"PHP 5.6以降ではシステムCAファイルを自動的に検出できますが、PHP 5.6以降でも、php.iniのopenssl.cafileを介してこれを設定すべきです。"
+"PHP 5.6以降ではシステムCAファイルを自動的に検出できますが、PHP 5.6以降でも、"
+"php.iniのopenssl.cafileを介してこれを設定すべきです。"
 
 #. type: Title ##
 #: ../doc/06-config.md:247
@@ -10936,7 +11007,9 @@ msgid ""
 "foo` header."
 msgstr ""
 "認証するドメイン名とトークンのリストです。\n"
-"たとえば、このオプションの値として`{\"example.org\": \"foo\"}`を使用すると、Composerは`Authorization: Bearer foo`ヘッダーを使用して、example.orgに対して認証を行うことができます。"
+"たとえば、このオプションの値として`{\"example.org\": \"foo\"}`を使用すると、"
+"Composerは`Authorization: Bearer foo`ヘッダーを使用して、example.orgに対して"
+"認証を行うことができます。"
 
 #. type: Title ##
 #: ../doc/06-config.md:266
@@ -10965,9 +11038,11 @@ msgid ""
 "runtime. This also means if `{\"php\":\"7.4\"}` is specified; no packages "
 "will be used that define `7.4.1` as minimum."
 msgstr ""
-"これにより、ローカルで実行する実際のPHPバージョンに関係なく、PHP 7.0.3以上を必要とするパッケージをインストールできなくなります。\n"
+"これにより、ローカルで実行する実際のPHPバージョンに関係なく、PHP 7.0.3以上を"
+"必要とするパッケージをインストールできなくなります。\n"
 "ただし、依存関係が正しく検査されなくなったことも意味します。\n"
-"PHP 5.6を実行すると、7.0.3を想定しているため問題なくインストールされますが、実行時に失敗します。\n"
+"PHP 5.6を実行すると、7.0.3を想定しているため問題なくインストールされますが、"
+"実行時に失敗します。\n"
 "これは、`{\"php\":\"7.4\"}`が指定されることも意味します。\n"
 "`7.4.1`を最小のバージョンとして定義するパッケージは使用されません。"
 
@@ -11144,7 +11219,8 @@ msgstr ""
 "既定では`15552000`（6箇月）です。\n"
 "Composerはダウンロードした全てのdist（zip、tar、……）をキャッシュします。\n"
 "既定では使われていないものについて6箇月経った後に削除します。\n"
-"このオプションはこの期間を（秒数で）調整ないし0に設定することで、完全に無効にできるようにするものです。"
+"このオプションはこの期間を（秒数で）調整ないし0に設定することで、完全に無効に"
+"できるようにするものです。"
 
 #. type: Title ##
 #: ../doc/06-config.md:339
@@ -11278,7 +11354,8 @@ msgid ""
 "by name in `composer.json` when adding a new package."
 msgstr ""
 "既定では`false`です。\n"
-"`true`の場合、新しいパッケージを追加したときに`composer.json`中の`require`コマンドでパッケージが名前順に整列された状態に保たれます。"
+"`true`の場合、新しいパッケージを追加したときに`composer.json`中の`require`コ"
+"マンドでパッケージが名前順に整列された状態に保たれます。"
 
 #. type: Title ##
 #: ../doc/06-config.md:382
@@ -11310,7 +11387,8 @@ msgid ""
 "and use it to cache found/not-found classes when the extension is enabled."
 msgstr ""
 "既定では`false`です。\n"
-"`true`の場合、Composerの自動読み込み器はAPCuを確認し、拡張が有効になった場合にクラスの有無をキャッシュするのに使います。"
+"`true`の場合、Composerの自動読み込み器はAPCuを確認し、拡張が有効になった場合"
+"にクラスの有無をキャッシュするのに使います。"
 
 #. type: Title ##
 #: ../doc/06-config.md:392
@@ -11360,8 +11438,11 @@ msgid ""
 "driver directly, Composer will still attempt to use GitHub's zip files."
 msgstr ""
 "既定では`true`です。\n"
-"特定のリポジトリに於ける`no-api`キーに似ており、`use-github-api`を`false`に設定すると、他のgitリポジトリのように、全てのGitHubリポジトリについて、GitHub APIを使う代わりにリポジトリをクローンするように大域的な挙動を定義します。\n"
-"しかし`git`ドライバを直接使うのではなく、ComposerはやはりGitHubのzipファイルを使うことを試みます。"
+"特定のリポジトリに於ける`no-api`キーに似ており、`use-github-api`を`false`に設"
+"定すると、他のgitリポジトリのように、全てのGitHubリポジトリについて、GitHub "
+"APIを使う代わりにリポジトリをクローンするように大域的な挙動を定義します。\n"
+"しかし`git`ドライバを直接使うのではなく、ComposerはやはりGitHubのzipファイル"
+"を使うことを試みます。"
 
 #. type: Title ##
 #: ../doc/06-config.md:410
@@ -11397,9 +11478,12 @@ msgid ""
 "scripts if you tend to have modified vendors."
 msgstr ""
 "既定では`false`で、`true`、`false`、または`stash`の何れかにできます。\n"
-"このオプションでは非対話モードでダーティアップデートを制御する既定の方式を設定できます。\n"
-"`true`はベンダーの変更を常に破棄しますが、`\"stash\"`は取っておいて再適用しようとします。\n"
-"よくベンダーを変更する場合は、CIサーバーやデプロイスクリプトにこれを使ってください。"
+"このオプションでは非対話モードでダーティアップデートを制御する既定の方式を設"
+"定できます。\n"
+"`true`はベンダーの変更を常に破棄しますが、`\"stash\"`は取っておいて再適用しよ"
+"うとします。\n"
+"よくベンダーを変更する場合は、CIサーバーやデプロイスクリプトにこれを使ってく"
+"ださい。"
 
 #. type: Title ##
 #: ../doc/06-config.md:424
@@ -11459,7 +11543,8 @@ msgid ""
 "files in the Composer home, cache, and data directories."
 msgstr ""
 "既定では`true`です。\n"
-"`false`に設定すると、ComposerはComposerのホーム、キャッシュ、データディレクトリに`.htaccess`ファイルを作りません。"
+"`false`に設定すると、ComposerはComposerのホーム、キャッシュ、データディレクト"
+"リに`.htaccess`ファイルを作りません。"
 
 #. type: Title ##
 #: ../doc/06-config.md:448
@@ -11474,7 +11559,8 @@ msgid ""
 "lock` file and will ignore it if one is present."
 msgstr ""
 "既定では`true`です。\n"
-"`false`に設定すると、Composerは`composer.lock`ファイルを作らず、存在している場合は無視します。"
+"`false`に設定すると、Composerは`composer.lock`ファイルを作らず、存在している"
+"場合は無視します。"
 
 #. type: Title ##
 #: ../doc/06-config.md:453
@@ -11511,8 +11597,11 @@ msgid ""
 "alternative to disabling `secure-http` altogether."
 msgstr ""
 "既定では`[]`です。\n"
-"安全なSubversionまたはSVNの移送を使用しているものとして信頼し、印を付けるべきドメインの一覧です。\n"
-"既定では、svn://プロトコルは安全ではないと見なされ、throwされますが、この構成オプションを`[\"example.org\"]`に設定すれば、そのホスト名でsvnのURLを使用できます。\n"
+"安全なSubversionまたはSVNの移送を使用しているものとして信頼し、印を付けるべき"
+"ドメインの一覧です。\n"
+"既定では、svn://プロトコルは安全ではないと見なされ、throwされますが、この構成"
+"オプションを`[\"example.org\"]`に設定すれば、そのホスト名でsvnのURLを使用でき"
+"ます。\n"
 "`secure-http`を完全に無効にするよりも優れた安全な代替手段です。"
 
 #. type: Plain text
@@ -11839,8 +11928,10 @@ msgid ""
 "then use the methods above to retrieve more information about each package "
 "if needed."
 msgstr ""
-"`getInstalledPackagesByType`メソッドはパッケージの種類（例：foo-plugin）を受け入れ、インストールされているその種類のパッケージを一覧にします。\n"
-"その後、上記のメソッドを使用して、必要に応じて各パッケージに関する詳細情報を取得できます。"
+"`getInstalledPackagesByType`メソッドはパッケージの種類（例：foo-plugin）を受"
+"け入れ、インストールされているその種類のパッケージを一覧にします。\n"
+"その後、上記のメソッドを使用して、必要に応じて各パッケージに関する詳細情報を"
+"取得できます。"
 
 #. type: Plain text
 #: ../doc/07-runtime.md:126
@@ -11850,8 +11941,10 @@ msgid ""
 "find plugins to initialize at runtime via InstalledVersions, including their "
 "paths via getInstallPath if needed."
 msgstr ""
-"この方法により、プラグインをベンダーディレクトリに残すのではなく、特定のパスに配置するカスタムインストーラーの必要性が軽減されます。\n"
-"それからInstalledVersionsを介して実行時に初期化するプラグインを見付け、必要に応じてgetInstallPathを介してそれらのパスを含めることができます。"
+"この方法により、プラグインをベンダーディレクトリに残すのではなく、特定のパス"
+"に配置するカスタムインストーラーの必要性が軽減されます。\n"
+"それからInstalledVersionsを介して実行時に初期化するプラグインを見付け、必要に"
+"応じてgetInstallPathを介してそれらのパスを含めることができます。"
 
 #. type: Fenced code block (php)
 #: ../doc/07-runtime.md:127
@@ -11895,7 +11988,10 @@ msgid ""
 "To avoid an unexpected white page of death with some obscure PHP extension "
 "warning in production, you can run `composer check-platform-reqs` as part of "
 "your deployment/build and if that returns a non-0 code you should abort."
-msgstr "実稼働環境で予期せず失敗した際のPHP拡張機能の曖昧な警告が表示される空白ページを回避するには、デプロイやビルドの工程の一部として`composer check-platform-reqs`を実行し、0以外のコードが返された場合に中止すると良いでしょう。"
+msgstr ""
+"実稼働環境で予期せず失敗した際のPHP拡張機能の曖昧な警告が表示される空白ページ"
+"を回避するには、デプロイやビルドの工程の一部として`composer check-platform-"
+"reqs`を実行し、0以外のコードが返された場合に中止すると良いでしょう。"
 
 #. type: Plain text
 #: ../doc/07-runtime.md:147
@@ -11909,7 +12005,10 @@ msgid ""
 "rather risk runtime errors when your code executes, you can disable this by "
 "setting the [`platform-check`](06-config.md#platform-check) config option to "
 "`false`."
-msgstr "何らかの理由でこの安全性の検査を使いたくなく、コードが実行されるときの実行時の失敗の惧れを許容する場合は、[`platform-check`](06-config.md#platform-check)構成オプションを`false`に設定することで無効にできます。"
+msgstr ""
+"何らかの理由でこの安全性の検査を使いたくなく、コードが実行されるときの実行時"
+"の失敗の惧れを許容する場合は、[`platform-check`](06-config.md#platform-check)"
+"構成オプションを`false`に設定することで無効にできます。"
 
 #. type: Plain text
 #: ../doc/07-runtime.md:156
@@ -11929,7 +12028,9 @@ msgstr ""
 msgid ""
 "`lib-*` requirements are never supported/checked by the platform check "
 "feature."
-msgstr "`lib-*`の要件は、プラットフォーム検査機能では全く対応されておらず、検査もされません。"
+msgstr ""
+"`lib-*`の要件は、プラットフォーム検査機能では全く対応されておらず、検査もされ"
+"ません。"
 
 #. type: Title ##
 #: ../doc/07-runtime.md:159
@@ -11957,7 +12058,8 @@ msgid ""
 "projects by Composer's `vendor/autoload.php`, which would be useless as it "
 "would point back to itself."
 msgstr ""
-"バイナリプロキシによって設定されるので、Composerの`vendor/autoload.php`ではプロジェクトに使うことはできません。\n"
+"バイナリプロキシによって設定されるので、Composerの`vendor/autoload.php`ではプ"
+"ロジェクトに使うことはできません。\n"
 "このファイルはそれ自体を指すように戻ってしまうので、役に立たないのです。"
 
 #. type: Title ##
@@ -11974,9 +12076,11 @@ msgid ""
 "this [on the vendor binaries docs](articles/vendor-binaries.md#finding-the-"
 "composer-bin-dir-from-a-binary)."
 msgstr ""
-"composer-runtime-api 2.2.2では、新しい`$_composer_bin_dir`大域変数が導入されました。\n"
+"composer-runtime-api 2.2.2では、新しい`$_composer_bin_dir`大域変数が導入され"
+"ました。\n"
 "Composerでインストールされたバイナリを使った際に設定されます。\n"
-"これについての詳細は[ベンダーバイナリのドキュメント](articles/vendor-binaries.md#finding-the-composer-bin-dir-from-a-binary)をお読みください。"
+"これについての詳細は[ベンダーバイナリのドキュメント](articles/vendor-"
+"binaries.md#finding-the-composer-bin-dir-from-a-binary)をお読みください。"
 
 #. type: Plain text
 #: ../doc/07-runtime.md:177
