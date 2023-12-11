@@ -45,10 +45,8 @@ Composerはこの情報を使って、[`repositories`](04-schema.md#repositories
 
 ### パッケージバージョン制約
 
-In our example, we are requesting the Monolog package with the version constraint
-[`2.0.*`](https://semver.madewithlove.com/?package=monolog%2Fmonolog&constraint=2.0.*).
-This means any version in the `2.0` development branch, or any version that is
-greater than or equal to 2.0 and less than 2.1 (`>=2.0 <2.1`).
+先の例ではバージョン制約[`2.0.*`](https://semver.madewithlove.com/?package=monolog%2Fmonolog&constraint=2.0.*)のMonologパッケージを要求しています。
+これが意味するものは`2.0`の開発ブランチの任意のバージョン、言い換えると2.0以上で2.1より小さい（`>=2.0 <2.1`）任意のバージョンのことを指します。
 
 バージョンとバージョン間の関連、バージョン制約についてのより詳しい情報は[バージョン](articles/versions.md)を読んでください。
 
