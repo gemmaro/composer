@@ -19,7 +19,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Composer\n"
-"POT-Creation-Date: 2023-12-09 08:36+0900\n"
+"POT-Creation-Date: 2023-12-16 21:17+0900\n"
 "PO-Revision-Date: 2023-12-09 08:37+0900\n"
 "Last-Translator: gemmaro <gemmaro.dev@gmail.com>\n"
 "Language-Team: none\n"
@@ -21627,4 +21627,76 @@ msgid ""
 "default version constraint which Composer would add to your `composer.json` "
 "file. You can adjust the version constraint and the tool will highlight all "
 "releases that match."
+msgstr ""
+
+#. type: Title #
+#: ../doc/faqs/how-to-install-composer-programmatically.md:1
+#, no-wrap
+msgid "How do I install Composer programmatically?"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/faqs/how-to-install-composer-programmatically.md:6
+msgid ""
+"As noted on the download page, the installer script contains a checksum "
+"which changes when the installer code changes and as such it should not be "
+"relied upon in the long term."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/faqs/how-to-install-composer-programmatically.md:8
+msgid ""
+"An alternative is to use this script which only works with UNIX utilities:"
+msgstr ""
+
+#. type: Fenced code block (shell)
+#: ../doc/faqs/how-to-install-composer-programmatically.md:9
+#, no-wrap
+msgid ""
+"#!/bin/sh\n"
+"\n"
+"EXPECTED_CHECKSUM=\"$(php -r 'copy(\"https://composer.github.io/installer.sig\", \"php://stdout\");')\"\n"
+"php -r \"copy('https://getcomposer.org/installer', 'composer-setup.php');\"\n"
+"ACTUAL_CHECKSUM=\"$(php -r \"echo hash_file('sha384', 'composer-setup.php');\")\"\n"
+"\n"
+"if [ \"$EXPECTED_CHECKSUM\" != \"$ACTUAL_CHECKSUM\" ]\n"
+"then\n"
+"    >&2 echo 'ERROR: Invalid installer checksum'\n"
+"    rm composer-setup.php\n"
+"    exit 1\n"
+"fi\n"
+"\n"
+"php composer-setup.php --quiet\n"
+"RESULT=$?\n"
+"rm composer-setup.php\n"
+"exit $RESULT\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/faqs/how-to-install-composer-programmatically.md:31
+msgid ""
+"The script will exit with 1 in case of failure, or 0 on success, and is "
+"quiet if no error occurs."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/faqs/how-to-install-composer-programmatically.md:36
+msgid ""
+"Alternatively, if you want to rely on an exact copy of the installer, you "
+"can fetch a specific version from GitHub's history. The commit hash should "
+"be enough to give it uniqueness and authenticity as long as you can trust "
+"the GitHub servers.  For example:"
+msgstr ""
+
+#. type: Fenced code block (shell)
+#: ../doc/faqs/how-to-install-composer-programmatically.md:37
+#, no-wrap
+msgid "wget https://raw.githubusercontent.com/composer/getcomposer.org/76a7060ccb93902cd7576b67264ad91c8a2700e2/web/installer -O - -q | php -- --quiet\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/faqs/how-to-install-composer-programmatically.md:42
+msgid ""
+"You may replace the commit hash by whatever the last commit hash is on "
+"https://github.com/composer/getcomposer.org/commits/main"
 msgstr ""
