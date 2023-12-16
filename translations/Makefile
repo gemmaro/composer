@@ -1,3 +1,3 @@
 translate:
-	po4a po4a.cfg
+	po4a --debug po4a.cfg
 .PHONY: translate
