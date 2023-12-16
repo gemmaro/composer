@@ -1,3 +1,11 @@
+### [2.6.6] 2023-12-08
+
+  * 要件symfony/consoleから7.xを除外するように修正しました。
+    Composer 2.6とは互換性が無いからです。
+    2.7では互換性があるでしょう (#11741)
+  * libpqの解析を修正し、可能であれば大域定数を使うようにしました (#11684)
+  * 一時制約の失敗があった更新でのエラー出力を修正しました (#11692)
+
 ### [2.6.5] 2023-10-06
 
   * vendorディレクトリに壊れたシンボリックリンクが含まれる場合の失敗を修正しました (#11670)。
@@ -2686,7 +2694,8 @@
 
   * 初回リリース。
 
-[2.6.5]: https://github.com/composer/composer/compare/2.6.4...2.6.5 [2.6.4]:
+[2.6.6]: https://github.com/composer/composer/compare/2.6.5...2.6.6 [2.6.5]:
+https://github.com/composer/composer/compare/2.6.4...2.6.5 [2.6.4]:
 https://github.com/composer/composer/compare/2.6.3...2.6.4 [2.6.3]:
 https://github.com/composer/composer/compare/2.6.2...2.6.3 [2.6.2]:
 https://github.com/composer/composer/compare/2.6.1...2.6.2 [2.6.1]:
