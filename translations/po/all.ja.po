@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Composer\n"
 "POT-Creation-Date: 2023-12-16 21:30+0900\n"
-"PO-Revision-Date: 2023-12-09 08:37+0900\n"
+"PO-Revision-Date: 2023-12-16 21:59+0900\n"
 "Last-Translator: gemmaro <gemmaro.dev@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -12798,7 +12798,7 @@ msgstr ""
 #: ../doc/faqs/how-to-install-composer-programmatically.md:1
 #, no-wrap
 msgid "How do I install Composer programmatically?"
-msgstr ""
+msgstr "Composerをプログラムでインストールする方法"
 
 #. type: Plain text
 #: ../doc/faqs/how-to-install-composer-programmatically.md:6
@@ -12807,12 +12807,17 @@ msgid ""
 "which changes when the installer code changes and as such it should not be "
 "relied upon in the long term."
 msgstr ""
+"ダウンロードページに附記したように、インストーラースクリプトにはチェックサム"
+"が含まれており、このチェックサムはインストーラのコードにより変化します。\n"
+"そのため長い目で見るとこの値に依るべきではありません。"
 
 #. type: Plain text
 #: ../doc/faqs/how-to-install-composer-programmatically.md:8
 msgid ""
 "An alternative is to use this script which only works with UNIX utilities:"
 msgstr ""
+"代替案はこのスクリプトを使うことです。\n"
+"UNIXのユーティリティがあってのみ動作します。"
 
 #. type: Fenced code block (shell)
 #: ../doc/faqs/how-to-install-composer-programmatically.md:9
@@ -12836,6 +12841,23 @@ msgid ""
 "rm composer-setup.php\n"
 "exit $RESULT\n"
 msgstr ""
+"#!/bin/sh\n"
+"\n"
+"EXPECTED_CHECKSUM=\"$(php -r 'copy(\"https://composer.github.io/installer.sig\", \"php://stdout\");')\"\n"
+"php -r \"copy('https://getcomposer.org/installer', 'composer-setup.php');\"\n"
+"ACTUAL_CHECKSUM=\"$(php -r \"echo hash_file('sha384', 'composer-setup.php');\")\"\n"
+"\n"
+"if [ \"$EXPECTED_CHECKSUM\" != \"$ACTUAL_CHECKSUM\" ]\n"
+"then\n"
+"    >&2 echo 'ERROR: Invalid installer checksum'\n"
+"    rm composer-setup.php\n"
+"    exit 1\n"
+"fi\n"
+"\n"
+"php composer-setup.php --quiet\n"
+"RESULT=$?\n"
+"rm composer-setup.php\n"
+"exit $RESULT\n"
 
 #. type: Plain text
 #: ../doc/faqs/how-to-install-composer-programmatically.md:31
@@ -12843,6 +12865,8 @@ msgid ""
 "The script will exit with 1 in case of failure, or 0 on success, and is "
 "quiet if no error occurs."
 msgstr ""
+"スクリプトは失敗した場合に1で、成功した場合に0で、それぞれ終了します。\n"
+"また、何らエラーが起きなければ何も出ません。"
 
 #. type: Plain text
 #: ../doc/faqs/how-to-install-composer-programmatically.md:36
@@ -12852,12 +12876,17 @@ msgid ""
 "be enough to give it uniqueness and authenticity as long as you can trust "
 "the GitHub servers.  For example:"
 msgstr ""
+"別案として、そっくりそのままのインストーラーに頼りたければ、GitHubの履歴から"
+"特定のバージョンを取得できます。\n"
+"GitHubのサーバーを信用できる限りにおいて、コミットハッシュは一意性と認証性を"
+"与えるに充分でしょう。\n"
+"例えば以下です。"
 
 #. type: Fenced code block (shell)
 #: ../doc/faqs/how-to-install-composer-programmatically.md:37
 #, no-wrap
 msgid "wget https://raw.githubusercontent.com/composer/getcomposer.org/76a7060ccb93902cd7576b67264ad91c8a2700e2/web/installer -O - -q | php -- --quiet\n"
-msgstr ""
+msgstr "wget https://raw.githubusercontent.com/composer/getcomposer.org/76a7060ccb93902cd7576b67264ad91c8a2700e2/web/installer -O - -q | php -- --quiet\n"
 
 #. type: Plain text
 #: ../doc/faqs/how-to-install-composer-programmatically.md:42
@@ -12865,3 +12894,5 @@ msgid ""
 "You may replace the commit hash by whatever the last commit hash is on "
 "https://github.com/composer/getcomposer.org/commits/main"
 msgstr ""
+"コミットハッシュは https://github.com/composer/getcomposer.org/commits/main "
+"にある何かしら最新のコミットハッシュで置き換えると良いでしょう。"

@@ -12,4 +12,5 @@
 
 # FAQ
 
+* [Composerをプログラムでインストールする方法](doc/faqs/how-to-install-composer-programmatically.md)
 * [何故、比較とワイルドカードが組み合わさったバージョン制約が良くないのか](doc/faqs/why-are-version-constraints-combining-comparisons-and-wildcards-a-bad-idea.md)
