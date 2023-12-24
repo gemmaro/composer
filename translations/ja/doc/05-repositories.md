@@ -652,7 +652,7 @@ false`オプションでミラーリングしたりすることを強制でき�
     "repositories": [
         {
             "type": "path",
-            "url": "../../packages/my-package",
+            "url": "../../packages/*",
             "options": {
                 "symlink": false
             }
@@ -682,7 +682,7 @@ false`オプションでミラーリングしたりすることを強制でき�
     "repositories": [
         {
             "type": "path",
-            "url": "../../packages/my-package",
+            "url": "../../packages/*",
             "options": {
                 "reference": "config"
             }
