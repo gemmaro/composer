@@ -56,12 +56,8 @@ class Auditor
      * @return int Amount of packages with vulnerabilities found
      * @throws InvalidArgumentException If no packages are passed in
      */
-    public function audit(IOInterface $io, RepositorySet $repoSet, array $packages, string $format, bool $warningOnly = true, array $ignoreList = [], string $abandoned = self::ABANDONED_REPORT): int
+    public function audit(IOInterface $io, RepositorySet $repoSet, array $packages, string $format, bool $warningOnly = true, array $ignoreList = [], string $abandoned = self::ABANDONED_FAIL): int
     {
-        if ($abandoned === 'default' && $format !== self::FORMAT_SUMMARY) {
-            $io->writeError('<warning>The new audit.abandoned setting (currently defaulting to "report" will default to "fail" in Composer 2.7, make sure to set it to "report" or "ignore" explicitly by then if you do not want this.</warning>');
-        }
-
         $allAdvisories = $repoSet->getMatchingSecurityAdvisories($packages, $format === self::FORMAT_SUMMARY);
         // we need the CVE & remote IDs set to filter ignores correctly so if we have any matches using the optimized codepath above
         // and ignores are set then we need to query again the full data to make sure it can be filtered
@@ -251,6 +247,7 @@ class Auditor
             foreach ($packageAdvisories as $advisory) {
                 $headers = [
                     'Package',
+                    'Severity',
                     'CVE',
                     'Title',
                     'URL',
@@ -259,6 +256,7 @@ class Auditor
                 ];
                 $row = [
                     $advisory->packageName,
+                    $this->getSeverity($advisory),
                     $this->getCVE($advisory),
                     $advisory->title,
                     $this->getURL($advisory),
@@ -293,6 +291,7 @@ class Auditor
                     $error[] = '--------';
                 }
                 $error[] = "Package: ".$advisory->packageName;
+                $error[] = "Severity: ".$this->getSeverity($advisory);
                 $error[] = "CVE: ".$this->getCVE($advisory);
                 $error[] = "Title: ".OutputFormatter::escape($advisory->title);
                 $error[] = "URL: ".$this->getURL($advisory);
@@ -352,6 +351,15 @@ class Auditor
         $packageUrl = PackageInfo::getViewSourceOrHomepageUrl($package);
 
         return $packageUrl !== null ? '<href=' . OutputFormatter::escape($packageUrl) . '>' . $package->getPrettyName() . '</>' : $package->getPrettyName();
+    }
+
+    private function getSeverity(SecurityAdvisory $advisory): string
+    {
+        if ($advisory->severity === null) {
+            return '';
+        }
+
+        return $advisory->severity;
     }
 
     private function getCVE(SecurityAdvisory $advisory): string
