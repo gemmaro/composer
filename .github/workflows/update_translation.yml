@@ -1,0 +1,25 @@
+on:
+  schedule:
+    - cron: '0 0 1 * *'
+  workflow_dispatch:
+
+jobs:
+  update_translation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: install packages
+        run: apt install --yes git po4a make
+
+      - name: merge from main
+        run:
+          - git remote add mainstream https://github.com/composer/composer
+          - git merge mainstream/master
+
+      - name: update translation
+        run:
+          - make --directory translation
+
+      - name: record changes
+        run:
+          - git stage .
+          - git commit --message="[ translate ] Update Japanese translation"
