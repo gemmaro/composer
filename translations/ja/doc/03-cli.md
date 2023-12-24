@@ -195,7 +195,8 @@ php composer.phar update vendor/package:2.0.1 vendor/package2:3.0.*
 * **--audit-format:** 監査の出力形式です。
   "table"、"plain"、"json"、または"summary"（既定）のどれかでなければなりません。
 * **--lock:**
-  固定ファイルのハッシュのみを更新し、固定ファイルが期限切れになっていることについての警告を抑制します。
+  パッケージのバージョンを更新せず、ロックファイルが期限切れであることについての警告を抑えるためにロックファイルを上書きします。
+  ミラーやURLといったパッケージのメタデータが変更されていれば更新します。
 * **--with:** 一時的に追加するバージョン制約です。例えばfoo/bar:1.0.0やfoo/bar=1.0.0です。
 * **--no-autoloader:** 自動読み込み器の生成を飛ばします。
 * **--no-progress:**
@@ -229,7 +230,7 @@ php composer.phar update vendor/package:2.0.1 vendor/package2:3.0.*
   依存関係の安定板を選ぶようにします。COMPOSER_PREFER_STABLE=1環境変数を介しても設定できます。
 * **--prefer-lowest:**
   依存関係の最も低いバージョンを選ぶようにします。最小バージョン要件を試す際に便利で、一般的には`--prefer-stable`と共に使われます。COMPOSER_PREFER_LOWERST=1環境変数を介しても設定できます。
-* **--minimal-changes:**
+* **--minimal-changes (-m):**
   `-w` / `-W`を使った部分的な更新の際に、遷移的な依存関係については絶対に必須の変更のみを実施するようにします。
   COMPOSER_MINIMAL_CHANGES=1環境変数を介しても設定できます。
 * **--interactive:** 自動補完付きの対話的なインターフェースで、更新するパッケージを選択します。
@@ -241,6 +242,8 @@ php composer.phar update vendor/package:2.0.1 vendor/package2:3.0.*
 ## require / r
 
 `require`コマンドは`composer.json`ファイルに現在のディレクトリから新しいパッケージを追加します。1つもファイルが存在しなければ必要に応じて作られます。
+
+パッケージを指定しない場合、Composerはパッケージを探すためにプロンプトを出し、要件にするものに照合する一覧を提供します。
 
 ```shell
 php composer.phar require
@@ -254,7 +257,13 @@ php composer.phar require
 php composer.phar require "vendor/package:2.*" vendor/package2:dev-master
 ```
 
-パッケージを指定しない場合、Composerはパッケージを探すためにプロンプトを出し、要件にするものに照合する一覧を提供します。
+バージョン制約を指定しなければ、composerは利用できるパッケージのバージョンに基づいて相応しいものを選びます。
+
+```shell
+php composer.phar require vendor/package vendor/package2
+```
+
+すぐには新しい依存関係をインストールしたくない場合は--no-update付きで呼べます。
 
 ### オプション
 
@@ -296,7 +305,7 @@ php composer.phar require "vendor/package:2.*" vendor/package2:dev-master
   依存関係の安定板を選ぶようにします。COMPOSER_PREFER_STABLE=1環境変数を介しても設定できます。
 * **--prefer-lowest:**
   依存関係の最も低いバージョンを選ぶようにします。最小バージョン要件を試す際に便利で、一般的には`--prefer-stable`と共に使われます。COMPOSER_PREFER_LOWERST=1環境変数を介しても設定できます。
-* **--minimal-changes:**
+* **--minimal-changes (-m):**
   `-w` / `-W`での更新の際に、遷移的な依存関係に関して絶対に必須の変更のみを実施するようにします。
   COMPOSER_MINIMAL_CHANGES=1環境変数を介して設定することもできます。
 * **--sort-packages:**
@@ -344,7 +353,7 @@ php composer.phar remove vendor/package vendor/package2
 * **--update-with-all-dependencies (-W):**
   全ての継承する依存関係が更新されるようにします。
   根幹依存関係のものも含みます。
-* **--minimal-changes:**
+* **--minimal-changes (-m):**
   `-w` / `-W`での更新の際に、遷移的な依存関係に関して絶対に必須の変更のみを実施するようにします。
   COMPOSER_MINIMAL_CHANGES=1環境変数を介して設定することもできます。
 * **--ignore-platform-reqs:**
@@ -552,6 +561,7 @@ php composer.phar show monolog/monolog 1.0.2
 * **--outdated (-o):**
   --latestを暗示しますが、新しいバージョンが手に入るパッケージ*のみ*を一覧にします。
 * **--ignore:**
+  ワイルドカード (`*`) を含められます。
   指定されたパッケージを無視します。
   パッケージの新しいバージョンについて通知を受けたくなければ--outdatedオプションと一緒に使ってください。
 * **--no-dev:** パッケージ一覧から開発用の依存関係を除外します。
@@ -564,6 +574,9 @@ php composer.phar show monolog/monolog 1.0.2
 * **--patch-only:**
   --latestまたは--outdatedと一緒に使ってください。
   パッチ水準のセマンティックバージョニング互換の更新があるパッケージのみが示されます。
+* **--sort-by-age (-A):**
+  インストールされたバージョンの経過時間を表示し、古い順にパッケージを整列します。
+  --latestないし--outdatedオプションと一緒に使ってください。
 * **--direct (-D):** パッケージの一覧を直接的な依存関係に限定します。
 * **--strict:** 時代遅れのパッケージがあるときは非ゼロの終了コードを返します。
 * **--format (-f):** 出力形式としてtext（既定）ないしjsonを選びます。
@@ -594,11 +607,16 @@ php composer.phar show monolog/monolog 1.0.2
 * **--direct (-D):** パッケージの一覧を直接的な依存関係に限定します。
 * **--strict:**
   1つもパッケージが時代遅れでなければ、非ゼロの終了コードを返します。
-* **--ignore:** 指定されたパッケージを無視します。何かしらのパッケージの新しいバージョンについて知らされたくないときに使ってください。
+* **--ignore:**
+  指定されたパッケージを無視します。
+  ワイルドカード (`*`) を含められます。
+  何かしらのパッケージの新しいバージョンについて知らされたくないときに使ってください。
 * **--major-only (-M):** メジャーなセマンティックバージョニング上の互換性を伴う更新のみ示します。
 * **--minor-only (-m):** マイナーなセマンティックバージョニング上の互換性を伴う更新のみ示します。
 * **--patch-only (-p):**
   パッチ水準のセマンティックバージョニング上の互換性を伴う更新のみ示します。
+* **--sort-by-age (-A):**
+  インストールされたバージョンの経過時間を表示し、古い順にパッケージを整列します。
 * **--format (-f):** 出力形式としてtext（既定）ないしjsonを選びます。
 * **--no-dev:** 時代遅れの開発用依存関係を表示しません。
 * **--locked:**
@@ -1116,6 +1134,10 @@ Windowsにおいて既定では`C:\Users\<user>\AppData\Local\Composer`（もし
 
 この環境変数は[`discard-changes`](06-config.md#discard-changes)設定オプションを制御します。
 
+### COMPOSER_FUND
+
+この環境変数を0に設定すると、インンストール時に投資のお知らせを抑制します。
+
 ### COMPOSER_HOME
 
 `COMPOSER_HOME`変数によりComposerのホームディレクトリを変えられます。
@@ -1177,12 +1199,21 @@ gitやcurlのようなツールが小文字の`http_proxy`版のみを使って�
 
 ComposerをCLIの文脈で使っておらず、プロキシの対応が必要であれば、代替として`CGI_HTTP_PROXY`環境変数を与えてください。詳細は[httpoxy.org](https://httpoxy.org/)を参照してください。
 
+### COMPOSER_AUDIT_ABANDONED
+
+`ignore`、`report`、`fail`に設定すると、[audit.abandoned](06-config.md#abandoned)構成オプションをオーバーライドします。
+
 ### COMPOSER_MAX_PARALLEL_HTTP
 
 整数を指定し、並列で何個のファイルをダウンロードするか設定します。
 既定で12になっており、1から50の間でなければいけません。
 プロキシに並列性の問題があるときはこの値を下げたいかもしれません。
 この値を増加させても一般には効率性が上がる結果にはならないでしょう。
+
+### COMPOSER_IPRESOLVE
+
+`4`ないし`6`に設定するとそれぞれIPv4ないしIPv6の解決を強制します。
+ダウンロード用にcurl拡張が使用されている場合にのみ機能します。
 
 ### HTTP_PROXY_REQUEST_FULLURI
 

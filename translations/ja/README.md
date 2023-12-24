@@ -13,21 +13,21 @@ ComposerはPHPのプロジェクトの依存関係を宣言し、管理し、イ
 Integration](https://github.com/composer/composer/workflows/Continuous%20Integration/badge.svg?branch=main)](https://github.com/composer/composer/actions)
 
 インストールと使い方
-------------------------------
+----------
 
 [公式の解説](https://getcomposer.org/download/)に従い、ダウンロード、インストールしてください。
 
 使用方法については[ドキュメント](https://getcomposer.org/doc/)を参照してください。
 
 パッケージ
----------------
+-----
 
 [Packagist.org](https://packagist.org)に公開されているパッケージがあります。
 
 私有パッケージのホスティングについては[私有Packagist](https://packagist.com)をご確認ください。
 
 コミュニティ
-------------------
+------
 
 告知についてはTwitterで[@packagist](https://twitter.com/packagist)または[@seldaek](https://twitter.com/seldaek)をフォローしたり、[#composerphp](https://twitter.com/search?q=%23composerphp&src=typed_query&f=live)ハッシュタグを確認したりしてください。
 
@@ -39,7 +39,7 @@ Overflowで[Composerに関係する良い質問](https://stackoverflow.com/quest
 本プロジェクトとコミュニティへ参加すると、これらの条項を遵守することに同意したこととなります。
 
 要件
-------
+--
 
 #### 最新のComposer
 
@@ -69,7 +69,7 @@ PHPのバージョン5.3.2から8.1まではComposer (2.2.x)のLTS対応でま�
 `7z`（または`7zz`や`unzip`）と`git`です。
 
 作者
-------
+--
 
 - Nils Adermann | [GitHub](https://github.com/naderman)  |
   [Twitter](https://twitter.com/naderman) | <naderman@naderman.de> |
@@ -81,19 +81,19 @@ PHPのバージョン5.3.2から8.1まではComposer (2.2.x)のLTS対応でま�
 本プロジェクトに参加している[貢献者](https://github.com/composer/composer/contributors)の一覧もご参照ください。
 
 セキュリティ報告書
----------------------------
+---------
 
 慎重を要する問題については全て[security@packagist.org](mailto:security@packagist.org)にお送りください。
 ありがとうございます。
 
 利用許諾
-------------
+----
 
 ComposerはMITライセンスの下で利用が許諾されます。
 詳細は[LICENSE](LICENSE)をご参照ください。
 
 謝辞
-------
+--
 
 - 本プロジェクトのSolverについて、openSUSEの[Libzypp
   satsolver](https://en.opensuse.org/openSUSE:Libzypp_satsolver)のPHP移植を開始しました。

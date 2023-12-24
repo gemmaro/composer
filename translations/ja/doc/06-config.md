@@ -140,6 +140,19 @@ Composer 2.6では`report`が既定値であり、Composer 2.7以降では`fail`
 - `report`は、放棄されたパッケージが失敗として報告されるものの、非ゼロコードでコマンドが終了してしまわないようにする意味です。
 - `fail`は、放棄されたパッケージにより監査が非ゼロコードで失敗するようになる意味です。
 
+```json
+{
+    "config": {
+        "audit": {
+            "abandoned": "report"
+        }
+    }
+}
+```
+
+Composer
+2.7以降ではオプションは[`COMPOSER_AUDIT_ABANDONED`](03-cli.md#composer-audit-abandoned)環境変数を介してオーバーライドできます。
+
 ## use-parent-dir
 
 composer.jsonがないディレクトリでComposerを実行しており、その上のディレクトリにcomposer.jsonがある場合、Composerは既定で、そのディレクトリのcomposer.jsonを代わりに使用するかどうかを尋ねます。

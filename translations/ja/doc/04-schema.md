@@ -909,6 +909,23 @@ $extra = $event->getComposer()->getPackage()->getExtra();
 
 省略可能です。
 
+### _comment
+
+コメントを入れておく場所として使える最上位のキーです（文字列または文字列の配列にできます）。
+
+```json
+{
+    "_comment": [
+        "パッケージfoo/barはビジネスロジックに必要でした",
+        "foo/barを削除するときはfoo/bazパッケージを削除してください"
+    ]
+}
+```
+
+既定では空です。
+
+省略可能です。
+
 ### non-feature-branches
 
 数値でないブランチ名の正規表現パターン（例：「latest」など）のリストです。
