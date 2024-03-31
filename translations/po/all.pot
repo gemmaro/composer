@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2024-02-10 07:48+0900\n"
+"POT-Creation-Date: 2024-04-20 07:37+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1579,8 +1579,67 @@ msgid ""
 "start crawling it. Once it is done, your package will be available to anyone!"
 msgstr ""
 
-#. type: Plain text
+#. type: Title ##
 #: ../doc/02-libraries.md:153
+#, no-wrap
+msgid "Light-weight distribution packages"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/02-libraries.md:157
+msgid ""
+"Some useless information like the `.github` directory, or large examples, "
+"test data, etc. should typically not be included in distributed packages."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/02-libraries.md:162
+msgid ""
+"The `.gitattributes` file is a git specific file like `.gitignore` also "
+"living at the root directory of your library. It overrides local and global "
+"configuration (`.git/config` and `~/.gitconfig` respectively) when present "
+"and tracked by git."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/02-libraries.md:165
+msgid ""
+"Use `.gitattributes` to prevent unwanted files from bloating the zip "
+"distribution packages."
+msgstr ""
+
+#. type: Fenced code block (text)
+#: ../doc/02-libraries.md:166
+#, no-wrap
+msgid ""
+"// .gitattributes\n"
+"/demo export-ignore\n"
+"phpunit.xml.dist export-ignore\n"
+"/.github/ export-ignore\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/02-libraries.md:174
+msgid "Test it by inspecting the zip file generated manually:"
+msgstr ""
+
+#. type: Fenced code block (shell)
+#: ../doc/02-libraries.md:175
+#, no-wrap
+msgid "git archive branchName --format zip -o file.zip\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/02-libraries.md:182
+#, no-wrap
+msgid ""
+"> **Note:** Files would be still tracked by git just not included in the\n"
+"> zip distribution. This only works for packages installed from\n"
+"> dist (i.e. tagged releases) coming from GitHub, GitLab or Bitbucket.\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/02-libraries.md:183
 msgid ""
 "&larr; [Basic usage](01-basic-usage.md) | [Command-line interface](03-cli."
 "md) &rarr;"
@@ -3404,8 +3463,8 @@ msgstr ""
 msgid "php composer.phar config --list\n"
 msgstr ""
 
-#. type: Title ###
-#: ../doc/03-cli.md:817
+#. type: Title ##
+#: ../doc/03-cli.md:817 ../doc/faqs/how-to-use-composer-behind-a-proxy.md:15
 #, no-wrap
 msgid "Usage"
 msgstr ""
@@ -3934,7 +3993,7 @@ msgid "php composer.phar diagnose\n"
 msgstr ""
 
 #. type: Title ###
-#: ../doc/03-cli.md:1043 ../doc/04-schema.md:912
+#: ../doc/03-cli.md:1043 ../doc/04-schema.md:920
 #, no-wrap
 msgid "archive"
 msgstr ""
@@ -4401,54 +4460,52 @@ msgstr ""
 msgid "http_proxy or HTTP_PROXY"
 msgstr ""
 
-#. type: Plain text
-#: ../doc/03-cli.md:1239
-msgid ""
-"If you are using Composer from behind an HTTP proxy, you can use the "
-"standard `http_proxy` or `HTTP_PROXY` env vars. Set it to the URL of your "
-"proxy.  Many operating systems already set this variable for you."
-msgstr ""
-
-#. type: Plain text
-#: ../doc/03-cli.md:1244
+#. type: Title ###
+#: ../doc/03-cli.md:1235
 #, no-wrap
-msgid ""
-"Using `http_proxy` (lowercased) or even defining both might be preferable since\n"
-"some tools like git or curl will only use the lower-cased `http_proxy` version.\n"
-"Alternatively you can also define the git proxy using\n"
-"`git config --global http.proxy <proxy url>`.\n"
-msgstr ""
-
-#. type: Plain text
-#: ../doc/03-cli.md:1249
-msgid ""
-"If you are using Composer in a non-CLI context (i.e. integration into a CMS "
-"or similar use case), and need to support proxies, please provide the "
-"`CGI_HTTP_PROXY` environment variable instead. See [httpoxy.org](https://"
-"httpoxy.org/) for further details."
+msgid "HTTP_PROXY_REQUEST_FULLURI"
 msgstr ""
 
 #. type: Title ###
-#: ../doc/03-cli.md:1250
+#: ../doc/03-cli.md:1236
+#, no-wrap
+msgid "HTTPS_PROXY_REQUEST_FULLURI"
+msgstr ""
+
+#. type: Title ###
+#: ../doc/03-cli.md:1237
+#, no-wrap
+msgid "no_proxy or NO_PROXY"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/03-cli.md:1241
+msgid ""
+"See the [proxy documentation](faqs/how-to-use-composer-behind-a-proxy.md) "
+"for more details on how to use proxy env vars."
+msgstr ""
+
+#. type: Title ###
+#: ../doc/03-cli.md:1242
 #, no-wrap
 msgid "COMPOSER_AUDIT_ABANDONED"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1254
+#: ../doc/03-cli.md:1246
 msgid ""
 "Set to `ignore`, `report` or `fail` to override the [audit.abandoned](06-"
 "config.md#abandoned)  config option."
 msgstr ""
 
 #. type: Title ###
-#: ../doc/03-cli.md:1255
+#: ../doc/03-cli.md:1247
 #, no-wrap
 msgid "COMPOSER_MAX_PARALLEL_HTTP"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1261
+#: ../doc/03-cli.md:1253
 msgid ""
 "Set to an integer to configure how many files can be downloaded in parallel. "
 "This defaults to 12 and must be between 1 and 50. If your proxy has issues "
@@ -4457,54 +4514,26 @@ msgid ""
 msgstr ""
 
 #. type: Title ###
-#: ../doc/03-cli.md:1262
+#: ../doc/03-cli.md:1254
 #, no-wrap
 msgid "COMPOSER_IPRESOLVE"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1266
+#: ../doc/03-cli.md:1258
 msgid ""
 "Set to `4` or `6` to force IPv4 or IPv6 DNS resolution. This only works when "
 "the curl extension is used for downloads."
 msgstr ""
 
 #. type: Title ###
-#: ../doc/03-cli.md:1267
-#, no-wrap
-msgid "HTTP_PROXY_REQUEST_FULLURI"
-msgstr ""
-
-#. type: Plain text
-#: ../doc/03-cli.md:1272
-msgid ""
-"If you use a proxy, but it does not support the request_fulluri flag, then "
-"you should set this env var to `false` or `0` to prevent Composer from "
-"setting the request_fulluri option."
-msgstr ""
-
-#. type: Title ###
-#: ../doc/03-cli.md:1273
-#, no-wrap
-msgid "HTTPS_PROXY_REQUEST_FULLURI"
-msgstr ""
-
-#. type: Plain text
-#: ../doc/03-cli.md:1278
-msgid ""
-"If you use a proxy, but it does not support the request_fulluri flag for "
-"HTTPS requests, then you should set this env var to `false` or `0` to "
-"prevent Composer from setting the request_fulluri option."
-msgstr ""
-
-#. type: Title ###
-#: ../doc/03-cli.md:1279
+#: ../doc/03-cli.md:1259
 #, no-wrap
 msgid "COMPOSER_SELF_UPDATE_TARGET"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1282
+#: ../doc/03-cli.md:1262
 msgid ""
 "If set, makes the self-update command write the new Composer phar file into "
 "that path instead of overwriting itself. Useful for updating Composer on a "
@@ -4512,81 +4541,59 @@ msgid ""
 msgstr ""
 
 #. type: Title ###
-#: ../doc/03-cli.md:1283
-#, no-wrap
-msgid "no_proxy or NO_PROXY"
-msgstr ""
-
-#. type: Plain text
-#: ../doc/03-cli.md:1288
-msgid ""
-"If you are behind a proxy and would like to disable it for certain domains, "
-"you can use the `no_proxy` or `NO_PROXY` env var. Set it to a comma "
-"separated list of domains the proxy should *not* be used for."
-msgstr ""
-
-#. type: Plain text
-#: ../doc/03-cli.md:1292
-msgid ""
-"The env var accepts domains, IP addresses, and IP address blocks in CIDR "
-"notation. You can restrict the filter to a particular port (e.g. `:80`). You "
-"can also set it to `*` to ignore the proxy for all HTTP requests."
-msgstr ""
-
-#. type: Title ###
-#: ../doc/03-cli.md:1293
+#: ../doc/03-cli.md:1263
 #, no-wrap
 msgid "COMPOSER_DISABLE_NETWORK"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1297
+#: ../doc/03-cli.md:1267
 msgid ""
 "If set to `1`, disables network access (best effort). This can be used for "
 "debugging or to run Composer on a plane or a starship with poor connectivity."
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1300
+#: ../doc/03-cli.md:1270
 msgid ""
 "If set to `prime`, GitHub VCS repositories will prime the cache, so it can "
 "then be used fully offline with `1`."
 msgstr ""
 
 #. type: Title ###
-#: ../doc/03-cli.md:1301
+#: ../doc/03-cli.md:1271
 #, no-wrap
 msgid "COMPOSER_DEBUG_EVENTS"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1305
+#: ../doc/03-cli.md:1275
 msgid ""
 "If set to `1`, outputs information about events being dispatched, which can "
 "be useful for plugin authors to identify what is firing when exactly."
 msgstr ""
 
 #. type: Title ###
-#: ../doc/03-cli.md:1306
+#: ../doc/03-cli.md:1276
 #, no-wrap
 msgid "COMPOSER_NO_AUDIT"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1309
+#: ../doc/03-cli.md:1279
 msgid ""
 "If set to `1`, it is the equivalent of passing the `--no-audit` option to "
 "`require`, `update`, `remove` or `create-project` command."
 msgstr ""
 
 #. type: Title ###
-#: ../doc/03-cli.md:1310
+#: ../doc/03-cli.md:1280
 #, no-wrap
 msgid "COMPOSER_NO_DEV"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1315
+#: ../doc/03-cli.md:1285
 #, no-wrap
 msgid ""
 "If set to `1`, it is the equivalent of passing the `--update-no-dev` option to `require`\n"
@@ -4595,52 +4602,52 @@ msgid ""
 msgstr ""
 
 #. type: Title ###
-#: ../doc/03-cli.md:1316
+#: ../doc/03-cli.md:1286
 #, no-wrap
 msgid "COMPOSER_PREFER_STABLE"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1320
+#: ../doc/03-cli.md:1290
 msgid ""
 "If set to `1`, it is the equivalent of passing the `--prefer-stable` option "
 "to `update` or `require`."
 msgstr ""
 
 #. type: Title ###
-#: ../doc/03-cli.md:1321
+#: ../doc/03-cli.md:1291
 #, no-wrap
 msgid "COMPOSER_PREFER_LOWEST"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1325
+#: ../doc/03-cli.md:1295
 msgid ""
 "If set to `1`, it is the equivalent of passing the `--prefer-lowest` option "
 "to `update` or `require`."
 msgstr ""
 
 #. type: Title ###
-#: ../doc/03-cli.md:1326
+#: ../doc/03-cli.md:1296
 #, no-wrap
 msgid "COMPOSER_MINIMAL_CHANGES"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1330
+#: ../doc/03-cli.md:1300
 msgid ""
 "If set to `1`, it is the equivalent of passing the `--minimal-changes` "
 "option to `update`, `require` or `remove`."
 msgstr ""
 
 #. type: Title ###
-#: ../doc/03-cli.md:1331
+#: ../doc/03-cli.md:1301
 #, no-wrap
 msgid "COMPOSER_IGNORE_PLATFORM_REQ or COMPOSER_IGNORE_PLATFORM_REQS"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1335
+#: ../doc/03-cli.md:1305
 msgid ""
 "If `COMPOSER_IGNORE_PLATFORM_REQS` set to `1`, it is the equivalent of "
 "passing the `--ignore-platform-reqs` argument.  Otherwise, specifying a "
@@ -4649,7 +4656,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1337
+#: ../doc/03-cli.md:1307
 msgid ""
 "For example, if a development workstation will never run database queries, "
 "this can be used to ignore the requirement for the database extensions to be "
@@ -4659,7 +4666,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/03-cli.md:1338
+#: ../doc/03-cli.md:1308
 msgid "&larr; [Libraries](02-libraries.md)  | [Schema](04-schema.md) &rarr;"
 msgstr ""
 
@@ -4809,7 +4816,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:60 ../doc/04-schema.md:115 ../doc/04-schema.md:961
+#: ../doc/04-schema.md:60 ../doc/04-schema.md:118 ../doc/04-schema.md:969
 msgid "Examples:"
 msgstr ""
 
@@ -4902,12 +4909,12 @@ msgid "Out of the box, Composer supports four types:"
 msgstr ""
 
 #. type: Bullet: '- '
-#: ../doc/04-schema.md:105
+#: ../doc/04-schema.md:108
 msgid "**library:** This is the default. It will copy the files to `vendor`."
 msgstr ""
 
 #. type: Bullet: '- '
-#: ../doc/04-schema.md:105
+#: ../doc/04-schema.md:108
 msgid ""
 "**project:** This denotes a project rather than a library. For example "
 "application shells like the [Symfony standard edition](https://github.com/"
@@ -4918,7 +4925,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: ../doc/04-schema.md:105
+#: ../doc/04-schema.md:108
 msgid ""
 "**metapackage:** An empty package that contains requirements and will "
 "trigger their installation, but contains no files and will not write "
@@ -4927,60 +4934,68 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: ../doc/04-schema.md:105
+#: ../doc/04-schema.md:108
 msgid ""
 "**composer-plugin:** A package of type `composer-plugin` may provide an "
 "installer for other packages that have a custom type. Read more in the "
 "[dedicated article](articles/custom-installers.md)."
 msgstr ""
 
-#. type: Plain text
+#. type: Bullet: '- '
 #: ../doc/04-schema.md:108
+msgid ""
+"**php-ext** and **php-ext-zend**: These names are reserved for PHP extension "
+"packages which are written in C. Do not use these types for packages written "
+"in PHP."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/04-schema.md:111
 msgid ""
 "Only use a custom type if you need custom logic during installation. It is "
 "recommended to omit this field and have it default to `library`."
 msgstr ""
 
 #. type: Title ###
-#: ../doc/04-schema.md:109
+#: ../doc/04-schema.md:112
 #, no-wrap
 msgid "keywords"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:113
+#: ../doc/04-schema.md:116
 msgid ""
 "An array of keywords that the package is related to. These can be used for "
 "searching and filtering."
 msgstr ""
 
 #. type: Bullet: '- '
-#: ../doc/04-schema.md:121
+#: ../doc/04-schema.md:124
 msgid "logging"
 msgstr ""
 
 #. type: Bullet: '- '
-#: ../doc/04-schema.md:121
+#: ../doc/04-schema.md:124
 msgid "events"
 msgstr ""
 
 #. type: Bullet: '- '
-#: ../doc/04-schema.md:121
+#: ../doc/04-schema.md:124
 msgid "database"
 msgstr ""
 
 #. type: Bullet: '- '
-#: ../doc/04-schema.md:121
+#: ../doc/04-schema.md:124
 msgid "redis"
 msgstr ""
 
 #. type: Bullet: '- '
-#: ../doc/04-schema.md:121
+#: ../doc/04-schema.md:124
 msgid "templating"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:125
+#: ../doc/04-schema.md:128
 #, no-wrap
 msgid ""
 "> **Note**: Some special keywords trigger `composer require` without the\n"
@@ -4989,125 +5004,135 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:127 ../doc/04-schema.md:133 ../doc/04-schema.md:141
-#: ../doc/04-schema.md:149 ../doc/04-schema.md:267 ../doc/04-schema.md:300
-#: ../doc/04-schema.md:735 ../doc/04-schema.md:766 ../doc/04-schema.md:902
-#: ../doc/04-schema.md:911 ../doc/04-schema.md:953 ../doc/04-schema.md:969
-#: ../doc/04-schema.md:986 ../doc/04-schema.md:1021
+#: ../doc/04-schema.md:133
+#, no-wrap
+msgid ""
+"> **Note**: The range of characters allowed inside the string is restricted to\n"
+"> unicode letters or numbers, space `\" \"`, dot `.`, underscore `_` and dash `-`. (Regex: `'{^[\\p{N}\\p{L} ._-]+$}u'`)\n"
+"> Using other characters will emit a warning when running `composer validate` and\n"
+"> will cause the package to fail updating on Packagist.org.\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/04-schema.md:135 ../doc/04-schema.md:141 ../doc/04-schema.md:149
+#: ../doc/04-schema.md:157 ../doc/04-schema.md:275 ../doc/04-schema.md:308
+#: ../doc/04-schema.md:743 ../doc/04-schema.md:774 ../doc/04-schema.md:910
+#: ../doc/04-schema.md:919 ../doc/04-schema.md:961 ../doc/04-schema.md:977
+#: ../doc/04-schema.md:994 ../doc/04-schema.md:1029
 msgid "Optional."
 msgstr ""
 
 #. type: Title ###
-#: ../doc/04-schema.md:128
+#: ../doc/04-schema.md:136
 #, no-wrap
 msgid "homepage"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:131
+#: ../doc/04-schema.md:139
 msgid "A URL to the website of the project."
 msgstr ""
 
 #. type: Title ###
-#: ../doc/04-schema.md:134
+#: ../doc/04-schema.md:142
 #, no-wrap
 msgid "readme"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:137
+#: ../doc/04-schema.md:145
 msgid "A relative path to the readme document. Defaults to `README.md`."
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:139
+#: ../doc/04-schema.md:147
 msgid ""
 "This is mainly useful for packages not on GitHub, as for GitHub packages "
 "Packagist.org will use the readme API to fetch the one detected by GitHub."
 msgstr ""
 
 #. type: Title ###
-#: ../doc/04-schema.md:142
+#: ../doc/04-schema.md:150
 #, no-wrap
 msgid "time"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:145
+#: ../doc/04-schema.md:153
 msgid "Release date of the version."
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:147
+#: ../doc/04-schema.md:155
 msgid "Must be in `YYYY-MM-DD` or `YYYY-MM-DD HH:MM:SS` format."
 msgstr ""
 
 #. type: Title ###
-#: ../doc/04-schema.md:150
+#: ../doc/04-schema.md:158
 #, no-wrap
 msgid "license"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:153
+#: ../doc/04-schema.md:161
 msgid ""
 "The license of the package. This can be either a string or an array of "
 "strings."
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:155
+#: ../doc/04-schema.md:163
 msgid ""
 "The recommended notation for the most common licenses is (alphabetical):"
 msgstr ""
 
 #. type: Bullet: '- '
-#: ../doc/04-schema.md:165
+#: ../doc/04-schema.md:173
 msgid "Apache-2.0"
 msgstr ""
 
 #. type: Bullet: '- '
-#: ../doc/04-schema.md:165
+#: ../doc/04-schema.md:173
 msgid "BSD-2-Clause"
 msgstr ""
 
 #. type: Bullet: '- '
-#: ../doc/04-schema.md:165
+#: ../doc/04-schema.md:173
 msgid "BSD-3-Clause"
 msgstr ""
 
 #. type: Bullet: '- '
-#: ../doc/04-schema.md:165
+#: ../doc/04-schema.md:173
 msgid "BSD-4-Clause"
 msgstr ""
 
 #. type: Bullet: '- '
-#: ../doc/04-schema.md:165
+#: ../doc/04-schema.md:173
 msgid "GPL-2.0-only / GPL-2.0-or-later"
 msgstr ""
 
 #. type: Bullet: '- '
-#: ../doc/04-schema.md:165
+#: ../doc/04-schema.md:173
 msgid "GPL-3.0-only / GPL-3.0-or-later"
 msgstr ""
 
 #. type: Bullet: '- '
-#: ../doc/04-schema.md:165
+#: ../doc/04-schema.md:173
 msgid "LGPL-2.1-only / LGPL-2.1-or-later"
 msgstr ""
 
 #. type: Bullet: '- '
-#: ../doc/04-schema.md:165
+#: ../doc/04-schema.md:173
 msgid "LGPL-3.0-only / LGPL-3.0-or-later"
 msgstr ""
 
 #. type: Bullet: '- '
-#: ../doc/04-schema.md:165
+#: ../doc/04-schema.md:173
 msgid "MIT"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:168
+#: ../doc/04-schema.md:176
 msgid ""
 "Optional, but it is highly recommended to supply this. More identifiers are "
 "listed at the [SPDX Open Source License Registry](https://spdx.org/"
@@ -5115,18 +5140,18 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:170
+#: ../doc/04-schema.md:178
 #, no-wrap
 msgid "> **Note:** For closed-source software, you may use `\"proprietary\"` as the license identifier.\n"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:172
+#: ../doc/04-schema.md:180
 msgid "An Example:"
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:173
+#: ../doc/04-schema.md:181
 #, no-wrap
 msgid ""
 "{\n"
@@ -5135,19 +5160,19 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:181
+#: ../doc/04-schema.md:189
 msgid ""
 "For a package, when there is a choice between licenses (\"disjunctive "
 "license\"), multiple can be specified as an array."
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:183
+#: ../doc/04-schema.md:191
 msgid "An Example for disjunctive licenses:"
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:184
+#: ../doc/04-schema.md:192
 #, no-wrap
 msgid ""
 "{\n"
@@ -5159,13 +5184,13 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:194
+#: ../doc/04-schema.md:202
 msgid ""
 "Alternatively they can be separated with \"or\" and enclosed in parentheses;"
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:195
+#: ../doc/04-schema.md:203
 #, no-wrap
 msgid ""
 "{\n"
@@ -5174,7 +5199,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:203
+#: ../doc/04-schema.md:211
 msgid ""
 "Similarly, when multiple licenses need to be applied (\"conjunctive "
 "license\"), they should be separated with \"and\" and enclosed in "
@@ -5182,51 +5207,51 @@ msgid ""
 msgstr ""
 
 #. type: Title ###
-#: ../doc/04-schema.md:204
+#: ../doc/04-schema.md:212
 #, no-wrap
 msgid "authors"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:207
+#: ../doc/04-schema.md:215
 msgid "The authors of the package. This is an array of objects."
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:209
+#: ../doc/04-schema.md:217
 msgid "Each author object can have following properties:"
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/04-schema.md:214
+#: ../doc/04-schema.md:222
 msgid "**name:** The author's name. Usually their real name."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/04-schema.md:214
+#: ../doc/04-schema.md:222
 msgid "**email:** The author's email address."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/04-schema.md:214
+#: ../doc/04-schema.md:222
 msgid "**homepage:** URL to the author's website."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/04-schema.md:214
+#: ../doc/04-schema.md:222
 msgid ""
 "**role:** The author's role in the project (e.g. developer or translator)"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:216 ../doc/04-schema.md:256 ../doc/04-schema.md:279
-#: ../doc/04-schema.md:1006 ../doc/05-repositories.md:165
+#: ../doc/04-schema.md:224 ../doc/04-schema.md:264 ../doc/04-schema.md:287
+#: ../doc/04-schema.md:1014 ../doc/05-repositories.md:165
 #: ../doc/05-repositories.md:262
 msgid "An example:"
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:217
+#: ../doc/04-schema.md:225
 #, no-wrap
 msgid ""
 "{\n"
@@ -5248,78 +5273,78 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:237
+#: ../doc/04-schema.md:245
 msgid "Optional, but highly recommended."
 msgstr ""
 
 #. type: Title ###
-#: ../doc/04-schema.md:238
+#: ../doc/04-schema.md:246
 #, no-wrap
 msgid "support"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:241
+#: ../doc/04-schema.md:249
 msgid "Various information to get support about the project."
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:243
+#: ../doc/04-schema.md:251
 msgid "Support information includes the following:"
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/04-schema.md:254
+#: ../doc/04-schema.md:262
 msgid "**email:** Email address for support."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/04-schema.md:254
+#: ../doc/04-schema.md:262
 msgid "**issues:** URL to the issue tracker."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/04-schema.md:254
+#: ../doc/04-schema.md:262
 msgid "**forum:** URL to the forum."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/04-schema.md:254
+#: ../doc/04-schema.md:262
 msgid "**wiki:** URL to the wiki."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/04-schema.md:254
+#: ../doc/04-schema.md:262
 msgid "**irc:** IRC channel for support, as irc://server/channel."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/04-schema.md:254
+#: ../doc/04-schema.md:262
 msgid "**source:** URL to browse or download the sources."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/04-schema.md:254
+#: ../doc/04-schema.md:262
 msgid "**docs:** URL to the documentation."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/04-schema.md:254
+#: ../doc/04-schema.md:262
 msgid "**rss:** URL to the RSS feed."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/04-schema.md:254
+#: ../doc/04-schema.md:262
 msgid "**chat:** URL to the chat channel."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/04-schema.md:254
+#: ../doc/04-schema.md:262
 msgid "**security:** URL to the vulnerability disclosure policy (VDP)."
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:257
+#: ../doc/04-schema.md:265
 #, no-wrap
 msgid ""
 "{\n"
@@ -5331,37 +5356,37 @@ msgid ""
 msgstr ""
 
 #. type: Title ###
-#: ../doc/04-schema.md:268
+#: ../doc/04-schema.md:276
 #, no-wrap
 msgid "funding"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:272
+#: ../doc/04-schema.md:280
 msgid ""
 "A list of URLs to provide funding to the package authors for maintenance and "
 "development of new functionality."
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:274
+#: ../doc/04-schema.md:282
 msgid "Each entry consists of the following"
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/04-schema.md:277
+#: ../doc/04-schema.md:285
 msgid ""
 "**type:** The type of funding, or the platform through which funding can be "
 "provided, e.g. patreon, opencollective, tidelift or github."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/04-schema.md:277
+#: ../doc/04-schema.md:285
 msgid "**url:** URL to a website with details, and a way to fund the package."
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:280
+#: ../doc/04-schema.md:288
 #, no-wrap
 msgid ""
 "{\n"
@@ -5383,13 +5408,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ###
-#: ../doc/04-schema.md:301
+#: ../doc/04-schema.md:309
 #, no-wrap
 msgid "Package links"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:306
+#: ../doc/04-schema.md:314
 msgid ""
 "All of the following take an object which maps package names to versions of "
 "the package via version constraints. Read more about versions [here]"
@@ -5397,17 +5422,17 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:308 ../doc/04-schema.md:327 ../doc/04-schema.md:341
-#: ../doc/04-schema.md:363 ../doc/04-schema.md:388 ../doc/04-schema.md:475
-#: ../doc/04-schema.md:512 ../doc/04-schema.md:559 ../doc/04-schema.md:619
-#: ../doc/04-schema.md:631 ../doc/04-schema.md:647 ../doc/04-schema.md:678
-#: ../doc/04-schema.md:706 ../doc/04-schema.md:727 ../doc/04-schema.md:818
-#: ../doc/04-schema.md:923 ../doc/04-schema.md:940 ../doc/06-config.md:446
+#: ../doc/04-schema.md:316 ../doc/04-schema.md:335 ../doc/04-schema.md:349
+#: ../doc/04-schema.md:371 ../doc/04-schema.md:396 ../doc/04-schema.md:483
+#: ../doc/04-schema.md:520 ../doc/04-schema.md:567 ../doc/04-schema.md:627
+#: ../doc/04-schema.md:639 ../doc/04-schema.md:655 ../doc/04-schema.md:686
+#: ../doc/04-schema.md:714 ../doc/04-schema.md:735 ../doc/04-schema.md:826
+#: ../doc/04-schema.md:931 ../doc/04-schema.md:948 ../doc/06-config.md:446
 msgid "Example:"
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:309
+#: ../doc/04-schema.md:317
 #, no-wrap
 msgid ""
 "{\n"
@@ -5418,12 +5443,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:318
+#: ../doc/04-schema.md:326
 msgid "All links are optional fields."
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:325
+#: ../doc/04-schema.md:333
 msgid ""
 "`require` and `require-dev` additionally support _stability flags_ ([root-"
 "only](04-schema.md#root-package)).  They take the form "
@@ -5435,7 +5460,7 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:328
+#: ../doc/04-schema.md:336
 #, no-wrap
 msgid ""
 "{\n"
@@ -5447,14 +5472,14 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:339
+#: ../doc/04-schema.md:347
 msgid ""
 "If one of your dependencies has a dependency on an unstable package you need "
 "to explicitly require it as well, along with its sufficient stability flag."
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:345
+#: ../doc/04-schema.md:353
 msgid ""
 "Assuming `doctrine/doctrine-fixtures-bundle` requires `\"doctrine/data-"
 "fixtures\": \"dev-master\"` then inside the root composer.json you need to "
@@ -5463,7 +5488,7 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:346
+#: ../doc/04-schema.md:354
 #, no-wrap
 msgid ""
 "{\n"
@@ -5475,7 +5500,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:361
+#: ../doc/04-schema.md:369
 #, no-wrap
 msgid ""
 "`require` and `require-dev` additionally support explicit references (i.e.\n"
@@ -5487,7 +5512,7 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:364
+#: ../doc/04-schema.md:372
 #, no-wrap
 msgid ""
 "{\n"
@@ -5499,7 +5524,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:379
+#: ../doc/04-schema.md:387
 #, no-wrap
 msgid ""
 "> **Note:** This feature has severe technical limitations, as the\n"
@@ -5511,7 +5536,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:383
+#: ../doc/04-schema.md:391
 msgid ""
 "It is also possible to inline-alias a package constraint so that it matches "
 "a constraint that it otherwise would not. For more information [see the "
@@ -5519,14 +5544,14 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:386
+#: ../doc/04-schema.md:394
 msgid ""
 "`require` and `require-dev` also support references to specific PHP versions "
 "and PHP extensions your project needs to run successfully."
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:389
+#: ../doc/04-schema.md:397
 #, no-wrap
 msgid ""
 "{\n"
@@ -5538,7 +5563,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:408
+#: ../doc/04-schema.md:416
 #, no-wrap
 msgid ""
 "> **Note:** It is important to list PHP extensions your project requires.\n"
@@ -5554,26 +5579,26 @@ msgid ""
 msgstr ""
 
 #. type: Title ####
-#: ../doc/04-schema.md:409
+#: ../doc/04-schema.md:417
 #, no-wrap
 msgid "require"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:413
+#: ../doc/04-schema.md:421
 msgid ""
 "Map of packages required by this package. The package will not be installed "
 "unless those requirements can be met."
 msgstr ""
 
 #. type: Title ####
-#: ../doc/04-schema.md:414
+#: ../doc/04-schema.md:422
 #, no-wrap
 msgid "require-dev <span>([root-only](04-schema.md#root-package))</span>"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:420
+#: ../doc/04-schema.md:428
 msgid ""
 "Map of packages required for developing this package, or running tests, etc. "
 "The dev requirements of the root package are installed by default.  Both "
@@ -5582,20 +5607,20 @@ msgid ""
 msgstr ""
 
 #. type: Title ####
-#: ../doc/04-schema.md:421
+#: ../doc/04-schema.md:429
 #, no-wrap
 msgid "conflict"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:425
+#: ../doc/04-schema.md:433
 msgid ""
 "Map of packages that conflict with this version of this package. They will "
 "not be allowed to be installed together with your package."
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:430
+#: ../doc/04-schema.md:438
 #, no-wrap
 msgid ""
 "Note that when specifying ranges like `<1.0 >=1.1` in a `conflict` link,\n"
@@ -5605,13 +5630,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ####
-#: ../doc/04-schema.md:431
+#: ../doc/04-schema.md:439
 #, no-wrap
 msgid "replace"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:437
+#: ../doc/04-schema.md:445
 msgid ""
 "Map of packages that are replaced by this package. This allows you to fork a "
 "package, publish it under a different name with its own version numbers, "
@@ -5620,7 +5645,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:443
+#: ../doc/04-schema.md:451
 msgid ""
 "This is also useful for packages that contain sub-packages, for example the "
 "main symfony/symfony package contains all the Symfony Components which are "
@@ -5630,7 +5655,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:448
+#: ../doc/04-schema.md:456
 msgid ""
 "Caution is advised when using replace for the sub-package purpose explained "
 "above. You should then typically only replace using `self.version` as a "
@@ -5640,13 +5665,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ####
-#: ../doc/04-schema.md:449
+#: ../doc/04-schema.md:457
 #, no-wrap
 msgid "provide"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:456
+#: ../doc/04-schema.md:464
 msgid ""
 "Map of packages that are provided by this package. This is mostly useful for "
 "implementations of common interfaces. A package could depend on some virtual "
@@ -5656,7 +5681,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:463
+#: ../doc/04-schema.md:471
 msgid ""
 "Using `provide` with the name of an actual package rather than a virtual one "
 "implies that the code of that package is also shipped, in which case "
@@ -5668,13 +5693,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ####
-#: ../doc/04-schema.md:464
+#: ../doc/04-schema.md:472
 #, no-wrap
 msgid "suggest"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:470
+#: ../doc/04-schema.md:478
 msgid ""
 "Suggested packages that can enhance or work well with this package. These "
 "are informational and are displayed after the package is installed, to give "
@@ -5683,14 +5708,14 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:473
+#: ../doc/04-schema.md:481
 msgid ""
 "The format is like package links above, except that the values are free text "
 "and not version constraints."
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:476
+#: ../doc/04-schema.md:484
 #, no-wrap
 msgid ""
 "{\n"
@@ -5702,18 +5727,18 @@ msgid ""
 msgstr ""
 
 #. type: Title ###
-#: ../doc/04-schema.md:485
+#: ../doc/04-schema.md:493
 #, no-wrap
 msgid "autoload"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:488
+#: ../doc/04-schema.md:496
 msgid "Autoload mapping for a PHP autoloader."
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:491
+#: ../doc/04-schema.md:499
 msgid ""
 "[`PSR-4`](https://www.php-fig.org/psr/psr-4/) and [`PSR-0`](http://www.php-"
 "fig.org/psr/psr-0/)  autoloading, `classmap` generation and `files` includes "
@@ -5721,20 +5746,20 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:494
+#: ../doc/04-schema.md:502
 msgid ""
 "PSR-4 is the recommended way since it offers greater ease of use (no need to "
 "regenerate the autoloader when you add classes)."
 msgstr ""
 
 #. type: Title ####
-#: ../doc/04-schema.md:495
+#: ../doc/04-schema.md:503
 #, no-wrap
 msgid "PSR-4"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:502
+#: ../doc/04-schema.md:510
 msgid ""
 "Under the `psr-4` key you define a mapping from namespaces to paths, "
 "relative to the package root. When autoloading a class like `Foo\\\\Bar\\"
@@ -5745,7 +5770,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:506
+#: ../doc/04-schema.md:514
 msgid ""
 "Namespace prefixes must end in `\\\\` to avoid conflicts between similar "
 "prefixes.  For example `Foo` would match classes in the `FooBar` namespace "
@@ -5754,7 +5779,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:510
+#: ../doc/04-schema.md:518
 #, no-wrap
 msgid ""
 "The PSR-4 references are all combined, during install/update, into a single\n"
@@ -5763,7 +5788,7 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:513
+#: ../doc/04-schema.md:521
 #, no-wrap
 msgid ""
 "{\n"
@@ -5777,14 +5802,14 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:526 ../doc/04-schema.md:574
+#: ../doc/04-schema.md:534 ../doc/04-schema.md:582
 msgid ""
 "If you need to search for a same prefix in multiple directories, you can "
 "specify them as an array as such:"
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:527
+#: ../doc/04-schema.md:535
 #, no-wrap
 msgid ""
 "{\n"
@@ -5795,14 +5820,14 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:537
+#: ../doc/04-schema.md:545
 msgid ""
 "If you want to have a fallback directory where any namespace will be looked "
 "for, you can use an empty prefix like:"
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:538
+#: ../doc/04-schema.md:546
 #, no-wrap
 msgid ""
 "{\n"
@@ -5813,13 +5838,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ####
-#: ../doc/04-schema.md:546
+#: ../doc/04-schema.md:554
 #, no-wrap
 msgid "PSR-0"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:550
+#: ../doc/04-schema.md:558
 msgid ""
 "Under the `psr-0` key you define a mapping from namespaces to paths, "
 "relative to the package root. Note that this also supports the PEAR-style "
@@ -5827,7 +5852,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:554
+#: ../doc/04-schema.md:562
 msgid ""
 "Please note namespace declarations should end in `\\\\` to make sure the "
 "autoloader responds exactly. For example `Foo` would match in `FooBar` so "
@@ -5836,7 +5861,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:557
+#: ../doc/04-schema.md:565
 #, no-wrap
 msgid ""
 "The PSR-0 references are all combined, during install/update, into a single key => value\n"
@@ -5844,7 +5869,7 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:560
+#: ../doc/04-schema.md:568
 #, no-wrap
 msgid ""
 "{\n"
@@ -5859,7 +5884,7 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:575
+#: ../doc/04-schema.md:583
 #, no-wrap
 msgid ""
 "{\n"
@@ -5870,7 +5895,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:587
+#: ../doc/04-schema.md:595
 msgid ""
 "The PSR-0 style is not limited to namespace declarations only but may be "
 "specified right down to the class level. This can be useful for libraries "
@@ -5880,7 +5905,7 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:588
+#: ../doc/04-schema.md:596
 #, no-wrap
 msgid ""
 "{\n"
@@ -5891,14 +5916,14 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:598
+#: ../doc/04-schema.md:606
 msgid ""
 "If you want to have a fallback directory where any namespace can be, you can "
 "use an empty prefix like:"
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:599
+#: ../doc/04-schema.md:607
 #, no-wrap
 msgid ""
 "{\n"
@@ -5909,13 +5934,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ####
-#: ../doc/04-schema.md:607
+#: ../doc/04-schema.md:615
 #, no-wrap
 msgid "Classmap"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:613
+#: ../doc/04-schema.md:621
 #, no-wrap
 msgid ""
 "The `classmap` references are all combined, during install/update, into a single\n"
@@ -5925,7 +5950,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:617
+#: ../doc/04-schema.md:625
 msgid ""
 "You can use the classmap generation support to define autoloading for all "
 "libraries that do not follow PSR-0/4. To configure this you specify all "
@@ -5933,7 +5958,7 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:620
+#: ../doc/04-schema.md:628
 #, no-wrap
 msgid ""
 "{\n"
@@ -5944,14 +5969,14 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:629
+#: ../doc/04-schema.md:637
 msgid ""
 "Wildcards (`*`) are also supported in a classmap paths, and expand to match "
 "any directory name:"
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:632
+#: ../doc/04-schema.md:640
 #, no-wrap
 msgid ""
 "{\n"
@@ -5962,13 +5987,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ####
-#: ../doc/04-schema.md:640
+#: ../doc/04-schema.md:648
 #, no-wrap
 msgid "Files"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:645
+#: ../doc/04-schema.md:653
 msgid ""
 "If you want to require certain files explicitly on every request then you "
 "can use the `files` autoloading mechanism. This is useful if your package "
@@ -5976,7 +6001,7 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:648
+#: ../doc/04-schema.md:656
 #, no-wrap
 msgid ""
 "{\n"
@@ -5987,7 +6012,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:660
+#: ../doc/04-schema.md:668
 msgid ""
 "Files autoload rules are included whenever `vendor/autoload.php` is "
 "included, right after the autoloader is registered. The order of inclusion "
@@ -5997,14 +6022,14 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:662
+#: ../doc/04-schema.md:670
 msgid ""
 "If two packages have the same amount of dependents or no dependencies, the "
 "order is alphabetical."
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:666
+#: ../doc/04-schema.md:674
 msgid ""
 "Files from the root package are always loaded last, and you cannot use files "
 "autoloading yourself to override functions from your dependencies. If you "
@@ -6013,13 +6038,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ####
-#: ../doc/04-schema.md:667
+#: ../doc/04-schema.md:675
 #, no-wrap
 msgid "Exclude files from classmaps"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:672
+#: ../doc/04-schema.md:680
 msgid ""
 "If you want to exclude some files or folders from the classmap you can use "
 "the `exclude-from-classmap` property.  This might be useful to exclude test "
@@ -6028,7 +6053,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:676
+#: ../doc/04-schema.md:684
 msgid ""
 "The classmap generator will ignore all files in the paths configured here. "
 "The paths are absolute from the package root directory (i.e. composer.json "
@@ -6037,7 +6062,7 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:679
+#: ../doc/04-schema.md:687
 #, no-wrap
 msgid ""
 "{\n"
@@ -6048,13 +6073,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ####
-#: ../doc/04-schema.md:687
+#: ../doc/04-schema.md:695
 #, no-wrap
 msgid "Optimizing the autoloader"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:693
+#: ../doc/04-schema.md:701
 msgid ""
 "The autoloader can have quite a substantial impact on your request time "
 "(50-100ms per request in large frameworks using a lot of classes). See the "
@@ -6063,18 +6088,18 @@ msgid ""
 msgstr ""
 
 #. type: Title ###
-#: ../doc/04-schema.md:694
+#: ../doc/04-schema.md:702
 #, no-wrap
 msgid "autoload-dev <span>([root-only](04-schema.md#root-package))</span>"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:697
+#: ../doc/04-schema.md:705
 msgid "This section allows defining autoload rules for development purposes."
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:701
+#: ../doc/04-schema.md:709
 msgid ""
 "Classes needed to run the test suite should not be included in the main "
 "autoload rules to avoid polluting the autoloader in production and when "
@@ -6082,14 +6107,14 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:704
+#: ../doc/04-schema.md:712
 msgid ""
 "Therefore, it is a good idea to rely on a dedicated path for your unit tests "
 "and to add it within the autoload-dev section."
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:707
+#: ../doc/04-schema.md:715
 #, no-wrap
 msgid ""
 "{\n"
@@ -6103,13 +6128,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ###
-#: ../doc/04-schema.md:718
+#: ../doc/04-schema.md:726
 #, no-wrap
 msgid "include-path"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:723
+#: ../doc/04-schema.md:731
 #, no-wrap
 msgid ""
 "> **DEPRECATED**: This is only present to support legacy projects, and all new code\n"
@@ -6118,12 +6143,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:725
+#: ../doc/04-schema.md:733
 msgid "A list of paths which should get appended to PHP's `include_path`."
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:728
+#: ../doc/04-schema.md:736
 #, no-wrap
 msgid ""
 "{\n"
@@ -6132,13 +6157,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ###
-#: ../doc/04-schema.md:736
+#: ../doc/04-schema.md:744
 #, no-wrap
 msgid "target-dir"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:741
+#: ../doc/04-schema.md:749
 #, no-wrap
 msgid ""
 "> **DEPRECATED**: This is only present to support legacy PSR-0 style autoloading,\n"
@@ -6147,19 +6172,19 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:743
+#: ../doc/04-schema.md:751
 msgid "Defines the installation target."
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:746
+#: ../doc/04-schema.md:754
 msgid ""
 "In case the package root is below the namespace declaration you cannot "
 "autoload properly. `target-dir` solves this problem."
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:753
+#: ../doc/04-schema.md:761
 msgid ""
 "An example is Symfony. There are individual packages for the components. The "
 "Yaml component is under `Symfony\\Component\\Yaml`. The package root is that "
@@ -6170,12 +6195,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:755
+#: ../doc/04-schema.md:763
 msgid "To do that, `autoload` and `target-dir` are defined as follows:"
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:756
+#: ../doc/04-schema.md:764
 #, no-wrap
 msgid ""
 "{\n"
@@ -6187,13 +6212,13 @@ msgid ""
 msgstr ""
 
 #. type: Title ###
-#: ../doc/04-schema.md:767
+#: ../doc/04-schema.md:775
 #, no-wrap
 msgid "minimum-stability <span>([root-only](04-schema.md#root-package))</span>"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:772
+#: ../doc/04-schema.md:780
 msgid ""
 "This defines the default behavior for filtering packages by stability. This "
 "defaults to `stable`, so if you rely on a `dev` package, you should specify "
@@ -6201,7 +6226,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:778
+#: ../doc/04-schema.md:786
 msgid ""
 "All versions of each package are checked for stability, and those that are "
 "less stable than the `minimum-stability` setting will be ignored when "
@@ -6212,20 +6237,20 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:781
+#: ../doc/04-schema.md:789
 msgid ""
 "Available options (in order of stability) are `dev`, `alpha`, `beta`, `RC`, "
 "and `stable`."
 msgstr ""
 
 #. type: Title ###
-#: ../doc/04-schema.md:782
+#: ../doc/04-schema.md:790
 #, no-wrap
 msgid "prefer-stable <span>([root-only](04-schema.md#root-package))</span>"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:788
+#: ../doc/04-schema.md:796
 msgid ""
 "When this is enabled, Composer will prefer more stable packages over "
 "unstable ones when finding compatible stable packages is possible. If you "
@@ -6234,30 +6259,30 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:790
+#: ../doc/04-schema.md:798
 msgid "Use `\"prefer-stable\": true` to enable."
 msgstr ""
 
 #. type: Title ###
-#: ../doc/04-schema.md:791
+#: ../doc/04-schema.md:799
 #, no-wrap
 msgid "repositories <span>([root-only](04-schema.md#root-package))</span>"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:794
+#: ../doc/04-schema.md:802
 msgid "Custom package repositories to use."
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:797
+#: ../doc/04-schema.md:805
 msgid ""
 "By default Composer only uses the packagist repository. By specifying "
 "repositories you can get packages from elsewhere."
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:801
+#: ../doc/04-schema.md:809
 msgid ""
 "Repositories are not resolved recursively. You can only add them to your "
 "main `composer.json`. Repository declarations of dependencies' `composer."
@@ -6265,12 +6290,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:803
+#: ../doc/04-schema.md:811
 msgid "The following repository types are supported:"
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/04-schema.md:814
+#: ../doc/04-schema.md:822
 msgid ""
 "**composer:** A Composer repository is a `packages.json` file served via the "
 "network (HTTP, FTP, SSH), that contains a list of `composer.json` objects "
@@ -6280,14 +6305,14 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/04-schema.md:814
+#: ../doc/04-schema.md:822
 msgid ""
 "**vcs:** The version control system repository can fetch packages from git, "
 "svn, fossil and hg repositories."
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/04-schema.md:814
+#: ../doc/04-schema.md:822
 msgid ""
 "**package:** If you depend on a project that does not have any support for "
 "Composer whatsoever you can define the package inline using a `package` "
@@ -6295,13 +6320,13 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:816
+#: ../doc/04-schema.md:824
 msgid ""
 "For more information on any of these, see [Repositories](05-repositories.md)."
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:819
+#: ../doc/04-schema.md:827
 #, no-wrap
 msgid ""
 "{\n"
@@ -6344,7 +6369,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:863
+#: ../doc/04-schema.md:871
 #, no-wrap
 msgid ""
 "> **Note:** Order is significant here. When looking for a package, Composer\n"
@@ -6354,14 +6379,14 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:866
+#: ../doc/04-schema.md:874
 msgid ""
 "Using JSON object notation is also possible. However, JSON key/value pairs "
 "are to be considered unordered so consistent behaviour cannot be guaranteed."
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:867
+#: ../doc/04-schema.md:875
 #, no-wrap
 msgid ""
 "{\n"
@@ -6375,90 +6400,90 @@ msgid ""
 msgstr ""
 
 #. type: Title ###
-#: ../doc/04-schema.md:878
+#: ../doc/04-schema.md:886
 #, no-wrap
 msgid "config <span>([root-only](04-schema.md#root-package))</span>"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:882
+#: ../doc/04-schema.md:890
 msgid ""
 "A set of configuration options. It is only used for projects. See [Config]"
 "(06-config.md) for a description of each individual option."
 msgstr ""
 
 #. type: Title ###
-#: ../doc/04-schema.md:883
+#: ../doc/04-schema.md:891
 #, no-wrap
 msgid "scripts <span>([root-only](04-schema.md#root-package))</span>"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:887
+#: ../doc/04-schema.md:895
 msgid ""
 "Composer allows you to hook into various parts of the installation process "
 "through the use of scripts."
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:889
+#: ../doc/04-schema.md:897
 msgid "See [Scripts](articles/scripts.md) for events details and examples."
 msgstr ""
 
 #. type: Title ###
-#: ../doc/04-schema.md:890
+#: ../doc/04-schema.md:898
 #, no-wrap
 msgid "extra"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:893
+#: ../doc/04-schema.md:901
 msgid "Arbitrary extra data for consumption by `scripts`."
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:896
+#: ../doc/04-schema.md:904
 msgid ""
 "This can be virtually anything. To access it from within a script event "
 "handler, you can do:"
 msgstr ""
 
 #. type: Fenced code block (php)
-#: ../doc/04-schema.md:897
+#: ../doc/04-schema.md:905
 #, no-wrap
 msgid "$extra = $event->getComposer()->getPackage()->getExtra();\n"
 msgstr ""
 
 #. type: Title ###
-#: ../doc/04-schema.md:903
+#: ../doc/04-schema.md:911
 #, no-wrap
 msgid "bin"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:907
+#: ../doc/04-schema.md:915
 msgid ""
 "A set of files that should be treated as binaries and made available into "
 "the `bin-dir` (from config)."
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:909
+#: ../doc/04-schema.md:917
 msgid "See [Vendor Binaries](articles/vendor-binaries.md) for more details."
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:915
+#: ../doc/04-schema.md:923
 msgid "A set of options for creating package archives."
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:917
+#: ../doc/04-schema.md:925
 msgid "The following options are supported:"
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/04-schema.md:921
+#: ../doc/04-schema.md:929
 msgid ""
 "**name:** Allows configuring base name for archive.  By default (if not "
 "configured, and `--file` is not passed as command-line argument), "
@@ -6466,7 +6491,7 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:924
+#: ../doc/04-schema.md:932
 #, no-wrap
 msgid ""
 "{\n"
@@ -6478,7 +6503,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: ../doc/04-schema.md:938
+#: ../doc/04-schema.md:946
 msgid ""
 "**exclude:** Allows configuring a list of patterns for excluded paths. The "
 "pattern syntax matches .gitignore files. A leading exclamation mark (!) will "
@@ -6488,7 +6513,7 @@ msgid ""
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:941
+#: ../doc/04-schema.md:949
 #, no-wrap
 msgid ""
 "{\n"
@@ -6499,32 +6524,32 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:951
+#: ../doc/04-schema.md:959
 msgid ""
 "The example will include `/dir/foo/bar/file`, `/foo/bar/baz`, `/file.php`, `/"
 "foo/my.test` but it will exclude `/foo/bar/any`, `/foo/baz`, and `/my.test`."
 msgstr ""
 
 #. type: Title ###
-#: ../doc/04-schema.md:954 ../doc/06-config.md:138
+#: ../doc/04-schema.md:962 ../doc/06-config.md:138
 #, no-wrap
 msgid "abandoned"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:957
+#: ../doc/04-schema.md:965
 msgid "Indicates whether this package has been abandoned."
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:959
+#: ../doc/04-schema.md:967
 msgid ""
 "It can be boolean or a package name/URL pointing to a recommended "
 "alternative."
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:965
+#: ../doc/04-schema.md:973
 msgid ""
 "Use `\"abandoned\": true` to indicate this package is abandoned.  Use "
 "`\"abandoned\": \"monolog/monolog\"` to indicate this package is abandoned, "
@@ -6532,25 +6557,25 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:967
+#: ../doc/04-schema.md:975
 msgid "Defaults to false."
 msgstr ""
 
 #. type: Title ###
-#: ../doc/04-schema.md:970
+#: ../doc/04-schema.md:978
 #, no-wrap
 msgid "_comment"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:973
+#: ../doc/04-schema.md:981
 msgid ""
 "Top level key used as a place to store comments (it can be a string or array "
 "of strings)."
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:974
+#: ../doc/04-schema.md:982
 #, no-wrap
 msgid ""
 "{\n"
@@ -6562,18 +6587,18 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:984
+#: ../doc/04-schema.md:992
 msgid "Defaults to empty."
 msgstr ""
 
 #. type: Title ###
-#: ../doc/04-schema.md:987
+#: ../doc/04-schema.md:995
 #, no-wrap
 msgid "non-feature-branches"
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:991
+#: ../doc/04-schema.md:999
 msgid ""
 "A list of regex patterns of branch names that are non-numeric (e.g. "
 "\"latest\" or something), that will NOT be handled as feature branches. This "
@@ -6581,7 +6606,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:997
+#: ../doc/04-schema.md:1005
 msgid ""
 "If you have non-numeric branch names, for example like \"latest\", "
 "\"current\", \"latest-stable\" or something, that do not look like a version "
@@ -6592,7 +6617,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:1001
+#: ../doc/04-schema.md:1009
 msgid ""
 "To handle non-numeric named branches as versions instead of searching for a "
 "parent branch with a valid version or special branch name like master, you "
@@ -6601,7 +6626,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:1004
+#: ../doc/04-schema.md:1012
 msgid ""
 "This is really helpful when you have dependencies using \"self.version\", so "
 "that not dev-master, but the same branch is installed (in the example: "
@@ -6609,7 +6634,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:1009
+#: ../doc/04-schema.md:1017
 msgid ""
 "If you have a testing branch, that is heavily maintained during a testing "
 "phase and is deployed to your staging environment, normally `composer show -"
@@ -6617,13 +6642,13 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:1011
+#: ../doc/04-schema.md:1019
 msgid ""
 "If you configure `latest-.*` as a pattern for non-feature-branches like this:"
 msgstr ""
 
 #. type: Fenced code block (json)
-#: ../doc/04-schema.md:1012
+#: ../doc/04-schema.md:1020
 #, no-wrap
 msgid ""
 "{\n"
@@ -6632,13 +6657,13 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:1019
+#: ../doc/04-schema.md:1027
 msgid ""
 "Then `composer show -s` will give you `versions : * dev-latest-testing`."
 msgstr ""
 
 #. type: Plain text
-#: ../doc/04-schema.md:1022
+#: ../doc/04-schema.md:1030
 msgid ""
 "&larr; [Command-line interface](03-cli.md)  | [Repositories](05-repositories."
 "md) &rarr;"
@@ -8364,7 +8389,7 @@ msgstr ""
 #. type: Plain text
 #: ../doc/06-config.md:157
 msgid ""
-"Since Composer 2.7 the option can be overriden via the "
+"Since Composer 2.7 the option can be overridden via the "
 "[`COMPOSER_AUDIT_ABANDONED`](03-cli.md#composer-audit-abandoned) environment "
 "variable."
 msgstr ""
@@ -9665,4 +9690,272 @@ msgstr ""
 msgid ""
 "You may replace the commit hash by whatever the last commit hash is on "
 "https://github.com/composer/getcomposer.org/commits/main"
+msgstr ""
+
+#. type: Title #
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:1
+#, no-wrap
+msgid "How to use Composer behind a proxy"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:5
+msgid ""
+"Composer, like many other tools, uses environment variables to control the "
+"use of a proxy server and supports:"
+msgstr ""
+
+#. type: Bullet: '- '
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:10
+msgid "`http_proxy` - the proxy to use for HTTP requests"
+msgstr ""
+
+#. type: Bullet: '- '
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:10
+msgid "`https_proxy` - the proxy to use for HTTPS requests"
+msgstr ""
+
+#. type: Bullet: '- '
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:10
+msgid ""
+"`CGI_HTTP_PROXY` - the proxy to use for HTTP requests in a non-CLI context"
+msgstr ""
+
+#. type: Bullet: '- '
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:10
+msgid "`no_proxy` - domains that do not require a proxy"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:14
+msgid ""
+"These named variables are a convention, rather than an official standard, "
+"and their evolution and usage across different operating systems and tools "
+"is complex. Composer prefers the use of lowercase names, but accepts "
+"uppercase names where appropriate."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:18
+msgid ""
+"Composer requires specific environment variables for HTTP and HTTPS "
+"requests. For example:"
+msgstr ""
+
+#. type: Fenced code block
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:19
+#, no-wrap
+msgid ""
+"http_proxy=http://proxy.com:80\n"
+"https_proxy=http://proxy.com:80\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:25
+msgid "Uppercase names can also be used."
+msgstr ""
+
+#. type: Title ###
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:26
+#, no-wrap
+msgid "Non-CLI usage"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:31
+msgid ""
+"Composer does not look for `http_proxy` or `HTTP_PROXY` in a non-CLI "
+"context. If you are running it this way (i.e. integration into a CMS or "
+"similar use case) you must use `CGI_HTTP_PROXY` for HTTP requests:"
+msgstr ""
+
+#. type: Fenced code block
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:32
+#, no-wrap
+msgid ""
+"CGI_HTTP_PROXY=http://proxy.com:80\n"
+"https_proxy=http://proxy.com:80\n"
+"\n"
+"# cgi_http_proxy can also be used\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:41
+#, no-wrap
+msgid ""
+"> **Note:** CGI_HTTP_PROXY was introduced by Perl in 2001 to prevent request header manipulation and\n"
+"was popularized in 2016 when this vulnerability was widely reported: https://httpoxy.org\n"
+msgstr ""
+
+#. type: Title ##
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:42
+#, no-wrap
+msgid "Syntax"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:46
+msgid ""
+"Use `scheme://host:port` as in the examples above. Although a missing scheme "
+"defaults to http and a missing port defaults to 80/443 for http/https "
+"schemes, other tools might require these values."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:49
+msgid ""
+"The host can be specified as an IP address using dotted quad notation for "
+"IPv4, or enclosed in square brackets for IPv6."
+msgstr ""
+
+#. type: Title ###
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:50
+#, no-wrap
+msgid "Authorization"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:54
+msgid ""
+"Composer supports Basic authorization, using the `scheme://user:pass@host:"
+"port` syntax. Reserved url characters in either the user name or password "
+"must be percent-encoded. For example:"
+msgstr ""
+
+#. type: Fenced code block
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:55
+#, no-wrap
+msgid ""
+"user:  me@company\n"
+"pass:  p@ssw$rd\n"
+"proxy: http://proxy.com:80\n"
+"\n"
+"# percent-encoded authorization\n"
+"me%40company:p%40ssw%24rd\n"
+"\n"
+"scheme://me%40company:p%40ssw%24rd@proxy.com:80\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:69
+#, no-wrap
+msgid ""
+"> **Note:** The user name and password components must be percent-encoded individually and then\n"
+"combined with the colon separator. The user name cannot contain a colon (even if percent-encoded),\n"
+"because the proxy will split the components on the first colon it finds.\n"
+msgstr ""
+
+#. type: Title ##
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:70
+#, no-wrap
+msgid "HTTPS proxy servers"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:74
+msgid ""
+"Composer supports HTTPS proxy servers, where HTTPS is the scheme used to "
+"connect to the proxy, but only from PHP 7.3 with curl version 7.52.0 and "
+"above."
+msgstr ""
+
+#. type: Fenced code block
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:75
+#, no-wrap
+msgid ""
+"http_proxy=https://proxy.com:443\n"
+"https_proxy=https://proxy.com:443\n"
+msgstr ""
+
+#. type: Title ##
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:80
+#, no-wrap
+msgid "Bypassing the proxy for specific domains"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:84
+msgid ""
+"Use the `no_proxy` (or `NO_PROXY`) environment variable to set a comma-"
+"separated list of domains that the proxy should **not** be used for."
+msgstr ""
+
+#. type: Fenced code block
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:85
+#, no-wrap
+msgid ""
+"no_proxy=example.com\n"
+"# Bypasses the proxy for example.com and its sub-domains\n"
+"\n"
+"no_proxy=www.example.com\n"
+"# Bypasses the proxy for www.example.com and its sub-domains, but not for example.com\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:95
+msgid ""
+"A domain can be restricted to a particular port (e.g. `:80`) and can also be "
+"specified as an IP address or an IP address block in CIDR notation."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:98
+msgid ""
+"IPv6 addresses do not need to be enclosed in square brackets, like they are "
+"for http_proxy/https_proxy values, although this format is accepted."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:100
+msgid "Setting the value to `*` will bypass the proxy for all requests."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:102
+#, no-wrap
+msgid "> **Note:** A leading dot in the domain name has no significance and is removed prior to processing.\n"
+msgstr ""
+
+#. type: Title ##
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:103
+#, no-wrap
+msgid "Deprecated environment variables"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:107
+msgid ""
+"Composer originally provided `HTTP_PROXY_REQUEST_FULLURI` and "
+"`HTTPS_PROXY_REQUEST_FULLURI` to help mitigate issues with misbehaving "
+"proxies. These are no longer required or used."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:108
+#, no-wrap
+msgid "Requirement changes"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:112
+#, no-wrap
+msgid ""
+"Composer <2.8 used `http_proxy` for both HTTP and HTTPS requests if `https_proxy` was not set,\n"
+"but as of Composer 2.8.0 it requires [scheme-specific](#usage) environment variables.\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:116
+msgid ""
+"The reason for this change is to align Composer with current practice across "
+"other popular tools. To help with the transition, as of Composer 2.7.3 the "
+"original behaviour remains but a warning message is shown instructing the "
+"user to add an `https_proxy` environment variable."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:118
+msgid ""
+"To prevent the original behaviour during the transition period, set an empty "
+"environment variable (`https_proxy=`)."
 msgstr ""

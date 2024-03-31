@@ -151,7 +151,7 @@ Composer 2.6では`report`が既定値であり、Composer 2.7以降では`fail`
 ```
 
 Composer
-2.7以降ではオプションは[`COMPOSER_AUDIT_ABANDONED`](03-cli.md#composer-audit-abandoned)環境変数を介してオーバーライドできます。
+2.7以降、オプションは[`COMPOSER_AUDIT_ABANDONED`](03-cli.md#composer-audit-abandoned)環境変数を介してオーバーライドできます。
 
 ## use-parent-dir
 

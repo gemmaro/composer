@@ -131,4 +131,33 @@ Packagistで公開されている全てのものは自動的にComposerで利用
 送信した時点でPackagistはクローリングを始めます。
 完了すると、パッケージは誰でも使えるようになります！
 
+## 軽量配布パッケージ
+
+有用でない情報は普通、配布パッケージに含めない方が良いでしょう。
+これには`.github`ディレクトリ、嵩張る例、テストデータなどがあります。
+
+`.gitattributes`ファイルは`.gitignore`のようなgit固有のファイルです。
+またライブラリの根幹ディレクトリにあります。
+これが存在してgitで追跡されているとき、局所的な構成と大域的な構成（それぞれ`.git/config`と`~/.gitconfig`）がオーバーライドされます。
+
+zipの配布パッケージが肥大化させる望ましくないファイルが入らないようにするには、`.gitattributes`を使ってください。
+
+```text
+// .gitattributes
+/demo export-ignore
+phpunit.xml.dist export-ignore
+/.github/ export-ignore
+```
+
+生成されたzipファイルを手作業で調べて確認するには、次のようにします。
+
+```shell
+git archive branchName --format zip -o file.zip
+```
+
+> **補足：**
+> ファイルはgitで追跡されたままであり、zipの配布物に含まれていないだけです。
+> これはdist（タグ付けされたリリース）でインストールしたパッケージでのみ機能します。
+> 配布元はGitHub、GitLab、BitBucketがあります。
+
 &larr; [基本的な使い方](01-basic-usage.md) |  [コマンドラインインターフェース](03-cli.md) &rarr;

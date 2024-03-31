@@ -99,6 +99,9 @@ https://getcomposer.org/schema.json から取得できます。
 - **composer-plugin:**
   種別`composer-plugin`のパッケージは独自の種別を持つ他のパッケージのインストーラを提供することがあります。
   詳細は[専門記事](articles/custom-installers.md)を参照してください。
+- **php-ext**と**php-ext-zend**：
+  これらの名前はCで書かれたPHPの拡張パッケージ用に予約されています。
+  これらの種別はPHPで書かれたパッケージ用に使わないでください。
 
 インストール時に独自の仕組みが必要な場合にのみ独自の種別を使ってください。
 このフィールドを省略し、既定の`library`にするのがお勧めです。
@@ -117,6 +120,10 @@ https://getcomposer.org/schema.json から取得できます。
 
 > **補足**：`--dev`オプション無しで`composer require`するようにし、パッケージを`require`ではなく`require-dev`に追加しても良いか利用者にプロンプトを出す特別なキーワードがあります。
 `dev`、`testing`、`static analysis`がそれです。
+
+> **補足**：文字列内で許される文字の範囲には、ユニコードの英数字、空白`" "`、ドット`.`、下線`_`、ダッシュ`-`（正規表現：`'{^[\p{N}\p{L} ._-]+$}u'`）の制限があります。
+> その他の文字を使うと、`composer validate`を走らせるときに警告が出ます。
+> またパッケージのPackagist.orgへの更新が失敗する原因となります。
 
 省略可能です。
 

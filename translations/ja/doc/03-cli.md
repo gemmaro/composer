@@ -1191,13 +1191,11 @@ build box/CIで設定できます。
 VagrantやVirtualboxを使っていてファイルが存在しているのにも関わらずインストール時にファイルがない旨問題に遭遇したときは、この環境変数を設定すると良いでしょう。
 
 ### http_proxyやHTTP_PROXY
+### HTTP_PROXY_REQUEST_FULLURI
+### HTTPS_PROXY_REQUEST_FULLURI
+### no_proxyやNO_PROXY
 
-ComposerをHTTPプロキシの背後から使っている場合、標準的な`http_proxy`や`HTTP_PROXY`環境変数を使うことができます。変数はプロキシのURLに設定してください。多くのオペレーティングシステムは既にこの変数を設定してくれています。
-
-gitやcurlのようなツールが小文字の`http_proxy`版のみを使っているために、`http_proxy`（小文字）を使ったり両方とも定義するすることが良いこともあるでしょう。
-代替案として`git config --global http.proxy <proxy url>`を使ってgitのプロキシを定義することもできます。
-
-ComposerをCLIの文脈で使っておらず、プロキシの対応が必要であれば、代替として`CGI_HTTP_PROXY`環境変数を与えてください。詳細は[httpoxy.org](https://httpoxy.org/)を参照してください。
+プロキシの環境変数の使い方についての詳細は、[プロキシのドキュメント](faqs/how-to-use-composer-behind-a-proxy.md)を参照してください。
 
 ### COMPOSER_AUDIT_ABANDONED
 
@@ -1215,26 +1213,9 @@ ComposerをCLIの文脈で使っておらず、プロキシの対応が必要で
 `4`ないし`6`に設定するとそれぞれIPv4ないしIPv6の解決を強制します。
 ダウンロード用にcurl拡張が使用されている場合にのみ機能します。
 
-### HTTP_PROXY_REQUEST_FULLURI
-
-プロキシを使っているものの、request_fulluriフラグに対応していなければ、この環境変数を`false`や`0`に設定してComposerがrequest_fulluriオプションを設定するのを防ぐと良いでしょう。
-
-### HTTPS_PROXY_REQUEST_FULLURI
-
-プロキシを使っているが、HTTPSリクエストについてrequest_fulluriに対応していなければ、この環境変数を`false`や`0`に設定してComposerがrequest_fulluriオプションを設定するのを防ぐと良いでしょう。
-
 ### COMPOSER_SELF_UPDATE_TARGET
 
 設定した場合、self-updateコマンドが元あるファイルではなく与えられたパスに新しいComposerのpharファイルを書き込むようにします。読み込み専用のファイルシステムでComposerを更新するときに便利です。
-
-### no_proxyやNO_PROXY
-
-プロキシの背後にあって特定のドメインを無効にしたい場合は、`no_proxy`または`NO_PROXY`環境変数を使えます。
-プロキシが使われ*ない*ドメインのコンマ区切りリストを設定します。
-
-環境変数はCIDR記法でドメイン、IPアドレス、IPアドレスブロックを受け付けます。
-フィルタを特定のポートに制限できます（例：`:80`）。
-`*`を設定して全てのHTTPリクエストについてプロキシを無効にもできます。
 
 ### COMPOSER_DISABLE_NETWORK
 
