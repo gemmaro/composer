@@ -319,7 +319,7 @@ php composer.phar require vendor/package vendor/package2
 * **--apcu-autoloader-prefix:** APCu自動読み込み器のキャッシュ用に独自の接頭辞を使います。
   暗黙裡に`--apcu-autoloader`を有効にします。
 
-## remove / rm
+## remove / rm / uninstall
 
 `remove`コマンドは現在のディレクトリにある`composer.json`ファイルからパッケージを削除します。
 

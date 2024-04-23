@@ -103,7 +103,7 @@ ComposerはMITライセンスの下で利用が許諾されます。
 本和訳にあたっての著作権表示を以下に示します。
 
 Copyright (C) 2013--2015 kohkimakimoto.<br>
-Copyright (C) 2022, 2023 gemmaro.
+Copyright (C) 2022--2024 gemmaro.
 
 この翻訳は[kohkimakimoto][]氏による翻訳を元に改変を加えています。
 同氏の翻訳リポジトリは[`kohkimakimoto/getcomposer.org_doc_jp`][repo]に、Webサイトは[『Composer ドキュメント日本語訳』の「はじめに」][site]にあります。

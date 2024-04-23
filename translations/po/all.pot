@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2024-04-20 07:37+0900\n"
+"POT-Creation-Date: 2024-05-03 11:26+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2374,7 +2374,7 @@ msgstr ""
 #. type: Title ##
 #: ../doc/03-cli.md:316
 #, no-wrap
-msgid "remove / rm"
+msgid "remove / rm / uninstall"
 msgstr ""
 
 #. type: Plain text
@@ -4817,6 +4817,7 @@ msgstr ""
 
 #. type: Plain text
 #: ../doc/04-schema.md:60 ../doc/04-schema.md:118 ../doc/04-schema.md:969
+#: ../doc/articles/versions.md:139 ../doc/articles/versions.md:213
 msgid "Examples:"
 msgstr ""
 
@@ -9618,6 +9619,547 @@ msgid ""
 "For this reason, Composer throws an error and says that this is invalid.  "
 "The way to fix it is to think about what you really mean, and use only one "
 "of those rules."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:4
+#, no-wrap
+msgid ""
+"<!--\n"
+"    tagline: Versions explained.\n"
+"-->\n"
+msgstr ""
+
+#. type: Title #
+#: ../doc/articles/versions.md:5
+#, no-wrap
+msgid "Versions and constraints"
+msgstr ""
+
+#. type: Title ##
+#: ../doc/articles/versions.md:7
+#, no-wrap
+msgid "Composer Versions vs VCS Versions"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:16
+msgid ""
+"Because Composer is heavily geared toward utilizing version control systems "
+"like git, the term \"version\" can be a little ambiguous. In the sense of a "
+"version control system, a \"version\" is a specific set of files that "
+"contain specific data. In git terminology, this is a \"ref\", or a specific "
+"commit, which may be represented by a branch HEAD or a tag. When you check "
+"out that version in your VCS -- for example, tag `v1.1` or commit `e35fa0d` "
+"--, you're asking for a single, known set of files, and you always get the "
+"same files back."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:24
+msgid ""
+"In Composer, what's often referred to casually as a version -- that is, the "
+"string that follows the package name in a require line (e.g., `~1.1` or `1.2."
+"*`) -- is actually more specifically a version constraint. Composer uses "
+"version constraints to figure out which refs in a VCS it should be checking "
+"out (or to verify that a given library is acceptable in the case of a "
+"statically-maintained library with a `version` specification in `composer."
+"json`)."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/articles/versions.md:25
+#, no-wrap
+msgid "VCS Tags and Branches"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:29
+#, no-wrap
+msgid ""
+"*For the following discussion, let's assume the following sample library\n"
+"repository:*\n"
+msgstr ""
+
+#. type: Fenced code block (shell)
+#: ../doc/articles/versions.md:30
+#, no-wrap
+msgid "~/my-library$ git branch\n"
+msgstr ""
+
+#. type: Fenced code block (text)
+#: ../doc/articles/versions.md:33
+#, no-wrap
+msgid ""
+"v1\n"
+"v2\n"
+"my-feature\n"
+"another-feature\n"
+msgstr ""
+
+#. type: Fenced code block (shell)
+#: ../doc/articles/versions.md:40
+#, no-wrap
+msgid "~/my-library$ git tag\n"
+msgstr ""
+
+#. type: Fenced code block (text)
+#: ../doc/articles/versions.md:43
+#, no-wrap
+msgid ""
+"v1.0\n"
+"v1.0.1\n"
+"v1.0.2\n"
+"v1.1-BETA\n"
+"v1.1-RC1\n"
+"v1.1-RC2\n"
+"v1.1\n"
+"v1.1.1\n"
+"v2.0-BETA\n"
+"v2.0-RC1\n"
+"v2.0\n"
+"v2.0.1\n"
+"v2.0.2\n"
+msgstr ""
+
+#. type: Title ###
+#: ../doc/articles/versions.md:59
+#, no-wrap
+msgid "Tags"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:73
+#, no-wrap
+msgid ""
+"Normally, Composer deals with tags (as opposed to branches -- if you don't\n"
+"know what this means, read up on\n"
+"[version control systems](https://en.wikipedia.org/wiki/Version_control#Common_terminology)).\n"
+"When you write a version constraint, it may reference a specific tag (e.g.,\n"
+"`1.1`) or it may reference a valid range of tags (e.g., `>=1.1 <2.0`, or\n"
+"`~4.0`). To resolve these constraints, Composer first asks the VCS to list\n"
+"all available tags, then creates an internal list of available versions based\n"
+"on these tags. In the above example, composer's internal list includes versions\n"
+"`1.0`, `1.0.1`, `1.0.2`, the beta release of `1.1`, the first and second\n"
+"release candidates of `1.1`, the final release version `1.1`, etc.... (Note\n"
+"that Composer automatically removes the 'v' prefix in the actual tagname to\n"
+"get a valid final version number.)\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:80
+msgid ""
+"When Composer has a complete list of available versions from your VCS, it "
+"then finds the highest version that matches all version constraints in your "
+"project (it's possible that other packages require more specific versions of "
+"the library than you do, so the version it chooses may not always be the "
+"highest available version) and it downloads a zip archive of that tag to "
+"unpack in the correct location in your `vendor` directory."
+msgstr ""
+
+#. type: Title ###
+#: ../doc/articles/versions.md:81
+#, no-wrap
+msgid "Branches"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:84
+msgid ""
+"If you want Composer to check out a branch instead of a tag, you need to "
+"point it to the branch using the special `dev-*` prefix (or sometimes "
+"suffix; see below). If you're checking out a branch, it's assumed that you "
+"want to *work* on the branch and Composer actually clones the repo into the "
+"correct place in your `vendor` directory. For tags, it copies the right "
+"files without actually cloning the repo. (You can modify this behavior with "
+"--prefer-source and --prefer-dist, see [install options](../03-cli."
+"md#install).)"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:86
+msgid ""
+"In the above example, if you wanted to check out the `my-feature` branch, "
+"you would specify `dev-my-feature` as the version constraint in your "
+"`require` clause. This would result in Composer cloning the `my-library` "
+"repository into my `vendor` directory and checking out the `my-feature` "
+"branch."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:88
+msgid ""
+"When branch names look like versions, we have to clarify for Composer that "
+"we're trying to check out a branch and not a tag. In the above example, we "
+"have two version branches: `v1` and `v2`. To get Composer to check out one "
+"of these branches, you must specify a version constraint that looks like "
+"this: `v1.x-dev`. The `.x` is an arbitrary string that Composer requires to "
+"tell it that we're talking about the `v1` branch and not a `v1` tag "
+"(alternatively, you can name the branch `v1.x` instead of `v1`). In the case "
+"of a branch with a version-like name (`v1`, in this case), you append `-dev` "
+"as a suffix, rather than using `dev-` as a prefix."
+msgstr ""
+
+#. type: Title ###
+#: ../doc/articles/versions.md:89
+#, no-wrap
+msgid "Stabilities"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:99
+msgid ""
+"Composer recognizes the following stabilities (in order of stability): dev, "
+"alpha, beta, RC, and stable where RC stands for release candidate. The "
+"stability of a version is defined by its suffix e.g version `v1.1-BETA` has "
+"a stability of `beta` and `v1.1-RC1` has a stability of `RC`. If such a "
+"suffix is missing e.g. version `v1.1` then Composer considers that version "
+"`stable`. In addition to that Composer automatically adds a `-dev` suffix to "
+"all numeric branches and prefixes all other branches imported from a VCS "
+"repository with `dev-`. In both cases the stability `dev` gets assigned."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:101
+msgid "Keeping this in mind will help you in the next section."
+msgstr ""
+
+#. type: Title ###
+#: ../doc/articles/versions.md:102
+#, no-wrap
+msgid "Minimum Stability"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:105
+msgid ""
+"There's one more thing that will affect which files are checked out of a "
+"library's VCS and added to your project: Composer allows you to specify "
+"stability constraints to limit which tags are considered valid. In the above "
+"example, note that the library released a beta and two release candidates "
+"for version `1.1` before the final official release. To receive these "
+"versions when running `composer install` or `composer update`, we have to "
+"explicitly tell Composer that we are ok with release candidates and beta "
+"releases (and alpha releases, if we want those). This can be done using "
+"either a project-wide `minimum-stability` value in `composer.json` or using "
+"\"stability flags\" in version constraints. Read more on the [schema page]"
+"(../04-schema.md#minimum-stability)."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/articles/versions.md:106
+#, no-wrap
+msgid "Writing Version Constraints"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:110
+msgid ""
+"Now that you have an idea of how Composer sees versions, let's talk about "
+"how to specify version constraints for your project dependencies."
+msgstr ""
+
+#. type: Title ###
+#: ../doc/articles/versions.md:111
+#, no-wrap
+msgid "Exact Version Constraint"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:117
+msgid ""
+"You can specify the exact version of a package. This will tell Composer to "
+"install this version and this version only. If other dependencies require a "
+"different version, the solver will ultimately fail and abort any install or "
+"update procedures."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:119
+msgid "Example: `1.0.2`"
+msgstr ""
+
+#. type: Title ###
+#: ../doc/articles/versions.md:120
+#, no-wrap
+msgid "Version Range"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:124
+#, no-wrap
+msgid ""
+"By using comparison operators you can specify ranges of valid versions. Valid\n"
+"operators are `>`, `>=`, `<`, `<=`, `!=`.\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:128
+#, no-wrap
+msgid ""
+"You can define multiple ranges. Ranges separated by a space (<code>&nbsp;</code>)\n"
+"or comma (`,`) will be treated as a **logical AND**. A double pipe (`||`)\n"
+"will be treated as a **logical OR**. AND has higher precedence than OR.\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:132
+#, no-wrap
+msgid ""
+"> **Note:** Be careful when using unbounded ranges as you might end up\n"
+"> unexpectedly installing versions that break backwards compatibility.\n"
+"> Consider using the [caret](#caret-version-range-) operator instead for safety.\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:137
+#, no-wrap
+msgid ""
+"<!--blank line followed by comment markup to separate the block quotes-->\n"
+"> **Note:** In older versions of Composer the single pipe (`|`) was the\n"
+"> recommended alternative to the **logical OR**. Thus for backwards compatibility\n"
+"> the single pipe (`|`) will still be treated as a **logical OR**.\n"
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/articles/versions.md:143
+msgid "`>=1.0`"
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/articles/versions.md:143
+msgid "`>=1.0 <2.0`"
+msgstr ""
+
+#. type: Bullet: '* '
+#: ../doc/articles/versions.md:143
+msgid "`>=1.0 <1.1 || >=1.2`"
+msgstr ""
+
+#. type: Title ###
+#: ../doc/articles/versions.md:144
+#, no-wrap
+msgid "Hyphenated Version Range (` - `)"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:150
+#, no-wrap
+msgid ""
+"Inclusive set of versions. Partial versions on the right include are completed\n"
+"with a wildcard. For example `1.0 - 2.0` is equivalent to `>=1.0.0 <2.1` as the\n"
+"`2.0` becomes `2.0.*`. On the other hand `1.0.0 - 2.1.0` is equivalent to\n"
+"`>=1.0.0 <=2.1.0`.\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:152
+msgid "Example: `1.0 - 2.0`"
+msgstr ""
+
+#. type: Title ###
+#: ../doc/articles/versions.md:153
+#, no-wrap
+msgid "Wildcard Version Range (`.*`)"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:157
+#, no-wrap
+msgid ""
+"You can specify a pattern with a `*` wildcard. `1.0.*` is the equivalent of\n"
+"`>=1.0 <1.1`.\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:159
+msgid "Example: `1.0.*`"
+msgstr ""
+
+#. type: Title ##
+#: ../doc/articles/versions.md:160
+#, no-wrap
+msgid "Next Significant Release Operators"
+msgstr ""
+
+#. type: Title ###
+#: ../doc/articles/versions.md:162
+#, no-wrap
+msgid "Tilde Version Range (`~`)"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:172
+#, no-wrap
+msgid ""
+"The `~` operator is best explained by example: `~1.2` is equivalent to\n"
+"`>=1.2 <2.0.0`, while `~1.2.3` is equivalent to `>=1.2.3 <1.3.0`. As you can see\n"
+"it is mostly useful for projects respecting [semantic\n"
+"versioning](https://semver.org/). A common usage would be to mark the minimum\n"
+"minor version you depend on, like `~1.2` (which allows anything up to, but not\n"
+"including, 2.0). Since in theory there should be no backwards compatibility\n"
+"breaks until 2.0, that works well. Another way of looking at it is that using\n"
+"`~` specifies a minimum version, but allows the last digit specified to go up.\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:174
+msgid "Example: `~1.2`"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:178
+#, no-wrap
+msgid ""
+"> **Note:** Although `2.0-beta.1` is strictly before `2.0`, a version constraint\n"
+"> like `~1.2` would not install it. As said above `~1.2` only means the `.2`\n"
+"> can change but the `1.` part is fixed.\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:183
+#, no-wrap
+msgid ""
+"> **Note:** The `~` operator has an exception on its behavior for the major\n"
+"> release number. This means for example that `~1` is the same as `~1.0` as\n"
+"> it will not allow the major number to increase trying to keep backwards\n"
+"> compatibility.\n"
+msgstr ""
+
+#. type: Title ###
+#: ../doc/articles/versions.md:184
+#, no-wrap
+msgid "Caret Version Range (`^`)"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:191
+#, no-wrap
+msgid ""
+"The `^` operator behaves very similarly, but it sticks closer to semantic\n"
+"versioning, and will always allow non-breaking updates. For example `^1.2.3`\n"
+"is equivalent to `>=1.2.3 <2.0.0` as none of the releases until 2.0 should\n"
+"break backwards compatibility. For pre-1.0 versions it also acts with safety\n"
+"in mind and treats `^0.3` as `>=0.3.0 <0.4.0` and `^0.0.3` as `>=0.0.3 <0.0.4`.\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:194
+msgid ""
+"This is the recommended operator for maximum interoperability when writing "
+"library code."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:196
+msgid "Example: `^1.2.3`"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:202
+#, no-wrap
+msgid ""
+"> **Note:** If you are using PowerShell on Windows, you have to escape\n"
+"> carets when using them as argument on the CLI for example when using the\n"
+"> `composer require` command. You have to use four\n"
+"> subsequent caret operators, e.g. `^^^^1.2.3`, to ensure the caret operator gets\n"
+"> passed to Composer correctly.\n"
+msgstr ""
+
+#. type: Title ##
+#: ../doc/articles/versions.md:203
+#, no-wrap
+msgid "Stability Constraints"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:208
+msgid ""
+"If you are using a constraint that does not explicitly define a stability, "
+"Composer will default internally to `-dev` or `-stable`, depending on the "
+"operator(s) used. This happens transparently."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:211
+msgid ""
+"If you wish to explicitly consider only the stable release in the "
+"comparison, add the suffix `-stable`."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:225
+#, no-wrap
+msgid ""
+" Constraint         | Internally\n"
+"------------------- | ------------------------\n"
+" `1.2.3`            | `=1.2.3.0-stable`\n"
+" `>1.2`             | `>1.2.0.0-stable`\n"
+" `>=1.2`            | `>=1.2.0.0-dev`\n"
+" `>=1.2-stable`     | `>=1.2.0.0-stable`\n"
+" `<1.3`             | `<1.3.0.0-dev`\n"
+" `<=1.3`            | `<=1.3.0.0-stable`\n"
+" `1 - 2`            | `>=1.0.0.0-dev <3.0.0.0-dev`\n"
+" `~1.3`             | `>=1.3.0.0-dev <2.0.0.0-dev`\n"
+" `1.4.*`            | `>=1.4.0.0-dev <1.5.0.0-dev`\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:232
+#, no-wrap
+msgid ""
+"To allow various stabilities without enforcing them at the constraint level\n"
+"however, you may use [stability-flags](../04-schema.md#package-links) like\n"
+"`@<stability>` (e.g. `@dev`) to let Composer know that a given package\n"
+"can be installed in a different stability than your default minimum-stability\n"
+"setting. All available stability flags are listed on the minimum-stability\n"
+"section of the [schema page](../04-schema.md#minimum-stability).\n"
+msgstr ""
+
+#. type: Title ##
+#: ../doc/articles/versions.md:233
+#, no-wrap
+msgid "Summary"
+msgstr ""
+
+#. type: Fenced code block (jsonc)
+#: ../doc/articles/versions.md:234
+#, no-wrap
+msgid ""
+"\"require\": {\n"
+"    \"vendor/package\": \"1.3.2\", // exactly 1.3.2\n"
+"\n"
+"    // >, <, >=, <= | specify upper / lower bounds\n"
+"    \"vendor/package\": \">=1.3.2\", // anything above or equal to 1.3.2\n"
+"    \"vendor/package\": \"<1.3.2\", // anything below 1.3.2\n"
+"\n"
+"    // * | wildcard\n"
+"    \"vendor/package\": \"1.3.*\", // >=1.3.0 <1.4.0\n"
+"\n"
+"    // ~ | allows last digit specified to go up\n"
+"    \"vendor/package\": \"~1.3.2\", // >=1.3.2 <1.4.0\n"
+"    \"vendor/package\": \"~1.3\", // >=1.3.0 <2.0.0\n"
+"\n"
+"    // ^ | doesn't allow breaking changes (major version fixed - following semver)\n"
+"    \"vendor/package\": \"^1.3.2\", // >=1.3.2 <2.0.0\n"
+"    \"vendor/package\": \"^0.3.2\", // >=0.3.2 <0.4.0 // except if major version is 0\n"
+"}\n"
+msgstr ""
+
+#. type: Title ##
+#: ../doc/articles/versions.md:255
+#, no-wrap
+msgid "Testing Version Constraints"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/versions.md:260
+msgid ""
+"You can test version constraints using [semver.madewithlove.com](https://"
+"semver.madewithlove.com).  Fill in a package name and it will autofill the "
+"default version constraint which Composer would add to your `composer.json` "
+"file. You can adjust the version constraint and the tool will highlight all "
+"releases that match."
 msgstr ""
 
 #. type: Title #

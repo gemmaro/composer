@@ -1,3 +1,24 @@
+### [2.7.6] 2024-05-04
+
+  * スクリプト制御子が私有コールバックを使う自動読み込み器を加えるときの退行問題を修正しました (#11960)。
+
+### [2.7.5] 2024-05-03
+
+  * `remove`コマンドに`uninstall`の別称を加えました (#11951)。
+  * 転送で例外を起こすcurlの壊れたバージョン8.7.0/8.7.1のための対処法を加えました (#11913)。
+  * Podmanコンテナ内で表示される、rootを使うときの警告を修正しました (#11946)。
+  * configコマンドがある状況で正しくオブジェクトを扱っていなかった点を修正しました (#11945)。
+  * プロジェクトディレクトリがシンボリックリンクのとき、バイナリプロキシが正しいパスを含んでいなかった点を修正しました (#11947)。
+  * イベント制御子（scriptsとplugins）から読み込まれたときに、Composerの自動読み込み器がプロジェクトの自動読み込み器から無視される点を修正しました
+    (#11955)。
+  * TransportException（httpの失敗）が個別の終了コードでなかった点を修正しました (#11954)。
+    `100`のコードで終わるようになりました。
+
+### [2.7.4] 2024-04-22
+
+  * composer/composerのバージョンpre-2.7.3を要件とするプロジェクトでの退行問題（`Call to undefined
+    method ProxyManager::needsTransitionWarning()`）を修正しました (#11943, #11940)。
+
 ### [2.7.3] 2024-04-19
 
   * 後方互換性についての警告：`https_proxy`環境変数が`http_proxy`の値にフォールバックする点を修正しました。
@@ -89,6 +110,9 @@
   * Composerのzipアーカイブから欠けていたcomposer.lockを修正しました (#11674)。
   * 2.6.4で変わったAutoloadGenerator::dump()の非BCシグネチャを修正しました (cb363b0e8)。
 
+[2.7.6]: https://github.com/composer/composer/compare/2.7.5...2.7.6
+[2.7.5]: https://github.com/composer/composer/compare/2.7.4...2.7.5
+[2.7.4]: https://github.com/composer/composer/compare/2.7.3...2.7.4
 [2.7.3]: https://github.com/composer/composer/compare/2.7.2...2.7.3
 [2.7.2]: https://github.com/composer/composer/compare/2.7.1...2.7.2
 [2.7.1]: https://github.com/composer/composer/compare/2.7.0...2.7.1
