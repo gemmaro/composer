@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Composer\n"
 "POT-Creation-Date: 2024-05-03 11:26+0900\n"
-"PO-Revision-Date: 2024-05-05 18:53+0900\n"
+"PO-Revision-Date: 2024-07-14 19:49+0900\n"
 "Last-Translator: gemmaro <gemmaro.dev@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -2795,8 +2795,8 @@ msgid ""
 "like mirrors and URLs are updated if they changed."
 msgstr ""
 "**--lock:**\n"
-"パッケージのバージョンを更新せず、ロックファイルが期限切れであることについて"
-"の警告を抑えるためにロックファイルを上書きします。\n"
+"パッケージのバージョンを更新せず、固定ファイルが期限切れであることについての"
+"警告を抑えるために固定ファイルを上書きします。\n"
 "ミラーやURLといったパッケージのメタデータが変更されていれば更新します。"
 
 #. type: Bullet: '* '
@@ -12777,6 +12777,18 @@ msgid ""
 "\"stability flags\" in version constraints. Read more on the [schema page]"
 "(../04-schema.md#minimum-stability)."
 msgstr ""
+"チェックアウトされてプロジェクトに加わるライブラリのVCSの、ファイルに作用する"
+"点はもう1つあります。\n"
+"Composerでは安定性の制約を指定し、正当と見做すタグを制限できます。\n"
+"上の例で、最終的な公式リリースの前に、バージョン`1.1`にベータ版と2つのリリー"
+"ス候補が、ライブラリでリリースされていることにご注目ください。\n"
+"`composer install`や`composer update`を走らせるときにこれらのバージョンを取得"
+"するには、リリース候補やベータリリース（または所望であればアルファリリース）"
+"で良いことをComposerに陽に伝えなければなりません。\n"
+"これにはプロジェクト範囲の`minimum-stability`値を`composer.json`に使うか、"
+"バージョン制約に「安定性フラグ」を使います。\n"
+"詳しくは[スキーマのページ](../04-schema.md#minimum-stability)をお読みくださ"
+"い。"
 
 #. type: Title ##
 #: ../doc/articles/versions.md:106
@@ -12790,6 +12802,8 @@ msgid ""
 "Now that you have an idea of how Composer sees versions, let's talk about "
 "how to specify version constraints for your project dependencies."
 msgstr ""
+"Composerでのバージョンの捉え方が分かったところで、プロジェクトの依存関係で"
+"バージョン制約を指定する方法についてお話ししましょう。"
 
 #. type: Title ###
 #: ../doc/articles/versions.md:111
@@ -12805,6 +12819,11 @@ msgid ""
 "different version, the solver will ultimately fail and abort any install or "
 "update procedures."
 msgstr ""
+"パッケージの厳密なバージョンを指定できます。\n"
+"こうすると、このバージョンを、それもこのバージョンだけを、Composerにインス"
+"トールするよう伝えます。\n"
+"他の依存関係で違うバージョンが必要なとき、解決器は最終的に失敗し、インストー"
+"ルや更新の処理を途絶します。"
 
 #. type: Plain text
 #: ../doc/articles/versions.md:119
@@ -12824,6 +12843,8 @@ msgid ""
 "By using comparison operators you can specify ranges of valid versions. Valid\n"
 "operators are `>`, `>=`, `<`, `<=`, `!=`.\n"
 msgstr ""
+"比較演算子を使うと、正当なバージョンの範囲を指定できます。\n"
+"正当な演算子は`>`、`>=`、`<`、`<=`、`!=`です。\n"
 
 #. type: Plain text
 #: ../doc/articles/versions.md:128
@@ -12833,6 +12854,10 @@ msgid ""
 "or comma (`,`) will be treated as a **logical AND**. A double pipe (`||`)\n"
 "will be treated as a **logical OR**. AND has higher precedence than OR.\n"
 msgstr ""
+"複数の範囲を定義できます。\n"
+"空白 (<code>&nbsp;</code>) やコンマで区切られた範囲は**論理積**として扱われます。\n"
+"二重パイプ (`||`) は**論理和**として扱われます。\n"
+"積は和より優先されます。\n"
 
 #. type: Plain text
 #: ../doc/articles/versions.md:132
@@ -12842,6 +12867,10 @@ msgid ""
 "> unexpectedly installing versions that break backwards compatibility.\n"
 "> Consider using the [caret](#caret-version-range-) operator instead for safety.\n"
 msgstr ""
+"> **補足：**\n"
+"> 境界のない範囲を使うときはご注意ください。\n"
+"> 後方互換性を壊すバージョンを予期せずインストールすることがあるからです。\n"
+"> 安全のため、代わりに[キャレット](#caret-version-range-)演算子を使うことをご検討ください。\n"
 
 #. type: Plain text
 #: ../doc/articles/versions.md:137
@@ -12852,27 +12881,31 @@ msgid ""
 "> recommended alternative to the **logical OR**. Thus for backwards compatibility\n"
 "> the single pipe (`|`) will still be treated as a **logical OR**.\n"
 msgstr ""
+"<!--blank line followed by comment markup to separate the block quotes-->\n"
+"> **補足：**\n"
+"> Composerの古いバージョンでは、単一の棒 (`|`) は**論理和**の推奨される代替案でした。\n"
+"> そのため後方互換性のため、単一の棒 (`|`) は**論理和**として扱われたままになっています。\n"
 
 #. type: Bullet: '* '
 #: ../doc/articles/versions.md:143
 msgid "`>=1.0`"
-msgstr ""
+msgstr "`>=1.0`"
 
 #. type: Bullet: '* '
 #: ../doc/articles/versions.md:143
 msgid "`>=1.0 <2.0`"
-msgstr ""
+msgstr "`>=1.0 <2.0`"
 
 #. type: Bullet: '* '
 #: ../doc/articles/versions.md:143
 msgid "`>=1.0 <1.1 || >=1.2`"
-msgstr ""
+msgstr "`>=1.0 <1.1 || >=1.2`"
 
 #. type: Title ###
 #: ../doc/articles/versions.md:144
 #, no-wrap
 msgid "Hyphenated Version Range (` - `)"
-msgstr ""
+msgstr "ハイフン版のバージョン範囲 (` - `)"
 
 #. type: Plain text
 #: ../doc/articles/versions.md:150
@@ -12883,17 +12916,21 @@ msgid ""
 "`2.0` becomes `2.0.*`. On the other hand `1.0.0 - 2.1.0` is equivalent to\n"
 "`>=1.0.0 <=2.1.0`.\n"
 msgstr ""
+"含まれるバージョンの集合です。\n"
+"含まれるバージョンの右部分はワイルドカードが補完されます。\n"
+"例えば`1.0 - 2.0`は、`2.0`が`2.0.*`になるため、`>=1.0.0 <2.1`と等価です。\n"
+"他方で`1.0.0 - 2.1.0`は`>=1.0.0 <=2.1.0`と等価です。\n"
 
 #. type: Plain text
 #: ../doc/articles/versions.md:152
 msgid "Example: `1.0 - 2.0`"
-msgstr ""
+msgstr "例：`1.0 - 2.0`"
 
 #. type: Title ###
 #: ../doc/articles/versions.md:153
 #, no-wrap
 msgid "Wildcard Version Range (`.*`)"
-msgstr ""
+msgstr "ワイルドカードのバージョン範囲 (`.*`)"
 
 #. type: Plain text
 #: ../doc/articles/versions.md:157
@@ -12902,6 +12939,8 @@ msgid ""
 "You can specify a pattern with a `*` wildcard. `1.0.*` is the equivalent of\n"
 "`>=1.0 <1.1`.\n"
 msgstr ""
+"`*`ワイルドカードでパターンを指定できます。\n"
+"`1.0.*`は`>=1.0 <1.1`と等価です。\n"
 
 #. type: Plain text
 #: ../doc/articles/versions.md:159
@@ -12912,13 +12951,13 @@ msgstr "例：`1.0.*`"
 #: ../doc/articles/versions.md:160
 #, no-wrap
 msgid "Next Significant Release Operators"
-msgstr ""
+msgstr "次の大規模リリースの演算子"
 
 #. type: Title ###
 #: ../doc/articles/versions.md:162
 #, no-wrap
 msgid "Tilde Version Range (`~`)"
-msgstr ""
+msgstr "チルダのバージョン範囲 (`~`)"
 
 #. type: Plain text
 #: ../doc/articles/versions.md:172
@@ -12933,6 +12972,14 @@ msgid ""
 "breaks until 2.0, that works well. Another way of looking at it is that using\n"
 "`~` specifies a minimum version, but allows the last digit specified to go up.\n"
 msgstr ""
+"`~`演算子は例で説明するのが1番です。\n"
+"`~1.2`は`>=1.2 <2.0.0`と等価です。\n"
+"一方、`~1.2.3`は`>=1.2.3 <1.3.0`と等価です。\n"
+"見て分かる通り、[セマンティックバージョニング](https://semver.org/)を尊重するプロジェクトで特に有用です。\n"
+"よくある使い方は、`~1.2`のように（こうすると2.0までの全バージョン、ただし2.0は含まれないものにできます）、依存する最小の小規模バージョンの印を付けることでしょう。\n"
+"理論上は2.0まで後方互換性の破壊はないでしょうから、うまくいきます。\n"
+"別の見方は、`~`を使って最小バージョンを指定するというものです。\n"
+"ただし指定された最後の桁は上げられます。\n"
 
 #. type: Plain text
 #: ../doc/articles/versions.md:174
@@ -12947,6 +12994,9 @@ msgid ""
 "> like `~1.2` would not install it. As said above `~1.2` only means the `.2`\n"
 "> can change but the `1.` part is fixed.\n"
 msgstr ""
+"> **補足：:**\n"
+"> `2.0-beta.1`は`2.0`より厳密には前ですが、`~1.2`のようなバージョン制約ではインストールされません。\n"
+"> 前述の通り、`~1.2`とは`.2`が変わることがありますが、`1.`の部分は固定されるという意味です。\n"
 
 #. type: Plain text
 #: ../doc/articles/versions.md:183
@@ -12957,12 +13007,15 @@ msgid ""
 "> it will not allow the major number to increase trying to keep backwards\n"
 "> compatibility.\n"
 msgstr ""
+"> **補足：**\n"
+"> `~`演算子にはメジャーリリース番号に関して挙動に例外があります。\n"
+"> つまり、例えば`~1`は`~1.0`と同じですが、これは後方互換性を保とうとする上で、メジャー番号を増やせないからです。\n"
 
 #. type: Title ###
 #: ../doc/articles/versions.md:184
 #, no-wrap
 msgid "Caret Version Range (`^`)"
-msgstr ""
+msgstr "キャレットバージョン範囲 (`^`)"
 
 #. type: Plain text
 #: ../doc/articles/versions.md:191
@@ -12974,6 +13027,10 @@ msgid ""
 "break backwards compatibility. For pre-1.0 versions it also acts with safety\n"
 "in mind and treats `^0.3` as `>=0.3.0 <0.4.0` and `^0.0.3` as `>=0.0.3 <0.0.4`.\n"
 msgstr ""
+"`^`演算子はとてもよく似た挙動ですが、よりセマンティックバージョニングに密接しており、破壊的でない更新は常に許されます。\n"
+"例えば`^1.2.3`は`>=1.2.3 <2.0.0`と等価です。\n"
+"2.0までのリリースで後方互換性を壊すものはないからです。\n"
+"1.0より前のバージョンについては、安全性に留意した動作となっており、`^0.3`は`>=0.3.0 <0.4.0`として、`^0.0.3`は`>=0.0.3 <0.0.4`として扱います。\n"
 
 #. type: Plain text
 #: ../doc/articles/versions.md:194
@@ -12981,6 +13038,8 @@ msgid ""
 "This is the recommended operator for maximum interoperability when writing "
 "library code."
 msgstr ""
+"これはライブラリのコードを書く際に、最も相互運用性を高くするため推奨される演"
+"算子です。"
 
 #. type: Plain text
 #: ../doc/articles/versions.md:196
@@ -12997,12 +13056,15 @@ msgid ""
 "> subsequent caret operators, e.g. `^^^^1.2.3`, to ensure the caret operator gets\n"
 "> passed to Composer correctly.\n"
 msgstr ""
+"> **補足：**\n"
+"> WindowsでPowerShellを使っているとき、例えば`composer require`コマンドを使う際は、CLIで引数としてキャレットを使うときにエスケープしなければなりません。\n"
+"> キャレットがComposerに確実に正しく渡されるようにするため、例えば`^^^^1.2.3`のように、4つの連続するキャレット演算子を使わなければなりません。\n"
 
 #. type: Title ##
 #: ../doc/articles/versions.md:203
 #, no-wrap
 msgid "Stability Constraints"
-msgstr ""
+msgstr "安定性の制約"
 
 #. type: Plain text
 #: ../doc/articles/versions.md:208
@@ -13011,6 +13073,9 @@ msgid ""
 "Composer will default internally to `-dev` or `-stable`, depending on the "
 "operator(s) used. This happens transparently."
 msgstr ""
+"安定性を陽に定義しない制約を使うとき、使われた演算子により、Composerは内部的"
+"に既定を`-dev`または`-stable`にします。\n"
+"これは透過的に起こります。"
 
 #. type: Plain text
 #: ../doc/articles/versions.md:211
@@ -13018,6 +13083,7 @@ msgid ""
 "If you wish to explicitly consider only the stable release in the "
 "comparison, add the suffix `-stable`."
 msgstr ""
+"比較で安定リリースのみを陽に検討したいときは`-stable`接尾辞を加えてください。"
 
 #. type: Plain text
 #: ../doc/articles/versions.md:225
@@ -13035,6 +13101,17 @@ msgid ""
 " `~1.3`             | `>=1.3.0.0-dev <2.0.0.0-dev`\n"
 " `1.4.*`            | `>=1.4.0.0-dev <1.5.0.0-dev`\n"
 msgstr ""
+" 制約         | 内部\n"
+"------------------- | ------------------------\n"
+" `1.2.3`            | `=1.2.3.0-stable`\n"
+" `>1.2`             | `>1.2.0.0-stable`\n"
+" `>=1.2`            | `>=1.2.0.0-dev`\n"
+" `>=1.2-stable`     | `>=1.2.0.0-stable`\n"
+" `<1.3`             | `<1.3.0.0-dev`\n"
+" `<=1.3`            | `<=1.3.0.0-stable`\n"
+" `1 - 2`            | `>=1.0.0.0-dev <3.0.0.0-dev`\n"
+" `~1.3`             | `>=1.3.0.0-dev <2.0.0.0-dev`\n"
+" `1.4.*`            | `>=1.4.0.0-dev <1.5.0.0-dev`\n"
 
 #. type: Plain text
 #: ../doc/articles/versions.md:232
@@ -13047,12 +13124,14 @@ msgid ""
 "setting. All available stability flags are listed on the minimum-stability\n"
 "section of the [schema page](../04-schema.md#minimum-stability).\n"
 msgstr ""
+"しかし制約の水準に強制せず様々な安定性を許すには、`@<安定性>`（例：`@dev`）のように[安定性フラグ](../04-schema.md#package-links)を使い、与えられたパッケージが既定の最小安定性の設定とは違う安定性でインストールできることをComposerに知らせます。\n"
+"使える全ての安定性フラグは[スキーマのページ](../04-schema.md#minimum-stability)の最小安定性の節に挙がっています。\n"
 
 #. type: Title ##
 #: ../doc/articles/versions.md:233
 #, no-wrap
 msgid "Summary"
-msgstr ""
+msgstr "まとめ"
 
 #. type: Fenced code block (jsonc)
 #: ../doc/articles/versions.md:234
@@ -13077,6 +13156,24 @@ msgid ""
 "    \"vendor/package\": \"^0.3.2\", // >=0.3.2 <0.4.0 // except if major version is 0\n"
 "}\n"
 msgstr ""
+"\"require\": {\n"
+"    \"vendor/package\": \"1.3.2\", // 1.3.2ぴったり\n"
+"\n"
+"    // >, <, >=, <= | 上限と下限を指定\n"
+"    \"vendor/package\": \">=1.3.2\", // 1.3.2以上の全バージョン\n"
+"    \"vendor/package\": \"<1.3.2\", // 1.3.2より小さい全バージョン\n"
+"\n"
+"    // * | ワイルドカード\n"
+"    \"vendor/package\": \"1.3.*\", // >=1.3.0 <1.4.0\n"
+"\n"
+"    // ~ | 最後の桁は上げられます\n"
+"    \"vendor/package\": \"~1.3.2\", // >=1.3.2 <1.4.0\n"
+"    \"vendor/package\": \"~1.3\", // >=1.3.0 <2.0.0\n"
+"\n"
+"    // ^ | 破壊的な変更を許しません（セマンティックバージョニングに従い、メジャーバージョンは固定です）\n"
+"    \"vendor/package\": \"^1.3.2\", // >=1.3.2 <2.0.0\n"
+"    \"vendor/package\": \"^0.3.2\", // >=0.3.2 <0.4.0 // メジャーバージョンが0のときは例外\n"
+"}\n"
 
 #. type: Title ##
 #: ../doc/articles/versions.md:255
@@ -13093,6 +13190,12 @@ msgid ""
 "file. You can adjust the version constraint and the tool will highlight all "
 "releases that match."
 msgstr ""
+"[semver.madewithlove.com](https://semver.madewithlove.com)を使ってバージョン"
+"制約を確認できます。\n"
+"パッケージ名を埋めると、Composerにより`composer.json`ファイルに加わる既定の"
+"バージョン制約が自動で埋まります。\n"
+"バージョン制約を調整すると、ツールにより、合致する全てのリリースが強調されま"
+"す。"
 
 #. type: Title #
 #: ../doc/faqs/how-to-install-composer-programmatically.md:1

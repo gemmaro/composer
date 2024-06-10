@@ -16,6 +16,10 @@
 * [何故、比較とワイルドカードが組み合わさったバージョン制約が良くないのか](doc/faqs/why-are-version-constraints-combining-comparisons-and-wildcards-a-bad-idea.md)
 * [プロキシを隔ててComposerを使う方法](doc/faqs/how-to-use-composer-behind-a-proxy.md)
 
+# 記事
+
+* [パッケージと制約](doc/articles/versions.md)
+
 # 変更履歴
 
 * [変更履歴](CHANGELOG.md)
