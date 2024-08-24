@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Composer\n"
-"POT-Creation-Date: 2024-08-25 06:57+0900\n"
-"PO-Revision-Date: 2024-08-25 07:08+0900\n"
+"POT-Creation-Date: 2024-08-25 07:25+0900\n"
+"PO-Revision-Date: 2024-08-25 07:18+0900\n"
 "Last-Translator: gemmaro <gemmaro.dev@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -848,24 +848,34 @@ msgid ""
 "(current default) or `fail` (future default in 2.7) to make the audit "
 "command report abandoned packages as a security problem (#11639)"
 msgstr ""
+"audit.abandoned構成設定を加えました。\n"
+"`ignore`、`report`（現在の既定値）、`fail`（2.7以降の既定値）を設定できま"
+"す。\n"
+"監査コマンドで、放棄されたパッケージをセキュリティの問題として報告されるよう"
+"にします (#11639)"
 
 #. type: Bullet: '  * '
 #: ../CHANGELOG.md:138
 msgid ""
 "Added a warning when duplicates `files` autoload rules are detected (#11109)"
 msgstr ""
+"重複する`files`の自動読み込み規則が検出されたときの警告を加えました (#11109)"
 
 #. type: Bullet: '  * '
 #: ../CHANGELOG.md:138
 msgid "Fixed unhandled promise rejection regression (#11620)"
-msgstr ""
+msgstr "制御されていないプロミス拒否の退行問題を修正しました (#11620)"
 
 #. type: Bullet: '  * '
 #: ../CHANGELOG.md:138
+#, fuzzy
 msgid ""
 "Fixed loading of root aliases on path repo packages when doing partial "
 "updates (#11632)"
 msgstr ""
+"根幹の別称の読込\n"
+"Fixed loading of root aliases on path repo packages when doing partial "
+"updates (#11632)"
 
 #. type: Bullet: '  * '
 #: ../CHANGELOG.md:138
