@@ -19,8 +19,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Composer\n"
-"POT-Creation-Date: 2024-09-22 16:33+0900\n"
-"PO-Revision-Date: 2024-09-22 16:34+0900\n"
+"POT-Creation-Date: 2024-10-03 19:04+0900\n"
+"PO-Revision-Date: 2024-10-03 19:25+0900\n"
 "Last-Translator: gemmaro <gemmaro.dev@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -2366,10 +2366,10 @@ msgstr "php composer.phar init\n"
 #: ../doc/03-cli.md:401 ../doc/03-cli.md:440 ../doc/03-cli.md:487
 #: ../doc/03-cli.md:554 ../doc/03-cli.md:597 ../doc/03-cli.md:622
 #: ../doc/03-cli.md:638 ../doc/03-cli.md:653 ../doc/03-cli.md:690
-#: ../doc/03-cli.md:724 ../doc/03-cli.md:739 ../doc/03-cli.md:794
-#: ../doc/03-cli.md:834 ../doc/03-cli.md:917 ../doc/03-cli.md:973
-#: ../doc/03-cli.md:1001 ../doc/03-cli.md:1010 ../doc/03-cli.md:1017
-#: ../doc/03-cli.md:1033 ../doc/03-cli.md:1057 ../doc/03-cli.md:1077
+#: ../doc/03-cli.md:724 ../doc/03-cli.md:741 ../doc/03-cli.md:798
+#: ../doc/03-cli.md:838 ../doc/03-cli.md:921 ../doc/03-cli.md:977
+#: ../doc/03-cli.md:1006 ../doc/03-cli.md:1015 ../doc/03-cli.md:1022
+#: ../doc/03-cli.md:1038 ../doc/03-cli.md:1062 ../doc/03-cli.md:1082
 #, no-wrap
 msgid "Options"
 msgstr "オプション"
@@ -2490,7 +2490,7 @@ msgstr ""
 
 #. type: Bullet: '* '
 #: ../doc/03-cli.md:137 ../doc/03-cli.md:239 ../doc/03-cli.md:317
-#: ../doc/03-cli.md:428 ../doc/03-cli.md:959
+#: ../doc/03-cli.md:428 ../doc/03-cli.md:963
 msgid ""
 "**--prefer-install:** There are two ways of downloading a package: `source` "
 "and `dist`. Composer uses `dist` by default. If you pass `--prefer-"
@@ -2562,7 +2562,7 @@ msgstr "**--no-autoloader:** 自動読み込み器の生成を飛ばします。
 
 #. type: Bullet: '* '
 #: ../doc/03-cli.md:137 ../doc/03-cli.md:239 ../doc/03-cli.md:317
-#: ../doc/03-cli.md:363 ../doc/03-cli.md:428 ../doc/03-cli.md:959
+#: ../doc/03-cli.md:363 ../doc/03-cli.md:428 ../doc/03-cli.md:963
 msgid ""
 "**--no-progress:** Removes the progress display that can mess with some "
 "terminals or scripts which don't handle backspace characters."
@@ -2579,7 +2579,7 @@ msgstr "**--audit:** インストールが完了した後に監査を走らせ�
 
 #. type: Bullet: '* '
 #: ../doc/03-cli.md:137 ../doc/03-cli.md:239 ../doc/03-cli.md:317
-#: ../doc/03-cli.md:363 ../doc/03-cli.md:959
+#: ../doc/03-cli.md:363 ../doc/03-cli.md:963
 msgid ""
 "**--audit-format:** Audit output format. Must be \"table\", \"plain\", "
 "\"json\", or \"summary\" (default)."
@@ -2630,7 +2630,7 @@ msgstr ""
 
 #. type: Bullet: '* '
 #: ../doc/03-cli.md:137 ../doc/03-cli.md:239 ../doc/03-cli.md:317
-#: ../doc/03-cli.md:363 ../doc/03-cli.md:959
+#: ../doc/03-cli.md:363 ../doc/03-cli.md:963
 msgid ""
 "**--ignore-platform-reqs:** ignore all platform requirements (`php`, `hhvm`, "
 "`lib-*` and `ext-*`) and force the installation even if the local machine "
@@ -3041,7 +3041,7 @@ msgstr ""
 
 #. type: Bullet: '* '
 #: ../doc/03-cli.md:317 ../doc/03-cli.md:363 ../doc/03-cli.md:616
-#: ../doc/03-cli.md:959
+#: ../doc/03-cli.md:963
 msgid ""
 "**--ignore-platform-req:** ignore a specific platform requirement(`php`, "
 "`hhvm`, `lib-*` and `ext-*`) and force the installation even if the local "
@@ -3115,7 +3115,7 @@ msgid "**--dev:** Remove packages from `require-dev`."
 msgstr "**--dev:** `require-dev`からパッケージを削除します。"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:363 ../doc/03-cli.md:959
+#: ../doc/03-cli.md:363 ../doc/03-cli.md:963
 msgid ""
 "**--no-audit:** Does not run the audit steps after installation is complete. "
 "Also see [COMPOSER_NO_AUDIT](#composer-no-audit)."
@@ -4166,24 +4166,35 @@ msgid "validate"
 msgstr "validate"
 
 #. type: Plain text
-#: ../doc/03-cli.md:734
+#: ../doc/03-cli.md:733
 msgid ""
 "You should always run the `validate` command before you commit your "
-"`composer.json` file, and before you tag a release. It will check if your "
-"`composer.json` is valid."
+"`composer.json` file (and `composer.lock` [if applicable](01-basic-usage."
+"md#commit-your-composer-lock-file-to-version-control)), and before you tag a "
+"release."
 msgstr ""
-"`composer.json`ファイルをコミットしてリリースのタグ付けをする前には、常に"
-"`validate`コマンドを走らせるべきです。\n"
-"このコマンドは`composer.json`が妥当であることを検査します。"
+"`composer.json`ファイル（と、[当てはまるとき](01-basic-usage.md#commit-your-"
+"composer-lock-file-to-version-control)は`composer.lock`）をコミットしたり、リ"
+"リースのタグ付けをしたりする前には、必ず`validate`コマンドを走らせるべきで"
+"す。"
+
+#. type: Plain text
+#: ../doc/03-cli.md:736
+msgid ""
+"It will check if your `composer.json` is valid. If a `composer.lock` exists, "
+"it will also check if it is up to date with the `composer.json`."
+msgstr ""
+"`composer.json`が正当であるか検査します。\n"
+"`composer.lock`があるとき、`composer.json`に対して最新かも検査します。"
 
 #. type: Fenced code block (shell)
-#: ../doc/03-cli.md:735
+#: ../doc/03-cli.md:737
 #, no-wrap
 msgid "php composer.phar validate\n"
 msgstr "php composer.phar validate\n"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:746
+#: ../doc/03-cli.md:750
 msgid ""
 "**--no-check-all:** Do not emit a warning if requirements in `composer.json` "
 "use unbound or overly strict version constraints."
@@ -4193,7 +4204,7 @@ msgstr ""
 "であったりする場合について、警告を出しません。"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:746
+#: ../doc/03-cli.md:750
 msgid ""
 "**--no-check-lock:** Do not emit an error if `composer.lock` exists and is "
 "not up to date."
@@ -4202,7 +4213,16 @@ msgstr ""
 "`composer.lock`が存在し、且つ更新されていない場合について、警告を出しません。"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:746
+#: ../doc/03-cli.md:750
+msgid ""
+"**--check-lock** Check if lock file is up to date (even when [config.lock]"
+"(06-config.md#lock) is false)"
+msgstr ""
+"**--check-lock**\n"
+"固定ファイルが最新か検査します（config.lockが偽の場合も含みます）"
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:750
 msgid ""
 "**--no-check-publish:** Do not emit an error if `composer.json` is "
 "unsuitable for publishing as a package on Packagist but is otherwise valid."
@@ -4212,7 +4232,15 @@ msgstr ""
 "なっている場合について、エラーを出しません。"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:746
+#: ../doc/03-cli.md:750
+msgid ""
+"**--no-check-version:** Do not emit an error if the version field is present."
+msgstr ""
+"**--no-check-version:**\n"
+"バージョンフィールドがあるとき、警告を出しません。"
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:750
 msgid ""
 "**--with-dependencies:** Also validate the composer.json of all installed "
 "dependencies."
@@ -4221,20 +4249,20 @@ msgstr ""
 "jsonを検証します。"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:746
+#: ../doc/03-cli.md:750
 msgid ""
 "**--strict:** Return a non-zero exit code for warnings as well as errors."
 msgstr ""
 "**--strict:** エラーに加えて警告についても非ゼロの終了コードを返します。"
 
 #. type: Title ##
-#: ../doc/03-cli.md:747
+#: ../doc/03-cli.md:751
 #, no-wrap
 msgid "status"
 msgstr "status"
 
 #. type: Plain text
-#: ../doc/03-cli.md:752
+#: ../doc/03-cli.md:756
 msgid ""
 "If you often need to modify the code of your dependencies and they are "
 "installed from source, the `status` command allows you to check if you have "
@@ -4245,13 +4273,13 @@ msgstr ""
 "認できます。"
 
 #. type: Fenced code block (shell)
-#: ../doc/03-cli.md:753
+#: ../doc/03-cli.md:757
 #, no-wrap
 msgid "php composer.phar status\n"
 msgstr "php composer.phar status\n"
 
 #. type: Plain text
-#: ../doc/03-cli.md:759
+#: ../doc/03-cli.md:763
 msgid ""
 "With the `--verbose` option you get some more information about what was "
 "changed:"
@@ -4259,13 +4287,13 @@ msgstr ""
 "`--verbose`コマンドで変化したところについてのより詳しい情報を得られます。"
 
 #. type: Fenced code block (shell)
-#: ../doc/03-cli.md:760
+#: ../doc/03-cli.md:764
 #, no-wrap
 msgid "php composer.phar status -v\n"
 msgstr "php composer.phar status -v\n"
 
 #. type: Fenced code block (text)
-#: ../doc/03-cli.md:763
+#: ../doc/03-cli.md:767
 #, no-wrap
 msgid ""
 "You have changes in the following dependencies:\n"
@@ -4277,13 +4305,13 @@ msgstr ""
 "    M README.mdown\n"
 
 #. type: Title ##
-#: ../doc/03-cli.md:769
+#: ../doc/03-cli.md:773
 #, no-wrap
 msgid "self-update / selfupdate"
 msgstr "self-update / selfupdate"
 
 #. type: Plain text
-#: ../doc/03-cli.md:773
+#: ../doc/03-cli.md:777
 msgid ""
 "To update Composer itself to the latest version, run the `self-update` "
 "command. It will replace your `composer.phar` with the latest version."
@@ -4292,24 +4320,24 @@ msgstr ""
 "`composer.phar`を最新版に置き換えます。"
 
 #. type: Fenced code block (shell)
-#: ../doc/03-cli.md:774
+#: ../doc/03-cli.md:778
 #, no-wrap
 msgid "php composer.phar self-update\n"
 msgstr "php composer.phar self-update\n"
 
 #. type: Plain text
-#: ../doc/03-cli.md:779
+#: ../doc/03-cli.md:783
 msgid "If you would like to instead update to a specific release specify it:"
 msgstr "そうではなく特定のリリースに更新したければそのように指定してください。"
 
 #. type: Fenced code block (shell)
-#: ../doc/03-cli.md:780
+#: ../doc/03-cli.md:784
 #, no-wrap
 msgid "php composer.phar self-update 2.4.0-RC1\n"
 msgstr "php composer.phar self-update 2.4.0-RC1\n"
 
 #. type: Plain text
-#: ../doc/03-cli.md:786
+#: ../doc/03-cli.md:790
 msgid ""
 "If you have installed Composer for your entire system (see [global "
 "installation](00-intro.md#globally)), you may have to run the command with "
@@ -4320,13 +4348,13 @@ msgstr ""
 "しれません。"
 
 #. type: Fenced code block (shell)
-#: ../doc/03-cli.md:787
+#: ../doc/03-cli.md:791
 #, no-wrap
 msgid "sudo -H composer self-update\n"
 msgstr "sudo -H composer self-update\n"
 
 #. type: Plain text
-#: ../doc/03-cli.md:793
+#: ../doc/03-cli.md:797
 msgid ""
 "If Composer was not installed as a PHAR, this command is not available.  "
 "(This is sometimes the case when Composer was installed by an operating "
@@ -4337,12 +4365,12 @@ msgstr ""
 "たときはこの場合に当たることがあります）。"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:807
+#: ../doc/03-cli.md:811
 msgid "**--rollback (-r):** Rollback to the last version you had installed."
 msgstr "**--rollback (-r):** インストールした直近のバージョンに巻き戻します。"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:807
+#: ../doc/03-cli.md:811
 msgid ""
 "**--clean-backups:** Delete old backups during an update. This makes the "
 "current version of Composer the only backup available after the update."
@@ -4351,46 +4379,46 @@ msgstr ""
 "Composerのバージョンのみがバックアップとして残ります。"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:807
+#: ../doc/03-cli.md:811
 msgid "**--no-progress:** Do not output download progress."
 msgstr ""
 "**--no-progress:**\n"
 "ダウンロードの進捗バーを出力しません。"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:807
+#: ../doc/03-cli.md:811
 msgid "**--update-keys:** Prompt user for a key update."
 msgstr "**--update-keys:** キーの更新を利用者に尋ねます。"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:807
+#: ../doc/03-cli.md:811
 msgid "**--stable:** Force an update to the stable channel."
 msgstr "**--stable:** 更新を安定チャンネルに強制します。"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:807
+#: ../doc/03-cli.md:811
 msgid "**--preview:** Force an update to the preview channel."
 msgstr "**--preview:** 更新をプレビューチャンネルに強制します。"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:807
+#: ../doc/03-cli.md:811
 msgid "**--snapshot:** Force an update to the snapshot channel."
 msgstr "**--snapshot:** 更新をスナップショットチャンネルに強制します。"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:807
+#: ../doc/03-cli.md:811
 msgid ""
 "**--1:** Force an update to the stable channel, but only use 1.x versions"
 msgstr "**--1:** 更新を安定チャンネルに強制しますが、1.x版のみを使います。"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:807
+#: ../doc/03-cli.md:811
 msgid ""
 "**--2:** Force an update to the stable channel, but only use 2.x versions"
 msgstr "**--2:** 更新を安定チャンネルに強制しますが、2.x版のみを使います。"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:807
+#: ../doc/03-cli.md:811
 msgid ""
 "**--set-channel-only:** Only store the channel as the default one and then "
 "exit"
@@ -4399,13 +4427,13 @@ msgstr ""
 "す。"
 
 #. type: Title ##
-#: ../doc/03-cli.md:808
+#: ../doc/03-cli.md:812
 #, no-wrap
 msgid "config"
 msgstr "config"
 
 #. type: Plain text
-#: ../doc/03-cli.md:812
+#: ../doc/03-cli.md:816
 msgid ""
 "The `config` command allows you to edit Composer config settings and "
 "repositories in either the local `composer.json` file or the global `config."
@@ -4415,30 +4443,30 @@ msgstr ""
 "json`ファイルにあるComposerの設定やリポジトリを編集できます。"
 
 #. type: Plain text
-#: ../doc/03-cli.md:814
+#: ../doc/03-cli.md:818
 msgid ""
 "Additionally it lets you edit most properties in the local `composer.json`."
 msgstr "加えてローカルの`composer.json`にある殆どのプロパティを編集できます。"
 
 #. type: Fenced code block (shell)
-#: ../doc/03-cli.md:815
+#: ../doc/03-cli.md:819
 #, no-wrap
 msgid "php composer.phar config --list\n"
 msgstr "php composer.phar config --list\n"
 
 #. type: Title ##
-#: ../doc/03-cli.md:819 ../doc/faqs/how-to-use-composer-behind-a-proxy.md:15
+#: ../doc/03-cli.md:823 ../doc/faqs/how-to-use-composer-behind-a-proxy.md:15
 #, no-wrap
 msgid "Usage"
 msgstr "使い方"
 
 #. type: Plain text
-#: ../doc/03-cli.md:822
+#: ../doc/03-cli.md:826
 msgid "`config [options] [setting-key] [setting-value1] ... [setting-valueN]`"
 msgstr "`config [options] [setting-key] [setting-value1] ... [setting-valueN]`"
 
 #. type: Plain text
-#: ../doc/03-cli.md:826
+#: ../doc/03-cli.md:830
 msgid ""
 "`setting-key` is a configuration option name and `setting-value1` is a "
 "configuration value.  For settings that can take an array of values (like "
@@ -4449,12 +4477,12 @@ msgstr ""
 "の設定値の引数が可能です。"
 
 #. type: Plain text
-#: ../doc/03-cli.md:828
+#: ../doc/03-cli.md:832
 msgid "You can also edit the values of the following properties:"
 msgstr "プロパティの値を編集することもできます。"
 
 #. type: Plain text
-#: ../doc/03-cli.md:831
+#: ../doc/03-cli.md:835
 msgid ""
 "`description`, `homepage`, `keywords`, `license`, `minimum-stability`, "
 "`name`, `prefer-stable`, `type` and `version`."
@@ -4463,13 +4491,13 @@ msgstr ""
 "`name`、`prefer-stable`、`type`、`version`がそうです。"
 
 #. type: Plain text
-#: ../doc/03-cli.md:833
+#: ../doc/03-cli.md:837
 msgid "See the [Config](06-config.md) chapter for valid configuration options."
 msgstr ""
 "妥当な設定オプションについては[設定](06-config.md)の章を参照してください。"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:854
+#: ../doc/03-cli.md:858
 msgid ""
 "**--global (-g):** Operate on the global config file located at "
 "`$COMPOSER_HOME/config.json` by default.  Without this option, this command "
@@ -4482,7 +4510,7 @@ msgstr ""
 "し`--file`により指定されたファイルに作用します。"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:854
+#: ../doc/03-cli.md:858
 msgid ""
 "**--editor (-e):** Open the local composer.json file using in a text editor "
 "as defined by the `EDITOR` env variable.  With the `--global` option, this "
@@ -4493,19 +4521,19 @@ msgstr ""
 "設定ファイルを開きます。"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:854
+#: ../doc/03-cli.md:858
 msgid "**--auth (-a):** Affect auth config file (only used for --editor)."
 msgstr ""
 "**--auth (-a):**\n"
 "認証設定ファイルに作用します（--editorの使用限定です）。"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:854
+#: ../doc/03-cli.md:858
 msgid "**--unset:** Remove the configuration element named by `setting-key`."
 msgstr "**--unset:** `setting-key`の名前が付いている設定要素を削除します。"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:854
+#: ../doc/03-cli.md:858
 msgid ""
 "**--list (-l):** Show the list of current config variables.  With the `--"
 "global` option this lists the global configuration only."
@@ -4514,7 +4542,7 @@ msgstr ""
 "うと大域設定のみを一覧にします。"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:854
+#: ../doc/03-cli.md:858
 msgid ""
 "**--file=\"...\" (-f):** Operate on a specific file instead of composer."
 "json. Note that this cannot be used in conjunction with the `--global` "
@@ -4525,7 +4553,7 @@ msgstr ""
 "なお、`--global`オプションと織り交ぜて使うことはできません。"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:854
+#: ../doc/03-cli.md:858
 msgid ""
 "**--absolute:** Returns absolute paths when fetching `*-dir` config values "
 "instead of relative."
@@ -4534,7 +4562,7 @@ msgstr ""
 "`*-dir`設定値を取得するとき、相対パスではなく絶対パスを返します。"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:854
+#: ../doc/03-cli.md:858
 msgid ""
 "**--json:** JSON decode the setting value, to be used with `extra.*` keys."
 msgstr ""
@@ -4542,7 +4570,7 @@ msgstr ""
 "うことができます。"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:854
+#: ../doc/03-cli.md:858
 msgid ""
 "**--merge:** Merge the setting value with the current value, to be used with "
 "`extra.*` keys in combination with `--json`."
@@ -4551,7 +4579,7 @@ msgstr ""
 "キーに使えます。"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:854
+#: ../doc/03-cli.md:858
 msgid ""
 "**--append:** When adding a repository, append it (lowest priority) to the "
 "existing ones instead of prepending it (highest priority)."
@@ -4560,18 +4588,18 @@ msgstr ""
 "のではなく末尾に付ける（低優先）ようにします。"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:854
+#: ../doc/03-cli.md:858
 msgid "**--source:** Display where the config value is loaded from."
 msgstr "**--source:** 設定値がどこから読み込まれたのかを表示します。"
 
 #. type: Title ###
-#: ../doc/03-cli.md:855
+#: ../doc/03-cli.md:859
 #, no-wrap
 msgid "Modifying Repositories"
 msgstr "リポジトリを変更する"
 
 #. type: Plain text
-#: ../doc/03-cli.md:859
+#: ../doc/03-cli.md:863
 msgid ""
 "In addition to modifying the config section, the `config` command also "
 "supports making changes to the repositories section by using it the "
@@ -4581,13 +4609,13 @@ msgstr ""
 "ジトリ部分を変更することにも対応しています。"
 
 #. type: Fenced code block (shell)
-#: ../doc/03-cli.md:860
+#: ../doc/03-cli.md:864
 #, no-wrap
 msgid "php composer.phar config repositories.foo vcs https://github.com/foo/bar\n"
 msgstr "php composer.phar config repositories.foo vcs https://github.com/foo/bar\n"
 
 #. type: Plain text
-#: ../doc/03-cli.md:865
+#: ../doc/03-cli.md:869
 msgid ""
 "If your repository requires more configuration options, you can instead pass "
 "its JSON representation :"
@@ -4596,19 +4624,19 @@ msgstr ""
 "とができます。"
 
 #. type: Fenced code block (shell)
-#: ../doc/03-cli.md:866
+#: ../doc/03-cli.md:870
 #, no-wrap
 msgid "php composer.phar config repositories.foo '{\"type\": \"vcs\", \"url\": \"http://svn.example.org/my-project/\", \"trunk-path\": \"master\"}'\n"
 msgstr "php composer.phar config repositories.foo '{\"type\": \"vcs\", \"url\": \"http://svn.example.org/my-project/\", \"trunk-path\": \"master\"}'\n"
 
 #. type: Title ###
-#: ../doc/03-cli.md:870
+#: ../doc/03-cli.md:874
 #, no-wrap
 msgid "Modifying Extra Values"
 msgstr "追加の値を変更する"
 
 #. type: Plain text
-#: ../doc/03-cli.md:874
+#: ../doc/03-cli.md:878
 msgid ""
 "In addition to modifying the config section, the `config` command also "
 "supports making changes to the extra section by using it the following way:"
@@ -4617,13 +4645,13 @@ msgstr ""
 "を変更することにも対応しています。"
 
 #. type: Fenced code block (shell)
-#: ../doc/03-cli.md:875
+#: ../doc/03-cli.md:879
 #, no-wrap
 msgid "php composer.phar config extra.foo.bar value\n"
 msgstr "php composer.phar config extra.foo.bar value\n"
 
 #. type: Plain text
-#: ../doc/03-cli.md:881
+#: ../doc/03-cli.md:885
 msgid ""
 "The dots indicate array nesting, a max depth of 3 levels is allowed though. "
 "The above would set `\"extra\": { \"foo\": { \"bar\": \"value\" } }`."
@@ -4632,7 +4660,7 @@ msgstr ""
 "{ \"foo\": { \"bar\": \"value\" } }`を設定します。"
 
 #. type: Plain text
-#: ../doc/03-cli.md:884
+#: ../doc/03-cli.md:888
 msgid ""
 "If you have a complex value to add/modify, you can use the `--json` and `--"
 "merge` flags to edit extra fields as json:"
@@ -4641,19 +4669,19 @@ msgstr ""
 "フィールドをJSONとして編集できます。"
 
 #. type: Fenced code block (shell)
-#: ../doc/03-cli.md:885
+#: ../doc/03-cli.md:889
 #, no-wrap
 msgid "php composer.phar config --json extra.foo.bar '{\"baz\": true, \"qux\": []}'\n"
 msgstr "php composer.phar config --json extra.foo.bar '{\"baz\": true, \"qux\": []}'\n"
 
 #. type: Title ##
-#: ../doc/03-cli.md:889
+#: ../doc/03-cli.md:893
 #, no-wrap
 msgid "create-project"
 msgstr "create-project"
 
 #. type: Plain text
-#: ../doc/03-cli.md:894
+#: ../doc/03-cli.md:898
 msgid ""
 "You can use Composer to create new projects from an existing package. This "
 "is the equivalent of doing a git clone/svn checkout followed by a `composer "
@@ -4665,23 +4693,23 @@ msgstr ""
 "ことと等価です。"
 
 #. type: Plain text
-#: ../doc/03-cli.md:896
+#: ../doc/03-cli.md:900
 msgid "There are several applications for this:"
 msgstr "このコマンドにはいくつかの活用法があります。"
 
 #. type: Bullet: '1. '
-#: ../doc/03-cli.md:901
+#: ../doc/03-cli.md:905
 msgid "You can deploy application packages."
 msgstr "アプリケーションパッケージをデプロイできます。"
 
 #. type: Bullet: '2. '
-#: ../doc/03-cli.md:901
+#: ../doc/03-cli.md:905
 msgid ""
 "You can check out any package and start developing on patches for example."
 msgstr "任意のパッケージをチェックアウトして、例えばパッチを開発できます。"
 
 #. type: Bullet: '3. '
-#: ../doc/03-cli.md:901
+#: ../doc/03-cli.md:905
 msgid ""
 "Projects with multiple developers can use this feature to bootstrap the "
 "initial application for development."
@@ -4690,7 +4718,7 @@ msgstr ""
 "ケーションに着手できます。"
 
 #. type: Plain text
-#: ../doc/03-cli.md:905
+#: ../doc/03-cli.md:909
 msgid ""
 "To create a new project using Composer you can use the `create-project` "
 "command.  Pass it a package name, and the directory to create the project "
@@ -4703,20 +4731,20 @@ msgstr ""
 "す。"
 
 #. type: Plain text
-#: ../doc/03-cli.md:907
+#: ../doc/03-cli.md:911
 msgid ""
 "If the directory does not currently exist, it will be created during "
 "installation."
 msgstr "ディレクトリがその時点で存在しなければインストールの過程で作られます。"
 
 #. type: Fenced code block (shell)
-#: ../doc/03-cli.md:908
+#: ../doc/03-cli.md:912
 #, no-wrap
 msgid "php composer.phar create-project doctrine/orm path \"2.2.*\"\n"
 msgstr "php composer.phar create-project doctrine/orm path \"2.2.*\"\n"
 
 #. type: Plain text
-#: ../doc/03-cli.md:914
+#: ../doc/03-cli.md:918
 msgid ""
 "It is also possible to run the command without params in a directory with an "
 "existing `composer.json` file to bootstrap a project."
@@ -4725,18 +4753,18 @@ msgstr ""
 "数がなくともコマンドを走らせることができます。"
 
 #. type: Plain text
-#: ../doc/03-cli.md:916
+#: ../doc/03-cli.md:920
 msgid "By default the command checks for the packages on packagist.org."
 msgstr "既定ではコマンドはパッケージをpackagist.orgで確認します。"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:959
+#: ../doc/03-cli.md:963
 msgid ""
 "**--stability (-s):** Minimum stability of package. Defaults to `stable`."
 msgstr "**--stability (-s):** パッケージの最小安定性です。`stable`が既定です。"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:959
+#: ../doc/03-cli.md:963
 msgid ""
 "**--repository:** Provide a custom repository to search for the package, "
 "which will be used instead of packagist. Can be either an HTTP URL pointing "
@@ -4752,7 +4780,7 @@ msgstr ""
 "す。複数回使って複数のリポジトリを設定できます。"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:959
+#: ../doc/03-cli.md:963
 msgid ""
 "**--add-repository:** Add the custom repository in the composer.json. If a "
 "lock file is present, it will be deleted and an update will be run instead "
@@ -4764,17 +4792,17 @@ msgstr ""
 "ます。"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:959
+#: ../doc/03-cli.md:963
 msgid "**--dev:** Install packages listed in `require-dev`."
 msgstr "**--dev:** `require-dev`に挙げられたパッケージをインストールします。"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:959
+#: ../doc/03-cli.md:963
 msgid "**--no-dev:** Disables installation of require-dev packages."
 msgstr "**--no-dev:** require-devのパッケージのインストールを無効にします。"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:959
+#: ../doc/03-cli.md:963
 msgid ""
 "**--no-scripts:** Disables the execution of the scripts defined in the root "
 "package."
@@ -4783,7 +4811,7 @@ msgstr ""
 "根幹パッケージで定義されているスクリプトの実行を無効にします。"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:959
+#: ../doc/03-cli.md:963
 msgid ""
 "**--no-secure-http:** Disable the secure-http config option temporarily "
 "while installing the root package. Use at your own risk. Using this flag is "
@@ -4796,7 +4824,7 @@ msgstr ""
 "このフラグを使うのは関心しません。"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:959
+#: ../doc/03-cli.md:963
 msgid ""
 "**--keep-vcs:** Skip the deletion of the VCS metadata for the created "
 "project. This is mostly useful if you run the command in non-interactive "
@@ -4807,17 +4835,17 @@ msgstr ""
 "これが役に立つのはコマンドを非対話的なモードで走らせているときが殆どです。"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:959
+#: ../doc/03-cli.md:963
 msgid "**--remove-vcs:** Force-remove the VCS metadata without prompting."
 msgstr "**--remove-vcs:** プロンプト無しにVCSメタデータを強制削除します。"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:959
+#: ../doc/03-cli.md:963
 msgid "**--no-install:** Disables installation of the vendors."
 msgstr "**--no-install:** ベンダーのインストールを無効にします。"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:959
+#: ../doc/03-cli.md:963
 msgid ""
 "**--ask:** Ask the user to provide a target directory for the new project."
 msgstr ""
@@ -4825,13 +4853,13 @@ msgstr ""
 "ます。"
 
 #. type: Title ##
-#: ../doc/03-cli.md:960
+#: ../doc/03-cli.md:964
 #, no-wrap
 msgid "dump-autoload / dumpautoload"
 msgstr "dump-autoload / dumpautoload"
 
 #. type: Plain text
-#: ../doc/03-cli.md:965
+#: ../doc/03-cli.md:969
 msgid ""
 "If you need to update the autoloader because of new classes in a classmap "
 "package for example, you can use `dump-autoload` to do that without having "
@@ -4842,7 +4870,7 @@ msgstr ""
 "使えます。"
 
 #. type: Plain text
-#: ../doc/03-cli.md:972
+#: ../doc/03-cli.md:976
 msgid ""
 "Additionally, it can dump an optimized autoloader that converts PSR-0/4 "
 "packages into classmap ones for performance reasons. In large applications "
@@ -4860,7 +4888,7 @@ msgstr ""
 "きます。"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:996
+#: ../doc/03-cli.md:1001
 msgid ""
 "**--optimize (-o):** Convert PSR-0/4 autoloading to classmap to get a faster "
 "autoloader. This is recommended especially for production, but can take a "
@@ -4873,7 +4901,7 @@ msgstr ""
 "で有効になっていません。"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:996
+#: ../doc/03-cli.md:1001
 msgid ""
 "**--classmap-authoritative (-a):** Autoload classes from the classmap only.  "
 "Implicitly enables `--optimize`."
@@ -4882,12 +4910,12 @@ msgstr ""
 "ます。暗に`--optimize`を有効します。"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:996
+#: ../doc/03-cli.md:1001
 msgid "**--apcu:** Use APCu to cache found/not-found classes."
 msgstr "**--apcu:** APCuを使って、クラスの有無をキャッシュします。"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:996
+#: ../doc/03-cli.md:1001
 msgid ""
 "**--apcu-prefix:** Use a custom prefix for the APCu autoloader cache.  "
 "Implicitly enables `--apcu`."
@@ -4896,7 +4924,14 @@ msgstr ""
 "に`--apcu`を有効にします。"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:996
+#: ../doc/03-cli.md:1001
+msgid "**--dry-run:** Outputs the operations but will not execute anything."
+msgstr ""
+"**--dry-run:**\n"
+"操作内容を出力しますが、何も実行しません。"
+
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:1001
 msgid ""
 "**--no-dev:** Disables autoload-dev rules. Composer will by default infer "
 "this automatically according to the last `install` or `update` `--no-dev` "
@@ -4907,7 +4942,7 @@ msgstr ""
 "随って自動的にこれを推測します。"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:996
+#: ../doc/03-cli.md:1001
 msgid ""
 "**--dev:** Enables autoload-dev rules. Composer will by default infer this "
 "automatically according to the last `install` or `update` `--no-dev` state."
@@ -4917,7 +4952,7 @@ msgstr ""
 "随って自動的にこれを推測します。"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:996
+#: ../doc/03-cli.md:1001
 msgid ""
 "**--ignore-platform-reqs:** ignore all `php`, `hhvm`, `lib-*` and `ext-*` "
 "requirements and skip the [platform check](07-runtime.md#platform-check) for "
@@ -4928,7 +4963,7 @@ msgstr ""
 "す。[`platform`](06-config.md#platform)設定オプションも参照してください。"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:996
+#: ../doc/03-cli.md:1001
 msgid ""
 "**--ignore-platform-req:** ignore a specific platform requirement (`php`, "
 "`hhvm`, `lib-*` and `ext-*`) and skip the [platform check](07-runtime."
@@ -4941,7 +4976,7 @@ msgstr ""
 "ワイルドカードを使って複数の要件を無視できます。"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:996
+#: ../doc/03-cli.md:1001
 msgid ""
 "**--strict-psr:** Return a failed exit code (1) if PSR-4 or PSR-0 mapping "
 "errors are present. Requires --optimize to work."
@@ -4951,7 +4986,7 @@ msgstr ""
 "動作には--optimizeが必要です。"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:996
+#: ../doc/03-cli.md:1001
 msgid ""
 "**--strict-ambiguous:** Return a failed exit code (2) if the same class is "
 "found in multiple files. Requires --optimize to work."
@@ -4961,31 +4996,31 @@ msgstr ""
 "動作には--optimizeが必要です。"
 
 #. type: Title ##
-#: ../doc/03-cli.md:997
+#: ../doc/03-cli.md:1002
 #, no-wrap
 msgid "clear-cache / clearcache / cc"
 msgstr "clear-cache / clearcache / cc"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1000
+#: ../doc/03-cli.md:1005
 msgid "Deletes all content from Composer's cache directories."
 msgstr "Composerのキャッシュディレクトリから全ての内容を削除します。"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:1004
+#: ../doc/03-cli.md:1009
 msgid "**--gc:** Only run garbage collection, not a full cache clear"
 msgstr ""
 "**--gc:** ガベージコレクションのみを走らせます。完全なキャッシュの消去は行い"
 "ません。"
 
 #. type: Title ##
-#: ../doc/03-cli.md:1005
+#: ../doc/03-cli.md:1010
 #, no-wrap
 msgid "licenses"
 msgstr "licenses"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1009
+#: ../doc/03-cli.md:1014
 msgid ""
 "Lists the name, version and license of every package installed. Use `--"
 "format=json` to get machine-readable output."
@@ -4995,7 +5030,7 @@ msgstr ""
 "`--format-json`を使うと、機械で読み込みやすい出力が得られます。"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:1014
+#: ../doc/03-cli.md:1019
 msgid ""
 "**--format:** Format of the output: text, json or summary (default: \"text\")"
 msgstr ""
@@ -5003,40 +5038,40 @@ msgstr ""
 "「text」）。"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:1014
+#: ../doc/03-cli.md:1019
 msgid "**--no-dev:** Remove dev dependencies from the output"
 msgstr "**--no-dev:** 出力から開発依存関係を除きます。"
 
 #. type: Title ##
-#: ../doc/03-cli.md:1015
+#: ../doc/03-cli.md:1020
 #, no-wrap
 msgid "run-script / run"
 msgstr "run-script / run"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:1023
+#: ../doc/03-cli.md:1028
 msgid "**--timeout:** Set the script timeout in seconds, or 0 for no timeout."
 msgstr ""
 "**--timeout:** スクリプトの制限時間を秒単位で設定します。0は制限時間無しで"
 "す。"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:1023
+#: ../doc/03-cli.md:1028
 msgid "**--dev:** Sets the dev mode."
 msgstr "**--dev:** 開発モードを設定します。"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:1023
+#: ../doc/03-cli.md:1028
 msgid "**--no-dev:** Disable dev mode."
 msgstr "**--no-dev:** 開発モードを無効にします。"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:1023
+#: ../doc/03-cli.md:1028
 msgid "**--list (-l):** List user defined scripts."
 msgstr "**--list (-l):** 利用者が定義したスクリプトを一覧にします。"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1026
+#: ../doc/03-cli.md:1031
 msgid ""
 "To run [scripts](articles/scripts.md) manually you can use this command, "
 "give it the script name and optionally any required arguments."
@@ -5045,13 +5080,13 @@ msgstr ""
 "できます。スクリプト名と任意で必要な引数を与えます。"
 
 #. type: Title ##
-#: ../doc/03-cli.md:1027
+#: ../doc/03-cli.md:1032
 #, no-wrap
 msgid "exec"
 msgstr "exec"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1032
+#: ../doc/03-cli.md:1037
 msgid ""
 "Executes a vendored binary/script. You can execute any command and this will "
 "ensure that the Composer bin-dir is pushed on your PATH before the command "
@@ -5062,18 +5097,18 @@ msgstr ""
 "に加えられます。"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:1036
+#: ../doc/03-cli.md:1041
 msgid "**--list (-l):** List the available Composer binaries."
 msgstr "**--list (-l):** 利用できるComposerのバイナリを一覧にします。"
 
 #. type: Title ##
-#: ../doc/03-cli.md:1037
+#: ../doc/03-cli.md:1042
 #, no-wrap
 msgid "diagnose"
 msgstr "diagnose"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1042
+#: ../doc/03-cli.md:1047
 msgid ""
 "If you think you found a bug, or something is behaving strangely, you might "
 "want to run the `diagnose` command to perform automated checks for many "
@@ -5083,19 +5118,19 @@ msgstr ""
 "くある問題について自動化された検査を実施できます。"
 
 #. type: Fenced code block (shell)
-#: ../doc/03-cli.md:1043
+#: ../doc/03-cli.md:1048
 #, no-wrap
 msgid "php composer.phar diagnose\n"
 msgstr "php composer.phar diagnose\n"
 
 #. type: Title ###
-#: ../doc/03-cli.md:1047 ../doc/04-schema.md:920
+#: ../doc/03-cli.md:1052 ../doc/04-schema.md:920
 #, no-wrap
 msgid "archive"
 msgstr "archive"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1052
+#: ../doc/03-cli.md:1057
 msgid ""
 "This command is used to generate a zip/tar archive for a given package in a "
 "given version. It can also be used to archive your entire project without "
@@ -5107,13 +5142,13 @@ msgstr ""
 "ともできます。"
 
 #. type: Fenced code block (shell)
-#: ../doc/03-cli.md:1053
+#: ../doc/03-cli.md:1058
 #, no-wrap
 msgid "php composer.phar archive vendor/package 2.0.21 --format=zip\n"
 msgstr "php composer.phar archive vendor/package 2.0.21 --format=zip\n"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:1063
+#: ../doc/03-cli.md:1068
 msgid ""
 "**--format (-f):** Format of the resulting archive: tar, tar.gz, tar.bz2 or "
 "zip (default: \"tar\")."
@@ -5122,23 +5157,23 @@ msgstr ""
 "れかです（既定：「tar」）。"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:1063
+#: ../doc/03-cli.md:1068
 msgid "**--dir:** Write the archive to this directory (default: \".\")"
 msgstr "**--dir:** アーカイブをこのディレクトリに書き出します（既定：「.」）。"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:1063
+#: ../doc/03-cli.md:1068
 msgid "**--file:** Write the archive with the given file name."
 msgstr "**--file:** 与えられたファイル名でアーカイブを書き出します。"
 
 #. type: Title ##
-#: ../doc/03-cli.md:1064 ../doc/06-config.md:104
+#: ../doc/03-cli.md:1069 ../doc/06-config.md:104
 #, no-wrap
 msgid "audit"
 msgstr "audit"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1070
+#: ../doc/03-cli.md:1075
 msgid ""
 "This command is used to audit the packages you have installed for possible "
 "security issues. It checks for and lists security vulnerability advisories "
@@ -5151,7 +5186,7 @@ msgstr ""
 "従って、セキュリティ上の脆弱性に対する推奨事項を確認して一覧にします。"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1072
+#: ../doc/03-cli.md:1077
 msgid ""
 "The audit command returns the amount of vulnerabilities found. `0` if "
 "successful, and up to `255` otherwise."
@@ -5160,18 +5195,18 @@ msgstr ""
 "成功時は`0`を、それ以外は最大`255`の数を返します。"
 
 #. type: Fenced code block (shell)
-#: ../doc/03-cli.md:1073
+#: ../doc/03-cli.md:1078
 #, no-wrap
 msgid "php composer.phar audit\n"
 msgstr "php composer.phar audit\n"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:1085
+#: ../doc/03-cli.md:1092
 msgid "**--no-dev:** Disables auditing of require-dev packages."
 msgstr "**--no-dev:** require-devのパッケージの監査を無効にします。"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:1085
+#: ../doc/03-cli.md:1092
 msgid ""
 "**--format (-f):** Audit output format. Must be \"table\" (default), "
 "\"plain\", \"json\", or \"summary\"."
@@ -5180,7 +5215,7 @@ msgstr ""
 "「plain」、「json」、「summary」の何れかです。"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:1085
+#: ../doc/03-cli.md:1092
 msgid ""
 "**--locked:** Audit packages from the lock file, regardless of what is "
 "currently in vendor dir."
@@ -5190,7 +5225,7 @@ msgstr ""
 "現時点でベンダーディレクトリに何があるかは無視されます。"
 
 #. type: Bullet: '* '
-#: ../doc/03-cli.md:1085
+#: ../doc/03-cli.md:1092
 msgid ""
 "**--abandoned:** Behavior on abandoned packages. Must be \"ignore\", "
 "\"report\", or \"fail\".  See also [audit.abandoned](06-config."
@@ -5203,31 +5238,41 @@ msgstr ""
 "[audit.abandoned](06-config.md#abandoned)もご参照ください。\n"
 "このフラグを渡すと、構成値と環境変数がオーバーライドされます。"
 
+#. type: Bullet: '* '
+#: ../doc/03-cli.md:1092
+msgid ""
+"**--ignore-severity:** Ignore advisories of a certain severity level. Can be "
+"passed one or more time to ignore multiple severities."
+msgstr ""
+"**--ignore-severity:**\n"
+"特定の深刻度の水準の勧告を無視します。\n"
+"複数の深刻度を無視するために1回以上渡せます。"
+
 #. type: Title ##
-#: ../doc/03-cli.md:1087
+#: ../doc/03-cli.md:1093
 #, no-wrap
 msgid "help"
 msgstr "help"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1090
+#: ../doc/03-cli.md:1096
 msgid "To get more information about a certain command, you can use `help`."
 msgstr "あるコマンドについて詳細が知りたければ`help`が使えます。"
 
 #. type: Fenced code block (shell)
-#: ../doc/03-cli.md:1091
+#: ../doc/03-cli.md:1097
 #, no-wrap
 msgid "php composer.phar help install\n"
 msgstr "php composer.phar help install\n"
 
 #. type: Title ##
-#: ../doc/03-cli.md:1095
+#: ../doc/03-cli.md:1101
 #, no-wrap
 msgid "Command-line completion"
 msgstr "コマンドラインインターフェース"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1099
+#: ../doc/03-cli.md:1105
 msgid ""
 "Command-line completion can be enabled by running the `composer completion --"
 "help` command and following the instructions."
@@ -5237,13 +5282,13 @@ msgstr ""
 "また、以下の手順に従ってください。"
 
 #. type: Title ##
-#: ../doc/03-cli.md:1100
+#: ../doc/03-cli.md:1106
 #, no-wrap
 msgid "Environment variables"
 msgstr "環境変数"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1106
+#: ../doc/03-cli.md:1112
 msgid ""
 "You can set a number of environment variables that override certain "
 "settings.  Whenever possible it is recommended to specify these settings in "
@@ -5258,13 +5303,13 @@ msgstr ""
 "はありません。"
 
 #. type: Title ###
-#: ../doc/03-cli.md:1107
+#: ../doc/03-cli.md:1113
 #, no-wrap
 msgid "COMPOSER"
 msgstr "COMPOSER"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1111
+#: ../doc/03-cli.md:1117
 msgid ""
 "By setting the `COMPOSER` env variable it is possible to set the filename of "
 "`composer.json` to something else."
@@ -5273,18 +5318,18 @@ msgstr ""
 "ものに設定できます。"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1113
+#: ../doc/03-cli.md:1119
 msgid "For example:"
 msgstr "例えば："
 
 #. type: Fenced code block (shell)
-#: ../doc/03-cli.md:1114
+#: ../doc/03-cli.md:1120
 #, no-wrap
 msgid "COMPOSER=composer-other.json php composer.phar install\n"
 msgstr "COMPOSER=composer-other.json php composer.phar install\n"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1119
+#: ../doc/03-cli.md:1125
 msgid ""
 "The generated lock file will use the same name: `composer-other.lock` in "
 "this example."
@@ -5293,13 +5338,13 @@ msgstr ""
 "この例では`composer-other.lock`です。"
 
 #. type: Title ###
-#: ../doc/03-cli.md:1120
+#: ../doc/03-cli.md:1126
 #, no-wrap
 msgid "COMPOSER_ALLOW_SUPERUSER"
 msgstr "COMPOSER_ALLOW_SUPERUSER"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1125
+#: ../doc/03-cli.md:1131
 msgid ""
 "If set to 1, this env disables the warning about running commands as root/"
 "super user.  It also disables automatic clearing of sudo sessions, so you "
@@ -5312,13 +5357,13 @@ msgstr ""
 "のある利用者として、常時Composerを使うときにのみ設定するようにしてください。"
 
 #. type: Title ###
-#: ../doc/03-cli.md:1126
+#: ../doc/03-cli.md:1132
 #, no-wrap
 msgid "COMPOSER_ALLOW_XDEBUG"
 msgstr "COMPOSER_ALLOW_XDEBUG"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1129
+#: ../doc/03-cli.md:1135
 msgid ""
 "If set to 1, this env allows running Composer when the Xdebug extension is "
 "enabled, without restarting PHP without it."
@@ -5327,13 +5372,13 @@ msgstr ""
 "Xdebug拡張が有効のときにComposerを走らせられるようにします。"
 
 #. type: Title ###
-#: ../doc/03-cli.md:1130
+#: ../doc/03-cli.md:1136
 #, no-wrap
 msgid "COMPOSER_AUTH"
 msgstr "COMPOSER_AUTH"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1137
+#: ../doc/03-cli.md:1143
 msgid ""
 "The `COMPOSER_AUTH` var allows you to set up authentication as an "
 "environment variable.  The contents of the variable should be a JSON "
@@ -5348,13 +5393,13 @@ msgstr ""
 "オブジェクトは[設定の仕様](06-config.md)に従います。"
 
 #. type: Title ###
-#: ../doc/03-cli.md:1138
+#: ../doc/03-cli.md:1144
 #, no-wrap
 msgid "COMPOSER_BIN_DIR"
 msgstr "COMPOSER_BIN_DIR"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1142
+#: ../doc/03-cli.md:1148
 msgid ""
 "By setting this option you can change the `bin` ([Vendor Binaries](articles/"
 "vendor-binaries.md))  directory to something other than `vendor/bin`."
@@ -5363,13 +5408,13 @@ msgstr ""
 "vendor-binaries.md)）を`vendor/bin`とは違う別のどこかに変更できます。"
 
 #. type: Title ###
-#: ../doc/03-cli.md:1143
+#: ../doc/03-cli.md:1149
 #, no-wrap
 msgid "COMPOSER_CACHE_DIR"
 msgstr "COMPOSER_CACHE_DIR"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1147
+#: ../doc/03-cli.md:1153
 msgid ""
 "The `COMPOSER_CACHE_DIR` var allows you to change the Composer cache "
 "directory, which is also configurable via the [`cache-dir`](06-config."
@@ -5380,7 +5425,7 @@ msgstr ""
 "[`cache-dir`](06-config.md#cache-dir)オプションを介しても設定できます。"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1153
+#: ../doc/03-cli.md:1159
 #, no-wrap
 msgid ""
 "By default, it points to `C:\\Users\\<user>\\AppData\\Local\\Composer` (or `%LOCALAPPDATA%/Composer`) on Windows.\n"
@@ -5393,13 +5438,13 @@ msgstr ""
 "\\*nixシステムでは[XDG Base Directory Specifications](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html)に従い、`$XDG_CACHE_HOME/composer`を指します。他の\\*nixシステムとmacOSにおいては`$COMPOSER_HOME/cache`を指します。\n"
 
 #. type: Title ###
-#: ../doc/03-cli.md:1154
+#: ../doc/03-cli.md:1160
 #, no-wrap
 msgid "COMPOSER_CAFILE"
 msgstr "COMPOSER_CAFILE"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1158
+#: ../doc/03-cli.md:1164
 msgid ""
 "By setting this environmental value, you can set a path to a certificate "
 "bundle file to be used during SSL/TLS peer verification."
@@ -5408,13 +5453,13 @@ msgstr ""
 "検証で使えるようにします。"
 
 #. type: Title ###
-#: ../doc/03-cli.md:1159
+#: ../doc/03-cli.md:1165
 #, no-wrap
 msgid "COMPOSER_DISABLE_XDEBUG_WARN"
 msgstr "COMPOSER_DISABLE_XDEBUG_WARN"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1162
+#: ../doc/03-cli.md:1168
 msgid ""
 "If set to 1, this env suppresses a warning when Composer is running with the "
 "Xdebug extension enabled."
@@ -5423,13 +5468,13 @@ msgstr ""
 "の環境変数により抑制します。"
 
 #. type: Title ###
-#: ../doc/03-cli.md:1163
+#: ../doc/03-cli.md:1169
 #, no-wrap
 msgid "COMPOSER_DISCARD_CHANGES"
 msgstr "COMPOSER_DISCARD_CHANGES"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1166
+#: ../doc/03-cli.md:1172
 msgid ""
 "This env var controls the [`discard-changes`](06-config.md#discard-changes) "
 "config option."
@@ -5438,25 +5483,25 @@ msgstr ""
 "を制御します。"
 
 #. type: Title ###
-#: ../doc/03-cli.md:1167
+#: ../doc/03-cli.md:1173
 #, no-wrap
 msgid "COMPOSER_FUND"
 msgstr "COMPOSER_FUND"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1170
+#: ../doc/03-cli.md:1176
 msgid "If set to 0, this env suppresses funding notices when installing."
 msgstr ""
 "この環境変数を0に設定すると、インンストール時に投資のお知らせを抑制します。"
 
 #. type: Title ###
-#: ../doc/03-cli.md:1171
+#: ../doc/03-cli.md:1177
 #, no-wrap
 msgid "COMPOSER_HOME"
 msgstr "COMPOSER_HOME"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1176
+#: ../doc/03-cli.md:1182
 msgid ""
 "The `COMPOSER_HOME` var allows you to change the Composer home directory. "
 "This is a hidden, global (per-user on the machine) directory that is shared "
@@ -5467,7 +5512,7 @@ msgstr ""
 "レクトリです。"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1178
+#: ../doc/03-cli.md:1184
 msgid ""
 "Use `composer config --global home` to see the location of the home "
 "directory."
@@ -5476,7 +5521,7 @@ msgstr ""
 "さい。"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1184
+#: ../doc/03-cli.md:1190
 #, no-wrap
 msgid ""
 "By default, it points to `C:\\Users\\<user>\\AppData\\Roaming\\Composer` on Windows\n"
@@ -5487,13 +5532,13 @@ msgid ""
 msgstr "既定では、Windowsにおいては`C:\\Users\\<user>\\AppData\\Roaming\\Composer`を、macOSにおいては`/Users/<user>/.composer`を指します。\\*nixシステムでは[XDG Base Directory Specifications](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html)に従い、`$XDG_CONFIG_HOME/composer`を指します。他の\\*nixシステムでは`/home/<user>/.composer`を指します。\n"
 
 #. type: Title ####
-#: ../doc/03-cli.md:1185
+#: ../doc/03-cli.md:1191
 #, no-wrap
 msgid "COMPOSER_HOME/config.json"
 msgstr "COMPOSER_HOME/config.json"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1191
+#: ../doc/03-cli.md:1197
 msgid ""
 "You may put a `config.json` file into the location which `COMPOSER_HOME` "
 "points to. Composer will partially (only `config` and `repositories` keys) "
@@ -5506,7 +5551,7 @@ msgstr ""
 "す。"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1194
+#: ../doc/03-cli.md:1200
 msgid ""
 "This file allows you to set [repositories](05-repositories.md) and "
 "[configuration](06-config.md) for the user's projects."
@@ -5515,7 +5560,7 @@ msgstr ""
 "と[構成](06-config.md)を設定できます。"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1197
+#: ../doc/03-cli.md:1203
 msgid ""
 "In case global configuration matches _local_ configuration, the _local_ "
 "configuration in the project's `composer.json` always wins."
@@ -5524,13 +5569,13 @@ msgstr ""
 "常に優先されます。"
 
 #. type: Title ###
-#: ../doc/03-cli.md:1198
+#: ../doc/03-cli.md:1204
 #, no-wrap
 msgid "COMPOSER_HTACCESS_PROTECT"
 msgstr "COMPOSER_HTACCESS_PROTECT"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1202
+#: ../doc/03-cli.md:1208
 msgid ""
 "Defaults to `1`. If set to `0`, Composer will not create `.htaccess` files "
 "in the Composer home, cache, and data directories."
@@ -5539,24 +5584,24 @@ msgstr ""
 "タディレクトリに`.htaccess`ファイルを作りません。"
 
 #. type: Title ###
-#: ../doc/03-cli.md:1203
+#: ../doc/03-cli.md:1209
 #, no-wrap
 msgid "COMPOSER_MEMORY_LIMIT"
 msgstr "COMPOSER_MEMORY_LIMIT"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1206
+#: ../doc/03-cli.md:1212
 msgid "If set, the value is used as php's memory_limit."
 msgstr "設定すると、その値がphpのメモリ上限として使われます。"
 
 #. type: Title ###
-#: ../doc/03-cli.md:1207
+#: ../doc/03-cli.md:1213
 #, no-wrap
 msgid "COMPOSER_MIRROR_PATH_REPOS"
 msgstr "COMPOSER_MIRROR_PATH_REPOS"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1212
+#: ../doc/03-cli.md:1218
 msgid ""
 "If set to 1, this env changes the default path repository strategy to "
 "`mirror` instead of `symlink`. As it is the default strategy being set it "
@@ -5567,14 +5612,14 @@ msgstr ""
 "上書きすることもできます。"
 
 #. type: Title ###
-#: ../doc/03-cli.md:1213
+#: ../doc/03-cli.md:1219
 #, no-wrap
 msgid "COMPOSER_NO_INTERACTION"
 msgstr "COMPOSER_NO_INTERACTION"
 
 # TODO: build box/CIについてもう少し訳を考える
 #. type: Plain text
-#: ../doc/03-cli.md:1217
+#: ../doc/03-cli.md:1223
 msgid ""
 "If set to 1, this env var will make Composer behave as if you passed the `--"
 "no-interaction` flag to every command. This can be set on build boxes/CI."
@@ -5584,13 +5629,13 @@ msgstr ""
 "build box/CIで設定できます。"
 
 #. type: Title ###
-#: ../doc/03-cli.md:1218
+#: ../doc/03-cli.md:1224
 #, no-wrap
 msgid "COMPOSER_PROCESS_TIMEOUT"
 msgstr "COMPOSER_PROCESS_TIMEOUT"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1222
+#: ../doc/03-cli.md:1228
 msgid ""
 "This env var controls the time Composer waits for commands (such as git "
 "commands) to finish executing. The default value is 300 seconds (5 minutes)."
@@ -5599,13 +5644,13 @@ msgstr ""
 "します。既定値は300秒（5分）です。"
 
 #. type: Title ###
-#: ../doc/03-cli.md:1223
+#: ../doc/03-cli.md:1229
 #, no-wrap
 msgid "COMPOSER_ROOT_VERSION"
 msgstr "COMPOSER_ROOT_VERSION"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1227
+#: ../doc/03-cli.md:1233
 msgid ""
 "By setting this var you can specify the version of the root package, if it "
 "cannot be guessed from VCS info and is not present in `composer.json`."
@@ -5614,13 +5659,13 @@ msgstr ""
 "ず、`composer.json`にもないときに、そのバージョンを指定できます。"
 
 #. type: Title ###
-#: ../doc/03-cli.md:1228
+#: ../doc/03-cli.md:1234
 #, no-wrap
 msgid "COMPOSER_VENDOR_DIR"
 msgstr "COMPOSER_VENDOR_DIR"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1232
+#: ../doc/03-cli.md:1238
 msgid ""
 "By setting this var you can make Composer install the dependencies into a "
 "directory other than `vendor`."
@@ -5629,13 +5674,13 @@ msgstr ""
 "ストールさせられます。"
 
 #. type: Title ###
-#: ../doc/03-cli.md:1233
+#: ../doc/03-cli.md:1239
 #, no-wrap
 msgid "COMPOSER_RUNTIME_ENV"
 msgstr "COMPOSER_RUNTIME_ENV"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1241
+#: ../doc/03-cli.md:1247
 msgid ""
 "This lets you hint under which environment Composer is running, which can "
 "help Composer work around some environment specific issues. The only value "
@@ -5655,31 +5700,31 @@ msgstr ""
 "しょう。"
 
 #. type: Title ###
-#: ../doc/03-cli.md:1242
+#: ../doc/03-cli.md:1248
 #, no-wrap
 msgid "http_proxy or HTTP_PROXY"
 msgstr "http_proxyやHTTP_PROXY"
 
 #. type: Title ###
-#: ../doc/03-cli.md:1243
+#: ../doc/03-cli.md:1249
 #, no-wrap
 msgid "HTTP_PROXY_REQUEST_FULLURI"
 msgstr "HTTP_PROXY_REQUEST_FULLURI"
 
 #. type: Title ###
-#: ../doc/03-cli.md:1244
+#: ../doc/03-cli.md:1250
 #, no-wrap
 msgid "HTTPS_PROXY_REQUEST_FULLURI"
 msgstr "HTTPS_PROXY_REQUEST_FULLURI"
 
 #. type: Title ###
-#: ../doc/03-cli.md:1245
+#: ../doc/03-cli.md:1251
 #, no-wrap
 msgid "no_proxy or NO_PROXY"
 msgstr "no_proxyやNO_PROXY"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1249
+#: ../doc/03-cli.md:1255
 msgid ""
 "See the [proxy documentation](faqs/how-to-use-composer-behind-a-proxy.md) "
 "for more details on how to use proxy env vars."
@@ -5688,13 +5733,13 @@ msgstr ""
 "how-to-use-composer-behind-a-proxy.md)を参照してください。"
 
 #. type: Title ###
-#: ../doc/03-cli.md:1250
+#: ../doc/03-cli.md:1256
 #, no-wrap
 msgid "COMPOSER_AUDIT_ABANDONED"
 msgstr "COMPOSER_AUDIT_ABANDONED"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1254
+#: ../doc/03-cli.md:1260
 msgid ""
 "Set to `ignore`, `report` or `fail` to override the [audit.abandoned](06-"
 "config.md#abandoned)  config option."
@@ -5703,13 +5748,13 @@ msgstr ""
 "md#abandoned)構成オプションをオーバーライドします。"
 
 #. type: Title ###
-#: ../doc/03-cli.md:1255
+#: ../doc/03-cli.md:1261
 #, no-wrap
 msgid "COMPOSER_MAX_PARALLEL_HTTP"
 msgstr "COMPOSER_MAX_PARALLEL_HTTP"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1261
+#: ../doc/03-cli.md:1267
 msgid ""
 "Set to an integer to configure how many files can be downloaded in parallel. "
 "This defaults to 12 and must be between 1 and 50. If your proxy has issues "
@@ -5722,13 +5767,13 @@ msgstr ""
 "この値を増加させても一般には効率性が上がる結果にはならないでしょう。"
 
 #. type: Title ###
-#: ../doc/03-cli.md:1262
+#: ../doc/03-cli.md:1268
 #, no-wrap
 msgid "COMPOSER_IPRESOLVE"
 msgstr "COMPOSER_IPRESOLVE"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1266
+#: ../doc/03-cli.md:1272
 msgid ""
 "Set to `4` or `6` to force IPv4 or IPv6 DNS resolution. This only works when "
 "the curl extension is used for downloads."
@@ -5737,13 +5782,13 @@ msgstr ""
 "ダウンロード用にcurl拡張が使用されている場合にのみ機能します。"
 
 #. type: Title ###
-#: ../doc/03-cli.md:1267
+#: ../doc/03-cli.md:1273
 #, no-wrap
 msgid "COMPOSER_SELF_UPDATE_TARGET"
 msgstr "COMPOSER_SELF_UPDATE_TARGET"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1270
+#: ../doc/03-cli.md:1276
 msgid ""
 "If set, makes the self-update command write the new Composer phar file into "
 "that path instead of overwriting itself. Useful for updating Composer on a "
@@ -5754,13 +5799,13 @@ msgstr ""
 "ムでComposerを更新するときに便利です。"
 
 #. type: Title ###
-#: ../doc/03-cli.md:1271
+#: ../doc/03-cli.md:1277
 #, no-wrap
 msgid "COMPOSER_DISABLE_NETWORK"
 msgstr "COMPOSER_DISABLE_NETWORK"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1275
+#: ../doc/03-cli.md:1281
 msgid ""
 "If set to `1`, disables network access (best effort). This can be used for "
 "debugging or to run Composer on a plane or a starship with poor connectivity."
@@ -5769,7 +5814,7 @@ msgstr ""
 "はComposerをデバッグしたり貧弱な接続環境下で走らせたりするのに使えます。"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1278
+#: ../doc/03-cli.md:1284
 msgid ""
 "If set to `prime`, GitHub VCS repositories will prime the cache, so it can "
 "then be used fully offline with `1`."
@@ -5778,13 +5823,13 @@ msgstr ""
 "くため、`1`で完全にオフラインで使えるようになります。"
 
 #. type: Title ###
-#: ../doc/03-cli.md:1279
+#: ../doc/03-cli.md:1285
 #, no-wrap
 msgid "COMPOSER_DEBUG_EVENTS"
 msgstr "COMPOSER_DEBUG_EVENTS"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1283
+#: ../doc/03-cli.md:1289
 msgid ""
 "If set to `1`, outputs information about events being dispatched, which can "
 "be useful for plugin authors to identify what is firing when exactly."
@@ -5794,13 +5839,13 @@ msgstr ""
 "ません。"
 
 #. type: Title ###
-#: ../doc/03-cli.md:1284
+#: ../doc/03-cli.md:1290
 #, no-wrap
 msgid "COMPOSER_NO_AUDIT"
 msgstr "COMPOSER_NO_AUDIT"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1287
+#: ../doc/03-cli.md:1293
 msgid ""
 "If set to `1`, it is the equivalent of passing the `--no-audit` option to "
 "`require`, `update`, `remove` or `create-project` command."
@@ -5809,13 +5854,13 @@ msgstr ""
 "no-audit`コマンドを渡すことと等価になります。"
 
 #. type: Title ###
-#: ../doc/03-cli.md:1288
+#: ../doc/03-cli.md:1294
 #, no-wrap
 msgid "COMPOSER_NO_DEV"
 msgstr "COMPOSER_NO_DEV"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1293
+#: ../doc/03-cli.md:1299
 #, no-wrap
 msgid ""
 "If set to `1`, it is the equivalent of passing the `--update-no-dev` option to `require`\n"
@@ -5826,13 +5871,13 @@ msgstr ""
 "`COMPOSER_NO_DEV=0`を設定することで1回のコマンドについてこの設定を上書きできます。\n"
 
 #. type: Title ###
-#: ../doc/03-cli.md:1294
+#: ../doc/03-cli.md:1300
 #, no-wrap
 msgid "COMPOSER_PREFER_STABLE"
 msgstr "COMPOSER_PREFER_STABLE"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1298
+#: ../doc/03-cli.md:1304
 msgid ""
 "If set to `1`, it is the equivalent of passing the `--prefer-stable` option "
 "to `update` or `require`."
@@ -5841,13 +5886,13 @@ msgstr ""
 "価になります。"
 
 #. type: Title ###
-#: ../doc/03-cli.md:1299
+#: ../doc/03-cli.md:1305
 #, no-wrap
 msgid "COMPOSER_PREFER_LOWEST"
 msgstr "COMPOSER_PREFER_LOWEST"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1303
+#: ../doc/03-cli.md:1309
 msgid ""
 "If set to `1`, it is the equivalent of passing the `--prefer-lowest` option "
 "to `update` or `require`."
@@ -5856,13 +5901,13 @@ msgstr ""
 "価になります。"
 
 #. type: Title ###
-#: ../doc/03-cli.md:1304
+#: ../doc/03-cli.md:1310
 #, no-wrap
 msgid "COMPOSER_MINIMAL_CHANGES"
 msgstr "COMPOSER_MINIMAL_CHANGES"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1308
+#: ../doc/03-cli.md:1314
 msgid ""
 "If set to `1`, it is the equivalent of passing the `--minimal-changes` "
 "option to `update`, `require` or `remove`."
@@ -5871,13 +5916,13 @@ msgstr ""
 "を渡すことと等価になります。"
 
 #. type: Title ###
-#: ../doc/03-cli.md:1309
+#: ../doc/03-cli.md:1315
 #, no-wrap
 msgid "COMPOSER_IGNORE_PLATFORM_REQ or COMPOSER_IGNORE_PLATFORM_REQS"
 msgstr "COMPOSER_IGNORE_PLATFORM_REQやCOMPOSER_IGNORE_PLATFORM_REQS"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1313
+#: ../doc/03-cli.md:1319
 msgid ""
 "If `COMPOSER_IGNORE_PLATFORM_REQS` set to `1`, it is the equivalent of "
 "passing the `--ignore-platform-reqs` argument.  Otherwise, specifying a "
@@ -5890,7 +5935,7 @@ msgstr ""
 "らの特定の要件を無視します。"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1315
+#: ../doc/03-cli.md:1321
 msgid ""
 "For example, if a development workstation will never run database queries, "
 "this can be used to ignore the requirement for the database extensions to be "
@@ -5904,7 +5949,7 @@ msgstr ""
 "が有効になっていなくともパッケージをインストールします。"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1316
+#: ../doc/03-cli.md:1322
 msgid "&larr; [Libraries](02-libraries.md)  | [Schema](04-schema.md) &rarr;"
 msgstr ""
 "&larr; [ライブラリ](02-libraries.md)  | [スキーマ](04-schema.md) &rarr;"
