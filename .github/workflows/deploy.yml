@@ -14,10 +14,10 @@ jobs:
     - uses: actions/checkout@v3
       with:
         fetch-depth: 0
-    - name: Generate translation
-      run: |
-        sudo apt install po4a
-        make --directory translations
+    # - name: Generate translation
+    #   run: |
+    #     sudo apt install po4a
+    #     make --directory translations
     - name: Install latest mdbook
       run: |
         tag=$(curl 'https://api.github.com/repos/rust-lang/mdbook/releases/latest' | jq -r '.tag_name')
