@@ -4,10 +4,10 @@
 
 ## process-timeout
 
-The timeout in seconds for process executions, defaults to 300 (5mins).  The
-duration processes like `git clone`s can run before Composer assumes they
-died out. You may need to make this higher if you have a slow connection or
-huge vendors.
+プロセス実行の制限時間で、秒単位です。
+既定では300（5分）です。
+`git clone`のような時間の掛かるプロセスは、Composerによりプロセスの異常終了が推定されるまで、実行できます。
+接続が遅い場合やベンダーが大きい場合は、これを増やす必要があるかもしれません。
 
 例：
 
@@ -19,7 +19,7 @@ huge vendors.
 }
 ```
 
-### Disabling timeouts for an individual script command
+### 個々のスクリプトのコマンドで制限時間を無効にする
 
 `scripts`以下の独自コマンドでプロセスの制限時間を無効にするには、静的ヘルパーが使えます。
 

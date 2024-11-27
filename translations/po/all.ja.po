@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Composer\n"
 "POT-Creation-Date: 2024-11-28 07:58+0900\n"
-"PO-Revision-Date: 2024-10-03 19:25+0900\n"
+"PO-Revision-Date: 2024-11-28 08:03+0900\n"
 "Last-Translator: gemmaro <gemmaro.dev@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -5174,12 +5174,6 @@ msgstr "audit"
 
 #. type: Plain text
 #: ../doc/03-cli.md:1076
-#, fuzzy
-#| msgid ""
-#| "This command is used to audit the packages you have installed for "
-#| "possible security issues. It checks for and lists security vulnerability "
-#| "advisories according to the [Packagist.org api](https://packagist.org/"
-#| "apidoc#list-security-advisories)."
 msgid ""
 "This command is used to audit the packages you have installed for potential "
 "security issues. It checks for and lists security vulnerability advisories "
@@ -5187,10 +5181,13 @@ msgid ""
 "advisories)  by default or other repositories if specified in the "
 "`repositories` section of `composer.json`."
 msgstr ""
-"このコマンドを使うと、インストールしたパッケージをセキュリティ上の問題がある"
-"か監査できます。\n"
-"[Packagist.org api](https://packagist.org/apidoc#list-security-advisories)に"
-"従って、セキュリティ上の脆弱性に対する推奨事項を確認して一覧にします。"
+"このコマンドを使うと、インストールしたパッケージに対し、セキュリティ上の問題"
+"がありうるか監査できます。\n"
+"既定では[Packagist.org api](https://packagist.org/apidoc#list-security-"
+"advisories)を使い、セキュリティ上の脆弱性に対する推奨事項を確認して一覧にしま"
+"す。\n"
+"`composer.json`の`repositories`節で指定されたときは、他のリポジトリが使われま"
+"す。"
 
 #. type: Plain text
 #: ../doc/03-cli.md:1078
@@ -10590,34 +10587,22 @@ msgstr "process-timeout"
 # 2文目をもう少し分かりやすくしたい
 #. type: Plain text
 #: ../doc/06-config.md:12
-#, fuzzy
-#| msgid ""
-#| "The timeout in seconds for process executions, defaults to 300 (5mins).  "
-#| "The duration processes like git clones can run before Composer assumes "
-#| "they died out. You may need to make this higher if you have a slow "
-#| "connection or huge vendors."
 msgid ""
 "The timeout in seconds for process executions, defaults to 300 (5mins).  The "
 "duration processes like `git clone`s can run before Composer assumes they "
 "died out. You may need to make this higher if you have a slow connection or "
 "huge vendors."
 msgstr ""
-"プロセス実行の制限時間（秒）です。\n"
+"プロセス実行の制限時間で、秒単位です。\n"
 "既定では300（5分）です。\n"
-"gitのクローンのような時間の掛かるプロセスは、Composerによりプロセスが異常終了"
-"したと推定される前に実行できます。\n"
+"`git clone`のような時間の掛かるプロセスは、Composerによりプロセスの異常終了が"
+"推定されるまで、実行できます。\n"
 "接続が遅い場合やベンダーが大きい場合は、これを増やす必要があるかもしれませ"
 "ん。"
 
 #. type: Fenced code block (json)
 #: ../doc/06-config.md:15
-#, fuzzy, no-wrap
-#| msgid ""
-#| "{\n"
-#| "    \"config\": {\n"
-#| "        \"allow-plugins\": false\n"
-#| "    }\n"
-#| "}\n"
+#, no-wrap
 msgid ""
 "{\n"
 "    \"config\": {\n"
@@ -10627,7 +10612,7 @@ msgid ""
 msgstr ""
 "{\n"
 "    \"config\": {\n"
-"        \"allow-plugins\": false\n"
+"        \"process-timeout\": 900\n"
 "    }\n"
 "}\n"
 
@@ -10635,7 +10620,7 @@ msgstr ""
 #: ../doc/06-config.md:23
 #, no-wrap
 msgid "Disabling timeouts for an individual script command"
-msgstr ""
+msgstr "個々のスクリプトのコマンドで制限時間を無効にする"
 
 #. type: Plain text
 #: ../doc/06-config.md:27
