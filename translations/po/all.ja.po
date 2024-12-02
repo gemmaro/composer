@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Composer\n"
 "POT-Creation-Date: 2024-12-02 21:50+0900\n"
-"PO-Revision-Date: 2024-11-28 08:03+0900\n"
+"PO-Revision-Date: 2024-12-02 21:56+0900\n"
 "Last-Translator: gemmaro <gemmaro.dev@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -5174,13 +5174,6 @@ msgstr "audit"
 
 #. type: Plain text
 #: ../doc/03-cli.md:1075
-#, fuzzy
-#| msgid ""
-#| "This command is used to audit the packages you have installed for "
-#| "potential security issues. It checks for and lists security vulnerability "
-#| "advisories using the [Packagist.org api](https://packagist.org/"
-#| "apidoc#list-security-advisories)  by default or other repositories if "
-#| "specified in the `repositories` section of `composer.json`."
 msgid ""
 "This command is used to audit the packages you have installed for potential "
 "security issues. It checks for and lists security vulnerability advisories "
@@ -5195,7 +5188,8 @@ msgstr ""
 "advisories)を使い、セキュリティ上の脆弱性に対する推奨事項を確認して一覧にしま"
 "す。\n"
 "`composer.json`の`repositories`節で指定されたときは、他のリポジトリが使われま"
-"す。"
+"す。\n"
+"このコマンドでは、放棄されたパッケージも検出されます。"
 
 #. type: Plain text
 #: ../doc/03-cli.md:1078
@@ -5203,26 +5197,29 @@ msgid ""
 "The audit command determines if there are vulnerable or abandoned packages "
 "and returns the following exit codes based on the findings:"
 msgstr ""
+"監査コマンドでは、脆弱なパッケージや放棄されたパッケージがあるか判定されま"
+"す。\n"
+"見つかったものに基づいて、以下の終了コードを返します。"
 
 #. type: Bullet: '* '
 #: ../doc/03-cli.md:1083
 msgid "`0` No issues;"
-msgstr ""
+msgstr "`0` は、問題なし"
 
 #. type: Bullet: '* '
 #: ../doc/03-cli.md:1083
 msgid "`1` Vulnerable packages;"
-msgstr ""
+msgstr "`1` は、脆弱なパッケージ"
 
 #. type: Bullet: '* '
 #: ../doc/03-cli.md:1083
 msgid "`2` Abandoned packages;"
-msgstr ""
+msgstr "`2` は、放棄されたパッケージ"
 
 #. type: Bullet: '* '
 #: ../doc/03-cli.md:1083
 msgid "`3` Vulnerable and abandoned packages."
-msgstr ""
+msgstr "`3` は、脆弱なパッケージと放棄されたパッケージ"
 
 #. type: Fenced code block (shell)
 #: ../doc/03-cli.md:1084

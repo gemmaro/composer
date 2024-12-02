@@ -1060,20 +1060,19 @@ php composer.phar archive vendor/package 2.0.21 --format=zip
 
 ## audit
 
-This command is used to audit the packages you have installed for potential
-security issues. It checks for and lists security vulnerability advisories
-using the [Packagist.org
-api](https://packagist.org/apidoc#list-security-advisories) by default or
-other repositories if specified in the `repositories` section of
-`composer.json`.  The command also detects abandoned packages.
+このコマンドを使うと、インストールしたパッケージに対し、セキュリティ上の問題がありうるか監査できます。
+既定では[Packagist.org
+api](https://packagist.org/apidoc#list-security-advisories)を使い、セキュリティ上の脆弱性に対する推奨事項を確認して一覧にします。
+`composer.json`の`repositories`節で指定されたときは、他のリポジトリが使われます。
+このコマンドでは、放棄されたパッケージも検出されます。
 
-The audit command determines if there are vulnerable or abandoned packages
-and returns the following exit codes based on the findings:
+監査コマンドでは、脆弱なパッケージや放棄されたパッケージがあるか判定されます。
+見つかったものに基づいて、以下の終了コードを返します。
 
-* `0` No issues;
-* `1` Vulnerable packages;
-* `2` Abandoned packages;
-* `3` Vulnerable and abandoned packages.
+* `0` は、問題なし
+* `1` は、脆弱なパッケージ
+* `2` は、放棄されたパッケージ
+* `3` は、脆弱なパッケージと放棄されたパッケージ
 
 ```shell
 php composer.phar audit
