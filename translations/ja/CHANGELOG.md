@@ -1,23 +1,19 @@
 ### [2.8.4] 2024-12-11
 
-  * Fixed exit code of the `audit` command not being meaningful (now 1 for
-    vulnerabilities and 2 for abandoned, 3 for both) (#12203)
-  * Fixed issue on plugin upgrade when it defines multiple classes (#12226)
-  * Fixed duplicate errors appearing in the output depending on php settings
-    (#12214)
-  * Fixed InstalledVersions returning duplicate data in some instances
-    (#12225)
-  * Fixed installed.php sorting to be deterministic (#12197)
-  * Fixed `bump-after-update` failing when using inline constraints (#12223)
-  * Fixed `create-project` command to now disable symlinking when used with
-    a path repo as argument (#12222)
-  * Fixed `validate --no-check-publish` to hide publish errors entirely as
-    they are irrelevant (#12196)
-  * Fixed `audit` command returning a failing code when composer audit fails
-    as this should not trigger build failures, but running audit as standard
-    part of your build is probably a terrible idea anyway (#12196)
-  * Fixed curl usage to disable multiplexing on broken versions when proxies
-    are in use (#12207)
+  * `audit`コマンドの終了コードにあまり意味がなかった点を直しました（脆弱性があるときは1、放棄されたパッケージがあるときは2、両方のときは3になりました）
+    (#12203)
+  * プラグインで複数のクラスを定義したときの問題を修正しました (#12226)
+  * phpの設定次第で、出力されるエラーの重複を直しました (#12214)
+  * 一部のインスタンスで、InstalledVersionsが重複するデータを返していた点を直しました (#12225)
+  * installed.phpで、整列が決定的になるように直しました (#12197)
+  * 行内の制約を使ったときに、`bump-after-update`が失敗していた点を直しました (#12223)
+  * `create-project`コマンドを修正し、パスレポジトリを引数として使うとき、シンボリックリンクが無効になるようにしました
+    (#12222)
+  * `validate --no-check-publish`を修正し、無関係なpublishのエラーを完全に隠し去りました (#12196)
+  * composer auditが失敗したときに`audit`コマンドが失敗コードを返していた点を修正しました。
+    このコマンドでビルドが失敗すべきではないからです。
+    ともあれ、通常のビルドの一部でauditを実行するのは多分良くないでしょう (#12196)
+  * curlの使い方を修正し、プロキシが使われているときに、壊れているバージョンでの多重化を無効にしました (#12207)
 
 ### [2.8.3] 2024-11-17
 

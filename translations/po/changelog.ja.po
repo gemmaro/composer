@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Composer\n"
 "POT-Creation-Date: 2024-12-12 08:15+0900\n"
-"PO-Revision-Date: 2024-11-17 21:26+0900\n"
+"PO-Revision-Date: 2024-12-12 08:32+0900\n"
 "Last-Translator: gemmaro <gemmaro.dev@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -18,10 +18,9 @@ msgstr ""
 
 #. type: Title ###
 #: ../CHANGELOG.md:1
-#, fuzzy, no-wrap
-#| msgid "[2.8.3] 2024-11-17"
+#, no-wrap
 msgid "[2.8.4] 2024-12-11"
-msgstr "[2.8.3] 2024-11-17"
+msgstr "[2.8.4] 2024-12-11"
 
 #. type: Bullet: '  * '
 #: ../CHANGELOG.md:13
@@ -29,35 +28,42 @@ msgid ""
 "Fixed exit code of the `audit` command not being meaningful (now 1 for "
 "vulnerabilities and 2 for abandoned, 3 for both) (#12203)"
 msgstr ""
+"`audit`コマンドの終了コードにあまり意味がなかった点を直しました（脆弱性がある"
+"ときは1、放棄されたパッケージがあるときは2、両方のときは3になりました） "
+"(#12203)"
 
 #. type: Bullet: '  * '
 #: ../CHANGELOG.md:13
 msgid "Fixed issue on plugin upgrade when it defines multiple classes (#12226)"
-msgstr ""
+msgstr "プラグインで複数のクラスを定義したときの問題を修正しました (#12226)"
 
 #. type: Bullet: '  * '
 #: ../CHANGELOG.md:13
 msgid ""
 "Fixed duplicate errors appearing in the output depending on php settings "
 "(#12214)"
-msgstr ""
+msgstr "phpの設定次第で、出力されるエラーの重複を直しました (#12214)"
 
 #. type: Bullet: '  * '
 #: ../CHANGELOG.md:13
 msgid ""
 "Fixed InstalledVersions returning duplicate data in some instances (#12225)"
 msgstr ""
+"一部のインスタンスで、InstalledVersionsが重複するデータを返していた点を直しま"
+"した (#12225)"
 
 #. type: Bullet: '  * '
 #: ../CHANGELOG.md:13
 msgid "Fixed installed.php sorting to be deterministic (#12197)"
-msgstr ""
+msgstr "installed.phpで、整列が決定的になるように直しました (#12197)"
 
 #. type: Bullet: '  * '
 #: ../CHANGELOG.md:13
 msgid ""
 "Fixed `bump-after-update` failing when using inline constraints (#12223)"
 msgstr ""
+"行内の制約を使ったときに、`bump-after-update`が失敗していた点を直しました "
+"(#12223)"
 
 #. type: Bullet: '  * '
 #: ../CHANGELOG.md:13
@@ -65,6 +71,8 @@ msgid ""
 "Fixed `create-project` command to now disable symlinking when used with a "
 "path repo as argument (#12222)"
 msgstr ""
+"`create-project`コマンドを修正し、パスレポジトリを引数として使うとき、シンボ"
+"リックリンクが無効になるようにしました (#12222)"
 
 #. type: Bullet: '  * '
 #: ../CHANGELOG.md:13
@@ -72,6 +80,8 @@ msgid ""
 "Fixed `validate --no-check-publish` to hide publish errors entirely as they "
 "are irrelevant (#12196)"
 msgstr ""
+"`validate --no-check-publish`を修正し、無関係なpublishのエラーを完全に隠し去"
+"りました (#12196)"
 
 #. type: Bullet: '  * '
 #: ../CHANGELOG.md:13
@@ -80,6 +90,11 @@ msgid ""
 "this should not trigger build failures, but running audit as standard part "
 "of your build is probably a terrible idea anyway (#12196)"
 msgstr ""
+"composer auditが失敗したときに`audit`コマンドが失敗コードを返していた点を修正"
+"しました。\n"
+"このコマンドでビルドが失敗すべきではないからです。\n"
+"ともあれ、通常のビルドの一部でauditを実行するのは多分良くないでしょう "
+"(#12196)"
 
 #. type: Bullet: '  * '
 #: ../CHANGELOG.md:13
@@ -87,6 +102,8 @@ msgid ""
 "Fixed curl usage to disable multiplexing on broken versions when proxies are "
 "in use (#12207)"
 msgstr ""
+"curlの使い方を修正し、プロキシが使われているときに、壊れているバージョンでの"
+"多重化を無効にしました (#12207)"
 
 #. type: Title ###
 #: ../CHANGELOG.md:14
