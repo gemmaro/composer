@@ -19,8 +19,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Composer\n"
-"POT-Creation-Date: 2024-12-02 21:50+0900\n"
-"PO-Revision-Date: 2024-12-02 21:56+0900\n"
+"POT-Creation-Date: 2025-01-15 20:53+0900\n"
+"PO-Revision-Date: 2025-01-15 20:54+0900\n"
 "Last-Translator: gemmaro <gemmaro.dev@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -6450,8 +6450,11 @@ msgstr "当該バージョンのリリース日です。"
 
 #. type: Plain text
 #: ../doc/04-schema.md:155
-msgid "Must be in `YYYY-MM-DD` or `YYYY-MM-DD HH:MM:SS` format."
-msgstr "`YYYY-MM-DD`または`YYYY-MM-DD HH:MM:SS`の形式でなければなりません。"
+msgid ""
+"Must be in `YYYY-MM-DD` or `YYYY-MM-DD HH:MM:SS` format in UTC timezone."
+msgstr ""
+"`YYYY-MM-DD`または`YYYY-MM-DD HH:MM:SS`の形式で、UTCタイムゾーンでなければな"
+"りません。"
 
 #. type: Title ###
 #: ../doc/04-schema.md:158
@@ -13478,8 +13481,8 @@ msgstr ""
 #. type: Fenced code block (shell)
 #: ../doc/faqs/how-to-install-composer-programmatically.md:37
 #, no-wrap
-msgid "wget https://raw.githubusercontent.com/composer/getcomposer.org/76a7060ccb93902cd7576b67264ad91c8a2700e2/web/installer -O - -q | php -- --quiet\n"
-msgstr "wget https://raw.githubusercontent.com/composer/getcomposer.org/76a7060ccb93902cd7576b67264ad91c8a2700e2/web/installer -O - -q | php -- --quiet\n"
+msgid "wget https://raw.githubusercontent.com/composer/getcomposer.org/f3108f64b4e1c1ce6eb462b159956461592b3e3e/web/installer -O - -q | php -- --quiet\n"
+msgstr "wget https://raw.githubusercontent.com/composer/getcomposer.org/f3108f64b4e1c1ce6eb462b159956461592b3e3e/web/installer -O - -q | php -- --quiet\n"
 
 #. type: Plain text
 #: ../doc/faqs/how-to-install-composer-programmatically.md:42

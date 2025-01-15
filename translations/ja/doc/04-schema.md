@@ -147,7 +147,7 @@ GitHubのパッケージの場合、Packagist.orgではGitHub側で検出され�
 
 当該バージョンのリリース日です。
 
-`YYYY-MM-DD`または`YYYY-MM-DD HH:MM:SS`の形式でなければなりません。
+`YYYY-MM-DD`または`YYYY-MM-DD HH:MM:SS`の形式で、UTCタイムゾーンでなければなりません。
 
 省略可能です。
 

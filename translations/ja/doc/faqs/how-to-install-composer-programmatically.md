@@ -34,7 +34,7 @@ GitHubのサーバーを信用できる限りにおいて、コミットハッ�
 例えば以下です。
 
 ```shell
-wget https://raw.githubusercontent.com/composer/getcomposer.org/76a7060ccb93902cd7576b67264ad91c8a2700e2/web/installer -O - -q | php -- --quiet
+wget https://raw.githubusercontent.com/composer/getcomposer.org/f3108f64b4e1c1ce6eb462b159956461592b3e3e/web/installer -O - -q | php -- --quiet
 ```
 
 コミットハッシュは https://github.com/composer/getcomposer.org/commits/main
