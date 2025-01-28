@@ -1,3 +1,18 @@
+### [2.8.5] 2025-01-21
+
+  * Added build provenance attestation so you can also now download and
+    verify phar files from GitHub releases:
+
+        gh release --repo composer/composer download --pattern composer.phar
+        gh attestation verify --repo composer/composer composer.phar
+
+  * 非対応の`funding`の値により、パッケージの解析エラーが起こっていた点を修正 (#12247)
+  * 新しい寄付の書式への対応を修正 (#12257)
+  * `reload()`を使うときの、2.8.4であったInstalledVersionsの退行問題を修正 (#12269)
+  * psr-0/psr-4の規則が、`vendor/composer/autoload*.php`において不定の順番になっていた点を修正
+    (#12263)
+  * 特定の状況下で、誤って起こっていた警告を修正 (#12284, #12268, #12283)
+
 ### [2.8.4] 2024-12-11
 
   * `audit`コマンドの終了コードに意味がなかった点を修正しました（脆弱性のとき1、放棄されているときは2、両方では3になりました）
@@ -258,6 +273,7 @@
   * プール最適化の工程を効率良くしました (#11638)。
   * `show -a <パッケージ名>`の効率良くしました (#11659)。
 
+[2.8.5]: https://github.com/composer/composer/compare/2.8.4...2.8.5
 [2.8.4]: https://github.com/composer/composer/compare/2.8.3...2.8.4
 [2.8.3]: https://github.com/composer/composer/compare/2.8.2...2.8.3
 [2.8.2]: https://github.com/composer/composer/compare/2.8.1...2.8.2
