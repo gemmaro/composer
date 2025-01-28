@@ -1,0 +1,389 @@
+<!DOCTYPE HTML>
+<html lang="ja" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>基本的な使い方 - Composer</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Composer</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/gemmaro/composer" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="基本的な使い方"><a class="header" href="#基本的な使い方">基本的な使い方</a></h1>
+<h2 id="導入"><a class="header" href="#導入">導入</a></h2>
+<p>基礎的な使い方の導入として、ここではログライブラリである<code>monolog/monolog</code>をインストールします。
+まだComposerをインストールしていなければ、<a href="00-intro.html">はじめに</a>章を参照してください。</p>
+<blockquote>
+<p><strong>補足：</strong> 簡潔のために、この導入ではComposerの<a href="00-intro.html#locally">ローカル</a>インストールを実施した前提で進めます。</p>
+</blockquote>
+<h2 id="composerjson-プロジェクトの立ち上げ"><a class="header" href="#composerjson-プロジェクトの立ち上げ"><code>composer.json</code>: プロジェクトの立ち上げ</a></h2>
+<p>プロジェクトでComposerを使い始めるにあたって必要なのは<code>composer.json</code>ファイルだけです。
+このファイルにはプロジェクトの依存関係が記述され、他のメタデータも含まれることがあります。
+大抵プロジェクトやVCSリポジトリの最上位ディレクトリにあります。
+技術的にはComposerをどこで実行することもできますが、パッケージをPackagist.orgに公開したいならば、VCSリポジトリの一番上の階層にファイルがなければなりません。</p>
+<h3 id="requireキー"><a class="header" href="#requireキー"><code>require</code>キー</a></h3>
+<p>最初に<code>composer.json</code>で指定するものは、<a href="04-schema.html#require"><code>require</code></a>キーです。
+Composerにプロジェクトが依存しているパッケージがどれであるかを伝えるものです。</p>
+<pre><code class="language-json">{
+    "require": {
+        "monolog/monolog": "2.0.*"
+    }
+}
+</code></pre>
+<p>見ての通り、<a href="04-schema.html#require"><code>require</code></a>は<strong>パッケージ名</strong>（例：<code>monolog/monolog</code>）と
+<strong>パッケージバージョン</strong>（例：<code>1.0.*</code>）を対応付けるオブジェクトを取ります。</p>
+<p>Composerはこの情報を使って、<a href="04-schema.html#repositories"><code>repositories</code></a>キーからパッケージ「リポジトリ」や、既定のパッケージレジストリである<a href="https://packagist.org">Packagist.org</a>にある正しいファイル一式を探します。
+上の例ではこれといったリポジトリは<code>composer.json</code>ファイルに登録されていないので、<code>monolog/monolog</code>パッケージはPackagist.orgに登録されているものと推定されます（詳細は<a href="#packagist">Packagistについて</a>と<a href="05-repositories.html">リポジトリについて</a>を参照）。</p>
+<h3 id="パッケージ名"><a class="header" href="#パッケージ名">パッケージ名</a></h3>
+<p>パッケージ名はベンダー名とプロジェクト名から成ります。
+これらはしばしば同一になります。
+すなわち、ベンダー名は命名が衝突するのを避けるためだけにあります。
+例えば異なる2人の人物が<code>json</code>という名前のライブラリを<code>igorw/json</code>と<code>seldaek/json</code>とそれぞれ命名して作成できます。</p>
+<p>詳細は<a href="02-libraries.html">パッケージの公開とパッケージの命名</a>を読んでください（なお「プラットフォームパッケージ」を依存関係として指定することも可能で、サーバーのソフトウェアの特定のバージョンを要求できます。
+<a href="#platform-packages">プラットフォームパッケージ</a>で後述します）。</p>
+<h3 id="パッケージバージョン制約"><a class="header" href="#パッケージバージョン制約">パッケージバージョン制約</a></h3>
+<p>先の例ではバージョン制約<a href="https://semver.madewithlove.com/?package=monolog%2Fmonolog&amp;constraint=2.0.*"><code>2.0.*</code></a>のMonologパッケージを要求しています。
+これが意味するものは<code>2.0</code>の開発ブランチの任意のバージョン、言い換えると2.0以上で2.1より小さい（<code>&gt;=2.0 &lt;2.1</code>）任意のバージョンのことを指します。</p>
+<p>バージョンとバージョン間の関連、バージョン制約についてのより詳しい情報は<a href="articles/versions.html">バージョン</a>を読んでください。</p>
+<blockquote>
+<p><strong>どうやってComposerは正しいファイルをダウンロードしているのか。</strong>
+<code>composer.json</code>に依存関係を指定したとき、Composerはまず、<a href="04-schema.html#repositories"><code>repositories</code></a>キーを使って登録された全てのリポジトリを対象に要求されたパッケージの名前を検索します。
+もし1つも追加でリポジトリを登録していなかったり、指定したリポジトリにその名前のパッケージがなかったときは、Packagist.org（<a href="#packagist">後述</a>）に落ち着きます。</p>
+<p>ComposerがPackagist.orgないし指定したリポジトリで正しいパッケージがあったときは、パッケージのVCSのバージョン機能（つまりブランチとタグ）を使って、指定したバージョン制約に最も合致するものを見付け出そうとします。
+必ず<a href="articles/versions.html">バージョンについての記事</a>でバージョンとパッケージについて読んでください。</p>
+</blockquote>
+<blockquote>
+<p><strong>補足：</strong> もしパッケージを要求したもののComposerがパッケージの安定性の理由で例外を投げた場合は、指定したバージョンが既定の最小の安定要件に見合わない可能性があります。
+VCSで妥当なパッケージバージョンを探す際、既定では安定リリースのみが考慮されます。</p>
+<p>パッケージの開発版、アルファ版、ベータ版、リリース候補のバージョンを要求しようとしたときに、この例外に遭遇するかもしれません。
+安定性フラグと<code>minimum-stability</code>キーについての詳細は<a href="04-schema.html">スキーマのページ</a>をお読みください。</p>
+</blockquote>
+<h2 id="依存物をインストール"><a class="header" href="#依存物をインストール">依存物をインストール</a></h2>
+<p>定義された依存関係をプロジェクトに初めてインストールするときは、<a href="03-cli.html#update-u"><code>update</code></a>コマンドを走らせると良いです。</p>
+<pre><code class="language-shell">php composer.phar update
+</code></pre>
+<p>こうするとComposerは2つのことをします。</p>
+<ul>
+<li><code>composer.json</code>ファイルに挙げられている全ての依存関係を解決して、全てのアッケージとその厳密なバージョンを<code>composer.lock</code>ファイルに書き込みます。
+このファイルによりプロジェクトが特定のバージョンに固定されます。
+<code>composer.lock</code>ファイルはプロジェクトのリポジトリにコミットすべきです。
+そうすればプロジェクトに参画する全員にとって、同じバージョンの依存関係に固定されたものになります（詳細は後述）。
+これが<code>update</code>コマンドの主な役割です。</li>
+<li>それから暗黙裡に<a href="03-cli.html#install-i"><code>install</code></a>コマンドが走ります。
+これにより依存関係のファイルがプロジェクトの<code>vendor</code>ディレクトリにダウンロードされます（<code>vendor</code>ディレクトリはプロジェクトの全てのサードパーティコード用の定番の場所です）。
+上の例では最終的にMonologのソースファイルが<code>vendor/monolog/monolog</code>にあることになります。
+Monologには<code>psr/log</code>への依存関係があるため、そのパッケージのファイルもまた<code>vendor/</code>の中にあります。</li>
+</ul>
+<blockquote>
+<p><strong>コツ：</strong> gitをプロジェクトで使っているのなら、多分<code>.gitignore</code>に<code>vendor</code>を追加したいでしょう。
+実際のところ、バージョン管理されたリポジトリにサードパーティ製のコード全てを追加したくはないので。</p>
+</blockquote>
+<h3 id="composerlockファイルをバージョン管理にコミットすること"><a class="header" href="#composerlockファイルをバージョン管理にコミットすること"><code>composer.lock</code>ファイルをバージョン管理にコミットすること</a></h3>
+<p>このファイルをバージョン管理にコミットすることは大事です。
+なぜならこうすることでプロジェクトの準備をする誰もが、自分が使っているものと全く同じバージョンの依存関係を使えるようになるからです。
+CIサーバ、実運用マシン、チーム内の他の開発者、万物万人が同じ依存関係で実行するのです。
+これにより特定のデプロイでのみ影響する潜在的なバグが低減されます。
+たとえ一人で開発していて、6箇月経ってからプロジェクトを再インストールしたとしても、そして依存関係が多くの新しいバージョンをリリースされていたとしても、インストールされた依存関係がちゃんと動くことは疑いありません（<code>update</code>コマンドの使用については以下の補足を参照してください）。</p>
+<blockquote>
+<p><strong>補足：</strong>
+ライブラリの場合、固定ファイルのコミットは不必要です。
+<a href="02-libraries.html#lock-file">ライブラリ - 固定ファイル</a>も参照してください。</p>
+</blockquote>
+<h3 id="composerlockからインストールする"><a class="header" href="#composerlockからインストールする"><code>composer.lock</code>からインストールする</a></h3>
+<p>既に<code>composer.lock</code>ファイルがプロジェクトフォルダにあるなら、それは前に自分で<code>update</code>コマンドを走らせたか、プロジェクトの誰かが<code>update</code>コマンドを走らせて<code>composer.lock</code>ファイルをプロジェクトにコミットしたからかのどちらかです（いいことです）。</p>
+<p>何れにせよ、<code>composer.lock</code>ファイルが存在しているときに<code>install</code>を走らせると<code>composer.json</code>に挙がっている全ての依存関係を解決してインストールします。
+ただしその際はプロジェクトの作業をしている人全員にとってパッケージのバージョンが必ず一貫したものになるように、Composerは<code>composer.lock</code>に挙げられた厳密なバージョンを使用します。
+結果として<code>composer.json</code>ファイルで要求された全ての依存関係が取得されるのですが、必ずしも利用できるごく最新のバージョンとはなっていないかもしれません（ファイルが作成された後に、<code>composer.lock</code>ファイルで挙げられた依存関係のより新しいバージョンがリリースされる可能性があります）。
+これは設計上意図されたものであり、依存関係での予期しない変更による不具合がプロジェクトで絶対に発生しないようになっています。</p>
+<p>そのためVCSリポジトリから新しい変更を取得した後は、Composerの<code>install</code>を走らせて、vendorディレクトリが<code>composer.lock</code>ファイルと同期していることを確かめることをお勧めします。</p>
+<pre><code class="language-shell">php composer.phar install
+</code></pre>
+<p>Composerは既定で再生成可能な構築を有効にします。
+つまり同じコマンドを複数回走らせると、自動読み込み器のファイルを含め、（<em>タイムスタンプ以外</em>）同値なファイルを含む<code>vendor/</code>ディレクトリを生成するのです。
+厳密な検証過程を要求する環境や、PHPアプリケーションを安全で予測可能なやり方でパッケージ化することを目指すLinuxディストリビューションにおいては、特に有益です。</p>
+<h2 id="最新版に依存関係を更新する"><a class="header" href="#最新版に依存関係を更新する">最新版に依存関係を更新する</a></h2>
+<p>前述したように、<code>composer.lock</code>ファイルは自動的に依存関係の最新版が取得されるのを防ぎます。
+最新のバージョンに更新するには<a href="03-cli.html#update-u"><code>update</code></a>コマンドを使います。
+こうすると（<code>composer.json</code>ファイルに沿うように）照合する最新バージョンを取得して新しいバージョンで固定ファイルを更新します。</p>
+<pre><code class="language-shell">php composer.phar update
+</code></pre>
+<blockquote>
+<p><strong>補足：</strong> <code>composer.json</code>に依存関係解決に影響し得る変更が加えられた後に<code>composer.lock</code>が更新されていなければ、<code>install</code>コマンドを実行するときに、Composerが警告を表示します。</p>
+</blockquote>
+<p>1つの依存関係をインストール、更新、削除したいだけなら、引数として明示的に列挙できます。</p>
+<pre><code class="language-shell">php composer.phar update monolog/monolog [...]
+</code></pre>
+<h2 id="packagist"><a class="header" href="#packagist">Packagist</a></h2>
+<p><a href="https://packagist.org/">Packagist</a>は主眼のComposerリポジトリです。
+Composerリポジトリは基本的にはパッケージの源です。
+つまりパッケージを取ってくることができる場所のことです。
+Packagistは全ての人が利用できる中央リポジトリであることを目指しています。
+要はここで利用できるいかなるパッケージも自動的に<code>require</code>できるということです。
+Composerがパッケージを探す場所を追加で指定しなくて良いのです。</p>
+<p><a href="https://packagist.org/">packagistのWebサイト</a>では、パッケージを閲覧したり検索したりできます。</p>
+<p>Composerを使っているオープンソースプロジェクトはパッケージをPackagist上で公開するべきです。
+Composerを使う上で、ライブラリをPackagistに載せる必要はありません。
+しかし公開することで、他の開発者がより素早くパッケージを発見して取り入れられるようになります。</p>
+<h2 id="プラットフォームパッケージ"><a class="header" href="#プラットフォームパッケージ">プラットフォームパッケージ</a></h2>
+<p>Composerにはプラットフォームパッケージがあります。
+システムにインストールされる仮想的なパッケージで、実際にはComposerではインストールされないものを指します。
+PHP自身やPHP拡張、システムライブライリが含まれます。</p>
+<ul>
+<li>
+<p><code>php</code>は利用者のPHPバージョンを表しており、<code>^7.1</code>のような制約を適用できます。
+PHPの64bitバージョンを要求するには、<code>php-64bit</code>パッケージを指定できます。</p>
+</li>
+<li>
+<p><code>hhvm</code>はHHVMランタイムのバージョンを表しており、<code>^2.3</code>のように制約を適用できます。</p>
+</li>
+<li>
+<p><code>ext-&lt;name&gt;</code>とすることでPHPの拡張を要件にできます（中核拡張を含みます）。
+バージョニングはかなり一貫性がないことがあるので、大体の場合は制約に<code>*</code>を設定するのと良いです。
+拡張パッケージ名の例は<code>ext-gd</code>です。</p>
+</li>
+<li>
+<p><code>lib-&lt;name&gt;</code>はPHPで使われるライブラリのバージョンを制約します。
+次のものが利用できます：<code>curl</code>, <code>iconv</code>, <code>icu</code>, <code>libxml</code>, <code>openssl</code>, <code>pcre</code>, <code>uuid</code>,
+<code>xsl</code>。</p>
+</li>
+</ul>
+<p><a href="03-cli.html#show"><code>show --platform</code></a>を使うと、ローカルで利用できるプラットフォームパッケージの一覧が得られます。</p>
+<h2 id="自動読み込み"><a class="header" href="#自動読み込み">自動読み込み</a></h2>
+<p>自動読み込み情報を指定するライブラリ用に、Composerは<code>vendor/autoload.php</code>ファイルを生成します。
+単にこのファイルを含めれば、他に手間を掛けずにそれらのライブラリが提供するクラスを使い始められます。</p>
+<pre><code class="language-php">require __DIR__ . '/vendor/autoload.php';
+
+$log = new Monolog\Logger('name');
+$log-&gt;pushHandler(new Monolog\Handler\StreamHandler('app.log', Monolog\Logger::WARNING));
+$log-&gt;warning('Foo');
+</code></pre>
+<p><code>composer.json</code>に<a href="04-schema.html#autoload"><code>autoload</code></a>フィールドを追加すれば、自分のコードについても自動読み込み器に追加できます。</p>
+<pre><code class="language-json">{
+    "autoload": {
+        "psr-4": {"Acme\\": "src/"}
+    }
+}
+</code></pre>
+<p>ここではComposerが<a href="https://www.php-fig.org/psr/psr-4/">PSR-4</a>自動読み込み器を<code>Acme</code>名前空間に登録しています。</p>
+<p>名前空間からディレクトリへの対応付けが定義されます。
+<code>src</code>ディレクトリはプロジェクトの根幹にあり、同じ階層に<code>vendor</code>もあるとしましょう。
+ファイル名の例としては<code>Acme\Foo</code>クラスを含む<code>src/Foo.php</code>があります。</p>
+<p><a href="04-schema.html#autoload"><code>autoload</code></a>フィールドを追加した後は、このコマンドを再び走らせなくてはなりません。</p>
+<pre><code class="language-shell">php composer.phar dump-autoload
+</code></pre>
+<p>このコマンドは<code>vendor/autoload.php</code>ファイルを再生成します。
+詳細は<a href="03-cli.html#dump-autoload-dumpautoload-"><code>dump-autoload</code></a>節を参照してください。</p>
+<p>自動読み込みファイルを含めるとautoloaderインスタンスを返します。
+そのためインクルード呼び出しの返り値を変数に保持し、更に名前空間を追加できます。
+テストスイート内での自動読み込みクラスに便利です。
+例えば以下です。</p>
+<pre><code class="language-php">$loader = require __DIR__ . '/vendor/autoload.php';
+$loader-&gt;addPsr4('Acme\\Test\\', __DIR__);
+</code></pre>
+<p>PSR-4自動読み込みに加えて、ComposerはPSR-0、クラスマップ、ファイル自動読み込みにも対応しています。
+詳細は<a href="04-schema.html#autoload"><code>autoload</code></a>リファレンスを参照してください。</p>
+<p><a href="articles/autoloader-optimization.html">autoloaderの最適化</a>についてのドキュメントも参照してください。</p>
+<blockquote>
+<p><strong>注意：</strong> Composerは自前の自動読み込み器を提供しています。
+もしそれを使いたくない場合は、単に<code>vendor/composer/autoload_*.php</code>ファイルを含められます。
+自前の自動読み込み器を設定できる連想配列を返します。</p>
+</blockquote>
+<p>← <a href="00-intro.html">導入</a>  |  <a href="02-libraries.html">ライブラリ</a> →</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../doc/00-intro.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../doc/02-libraries.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../doc/00-intro.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../doc/02-libraries.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

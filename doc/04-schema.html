@@ -1,0 +1,924 @@
+<!DOCTYPE HTML>
+<html lang="ja" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>composer.jsonのスキーマ - Composer</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Composer</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/gemmaro/composer" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="composerjsonのスキーマ"><a class="header" href="#composerjsonのスキーマ">composer.jsonのスキーマ</a></h1>
+<p>この章では<code>composer.json</code>で利用できる全てのフィールドについて説明します。</p>
+<h2 id="jsonスキーマ"><a class="header" href="#jsonスキーマ">JSONスキーマ</a></h2>
+<p>形式をドキュメント化する<a href="https://json-schema.org">JSON
+schema</a>があり、<code>composer.json</code>を検証するのにも使えます。実際、<code>validate</code>コマンドによって使われています。
+https://getcomposer.org/schema.json から取得できます。</p>
+<h2 id="根幹パッケージ"><a class="header" href="#根幹パッケージ">根幹パッケージ</a></h2>
+<p>根幹パッケージとは、<code>composer.json</code>でプロジェクトの根幹に定義されたパッケージのことです。
+プロジェクトの要件を定義しているのが主眼の<code>composer.json</code>なのです。</p>
+<p>フィールドの中には根幹パッケージの文脈でのみ適用されるものがあります。
+この一例は<code>config</code>フィールドです。
+根幹パッケージのみが設定を定義できます。
+依存関係の設定は無視されます。
+このようにして<code>config</code>フィールドは<code>root-only</code>になるのです。</p>
+<blockquote>
+<p><strong>補足：</strong>
+パッケージは文脈によって根幹パッケージになったりならなかったりします。
+例えばプロジェクトが<code>monolog</code>ライブラリに依存している場合、そのプロジェクトは根幹パッケージです。
+しかしもし不具合修正のためにGitHubから<code>monolog</code>をクローンしてきたとすれば、<code>monolog</code>が根幹パッケージになります。</p>
+</blockquote>
+<h2 id="プロパティ"><a class="header" href="#プロパティ">プロパティ</a></h2>
+<h3 id="name"><a class="header" href="#name">name</a></h3>
+<p>パッケージ名です。ベンダー名とプロジェクト名から構成され、<code>/</code>で区切られます。例えば：</p>
+<ul>
+<li>monolog/monolog</li>
+<li>igorw/event-source</li>
+</ul>
+<p>名前は小文字で、単語は<code>-</code>や<code>.</code>や<code>_</code>で区切られていなくてはなりません。
+名前全体は<code>^[a-z0-9]([_.-]?[a-z0-9]+)*/[a-z0-9](([_.]|-{1,2})?[a-z0-9]+)*$</code>に照合します。</p>
+<p><code>name</code>プロパティは公開されるパッケージ（ライブラリ）には必須です。</p>
+<blockquote>
+<p><strong>補足：</strong> Composerのバージョン2.0より前は、名前には空白込みでどんな文字も含められました。</p>
+</blockquote>
+<h3 id="description"><a class="header" href="#description">description</a></h3>
+<p>パッケージの短い説明です。
+大抵1行分の長さです。</p>
+<p>公開されるパッケージ（ライブラリ）には必須です。</p>
+<h3 id="version"><a class="header" href="#version">version</a></h3>
+<p>パッケージのバージョンです。
+殆どの場合は必須でなく、省略すべきです（後述）。</p>
+<p><code>X.Y.Z</code>や<code>vX.Y.Z</code>の形式に従っていなければなりません。
+オプションで<code>-dev</code>、<code>-patch</code> (<code>-p</code>)、<code>-alpha</code> (<code>-a</code>)、<code>-beta</code>
+(<code>-b</code>)、<code>-RC</code>を接尾辞に付けても構いません。
+また、patch、alpha、beta、RCの接尾辞には数字を続けても大丈夫です。</p>
+<p>例：</p>
+<ul>
+<li>1.0.0</li>
+<li>1.0.2</li>
+<li>1.1.0</li>
+<li>0.2.5</li>
+<li>1.0.0-dev</li>
+<li>1.0.0-alpha3</li>
+<li>1.0.0-beta2</li>
+<li>1.0.0-RC5</li>
+<li>v2.0.4-p1</li>
+</ul>
+<p>パッケージのリポジトリのどこかしらからバージョンが推測できるのであれば、このプロパティはオプションです。
+例えばVCSリポジトリのVCSのタグ名などです。
+その場合は省略することが推奨されます。</p>
+<blockquote>
+<p><strong>補足：</strong> PackagistはVCSリポジトリを使うため、上の記載はPackagistにも全く同じことが言えます。
+自分でバージョンを指定すると、ほぼ確実にいつか手作業による誤りにより問題が生じることでしょう。</p>
+</blockquote>
+<h3 id="type"><a class="header" href="#type">type</a></h3>
+<p>パッケージの種別です。既定は<code>library</code>です。</p>
+<p>パッケージの種別は独自のインストールの仕組みに使われます。
+何らかの特別な仕組みが必要なパッケージがあるとき、<code>symfony-bundle</code>、<code>wordpress-plugin</code>、<code>typo3-cms-extension</code>といった独自の種別を定義できます。
+これらの種別は全て特定のプロジェクトに特有のものであって、その種別のパッケージのインストールができるようなインストーラを提供する必要があります。</p>
+<p>その中でも特にComposerは4つの種別に対応しています。</p>
+<ul>
+<li><strong>library:</strong>
+既定です。
+ファイルを<code>vendor</code>に複製します。</li>
+<li><strong>project:</strong>
+ライブラリではなくプロジェクトであることを示します。
+例えば<a href="https://github.com/symfony/symfony-standard">標準版Symfony</a>のようなアプリケーションのシェル、<a href="https://github.com/silverstripe/silverstripe-installer">Silverstripeインストーラ</a>のようなCMS、あるいはパッケージとして配布される完全なアプリケーションがこれにあたります。
+例として、IDEから新しいワークスペースを作る際に、初期化するプロジェクトの一覧を提供するのに使えます。</li>
+<li><strong>metapackage:</strong>
+要件を含む空のパッケージでありインストールの条件になりますが、ファイルを含んでおらずファイルシステムに何も書き込まないものです。
+そうしたわけで、インストールできるdistやsourceキーを必要としません。</li>
+<li><strong>composer-plugin:</strong>
+種別<code>composer-plugin</code>のパッケージは独自の種別を持つ他のパッケージのインストーラを提供することがあります。
+詳細は<a href="articles/custom-installers.html">専門記事</a>を参照してください。</li>
+<li><strong>php-ext</strong>と<strong>php-ext-zend</strong>：
+これらの名前はCで書かれたPHPの拡張パッケージ用に予約されています。
+これらの種別はPHPで書かれたパッケージ用に使わないでください。</li>
+</ul>
+<p>インストール時に独自の仕組みが必要な場合にのみ独自の種別を使ってください。
+このフィールドを省略し、既定の<code>library</code>にするのがお勧めです。</p>
+<h3 id="keywords"><a class="header" href="#keywords">keywords</a></h3>
+<p>パッケージに関係するキーワードの配列です。検索と絞り込みに使えます。</p>
+<p>例：</p>
+<ul>
+<li>logging</li>
+<li>events</li>
+<li>database</li>
+<li>redis</li>
+<li>templating</li>
+</ul>
+<blockquote>
+<p><strong>補足</strong>：<code>--dev</code>オプション無しで<code>composer require</code>するようにし、パッケージを<code>require</code>ではなく<code>require-dev</code>に追加しても良いか利用者にプロンプトを出す特別なキーワードがあります。
+<code>dev</code>、<code>testing</code>、<code>static analysis</code>がそれです。</p>
+</blockquote>
+<blockquote>
+<p><strong>補足</strong>：文字列内で許される文字の範囲には、ユニコードの英数字、空白<code>" "</code>、ドット<code>.</code>、下線<code>_</code>、ダッシュ<code>-</code>（正規表現：<code>'{^[\p{N}\p{L} ._-]+$}u'</code>）の制限があります。
+その他の文字を使うと、<code>composer validate</code>を走らせるときに警告が出ます。
+またパッケージのPackagist.orgへの更新が失敗する原因となります。</p>
+</blockquote>
+<p>省略可能です。</p>
+<h3 id="homepage"><a class="header" href="#homepage">homepage</a></h3>
+<p>プロジェクトのwebサイトへのURLです。</p>
+<p>省略可能です。</p>
+<h3 id="readme"><a class="header" href="#readme">readme</a></h3>
+<p>readmeドキュメントへの相対パスです。
+既定では<code>README.md</code>です。</p>
+<p>主にパッケージがGitHubにないときに有用です。
+GitHubのパッケージの場合、Packagist.orgではGitHub側で検出されたものを取得するreadme APIを使うからです。</p>
+<p>省略可能です。</p>
+<h3 id="time"><a class="header" href="#time">time</a></h3>
+<p>当該バージョンのリリース日です。</p>
+<p><code>YYYY-MM-DD</code>または<code>YYYY-MM-DD HH:MM:SS</code>の形式で、UTCタイムゾーンでなければなりません。</p>
+<p>省略可能です。</p>
+<h3 id="license"><a class="header" href="#license">license</a></h3>
+<p>パッケージの利用許諾です。
+文字列または文字列の配列にできます。</p>
+<p>最頻出の利用許諾についての推奨される記法は以下の通り（辞書順）。</p>
+<ul>
+<li>Apache-2.0</li>
+<li>BSD-2-Clause</li>
+<li>BSD-3-Clause</li>
+<li>BSD-4-Clause</li>
+<li>GPL-2.0-only / GPL-2.0-or-later</li>
+<li>GPL-3.0-only / GPL-3.0-or-later</li>
+<li>LGPL-2.1-only / LGPL-2.1-or-later</li>
+<li>LGPL-3.0-only / LGPL-3.0-or-later</li>
+<li>MIT</li>
+</ul>
+<p>オプションにはなりますが、このプロパティを付けることは強く推奨されます。他の識別子は<a href="https://spdx.org/licenses/">SPDX Open Source License
+Registry</a>に一覧になっています。</p>
+<blockquote>
+<p><strong>Note:</strong>
+ソースが閉鎖的なソフトウェアについては、利用許諾の識別子として <code>"proprietary"</code> を使うことができます。</p>
+</blockquote>
+<p>一例：</p>
+<pre><code class="language-json">{
+    "license": "MIT"
+}
+</code></pre>
+<p>あるパッケージについて、複数の利用許諾から選択できる場合（「離接的利用許諾」）、複数のものを配列として指定できます。</p>
+<p>離接的利用許諾の例です。</p>
+<pre><code class="language-json">{
+    "license": [
+        "LGPL-2.1-only",
+        "GPL-3.0-or-later"
+    ]
+}
+</code></pre>
+<p>代わりに「or」で区切って括弧で囲むこともできます。</p>
+<pre><code class="language-json">{
+    "license": "(LGPL-2.1-only or GPL-3.0-or-later)"
+}
+</code></pre>
+<p>これに似ていますが、複数の利用許諾が適用される必要があるときは（「結合的利用許諾」）、「and」で区切って（）で囲むことになります。</p>
+<h3 id="authors"><a class="header" href="#authors">authors</a></h3>
+<p>パッケージの作者です。
+オブジェクトの配列です。</p>
+<p>それぞれの作者オブジェクトは以下のプロパティを持つことができます。</p>
+<ul>
+<li><strong>name:</strong> 作者名です。大抵は実名です。</li>
+<li><strong>email:</strong> 作者のEメールアドレスです。</li>
+<li><strong>homepage:</strong> 作者のwebサイトへのURLです。</li>
+<li><strong>role:</strong>
+プロジェクトに於ける作者の役割です（例：開発者や翻訳者）</li>
+</ul>
+<p>一例：</p>
+<pre><code class="language-json">{
+    "authors": [
+        {
+            "name": "Nils Adermann",
+            "email": "naderman@naderman.de",
+            "homepage": "https://www.naderman.de",
+            "role": "Developer"
+        },
+        {
+            "name": "Jordi Boggiano",
+            "email": "j.boggiano@seld.be",
+            "homepage": "https://seld.be",
+            "role": "Developer"
+        }
+    ]
+}
+</code></pre>
+<p>省略可能なプロパティですが、付けることを強く推奨します。</p>
+<h3 id="support"><a class="header" href="#support">support</a></h3>
+<p>プロジェクトについてのサポートを得るための様々な情報です。</p>
+<p>サポート情報には以下が含まれます。</p>
+<ul>
+<li><strong>email:</strong> サポート用Eメールアドレスです。</li>
+<li><strong>issues:</strong> 課題管理表へのURLです。</li>
+<li><strong>forum:</strong> フォーラムへのURLです。</li>
+<li><strong>wiki:</strong> wikiへのURLです。</li>
+<li><strong>irc:</strong> <a href="irc://server/channel">irc://server/channel</a>のような、サポート用IRCチャンネルです。</li>
+<li><strong>source:</strong> ソースを閲覧したりダウンロードしたりするURLです。</li>
+<li><strong>docs:</strong> ドキュメントへのURLです。</li>
+<li><strong>rss:</strong> RSSフィードへのURLです。</li>
+<li><strong>chat:</strong> チャットチャンネルへのURLです。</li>
+<li><strong>security:</strong> 脆弱性公表ポリシー (vulnerability disclosure policy; VDP) へのURLです。</li>
+</ul>
+<p>一例：</p>
+<pre><code class="language-json">{
+    "support": {
+        "email": "support@example.org",
+        "irc": "irc://irc.freenode.org/composer"
+    }
+}
+</code></pre>
+<p>省略可能です。</p>
+<h3 id="funding"><a class="header" href="#funding">funding</a></h3>
+<p>パッケージの作者が維持管理と新しい機能の開発を行えるよう、投資を提供するためのURLの一覧です。</p>
+<p>それぞれの項目は以下のものからなります。</p>
+<ul>
+<li><strong>type:</strong>
+投資の種別、または投資を行えるプラットフォームです。例えばpatreon、opencollective、tidelift、githubです。</li>
+<li><strong>url:</strong>
+詳細が記載されたwebサイトへのURLと、パッケージに投資する方法です。</li>
+</ul>
+<p>一例：</p>
+<pre><code class="language-json">{
+    "funding": [
+        {
+            "type": "patreon",
+            "url": "https://www.patreon.com/phpdoctrine"
+        },
+        {
+            "type": "tidelift",
+            "url": "https://tidelift.com/subscription/pkg/packagist-doctrine_doctrine-bundle"
+        },
+        {
+            "type": "other",
+            "url": "https://www.doctrine-project.org/sponsorship.html"
+        }
+    ]
+}
+</code></pre>
+<p>省略可能です。</p>
+<h3 id="パッケージのリンク"><a class="header" href="#パッケージのリンク">パッケージのリンク</a></h3>
+<p>以下の全ては、バージョン制約を介してパッケージ名とパッケージのバージョンを対応付けるオブジェクトを取ります。
+バージョンについての詳細は<a href="articles/versions.html">こちら</a>をお読みください。</p>
+<p>例：</p>
+<pre><code class="language-json">{
+    "require": {
+        "monolog/monolog": "1.0.*"
+    }
+}
+</code></pre>
+<p>全てのリンクは省略可能なフィールドです。</p>
+<p><code>require</code>と<code>require-dev</code>は追加で<em>安定性フラグ</em>（<a href="04-schema.html#root-package">根幹限定</a>）に対応しています。
+"<em>constraint</em>@<em>stability flag</em>" の形式を取っています。
+これらによりパッケージの安定性を、<a href="#minimum-stability">最小安定性</a>の範疇を超え、更に制限したり拡張したりできます。
+こうしたフラグは制約や空の<em>制約</em>に適用できます。
+後者は例えば依存関係に不安定なパッケージを許容したい場合などです。</p>
+<p>例：</p>
+<pre><code class="language-json">{
+    "require": {
+        "monolog/monolog": "1.0.*@beta",
+        "acme/foo": "@dev"
+    }
+}
+</code></pre>
+<p>依存関係のうち、不安定なパッケージに依存しているものがあれば、同様に明示的に必要安定性フラグと共に要件に加えなければなりません。</p>
+<p>例：</p>
+<p><code>doctrine/doctrine-fixtures-bundle</code>が<code>"doctrine/data-fixtures": "dev-master"</code>を要件としているとすると、根幹のcomposer.jsonの中で以下の2行目を加えて<code>doctrine/data-fixtures</code>パッケージの開発版リリースを許容する必要があります。</p>
+<pre><code class="language-json">{
+    "require": {
+        "doctrine/doctrine-fixtures-bundle": "dev-master",
+        "doctrine/data-fixtures": "@dev"
+    }
+}
+</code></pre>
+<p><code>require</code>と<code>require-dev</code>は追加で明示的な参照（つまりコミット）に対応しており、たとえ更新を走らせたとしても、開発版のバージョンが与えられた状態で確実に固定されているようにします。
+明示的に開発版を要件にして、参照に<code>#&lt;ref&gt;</code>を付けたときにのみ動作します。
+また<a href="04-schema.html#root-package">根幹限定</a>の機能であり、依存関係では無視されます。</p>
+<p>例：</p>
+<pre><code class="language-json">{
+    "require": {
+        "monolog/monolog": "dev-master#2eb0c0978d290a1c45346a1955188929cb4e5db7",
+        "acme/foo": "1.0.x-dev#abc123"
+    }
+}
+</code></pre>
+<blockquote>
+<p><strong>補足：</strong>
+この機能には厳しい技術的制約があり、composer.jsonのメタデータはハッシュの前に指定されたブランチ名から読み込んでしまいます。
+したがって、この機能は開発時に一時的に取る解決法とするべきです。
+一時的な問題を矯正するための、タグ付けされたリリースに切り替えるまでの対処法なのです。
+Composerチームはこの機能に活発に対応しておらずこれに関するバグ報告を受け付けません。</p>
+</blockquote>
+<p>パッケージ制約をインラインエイリアスすることも可能で、そうでなければ合致しない制約に合致させられます。詳細については<a href="articles/aliases.html">エイリアスの記事を参照してください</a>。</p>
+<p><code>require</code>と<code>require-dev</code>はまた、プロジェクトを正常に走らせるために必要な特定のPHPとPHPの拡張のバージョンとへの参照に対応しています。</p>
+<p>例：</p>
+<pre><code class="language-json">{
+    "require": {
+        "php": "&gt;=7.4",
+        "ext-mbstring": "*"
+    }
+}
+</code></pre>
+<blockquote>
+<p><strong>補足：</strong> プロジェクトが要件とするPHP拡張を一覧にすることは重要です。
+PHPのインストールが全て同じようになされるとは限りません。
+標準と考えている拡張が欠けているものもあるでしょう（例えば<code>ext-mysqli</code>は、Fedora/CentOSの最小インストールシステムでは既定ではインストールされません）。
+必要なPHPの要件を一覧にし損ねると、利用者体験が悪化することに繋がります。
+Composerはパッケージをインストールするときは失敗することなく、実行時に失敗するからです。
+<code>composer show --platform</code>コマンドはシステムで利用できる全てのPHP拡張を一覧にします。
+これを使えば、使用する拡張の一覧をコンパイルして要件に加える補助になるでしょう。
+代えてサードパーティーツールを使ってプロジェクトを解析し、使用されている拡張の一覧が得られるかもしれません。</p>
+</blockquote>
+<h4 id="require"><a class="header" href="#require">require</a></h4>
+<p>このパッケージが必要とするパッケージの対応付けです。
+これらの要件が満たされない限り、パッケージはインストールされません。</p>
+<h4 id="require-dev-根幹限定"><a class="header" href="#require-dev-根幹限定">require-dev <span>(<a href="04-schema.html#root-package">根幹限定</a>)</span></a></h4>
+<p>このパッケージを開発したり、テストを走らせたりなどするのに必要なパッケージへの対応付けです。
+根幹パッケージの開発要件は既定でインストールされます。
+<code>install</code>と<code>update</code>の両方とも<code>--no-dev</code>オプションに対応しており、開発依存関係がインストールされるのを阻止できます。</p>
+<h4 id="conflict"><a class="header" href="#conflict">conflict</a></h4>
+<p>このバージョンのパッケージと競合するパッケージへの対応付けです。
+それらのパッケージがこのパッケージと共にインストールされるのを許容しないようにします。</p>
+<p>なお、<code>conflict</code>リンクで<code>&lt;1.0 &gt;=1.1</code>のような範囲を指定する場合、1.0より小さく<em>且つ</em>同時に1.1かそれより新しい全てのバージョンと競合しているという意味になります。
+恐らくやりたいことではないでしょう。
+この場合は<code>&lt;1.0 || &gt;=1.1</code>としたいことでしょう。</p>
+<h4 id="replace"><a class="header" href="#replace">replace</a></h4>
+<p>このパッケージが置き換えるパッケージへの対応付けです。
+これによりパッケージをフォークし、独自のバージョン番号を持つ異なる名前で公開できます。
+また元のパッケージが置き換わっているため、元のパッケージを要件とするパッケージはフォークしたパッケージを使って動作し続けることになります。</p>
+<p>副パッケージを含むパッケージについても有用です。
+例えば主眼のsymfony/symfonyパッケージには個々のパッケージとしても使える全てのSymfony Componentが含まれています。
+主眼のパッケージを要件にすると、自動的に個々のコンポーネントのうち、どれか1つの要件が充足されます。
+主眼のパッケージがコンポーネントを置き換えるからです。</p>
+<p>上記で説明した副パッケージの目的で置き換えを使う際は忠告があります。
+その場合は通常、<code>self.version</code>をバージョン制約として使うことで置き換えるだけにしておくべきです。
+主眼のパッケージが厳密なバージョンの副パッケージのみを置き換えるようにするためです。
+他のバージョンになるとおかしなことになるでしょう。</p>
+<h4 id="provide"><a class="header" href="#provide">provide</a></h4>
+<p>このパッケージにより提供されるパッケージの対応付けです。
+これが最も役立つのは、共通化されたインターフェースの実装です。
+パッケージは仮想パッケージに依存できます。
+例としては<code>psr/log-implementation</code>で、このロガーインターフェースを実装する任意のライブラリは<code>provide</code>の一覧に加えます。
+実装しているパッケージは<a href="https://packagist.org/providers/psr/log-implementation">Packagist.orgで探せます</a>。</p>
+<p>仮想的なパッケージではなく、実際のパッケージの名前で<code>provide</code>を使うことは、そのパッケージのコードも世に出ているということを暗示します。
+その場合、一般的には<code>replace</code>がより良い選択です。
+インターフェースを提供して実装を提供する他のパッケージに任せる際（例えばPSRのインターフェース）のよくある慣習は、インターフェースパッケージに対応する仮想パッケージの名前に<code>-implementation</code>後置詞を使うことです。</p>
+<h4 id="suggest"><a class="header" href="#suggest">suggest</a></h4>
+<p>このパッケージを向上させたりいい感じに動かせたりするようなお勧めのパッケージです。
+これらは通知のようなもので、パッケージがインストールされた後に表示されます。
+利用者にもっとパッケージを加えてもらえるような手掛かりを与えるためのもので、厳密には必要でなかったとしても大丈夫です。</p>
+<p>形式は上述のパッケージリンクと同様ですが、値が自由な内容のテキストで、バージョン制約ではない点は異なります。</p>
+<p>例：</p>
+<pre><code class="language-json">{
+    "suggest": {
+        "monolog/monolog": "Allows more advanced logging of the application flow",
+        "ext-xml": "Needed to support XML format in class Foo"
+    }
+}
+</code></pre>
+<h3 id="autoload"><a class="header" href="#autoload">autoload</a></h3>
+<p>PHPの自動読み込み器用の自動読み込みの対応付けです。</p>
+<p><a href="https://www.php-fig.org/psr/psr-4/"><code>PSR-4</code></a>と<a href="http://www.php-fig.org/psr/psr-0/"><code>PSR-0</code></a>の自動読み込み、<code>classmap</code>生成、<code>files</code>による包含に対応しています。</p>
+<p>PSR-4はずっと簡単に使えるためお勧めの方法です（クラスを追加したときに自動読み込み器を再生成する必要がありません）。</p>
+<h4 id="psr-4"><a class="header" href="#psr-4">PSR-4</a></h4>
+<p><code>psr-4</code>キー配下では名前空間からパスへの対応付けを定義します。
+パスはパッケージの根幹から相対的なものです。
+<code>Foo\\Bar\\Baz</code>のようなクラスを自動読み込みする場合、ディレクトリ<code>src/</code>を指す名前空間の前部分<code>Foo\\</code>は、自動読み込み器が<code>src/Bar/Baz.php</code>という名前のファイルを探索し、もしあれば含めるという意味です。
+なお、比較的古いPSR-0の様式とは反対に、前部分 (<code>Foo\\</code>) はファイルパスに存在<strong>しません</strong>。</p>
+<p>名前空間の前置詞は、似た前置詞との競合を避けるため、<code>\\</code>で終わっていなければなりません。
+例えば<code>Foo</code>は<code>FooBar</code>名前空間のクラスに照合するので、後ろにバックスラッシュを付けると問題が解決します。
+<code>Foo\\</code>と<code>FooBar\\</code>は独立しています。</p>
+<p>PSR-4の参照は、installやupdateの際に、単一のキー=&gt;バリュー配列に全て結合されます。生成されるファイル<code>vendor/composer/autoload_psr4.php</code>で確認できます。</p>
+<p>例：</p>
+<pre><code class="language-json">{
+    "autoload": {
+        "psr-4": {
+            "Monolog\\": "src/",
+            "Vendor\\Namespace\\": ""
+        }
+    }
+}
+</code></pre>
+<p>複数のディレクトリで同じ前置詞を検索する必要がある場合は、以下のように配列として指定できます。</p>
+<pre><code class="language-json">{
+    "autoload": {
+        "psr-4": { "Monolog\\": ["src/", "lib/"] }
+    }
+}
+</code></pre>
+<p>任意の名前空間が探索されるようなフォールバックディレクトリを持たせたければ、次のように空の前置詞が使えます。</p>
+<pre><code class="language-json">{
+    "autoload": {
+        "psr-4": { "": "src/" }
+    }
+}
+</code></pre>
+<h4 id="psr-0"><a class="header" href="#psr-0">PSR-0</a></h4>
+<p><code>psr-0</code>キーの配下では名前空間からパスへの対応付けを定義します。
+このパスはパッケージの根幹から相対的です。
+なお、PEARの様式の名前空間が付いていない変換にも対応しています。</p>
+<p>注意していただきたいのは、自動読み込み器が厳密に応答するよう、名前空間の宣言が<code>\\</code>で終わるようにすべきということです。
+例えば<code>Foo</code>は<code>FooBar</code>に照合してしまうため、後ろにバックスラッシュを付けると問題が解決するでしょう。
+<code>Foo\\</code>と<code>FooBar\\</code>は独立しています。</p>
+<p>PSR-0の参照はinstallやupdateの際に全て単一のキー=&gt;配列値に束ねられます。
+生成されたファイル<code>vendor/composer/autoload_namespaces.php</code>で確認できます。</p>
+<p>例：</p>
+<pre><code class="language-json">{
+    "autoload": {
+        "psr-0": {
+            "Monolog\\": "src/",
+            "Vendor\\Namespace\\": "src/",
+            "Vendor_Namespace_": "src/"
+        }
+    }
+}
+</code></pre>
+<p>複数のディレクトリで同じ前置詞を検索する必要がある場合は、以下のように配列として指定できます。</p>
+<pre><code class="language-json">{
+    "autoload": {
+        "psr-0": { "Monolog\\": ["src/", "lib/"] }
+    }
+}
+</code></pre>
+<p>PSR-0の様式は名前空間の宣言のみに留まらず、クラス水準にまで指定できます。
+大域的な名前空間で、ただ1つのクラスを持つライブラリについては便利かもしれません。
+例えばphpのソースファイルがパッケージの根幹に位置している場合、このように宣言できます。</p>
+<pre><code class="language-json">{
+    "autoload": {
+        "psr-0": { "UniqueGlobalClass": "" }
+    }
+}
+</code></pre>
+<p>どの名前空間にもなれるフォールバックディレクトリを持たせたければ、次のような空の前置詞を使うことができます。</p>
+<pre><code class="language-json">{
+    "autoload": {
+        "psr-0": { "": "src/" }
+    }
+}
+</code></pre>
+<h4 id="クラスマップ"><a class="header" href="#クラスマップ">クラスマップ</a></h4>
+<p><code>classmap</code>参照はinstall/update中に単一のキー=&gt;バリュー配列に全て束ねられ、<code>vendor/composer/autoload_classmap.php</code>にファイルが生成されます。この対応付けは与えられたディレクトリやファイルにある全ての<code>.php</code>または<code>.inc</code>ファイル中のクラスを読み取ることによって構築されます。</p>
+<p>クラスマップ生成を使ってPSR-4に従わない全てのライブラリ用の自動読み込み器を定義できます。
+これを設定するには、クラスを検索する全てのディレクトリないしファイルを指定します。</p>
+<p>例：</p>
+<pre><code class="language-json">{
+    "autoload": {
+        "classmap": ["src/", "lib/", "Something.php"]
+    }
+}
+</code></pre>
+<p>クラスマップのパスではワイルドカード (<code>*</code>) にも対応しており、任意のディレクトリ名に照合するよう展開されます。</p>
+<p>例：</p>
+<pre><code class="language-json">{
+    "autoload": {
+        "classmap": ["src/addons/*/lib/", "3rd-party/*", "Something.php"]
+    }
+}
+</code></pre>
+<h4 id="ファイル"><a class="header" href="#ファイル">ファイル</a></h4>
+<p>必要に応じて特定のファイルを明示的にrequireしたい場合は、<code>files</code>自動読み込み機構を使うことができます。
+PHPによって自動読み込みできないPHPの関数を含むパッケージがあるときに便利です。</p>
+<p>例：</p>
+<pre><code class="language-json">{
+    "autoload": {
+        "files": ["src/MyLibrary/functions.php"]
+    }
+}
+</code></pre>
+<p>filesの自動読み込みの規則は<code>vendor/autoload.php</code>が含まれたときは常に取り込まれ、ちょうど自動読み込み器が登録された後になります。
+取り込み順序はパッケージの依存関係によります。
+そのためパッケージAがBに依存している場合、パッケージBにあるファイルが最初に取り込まれます。
+パッケージAのファイルが取り込まれた時点でパッケージBが完全に取り込まれて準備ができているようにするためです。</p>
+<p>2つのパッケージが同量の依存関係を持つ、あるいは依存関係がない場合、順番は辞書順になります。</p>
+<p>根幹パッケージのfilesは常に最後に読み込まれるため、filesを使って依存関係由来の関数を上書きするために自身を自動読み込みさせることはできません。
+そうしたい場合はComposerの<code>vendor/autoload.php</code>を取り込む<em>前に</em>独自の関数を取り込むことをお勧めします。</p>
+<h4 id="クラスマップからファイルを除外する"><a class="header" href="#クラスマップからファイルを除外する">クラスマップからファイルを除外する</a></h4>
+<p>クラスマップから何らかのファイルやディレクトリを除外したければ<code>exclude-from-classmap</code>プロパティを使うことができます。
+例えば、実環境でテストクラスを除外するのに便利かもしれません。
+最適化された自動読み込み器を構築しているときでも、クラスマップから読み飛ばされるからです。</p>
+<p>クラスマップ生成器はここで設定されたパスにある全てのファイルを無視します。
+パスはパッケージの根幹ディレクトリからの絶対位置にあり、スラッシュ以外の全てに照合する<code>*</code>と任意のものに照合する<code>**</code>に対応しています。
+<code>**</code>はパスの末尾に暗黙に追加されます。</p>
+<p>例：</p>
+<pre><code class="language-json">{
+    "autoload": {
+        "exclude-from-classmap": ["/Tests/", "/test/", "/tests/"]
+    }
+}
+</code></pre>
+<h4 id="自動読み込み器を最適化する"><a class="header" href="#自動読み込み器を最適化する">自動読み込み器を最適化する</a></h4>
+<p>自動読み込み器がリクエスト時間にかなり無視できない影響があることがあります（沢山のクラスを使う大きなフレームワークではリクエストあたり50-100msです）。
+この影響を低減する方法についての詳細は<a href="articles/autoloader-optimization.html">自動読み込み器の最適化についての記事</a>を参照してください。</p>
+<h3 id="autoload-dev-根幹限定"><a class="header" href="#autoload-dev-根幹限定">autoload-dev <span>（<a href="04-schema.html#root-package">根幹限定</a>）</span></a></h3>
+<p>この節では開発目的の自動読み込み規則を定義できます。</p>
+<p>テストスートを走らせるのに必要なクラスは、主眼のの自動読み込み規則に含めるべきではありません。
+実運用や他の人がパッケージを依存関係として使う際に、自動読み込み器を汚染するのを避けるためです。</p>
+<p>したがって単体試験専用のパスを用意してautoload-dev節内に追加するのは良いことです。</p>
+<p>例：</p>
+<pre><code class="language-json">{
+    "autoload": {
+        "psr-4": { "MyLibrary\\": "src/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "MyLibrary\\Tests\\": "tests/" }
+    }
+}
+</code></pre>
+<h3 id="include-path"><a class="header" href="#include-path">include-path</a></h3>
+<blockquote>
+<p><strong>時代遅れ</strong> ：
+古びたプロジェクトに対応するためだけに存在し、全ての新しいコードでは自動読み込み器の方を使うべきです。
+そうしたわけで時代遅れなものですが、機能自体はComposerから消えることはきっとないでしょう。</p>
+</blockquote>
+<p>PHPの<code>include_path</code>に後付けされるパスのリストです。</p>
+<p>例：</p>
+<pre><code class="language-json">{
+    "include-path": ["lib/"]
+}
+</code></pre>
+<p>省略可能です。</p>
+<h3 id="target-dir"><a class="header" href="#target-dir">target-dir</a></h3>
+<blockquote>
+<p><strong>時代遅れ</strong> ：
+古びたPSR-0様式の自動読み込みに対応するためだけに存在しており、全ての新しいコードはtarget-dir無しのPSR-4を使うべきです。
+PHPの名前空間と共にPSR-0を使っているプロジェクトは代わりにPSR-4への移行が推奨されます。</p>
+</blockquote>
+<p>インストール対象を定義します。</p>
+<p>パッケージの根幹が名前空間宣言の元にある場合は適切に自動読み込みできません。
+<code>target-dir</code>はこの問題を解決します。</p>
+<p>一例はSymfonyです。これにはコンポーネント毎に独立のパッケージがあります。
+Yamlコンポーネントは<code>Symfony\Component\Yaml</code>以下にあります。
+パッケージの根幹はその<code>Yaml</code>ディレクトリです。
+自動読み込みできるようにするには、必ず<code>vendor/symfony/yaml</code>ではなく<code>vendor/symfony/yaml/Symfony/Component/Yaml</code>にインストールされるようにしなければいけません。
+自動読み込み器が<code>vendor/symfony/yaml</code>から読み込めるようにするためです。</p>
+<p>そうするために、<code>autoload</code>と<code>target-dir</code>は以下のように定義されています。</p>
+<pre><code class="language-json">{
+    "autoload": {
+        "psr-0": { "Symfony\\Component\\Yaml\\": "" }
+    },
+    "target-dir": "Symfony/Component/Yaml"
+}
+</code></pre>
+<p>省略可能です。</p>
+<h3 id="minimum-stability-根幹限定"><a class="header" href="#minimum-stability-根幹限定">minimum-stability <span>(<a href="04-schema.html#root-package">根幹限定</a>)</span></a></h3>
+<p>安定性によってパッケージの絞り込みをする既定の挙動を定義します。
+この既定は<code>stable</code>になっているので、<code>dev</code>のパッケージに依っている場合は、驚くようなことになるのを避けるためにファイルを指定しておくべきです。</p>
+<p>各パッケージの全バージョンについて安定性が検査され、<code>minimum-stability</code>設定より安定していないものは、プロジェクトの依存関係の解決の際に無視されます（なお、<code>require</code>ブロック中で指定するバージョン制約中の安定性フラグを使って、パッケージ毎に安定性の要件を指定することもできます（詳細は<a href="#package-links">パッケージリンク</a>を参照））。</p>
+<p>使えるオプションは（安定性の順番で）<code>dev</code>、<code>alpha</code>、<code>beta</code>、<code>RC</code>、<code>stable</code>です。</p>
+<h3 id="prefer-stable-根幹限定"><a class="header" href="#prefer-stable-根幹限定">prefer-stable <span>（<a href="04-schema.html#root-package">根幹限定</a>）</span></a></h3>
+<p>これが有効になっているとき、互換性のある安定的なパッケージが使える場合に、不安定なものより安定なパッケージを贔屓します。
+開発版が必要だったりパッケージでアルファ版しか使えなかったりする場合については、minimum-stabilityが許容するかどうかが考慮された上で選択されます。</p>
+<p>有効にするには<code>"prefer-stable": true</code>を使ってください。</p>
+<h3 id="repositories-根幹限定"><a class="header" href="#repositories-根幹限定">repositories <span>（<a href="04-schema.html#root-package">根幹限定</a>）</span></a></h3>
+<p>独自に使用するパッケージリポジトリです。</p>
+<p>既定ではComposerはpackagistリポジトリのみを使います。
+リポジトリを指定することによって、パッケージをどこからでも取得できます。</p>
+<p>リポジトリは再帰的に解決されません。
+主眼の<code>composer.json</code>に加えることができるだけです。
+依存関係のリポジトリの<code>composer.json</code>にある宣言は無視されます。</p>
+<p>以下のリポジトリの種別に対応しています。</p>
+<ul>
+<li><strong>composer:</strong>
+Composerリポジトリはネットワーク（HTTP、FTP、SSH）越しに提供されている<code>packages.json</code>であり、追加の<code>dist</code>ないし<code>source</code>の情報付きの<code>composer.json</code>のリストを含みます。
+<code>packages.json</code>ファイルはPHPのストリームを使って読み込まれます。
+<code>options</code>パラメータを使ってストリームについての追加のオプションを設定できます。</li>
+<li><strong>vcs:</strong> パッケージをgit、svn、fossil、hgのリポジトリから取得できるバージョン管理システムリポジトリです。</li>
+<li><strong>package:</strong>
+何らのComposer対応がされていないプロジェクトに依存する場合、<code>package</code>リポジトリを使ってパッケージの定義を書き下すことができます。基本的に<code>composer.json</code>オブジェクトを書き下します。</li>
+</ul>
+<p>これらについての詳細な情報については<a href="05-repositories.html">リポジトリ</a>を参照してください。</p>
+<p>例：</p>
+<pre><code class="language-json">{
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "http://packages.example.com"
+        },
+        {
+            "type": "composer",
+            "url": "https://packages.example.com",
+            "options": {
+                "ssl": {
+                    "verify_peer": "true"
+                }
+            }
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/Seldaek/monolog"
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "smarty/smarty",
+                "version": "3.1.7",
+                "dist": {
+                    "url": "https://www.smarty.net/files/Smarty-3.1.7.zip",
+                    "type": "zip"
+                },
+                "source": {
+                    "url": "https://smarty-php.googlecode.com/svn/",
+                    "type": "svn",
+                    "reference": "tags/Smarty_3_1_7/distribution/"
+                }
+            }
+        }
+    ]
+}
+</code></pre>
+<blockquote>
+<p><strong>補足：</strong> ここでは順番に意味があります。
+パッケージを探すとき、Composerは最初から最後までリポジトリを探し、最初に照合したものを拾います。
+既定ではPackagistが最後に加えられており、つまり独自のリポジトリがPackagistのパッケージより優先されるのです。</p>
+</blockquote>
+<p>JSONオブジェクト記法を使うこともできます。
+しかしJSONのキーバリュー対は順序なしとして見做されるため、一貫した挙動は保証されません。</p>
+<pre><code class="language-json">{
+    "repositories": {
+        "foo": {
+            "type": "composer",
+            "url": "http://packages.foo.com"
+        }
+    }
+}
+</code></pre>
+<h3 id="config-根幹限定"><a class="header" href="#config-根幹限定">config <span>（<a href="04-schema.html#root-package">根幹限定</a>）</span></a></h3>
+<p>設定オプションの集合です。プロジェクト限定で使われます。それぞれのオプションについての説明については<a href="06-config.html">設定</a>を参照してください。</p>
+<h3 id="scripts-根幹限定"><a class="header" href="#scripts-根幹限定">scripts <span>（<a href="04-schema.html#root-package">根幹限定</a>）</span></a></h3>
+<p>Composerではスクリプトの使用を通じてインストールの過程の様々な部分でフックを掛けることができます。</p>
+<p>イベントについての詳細と例については<a href="articles/scripts.html">スクリプト</a>を参照してください。</p>
+<h3 id="extra"><a class="header" href="#extra">extra</a></h3>
+<p><code>scripts</code>によって消費される任意の追加データです。</p>
+<p>理論上何でも構いません。
+スクリプトのイベント制御子中でアクセスするには以下のようにします。</p>
+<pre><code class="language-php">$extra = $event-&gt;getComposer()-&gt;getPackage()-&gt;getExtra();
+</code></pre>
+<p>省略可能です。</p>
+<h3 id="bin"><a class="header" href="#bin">bin</a></h3>
+<p>バイナリとして扱われるべきファイルの集合で、（設定の）<code>bin-dir</code>で使えるようにします。</p>
+<p>詳細は<a href="articles/vendor-binaries.html">ベンダーバイナリ</a>を参照してください。</p>
+<p>省略可能です。</p>
+<h3 id="archive"><a class="header" href="#archive">archive</a></h3>
+<p>パッケージアーカイブをつくるためのオプションの集合です。</p>
+<p>以下のオプションに対応しています。</p>
+<ul>
+<li><strong>name:</strong>
+アーカイブの基底名を設定できます。既定（設定されていない場合で、かつコマンドライン引数として<code>--file</code>が渡されていない場合）では<code>preg_replace('#[^a-z0-9-_]#i', '-', name)</code>が使われます。</li>
+</ul>
+<p>例：</p>
+<pre><code class="language-json">{
+    "name": "org/strangeName",
+    "archive": {
+        "name": "Strange_name"
+    }
+}
+</code></pre>
+<ul>
+<li><strong>exclude:</strong> 除外されるパス用のパターンのリストを設定できます。
+パターンの構文は.gitignoreファイルのものと同一です。
+先頭のびっくりマーク (!) はそれ以前のパターンが除外していたとしても照合したファイルを含めることになります。
+先頭のスラッシュはプロジェクトの相対パスの開始部分にのみ照合します。
+アスタリスクはディレクトリの区切りに展開されません。</li>
+</ul>
+<p>例：</p>
+<pre><code class="language-json">{
+    "archive": {
+        "exclude": ["/foo/bar", "baz", "/*.test", "!/foo/bar/baz"]
+    }
+}
+</code></pre>
+<p>例では<code>/dir/foo/bar/file</code>、<code>/foo/bar/baz</code>、<code>/file.php</code>、<code>/foo/my.test</code>を含みますが、<code>/foo/bar/any</code>、<code>/foo/baz</code>、<code>/my.test</code>は除外します。</p>
+<p>省略可能です。</p>
+<h3 id="abandoned"><a class="header" href="#abandoned">abandoned</a></h3>
+<p>このパッケージが放棄されたものかどうかを示します。</p>
+<p>真偽値または推奨される代替を指すパッケージ名やURLです。</p>
+<p>例：</p>
+<p><code>"abandoned": true</code>を使うと、このパッケージが放棄されたことを示します。
+<code>"abandoned": "monolog/monolog"</code>を使うと、このパッケージが放棄され、推奨される代替が<code>monolog/monolog</code>であることが示されます。</p>
+<p>既定では偽です。</p>
+<p>省略可能です。</p>
+<h3 id="_comment"><a class="header" href="#_comment">_comment</a></h3>
+<p>コメントを入れておく場所として使える最上位のキーです（文字列または文字列の配列にできます）。</p>
+<pre><code class="language-json">{
+    "_comment": [
+        "パッケージfoo/barはビジネスロジックに必要でした",
+        "foo/barを削除するときはfoo/bazパッケージを削除してください"
+    ]
+}
+</code></pre>
+<p>既定では空です。</p>
+<p>省略可能です。</p>
+<h3 id="non-feature-branches"><a class="header" href="#non-feature-branches">non-feature-branches</a></h3>
+<p>数値でないブランチ名の正規表現パターン（例：「latest」など）のリストです。
+機能用ブランチを決して扱いません。
+文字列の配列です。</p>
+<p>数値でないブランチ名がある場合、例えば「latest」「current」「latest-stable」などについては、バージョン番号には見えないので、Composerはそうしたブランチを機能用ブランチとして制御します。
+つまりバージョンや特別なブランチ（masterなど）で終わっているような親ブランチを探し、根幹パッケージのバージョン数が親ブランチのバージョンまたは少なくともmasterなどになるということです。</p>
+<p>数値でない名前のブランチを、妥当なバージョンやmasterのような特別なブランチ名の親ブランチを探す代わりに、バージョンとして扱うようにするには、開発版ブランチとして制御されるべきブランチ名のパターンを設定できます。</p>
+<p>「self.version」を使う依存関係があるときは本当に便利です。
+このときdev-masterでなくとも同じブランチがインストールされます（例：latest-testing）。</p>
+<p>一例：</p>
+<p>テストブランチがある場合で、そのブランチがテストフェーズで手厚く維持管理され、ステージング環境にデプロイされるのであれば、通常<code>composer show -s</code>とすると<code>versions : * dev-master</code>になります。</p>
+<p>機能用ブランチではないもの用に<code>latest-.*</code>をパターンとして設定する場合はこのようにします。</p>
+<pre><code class="language-json">{
+    "non-feature-branches": ["latest-.*"]
+}
+</code></pre>
+<p>それから<code>composer show -s</code>とすると<code>versions : * dev-latest-testing</code>になります。</p>
+<p>省略可能です。</p>
+<p>← <a href="03-cli.html">コマンドラインインターフェース</a>  | <a href="05-repositories.html">リポジトリ</a> →</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../doc/03-cli.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../doc/05-repositories.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../doc/03-cli.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../doc/05-repositories.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
