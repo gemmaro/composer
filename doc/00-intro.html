@@ -1,0 +1,331 @@
+<!DOCTYPE HTML>
+<html lang="ja" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>導入 - Composer</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Composer</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/gemmaro/composer" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="導入"><a class="header" href="#導入">導入</a></h1>
+<p>ComposerはPHPの依存管理ツールです。
+Composerはプロジェクトが依存するライブラリを宣言し管理（インストールやアップデート）できるようにするものです。</p>
+<h2 id="依存管理"><a class="header" href="#依存管理">依存管理</a></h2>
+<p>ComposerはYumやAptの伝で言うとパッケージ管理ツールでは<strong>ありません</strong>。
+「パッケージ」やライブラリを扱いはしますが、プロジェクト毎の管理であって、プロジェクトの内部のディレクトリ（例：<code>vendor</code>）にインストールするのです。
+既定では決して大域的にインストールしません。
+したがって、依存管理なわけです。
+とはいえ便宜上<a href="03-cli.html#global">global</a>コマンドを介して「大域的な」プロジェクトに対応してはいます。</p>
+<p>このアイデアは新しいものではありません。
+Composerはnodeの<a href="https://www.npmjs.org/">npm</a>やrubyの<a href="https://bundler.io/">bundler</a>に強く影響を受けています。</p>
+<p>想像してみてください。</p>
+<ol>
+<li>大量のライブラリに依存したプロジェクトがある。</li>
+<li>別のライブラリに依存するライブラリがある。</li>
+</ol>
+<p>Composerでは次のことができます。</p>
+<ol>
+<li>依存するライブラリを宣言できる。</li>
+<li>どのパッケージのどのバージョンをインストールする必要があるのかを調べて、インストールする（つまりプロジェクト内にパッケージをダウンロードします）。</li>
+<li>1つのコマンドで全ての依存関係を更新できます。</li>
+</ol>
+<p>依存関係の宣言についての詳細は<a href="01-basic-usage.html">基本的な使い方</a>の章を参照してください。</p>
+<h2 id="システム要件"><a class="header" href="#システム要件">システム要件</a></h2>
+<p>最新のComposerが動作するためにはPHP 7.2.5が必要です。
+歴史的なPHPのバージョンで止まっている場合は長期サポート版 (2.2.x) がまだPHP 5.3.2以上に対応しています。
+また、いくつかの細かいPHPの設定とコンパイルフラグも必要ですが、要件が合っていない箇所については、インストーラが警告を出すでしょう。</p>
+<p>Composerが効率的に動作するには、幾つかの補助的なアプリケーションが必要です。
+これらはパッケージの依存関係を扱う処理をより効率的にするものです。
+ファイルを解凍するために、Composerは<code>7z</code>（或いは<code>7zz</code>）、<code>gzip</code>、<code>tar</code>、<code>unrar</code>、<code>unzip</code>、<code>xz</code>のようなツールに依っています。
+バージョン管理システムについては、ComposerはFossil、Git、Mercurial、Perforce、Subversionと間断なく協調し、これにより円滑なアプリケーションの操作とライブラリのリポジトリの管理を確実にします。
+Composerを使う前にこれらの依存関係が正しくシステムにインストールされていることをご確認ください。</p>
+<p>Composerはマルチプラットフォームであり、Windows、Linux、macOSのそれぞれで同じように動作するよう努めています。</p>
+<h2 id="linux--unix--macosへのインストール"><a class="header" href="#linux--unix--macosへのインストール">Linux / Unix / macOSへのインストール</a></h2>
+<h3 id="実行形式のcomposerをダウンロード"><a class="header" href="#実行形式のcomposerをダウンロード">実行形式のComposerをダウンロード</a></h3>
+<p>Composerには便利なインストーラがあり、コマンドラインから直接実行できます。
+気兼ねなく<a href="https://getcomposer.org/installer">このファイルをダウンロード</a>したり、インストーラの内部のはたらきについてもっと知りたいと思ったら<a href="https://github.com/composer/getcomposer.org/blob/main/web/installer">GitHub</a>で確認したりしてください。
+ソースは単なるPHPです。</p>
+<p>平たく言うとComposerのインストールには2つの方法があります。
+プロジェクトへローカルに入れる方法と、システム全域の実行ファイルとしてグローバルに入れる方法です。</p>
+<h4 id="ローカル"><a class="header" href="#ローカル">ローカル</a></h4>
+<p>Composerをローカルにインストールするためには、プロジェクトのディレクトリでインストーラを走らせてください。
+解説は<a href="https://getcomposer.org/download/">ダウンロードページ</a>を参照してください。</p>
+<p>インストーラははいくつかのPHPの設定内容を確認して、<code>composer.phar</code>を作業ディレクトリにダウンロードします。
+このファイルはComposerのバイナリです。
+PHAR (PHP archive) はPHPのためのアーカイブ形式であり、コマンドラインから実行できますし、他の方法もあります</p>
+<p>ここでComposerを走らせるには<code>php composer.phar</code>としてください。</p>
+<p><code>--install-dir</code>オプションを使って特定のディレクトリに、更に<code>--filename</code>オプションを使って命名（改名）しつつ、Composerをインストールできます。
+<a href="https://getcomposer.org/download/">ダウンロードページの説明</a>に従ってインストーラを走らせるときは、以下の引数を加えてください。</p>
+<pre><code class="language-shell">php composer-setup.php --install-dir=bin --filename=composer
+</code></pre>
+<p>それから、<code>php bin/composer</code>とするとComposerが走ります。</p>
+<h4 id="大域的に使う"><a class="header" href="#大域的に使う">大域的に使う</a></h4>
+<p>Composer PHARは好きな場所に置くことができます。
+<code>PATH</code>の通った場所に置くことで大域的にアクセスできます。
+Unix系のシステムでは実行形式にして<code>php</code>インタプリタを直接使わずに呼び出すこともできます。</p>
+<p><a href="https://getcomposer.org/download/">ダウンロードページの説明</a>に従ってインストーラを走らせた後は、以下を走らせてパスにあるディレクトリにcomposer.pharを移動させられます。</p>
+<pre><code class="language-shell">mv composer.phar /usr/local/bin/composer
+</code></pre>
+<p>利用者のためだけにインストールしてルート権限を避けたいようでしたら、代わりに<code>~/.local/bin</code>を使うこともできます。
+Linuxディストリビューションでは既定で使えることがあります。</p>
+<blockquote>
+<p><strong>注意:</strong> 上記がパーミッションによって失敗する場合、sudoで改めて実行する必要があるかもしれません。</p>
+</blockquote>
+<blockquote>
+<p><strong>補足：</strong> macOSのバージョンによって、既定では<code>/usr</code>ディレクトリが存在しないことがあります。
+エラー「/usr/local/bin/composer: No such file or directory」が出たら、予め<code>mkdir -p /usr/local/bin</code>としてディレクトリを手作りしなければなりません。</p>
+</blockquote>
+<blockquote>
+<p><strong>補足：</strong> パスを変えることに関しては<a href="https://en.wikipedia.org/wiki/PATH_(variable)">Wikipediaの記事</a>を読んだりお好みの検索エンジンに掛けてみてください。</p>
+</blockquote>
+<p>これで<code>php composer.phar</code>の代わりに<code>composer</code>とすれば、Composerが走るようになりました。</p>
+<h2 id="windowsへインストール"><a class="header" href="#windowsへインストール">Windowsへインストール</a></h2>
+<h3 id="インストーラを使う"><a class="header" href="#インストーラを使う">インストーラを使う</a></h3>
+<p>Composerをマシンに用意する最も簡単な方法です。</p>
+<p><a href="https://getcomposer.org/Composer-Setup.exe">Composer-Setup.exe</a>をダウンロードして実行してください。
+最新バージョンのComposerがインストールされパスが設定されるため、どのディレクトリからも<code>composer</code>をコマンドラインから呼ぶことができます。</p>
+<blockquote>
+<p><strong>補足：</strong> 現在の端末を閉じてください。
+新しい端末で使えるか試してみてください。
+パスは端末が起動したときにのみ読み込まれるので、一旦閉じるのは大事です。</p>
+</blockquote>
+<h3 id="手動でインストール"><a class="header" href="#手動でインストール">手動でインストール</a></h3>
+<p><code>composer.phar</code>をダウンロードするため、<code>PATH</code>の通っているディレクトリに移動して<a href="https://getcomposer.org/download/">ダウンロードページの説明</a>に従い、インストーラを走らせてください。</p>
+<p><code>composer.bat</code>ファイルを<code>composer.phar</code>と同じ場所に新規作成してください。</p>
+<p>cmd.exeを使う場合：</p>
+<pre><code class="language-shell">C:\bin&gt; echo @php "%~dp0composer.phar" %*&gt;composer.bat
+</code></pre>
+<p>PowerShellを使う場合：</p>
+<pre><code class="language-shell">PS C:\bin&gt; Set-Content composer.bat '@php "%~dp0composer.phar" %*'
+</code></pre>
+<p>まだPATH環境変数にディレクトリがなければ追加してください。
+PATH変数を変えることに関しては<a href="https://www.computerhope.com/issues/ch000549.htm">この記事</a>を参照したりお好みの検索エンジンに掛けてみたりしてください。</p>
+<p>現在の端末を閉じてください。
+新しい端末で使えるか試してください。</p>
+<pre><code class="language-shell">C:\Users\username&gt;composer -V
+</code></pre>
+<pre><code class="language-text">Composer version 2.4.0 2022-08-16 16:10:48
+</code></pre>
+<h2 id="dockerイメージ"><a class="header" href="#dockerイメージ">Dockerイメージ</a></h2>
+<p>Composerはいくつかの場所でDockerコンテナとして公開されています。
+<a href="https://github.com/composer/docker">composer/dockerのREADME</a>で一覧を参照してください。</p>
+<p>使用例：</p>
+<pre><code class="language-shell">docker pull composer/composer
+docker run --rm -it -v "$(pwd):/app" composer/composer install
+</code></pre>
+<p>既存の<strong>Dockerfile</strong>にComposerを加えるには、単に既にビルドされた小さいサイズのイメージからバイナリファイルを複製できます。</p>
+<pre><code class="language-Dockerfile"># 最新リリース
+COPY --from=composer/composer:latest-bin /composer /usr/bin/composer
+
+# 特定のリリース
+COPY --from=composer/composer:2-bin /composer /usr/bin/composer
+</code></pre>
+<p>さらなる使い方の情報については<a href="https://hub.docker.com/r/composer/composer">イメージの説明</a>をお読みください。</p>
+<p><strong>補足：</strong> Docker固有の問題は<a href="https://github.com/composer/docker/issues">composer/dockerリポジトリ</a>に報告されると良いでしょう。</p>
+<p><strong>補足：</strong> 上のイメージ名では<code>composer/composer</code>の代わりに<code>composer</code>を使うこともできます。
+名前が短かく、Dockerの公式イメージですが、直接私達が公開したものではないので新しいリリースが数日送れで来ることが普通です。
+<strong>重要</strong>：短い別名が付けられたイメージにはバイナリのみの同じものがないため、<code>COPY --from</code>の方法については<code>composer/composer</code>のほうを使う方が良いです。</p>
+<h2 id="composerを使う"><a class="header" href="#composerを使う">Composerを使う</a></h2>
+<p>これでComposerをインストールしたので使う準備ができました。
+簡単な実演があるので次の章に向かいましょう。</p>
+<p><a href="01-basic-usage.html">基本的な使い方</a> →</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../doc/01-basic-usage.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../doc/01-basic-usage.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,487 @@
+<!DOCTYPE HTML>
+<html lang="ja" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>変更履歴 - Composer</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Composer</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/gemmaro/composer" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h3 id="285-2025-01-21"><a class="header" href="#285-2025-01-21"><a href="https://github.com/composer/composer/compare/2.8.4...2.8.5">2.8.5</a> 2025-01-21</a></h3>
+<ul>
+<li>
+<p>Added build provenance attestation so you can also now download and
+verify phar files from GitHub releases:</p>
+<pre><code>gh release --repo composer/composer download --pattern composer.phar
+gh attestation verify --repo composer/composer composer.phar
+</code></pre>
+</li>
+<li>
+<p>非対応の<code>funding</code>の値により、パッケージの解析エラーが起こっていた点を修正 (#12247)</p>
+</li>
+<li>
+<p>新しい寄付の書式への対応を修正 (#12257)</p>
+</li>
+<li>
+<p><code>reload()</code>を使うときの、2.8.4であったInstalledVersionsの退行問題を修正 (#12269)</p>
+</li>
+<li>
+<p>psr-0/psr-4の規則が、<code>vendor/composer/autoload*.php</code>において不定の順番になっていた点を修正
+(#12263)</p>
+</li>
+<li>
+<p>特定の状況下で、誤って起こっていた警告を修正 (#12284, #12268, #12283)</p>
+</li>
+</ul>
+<h3 id="284-2024-12-11"><a class="header" href="#284-2024-12-11"><a href="https://github.com/composer/composer/compare/2.8.3...2.8.4">2.8.4</a> 2024-12-11</a></h3>
+<ul>
+<li><code>audit</code>コマンドの終了コードに意味がなかった点を修正しました（脆弱性のとき1、放棄されているときは2、両方では3になりました）
+(#12203)</li>
+<li>複数のクラスが定義されている場合の、プラグインの更新時の問題を修正しました (#12226)</li>
+<li>phpの設定によって、出力に現れていた重複するエラーを修正しました (#12214)</li>
+<li>InstalledVersionsがある場合に重複するデータを返していた点を修正しました (#12225)</li>
+<li>installed.phpを修正し、整列が決定的になるようにしました (#12197)</li>
+<li>インラインの制約を使っているときに<code>bump-after-update</code>が失敗する点を修正しました (#12223)</li>
+<li><code>create-project</code>コマンドを修正しました。
+パスリポジトリを引数に使った場合、シンボリックリンクを無効にするようになりました (#12222)</li>
+<li><code>validate --no-check-publish</code>を修正し、全面的に公開のエラーを隠すようにしました。
+無関係なエラーのためです (#12196)</li>
+<li>composer auditが失敗したとき、<code>audit</code>コマンドが失敗コードを返していた点を修正しました。
+ビルドの失敗を引き起こすべきではないためです。
+ただ、ビルドの一過程でauditを走らせること自体、あまり感心しません (#12196)</li>
+<li>curlの使い方を修正し、プロキシが使われているときに壊れたバージョンで多重化を無効にするようにしました (#12207)</li>
+</ul>
+<h3 id="283-2024-11-17"><a class="header" href="#283-2024-11-17"><a href="https://github.com/composer/composer/compare/2.8.2...2.8.3">2.8.3</a> 2024-11-17</a></h3>
+<ul>
+<li>Windowsでのプロセス探索の扱いを修正 (#12180)</li>
+<li>react/promiseの要件で2.xのインストールができるように改めて修正 (#12188)</li>
+<li>lock:falseがrequireコマンドやbumpコマンドで設定されたときの問題を修正</li>
+</ul>
+<h3 id="282-2024-10-29"><a class="header" href="#282-2024-10-29"><a href="https://github.com/composer/composer/compare/2.8.1...2.8.2">2.8.2</a> 2024-10-29</a></h3>
+<ul>
+<li>プロバイダに説明がないとき、プロバイダの提案時にクラッシュしていた点を修正 (#12152)</li>
+<li>特定の状況で、スキーマに違反する固定ファイルが作られる問題を修正 (#12149)</li>
+<li>相対パスのリポジトリのパスを使う際に、2.8.1で生じた<code>create-project</code>の退行問題を修正 (#12150)</li>
+<li>ctrl-Cで中断する操作が、テキストプロンプトで機能していなかった点を修正 (#12106)</li>
+<li>所有権の違反でgitによりリポジトリが読み込めなかったときに、gitがひとりでに失敗していた点を修正 (#12178)</li>
+<li>プロキシを介してPHPでないバイナリを実行しているときの、シグナルの扱いを修正しました (#11716)</li>
+</ul>
+<h3 id="281-2024-10-04"><a class="header" href="#281-2024-10-04"><a href="https://github.com/composer/composer/compare/2.8.0...2.8.1">2.8.1</a> 2024-10-04</a></h3>
+<ul>
+<li><code>init</code>コマンドを修正し、使用許諾が与えられなかったときの退行問題を修正しました (#12145)</li>
+<li><code>--strict-ambiguous</code>フラグの扱いを修正しました。
+全ての問題を報告しないことがありました (#12148)</li>
+<li><code>create-project</code>を修正し、インストールされるプロジェクトファイルのフォルダのパーミッションを継承するようにしました
+(#12146)</li>
+<li>親ディレクトリのcomposer.jsonを使うときのプロンプトが、正しく動かない場合があった点を修正しました (#8023)</li>
+</ul>
+<h3 id="280-2024-10-02"><a class="header" href="#280-2024-10-02"><a href="https://github.com/composer/composer/compare/2.7.9...2.8.0">2.8.0</a> 2024-10-02</a></h3>
+<ul>
+<li>後方互換性についての警告：<code>https_proxy</code>環境変数が<code>http_proxy</code>の値にフォールバックする点を修正しました。
+2.7.3のリリースノートの通り、フォールバックと警告は削除されました (#11938, #11915)。</li>
+<li><code>update</code>コマンドに<code>--patch-only</code>フラグを追加しました。
+これにより、更新をパッチバージョンに制限し、全ての依存関係がより安全な方へ更新されます (#12122)</li>
+<li><code>audit</code>コマンドに<code>--abandoned</code>フラグに追加しました。
+放棄されたパッケージの扱い方が構成されます。
+<code>audit.abandoned</code>構成設定を上塗りします (#12091)</li>
+<li><code>audit</code>コマンドに<code>--ignore-severity</code>フラグを追加しました。
+1つ以上の勧告の深刻度を無視します (#12132)</li>
+<li><code>update</code>コマンドに<code>--bump-after-update</code>フラグを追加します。
+更新が完了した後にbumpを走らせます (#11942)</li>
+<li><code>scripts</code>のうち、どれが追加のCLIの引数を受け取るかを制御する方法を追加しました。
+また、コマンドのどこに入れるかも制御できます。
+<a href="https://getcomposer.org/doc/articles/scripts.md#controlling-additional-arguments">ドキュメント</a>を参照してください
+(#12086)</li>
+<li><code>allow-missing-requirements</code>構成設定を追加しました。
+固定ファイルがcomposer.jsonの依存関係を満たさないときのエラーを飛ばすものです (#11966)</li>
+<li>composer.lockファイルのJSONスキーマを追加しました (#12123)</li>
+<li>Bitbucketのアプリパスワード対応を改善しました。
+リポジトリをクローンしたりソースからインストールしたりする部分です (#12103)</li>
+<li><code>reinstall</code>コマンドに<code>--type</code>フラグを追加し、種別でパッケージを絞り込めるようにしました (#12114)</li>
+<li><code>dump-autoload</code>コマンドに<code>--strict-ambiguous</code>フラグを追加しました。
+重複するクラスが見つかったときにエラーコードを返すようにします (#12119)</li>
+<li>ベンダーファイルが削除されたときに<code>dump-autoload</code>で出す警告を加えました (#12139)</li>
+<li><code>create-project</code>を走らせる際、欠けている各プラットフォームパッケージに警告を追加しました。
+何度も走らせなくていいようにするためです (#12120)</li>
+<li><code>sort-packages</code>が有効のとき、allow-pluginsにパッケージの整列を追加しました (#11348)</li>
+<li>extやlibのパッケージが欠けているときの、プロバイダパッケージやポリフィルの提案を追加しました (#12113)</li>
+<li>最初に全てのパッケージと取り得る更新情報を出力し、対話的なパッケージの更新の選択を改善しました (#11990)</li>
+<li>決定論的で（しばしば）論理的な方法で出力を整列し、依存関係の解決の失敗の出力を改善しました (#12111)</li>
+<li>PHP 8.4の<code>E_STRICT</code>の非推奨の警告を修正しました (#12116)</li>
+<li><code>init</code>コマンドを修正し、与えられた使用許諾の識別子を検証するようにしました (#12115)</li>
+<li>機能パッケージが2つの主線ブランチのどちらかに由来する可能性があると思われるとき、バージョンの推定を、機能ブランチに基づいてより決定論的になるよう修正しました
+(#12129)</li>
+<li>COMPOSER_ROOT_VERSION環境変数の扱いを修正しました。
+例えば1.1の扱いは1.2.x-devと同じにし、1.2.0とは違うようにしました (#12109)</li>
+<li>requireコマンドを修正し、固定ファイルの新しい安定性フラグを飛ばすようにしました。
+以前は固定ファイルの不当な差分が生じていました (#12112)</li>
+<li>php://stdin を修正しました。
+Composerをプラグラムで走らせているときに複数回開く可能性がありました (#12107)</li>
+<li>プラットフォームパッケージの扱いを修正しました。
+why-notコマンドと部分更新の部分です (#12110)</li>
+<li>2.7.8で入った「transport-options.sslについて、ローカルの証明書の認証がロックファイルに保管されて、可搬でなかった点を修正しました
+(#12019)」が壊れていたため、差し戻しました。</li>
+</ul>
+<h3 id="279-2024-09-04"><a class="header" href="#279-2024-09-04"><a href="https://github.com/composer/composer/compare/2.7.8...2.7.9">2.7.9</a> 2024-09-04</a></h3>
+<ul>
+<li>制約のある環境でのDockerの検出が壊れていた点を修正しました (#12095)</li>
+<li>bash補完スクリプトの上流の問題を修正しました。
+<code>completion</code>コマンドで更新することをお勧めします (#12015)</li>
+</ul>
+<h3 id="278-2024-08-22"><a class="header" href="#278-2024-08-22"><a href="https://github.com/composer/composer/compare/2.7.7...2.7.8">2.7.8</a> 2024-08-22</a></h3>
+<ul>
+<li><code>outdated</code>のJSON出力に<code>release-age</code>と<code>release-date</code>と<code>latest-release-date</code>を加えました
+(#12053)</li>
+<li>PHP 8.4の非推奨の警告を修正しました。</li>
+<li>ブランチを解決する部分を修正し、<code>#</code>記号を含むものでも機能するようにしました  (#12042)</li>
+<li><code>bump</code>コマンドについて、<code>~</code>制約が正しく扱われていなかった点を直しました (#11889)</li>
+<li>COMPOSER_AUTHが./auth.jsonより優先度が上でなかった点を修正しました (#12084)</li>
+<li><code>relative: true</code>について、パスのリポジトリのシンボリックリンクが考慮されないことがあった点を修正しました (#12092)</li>
+<li>キャッシュからの複製について、VirtualBoxの共有フォルダを使うときに失敗することがあった点を修正しました (#12057)</li>
+<li>PSR-4の自動読み込み順序について、エッジケースの退行問題を修正しました (#12063)</li>
+<li>重複するlib-*パッケージにより、peclとcoreのバージョンの同じPHP拡張があるときに問題が生じていた点を修正しました (#12093)</li>
+<li>transport-options.sslについて、ローカルの証明書の認証がロックファイルに保管されて、可搬でなかった点を修正しました
+(#12019)</li>
+<li>メモリに関して、大きなバイナリをインストールするときの問題を修正しました (#12032)</li>
+<li><code>archive</code>コマンドについて、windowsでパスのrealpathが取れないときにクラッシュする点を修正しました (#11544)</li>
+<li>API: BasePackage::STABILITIESをもって、BasePackage::$stabilitiesを廃止しました
+(685add70ec)</li>
+<li>Dockerの検出を改善しました (#12062)</li>
+</ul>
+<h3 id="277-2024-06-10"><a class="header" href="#277-2024-06-10"><a href="https://github.com/composer/composer/compare/2.7.6...2.7.7">2.7.7</a> 2024-06-10</a></h3>
+<ul>
+<li>セキュリティ：悪意のあるgitブランチ名を介したコマンドインジェクションに対して修正しました (GHSA-47f6-5gq3-vx9c /
+CVE-2024-35241)。</li>
+<li>セキュリティ：悪意のあるgit/hgブランチ名を介した複数のコマンドインジェクションに対して修正しました
+(GHSA-v9qv-c7wm-wgmf / CVE-2024-35242)。</li>
+<li>セキュリティ：不正なURLの形式を使って迂回される可能性のあったsecure-http検査を修正しました (fa3b9582c)。</li>
+<li>セキュリティ：linuxにおけるwindows固有の検査を含むFilesystem::isLocalPathを修正しました
+(3c37a67c)。</li>
+<li>セキュリティ：perforceへの引数のエスケープを修正しました (3773f775)。</li>
+<li>セキュリティ：アーカイブを解凍するときのzip爆弾の扱いを修正しました (de5f7e32)。</li>
+<li>セキュリティ：Windowsのコマンドの仮引数のエスケープを修正し、エンコーディングの変換の最尤一致によるユニコード文字の濫用を防止しました
+(3130a7455, 04a63b324)。</li>
+<li>隠された規則の名前空間に合致しないクラスに対するPSR違反を修正しました。
+これにより新たに違反項目が見つかるかもしれません (#11957)。</li>
+<li>プラグインがベンダーディレクトリにあるものの、ブランチを変えた後に必要でなくなったり使えなくなったりしたときのUXを修正しました
+(#12000)。</li>
+<li>固定ファイルが古いとき、composer.jsonの新しいプラットフォーム要件が検査されない点を修正しました (#12001)。</li>
+<li><code>config</code>コマンドがautoloadキーを削除する機能を修正しました (#11967)。</li>
+<li><code>init</code>コマンドでの空の<code>type</code>への対応を修正しました (#11999)。</li>
+<li>gitの構成で<code>safe.bareRepository</code>が<code>strict</code>に設定されているときのgitクローンのエラーを修正しました
+(#11969)。</li>
+<li>PHP &lt;8.1でネットワークエラーが表示される退行問題を修正しました (#11974)。</li>
+<li>一部の警告でのカラーブリードを修正しました (#11972)。</li>
+</ul>
+<h3 id="276-2024-05-04"><a class="header" href="#276-2024-05-04"><a href="https://github.com/composer/composer/compare/2.7.5...2.7.6">2.7.6</a> 2024-05-04</a></h3>
+<ul>
+<li>スクリプト制御子が私有コールバックを使う自動読み込み器を加えるときの退行問題を修正しました (#11960)。</li>
+</ul>
+<h3 id="275-2024-05-03"><a class="header" href="#275-2024-05-03"><a href="https://github.com/composer/composer/compare/2.7.4...2.7.5">2.7.5</a> 2024-05-03</a></h3>
+<ul>
+<li><code>remove</code>コマンドに<code>uninstall</code>の別称を加えました (#11951)。</li>
+<li>転送で例外を起こすcurlの壊れたバージョン8.7.0/8.7.1のための対処法を加えました (#11913)。</li>
+<li>Podmanコンテナ内で表示される、rootを使うときの警告を修正しました (#11946)。</li>
+<li>configコマンドがある状況で正しくオブジェクトを扱っていなかった点を修正しました (#11945)。</li>
+<li>プロジェクトディレクトリがシンボリックリンクのとき、バイナリプロキシが正しいパスを含んでいなかった点を修正しました (#11947)。</li>
+<li>イベント制御子（scriptsとplugins）から読み込まれたときに、Composerの自動読み込み器がプロジェクトの自動読み込み器から無視される点を修正しました
+(#11955)。</li>
+<li>TransportException（httpの失敗）が個別の終了コードでなかった点を修正しました (#11954)。
+<code>100</code>のコードで終わるようになりました。</li>
+</ul>
+<h3 id="274-2024-04-22"><a class="header" href="#274-2024-04-22"><a href="https://github.com/composer/composer/compare/2.7.3...2.7.4">2.7.4</a> 2024-04-22</a></h3>
+<ul>
+<li>composer/composerのバージョンpre-2.7.3を要件とするプロジェクトでの退行問題（<code>Call to undefined method ProxyManager::needsTransitionWarning()</code>）を修正しました (#11943, #11940)。</li>
+</ul>
+<h3 id="273-2024-04-19"><a class="header" href="#273-2024-04-19"><a href="https://github.com/composer/composer/compare/2.7.2...2.7.3">2.7.3</a> 2024-04-19</a></h3>
+<ul>
+<li>後方互換性についての警告：<code>https_proxy</code>環境変数が<code>http_proxy</code>の値にフォールバックする点を修正しました。
+まだそのままになっていますが、警告を伴うようになりました。
+https_proxyを空に設定してフォールバックを除くことができるようになりました。
+Composer 2.8.0ではフォールバックを削除するため、本警告にご注意ください (#11915)。</li>
+<li><code>show</code>コマンドと<code>outdated</code>コマンドを修正し、パッケージの一覧を表示するときの先頭の<code>v</code>を除きました。
+例えば<code>v1.2.3</code>のような見た目をしていました (#11925)。</li>
+<li><code>audit</code>コマンドを修正し、CVEが存在しないときに識別番号を表示しないようにしました。
+勧告識別番号が表示されるようになりました (#11892)。</li>
+<li><code>project</code>種別を持つパッケージで表示される既定のバージョンが欠けていることについての警告を修正しました。
+これらのパッケージは大抵バージョン管理されておらず、循環参照がないためです (#11885)。</li>
+<li>PHP 8.4の非推奨の警告を修正しました。</li>
+<li><code>clear-cache</code>コマンドを修正し、ローカルのcomposer.jsonのconfig.cache-dir設定を考慮するようにしました
+(#11921)。</li>
+<li><code>status</code>コマンドが失敗したダウンロードとインストールのプロミスを正しく扱っていなかった点を修正しました (#11889)。</li>
+<li>GitHubの寄付ファイルの<code>buy_me_a_coffee</code>への対応を追加しました (#11902)。</li>
+<li>SSHのURLに<code>hg</code>の対応を追加しました (#11878)。</li>
+<li>幾つかの環境変数を修正し、整数値がクラッシュを起こさないようにしました (#11908)。</li>
+<li>IOInterfaceをPSR-3ロガーとして使う際に文脈データが出力されないように修正しました (#11882)。</li>
+</ul>
+<h3 id="272-2024-03-11"><a class="header" href="#272-2024-03-11"><a href="https://github.com/composer/composer/compare/2.7.1...2.7.2">2.7.2</a> 2024-03-11</a></h3>
+<ul>
+<li><code>composer --version</code>を走らせる際に、PHPのバージョンについての情報を追加しました (#11866)。</li>
+<li>根幹のバージョンが見合たらなかったときの警告を追加しました (#11858)。</li>
+<li>ルート権限で走らせる際に、幾つかの状況下では依然としてプラグインが有効だった問題を修正しました (c3efff91f)。</li>
+<li><code>outdated --ignore ...</code>が依然として無視されたパッケージの最新版を読み込もうとしていた問題を修正しました
+(#11863)。</li>
+<li>インストールパスの途中でシンボリックリンクが壊れたときの対処について修正しました (#11864)。</li>
+<li><code>update --lock</code>が依然として幾つかのメタ情報を間違った内容で更新していた問題を修正しました (#11850, #11787)。</li>
+</ul>
+<h3 id="271-2024-02-09"><a class="header" href="#271-2024-02-09"><a href="https://github.com/composer/composer/compare/2.7.0...2.7.1">2.7.1</a> 2024-02-09</a></h3>
+<ul>
+<li>2.7.0で利用者が出喰わすよくある問題に対して補足を入れるために、プラグインが無効化されたときの警告を幾つか追加しました (#11842)。</li>
+<li>pharから走らせたときに<code>diagnose</code>でのComposerの依存関係の監査が失敗する問題を修正しました。</li>
+</ul>
+<h3 id="270-2024-02-08"><a class="header" href="#270-2024-02-08"><a href="https://github.com/composer/composer/compare/2.6.6...2.7.0">2.7.0</a> 2024-02-08</a></h3>
+<ul>
+<li>セキュリティ：危殆化したベンダーディレクトリの内容を介したコードの実行と権限昇格の可能性を修正しました (GHSA-7c6p-848j-wh5h
+/ CVE-2024-24821)。</li>
+<li><code>audit.abandoned</code>構成設定の期待値を<code>fail</code>に変更しました。
+望ましくなければ<code>report</code>や<code>ignore</code>に設定してください。
+または<code>COMPOSER_AUDIT_ABANDONED</code>環境変数も使えます (#11643)。</li>
+<li><code>update</code>/<code>require</code>/<code>remove</code>コマンドに--minimal-changes (-m)
+フラグを追加し、--with-dependenciesで部分的な更新を掛けつつ、推移的な依存関係で絶対に必要なものだけを変更できるようにしました
+(#11665)。</li>
+<li><code>outdated</code>/<code>show</code>コマンドに--sort-by-age (-A)
+フラグを追加し、それぞれリリース日による整列（古いものが最初に来ます）とリリース日の表示ができるようにしました (#11762)。</li>
+<li><code>show</code>コマンドで<code>--self</code>を<code>--installed</code>や<code>--locked</code>と組み合わせる対応を追加しました。
+根幹パッケージを出力されるパッケージの一覧に追加できるようにするための変更です (#11785)。</li>
+<li>深刻度の情報を<code>audit</code>コマンドの出力に追加しました (#11702)。</li>
+<li>composer.jsonに<code>scripts-aliases</code>最上位キーを追加しました。
+定義した自前のスクリプトに別称を定義できます (#11666)。</li>
+<li>接続が時間切れになったときにIPv4にフォールバックする対応を加えました。
+また、IPv4やIPv6に強制するための環境変数<code>COMPOSER_IPRESOLVE</code>も追加しました。
+それぞれ<code>4</code>および<code>6</code>に設定できます (#11791)。</li>
+<li><code>outdated</code>の--ignore引数にワイルドカードの対応を追加しました (#11831)。</li>
+<li><code>bump</code>コマンドに、<code>*</code>を<code>&gt;=現在のバージョン</code>に上げる対応を追加しました (#11694)。</li>
+<li><code>validate</code>コマンドに、どうあっても照合する可能性のない制約の検出を追加しました (#11829)。</li>
+<li>とても冗長なモード (-vv) で走らせているときに、パッケージのソース情報を<code>install</code>の出力に追加するようにしました。</li>
+<li><code>diagnose</code>コマンドでComposer自体に含まれる依存関係の監査を追加しました (#11761)。</li>
+<li><code>diagnose</code>コマンドの出力にGitHubトークンの失効日を追加しました (#11688)。</li>
+<li>why/why-notコマンドに非ゼロの状態コードを追加しました (#11796)。</li>
+<li><code>show --direct &lt;package&gt;</code>を間接ないし推移的な依存関係で呼び出したときのエラーを追加しました (#11728)。</li>
+<li><code>COMPOSER_FUND=0</code>環境変数を追加し、募金の呼び掛けを隠せるようにしました (#11779)。</li>
+<li><code>bump</code>コマンドを修正し、<code>v</code>前置詞が必要なパッケージのバージョンを上げないようにしました (#11764)。</li>
+<li>ルートユーザーとして非対話的に走らせているときに、プラグインが自動的に無効になる事象を修正しました。</li>
+<li><code>update --lock</code>を修正し、distのreference/url/checksumがピン留めされたままになっていなかった点を修正しました
+(#11787)。</li>
+<li>固定ファイルが存在していない場合に<code>require</code>コマンドが最後にクラッシュする問題を修正しました (#11814)。</li>
+<li>固定された依存関係を監査するときにルートの別称が問題を起こす点を修正しました (#11771)。</li>
+<li><code>require</code>コマンドで4つのコンポーネントでバージョンを扱うときの問題を修正しました (#11716)。</li>
+<li>Symfony 7の互換性の問題を修正しました。</li>
+<li><code>require</code>コマンドの--dry-runの後、composer.jsonが最新の状態に追従できない問題を修正しました (#11747)。</li>
+<li>特定の状況下で警告が間違って表示されていた点を修正しました (#11786, #11760, #11803)。</li>
+</ul>
+<h3 id="266-2023-12-08"><a class="header" href="#266-2023-12-08"><a href="https://github.com/composer/composer/compare/2.6.5...2.6.6">2.6.6</a> 2023-12-08</a></h3>
+<ul>
+<li>要件symfony/consoleから7.xを除外するように修正しました。
+Composer 2.6とは互換性が無いからです。
+2.7では互換性があるでしょう (#11741)</li>
+<li>libpqの解析を修正し、可能であれば大域定数を使うようにしました (#11684)</li>
+<li>一時制約の失敗があった更新でのエラー出力を修正しました (#11692)</li>
+</ul>
+<h3 id="265-2023-10-06"><a class="header" href="#265-2023-10-06"><a href="https://github.com/composer/composer/compare/2.6.4...2.6.5">2.6.5</a> 2023-10-06</a></h3>
+<ul>
+<li>vendorディレクトリに壊れたシンボリックリンクが含まれる場合の失敗を修正しました (#11670)。</li>
+<li>Composerのzipアーカイブから欠けていたcomposer.lockを修正しました (#11674)。</li>
+<li>2.6.4で変わったAutoloadGenerator::dump()の非BCシグネチャを修正しました (cb363b0e8)。</li>
+</ul>
+<h3 id="264-2023-09-29"><a class="header" href="#264-2023-09-29"><a href="https://github.com/composer/composer/compare/2.6.3...2.6.4">2.6.4</a> 2023-09-29</a></h3>
+<ul>
+<li>セキュリティ：composer.pharが公開されててアクセスでき、PHPとして実行でき、php.iniでregister_argc_argvが有効なとき、遠隔コード実行の脆弱性がありえた点を直しました
+(GHSA-jm6m-4632-36hf / CVE-2023-43655)。</li>
+<li>auditコマンドで放棄されたパッケージのjson出力を直しました (#11647)。</li>
+<li>プール最適化の工程を効率良くしました (#11638)。</li>
+<li><code>show -a &lt;パッケージ名&gt;</code>の効率良くしました (#11659)。</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="doc/articles/versions.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="doc/articles/versions.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

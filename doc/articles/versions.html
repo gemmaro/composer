@@ -1,0 +1,404 @@
+<!DOCTYPE HTML>
+<html lang="ja" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>パッケージと制約 - Composer</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Composer</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/gemmaro/composer" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!--
+    tagline: バージョンについての説明です。
+-->
+<h1 id="パッケージと制約"><a class="header" href="#パッケージと制約">パッケージと制約</a></h1>
+<h2 id="composerのバージョンとvcsのバージョン"><a class="header" href="#composerのバージョンとvcsのバージョン">ComposerのバージョンとVCSのバージョン</a></h2>
+<p>Composerはgitのような版管理システムを活用する方向に大きく舵を切っているため、「バージョン」という用語は少し曖昧です。
+版管理システムの意味では、「バージョン」は特定のデータを含む特定のファイルの集まりです。
+gitの用語法では、これは「ref」もしくは特定のコミットのことです。
+これはブランチのHEADやタグで表されることがあります。
+あるバージョン……例えばタグ<code>v1.1</code>やコミット<code>e35fa0d</code>……がVCSにあることを確認するには、単一の既知のファイルの集まりが欲しいものであり、常に同じファイルが取り寄せられます。</p>
+<p>Composerで何気なくバージョンとしてよく指すもの……つまり要件の行でパッケージ名に続く文字列（例えば<code>~1.1</code>や<code>1.2.*</code>）……とは実のところ、より具体的にはバージョン制約です。
+Composerはバージョン制約を使い、VCSからチェックアウトすべきrefを調べます（もしくは、<code>composer.json</code>中の<code>version</code>指定で静的に維持されたライブラリのときは、与えられたライブラリが許容されるか検証します）。</p>
+<h2 id="vcsのタグとブランチ"><a class="header" href="#vcsのタグとブランチ">VCSのタグとブランチ</a></h2>
+<p><em>以下の説明では、以下のライブラリリポジトリ例があるとします。</em></p>
+<pre><code class="language-shell">~/my-library$ git branch
+</code></pre>
+<pre><code class="language-text">v1
+v2
+my-feature
+another-feature
+</code></pre>
+<pre><code class="language-shell">~/my-library$ git tag
+</code></pre>
+<pre><code class="language-text">v1.0
+v1.0.1
+v1.0.2
+v1.1-BETA
+v1.1-RC1
+v1.1-RC2
+v1.1
+v1.1.1
+v2.0-BETA
+v2.0-RC1
+v2.0
+v2.0.1
+v2.0.2
+</code></pre>
+<h3 id="タグ"><a class="header" href="#タグ">タグ</a></h3>
+<p>通常Composerはタグを扱います（ブランチではありません。
+意味するところが分からなければ、<a href="https://en.wikipedia.org/wiki/Version_control#Common_terminology">版管理システム</a>をご一読ください）。
+バージョン制約を書くとき、特定のタグ（例えば<code>1.1</code>）を参照することや、有効なタグの範囲（例えば<code>&gt;=1.1 &lt;2.0</code>や<code>~4.0</code>）を参照することがあります。
+こうした制約を解決するため、ComposerはまずVCSに全ての利用できるタグを挙げるよう頼みます。
+それからこれらのタグに基づいて利用できるバージョンの内部的な一覧を作ります。
+上の例では、composerの内部リストにはバージョン<code>1.0</code>、<code>1.0.1</code>、<code>1.0.2</code>、<code>1.1</code>のベータリリース、<code>1.1</code>の1つ目と2つ目のリリース候補、<code>1.1</code>の最終リリースバージョンなどが含まれます（なおComposerは最終的に有効なバージョン番号を得るため、自動的に実際のタグ名から<code>v</code>接頭辞を除きます）。</p>
+<p>ComposerにVCSで利用できるバージョンの完全な一覧ができたら、プロジェクトの全てのバージョン制約に合致する最も大きいバージョンを探します（他のパッケージが自分で指定したものよりそのライブラリのバージョンをより限定されたものを要件とすることがあります。
+そのため選ばれるバージョンは入手できるバージョンのうち最大のものであるとは限りません）。
+またそのタグのzipアーカイブをダウンロードして<code>vendor</code>ディレクトリの正しい場所に開封します。</p>
+<h3 id="ブランチ"><a class="header" href="#ブランチ">ブランチ</a></h3>
+<p>タグではなくブランチをチェックアウトしたいときは、特別な<code>dev-*</code>接頭辞（接尾辞のときもあります。後述）を使ってブランチを指す必要があります。
+ブランチをチェックアウトすると、ブランチで<em>作業</em>したいと仮定し、実際にリポジトリを<code>vendor</code>ディレクトリの正しい場所にクローンします。
+タグについては、実際にはリポジトリをクローンせず、正しいファイルを複製します（--prefer-sourceや--prefer-distでこの挙動を変えられます。
+<a href="../03-cli.html#install">インストールオプション</a>を参照してください）。</p>
+<p>上の例では<code>my-feature</code>ブランチをチェックアウトしたいため、<code>require</code>節のバージョン制約として<code>dev-my-feature</code>を指定することになります。
+こうすると<code>my-liberay</code>リポジトリが<code>vendor</code>ディレクトリにクローンされ、<code>my-feature</code>ブランチがチェックアウトされます。</p>
+<p>ブランチ名がバージョンのように見えるとき、タグではなくブランチをチェックアウトしようとしていることをはっきりしなければなりません。
+上の例では2つのバージョンブランチ<code>v1</code>と<code>v2</code>があります。
+これらのブランチをチェックアウトするには<code>v1.x-dev</code>のようにバージョン制約を指定しなければなりません。
+<code>.x</code>は任意の文字列で、<code>v1</code>タグではなく<code>v1</code>ブランチについて書いていることをComposerに伝えます（代替としてブランチに<code>v1</code>ではなく<code>v1.x</code>と名前を付けられます）。
+この場合のバージョンのような名前（この場合は<code>v1</code>）を持つブランチでは、<code>dev-</code>を接頭辞として使うのではなく、接尾辞として<code>-dev</code>を付けます。</p>
+<h3 id="安定性"><a class="header" href="#安定性">安定性</a></h3>
+<p>Composerは次の安定性を（この順で）認識します。
+すなわちdev、alpha、beta、RC、stableです。
+ここでRCはリリース候補 (release candidate) を表します。
+バージョンの安定性は接尾辞で定義されます。
+例えばバージョン<code>v1.1-BETA</code>には<code>beta</code>の安定性があり、<code>v1.1-RC1</code>には<code>RC</code>の安定性があります。
+そのような接尾辞がないときは、バージョンが<code>stable</code>だと見做します。
+例えば<code>v1.1</code>です。
+これに加えて全ての番号のブランチに<code>-dev</code>接尾辞を自動的に加え、VCSリポジトリからインポートしたその他全てのブランチに<code>dev-</code>の接頭辞を加えます。
+両方の場合とも安定性<code>dev</code>が割り当たります。</p>
+<p>このことを念頭に置くと、次の節を読む助けになります。</p>
+<h3 id="最小安定性"><a class="header" href="#最小安定性">最小安定性</a></h3>
+<p>チェックアウトされてプロジェクトに加わるライブラリのVCSの、ファイルに作用する点はもう1つあります。
+Composerでは安定性の制約を指定し、正当と見做すタグを制限できます。
+上の例で、最終的な公式リリースの前に、バージョン<code>1.1</code>にベータ版と2つのリリース候補が、ライブラリでリリースされていることにご注目ください。
+<code>composer install</code>や<code>composer update</code>を走らせるときにこれらのバージョンを取得するには、リリース候補やベータリリース（または所望であればアルファリリース）で良いことをComposerに陽に伝えなければなりません。
+これにはプロジェクト範囲の<code>minimum-stability</code>値を<code>composer.json</code>に使うか、バージョン制約に「安定性フラグ」を使います。
+詳しくは<a href="../04-schema.html#minimum-stability">スキーマのページ</a>をお読みください。</p>
+<h2 id="パッケージ制約を書く"><a class="header" href="#パッケージ制約を書く">パッケージ制約を書く</a></h2>
+<p>Composerでのバージョンの捉え方が分かったところで、プロジェクトの依存関係でバージョン制約を指定する方法についてお話ししましょう。</p>
+<h3 id="厳密なパッケージ制約"><a class="header" href="#厳密なパッケージ制約">厳密なパッケージ制約</a></h3>
+<p>パッケージの厳密なバージョンを指定できます。
+こうすると、このバージョンを、それもこのバージョンだけを、Composerにインストールするよう伝えます。
+他の依存関係で違うバージョンが必要なとき、解決器は最終的に失敗し、インストールや更新の処理を途絶します。</p>
+<p>例：<code>1.0.2</code></p>
+<h3 id="バージョンの範囲"><a class="header" href="#バージョンの範囲">バージョンの範囲</a></h3>
+<p>比較演算子を使うと、正当なバージョンの範囲を指定できます。
+正当な演算子は<code>&gt;</code>、<code>&gt;=</code>、<code>&lt;</code>、<code>&lt;=</code>、<code>!=</code>です。</p>
+<p>複数の範囲を定義できます。
+空白 (<code> </code>) やコンマで区切られた範囲は<strong>論理積</strong>として扱われます。
+二重パイプ (<code>||</code>) は<strong>論理和</strong>として扱われます。
+積は和より優先されます。</p>
+<blockquote>
+<p><strong>補足：</strong>
+境界のない範囲を使うときはご注意ください。
+後方互換性を壊すバージョンを予期せずインストールすることがあるからです。
+安全のため、代わりに<a href="#caret-version-range-">キャレット</a>演算子を使うことをご検討ください。</p>
+</blockquote>
+<!--blank line followed by comment markup to separate the block quotes-->
+<blockquote>
+<p><strong>補足：</strong>
+Composerの古いバージョンでは、単一の棒 (<code>|</code>) は<strong>論理和</strong>の推奨される代替案でした。
+そのため後方互換性のため、単一の棒 (<code>|</code>) は<strong>論理和</strong>として扱われたままになっています。</p>
+</blockquote>
+<p>例：</p>
+<ul>
+<li><code>&gt;=1.0</code></li>
+<li><code>&gt;=1.0 &lt;2.0</code></li>
+<li><code>&gt;=1.0 &lt;1.1 || &gt;=1.2</code></li>
+</ul>
+<h3 id="ハイフン版のバージョン範囲--"><a class="header" href="#ハイフン版のバージョン範囲--">ハイフン版のバージョン範囲 (<code>-</code>)</a></h3>
+<p>含まれるバージョンの集合です。
+含まれるバージョンの右部分はワイルドカードが補完されます。
+例えば<code>1.0 - 2.0</code>は、<code>2.0</code>が<code>2.0.*</code>になるため、<code>&gt;=1.0.0 &lt;2.1</code>と等価です。
+他方で<code>1.0.0 - 2.1.0</code>は<code>&gt;=1.0.0 &lt;=2.1.0</code>と等価です。</p>
+<p>例：<code>1.0 - 2.0</code></p>
+<h3 id="ワイルドカードのバージョン範囲-"><a class="header" href="#ワイルドカードのバージョン範囲-">ワイルドカードのバージョン範囲 (<code>.*</code>)</a></h3>
+<p><code>*</code>ワイルドカードでパターンを指定できます。
+<code>1.0.*</code>は<code>&gt;=1.0 &lt;1.1</code>と等価です。</p>
+<p>例：<code>1.0.*</code></p>
+<h2 id="次の大規模リリースの演算子"><a class="header" href="#次の大規模リリースの演算子">次の大規模リリースの演算子</a></h2>
+<h3 id="チルダのバージョン範囲-"><a class="header" href="#チルダのバージョン範囲-">チルダのバージョン範囲 (<code>~</code>)</a></h3>
+<p><code>~</code>演算子は例で説明するのが1番です。
+<code>~1.2</code>は<code>&gt;=1.2 &lt;2.0.0</code>と等価です。
+一方、<code>~1.2.3</code>は<code>&gt;=1.2.3 &lt;1.3.0</code>と等価です。
+見て分かる通り、<a href="https://semver.org/">セマンティックバージョニング</a>を尊重するプロジェクトで特に有用です。
+よくある使い方は、<code>~1.2</code>のように（こうすると2.0までの全バージョン、ただし2.0は含まれないものにできます）、依存する最小の小規模バージョンの印を付けることでしょう。
+理論上は2.0まで後方互換性の破壊はないでしょうから、うまくいきます。
+別の見方は、<code>~</code>を使って最小バージョンを指定するというものです。
+ただし指定された最後の桁は上げられます。</p>
+<p>例：<code>~1.2</code></p>
+<blockquote>
+<p><strong>補足：:</strong>
+<code>2.0-beta.1</code>は<code>2.0</code>より厳密には前ですが、<code>~1.2</code>のようなバージョン制約ではインストールされません。
+前述の通り、<code>~1.2</code>とは<code>.2</code>が変わることがありますが、<code>1.</code>の部分は固定されるという意味です。</p>
+</blockquote>
+<blockquote>
+<p><strong>補足：</strong>
+<code>~</code>演算子にはメジャーリリース番号に関して挙動に例外があります。
+つまり、例えば<code>~1</code>は<code>~1.0</code>と同じですが、これは後方互換性を保とうとする上で、メジャー番号を増やせないからです。</p>
+</blockquote>
+<h3 id="キャレットバージョン範囲-"><a class="header" href="#キャレットバージョン範囲-">キャレットバージョン範囲 (<code>^</code>)</a></h3>
+<p><code>^</code>演算子はとてもよく似た挙動ですが、よりセマンティックバージョニングに密接しており、破壊的でない更新は常に許されます。
+例えば<code>^1.2.3</code>は<code>&gt;=1.2.3 &lt;2.0.0</code>と等価です。
+2.0までのリリースで後方互換性を壊すものはないからです。
+1.0より前のバージョンについては、安全性に留意した動作となっており、<code>^0.3</code>は<code>&gt;=0.3.0 &lt;0.4.0</code>として、<code>^0.0.3</code>は<code>&gt;=0.0.3 &lt;0.0.4</code>として扱います。</p>
+<p>これはライブラリのコードを書く際に、最も相互運用性を高くするため推奨される演算子です。</p>
+<p>例：<code>^1.2.3</code></p>
+<blockquote>
+<p><strong>補足：</strong>
+WindowsでPowerShellを使っているとき、例えば<code>composer require</code>コマンドを使う際は、CLIで引数としてキャレットを使うときにエスケープしなければなりません。
+キャレットがComposerに確実に正しく渡されるようにするため、例えば<code>^^^^1.2.3</code>のように、4つの連続するキャレット演算子を使わなければなりません。</p>
+</blockquote>
+<h2 id="安定性の制約"><a class="header" href="#安定性の制約">安定性の制約</a></h2>
+<p>安定性を陽に定義しない制約を使うとき、使われた演算子により、Composerは内部的に既定を<code>-dev</code>または<code>-stable</code>にします。
+これは透過的に起こります。</p>
+<p>比較で安定リリースのみを陽に検討したいときは<code>-stable</code>接尾辞を加えてください。</p>
+<p>例：</p>
+<div class="table-wrapper"><table><thead><tr><th>制約</th><th>内部</th></tr></thead><tbody>
+<tr><td><code>1.2.3</code></td><td><code>=1.2.3.0-stable</code></td></tr>
+<tr><td><code>&gt;1.2</code></td><td><code>&gt;1.2.0.0-stable</code></td></tr>
+<tr><td><code>&gt;=1.2</code></td><td><code>&gt;=1.2.0.0-dev</code></td></tr>
+<tr><td><code>&gt;=1.2-stable</code></td><td><code>&gt;=1.2.0.0-stable</code></td></tr>
+<tr><td><code>&lt;1.3</code></td><td><code>&lt;1.3.0.0-dev</code></td></tr>
+<tr><td><code>&lt;=1.3</code></td><td><code>&lt;=1.3.0.0-stable</code></td></tr>
+<tr><td><code>1 - 2</code></td><td><code>&gt;=1.0.0.0-dev &lt;3.0.0.0-dev</code></td></tr>
+<tr><td><code>~1.3</code></td><td><code>&gt;=1.3.0.0-dev &lt;2.0.0.0-dev</code></td></tr>
+<tr><td><code>1.4.*</code></td><td><code>&gt;=1.4.0.0-dev &lt;1.5.0.0-dev</code></td></tr>
+</tbody></table>
+</div>
+<p>しかし制約の水準に強制せず様々な安定性を許すには、<code>@&lt;安定性&gt;</code>（例：<code>@dev</code>）のように<a href="../04-schema.html#package-links">安定性フラグ</a>を使い、与えられたパッケージが既定の最小安定性の設定とは違う安定性でインストールできることをComposerに知らせます。
+使える全ての安定性フラグは<a href="../04-schema.html#minimum-stability">スキーマのページ</a>の最小安定性の節に挙がっています。</p>
+<h2 id="まとめ"><a class="header" href="#まとめ">まとめ</a></h2>
+<pre><code class="language-jsonc">"require": {
+    "vendor/package": "1.3.2", // 1.3.2ぴったり
+
+    // &gt;, &lt;, &gt;=, &lt;= | 上限と下限を指定
+    "vendor/package": "&gt;=1.3.2", // 1.3.2以上の全バージョン
+    "vendor/package": "&lt;1.3.2", // 1.3.2より小さい全バージョン
+
+    // * | ワイルドカード
+    "vendor/package": "1.3.*", // &gt;=1.3.0 &lt;1.4.0
+
+    // ~ | 最後の桁は上げられます
+    "vendor/package": "~1.3.2", // &gt;=1.3.2 &lt;1.4.0
+    "vendor/package": "~1.3", // &gt;=1.3.0 &lt;2.0.0
+
+    // ^ | 破壊的な変更を許しません（セマンティックバージョニングに従い、メジャーバージョンは固定です）
+    "vendor/package": "^1.3.2", // &gt;=1.3.2 &lt;2.0.0
+    "vendor/package": "^0.3.2", // &gt;=0.3.2 &lt;0.4.0 // メジャーバージョンが0のときは例外
+}
+</code></pre>
+<h2 id="パッケージ制約の確認"><a class="header" href="#パッケージ制約の確認">パッケージ制約の確認</a></h2>
+<p><a href="https://semver.madewithlove.com">semver.madewithlove.com</a>を使ってバージョン制約を確認できます。
+パッケージ名を埋めると、Composerにより<code>composer.json</code>ファイルに加わる既定のバージョン制約が自動で埋まります。
+バージョン制約を調整すると、ツールにより、合致する全てのリリースが強調されます。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../doc/faqs/how-to-use-composer-behind-a-proxy.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../CHANGELOG.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../doc/faqs/how-to-use-composer-behind-a-proxy.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../CHANGELOG.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

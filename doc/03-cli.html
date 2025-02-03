@@ -1,0 +1,1209 @@
+<!DOCTYPE HTML>
+<html lang="ja" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>コマンドラインインターフェース - Composer</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Composer</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/gemmaro/composer" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="コマンドラインインターフェース--コマンド"><a class="header" href="#コマンドラインインターフェース--コマンド">コマンドラインインターフェース / コマンド</a></h1>
+<p>既にいろいろなことをするために、コマンドラインインターフェースの使い方は学びました。
+この章は全ての利用可能なコマンドを説明します。</p>
+<p>コマンドラインからヘルプを得るためには、<code>composer</code>または<code>composer list</code>を実行して全てのコマンドの完全な一覧を見ることができます。
+更に<code>--help</code>をそれらのコマンドと組み合わせれば、より多くの情報を得られます。</p>
+<p>Composerは<a href="https://github.com/symfony/console">symfony/console</a>を使っているため、曖昧でなければ短い名前でコマンドを呼び出せます。</p>
+<pre><code class="language-shell">php composer.phar dump
+</code></pre>
+<p>上では<code>composer dump-autoload</code>を呼び出します。</p>
+<h2 id="bashの補完"><a class="header" href="#bashの補完">Bashの補完</a></h2>
+<p>Bashの補完をインストールするには、<code>composer completion bash &gt; completion.bash</code>と走らせられます。
+現在のディレクトリに<code>completion.bash</code>ファイルを作ります。</p>
+<p>それから<code>source completion.bash</code>を実行すれば現在の端末のセッションで有効になります。</p>
+<p><code>completion.bash</code>を<code>/etc/bash_completion.d/composer</code>に移動しつつ改名すれば、新しい端末で自動的に読み込まれるようにできます。</p>
+<h2 id="大域オプション"><a class="header" href="#大域オプション">大域オプション</a></h2>
+<p>以下のオプションは全てのコマンドで利用できます。</p>
+<ul>
+<li><strong>--verbose (-v):</strong> メッセージの冗長さを増やす。</li>
+<li><strong>--help (-h):</strong> ヘルプ情報を表示する。</li>
+<li><strong>--quiet (-q):</strong> メッセージを一切出力しない。</li>
+<li><strong>--no-interaction (-n):</strong>
+対話的な質問の問い合わせを一切行わない。</li>
+<li><strong>--no-plugins:</strong> プラグインを無効にする。</li>
+<li><strong>--no-scripts:</strong> <code>composer.json</code>で定義されているスクリプトの実行を飛ばす。</li>
+<li><strong>--no-cache:</strong> キャッシュディレクトリの使用を無効にする。
+COMPOSER_CACHE_DIR環境変数を<code>/dev/null</code>（WindowsではNUL）に設定することと同じです。</li>
+<li><strong>--working-dir (-d):</strong> 指定すると、与えられたディレクトリを作業ディレクトリに使う。</li>
+<li><strong>--profile:</strong> 時間とメモリ使用量の情報を表示する。</li>
+<li><strong>--ansi:</strong> ANSI出力を強制する。</li>
+<li><strong>--no-ansi:</strong> ANSI出力を行わない。</li>
+<li><strong>--version (-V):</strong> 本アプリケーションのバージョンを表示する。</li>
+</ul>
+<h2 id="プロセスの終了コード"><a class="header" href="#プロセスの終了コード">プロセスの終了コード</a></h2>
+<ul>
+<li><strong>0:</strong> OK</li>
+<li><strong>1:</strong> 一般的ないし不明な失敗コード</li>
+<li><strong>2:</strong> 依存解決の失敗コード</li>
+</ul>
+<h2 id="init"><a class="header" href="#init">init</a></h2>
+<p><a href="02-libraries.html">ライブラリ</a>の章で<code>composer.json</code>を手作りする方法を見ました。
+こうしたことをするのに<code>init</code>コマンドというのもあります。</p>
+<p>このコマンドを実行すると、賢明な既定値を使いながら、対話的な問答を経てフィールドが埋められていきます。</p>
+<pre><code class="language-shell">php composer.phar init
+</code></pre>
+<h3 id="オプション"><a class="header" href="#オプション">オプション</a></h3>
+<ul>
+<li><strong>--name:</strong> パッケージの名前。</li>
+<li><strong>--description:</strong> パッケージの説明。</li>
+<li><strong>--author:</strong> パッケージの作者名。</li>
+<li><strong>--type:</strong> パッケージの種類。</li>
+<li><strong>--homepage:</strong> パッケージのホームページ。</li>
+<li><strong>--require:</strong> バージョン制約付きの必要なパッケージ。書式は<code>foo/bar:1.0.0</code>のようになります。</li>
+<li><strong>--require-dev:</strong> 開発のための要件です。<strong>--require</strong>を参照。</li>
+<li><strong>--stability (-s):</strong> <code>minimum-stability</code>フィールド用の値。</li>
+<li><strong>--license (-l):</strong> パッケージの利用許諾。</li>
+<li><strong>--repository:</strong> 1つ（かそれ以上）の個別のリポジトリを与えます。
+これらのリポジトリは生成されるcomposer.jsonに収められ、要件の一覧を提案する際の自動補完に使われます。
+全てのリポジトリは<code>composer</code>リポジトリを指すHTTPのURLないし<a href="04-schema.html#repositories">repositories</a>キーが受け付けるものと同様のJSON文字列の何れかを取ります。</li>
+<li><strong>--autoload (-a):</strong> composer.jsonへのPSR-4自動読み込みの対応付けを加えます。
+自動的にパッケージの名前空間を与えられたディレクトリに対応付けます（src/のような相対パスを想定しています）。
+<a href="04-schema.html#psr-4">PSR-4自動読み込み</a>も参照してください。</li>
+</ul>
+<h2 id="install--i"><a class="header" href="#install--i">install / i</a></h2>
+<p><code>install</code>コマンドは現在のディレクトリから<code>composer.json</code>ファイルを読み込み、依存物を解決し、<code>vendor</code>配下にインストールします。</p>
+<pre><code class="language-shell">php composer.phar install
+</code></pre>
+<p>現在のディレクトリに<code>composer.lock</code>ファイルが存在する場合は、依存物を解決する代わりに、そこから厳密なバージョンを使います。
+ライブラリを使う全ての利用者が同じバージョンの依存物を持つことを保証します。</p>
+<p><code>composer.lock</code>ファイルがない場合、composerは依存物を解決した後で作成します。</p>
+<h3 id="オプション-1"><a class="header" href="#オプション-1">オプション</a></h3>
+<ul>
+<li><strong>--prefer-install:</strong> パッケージをダウンロードする方法は<code>source</code>と<code>dist</code>の2つあります。
+Composerは<code>dist</code>を既定で使います。
+<code>--prefer-install=source</code>（または<code>--prefer-source</code>）を渡すと、Composerは、もしあれば<code>source</code>からインストールします。
+プロジェクトへのバグ修正をして、依存関係のローカルgitクローンを直接取得したい場合に便利です。
+Composerがパッケージの開発版用の<code>source</code>を自動的に使う、以前の挙動にしたければ、<code>--prefer-install=auto</code>を使ってください。
+<a href="06-config.html#preferred-install">config.preferred-install</a>も参照してください。
+このフラグを渡すと、設定値より優先されます。</li>
+<li><strong>--dry-run:</strong>
+実際にはパッケージをインストールすることなくインストールの過程を進めたいときは<code>--dry-run</code>を使うことができます。
+インストールを模擬して何が起こるのかを示します。</li>
+<li><strong>--download-only:</strong> ダウンロードするのみで、パッケージをインストールしません。</li>
+<li><strong>--dev:</strong> <code>require-dev</code>に挙げられたパッケージをインストールします（既定の挙動です）。</li>
+<li><strong>--no-dev:</strong> <code>require-dev</code>に挙げられたパッケージのインストールを飛ばします。
+自動読み込み器の生成で<code>autoload-dev</code>規則を読み飛ばします。
+<a href="#composer-no-dev">COMPOSER_NO_DEV</a>も参照してください。</li>
+<li><strong>--no-autoloader:</strong> 自動読み込み器の生成を飛ばします。</li>
+<li><strong>--no-progress:</strong>
+進捗表示を除きます。
+バックスペース文字を扱わない端末やスクリプトではこの表示があることで散らかってしまうからです。</li>
+<li><strong>--audit:</strong> インストールが完了した後に監査を走らせます。</li>
+<li><strong>--audit-format:</strong> 監査の出力形式です。
+"table"、"plain"、"json"、または"summary"（既定）のどれかでなければなりません。</li>
+<li><strong>--optimize-autoloader (-o):</strong> PSR-0の自動読み込みをクラス対応表に変換して自動読み込みを高速にします。
+実運用では特にお勧めしますが、走らせるのに少し時間が掛かることがあるので、現在は既定ではされません。</li>
+<li><strong>--classmap-authoritative (-a):</strong> クラス対応表からクラスのみを自動読み込みします。
+暗黙裡に<code>--optimize-autoloader</code>を有効にします。</li>
+<li><strong>--apcu-autoloader:</strong> APCuを使って、クラスの有無をキャッシュします。</li>
+<li><strong>--apcu-autoloader-prefix:</strong> APCu自動読み込み器のキャッシュ用に独自の接頭辞を使います。
+暗黙裡に<code>--apcu-autoloader</code>を有効にします。</li>
+<li><strong>--ignore-platform-reqs:</strong>
+全てのプラットフォーム要件（<code>php</code>、<code>hhvm</code>、<code>lib-*</code>、<code>ext-*</code>）を無視し、ローカルマシンがたとえこれらを満たしていなくてもインストールを強行します。
+<a href="06-config.html#platform"><code>platform</code></a>設定オプションも参照してください。</li>
+<li><strong>--ignore-platform-req:</strong>
+特定のプラットフォーム要件（<code>php</code>、<code>hhvm</code>、<code>lib-*</code>、<code>ext-*</code>）を無視し、ローカルマシンがたとえこれらを満たしていなくてもインストールを強行します。
+ワイルドカードを使って複数の要件を無視できます。
+<code>+</code>を後ろに付けることで要件の上限値だけを無視できます。
+例えばパッケージが<code>php: ^7</code>を要求しているとき、オプション<code>--ignore-platform-req=php+</code>はPHP8でのインストールを許しますが、PHP
+5.6でのインストールについては失敗します。</li>
+</ul>
+<h2 id="update--u--upgrade"><a class="header" href="#update--u--upgrade">update / u / upgrade</a></h2>
+<p>依存関係の最新版を取得して<code>composer.lock</code>ファイルを更新する上では<code>update</code>コマンドを使うと良いでしょう。
+このコマンドには<code>upgrade</code>の別名が付けられていますが、<code>apt-get</code>や類するパッケージ管理を連想したときに<code>upgrade</code>がすることと同じだからです。</p>
+<pre><code class="language-shell">php composer.phar update
+</code></pre>
+<p>こうするとプロジェクトの全ての依存関係を解決し、厳密なバージョンを<code>composer.lock</code>に書き込みます。</p>
+<p>全てではなく、2、3のパッケージのみを更新したい場合は、以下のように列挙できます。</p>
+<pre><code class="language-shell">php composer.phar update vendor/package vendor/package2
+</code></pre>
+<p>ワイルドカードを使って複数のパッケージを一挙に更新することもできます。</p>
+<pre><code class="language-shell">php composer.phar update "vendor/*"
+</code></pre>
+<p><code>composer.json</code>を変えることなくパッケージを指定のバージョンに巻き戻したいときは、<code>--with</code>を使うことができます。
+このオプションには自分で選んだバージョン制約を与えます。</p>
+<pre><code class="language-shell">php composer.phar update --with vendor/package:2.0.1
+</code></pre>
+<p>なお上記では全てのパッケージが更新されます。
+<code>--with</code>を使って自分で選んだ制約を与えたパッケージのみを更新するには、<code>--with</code>を省き、代わりに部分的な更新構文を持つ制約を使ってください。</p>
+<pre><code class="language-shell">php composer.phar update vendor/package:2.0.1 vendor/package2:3.0.*
+</code></pre>
+<blockquote>
+<p><strong>補足：</strong> composer.jsonでも要求されているパッケージについては、自分で選んだ制約は既存の制約の部分集合でなければなりません。
+composer.jsonでの制約は適用されたままであり、これらの一時的な制約の更新では変更されません。</p>
+</blockquote>
+<h3 id="オプション-2"><a class="header" href="#オプション-2">オプション</a></h3>
+<ul>
+<li><strong>--prefer-install:</strong> パッケージをダウンロードする方法は<code>source</code>と<code>dist</code>の2つあります。
+Composerは<code>dist</code>を既定で使います。
+<code>--prefer-install=source</code>（または<code>--prefer-source</code>）を渡すと、Composerは、もしあれば<code>source</code>からインストールします。
+プロジェクトへのバグ修正をして、依存関係のローカルgitクローンを直接取得したい場合に便利です。
+Composerがパッケージの開発版用の<code>source</code>を自動的に使う、以前の挙動にしたければ、<code>--prefer-install=auto</code>を使ってください。
+<a href="06-config.html#preferred-install">config.preferred-install</a>も参照してください。
+このフラグを渡すと、設定値より優先されます。</li>
+<li><strong>--dry-run:</strong>
+実際には何もせず、コマンドを模擬します。</li>
+<li><strong>--dev:</strong> <code>require-dev</code>に挙げられたパッケージをインストールします（既定の挙動です）。</li>
+<li><strong>--no-dev:</strong> <code>require-dev</code>に挙げられたパッケージのインストールを飛ばします。
+自動読み込み器の生成で<code>autoload-dev</code>規則を読み飛ばします。
+<a href="#composer-no-dev">COMPOSER_NO_DEV</a>も参照してください。</li>
+<li><strong>--no-install:</strong>
+composer.lockを更新した後のインストール過程を走らせません。</li>
+<li><strong>--no-audit:</strong>
+composer.lockを更新した後の監査過程を走らせません。<a href="#composer-no-audit">COMPOSER_NO_AUDIT</a>も参照してください。</li>
+<li><strong>--audit-format:</strong> 監査の出力形式です。
+"table"、"plain"、"json"、または"summary"（既定）のどれかでなければなりません。</li>
+<li><strong>--lock:</strong>
+パッケージのバージョンを更新せず、固定ファイルが期限切れであることについての警告を抑えるために固定ファイルを上書きします。
+ミラーやURLといったパッケージのメタデータが変更されていれば更新します。</li>
+<li><strong>--with:</strong> 一時的に追加するバージョン制約です。例えばfoo/bar:1.0.0やfoo/bar=1.0.0です。</li>
+<li><strong>--no-autoloader:</strong> 自動読み込み器の生成を飛ばします。</li>
+<li><strong>--no-progress:</strong>
+進捗表示を除きます。
+バックスペース文字を扱わない端末やスクリプトではこの表示があることで散らかってしまうからです。</li>
+<li><strong>--with-dependencies (-w):</strong>
+引数リスト中のパッケージの依存関係も更新します。
+ただし根幹要件は除きます。
+COMPOSER_WITH_DEPENDENCIES=1 環境変数で設定することもできます。</li>
+<li><strong>--with-all-dependencies (-W):</strong>
+引数リスト中のパッケージの依存関係も更新します。
+根幹要件を含みます。
+COMPOSER_WITH_ALL_DEPENDENCIES=1 環境変数でも設定できます。</li>
+<li><strong>--optimize-autoloader (-o):</strong>
+PSR-0自動読み込みをクラスマップに変換して、より高速な自動読み込み器を取得します。
+特に実運用で推奨されますが、走らせるのに少し時間が掛かるため、現時点では既定では有効になっていません。</li>
+<li><strong>--classmap-authoritative (-a):</strong> クラス対応表からクラスのみを自動読み込みします。
+暗黙裡に<code>--optimize-autoloader</code>を有効にします。</li>
+<li><strong>--apcu-autoloader:</strong> APCuを使って、クラスの有無をキャッシュします。</li>
+<li><strong>--apcu-autoloader-prefix:</strong> APCu自動読み込み器のキャッシュ用に独自の接頭辞を使います。
+暗黙裡に<code>--apcu-autoloader</code>を有効にします。</li>
+<li><strong>--ignore-platform-reqs:</strong>
+全てのプラットフォーム要件（<code>php</code>、<code>hhvm</code>、<code>lib-*</code>、<code>ext-*</code>）を無視し、ローカルマシンがたとえこれらを満たしていなくてもインストールを強行します。
+<a href="06-config.html#platform"><code>platform</code></a>設定オプションも参照してください。</li>
+<li><strong>--ignore-platform-req:</strong>
+特定のプラットフォーム要件（<code>php</code>、<code>hhvm</code>、<code>lib-*</code>、<code>ext-*</code>）を無視し、ローカルマシンがたとえこれらを満たしていなくてもインストールを強行します。
+ワイルドカードを使って複数の要件を無視できます。
+<code>+</code>を後ろに付けることで要件の上限値だけを無視できます。
+例えばパッケージが<code>php: ^7</code>を要求しているとき、オプション<code>--ignore-platform-req=php+</code>はPHP8でのインストールを許しますが、PHP
+5.6でのインストールについては失敗します。</li>
+<li><strong>--prefer-stable:</strong>
+依存関係の安定板を選ぶようにします。COMPOSER_PREFER_STABLE=1環境変数を介しても設定できます。</li>
+<li><strong>--prefer-lowest:</strong>
+依存関係の最も低いバージョンを選ぶようにします。最小バージョン要件を試す際に便利で、一般的には<code>--prefer-stable</code>と共に使われます。COMPOSER_PREFER_LOWERST=1環境変数を介しても設定できます。</li>
+<li><strong>--minimal-changes (-m):</strong>
+<code>-w</code> / <code>-W</code>を使った部分的な更新の際に、遷移的な依存関係については絶対に必須の変更のみを実施するようにします。
+COMPOSER_MINIMAL_CHANGES=1環境変数を介しても設定できます。</li>
+<li><strong>--patch-only:</strong>
+現在インストールされている依存関係について、パッチバージョンの更新のみ許可します。</li>
+<li><strong>--interactive:</strong> 自動補完付きの対話的なインターフェースで、更新するパッケージを選択します。</li>
+<li><strong>--root-reqs:</strong> 更新を一次依存関係に制限します。</li>
+<li><strong>--bump-after-update:</strong>
+更新後に<code>bump</code>を走らせます。
+<code>dev</code>や<code>no-dev</code>を設定すると、それぞれの依存関係のみのバージョンを上げます。</li>
+</ul>
+<p>引数として単語<code>mirrors</code>、<code>lock</code>、<code>nothing</code>からどれか1つを指定すると、オプション<code>--lock</code>を指定することと同じ効果があります。
+例えば<code>composer update mirrors</code>は<code>composer update --lock</code>と全く同じです。</p>
+<h2 id="require--r"><a class="header" href="#require--r">require / r</a></h2>
+<p><code>require</code>コマンドは<code>composer.json</code>ファイルに現在のディレクトリから新しいパッケージを追加します。1つもファイルが存在しなければ必要に応じて作られます。</p>
+<p>パッケージを指定しない場合、Composerはパッケージを探すためにプロンプトを出し、要件にするものに照合する一覧を提供します。</p>
+<pre><code class="language-shell">php composer.phar require
+</code></pre>
+<p>要件を加えたり変えたりした後に、変更された要件がインストールされたり更新されたりします。</p>
+<p>対話的に要件を選びたくなければコマンドに渡すこともできます。</p>
+<pre><code class="language-shell">php composer.phar require "vendor/package:2.*" vendor/package2:dev-master
+</code></pre>
+<p>バージョン制約を指定しなければ、composerは利用できるパッケージのバージョンに基づいて相応しいものを選びます。</p>
+<pre><code class="language-shell">php composer.phar require vendor/package vendor/package2
+</code></pre>
+<p>すぐには新しい依存関係をインストールしたくない場合は--no-update付きで呼べます。</p>
+<h3 id="オプション-3"><a class="header" href="#オプション-3">オプション</a></h3>
+<ul>
+<li><strong>--dev:</strong> パッケージを<code>require-dev</code>に追加します。</li>
+<li><strong>--dry-run:</strong>
+実際には何もせず、コマンドを模擬します。</li>
+<li><strong>--prefer-install:</strong> パッケージをダウンロードする方法は<code>source</code>と<code>dist</code>の2つあります。
+Composerは<code>dist</code>を既定で使います。
+<code>--prefer-install=source</code>（または<code>--prefer-source</code>）を渡すと、Composerは、もしあれば<code>source</code>からインストールします。
+プロジェクトへのバグ修正をして、依存関係のローカルgitクローンを直接取得したい場合に便利です。
+Composerがパッケージの開発版用の<code>source</code>を自動的に使う、以前の挙動にしたければ、<code>--prefer-install=auto</code>を使ってください。
+<a href="06-config.html#preferred-install">config.preferred-install</a>も参照してください。
+このフラグを渡すと、設定値より優先されます。</li>
+<li><strong>--no-progress:</strong>
+進捗表示を除きます。
+バックスペース文字を扱わない端末やスクリプトではこの表示があることで散らかってしまうからです。</li>
+<li><strong>--no-update:</strong> 依存関係の自動的な更新を無効にします（--no-installを暗示します）。</li>
+<li><strong>--no-install:</strong>
+composer.lockを更新した後のインストール過程を走らせません。</li>
+<li><strong>--no-audit:</strong>
+composer.lockを更新した後の監査過程を走らせません。<a href="#composer-no-audit">COMPOSER_NO_AUDIT</a>も参照してください。</li>
+<li><strong>--audit-format:</strong> 監査の出力形式です。
+"table"、"plain"、"json"、または"summary"（既定）のどれかでなければなりません。</li>
+<li><strong>--update-no-dev:</strong>
+<code>--no-dev</code>オプションと共に依存関係の更新を走らせます。<a href="#composer-no-dev">COMPOSER_NO_DEV</a>も参照してください。</li>
+<li><strong>--update-with-dependencies (-w):</strong>
+新しく要求するパッケージの依存関係も更新します。
+ただし根幹要件は除きます。
+COMPOSER_WITH_DEPENDENCIES=1 環境変数でも設定できます。</li>
+<li><strong>--update-with-all-dependencies (-W):</strong>
+新しく要求するパッケージの依存関係も更新します。
+根幹要件も含まれます。
+COMPOSER_WITH_ALL_DEPENDENCIES=1 環境変数でも設定できます。</li>
+<li><strong>--ignore-platform-reqs:</strong>
+全てのプラットフォーム要件（<code>php</code>、<code>hhvm</code>、<code>lib-*</code>、<code>ext-*</code>）を無視し、ローカルマシンがたとえこれらを満たしていなくてもインストールを強行します。
+<a href="06-config.html#platform"><code>platform</code></a>設定オプションも参照してください。</li>
+<li><strong>--ignore-platform-req:</strong>
+特定のプラットフォーム要件（<code>php</code>、<code>hhvm</code>、<code>lib-*</code>、<code>ext-*</code>）を無視して、たとえローカルマシンが満たしていなかったとしても、インストールを強行します。
+ワイルドカードを使って複数の要件を無視できます。</li>
+<li><strong>--prefer-stable:</strong>
+依存関係の安定板を選ぶようにします。COMPOSER_PREFER_STABLE=1環境変数を介しても設定できます。</li>
+<li><strong>--prefer-lowest:</strong>
+依存関係の最も低いバージョンを選ぶようにします。最小バージョン要件を試す際に便利で、一般的には<code>--prefer-stable</code>と共に使われます。COMPOSER_PREFER_LOWERST=1環境変数を介しても設定できます。</li>
+<li><strong>--minimal-changes (-m):</strong>
+<code>-w</code> / <code>-W</code>での更新の際に、遷移的な依存関係に関して絶対に必須の変更のみを実施するようにします。
+COMPOSER_MINIMAL_CHANGES=1環境変数を介して設定することもできます。</li>
+<li><strong>--sort-packages:</strong>
+パッケージを<code>package.json</code>で整列した状態にします。</li>
+<li><strong>--optimize-autoloader (-o):</strong>
+PSR-0自動読み込みをクラスマップに変換して、より高速な自動読み込み器を取得します。
+特に実運用で推奨されますが、走らせるのに少し時間が掛かるため、現時点では既定では有効になっていません。</li>
+<li><strong>--classmap-authoritative (-a):</strong> クラス対応表からクラスのみを自動読み込みします。
+暗黙裡に<code>--optimize-autoloader</code>を有効にします。</li>
+<li><strong>--apcu-autoloader:</strong> APCuを使って、クラスの有無をキャッシュします。</li>
+<li><strong>--apcu-autoloader-prefix:</strong> APCu自動読み込み器のキャッシュ用に独自の接頭辞を使います。
+暗黙裡に<code>--apcu-autoloader</code>を有効にします。</li>
+</ul>
+<h2 id="remove--rm--uninstall"><a class="header" href="#remove--rm--uninstall">remove / rm / uninstall</a></h2>
+<p><code>remove</code>コマンドは現在のディレクトリにある<code>composer.json</code>ファイルからパッケージを削除します。</p>
+<pre><code class="language-shell">php composer.phar remove vendor/package vendor/package2
+</code></pre>
+<p>要件を削除した後は変更対象の要件がアンインストールされます。</p>
+<h3 id="オプション-4"><a class="header" href="#オプション-4">オプション</a></h3>
+<ul>
+<li><strong>--unused</strong>（もう）直接ないし間接の依存関係ではない、使われていないパッケージを削除します。</li>
+<li><strong>--dev:</strong> <code>require-dev</code>からパッケージを削除します。</li>
+<li><strong>--dry-run:</strong>
+実際には何もせず、コマンドを模擬します。</li>
+<li><strong>--no-progress:</strong>
+進捗表示を除きます。
+バックスペース文字を扱わない端末やスクリプトではこの表示があることで散らかってしまうからです。</li>
+<li><strong>--no-update:</strong> 依存関係の自動的な更新を無効にします（--no-installを暗示します）。</li>
+<li><strong>--no-install:</strong>
+composer.lockを更新した後のインストール過程を走らせません。</li>
+<li><strong>--no-audit:</strong>
+インストールが完了した後の監査過程を走らせないようにします。
+<a href="#composer-no-audit">COMPOSER_NO_AUDIT</a>も参照してください。</li>
+<li><strong>--audit-format:</strong> 監査の出力形式です。
+"table"、"plain"、"json"、または"summary"（既定）のどれかでなければなりません。</li>
+<li><strong>--update-no-dev:</strong>
+--no-devオプションで依存関係の更新を走らせます。<a href="#composer-no-dev">COMPOSER_NO_DEV</a>も参照してください。</li>
+<li><strong>--update-with-dependencies (-w):</strong>
+削除されたパッケージの依存関係も更新します。
+COMPOSER_WITH_DEPENDENCIES=1 環境変数でも設定できます（廃止されました。
+現在は既定の挙動になっています）。</li>
+<li><strong>--update-with-all-dependencies (-W):</strong>
+全ての継承する依存関係が更新されるようにします。
+根幹要件のものも含みます。
+COMPOSER_WITH_ALL_DEPENDENCIES=1 環境変数でも設定できます。</li>
+<li><strong>--minimal-changes (-m):</strong>
+<code>-w</code> / <code>-W</code>での更新の際に、遷移的な依存関係に関して絶対に必須の変更のみを実施するようにします。
+COMPOSER_MINIMAL_CHANGES=1環境変数を介して設定することもできます。</li>
+<li><strong>--ignore-platform-reqs:</strong>
+全てのプラットフォーム要件（<code>php</code>、<code>hhvm</code>、<code>lib-*</code>、<code>ext-*</code>）を無視し、ローカルマシンがたとえこれらを満たしていなくてもインストールを強行します。
+<a href="06-config.html#platform"><code>platform</code></a>設定オプションも参照してください。</li>
+<li><strong>--ignore-platform-req:</strong>
+特定のプラットフォーム要件（<code>php</code>、<code>hhvm</code>、<code>lib-*</code>、<code>ext-*</code>）を無視して、たとえローカルマシンが満たしていなかったとしても、インストールを強行します。
+ワイルドカードを使って複数の要件を無視できます。</li>
+<li><strong>--optimize-autoloader (-o):</strong> PSR-0の自動読み込みをクラス対応表に変換して自動読み込みを高速にします。
+実運用では特にお勧めしますが、走らせるのに少し時間が掛かることがあるので、現在は既定ではされません。</li>
+<li><strong>--classmap-authoritative (-a):</strong> クラス対応表からクラスのみを自動読み込みします。
+暗黙裡に<code>--optimize-autoloader</code>を有効にします。</li>
+<li><strong>--apcu-autoloader:</strong> APCuを使って、クラスの有無をキャッシュします。</li>
+<li><strong>--apcu-autoloader-prefix:</strong> APCu自動読み込み器のキャッシュ用に独自の接頭辞を使います。
+暗黙裡に<code>--apcu-autoloader</code>を有効にします。</li>
+</ul>
+<h2 id="bump"><a class="header" href="#bump">bump</a></h2>
+<p><code>bump</code>コマンドはcomposer.jsonの要件の下限を現在インストールされているバージョンに引き上げます。これにより依存関係が何らかの競合によりうっかりダウングレードされてしまわないようになったり、Composerが探すパッケージのバージョンの数が抑えられるため依存関係解決を僅かに向上させられます。</p>
+<p>許される依存関係を狭めてしまうため、ライブラリでこれを無闇に走らせるのは推奨<strong>されません</strong>。
+依存関係を狭めることは利用者に依存関係地獄を招きかねません。
+しかしライブラリで<code>--dev-only</code>を走らせるのは、開発用要件がライブラリに対して局所的で、パッケージの消費者には影響しないため問題ないでしょう。</p>
+<h3 id="オプション-5"><a class="header" href="#オプション-5">オプション</a></h3>
+<ul>
+<li><strong>--dev-only:</strong> "require-dev" 中の要件のみbumpします。</li>
+<li><strong>--no-dev-only:</strong> "require" にある要件のみbumpします。</li>
+<li><strong>--dry-run:</strong> bumpするパッケージを出力しますが、何も実行しません。</li>
+</ul>
+<h2 id="reinstall"><a class="header" href="#reinstall">reinstall</a></h2>
+<p><code>reinstall</code>コマンドは名前からインストールされているパッケージを見付けだし、アンインストールと再インストールをします。
+こうすることでファイルを散らかしたり--prefer-installを使ってインストールの種類を変えたいと思ったりしたときにクリーンインストールできます。</p>
+<pre><code class="language-shell">php composer.phar reinstall acme/foo acme/bar
+</code></pre>
+<p>再インストールするパッケージ名を1つ以上指定できます。
+またはワイルドカードを使って複数パッケージの一括選択もできます。</p>
+<pre><code class="language-shell">php composer.phar reinstall "acme/*"
+</code></pre>
+<h3 id="オプション-6"><a class="header" href="#オプション-6">オプション</a></h3>
+<ul>
+<li><strong>--prefer-install:</strong> パッケージをダウンロードする方法は<code>source</code>と<code>dist</code>の2つあります。
+Composerは<code>dist</code>を既定で使います。
+<code>--prefer-install=source</code>（または<code>--prefer-source</code>）を渡すと、Composerは、もしあれば<code>source</code>からインストールします。
+プロジェクトへのバグ修正をして、依存関係のローカルgitクローンを直接取得したい場合に便利です。
+Composerがパッケージの開発版用の<code>source</code>を自動的に使う、以前の挙動にしたければ、<code>--prefer-install=auto</code>を使ってください。
+<a href="06-config.html#preferred-install">config.preferred-install</a>も参照してください。
+このフラグを渡すと、設定値より優先されます。</li>
+<li><strong>--no-autoloader:</strong> 自動読み込み器の生成を飛ばします。</li>
+<li><strong>--no-progress:</strong>
+進捗表示を除きます。
+バックスペース文字を扱わない端末やスクリプトではこの表示があることで散らかってしまうからです。</li>
+<li><strong>--optimize-autoloader (-o):</strong> PSR-0の自動読み込みをクラス対応表に変換して自動読み込みを高速にします。
+実運用では特にお勧めしますが、走らせるのに少し時間が掛かることがあるので、現在は既定ではされません。</li>
+<li><strong>--classmap-authoritative (-a):</strong> クラス対応表からクラスのみを自動読み込みします。
+暗黙裡に<code>--optimize-autoloader</code>を有効にします。</li>
+<li><strong>--apcu-autoloader:</strong> APCuを使って、クラスの有無をキャッシュします。</li>
+<li><strong>--apcu-autoloader-prefix:</strong> APCu自動読み込み器のキャッシュ用に独自の接頭辞を使います。
+暗黙裡に<code>--apcu-autoloader</code>を有効にします。</li>
+<li><strong>--ignore-platform-reqs:</strong> 全てのプラットフォーム要件を無視します。
+再インストールコマンド用の自動読み込み器の生成のときにのみ効果があります。</li>
+<li><strong>--ignore-platform-req:</strong> 特定のプラットフォーム要件を無視します。
+再インストールコマンド用の自動読み込み器の生成のときにのみ効果があります。
+複数の要件をワイルドカードで無視できます。</li>
+</ul>
+<h2 id="check-platform-reqs"><a class="header" href="#check-platform-reqs">check-platform-reqs</a></h2>
+<p>check-platform-reqsコマンドはPHPと拡張のバージョンがインストールされているパッケージのプラットフォーム要件を満たしているかを確認します。
+例えば実運用サーバーでインストール後に、プロジェクトを走らせるのに必要な全ての拡張があることを検証したいときに使えます。</p>
+<p>updateやinstallとは異なり、このコマンドはconfig.platform設定を無視し、実際のプラットフォームパッケージを検査します。
+そのため要求されているプラットフォーム依存関係があることを確かめられます。</p>
+<h3 id="オプション-7"><a class="header" href="#オプション-7">オプション</a></h3>
+<ul>
+<li><strong>--lock:</strong>
+インストールされたパッケージからではなく、固定ファイルのみから要件を検査します。</li>
+<li><strong>--no-dev:</strong> require-devのパッケージ要件の検査を無効にします。</li>
+<li><strong>--format (-f):</strong> 出力の書式です。text（既定）またはjsonです。</li>
+</ul>
+<h2 id="global"><a class="header" href="#global">global</a></h2>
+<p>globalコマンドは<code>install</code>、<code>remove</code>、<code>require</code>、<code>update</code>のようなコマンドをあたかも<a href="#composer-home">COMPOSER_HOME</a>ディレクトリから走らせているように実行できます。</p>
+<p>中心的な場所に保管されたプロジェクトを管理するためのただの補助であり、CLIツールやComposerプラグインのような、どこでも使えるようにしたいものを置いておけます。</p>
+<p>大域的にCLIユーティリティをインストールするのに使えます。
+以下は一例です。</p>
+<pre><code class="language-shell">php composer.phar global require friendsofphp/php-cs-fixer
+</code></pre>
+<p>これで<code>php-cs-fixer</code>バイナリが大域的に使えるようになりました。大域的な<a href="articles/vendor-binaries.html">ベンダーバイナリ</a>ディレクトリが<code>$PATH</code>環境変数の中にあるようにしてください。インストールした場所は以下のコマンドで得られます。</p>
+<pre><code class="language-shell">php composer.phar global config bin-dir --absolute
+</code></pre>
+<p>後になってバイナリを更新したいと思ったら、global updateを走らせられます。</p>
+<pre><code class="language-shell">php composer.phar global update
+</code></pre>
+<h2 id="search"><a class="header" href="#search">search</a></h2>
+<p>searchコマンドを使うと、現在のプロジェクトのパッケージリポジトリ全体を検索できます。
+大抵はpackagistです。
+検索したい用語を渡せます。</p>
+<pre><code class="language-shell">php composer.phar search monolog
+</code></pre>
+<p>複数の引数を渡すことで1つ以上の用語を探すこともできます。</p>
+<h3 id="オプション-8"><a class="header" href="#オプション-8">オプション</a></h3>
+<ul>
+<li><strong>--only-name (-N):</strong> パッケージの名前のみから検索します。</li>
+<li><strong>--only-vendor (-O):</strong>
+ベンダー・組織名のみから検索します。
+結果として「ベンダー」のみが返ります。</li>
+<li><strong>--type (-t):</strong> 特定のパッケージの種類から探します。</li>
+<li><strong>--format (-f):</strong>
+text（既定）かjson出力かのどちらかを選べます。
+jsonではname及びdescriptionキーのみが存在することが保証されています。
+残り（<code>url</code>、<code>repository</code>、<code>downloads</code>、<code>favers</code>）はPackagist.orgの検索結果で得られるものであって、その他のリポジトリが返す情報はそれより多かったり少なかったりします。</li>
+</ul>
+<h2 id="show--info"><a class="header" href="#show--info">show / info</a></h2>
+<p>使えるパッケージの全てを一覧にするには<code>show</code>コマンドが使えます。</p>
+<pre><code class="language-shell">php composer.phar show
+</code></pre>
+<p>一覧を絞り込むには、ワイルドカードを使ってパッケージマスクを渡せます。</p>
+<pre><code class="language-shell">php composer.phar show "monolog/*"
+</code></pre>
+<pre><code class="language-text">monolog/monolog 2.4.0 Sends your logs to files, sockets, inboxes, databases and various web services
+</code></pre>
+<p>何かのパッケージの詳細を見たければ、パッケージ名を渡すことができます。</p>
+<pre><code class="language-shell">php composer.phar show monolog/monolog
+</code></pre>
+<pre><code class="language-text">name     : monolog/monolog
+descrip. : Sends your logs to files, sockets, inboxes, databases and various web services
+keywords : log, logging, psr-3
+versions : * 1.27.1
+type     : library
+license  : MIT License (MIT) (OSI approved) https://spdx.org/licenses/MIT.html#licenseText
+homepage : http://github.com/Seldaek/monolog
+source   : [git] https://github.com/Seldaek/monolog.git 904713c5929655dc9b97288b69cfeedad610c9a1
+dist     : [zip] https://api.github.com/repos/Seldaek/monolog/zipball/904713c5929655dc9b97288b69cfeedad610c9a1 904713c5929655dc9b97288b69cfeedad610c9a1
+names    : monolog/monolog, psr/log-implementation
+
+support
+issues : https://github.com/Seldaek/monolog/issues
+source : https://github.com/Seldaek/monolog/tree/1.27.1
+
+autoload
+psr-4
+Monolog\ =&gt; src/Monolog
+
+requires
+php &gt;=5.3.0
+psr/log ~1.0
+</code></pre>
+<p>パッケージのバージョンを渡すこともできます。
+こうすると特定のバージョンでの詳細が分かります。</p>
+<pre><code class="language-shell">php composer.phar show monolog/monolog 1.0.2
+</code></pre>
+<h3 id="オプション-9"><a class="header" href="#オプション-9">オプション</a></h3>
+<ul>
+<li><strong>--all:</strong>
+リポジトリで使える全てのパッケージを一覧にします。</li>
+<li><strong>--installed (-i):</strong> インストールされているパッケージを一覧にします（既定で有効になっており、時代遅れのオプションです）。</li>
+<li><strong>--locked:</strong> composer.lockから固定されたパッケージを一覧にします。</li>
+<li><strong>--platform (-p):</strong> プラットフォームパッケージ（phpと拡張）のみを一覧にします。</li>
+<li><strong>--available (-a):</strong> 利用できるパッケージのみにします。</li>
+<li><strong>--self (-s):</strong>
+根幹パッケージ情報を一覧にします。</li>
+<li><strong>--name-only (-N):</strong> パッケージ名のみを一覧にします。</li>
+<li><strong>--path (-P):</strong> パッケージのパスを一覧にします。</li>
+<li><strong>--tree (-t):</strong> 依存関係を木構造で一覧にします。パッケージ名を渡した場合はそのパッケージの依存関係を示します。</li>
+<li><strong>--latest (-l):</strong> インストールされている全てのパッケージをその最新バージョンと共に一覧にします。</li>
+<li><strong>--outdated (-o):</strong>
+--latestを暗示しますが、新しいバージョンが手に入るパッケージ<em>のみ</em>を一覧にします。</li>
+<li><strong>--ignore:</strong>
+ワイルドカード (<code>*</code>) を含められます。
+指定されたパッケージを無視します。
+パッケージの新しいバージョンについて通知を受けたくなければ--outdatedオプションと一緒に使ってください。</li>
+<li><strong>--no-dev:</strong> パッケージ一覧から開発用の依存関係を除外します。</li>
+<li><strong>--major-only (-M):</strong>
+--latestまたは--outdatedと一緒に使ってください。
+メジャーなセマンティックバージョニング互換の更新があるパッケージのみ示されます。</li>
+<li><strong>--minor-only (-m):</strong>
+--latestまたは--outdatedと一緒に使ってください。
+マイナーなセマンティックバージョニング互換の更新があるパッケージのみ示されます。</li>
+<li><strong>--patch-only:</strong>
+--latestまたは--outdatedと一緒に使ってください。
+パッチ水準のセマンティックバージョニング互換の更新があるパッケージのみが示されます。</li>
+<li><strong>--sort-by-age (-A):</strong>
+インストールされたバージョンの経過時間を表示し、古い順にパッケージを整列します。
+--latestないし--outdatedオプションと一緒に使ってください。</li>
+<li><strong>--direct (-D):</strong> パッケージの一覧を直接的な依存関係に限定します。</li>
+<li><strong>--strict:</strong> 時代遅れのパッケージがあるときは非ゼロの終了コードを返します。</li>
+<li><strong>--format (-f):</strong> 出力形式としてtext（既定）ないしjsonを選びます。</li>
+<li><strong>--ignore-platform-reqs:</strong>
+全てのプラットフォーム要件（<code>php</code>、<code>hhvm</code>、<code>lib-*</code>、<code>ext-*</code>）を無視し、たとえローカルマシンがこれらの要件を満たしていなくても、インストールを強行します。--outdatedオプションと一緒に使ってください。</li>
+<li><strong>--ignore-platform-req:</strong>
+特定のプラットフォーム要件（<code>php</code>、<code>hhvm</code>、<code>lib-*</code>、<code>ext-*</code>）を無視し、たとえローカルマシンがその要件を満たしていなくても、インストールを強行します。
+ワイルドカードを介して複数の要件を無視できます。
+--outdatedオプションと一緒に使ってください。</li>
+</ul>
+<h2 id="outdated"><a class="header" href="#outdated">outdated</a></h2>
+<p><code>outdated</code>コマンドは、更新が利用できるインストール済みパッケージの一覧を、現在のバージョンと最新のバージョンを含めて示します。
+基本的に<code>composer show -lo</code>の別名になっています。</p>
+<p>色彩コードは以下の通り。</p>
+<ul>
+<li><strong>green (=)</strong>: 依存関係は最新バージョンであり、最新式です。</li>
+<li><strong>yellow (<code>~</code>)</strong>:
+依存関係に新しいバージョンが利用できるものがありますが、セマンティックバージョニングに於ける後方互換性の破壊が含まれます。
+そのため更新できそうならしても良いですが、作業が発生する可能性があります。</li>
+<li><strong>red (!)</strong>:
+依存関係にセマンティックバージョニング上互換性のある新しいバージョンがあり、更新するべきです。</li>
+</ul>
+<h3 id="オプション-10"><a class="header" href="#オプション-10">オプション</a></h3>
+<ul>
+<li><strong>--all (-a):</strong> 時代遅れのものだけでなく、全てのパッケージを示します（<code>composer show --latest</code>の別名です）。</li>
+<li><strong>--direct (-D):</strong> パッケージの一覧を直接的な依存関係に限定します。</li>
+<li><strong>--strict:</strong>
+1つもパッケージが時代遅れでなければ、非ゼロの終了コードを返します。</li>
+<li><strong>--ignore:</strong>
+指定されたパッケージを無視します。
+ワイルドカード (<code>*</code>) を含められます。
+何かしらのパッケージの新しいバージョンについて知らされたくないときに使ってください。</li>
+<li><strong>--major-only (-M):</strong> メジャーなセマンティックバージョニング上の互換性を伴う更新のみ示します。</li>
+<li><strong>--minor-only (-m):</strong> マイナーなセマンティックバージョニング上の互換性を伴う更新のみ示します。</li>
+<li><strong>--patch-only (-p):</strong>
+パッチ水準のセマンティックバージョニング上の互換性を伴う更新のみ示します。</li>
+<li><strong>--sort-by-age (-A):</strong>
+インストールされたバージョンの経過時間を表示し、古い順にパッケージを整列します。</li>
+<li><strong>--format (-f):</strong> 出力形式としてtext（既定）ないしjsonを選びます。</li>
+<li><strong>--no-dev:</strong> 時代遅れの開発用依存関係を表示しません。</li>
+<li><strong>--locked:</strong>
+固定ファイルを元にしたパッケージの更新を示します。
+現在のベンダーディレクトリの中身は措かれます。</li>
+<li><strong>--ignore-platform-reqs:</strong>
+全てのプラットフォーム要件（<code>php</code>、<code>hhvm</code>、<code>lib-*</code>、<code>ext-*</code>）を無視し、たとえローカルマシンがこれらの要件を満たしていなくても、インストールを強行します。</li>
+<li><strong>--ignore-platform-req:</strong>
+特定のプラットフォーム要件（<code>php</code>、<code>hhvm</code>、<code>lib-*</code>、<code>ext-*</code>）を無視して、たとえローカルマシンが満たしていなかったとしても、インストールを強行します。
+ワイルドカードを使って複数の要件を無視できます。</li>
+</ul>
+<h2 id="browse--home"><a class="header" href="#browse--home">browse / home</a></h2>
+<p><code>browse</code>（別名<code>home</code>）はパッケージのリポジトリURLまたはホームページをブラウザで開きます。</p>
+<h3 id="オプション-11"><a class="header" href="#オプション-11">オプション</a></h3>
+<ul>
+<li><strong>--homepage (-H):</strong> リポジトリではなくホームページのURLを開きます。</li>
+<li><strong>--show (-s):</strong> ホームページないしリポジトリのURLを表示するだけにします。</li>
+</ul>
+<h2 id="suggests"><a class="header" href="#suggests">suggests</a></h2>
+<p>現在インストールされているパッケージの集合から提案される全てのパッケージを一覧にします。
+おまけとして複数のパッケージ名を<code>vendor/package</code>の形式で渡し、これらのパッケージのみについて提案を出力するように制限できます。</p>
+<p><code>--by-package</code>（既定）ないし<code>--by-suggestion</code>フラグを使って出力をグループ分けできます。それぞれ提案を行うパッケージによるグループ分けと提案されたパッケージによるグループ分けになっています。</p>
+<p>提案されたパッケージ名の一覧だけが欲しければ<code>--list</code>を使ってください。</p>
+<h3 id="オプション-12"><a class="header" href="#オプション-12">オプション</a></h3>
+<ul>
+<li><strong>--by-package:</strong> 提案を行ったパッケージによって出力をグループ分けします（既定）。</li>
+<li><strong>--by-suggestion:</strong> 提案されたパッケージによって出力をグループ分けします。</li>
+<li><strong>--all:</strong> 推移的なものを含む全ての依存関係から提案を示します（既定では直接的な依存関係の提案のみが示されます）。</li>
+<li><strong>--list:</strong> 提案されたパッケージ名のみを一覧として示します。</li>
+<li><strong>--no-dev:</strong> <code>require-dev</code>パッケージからの提案を除外します。</li>
+</ul>
+<h2 id="fund"><a class="header" href="#fund">fund</a></h2>
+<p>依存関係の維持管理に投資して支援する方法が分かります。
+このコマンドはインストールされている依存関係から全ての投資のリンクを一覧にします。
+機械で読むことのできる出力を得るには<code>--format=json</code>を使ってください。</p>
+<h3 id="オプション-13"><a class="header" href="#オプション-13">オプション</a></h3>
+<ul>
+<li><strong>--format (-f):</strong> 出力形式としてtext（既定）ないしjsonを選びます。</li>
+</ul>
+<h2 id="depends--why"><a class="header" href="#depends--why">depends / why</a></h2>
+<p><code>depends</code>コマンドは特定のパッケージに依存する他のパッケージを教えてくれます。
+インストールの際、<code>require-dev</code>の関係は根幹パッケージのみ考慮されます。</p>
+<pre><code class="language-shell">php composer.phar depends doctrine/lexer
+</code></pre>
+<pre><code class="language-text">doctrine/annotations  1.13.3 requires doctrine/lexer (1.*)
+doctrine/common       2.13.3 requires doctrine/lexer (^1.0)
+</code></pre>
+<p>おまけとしてパッケージの後にバージョン制約を指定することで検索結果を絞り込むことができます。</p>
+<p><code>--tree</code>や<code>-t</code>フラグを加えると、なぜそのパッケージが依存されているのかの再帰的な木構造が示されます。例えば以下の通りです。</p>
+<pre><code class="language-shell">php composer.phar depends psr/log -t
+</code></pre>
+<pre><code class="language-text">psr/log 1.1.4 Common interface for logging libraries
+├──composer/composer 2.4.x-dev (requires psr/log ^1.0 || ^2.0 || ^3.0)
+├──composer/composer dev-main (requires psr/log ^1.0 || ^2.0 || ^3.0)
+├──composer/xdebug-handler 3.0.3 (requires psr/log ^1 || ^2 || ^3)
+│  ├──composer/composer 2.4.x-dev (requires composer/xdebug-handler ^2.0.2 || ^3.0.3)
+│  └──composer/composer dev-main (requires composer/xdebug-handler ^2.0.2 || ^3.0.3)
+└──symfony/console v5.4.11 (conflicts psr/log &gt;=3) (circular dependency aborted here)
+</code></pre>
+<h3 id="オプション-14"><a class="header" href="#オプション-14">オプション</a></h3>
+<ul>
+<li><strong>--recursive (-r):</strong>
+再帰的に根幹パッケージまで木構造を解決します。</li>
+<li><strong>--tree (-t):</strong> 入れ子の木構造を結果に出力します。-rを暗示します。</li>
+</ul>
+<h2 id="prohibits--why-not"><a class="header" href="#prohibits--why-not">prohibits / why-not</a></h2>
+<p><code>prohibits</code>コマンドを使うと与えられたパッケージがインストールされる上でどのパッケージが障壁になっているのかが分かります。
+バージョン制約を指定するとプロジェクトにおいて更新が実施できるかを検証し、もしできなければその理由を示します。
+以下の例をご覧ください。</p>
+<pre><code class="language-shell">php composer.phar prohibits symfony/symfony 3.1
+</code></pre>
+<pre><code class="language-text">laravel/framework v5.2.16 requires symfony/var-dumper (2.8.*|3.0.*)
+</code></pre>
+<p>なおプラットフォーム要件も指定できます。
+例えばサーバーをPHP 8.0に更新できるかどうかを確認するにはこうします。</p>
+<pre><code class="language-shell">php composer.phar prohibits php 8
+</code></pre>
+<pre><code class="language-text">doctrine/cache        v1.6.0 requires php (~5.5|~7.0)
+doctrine/common       v2.6.1 requires php (~5.5|~7.0)
+doctrine/instantiator 1.0.5  requires php (&gt;=5.3,&lt;8.0-DEV)
+</code></pre>
+<p><code>depends</code>と同様に再帰的な探索を求めることができます。その場合は競合を起こしているパッケージに依存している全てのパッケージを一覧にします。</p>
+<h3 id="オプション-15"><a class="header" href="#オプション-15">オプション</a></h3>
+<ul>
+<li><strong>--recursive (-r):</strong>
+再帰的に根幹パッケージまで木構造を解決します。</li>
+<li><strong>--tree (-t):</strong> 入れ子の木構造を結果に出力します。-rを暗示します。</li>
+</ul>
+<h2 id="validate"><a class="header" href="#validate">validate</a></h2>
+<p><code>composer.json</code>ファイル（と、<a href="01-basic-usage.html#commit-your-composer-lock-file-to-version-control">当てはまるとき</a>は<code>composer.lock</code>）をコミットしたり、リリースのタグ付けをしたりする前には、必ず<code>validate</code>コマンドを走らせるべきです。</p>
+<p><code>composer.json</code>が正当であるか検査します。
+<code>composer.lock</code>があるとき、<code>composer.json</code>に対して最新かも検査します。</p>
+<pre><code class="language-shell">php composer.phar validate
+</code></pre>
+<h3 id="オプション-16"><a class="header" href="#オプション-16">オプション</a></h3>
+<ul>
+<li><strong>--no-check-all:</strong>
+<code>composer.json</code>中の要件が範囲のないものであったり、過度に厳密なバージョン制約であったりする場合について、警告を出しません。</li>
+<li><strong>--no-check-lock:</strong>
+<code>composer.lock</code>が存在し、且つ更新されていない場合について、警告を出しません。</li>
+<li><strong>--check-lock</strong>
+固定ファイルが最新か検査します（config.lockが偽の場合も含みます）</li>
+<li><strong>--no-check-publish:</strong>
+Packagistに投稿するには相応しくないが、そうでなければ妥当な<code>composer.json</code>になっている場合について、エラーを出しません。</li>
+<li><strong>--no-check-version:</strong>
+バージョンフィールドがあるとき、警告を出しません。</li>
+<li><strong>--with-dependencies:</strong> 全てのインストールされた依存関係についてもcomposer.jsonを検証します。</li>
+<li><strong>--strict:</strong> エラーに加えて警告についても非ゼロの終了コードを返します。</li>
+</ul>
+<h2 id="status"><a class="header" href="#status">status</a></h2>
+<p>依存関係のコードを変更したり、ソースからインストールしたりする必要がしばしばある場合は、<code>status</code>コマンドを使うとその中からローカルで加えた変更があるか確認できます。</p>
+<pre><code class="language-shell">php composer.phar status
+</code></pre>
+<p><code>--verbose</code>コマンドで変化したところについてのより詳しい情報を得られます。</p>
+<pre><code class="language-shell">php composer.phar status -v
+</code></pre>
+<pre><code class="language-text">You have changes in the following dependencies:
+vendor/seld/jsonlint:
+    M README.mdown
+</code></pre>
+<h2 id="self-update--selfupdate"><a class="header" href="#self-update--selfupdate">self-update / selfupdate</a></h2>
+<p>Composer自体を最新版に更新したければ<code>self-update</code>コマンドを走らせてください。<code>composer.phar</code>を最新版に置き換えます。</p>
+<pre><code class="language-shell">php composer.phar self-update
+</code></pre>
+<p>そうではなく特定のリリースに更新したければそのように指定してください。</p>
+<pre><code class="language-shell">php composer.phar self-update 2.4.0-RC1
+</code></pre>
+<p>Composerをシステム全体にインストールしたときは（<a href="00-intro.html#globally">大域的なインストール</a>を参照）、コマンドを<code>root</code>権限で走らせなくてはならないかもしれません。</p>
+<pre><code class="language-shell">sudo -H composer self-update
+</code></pre>
+<p>ComposerがPHARとしてインストールされていなければこのコマンドは使えません（Composerがオペレーティングシステムのパッケージ管理によってインストールされたときはこの場合に当たることがあります）。</p>
+<h3 id="オプション-17"><a class="header" href="#オプション-17">オプション</a></h3>
+<ul>
+<li><strong>--rollback (-r):</strong> インストールした直近のバージョンに巻き戻します。</li>
+<li><strong>--clean-backups:</strong>
+更新時に古いバックアップを削除します。更新後は現在のComposerのバージョンのみがバックアップとして残ります。</li>
+<li><strong>--no-progress:</strong>
+ダウンロードの進捗バーを出力しません。</li>
+<li><strong>--update-keys:</strong> キーの更新を利用者に尋ねます。</li>
+<li><strong>--stable:</strong> 更新を安定チャンネルに強制します。</li>
+<li><strong>--preview:</strong> 更新をプレビューチャンネルに強制します。</li>
+<li><strong>--snapshot:</strong> 更新をスナップショットチャンネルに強制します。</li>
+<li><strong>--1:</strong> 更新を安定チャンネルに強制しますが、1.x版のみを使います。</li>
+<li><strong>--2:</strong> 更新を安定チャンネルに強制しますが、2.x版のみを使います。</li>
+<li><strong>--set-channel-only:</strong> チャンネルを既定のものとして保存するだけして終了します。</li>
+</ul>
+<h2 id="config"><a class="header" href="#config">config</a></h2>
+<p><code>config</code>コマンドではローカルの<code>composer.json</code>ファイルまたは大域的な<code>config.json</code>ファイルにあるComposerの設定やリポジトリを編集できます。</p>
+<p>加えてローカルの<code>composer.json</code>にある殆どのプロパティを編集できます。</p>
+<pre><code class="language-shell">php composer.phar config --list
+</code></pre>
+<h3 id="使い方"><a class="header" href="#使い方">使い方</a></h3>
+<p><code>config [options] [setting-key] [setting-value1] ... [setting-valueN]</code></p>
+<p><code>setting-key</code>は設定のオプション名で、<code>setting-value1</code>は設定値です。
+（<code>github-protocols</code>のような）値の配列を取ることができる設定については、複数の設定値の引数が可能です。</p>
+<p>プロパティの値を編集することもできます。</p>
+<p><code>description</code>、<code>homepage</code>、<code>keywords</code>、<code>license</code>、<code>minimum-stability</code>、<code>name</code>、<code>prefer-stable</code>、<code>type</code>、<code>version</code>がそうです。</p>
+<p>妥当な設定オプションについては<a href="06-config.html">設定</a>の章を参照してください。</p>
+<h3 id="オプション-18"><a class="header" href="#オプション-18">オプション</a></h3>
+<ul>
+<li><strong>--global (-g):</strong>
+既定では<code>$COMPOSER_HOME/config.json</code>に位置する大域設定ファイルを編集します。
+このオプションがなければ、このコマンドはローカルのcomposer.json<code>ファイルないし</code>--file`により指定されたファイルに作用します。</li>
+<li><strong>--editor (-e):</strong>
+ローカルのcomposer.jsonファイルを<code>EDITOR</code>環境変数で定義されたテキストエディタを使って開きます。<code>--global</code>オプションと一緒に使うと大域設定ファイルを開きます。</li>
+<li><strong>--auth (-a):</strong>
+認証設定ファイルに作用します（--editorの使用限定です）。</li>
+<li><strong>--unset:</strong> <code>setting-key</code>の名前が付いている設定要素を削除します。</li>
+<li><strong>--list (-l):</strong> 現在の設定変数の一覧を示します。<code>global</code>オプションと一緒に使うと大域設定のみを一覧にします。</li>
+<li><strong>--file="..." (-f):</strong> composer.jsonではなく特定のファイルについて編集します。
+なお、<code>--global</code>オプションと織り交ぜて使うことはできません。</li>
+<li><strong>--absolute:</strong>
+<code>*-dir</code>設定値を取得するとき、相対パスではなく絶対パスを返します。</li>
+<li><strong>--json:</strong> 設定値をJSONでデコードします。このデコード結果は<code>extra.*</code>キーで使うことができます。</li>
+<li><strong>--merge:</strong> 設定値を現在の値と統合します。<code>--json</code>と組み合わせて<code>extra.*</code>キーに使えます。</li>
+<li><strong>--append:</strong> リポジトリを追加するとき、既存のものの先頭に追加する（最優先）のではなく末尾に付ける（低優先）ようにします。</li>
+<li><strong>--source:</strong> 設定値がどこから読み込まれたのかを表示します。</li>
+</ul>
+<h3 id="リポジトリを変更する"><a class="header" href="#リポジトリを変更する">リポジトリを変更する</a></h3>
+<p>設定部分を変更することに加えて、<code>config</code>コマンドを以下のように使うことでリポジトリ部分を変更することにも対応しています。</p>
+<pre><code class="language-shell">php composer.phar config repositories.foo vcs https://github.com/foo/bar
+</code></pre>
+<p>リポジトリにより多くの設定オプションが必要なら、代わりにそのJSON表現を渡すことができます。</p>
+<pre><code class="language-shell">php composer.phar config repositories.foo '{"type": "vcs", "url": "http://svn.example.org/my-project/", "trunk-path": "master"}'
+</code></pre>
+<h3 id="追加の値を変更する"><a class="header" href="#追加の値を変更する">追加の値を変更する</a></h3>
+<p>設定部分を変更することに加えて、<code>config</code>コマンドを以下のように使って追加部分を変更することにも対応しています。</p>
+<pre><code class="language-shell">php composer.phar config extra.foo.bar value
+</code></pre>
+<p>ドットは入れ子の連なりを表していますが、深さは3段階までです。上は<code>"extra": { "foo": { "bar": "value" } }</code>を設定します。</p>
+<p>複雑な値を加えたり変更したりする場合は<code>--json</code>や<code>--merge</code>フラグを使って追加のフィールドをJSONとして編集できます。</p>
+<pre><code class="language-shell">php composer.phar config --json extra.foo.bar '{"baz": true, "qux": []}'
+</code></pre>
+<h2 id="create-project"><a class="header" href="#create-project">create-project</a></h2>
+<p>Composerを使って既存のパッケージから新しいプロジェクトを作ることができます。
+git cloneやsvn checkoutをしてから、ベンダーにあるものを<code>composer install</code>することと等価です。</p>
+<p>このコマンドにはいくつかの活用法があります。</p>
+<ol>
+<li>アプリケーションパッケージをデプロイできます。</li>
+<li>任意のパッケージをチェックアウトして、例えばパッチを開発できます。</li>
+<li>複数人の開発者がいるプロジェクトでこの機能を使い、開発のための初期のアプリケーションに着手できます。</li>
+</ol>
+<p>Composerで新しいプロジェクトを作るためには<code>create-project</code>コマンドが使えます。パッケージ名とプロジェクトを作成するディレクトリを渡してください。また、3つ目の引数としてバージョンを与えることもでき、与えない場合は最新版が使われます。</p>
+<p>ディレクトリがその時点で存在しなければインストールの過程で作られます。</p>
+<pre><code class="language-shell">php composer.phar create-project doctrine/orm path "2.2.*"
+</code></pre>
+<p>プロジェクトに着手するための既存の<code>composer.json</code>があるディレクトリ内では、引数がなくともコマンドを走らせることができます。</p>
+<p>既定ではコマンドはパッケージをpackagist.orgで確認します。</p>
+<h3 id="オプション-19"><a class="header" href="#オプション-19">オプション</a></h3>
+<ul>
+<li><strong>--stability (-s):</strong> パッケージの最小安定性です。<code>stable</code>が既定です。</li>
+<li><strong>--prefer-install:</strong> パッケージをダウンロードする方法は<code>source</code>と<code>dist</code>の2つあります。
+Composerは<code>dist</code>を既定で使います。
+<code>--prefer-install=source</code>（または<code>--prefer-source</code>）を渡すと、Composerは、もしあれば<code>source</code>からインストールします。
+プロジェクトへのバグ修正をして、依存関係のローカルgitクローンを直接取得したい場合に便利です。
+Composerがパッケージの開発版用の<code>source</code>を自動的に使う、以前の挙動にしたければ、<code>--prefer-install=auto</code>を使ってください。
+<a href="06-config.html#preferred-install">config.preferred-install</a>も参照してください。
+このフラグを渡すと、設定値より優先されます。</li>
+<li><strong>--repository:</strong>
+パッケージを探索するための独自のリポジトリを与えます。このリポジトリはpackagistの代わりに使われます。<code>composer</code>ディレクトリを指すHTTP
+URLでも、ローカルの<code>packages.json</code>ファイルへのパスでも、あるいは<a href="04-schema.html#repositories">リポジトリ</a>キーが受け付けるものに似たJSON文字列でも大丈夫です。複数回使って複数のリポジトリを設定できます。</li>
+<li><strong>--add-repository:</strong>
+composer.jsonの中に独自のリポジトリを加えます。
+固定ファイルが存在している場合、一旦削除されインストールの代わりに更新が走ります。</li>
+<li><strong>--dev:</strong> <code>require-dev</code>に挙げられたパッケージをインストールします。</li>
+<li><strong>--no-dev:</strong> require-devのパッケージのインストールを無効にします。</li>
+<li><strong>--no-scripts:</strong>
+根幹パッケージで定義されているスクリプトの実行を無効にします。</li>
+<li><strong>--no-progress:</strong>
+進捗表示を除きます。
+バックスペース文字を扱わない端末やスクリプトではこの表示があることで散らかってしまうからです。</li>
+<li><strong>--no-secure-http:</strong>
+根幹パッケージのインストール中、一時的にsecure-http設定オプションを無効にします。
+自己責任でご利用ください。
+このフラグを使うのは関心しません。</li>
+<li><strong>--keep-vcs:</strong>
+作成されるプロジェクトのVCSメタデータの削除を飛ばします。
+これが役に立つのはコマンドを非対話的なモードで走らせているときが殆どです。</li>
+<li><strong>--remove-vcs:</strong> プロンプト無しにVCSメタデータを強制削除します。</li>
+<li><strong>--no-install:</strong> ベンダーのインストールを無効にします。</li>
+<li><strong>--no-audit:</strong>
+インストールが完了した後の監査過程を走らせないようにします。
+<a href="#composer-no-audit">COMPOSER_NO_AUDIT</a>も参照してください。</li>
+<li><strong>--audit-format:</strong> 監査の出力形式です。
+"table"、"plain"、"json"、または"summary"（既定）のどれかでなければなりません。</li>
+<li><strong>--ignore-platform-reqs:</strong>
+全てのプラットフォーム要件（<code>php</code>、<code>hhvm</code>、<code>lib-*</code>、<code>ext-*</code>）を無視し、ローカルマシンがたとえこれらを満たしていなくてもインストールを強行します。
+<a href="06-config.html#platform"><code>platform</code></a>設定オプションも参照してください。</li>
+<li><strong>--ignore-platform-req:</strong>
+特定のプラットフォーム要件（<code>php</code>、<code>hhvm</code>、<code>lib-*</code>、<code>ext-*</code>）を無視して、たとえローカルマシンが満たしていなかったとしても、インストールを強行します。
+ワイルドカードを使って複数の要件を無視できます。</li>
+<li><strong>--ask:</strong> 利用者に新しいプロジェクトの対象ディレクトリを入れてもらうようにします。</li>
+</ul>
+<h2 id="dump-autoload--dumpautoload"><a class="header" href="#dump-autoload--dumpautoload">dump-autoload / dumpautoload</a></h2>
+<p>例えばクラスマップパッケージ中に新しいクラスができたことによって自動読み込み器を更新する必要がある場合は、インストールや更新を行わずとも<code>dump-autoload</code>が使えます。</p>
+<p>加えて、効率性の理由からPSR-0/4のパッケージをクラスマップのものに変換する、最適化された自動読み込み器を吐き出すことができます。
+多くのクラスがある比較的大規模なアプリケーションでは、自動読み込み器には毎回のリクエストに掛かる時間のうち無視できない時間が掛かります。
+開発時に常にクラスマップを使うことはあまり便利ではありませんが、このオプションを使えば便宜上PSR-0/4を使いつつも、効率性のためにクラスマップを使うことができます。</p>
+<h3 id="オプション-20"><a class="header" href="#オプション-20">オプション</a></h3>
+<ul>
+<li><strong>--optimize (-o):</strong>
+PSR-0/4自動読み込みをクラスマップに変換し、より高速な自動読み込み器を得ます。
+実運用で特に推奨されますが、走らせるのに少し時間が掛かるため、現時点では既定で有効になっていません。</li>
+<li><strong>--classmap-authoritative (-a):</strong>
+クラスマップからのみクラスを自動読み込みします。暗に<code>--optimize</code>を有効します。</li>
+<li><strong>--apcu:</strong> APCuを使って、クラスの有無をキャッシュします。</li>
+<li><strong>--apcu-prefix:</strong> APCu自動読み込み器のキャッシュに独自の接頭辞を使います。暗に<code>--apcu</code>を有効にします。</li>
+<li><strong>--dry-run:</strong>
+操作内容を出力しますが、何も実行しません。</li>
+<li><strong>--no-dev:</strong> autoload-dev規則を無効にします。
+既定では、Composerは直近の<code>install --no-dev</code>または<code>update --no-dev</code>の状態に随って自動的にこれを推測します。</li>
+<li><strong>--dev:</strong> autoload-dev規則を有効にします。
+既定では、Composerは直近の<code>install --no-dev</code>または<code>update --no-dev</code>の状態に随って自動的にこれを推測します。</li>
+<li><strong>--ignore-platform-reqs:</strong>
+全ての<code>php</code>、<code>hhvm</code>、<code>lib-*</code>、<code>ext-*</code>要件を無視し、これらの<a href="07-runtime.html#platform-check">プラットフォーム検査</a>を飛ばします。<a href="06-config.html#platform"><code>platform</code></a>設定オプションも参照してください。</li>
+<li><strong>--ignore-platform-req:</strong>
+特定のプラットフォーム要件（<code>php</code>、<code>hhvm</code>、<code>lib-*</code>、<code>ext-*</code>）を無視し、それについての<a href="07-runtime.html#platform-check">プラットフォーム検査</a>を飛ばします。
+ワイルドカードを使って複数の要件を無視できます。</li>
+<li><strong>--strict-psr:</strong> PSR-4またはPSR-0の対応付けでの失敗が存在する場合は、失敗の終了コード (1) を返します。
+動作には--optimizeが必要です。</li>
+<li><strong>--strict-ambiguous:</strong>
+複数ファイルに同じクラスがあるとき、失敗の終了コード (2) を返します。
+動作には--optimizeが必要です。</li>
+</ul>
+<h2 id="clear-cache--clearcache--cc"><a class="header" href="#clear-cache--clearcache--cc">clear-cache / clearcache / cc</a></h2>
+<p>Composerのキャッシュディレクトリから全ての内容を削除します。</p>
+<h3 id="オプション-21"><a class="header" href="#オプション-21">オプション</a></h3>
+<ul>
+<li><strong>--gc:</strong> ガベージコレクションのみを走らせます。完全なキャッシュの消去は行いません。</li>
+</ul>
+<h2 id="licenses"><a class="header" href="#licenses">licenses</a></h2>
+<p>インストールされている全てのパッケージの名前、バージョン、使用許諾を一覧にします。
+<code>--format-json</code>を使うと、機械で読み込みやすい出力が得られます。</p>
+<h3 id="オプション-22"><a class="header" href="#オプション-22">オプション</a></h3>
+<ul>
+<li><strong>--format:</strong> 出力の形式です。text、json、summaryの何れかです（既定では「text」）。</li>
+<li><strong>--no-dev:</strong> 出力から開発依存関係を除きます。</li>
+</ul>
+<h2 id="run-script--run"><a class="header" href="#run-script--run">run-script / run</a></h2>
+<h3 id="オプション-23"><a class="header" href="#オプション-23">オプション</a></h3>
+<ul>
+<li><strong>--timeout:</strong> スクリプトの制限時間を秒単位で設定します。0は制限時間無しです。</li>
+<li><strong>--dev:</strong> 開発モードを設定します。</li>
+<li><strong>--no-dev:</strong> 開発モードを無効にします。</li>
+<li><strong>--list (-l):</strong> 利用者が定義したスクリプトを一覧にします。</li>
+</ul>
+<p><a href="articles/scripts.html">スクリプト</a>を手動で走らせるにはこのコマンドを使うことができます。スクリプト名と任意で必要な引数を与えます。</p>
+<h2 id="exec"><a class="header" href="#exec">exec</a></h2>
+<p>ベンダーのバイナリやスクリプトを実行します。
+どんなコマンドも実行できますし、コマンドが走る前に必ずComposerのbin-dirがPATHに加えられます。</p>
+<h3 id="オプション-24"><a class="header" href="#オプション-24">オプション</a></h3>
+<ul>
+<li><strong>--list (-l):</strong> 利用できるComposerのバイナリを一覧にします。</li>
+</ul>
+<h2 id="diagnose"><a class="header" href="#diagnose">diagnose</a></h2>
+<p>バグや奇妙な挙動を発見したと思ったら、<code>diagnose</code>コマンドを走らせて、多くのよくある問題について自動化された検査を実施できます。</p>
+<pre><code class="language-shell">php composer.phar diagnose
+</code></pre>
+<h2 id="archive"><a class="header" href="#archive">archive</a></h2>
+<p>このコマンドを使うと、与えられたバージョンの与えられたパッケージについてzip/tarアーカイブを生成します。
+除外・無視対象のファイルを除く、プロジェクト全体をアーカイブするために使うこともできます。</p>
+<pre><code class="language-shell">php composer.phar archive vendor/package 2.0.21 --format=zip
+</code></pre>
+<h3 id="オプション-25"><a class="header" href="#オプション-25">オプション</a></h3>
+<ul>
+<li><strong>--format (-f):</strong> アーカイブ結果の形式です。tar、tar.gz、tar.bz2、zipのいずれかです（既定：「tar」）。</li>
+<li><strong>--dir:</strong> アーカイブをこのディレクトリに書き出します（既定：「.」）。</li>
+<li><strong>--file:</strong> 与えられたファイル名でアーカイブを書き出します。</li>
+</ul>
+<h2 id="audit"><a class="header" href="#audit">audit</a></h2>
+<p>このコマンドを使うと、インストールしたパッケージに対し、セキュリティ上の問題がありうるか監査できます。
+既定では<a href="https://packagist.org/apidoc#list-security-advisories">Packagist.org
+api</a>を使い、セキュリティ上の脆弱性に対する推奨事項を確認して一覧にします。
+<code>composer.json</code>の<code>repositories</code>節で指定されたときは、他のリポジトリが使われます。
+このコマンドでは、放棄されたパッケージも検出されます。</p>
+<p>監査コマンドでは、脆弱なパッケージや放棄されたパッケージがあるか判定されます。
+見つかったものに基づいて、以下の終了コードを返します。</p>
+<ul>
+<li><code>0</code> は、問題なし</li>
+<li><code>1</code> は、脆弱なパッケージ</li>
+<li><code>2</code> は、放棄されたパッケージ</li>
+<li><code>3</code> は、脆弱なパッケージと放棄されたパッケージ</li>
+</ul>
+<pre><code class="language-shell">php composer.phar audit
+</code></pre>
+<h3 id="オプション-26"><a class="header" href="#オプション-26">オプション</a></h3>
+<ul>
+<li><strong>--no-dev:</strong> require-devのパッケージの監査を無効にします。</li>
+<li><strong>--format (-f):</strong>
+出力の形式を監査します。監査の出力は「table」（既定）、「plain」、「json」、「summary」の何れかです。</li>
+<li><strong>--locked:</strong>
+固定ファイルのパッケージを監査します。
+現時点でベンダーディレクトリに何があるかは無視されます。</li>
+<li><strong>--abandoned:</strong>
+放棄されたパッケージに対して動作します。
+「ignore」「report」「fail」のどれかでなければなりません。
+<a href="06-config.html#abandoned">audit.abandoned</a>もご参照ください。
+このフラグを渡すと、構成値と環境変数がオーバーライドされます。</li>
+<li><strong>--ignore-severity:</strong>
+特定の深刻度の水準の勧告を無視します。
+複数の深刻度を無視するために1回以上渡せます。</li>
+</ul>
+<h2 id="help"><a class="header" href="#help">help</a></h2>
+<p>あるコマンドについて詳細が知りたければ<code>help</code>が使えます。</p>
+<pre><code class="language-shell">php composer.phar help install
+</code></pre>
+<h2 id="コマンドラインインターフェース"><a class="header" href="#コマンドラインインターフェース">コマンドラインインターフェース</a></h2>
+<p>コマンドライン補完は、<code>composer completion --help</code>コマンドを走らせると有効にできます。
+また、以下の手順に従ってください。</p>
+<h2 id="環境変数"><a class="header" href="#環境変数">環境変数</a></h2>
+<p>環境変数を設定して多くの設定を上書きできます。
+できる限りこうした設定は環境変数ではなく<code>composer.json</code>の<code>config</code>部分で指定することをお勧めします。
+環境変数は<code>composer.json</code>で指定された値より常に優先されるということ以外に利点はありません。</p>
+<h3 id="composer"><a class="header" href="#composer">COMPOSER</a></h3>
+<p><code>COMPOSER</code>環境変数を設定することにより、<code>composer.json</code>のファイル名を何か別のものに設定できます。</p>
+<p>例えば：</p>
+<pre><code class="language-shell">COMPOSER=composer-other.json php composer.phar install
+</code></pre>
+<p>生成される固定ファイルは同じ名前を使います。
+この例では<code>composer-other.lock</code>です。</p>
+<h3 id="composer_allow_superuser"><a class="header" href="#composer_allow_superuser">COMPOSER_ALLOW_SUPERUSER</a></h3>
+<p>1に設定すると、この環境変数はコマンドをルートないし特権のある利用者として走らせることについての警告を無効にします。
+自動的なsudoセッションの消去も無効にするため、必ずDockerコンテナのような特権のある利用者として、常時Composerを使うときにのみ設定するようにしてください。</p>
+<h3 id="composer_allow_xdebug"><a class="header" href="#composer_allow_xdebug">COMPOSER_ALLOW_XDEBUG</a></h3>
+<p>1に設定すると、Xdebug拡張を持たないPHPを再始動させることなく、環境変数はXdebug拡張が有効のときにComposerを走らせられるようにします。</p>
+<h3 id="composer_auth"><a class="header" href="#composer_auth">COMPOSER_AUTH</a></h3>
+<p><code>COMPOSER_AUTH</code>変数では、環境変数として認証を設定できます。
+変数の内容はJSON形式のオブジェクトで、<a href="articles/authentication-for-private-packages.html">http-basic、github-oauth、bitbucket-oauth、……といった必要に応じたもの</a>です。
+オブジェクトは<a href="06-config.html">設定の仕様</a>に従います。</p>
+<h3 id="composer_bin_dir"><a class="header" href="#composer_bin_dir">COMPOSER_BIN_DIR</a></h3>
+<p>このオプションを設定すると<code>bin</code>ディレクトリ（<a href="articles/vendor-binaries.html">ベンダーバイナリ</a>）を<code>vendor/bin</code>とは違う別のどこかに変更できます。</p>
+<h3 id="composer_cache_dir"><a class="header" href="#composer_cache_dir">COMPOSER_CACHE_DIR</a></h3>
+<p><code>COMPOSER_CACHE_DIR</code>変数ではComposerのキャッシュディレクトリを変更できます。
+<a href="06-config.html#cache-dir"><code>cache-dir</code></a>オプションを介しても設定できます。</p>
+<p>Windowsにおいて既定では<code>C:\Users\&lt;user&gt;\AppData\Local\Composer</code>（もしくは<code>%LOCALAPPDATA%/Composer</code>）を指します。
+*nixシステムでは<a href="https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html">XDG Base Directory Specifications</a>に従い、<code>$XDG_CACHE_HOME/composer</code>を指します。他の*nixシステムとmacOSにおいては<code>$COMPOSER_HOME/cache</code>を指します。</p>
+<h3 id="composer_cafile"><a class="header" href="#composer_cafile">COMPOSER_CAFILE</a></h3>
+<p>この環境値を設定することで、パスを証明書バンドルファイルに設定してSSL/TLSピア検証で使えるようにします。</p>
+<h3 id="composer_disable_xdebug_warn"><a class="header" href="#composer_disable_xdebug_warn">COMPOSER_DISABLE_XDEBUG_WARN</a></h3>
+<p>1に設定すると、ComposerがXdebug拡張が有効の状態で走っているときに出す警告をこの環境変数により抑制します。</p>
+<h3 id="composer_discard_changes"><a class="header" href="#composer_discard_changes">COMPOSER_DISCARD_CHANGES</a></h3>
+<p>この環境変数は<a href="06-config.html#discard-changes"><code>discard-changes</code></a>設定オプションを制御します。</p>
+<h3 id="composer_fund"><a class="header" href="#composer_fund">COMPOSER_FUND</a></h3>
+<p>この環境変数を0に設定すると、インンストール時に投資のお知らせを抑制します。</p>
+<h3 id="composer_home"><a class="header" href="#composer_home">COMPOSER_HOME</a></h3>
+<p><code>COMPOSER_HOME</code>変数によりComposerのホームディレクトリを変えられます。
+全てのプロジェクトで共有される、隠された（マシン上の使用者毎の）大域的なディレクトリです。</p>
+<p><code>composer config --global home</code>を使ってホームディレクトリの場所を確認してください。</p>
+<p>既定では、Windowsにおいては<code>C:\Users\&lt;user&gt;\AppData\Roaming\Composer</code>を、macOSにおいては<code>/Users/&lt;user&gt;/.composer</code>を指します。*nixシステムでは<a href="https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html">XDG Base Directory Specifications</a>に従い、<code>$XDG_CONFIG_HOME/composer</code>を指します。他の*nixシステムでは<code>/home/&lt;user&gt;/.composer</code>を指します。</p>
+<h4 id="composer_homeconfigjson"><a class="header" href="#composer_homeconfigjson">COMPOSER_HOME/config.json</a></h4>
+<p><code>config.json</code>ファイルを<code>COMPOSER_HOME</code>が指す場所に置くことができます。Composerは<code>install</code>及び<code>update</code>コマンドを走らせたとき、部分的に（<code>config</code>および<code>repositories</code>キーのみ）この設定をプロジェクトの<code>composer.json</code>と統合します。</p>
+<p>このファイルがあれば使用者のプロジェクト用に<a href="05-repositories.html">リポジトリ</a>と<a href="06-config.html">構成</a>を設定できます。</p>
+<p>大域的な設定が<em>ローカルの</em>設定に合致した場合、プロジェクトの<code>composer.json</code>が常に優先されます。</p>
+<h3 id="composer_htaccess_protect"><a class="header" href="#composer_htaccess_protect">COMPOSER_HTACCESS_PROTECT</a></h3>
+<p>既定では<code>1</code>です。<code>0</code>に設定するとComposerはComposerのホーム、キャッシュ、データディレクトリに<code>.htaccess</code>ファイルを作りません。</p>
+<h3 id="composer_memory_limit"><a class="header" href="#composer_memory_limit">COMPOSER_MEMORY_LIMIT</a></h3>
+<p>設定すると、その値がphpのメモリ上限として使われます。</p>
+<h3 id="composer_mirror_path_repos"><a class="header" href="#composer_mirror_path_repos">COMPOSER_MIRROR_PATH_REPOS</a></h3>
+<p>1に設定すると、この環境変数は既定のパスリポジトリ戦略を<code>symlink</code>ではなく<code>mirror</code>に変更します。既定の戦略が設定されているため、リポジトリオプションで上書きすることもできます。</p>
+<h3 id="composer_no_interaction"><a class="header" href="#composer_no_interaction">COMPOSER_NO_INTERACTION</a></h3>
+<p>1に設定すると、この環境変数によりComposerがあたかも全てのコマンドについて<code>--no-interaction</code>フラグを渡されたかのように動作します。
+build box/CIで設定できます。</p>
+<h3 id="composer_process_timeout"><a class="header" href="#composer_process_timeout">COMPOSER_PROCESS_TIMEOUT</a></h3>
+<p>この環境変数はコマンド（例えばgitコマンド）が実行終了するまでの待機時間を制御します。既定値は300秒（5分）です。</p>
+<h3 id="composer_root_version"><a class="header" href="#composer_root_version">COMPOSER_ROOT_VERSION</a></h3>
+<p>この変数を設定することで、根幹パッケージのバージョンがVCSの情報から推測できず、<code>composer.json</code>にもないときに、そのバージョンを指定できます。</p>
+<h3 id="composer_vendor_dir"><a class="header" href="#composer_vendor_dir">COMPOSER_VENDOR_DIR</a></h3>
+<p>この変数を設定することでComposerに依存関係を<code>vendor</code>以外のディレクトリにインストールさせられます。</p>
+<h3 id="composer_runtime_env"><a class="header" href="#composer_runtime_env">COMPOSER_RUNTIME_ENV</a></h3>
+<p>これによりどの環境でComposerが走っているのかの手掛かりが得られ、Composerで何らかの環境特有の問題を回避するための助けになります。
+現在対応している唯一の値は<code>virtualbox</code>で、こうするといくつかの短い<code>sleep()</code>呼び出しを有効にして、ファイルシステムが適切にファイルに書き込むのを待ってからそのファイルを読み込むようにします。
+VagrantやVirtualboxを使っていてファイルが存在しているのにも関わらずインストール時にファイルがない旨問題に遭遇したときは、この環境変数を設定すると良いでしょう。</p>
+<h3 id="http_proxyやhttp_proxy"><a class="header" href="#http_proxyやhttp_proxy">http_proxyやHTTP_PROXY</a></h3>
+<h3 id="http_proxy_request_fulluri"><a class="header" href="#http_proxy_request_fulluri">HTTP_PROXY_REQUEST_FULLURI</a></h3>
+<h3 id="https_proxy_request_fulluri"><a class="header" href="#https_proxy_request_fulluri">HTTPS_PROXY_REQUEST_FULLURI</a></h3>
+<h3 id="no_proxyやno_proxy"><a class="header" href="#no_proxyやno_proxy">no_proxyやNO_PROXY</a></h3>
+<p>プロキシの環境変数の使い方についての詳細は、<a href="faqs/how-to-use-composer-behind-a-proxy.html">プロキシのドキュメント</a>を参照してください。</p>
+<h3 id="composer_audit_abandoned"><a class="header" href="#composer_audit_abandoned">COMPOSER_AUDIT_ABANDONED</a></h3>
+<p><code>ignore</code>、<code>report</code>、<code>fail</code>に設定すると、<a href="06-config.html#abandoned">audit.abandoned</a>構成オプションをオーバーライドします。</p>
+<h3 id="composer_max_parallel_http"><a class="header" href="#composer_max_parallel_http">COMPOSER_MAX_PARALLEL_HTTP</a></h3>
+<p>整数を指定し、並列で何個のファイルをダウンロードするか設定します。
+既定で12になっており、1から50の間でなければいけません。
+プロキシに並列性の問題があるときはこの値を下げたいかもしれません。
+この値を増加させても一般には効率性が上がる結果にはならないでしょう。</p>
+<h3 id="composer_ipresolve"><a class="header" href="#composer_ipresolve">COMPOSER_IPRESOLVE</a></h3>
+<p><code>4</code>ないし<code>6</code>に設定するとそれぞれIPv4ないしIPv6の解決を強制します。
+ダウンロード用にcurl拡張が使用されている場合にのみ機能します。</p>
+<h3 id="composer_self_update_target"><a class="header" href="#composer_self_update_target">COMPOSER_SELF_UPDATE_TARGET</a></h3>
+<p>設定した場合、self-updateコマンドが元あるファイルではなく与えられたパスに新しいComposerのpharファイルを書き込むようにします。読み込み専用のファイルシステムでComposerを更新するときに便利です。</p>
+<h3 id="composer_disable_network"><a class="header" href="#composer_disable_network">COMPOSER_DISABLE_NETWORK</a></h3>
+<p><code>1</code>に設定するとネットワークアクセスを（最大限の努力で）無効にします。この変数はComposerをデバッグしたり貧弱な接続環境下で走らせたりするのに使えます。</p>
+<p><code>prime</code>に設定した場合、GitHub VCSリポジトリはキャッシュに前もって溜め込んでおくため、<code>1</code>で完全にオフラインで使えるようになります。</p>
+<h3 id="composer_debug_events"><a class="header" href="#composer_debug_events">COMPOSER_DEBUG_EVENTS</a></h3>
+<p><code>1</code>に設定するとディスパッチされたイベントについての情報を出力します。プラグインの作者にとって何が厳密にどの時点で発火しているのか特定するのに便利かもしれません。</p>
+<h3 id="composer_skip_scripts"><a class="header" href="#composer_skip_scripts">COMPOSER_SKIP_SCRIPTS</a></h3>
+<p>イベント名のコンマ区切りリストを受け付けます。
+例えば、スクリプト実行をスキップするための<code>post-install-cmd</code>があります。</p>
+<h3 id="composer_no_audit"><a class="header" href="#composer_no_audit">COMPOSER_NO_AUDIT</a></h3>
+<p><code>1</code>に設定すると、<code>require</code>、<code>update</code>、<code>remove</code>、<code>create-project</code>コマンドに<code>--no-audit</code>コマンドを渡すことと等価になります。</p>
+<h3 id="composer_no_dev"><a class="header" href="#composer_no_dev">COMPOSER_NO_DEV</a></h3>
+<p><code>1</code>に設定すると<code>--update-no-dev</code>を<code>require</code>に渡したり<code>install</code>、<code>update</code>に<code>--no-dev</code>オプションを渡すのと等価になります。
+<code>COMPOSER_NO_DEV=0</code>を設定することで1回のコマンドについてこの設定を上書きできます。</p>
+<h3 id="composer_prefer_stable"><a class="header" href="#composer_prefer_stable">COMPOSER_PREFER_STABLE</a></h3>
+<p><code>1</code>に設定すると<code>update</code>や<code>require</code>に<code>--prefer-stable</code>オプションを渡すことと等価になります。</p>
+<h3 id="composer_prefer_lowest"><a class="header" href="#composer_prefer_lowest">COMPOSER_PREFER_LOWEST</a></h3>
+<p><code>1</code>に設定すると<code>update</code>や<code>require</code>に<code>--prefer-lowest</code>オプションを渡すことと等価になります。</p>
+<h3 id="composer_minimal_changes"><a class="header" href="#composer_minimal_changes">COMPOSER_MINIMAL_CHANGES</a></h3>
+<p><code>1</code>に設定すると、<code>update</code>や<code>require</code>や<code>remove</code>に<code>--minimal-changes</code>オプションを渡すことと等価になります。</p>
+<h3 id="composer_ignore_platform_reqやcomposer_ignore_platform_reqs"><a class="header" href="#composer_ignore_platform_reqやcomposer_ignore_platform_reqs">COMPOSER_IGNORE_PLATFORM_REQやCOMPOSER_IGNORE_PLATFORM_REQS</a></h3>
+<p><code>COMPOSER_IGNORE_PLATFORM_REQS</code>を<code>1</code>に設定すると、<code>--ignore-platform-reqs</code>引数を渡すことと等価になります。
+他方で<code>COMPOSER_IGNORE_PLATFORM_REQ</code>でコンマ区切りのリストを指定すると、これらの特定の要件を無視します。</p>
+<p>例えば開発ワークステーションが全くデータベースクエリを走らせない場合、データベースの要件が利用できることの要件を無視するのに使うことができます。<code>COMPOSER_IGNORE_PLATFORM_REQ=ext-oci8</code>を設定すると、Composerは<code>oci8</code>PHP拡張が有効になっていなくともパッケージをインストールします。</p>
+<h3 id="composer_with_dependencies"><a class="header" href="#composer_with_dependencies">COMPOSER_WITH_DEPENDENCIES</a></h3>
+<p><code>1</code>に設定すると、<code>update</code>や<code>require</code>や<code>remove</code>に、<code>--with-dependencies</code>オプションを渡すことと同じです。</p>
+<h3 id="composer_with_all_dependencies"><a class="header" href="#composer_with_all_dependencies">COMPOSER_WITH_ALL_DEPENDENCIES</a></h3>
+<p><code>1</code>に設定すると、<code>update</code>や<code>require</code>や<code>remove</code>に、<code>--with-all-dependencies</code>オプションを渡すことと同じです。</p>
+<p>← <a href="02-libraries.html">ライブラリ</a>  | <a href="04-schema.html">スキーマ</a> →</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../doc/02-libraries.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../doc/04-schema.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../doc/02-libraries.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../doc/04-schema.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
