@@ -19,8 +19,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Composer\n"
-"POT-Creation-Date: 2025-01-28 16:20+0900\n"
-"PO-Revision-Date: 2025-01-28 16:20+0900\n"
+"POT-Creation-Date: 2025-02-04 08:31+0900\n"
+"PO-Revision-Date: 2025-02-04 08:40+0900\n"
 "Last-Translator: gemmaro <gemmaro.dev@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -2814,21 +2814,25 @@ msgstr ""
 #: ../doc/03-cli.md:239
 msgid ""
 "**--with-dependencies (-w):** Update also dependencies of packages in the "
-"argument list, except those which are root requirements."
+"argument list, except those which are root requirements. Can also be set via "
+"the COMPOSER_WITH_DEPENDENCIES=1 env var."
 msgstr ""
 "**--with-dependencies (-w):**\n"
 "引数リスト中のパッケージの依存関係も更新します。\n"
-"ただし根幹要件は除きます。"
+"ただし根幹要件は除きます。\n"
+"COMPOSER_WITH_DEPENDENCIES=1 環境変数で設定することもできます。"
 
 #. type: Bullet: '* '
 #: ../doc/03-cli.md:239
 msgid ""
 "**--with-all-dependencies (-W):** Update also dependencies of packages in "
-"the argument list, including those which are root requirements."
+"the argument list, including those which are root requirements. Can also be "
+"set via the COMPOSER_WITH_ALL_DEPENDENCIES=1 env var."
 msgstr ""
 "**--with-all-dependencies (-W):**\n"
-"引数リスト中のパッケージの依存関係を更新します。\n"
-"根幹要件を含みます。"
+"引数リスト中のパッケージの依存関係も更新します。\n"
+"根幹要件を含みます。\n"
+"COMPOSER_WITH_ALL_DEPENDENCIES=1 環境変数でも設定できます。"
 
 #. type: Bullet: '* '
 #: ../doc/03-cli.md:239 ../doc/03-cli.md:317
@@ -3023,21 +3027,25 @@ msgstr ""
 #: ../doc/03-cli.md:317
 msgid ""
 "**--update-with-dependencies (-w):** Also update dependencies of the newly "
-"required packages, except those that are root requirements."
+"required packages, except those that are root requirements. Can also be set "
+"via the COMPOSER_WITH_DEPENDENCIES=1 env var."
 msgstr ""
 "**--update-with-dependencies (-w):**\n"
 "新しく要求するパッケージの依存関係も更新します。\n"
-"ただし根幹要件は除きます。"
+"ただし根幹要件は除きます。\n"
+"COMPOSER_WITH_DEPENDENCIES=1 環境変数でも設定できます。"
 
 #. type: Bullet: '* '
 #: ../doc/03-cli.md:317
 msgid ""
 "**--update-with-all-dependencies (-W):** Also update dependencies of the "
-"newly required packages, including those that are root requirements."
+"newly required packages, including those that are root requirements. Can "
+"also be set via the COMPOSER_WITH_ALL_DEPENDENCIES=1 env var."
 msgstr ""
 "**--update-with-all-dependencies (-W):**\n"
 "新しく要求するパッケージの依存関係も更新します。\n"
-"根幹要件も含まれます。"
+"根幹要件も含まれます。\n"
+"COMPOSER_WITH_ALL_DEPENDENCIES=1 環境変数でも設定できます。"
 
 #. type: Bullet: '* '
 #: ../doc/03-cli.md:317 ../doc/03-cli.md:363 ../doc/03-cli.md:616
@@ -3137,21 +3145,25 @@ msgstr ""
 #: ../doc/03-cli.md:363
 msgid ""
 "**--update-with-dependencies (-w):** Also update dependencies of the removed "
-"packages.  (Deprecated, is now default behavior)"
+"packages. Can also be set via the COMPOSER_WITH_DEPENDENCIES=1 env var.  "
+"(Deprecated, is now default behavior)"
 msgstr ""
 "**--update-with-dependencies (-w):**\n"
-"削除されたパッケージの依存関係も更新します（時代遅れのオプションです。現在は"
-"既定の挙動になっています）。"
+"削除されたパッケージの依存関係も更新します。\n"
+"COMPOSER_WITH_DEPENDENCIES=1 環境変数でも設定できます（廃止されました。\n"
+"現在は既定の挙動になっています）。"
 
 #. type: Bullet: '* '
 #: ../doc/03-cli.md:363
 msgid ""
 "**--update-with-all-dependencies (-W):** Allows all inherited dependencies "
-"to be updated, including those that are root requirements."
+"to be updated, including those that are root requirements. Can also be set "
+"via the COMPOSER_WITH_ALL_DEPENDENCIES=1 env var."
 msgstr ""
 "**--update-with-all-dependencies (-W):**\n"
 "全ての継承する依存関係が更新されるようにします。\n"
-"根幹依存関係のものも含みます。"
+"根幹要件のものも含みます。\n"
+"COMPOSER_WITH_ALL_DEPENDENCIES=1 環境変数でも設定できます。"
 
 #. type: Title ##
 #: ../doc/03-cli.md:364
@@ -5868,11 +5880,26 @@ msgstr ""
 #. type: Title ###
 #: ../doc/03-cli.md:1296
 #, no-wrap
+msgid "COMPOSER_SKIP_SCRIPTS"
+msgstr "COMPOSER_SKIP_SCRIPTS"
+
+#. type: Plain text
+#: ../doc/03-cli.md:1299
+msgid ""
+"Accepts a comma-seperated list of event names, e.g. `post-install-cmd` for "
+"which scripts execution should be skipped."
+msgstr ""
+"イベント名のコンマ区切りリストを受け付けます。\n"
+"例えば、スクリプト実行をスキップするための`post-install-cmd`があります。"
+
+#. type: Title ###
+#: ../doc/03-cli.md:1300
+#, no-wrap
 msgid "COMPOSER_NO_AUDIT"
 msgstr "COMPOSER_NO_AUDIT"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1299
+#: ../doc/03-cli.md:1303
 msgid ""
 "If set to `1`, it is the equivalent of passing the `--no-audit` option to "
 "`require`, `update`, `remove` or `create-project` command."
@@ -5881,13 +5908,13 @@ msgstr ""
 "no-audit`コマンドを渡すことと等価になります。"
 
 #. type: Title ###
-#: ../doc/03-cli.md:1300
+#: ../doc/03-cli.md:1304
 #, no-wrap
 msgid "COMPOSER_NO_DEV"
 msgstr "COMPOSER_NO_DEV"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1305
+#: ../doc/03-cli.md:1309
 #, no-wrap
 msgid ""
 "If set to `1`, it is the equivalent of passing the `--update-no-dev` option to `require`\n"
@@ -5898,13 +5925,13 @@ msgstr ""
 "`COMPOSER_NO_DEV=0`を設定することで1回のコマンドについてこの設定を上書きできます。\n"
 
 #. type: Title ###
-#: ../doc/03-cli.md:1306
+#: ../doc/03-cli.md:1310
 #, no-wrap
 msgid "COMPOSER_PREFER_STABLE"
 msgstr "COMPOSER_PREFER_STABLE"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1310
+#: ../doc/03-cli.md:1314
 msgid ""
 "If set to `1`, it is the equivalent of passing the `--prefer-stable` option "
 "to `update` or `require`."
@@ -5913,13 +5940,13 @@ msgstr ""
 "価になります。"
 
 #. type: Title ###
-#: ../doc/03-cli.md:1311
+#: ../doc/03-cli.md:1315
 #, no-wrap
 msgid "COMPOSER_PREFER_LOWEST"
 msgstr "COMPOSER_PREFER_LOWEST"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1315
+#: ../doc/03-cli.md:1319
 msgid ""
 "If set to `1`, it is the equivalent of passing the `--prefer-lowest` option "
 "to `update` or `require`."
@@ -5928,13 +5955,13 @@ msgstr ""
 "価になります。"
 
 #. type: Title ###
-#: ../doc/03-cli.md:1316
+#: ../doc/03-cli.md:1320
 #, no-wrap
 msgid "COMPOSER_MINIMAL_CHANGES"
 msgstr "COMPOSER_MINIMAL_CHANGES"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1320
+#: ../doc/03-cli.md:1324
 msgid ""
 "If set to `1`, it is the equivalent of passing the `--minimal-changes` "
 "option to `update`, `require` or `remove`."
@@ -5943,13 +5970,13 @@ msgstr ""
 "を渡すことと等価になります。"
 
 #. type: Title ###
-#: ../doc/03-cli.md:1321
+#: ../doc/03-cli.md:1325
 #, no-wrap
 msgid "COMPOSER_IGNORE_PLATFORM_REQ or COMPOSER_IGNORE_PLATFORM_REQS"
 msgstr "COMPOSER_IGNORE_PLATFORM_REQやCOMPOSER_IGNORE_PLATFORM_REQS"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1325
+#: ../doc/03-cli.md:1329
 msgid ""
 "If `COMPOSER_IGNORE_PLATFORM_REQS` set to `1`, it is the equivalent of "
 "passing the `--ignore-platform-reqs` argument.  Otherwise, specifying a "
@@ -5962,7 +5989,7 @@ msgstr ""
 "らの特定の要件を無視します。"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1327
+#: ../doc/03-cli.md:1331
 msgid ""
 "For example, if a development workstation will never run database queries, "
 "this can be used to ignore the requirement for the database extensions to be "
@@ -5975,8 +6002,38 @@ msgstr ""
 "`COMPOSER_IGNORE_PLATFORM_REQ=ext-oci8`を設定すると、Composerは`oci8`PHP拡張"
 "が有効になっていなくともパッケージをインストールします。"
 
+#. type: Title ###
+#: ../doc/03-cli.md:1332
+#, no-wrap
+msgid "COMPOSER_WITH_DEPENDENCIES"
+msgstr "COMPOSER_WITH_DEPENDENCIES"
+
 #. type: Plain text
-#: ../doc/03-cli.md:1328
+#: ../doc/03-cli.md:1336
+msgid ""
+"If set to `1`, it is the equivalent of passing the `--with-dependencies` "
+"option to `update`, `require` or `remove`."
+msgstr ""
+"`1`に設定すると、`update`や`require`や`remove`に、`--with-dependencies`オプ"
+"ションを渡すことと同じです。"
+
+#. type: Title ###
+#: ../doc/03-cli.md:1337
+#, no-wrap
+msgid "COMPOSER_WITH_ALL_DEPENDENCIES"
+msgstr "COMPOSER_WITH_ALL_DEPENDENCIES"
+
+#. type: Plain text
+#: ../doc/03-cli.md:1341
+msgid ""
+"If set to `1`, it is the equivalent of passing the `--with-all-dependencies` "
+"option to `update`, `require` or `remove`."
+msgstr ""
+"`1`に設定すると、`update`や`require`や`remove`に、`--with-all-dependencies`オ"
+"プションを渡すことと同じです。"
+
+#. type: Plain text
+#: ../doc/03-cli.md:1342
 msgid "&larr; [Libraries](02-libraries.md)  | [Schema](04-schema.md) &rarr;"
 msgstr ""
 "&larr; [ライブラリ](02-libraries.md)  | [スキーマ](04-schema.md) &rarr;"

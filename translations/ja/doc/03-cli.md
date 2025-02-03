@@ -205,9 +205,11 @@ php composer.phar update vendor/package:2.0.1 vendor/package2:3.0.*
 * **--with-dependencies (-w):**
   引数リスト中のパッケージの依存関係も更新します。
   ただし根幹要件は除きます。
+  COMPOSER_WITH_DEPENDENCIES=1 環境変数で設定することもできます。
 * **--with-all-dependencies (-W):**
-  引数リスト中のパッケージの依存関係を更新します。
+  引数リスト中のパッケージの依存関係も更新します。
   根幹要件を含みます。
+  COMPOSER_WITH_ALL_DEPENDENCIES=1 環境変数でも設定できます。
 * **--optimize-autoloader (-o):**
   PSR-0自動読み込みをクラスマップに変換して、より高速な自動読み込み器を取得します。
   特に実運用で推奨されますが、走らせるのに少し時間が掛かるため、現時点では既定では有効になっていません。
@@ -297,9 +299,11 @@ php composer.phar require vendor/package vendor/package2
 * **--update-with-dependencies (-w):**
   新しく要求するパッケージの依存関係も更新します。
   ただし根幹要件は除きます。
+  COMPOSER_WITH_DEPENDENCIES=1 環境変数でも設定できます。
 * **--update-with-all-dependencies (-W):**
   新しく要求するパッケージの依存関係も更新します。
   根幹要件も含まれます。
+  COMPOSER_WITH_ALL_DEPENDENCIES=1 環境変数でも設定できます。
 * **--ignore-platform-reqs:**
   全てのプラットフォーム要件（`php`、`hhvm`、`lib-*`、`ext-*`）を無視し、ローカルマシンがたとえこれらを満たしていなくてもインストールを強行します。
   [`platform`](06-config.md#platform)設定オプションも参照してください。
@@ -354,10 +358,13 @@ php composer.phar remove vendor/package vendor/package2
 * **--update-no-dev:**
   --no-devオプションで依存関係の更新を走らせます。[COMPOSER_NO_DEV](#composer-no-dev)も参照してください。
 * **--update-with-dependencies (-w):**
-  削除されたパッケージの依存関係も更新します（時代遅れのオプションです。現在は既定の挙動になっています）。
+  削除されたパッケージの依存関係も更新します。
+  COMPOSER_WITH_DEPENDENCIES=1 環境変数でも設定できます（廃止されました。
+  現在は既定の挙動になっています）。
 * **--update-with-all-dependencies (-W):**
   全ての継承する依存関係が更新されるようにします。
-  根幹依存関係のものも含みます。
+  根幹要件のものも含みます。
+  COMPOSER_WITH_ALL_DEPENDENCIES=1 環境変数でも設定できます。
 * **--minimal-changes (-m):**
   `-w` / `-W`での更新の際に、遷移的な依存関係に関して絶対に必須の変更のみを実施するようにします。
   COMPOSER_MINIMAL_CHANGES=1環境変数を介して設定することもできます。
@@ -1259,6 +1266,11 @@ VagrantやVirtualboxを使っていてファイルが存在しているのにも
 
 `1`に設定するとディスパッチされたイベントについての情報を出力します。プラグインの作者にとって何が厳密にどの時点で発火しているのか特定するのに便利かもしれません。
 
+### COMPOSER_SKIP_SCRIPTS
+
+イベント名のコンマ区切りリストを受け付けます。
+例えば、スクリプト実行をスキップするための`post-install-cmd`があります。
+
 ### COMPOSER_NO_AUDIT
 
 `1`に設定すると、`require`、`update`、`remove`、`create-project`コマンドに`--no-audit`コマンドを渡すことと等価になります。
@@ -1286,5 +1298,13 @@ VagrantやVirtualboxを使っていてファイルが存在しているのにも
 他方で`COMPOSER_IGNORE_PLATFORM_REQ`でコンマ区切りのリストを指定すると、これらの特定の要件を無視します。
 
 例えば開発ワークステーションが全くデータベースクエリを走らせない場合、データベースの要件が利用できることの要件を無視するのに使うことができます。`COMPOSER_IGNORE_PLATFORM_REQ=ext-oci8`を設定すると、Composerは`oci8`PHP拡張が有効になっていなくともパッケージをインストールします。
+
+### COMPOSER_WITH_DEPENDENCIES
+
+`1`に設定すると、`update`や`require`や`remove`に、`--with-dependencies`オプションを渡すことと同じです。
+
+### COMPOSER_WITH_ALL_DEPENDENCIES
+
+`1`に設定すると、`update`や`require`や`remove`に、`--with-all-dependencies`オプションを渡すことと同じです。
 
 &larr; [ライブラリ](02-libraries.md)  | [スキーマ](04-schema.md) &rarr;
