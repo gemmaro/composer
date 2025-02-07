@@ -1,0 +1,289 @@
+<!DOCTYPE HTML>
+<html lang="ja" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Composer - PHPのための依存関係管理 - Composer</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Composer</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/gemmaro/composer" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p align="center">
+    <a href="https://getcomposer.org">
+        <img src="https://getcomposer.org/img/logo-composer-transparent.png" alt="Composer">
+    </a>
+</p>
+<h1 align="center">PHPのための依存関係管理</h1>
+<p>ComposerはPHPのプロジェクトの依存関係を宣言し、管理し、インストールする助けになります。</p>
+<p>詳細情報とドキュメントについては<a href="https://getcomposer.org/">https://getcomposer.org/</a>を参照してください。</p>
+<p><a href="https://github.com/composer/composer/actions"><img src="https://github.com/composer/composer/workflows/Continuous%20Integration/badge.svg?branch=main" alt="Continuous Integration" /></a></p>
+<h2 id="インストールと使い方"><a class="header" href="#インストールと使い方">インストールと使い方</a></h2>
+<p><a href="https://getcomposer.org/download/">公式の解説</a>に従い、ダウンロード、インストールしてください。</p>
+<p>使用方法については<a href="https://getcomposer.org/doc/">ドキュメント</a>を参照してください。</p>
+<h2 id="パッケージ"><a class="header" href="#パッケージ">パッケージ</a></h2>
+<p><a href="https://packagist.org">Packagist.org</a>に公開されているパッケージがあります。</p>
+<p>私有パッケージのホスティングについては<a href="https://packagist.com">私有Packagist</a>をご確認ください。</p>
+<h2 id="コミュニティ"><a class="header" href="#コミュニティ">コミュニティ</a></h2>
+<p>告知についてはTwitterで<a href="https://twitter.com/packagist">@packagist</a>または<a href="https://twitter.com/seldaek">@seldaek</a>をフォローしたり、<a href="https://twitter.com/search?q=%23composerphp&amp;src=typed_query&amp;f=live">#composerphp</a>ハッシュタグを確認したりしてください。</p>
+<p>サポートについては、Stack
+Overflowで<a href="https://stackoverflow.com/questions/tagged/composer-php">Composerに関係する良い質問</a>がされてきました。
+また、<a href="https://github.com/composer/composer/discussions">GitHubディスカッション</a>も使えます。</p>
+<p>本プロジェクトは<a href="https://www.contributor-covenant.org/version/1/4/code-of-conduct/">貢献者の行動規範</a>の元でリリースされている点にご留意ください。
+本プロジェクトとコミュニティへ参加すると、これらの条項を遵守することに同意したこととなります。</p>
+<h2 id="要件"><a class="header" href="#要件">要件</a></h2>
+<h4 id="最新のcomposer"><a class="header" href="#最新のcomposer">最新のComposer</a></h4>
+<p>最新版にはPHP 7.2.5以上が必要です。</p>
+<h4 id="composer-22-lts長期期間対応"><a class="header" href="#composer-22-lts長期期間対応">Composer 2.2 LTS（長期期間対応）</a></h4>
+<p>PHPのバージョン5.3.2から8.1まではComposer (2.2.x)のLTS対応でまだ対応されています。
+インストーラの<code>self-update</code>コマンドを走らせると、手元のPHPに見合う適切なComposerのバージョンが自動的に選択されるでしょう。</p>
+<h4 id="バイナリの依存関係"><a class="header" href="#バイナリの依存関係">バイナリの依存関係</a></h4>
+<ul>
+<li><code>7z</code>（ないし<code>7zz</code>）</li>
+<li><code>unzip</code>（<code>7z</code>が無い場合）</li>
+<li><code>gzip</code></li>
+<li><code>tar</code></li>
+<li><code>unrar</code></li>
+<li><code>xz</code></li>
+<li>Git (<code>git</code>)</li>
+<li>Mercurial (<code>hg</code>)</li>
+<li>Fossil (<code>fossil</code>)</li>
+<li>Perforce (<code>p4</code>)</li>
+<li>Subversion (<code>svn</code>)</li>
+</ul>
+<p>大事なことですが、これらのバイナリの依存関係の必要性は個々の用途によって様々です。
+しかし殆どの利用者にとっては、Composerに必須な依存関係はたった2つです。
+<code>7z</code>（または<code>7zz</code>や<code>unzip</code>）と<code>git</code>です。</p>
+<h2 id="作者"><a class="header" href="#作者">作者</a></h2>
+<ul>
+<li>Nils Adermann | <a href="https://github.com/naderman">GitHub</a>  |
+<a href="https://twitter.com/naderman">Twitter</a> | <a href="mailto:naderman@naderman.de">naderman@naderman.de</a> |
+<a href="https://naderman.de">naderman.de</a></li>
+<li>Jordi Boggiano | <a href="https://github.com/Seldaek">GitHub</a> |
+<a href="https://twitter.com/seldaek">Twitter</a> | <a href="mailto:j.boggiano@seld.be">j.boggiano@seld.be</a> |
+<a href="https://seld.be">seld.be</a></li>
+</ul>
+<p>本プロジェクトに参加している<a href="https://github.com/composer/composer/contributors">貢献者</a>の一覧もご参照ください。</p>
+<h2 id="セキュリティ報告書"><a class="header" href="#セキュリティ報告書">セキュリティ報告書</a></h2>
+<p>慎重を要する問題については全て<a href="mailto:security@packagist.org">security@packagist.org</a>にお送りください。
+ありがとうございます。</p>
+<h2 id="利用許諾"><a class="header" href="#利用許諾">利用許諾</a></h2>
+<p>ComposerはMITライセンスの下で利用が許諾されます。
+詳細は<a href="LICENSE">LICENSE</a>をご参照ください。</p>
+<h2 id="謝辞"><a class="header" href="#謝辞">謝辞</a></h2>
+<ul>
+<li>本プロジェクトのSolverについて、openSUSEの<a href="https://en.opensuse.org/openSUSE:Libzypp_satsolver">Libzypp
+satsolver</a>のPHP移植を開始しました。</li>
+</ul>
+<hr />
+<p>本和訳にあたっての著作権表示を以下に示します。</p>
+<p>Copyright (C) 2013--2015 kohkimakimoto.<br>
+Copyright (C) 2022--2024 gemmaro.</p>
+<p>この翻訳は<a href="https://github.com/kohkimakimoto">kohkimakimoto</a>氏による翻訳を元に改変を加えています。
+同氏の翻訳リポジトリは<a href="https://github.com/kohkimakimoto/getcomposer.org_doc_jp"><code>kohkimakimoto/getcomposer.org_doc_jp</code></a>に、Webサイトは<a href="https://kohkimakimoto.github.io/getcomposer.org_doc_jp/doc/00-intro.html">『Composer ドキュメント日本語訳』の「はじめに」</a>にあります。
+コミット<a href="https://github.com/kohkimakimoto/getcomposer.org_doc_jp/commit/9b7073bf08140994039b4c008650a0ce1e3173fb"><code>9b7073bf08140994039b4c008650a0ce1e3173fb</code></a>時点で翻訳されていた範囲は以下の通りです。</p>
+<div class="table-wrapper"><table><thead><tr><th>章名</th><th>ファイル</th><th>備考</th></tr></thead><tbody>
+<tr><td><a href="https://kohkimakimoto.github.io/getcomposer.org_doc_jp/doc/00-intro.html">イントロダクション</a></td><td><code>doc/00-intro.md</code></td><td></td></tr>
+<tr><td><a href="https://kohkimakimoto.github.io/getcomposer.org_doc_jp/doc/01-basic-usage.html">基本的な使い方</a></td><td><code>doc/01-basic-usage.md</code></td><td></td></tr>
+<tr><td><a href="https://kohkimakimoto.github.io/getcomposer.org_doc_jp/doc/02-libraries.html">ライブラリ</a></td><td><code>doc/02-libraries.md</code></td><td></td></tr>
+<tr><td><a href="https://kohkimakimoto.github.io/getcomposer.org_doc_jp/doc/03-cli.html">コマンドラインインターフェース</a></td><td><code>doc/03-cli.md</code></td><td>「install」節の「オプション」小節まで</td></tr>
+<tr><td><a href="https://kohkimakimoto.github.io/getcomposer.org_doc_jp/doc/04-schema.html">composer.json</a></td><td><code>doc/04-schema.md</code></td><td>冒頭部分</td></tr>
+<tr><td><a href="https://kohkimakimoto.github.io/getcomposer.org_doc_jp/doc/06-community.html">コミュニティ</a></td><td><code>doc/06-community.md</code></td><td></td></tr>
+</tbody></table>
+</div>
+<p>また、対応するComposer本体のコミットは<a href="https://github.com/composer/composer/commit/a1e4ca4f9bacfd3dc08e0546bff2d30cb006ea27"><code>a1e4ca4f9bacfd3dc08e0546bff2d30cb006ea27</code></a>としました。</p>
+<p>本翻訳は上記既訳を最新版に追従することを目的としています。
+そのため既訳の修正に加えて新規に追加された原文への訳が含まれます。
+本翻訳も原文にしたがい、<a href="https://github.com/composer/composer/blob/main/LICENSE">MITライセンス</a>の下に使用が許諾されます。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+                            <a rel="next prefetch" href="doc/00-intro.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+                    <a rel="next prefetch" href="doc/00-intro.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

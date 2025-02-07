@@ -1,0 +1,329 @@
+<!DOCTYPE HTML>
+<html lang="ja" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>ライブラリ - Composer</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Composer</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/gemmaro/composer" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="ライブラリ"><a class="header" href="#ライブラリ">ライブラリ</a></h1>
+<p>この章ではライブラリをComposerでインストールできるようにする方法を学びます。</p>
+<h2 id="全てのプロジェクトはパッケージである"><a class="header" href="#全てのプロジェクトはパッケージである">全てのプロジェクトはパッケージである</a></h2>
+<p><code>composer.json</code>をディレクトリに配置した時点で、そのディレクトリはパッケージとなります。
+<a href="04-schema.html#require"><code>require</code></a>をプロジェクトに追加すると、他のパッケージに依存したパッケージを作っていることになります。
+プロジェクトとライブラリの唯一の違いは、プロジェクトは名前のないパッケージだということです。</p>
+<p>インストール可能なパッケージを作成するためには命名する必要があります。
+<code>composer.json</code>に<a href="04-schema.html#name"><code>name</code>プロパティ</a>を追加してください。</p>
+<pre><code class="language-json">{
+    "name": "acme/hello-world",
+    "require": {
+        "monolog/monolog": "1.0.*"
+    }
+}
+</code></pre>
+<p>この例では、プロジェクト名は<code>acme/hello-world</code>です。
+<code>acme</code>はベンダー名です。
+ベンダー名を与えることは必須です。</p>
+<blockquote>
+<p><strong>注意：</strong>
+もしベンダー名に何をつけていいか分からない場合は、大抵は自分のGitHubの利用者名をつけるといいでしょう。
+パッケージ名は全て小文字でなければならず、単語の区切りはダッシュにするのが慣習です。</p>
+</blockquote>
+<h2 id="ライブラリのバージョン"><a class="header" href="#ライブラリのバージョン">ライブラリのバージョン</a></h2>
+<p>まず間違いなくgit, svn, hg, fossilといった何らかの類のバージョン管理システムを使ってライブラリを管理することでしょう。
+こうした場合、ComposerはVCSからバージョンを推定するので<code>composer.json</code>ファイルではバージョンを指定すべきでは<strong>ありません</strong>（ComposerがVCSのブランチとタグを使ってバージョン制約を解決する方法について学ぶためには<a href="articles/versions.html">バージョンについての記事</a>を参照してください）。</p>
+<p>パッケージの管理を手作業でしている（つまりVCS無しの）場合、<code>composer.json</code>ファイルに<code>version</code>値を加えて、バージョンを明示的に指定する必要があるでしょう。</p>
+<pre><code class="language-json">{
+    "version": "1.0.0"
+}
+</code></pre>
+<blockquote>
+<p><strong>補足：</strong> VCSに埋め込まれているバージョンを加えた場合、バージョンはタグ名と干渉することでしょう。
+そうするとComposerはバージョン値を決定できなくなります。</p>
+</blockquote>
+<h3 id="vcsのバージョン管理"><a class="header" href="#vcsのバージョン管理">VCSのバージョン管理</a></h3>
+<p>ComposerはVCSのブランチとタグの機能を使って<a href="04-schema.html#require"><code>require</code></a>フィールドで指定したバージョン制約を特定のファイルの集まりに至るまで解決します。
+利用できる妥当なバージョンを決定する際、Composerは全てのタグとブランチを見て、それらの名前を内部的なオプションの一覧に翻訳し、それから与えられたバージョン制約に対して照合します。</p>
+<p>Composerがタグとブランチを扱う方法とパッケージのバージョン制約を解決する方法についての詳細は、<a href="articles/versions.html">バージョン</a>の記事をお読みください。</p>
+<h2 id="固定ファイル"><a class="header" href="#固定ファイル">固定ファイル</a></h2>
+<p>お望みならライブラリに<code>composer.lock</code>ファイルをコミットできます。
+チームが常に同じ依存バージョンでテストする際の助けになります。
+しかし、この固定ファイルはこれに依存している他のプロジェクトにいかなる影響も齎しません。
+主眼のプロジェクトのみに影響します。</p>
+<p>もし固定ファイルをコミットしたくなくて、且つgitを使っている場合は、<code>.gitignore</code>に追加してください。</p>
+<h2 id="vcsに公開する"><a class="header" href="#vcsに公開する">VCSに公開する</a></h2>
+<p><code>composer.json</code>ファイルを含むVCSリポジトリ（バージョン管理システム、例えばgit）があれば、ライブラリは既にcomposerでインストール可能です。
+この例ではGitHubで<code>acme/hello-world</code>ライブラリを<code>github.com/username/hello-world</code>として公開するとしましょう。</p>
+<p>それでは<code>acme/hello-world</code>パッケージのインストールを試すために、ローカルに新しいプロジェクトを作成しましょう。
+私たちはそれを<code>acme/blog</code>と呼ぶことにします。
+このブログは<code>acme/hello-world</code>に依存し、更に<code>monolog/monolog</code>に依存するとします。
+以下の<code>composer.json</code>を含む新しい<code>blog</code>ディレクトリを作成することで達成されます。</p>
+<pre><code class="language-json">{
+    "name": "acme/blog",
+    "require": {
+        "acme/hello-world": "dev-master"
+    }
+}
+</code></pre>
+<p>名前はこの場合必須ではありません。
+このブログをライブラリとして公開することはないからです。
+ここではどの<code>composer.json</code>が説明されているのかを明確にするために加えられています。</p>
+<p>このブログアプリに依存物<code>hello-world</code>の所在を知らせる必要があります。
+これにはパッケージのリポジトリ指定をこのブログの<code>composer.json</code>に追加します。</p>
+<pre><code class="language-json">{
+    "name": "acme/blog",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/username/hello-world"
+        }
+    ],
+    "require": {
+        "acme/hello-world": "dev-master"
+    }
+}
+</code></pre>
+<p>パッケージリポジトリの挙動や他にどのようなタイプが利用できるかについての詳細は、<a href="05-repositories.html">リポジトリ</a>を参照してください。</p>
+<p>これで全てです。
+Composerの<a href="03-cli.html#install"><code>install</code></a>コマンドを実行すれば依存関係をインストールできます！</p>
+<p><strong>まとめ：</strong>
+<code>composer.json</code>を含むあらゆるgit/svn/hg/fossilリポジトリは、<a href="04-schema.html#require"><code>require</code></a>フィールドでパッケージリポジトリを指定して依存関係を宣言することで、プロジェクトに追加できます。</p>
+<h2 id="packagistに公開する"><a class="header" href="#packagistに公開する">Packagistに公開する</a></h2>
+<p>よろしい、今やパッケージを公開できるようになりました。
+しかし、毎回VCSリポジトリを指定するのは厄介なことです。
+全ての利用者にそんなことはさせたくないでしょう。</p>
+<p><code>monolog/monolog</code>のためのパッケージリポジトリを指定しなかったこととにお気付きかもしれません。
+どのような仕組みなのでしょうか？
+答えはPackagistです。</p>
+<p><a href="https://packagist.org/">Packagist</a>はComposerの主眼のパッケージリポジトリで、 既定で有効になっています。
+Packagistで公開されている全てのものは自動的にComposerで利用可能です。
+<a href="https://packagist.org/packages/monolog/monolog">monologはPackagistにある</a>ので、追加のリポジトリ指定なくして依存できるのです。</p>
+<p><code>hello-world</code>を世界に共有したければ、同様にPackagistに公開するのが良いでしょう。</p>
+<p><a href="https://packagist.org">Packagist</a>を開いて"Submit"ボタンを押します。
+まだサインアップしていなかったらその旨の表示がされます。
+それからVCSリポジトリのURLを送信できます。
+送信した時点でPackagistはクローリングを始めます。
+完了すると、パッケージは誰でも使えるようになります！</p>
+<h2 id="軽量配布パッケージ"><a class="header" href="#軽量配布パッケージ">軽量配布パッケージ</a></h2>
+<p>有用でない情報は普通、配布パッケージに含めない方が良いでしょう。
+これには<code>.github</code>ディレクトリ、嵩張る例、テストデータなどがあります。</p>
+<p><code>.gitattributes</code>ファイルは<code>.gitignore</code>のようなgit固有のファイルです。
+またライブラリの根幹ディレクトリにあります。
+これが存在してgitで追跡されているとき、局所的な構成と大域的な構成（それぞれ<code>.git/config</code>と<code>~/.gitconfig</code>）がオーバーライドされます。</p>
+<p>zipの配布パッケージが肥大化させる望ましくないファイルが入らないようにするには、<code>.gitattributes</code>を使ってください。</p>
+<pre><code class="language-text">// .gitattributes
+/demo export-ignore
+phpunit.xml.dist export-ignore
+/.github/ export-ignore
+</code></pre>
+<p>生成されたzipファイルを手作業で調べて確認するには、次のようにします。</p>
+<pre><code class="language-shell">git archive branchName --format zip -o file.zip
+</code></pre>
+<blockquote>
+<p><strong>補足：</strong>
+ファイルはgitで追跡されたままであり、zipの配布物に含まれていないだけです。
+これはdist（タグ付けされたリリース）でインストールしたパッケージでのみ機能します。
+配布元はGitHub、GitLab、BitBucketがあります。</p>
+</blockquote>
+<p>← <a href="01-basic-usage.html">基本的な使い方</a> |  <a href="03-cli.html">コマンドラインインターフェース</a> →</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../doc/01-basic-usage.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../doc/03-cli.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../doc/01-basic-usage.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../doc/03-cli.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
