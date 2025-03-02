@@ -1,3 +1,13 @@
+### [2.8.6] 2025-02-25
+
+  * `--with[-all]-dependencies`フラグを有効にする環境変数`COMPOSER_WITH_DEPENDENCIES`と`COMPOSER_WITH_ALL_DEPENDENCIES`を追加
+    (#12289)
+  * 特定のスクリプトハンドラがスクリプト名でスキップされるようにするための、環境変数`COMPOSER_SKIP_SCRIPTS`を追加
+    (#12290)
+  * Avastとcurlの証明書エラーが一緒に検出されたときのエラーヒントを追加 (#9894)
+  * アーカイブ作成時の、フォルダ名中のバックスラッシュの扱いを修正 (#12327)
+  * containerdの検出を修正し、コンテナでrootの使用についての警告がないようにしました (#12299)
+
 ### [2.8.5] 2025-01-21
 
   * Added build provenance attestation so you can also now download and
@@ -273,6 +283,7 @@
   * プール最適化の工程を効率良くしました (#11638)。
   * `show -a <パッケージ名>`の効率良くしました (#11659)。
 
+[2.8.6]: https://github.com/composer/composer/compare/2.8.5...2.8.6
 [2.8.5]: https://github.com/composer/composer/compare/2.8.4...2.8.5
 [2.8.4]: https://github.com/composer/composer/compare/2.8.3...2.8.4
 [2.8.3]: https://github.com/composer/composer/compare/2.8.2...2.8.3
