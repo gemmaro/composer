@@ -170,11 +170,12 @@ Composerがパッケージを探すときは毎回`%package%`をパッケージ�
 
 #### providers-api
 
-`providers-api`フィールドでは与えられたパッケージ名を提供する全てのパッケージ、ただしその名前のパッケージ以外、を返すURLテンプレートを与えられます。
+`providers-api`フィールドでは、与えられたパッケージ名を提供する全てのパッケージをサーバーから返すURLの雛形を与えられます。
+ただし、その名前を持つパッケージが存在したとしても、そのパッケージは含まれません。
 プレースホルダー`%package%`を含まなければなりません。
 
-例えば https://packagist.org/providers/monolog/monolog.json はmonolog/monologに
-"provide" 規則を持つパッケージを一覧にしますが、monolog/monolog自体は一覧に挙がりません。
+例えば https://packagist.org/providers/monolog/monolog.json
+は、psr/log-implementationに「provide」規則があるパッケージを一覧にします。
 
 ```json
 {
@@ -445,7 +446,7 @@ Subversionクライアントが既定で資格情報を保存するように構�
 基本的に`composer`リポジトリの`package.json`に含まれるのと同じ情報を定義しますが、単一のパッケージ用限定です。
 繰り返しますが、最小限必要なフィールドは`name`、`version`、そして`dist`または`source`の何れかです。
 
-以下はsmartyテンプレートエンジンの例です。
+以下は雛形エンジンのsmartyの例です。
 
 ```json
 {

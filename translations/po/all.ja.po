@@ -19,8 +19,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Composer\n"
-"POT-Creation-Date: 2025-02-04 08:31+0900\n"
-"PO-Revision-Date: 2025-02-04 08:40+0900\n"
+"POT-Creation-Date: 2025-03-27 15:34+0900\n"
+"PO-Revision-Date: 2025-03-27 15:38+0900\n"
 "Last-Translator: gemmaro <gemmaro.dev@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -6719,7 +6719,7 @@ msgstr ""
 #. type: Plain text
 #: ../doc/04-schema.md:224 ../doc/04-schema.md:264 ../doc/04-schema.md:287
 #: ../doc/04-schema.md:1014 ../doc/05-repositories.md:165
-#: ../doc/05-repositories.md:262
+#: ../doc/05-repositories.md:261
 msgid "An example:"
 msgstr "一例："
 
@@ -8676,7 +8676,7 @@ msgstr ""
 "を理解する必要があります。"
 
 #. type: Title ###
-#: ../doc/05-repositories.md:11 ../doc/05-repositories.md:507
+#: ../doc/05-repositories.md:11 ../doc/05-repositories.md:506
 #, no-wrap
 msgid "Package"
 msgstr "パッケージ"
@@ -9027,7 +9027,7 @@ msgstr "バージョンフィールドはバージョン数の正規化された
 
 #. type: Plain text
 #: ../doc/05-repositories.md:151 ../doc/05-repositories.md:206
-#: ../doc/05-repositories.md:224 ../doc/05-repositories.md:247
+#: ../doc/05-repositories.md:223 ../doc/05-repositories.md:246
 msgid "This field is optional."
 msgstr "このフィールドは省略できます。"
 
@@ -9171,25 +9171,25 @@ msgstr "providers-api"
 msgid ""
 "The `providers-api` field allows you to provide a URL template to serve all "
 "packages which provide a given package name, but not the package which has "
-"that name. It must contain the placeholder `%package%`."
+"that name even if it exists. It must contain the placeholder `%package%`."
 msgstr ""
-"`providers-api`フィールドでは与えられたパッケージ名を提供する全てのパッケー"
-"ジ、ただしその名前のパッケージ以外、を返すURLテンプレートを与えられます。\n"
+"`providers-api`フィールドでは、与えられたパッケージ名を提供する全てのパッケー"
+"ジをサーバーから返すURLの雛形を与えられます。\n"
+"ただし、その名前を持つパッケージが存在したとしても、そのパッケージは含まれま"
+"せん。\n"
 "プレースホルダー`%package%`を含まなければなりません。"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:216
+#: ../doc/05-repositories.md:215
 msgid ""
-"For example https://packagist.org/providers/monolog/monolog.json lists some "
-"package which have a \"provide\" rule for monolog/monolog, but it does not "
-"list monolog/monolog itself."
+"For example https://packagist.org/providers/psr/log-implementation.json "
+"lists some package which have a \"provide\" rule for psr/log-implementation."
 msgstr ""
-"例えば https://packagist.org/providers/monolog/monolog.json はmonolog/monolog"
-"に \"provide\" 規則を持つパッケージを一覧にしますが、monolog/monolog自体は一"
-"覧に挙がりません。"
+"例えば https://packagist.org/providers/monolog/monolog.json は、psr/log-"
+"implementationに「provide」規則があるパッケージを一覧にします。"
 
 #. type: Fenced code block (json)
-#: ../doc/05-repositories.md:217
+#: ../doc/05-repositories.md:216
 #, no-wrap
 msgid ""
 "{\n"
@@ -9202,13 +9202,13 @@ msgstr ""
 
 # フィールド名なので訳しません。
 #. type: Title ####
-#: ../doc/05-repositories.md:225
+#: ../doc/05-repositories.md:224
 #, no-wrap
 msgid "list"
 msgstr "list"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:231
+#: ../doc/05-repositories.md:230
 msgid ""
 "The `list` field allows you to return the names of packages which match a "
 "given filter (or all names if no filter is present). It should accept an "
@@ -9221,17 +9221,17 @@ msgstr ""
 "に照合するワイルドカードとして`*`を含められます。"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:233
+#: ../doc/05-repositories.md:232
 msgid "Replace/provide rules should not be considered here."
 msgstr "replace/provide規則はここでは考慮すべきではありません。"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:235
+#: ../doc/05-repositories.md:234
 msgid "It must return an array of package names:"
 msgstr "パッケージ名の配列を返さねばなりません。"
 
 #. type: Fenced code block (json)
-#: ../doc/05-repositories.md:235
+#: ../doc/05-repositories.md:234
 #, no-wrap
 msgid ""
 "{\n"
@@ -9249,7 +9249,7 @@ msgstr ""
 "}\n"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:245
+#: ../doc/05-repositories.md:244
 msgid ""
 "See <https://packagist.org/packages/list.json?filter=composer/*> for example."
 msgstr ""
@@ -9257,13 +9257,13 @@ msgstr ""
 "照してください。"
 
 #. type: Title ####
-#: ../doc/05-repositories.md:248
+#: ../doc/05-repositories.md:247
 #, no-wrap
 msgid "provider-includes and providers-url"
 msgstr "provider-includesとproviders-url"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:253
+#: ../doc/05-repositories.md:252
 msgid ""
 "The `provider-includes` field allows you to list a set of files that list "
 "package names provided by this repository. The hash should be a sha256 of "
@@ -9274,7 +9274,7 @@ msgstr ""
 "この場合ハッシュはファイルのsha256になります。"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:257
+#: ../doc/05-repositories.md:256
 msgid ""
 "The `providers-url` describes how provider files are found on the server. It "
 "is an absolute path from the repository root. It must contain the "
@@ -9285,7 +9285,7 @@ msgstr ""
 "`%package%`と`%hash%`のプレースホルダーを含まなければいけません。"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:260
+#: ../doc/05-repositories.md:259
 msgid ""
 "These fields are used by Composer v1, or if your repository does not have "
 "the `metadata-url` field set."
@@ -9294,7 +9294,7 @@ msgstr ""
 "していない場合に使われます。"
 
 #. type: Fenced code block (json)
-#: ../doc/05-repositories.md:263
+#: ../doc/05-repositories.md:262
 #, no-wrap
 msgid ""
 "{\n"
@@ -9322,7 +9322,7 @@ msgstr ""
 "}\n"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:279
+#: ../doc/05-repositories.md:278
 msgid ""
 "Those files contain lists of package names and hashes to verify the file "
 "integrity, for example:"
@@ -9331,7 +9331,7 @@ msgstr ""
 "の通りです。"
 
 #. type: Fenced code block (json)
-#: ../doc/05-repositories.md:280
+#: ../doc/05-repositories.md:279
 #, no-wrap
 msgid ""
 "{\n"
@@ -9357,7 +9357,7 @@ msgstr ""
 "}\n"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:298
+#: ../doc/05-repositories.md:297
 msgid ""
 "The file above declares that acme/foo and acme/bar can be found in this "
 "repository, by loading the file referenced by `providers-url`, replacing "
@@ -9373,7 +9373,7 @@ msgstr ""
 "す。"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:301
+#: ../doc/05-repositories.md:300
 msgid ""
 "These fields are optional. You probably don't need them for your own custom "
 "repository."
@@ -9382,13 +9382,13 @@ msgstr ""
 "恐らく独自のリポジトリでは必要ないでしょう。"
 
 #. type: Title ####
-#: ../doc/05-repositories.md:302
+#: ../doc/05-repositories.md:301
 #, no-wrap
 msgid "cURL or stream options"
 msgstr "cURLとストリームオプション"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:310
+#: ../doc/05-repositories.md:309
 msgid ""
 "The repository is accessed either using cURL (Composer 2 with ext-curl "
 "enabled)  or PHP streams. You can set extra options using the `options` "
@@ -9408,7 +9408,7 @@ msgstr ""
 "に制限されます。"
 
 #. type: Fenced code block (json)
-#: ../doc/05-repositories.md:311
+#: ../doc/05-repositories.md:310
 #, no-wrap
 msgid ""
 "{\n"
@@ -9446,13 +9446,13 @@ msgstr ""
 "}\n"
 
 #. type: Title ###
-#: ../doc/05-repositories.md:330
+#: ../doc/05-repositories.md:329
 #, no-wrap
 msgid "VCS"
 msgstr "VCS"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:335
+#: ../doc/05-repositories.md:334
 msgid ""
 "VCS stands for version control system. This includes versioning systems like "
 "git, svn, fossil or hg. Composer has a repository type for installing "
@@ -9464,13 +9464,13 @@ msgstr ""
 "あります。"
 
 #. type: Title ####
-#: ../doc/05-repositories.md:336
+#: ../doc/05-repositories.md:335
 #, no-wrap
 msgid "Loading a package from a VCS repository"
 msgstr "VCSリポジトリからパッケージを読み込む"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:349
+#: ../doc/05-repositories.md:348
 msgid ""
 "There are a few use cases for this. The most common one is maintaining your "
 "own fork of a third party library. If you are using a certain library for "
@@ -9500,7 +9500,7 @@ msgstr ""
 "ださい。"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:351
+#: ../doc/05-repositories.md:350
 msgid ""
 "Example assuming you patched monolog to fix a bug in the `bugfix` branch:"
 msgstr ""
@@ -9508,7 +9508,7 @@ msgstr ""
 "す。"
 
 #. type: Fenced code block (json)
-#: ../doc/05-repositories.md:352
+#: ../doc/05-repositories.md:351
 #, no-wrap
 msgid ""
 "{\n"
@@ -9536,7 +9536,7 @@ msgstr ""
 "}\n"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:368
+#: ../doc/05-repositories.md:367
 msgid ""
 "When you run `php composer.phar update`, you should get your modified "
 "version of `monolog/monolog` instead of the one from packagist."
@@ -9545,7 +9545,7 @@ msgstr ""
 "が取得されます。packagistからのものではありません。"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:375
+#: ../doc/05-repositories.md:374
 msgid ""
 "Note that you should not rename the package unless you really intend to fork "
 "it in the long term, and completely move away from the original package.  "
@@ -9563,7 +9563,7 @@ msgstr ""
 "能ブランチではなく、既定の（多くの場合master）ブランチで行う必要があります。"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:379
+#: ../doc/05-repositories.md:378
 msgid ""
 "Also note that the override will not work if you change the `name` property "
 "in your forked repository's `composer.json` file as this needs to match the "
@@ -9574,7 +9574,7 @@ msgstr ""
 "上書きが機能するには元のものと合致する必要があるからです。"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:383
+#: ../doc/05-repositories.md:382
 msgid ""
 "If other dependencies rely on the package you forked, it is possible to "
 "inline-alias it so that it matches a constraint that it otherwise would "
@@ -9585,20 +9585,20 @@ msgstr ""
 "詳細については[エイリアスの記事を参照してください](articles/aliases.md)。"
 
 #. type: Title ####
-#: ../doc/05-repositories.md:384
+#: ../doc/05-repositories.md:383
 #, no-wrap
 msgid "Using private repositories"
 msgstr "私有リポジトリを使う"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:388
+#: ../doc/05-repositories.md:387
 msgid ""
 "Exactly the same solution allows you to work with your private repositories "
 "at GitHub and Bitbucket:"
 msgstr "GitHubとBitbucketの私有リポジトリを全く同じやり方で扱えます。"
 
 #. type: Fenced code block (json)
-#: ../doc/05-repositories.md:389
+#: ../doc/05-repositories.md:388
 #, no-wrap
 msgid ""
 "{\n"
@@ -9626,19 +9626,19 @@ msgstr ""
 "}\n"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:404
+#: ../doc/05-repositories.md:403
 msgid "The only requirement is the installation of SSH keys for a git client."
 msgstr ""
 "唯一の要件は、gitクライアント用のSSHキーがインストールされていることです。"
 
 #. type: Title ####
-#: ../doc/05-repositories.md:405
+#: ../doc/05-repositories.md:404
 #, no-wrap
 msgid "Git alternatives"
 msgstr "Gitの代替案"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:409
+#: ../doc/05-repositories.md:408
 msgid ""
 "Git is not the only version control system supported by the VCS repository.  "
 "The following are supported:"
@@ -9647,27 +9647,27 @@ msgstr ""
 "以下に対応しています。"
 
 #. type: Bullet: '* '
-#: ../doc/05-repositories.md:414
+#: ../doc/05-repositories.md:413
 msgid "**Git:** [git-scm.com](https://git-scm.com)"
 msgstr "**Git:** [git-scm.com](https://git-scm.com)"
 
 #. type: Bullet: '* '
-#: ../doc/05-repositories.md:414
+#: ../doc/05-repositories.md:413
 msgid "**Subversion:** [subversion.apache.org](https://subversion.apache.org)"
 msgstr "**Subversion:** [subversion.apache.org](https://subversion.apache.org)"
 
 #. type: Bullet: '* '
-#: ../doc/05-repositories.md:414
+#: ../doc/05-repositories.md:413
 msgid "**Mercurial:** [mercurial-scm.org](https://www.mercurial-scm.org)"
 msgstr "**Mercurial:** [mercurial-scm.org](https://www.mercurial-scm.org)"
 
 #. type: Bullet: '* '
-#: ../doc/05-repositories.md:414
+#: ../doc/05-repositories.md:413
 msgid "**Fossil**: [fossil-scm.org](https://www.fossil-scm.org/)"
 msgstr "**Fossil**: [fossil-scm.org](https://www.fossil-scm.org/)"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:420
+#: ../doc/05-repositories.md:419
 msgid ""
 "To get packages from these systems you need to have their respective clients "
 "installed. That can be inconvenient. And for this reason there is special "
@@ -9683,17 +9683,17 @@ msgstr ""
 "VCSリポジトリは、パッケージをzipとして取得する`dist`を提供します。"
 
 #. type: Bullet: '* '
-#: ../doc/05-repositories.md:423
+#: ../doc/05-repositories.md:422
 msgid "**GitHub:** [github.com](https://github.com) (Git)"
 msgstr "**GitHub:** [github.com](https://github.com) (Git)"
 
 #. type: Bullet: '* '
-#: ../doc/05-repositories.md:423
+#: ../doc/05-repositories.md:422
 msgid "**Bitbucket:** [bitbucket.org](https://bitbucket.org) (Git)"
 msgstr "**Bitbucket:** [bitbucket.org](https://bitbucket.org) (Git)"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:428
+#: ../doc/05-repositories.md:427
 msgid ""
 "The VCS driver to be used is detected automatically based on the URL. "
 "However, should you need to specify one for whatever reason, you can use "
@@ -9706,7 +9706,7 @@ msgstr ""
 "類として使えます。"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:433
+#: ../doc/05-repositories.md:432
 msgid ""
 "If you set the `no-api` key to `true` on a github repository it will clone "
 "the repository as it would with any other git repository instead of using "
@@ -9719,7 +9719,7 @@ msgstr ""
 "githubのzipファイルを使用しようとします。"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:438
+#: ../doc/05-repositories.md:437
 msgid ""
 "Please note: * **To let Composer choose which driver to use** the repository "
 "type needs to be defined as \"vcs\" * **If you already used a private "
@@ -9741,19 +9741,19 @@ msgstr ""
 "* VCSドライバ`git-bitbucket`は`bitbucket`に取って代わられたため時代遅れです"
 
 #. type: Title ####
-#: ../doc/05-repositories.md:439
+#: ../doc/05-repositories.md:438
 #, no-wrap
 msgid "Bitbucket Driver Configuration"
 msgstr "Bitbucketドライバ設定"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:442
+#: ../doc/05-repositories.md:441
 #, no-wrap
 msgid "> **Note that the repository endpoint for Bitbucket needs to be https rather than git.**\n"
 msgstr "> **Bitbucketのリポジトリのエンドポイントはgitではなくhttpsになっている必要がある点に注意してください。**\n"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:445
+#: ../doc/05-repositories.md:444
 msgid ""
 "After setting up your bitbucket repository, you will also need to [set up "
 "authentication](articles/authentication-for-private-packages.md#bitbucket-"
@@ -9763,13 +9763,13 @@ msgstr ""
 "private-packages.md#bitbucket-oauth)もする必要があるでしょう。"
 
 #. type: Title ####
-#: ../doc/05-repositories.md:446
+#: ../doc/05-repositories.md:445
 #, no-wrap
 msgid "Subversion Options"
 msgstr "Subversionのオプション"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:453
+#: ../doc/05-repositories.md:452
 msgid ""
 "Since Subversion has no native concept of branches and tags, Composer "
 "assumes by default that code is located in `$url/trunk`, `$url/branches` and "
@@ -9783,7 +9783,7 @@ msgstr ""
 "たとえば、大文字の名前を使用した場合、次のようにリポジトリを構成できます。"
 
 #. type: Fenced code block (json)
-#: ../doc/05-repositories.md:454
+#: ../doc/05-repositories.md:453
 #, no-wrap
 msgid ""
 "{\n"
@@ -9811,7 +9811,7 @@ msgstr ""
 "}\n"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:470
+#: ../doc/05-repositories.md:469
 msgid ""
 "If you have no branches or tags directory you can disable them entirely by "
 "setting the `branches-path` or `tags-path` to `false`."
@@ -9820,7 +9820,7 @@ msgstr ""
 "`tags-path`を`false`に設定することで完全に無効にできます。"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:475
+#: ../doc/05-repositories.md:474
 msgid ""
 "If the package is in a subdirectory, e.g. `/trunk/foo/bar/composer.json` and "
 "`/tags/1.0/foo/bar/composer.json`, then you can make Composer access it by "
@@ -9833,7 +9833,7 @@ msgstr ""
 "この例では`\"package-path\": \"foo/bar/\"`となるでしょう。"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:478
+#: ../doc/05-repositories.md:477
 msgid ""
 "If you have a private Subversion repository you can save credentials in the "
 "http-basic section of your config (See [Schema](04-schema.md)):"
@@ -9842,7 +9842,7 @@ msgstr ""
 "ます（[スキーマ](04-schema.md)を参照）。"
 
 #. type: Fenced code block (json)
-#: ../doc/05-repositories.md:479
+#: ../doc/05-repositories.md:478
 #, no-wrap
 msgid ""
 "{\n"
@@ -9864,7 +9864,7 @@ msgstr ""
 "}\n"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:494
+#: ../doc/05-repositories.md:493
 msgid ""
 "If your Subversion client is configured to store credentials by default "
 "these credentials will be saved for the current user and existing saved "
@@ -9879,7 +9879,7 @@ msgstr ""
 "オプションを設定します。"
 
 #. type: Fenced code block (json)
-#: ../doc/05-repositories.md:495
+#: ../doc/05-repositories.md:494
 #, no-wrap
 msgid ""
 "{\n"
@@ -9903,7 +9903,7 @@ msgstr ""
 "}\n"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:512
+#: ../doc/05-repositories.md:511
 msgid ""
 "If you want to use a project that does not support Composer through any of "
 "the means above, you still can define the package yourself by using a "
@@ -9913,7 +9913,7 @@ msgstr ""
 "`package`リポジトリを使って自分でパッケージを定義できます。"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:517
+#: ../doc/05-repositories.md:516
 msgid ""
 "Basically, you define the same information that is included in the "
 "`composer` repository's `packages.json`, but only for a single package. "
@@ -9926,12 +9926,12 @@ msgstr ""
 "`source`の何れかです。"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:519
+#: ../doc/05-repositories.md:518
 msgid "Here is an example for the smarty template engine:"
-msgstr "以下はsmartyテンプレートエンジンの例です。"
+msgstr "以下は雛形エンジンのsmartyの例です。"
 
 #. type: Fenced code block (json)
-#: ../doc/05-repositories.md:520
+#: ../doc/05-repositories.md:519
 #, no-wrap
 msgid ""
 "{\n"
@@ -9989,14 +9989,14 @@ msgstr ""
 "}\n"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:550
+#: ../doc/05-repositories.md:549
 msgid ""
 "Typically, you would leave the source part off, as you don't really need it."
 msgstr ""
 "source部分は放置しておくのが普通です。本当に必要なことはまずないからです。"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:553
+#: ../doc/05-repositories.md:552
 msgid ""
 "If a source key is included, the reference field should be a reference to "
 "the version that will be installed.  Where the type field is `git`, this "
@@ -10008,7 +10008,7 @@ msgstr ""
 "ります。"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:556
+#: ../doc/05-repositories.md:555
 #, no-wrap
 msgid ""
 "> **Note**: It is not recommended to use a git branch name for the reference field. While this is valid since it is supported by `git checkout`,\n"
@@ -10019,7 +10019,7 @@ msgstr ""
 "> `git checkout`に対応しているため妥当ではあるのですが、ブランチ名は可変なので固定できないのです。\n"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:558
+#: ../doc/05-repositories.md:557
 msgid ""
 "Where the type field is `svn`, the reference field should contain the "
 "reference that gets appended to the URL when running `svn co`."
@@ -10028,7 +10028,7 @@ msgstr ""
 "に付ける参照が含まれます。"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:566
+#: ../doc/05-repositories.md:565
 #, no-wrap
 msgid ""
 "> **Note**: This repository type has a few limitations and should be avoided\n"
@@ -10047,7 +10047,7 @@ msgstr ""
 ">   そのため、参照として`master`を使う場合、強制的に更新するためにパッケージを削除し、不安定な固定ファイルに対処しなければならなくなるでしょう。\n"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:568
+#: ../doc/05-repositories.md:567
 msgid ""
 "The `\"package\"` key in a `package` repository may be set to an array to "
 "define multiple versions of a package:"
@@ -10056,7 +10056,7 @@ msgstr ""
 "する配列を設定できます。"
 
 #. type: Fenced code block (json)
-#: ../doc/05-repositories.md:569
+#: ../doc/05-repositories.md:568
 #, no-wrap
 msgid ""
 "{\n"
@@ -10100,13 +10100,13 @@ msgstr ""
 "}\n"
 
 #. type: Title ##
-#: ../doc/05-repositories.md:591
+#: ../doc/05-repositories.md:590
 #, no-wrap
 msgid "Hosting your own"
 msgstr "自分でホスティングする"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:595
+#: ../doc/05-repositories.md:594
 msgid ""
 "While you will probably want to put your packages on packagist most of the "
 "time, there are some use cases for hosting your own repository."
@@ -10115,7 +10115,7 @@ msgstr ""
 "ジトリをホスティングすることによる用途もあります。"
 
 #. type: Bullet: '* '
-#: ../doc/05-repositories.md:598
+#: ../doc/05-repositories.md:597
 msgid ""
 "**Private company packages:** If you are part of a company that uses "
 "Composer for their packages internally, you might want to keep those "
@@ -10126,7 +10126,7 @@ msgstr ""
 "パッケージを私有としておきたいかもしれません。"
 
 #. type: Bullet: '* '
-#: ../doc/05-repositories.md:603
+#: ../doc/05-repositories.md:602
 msgid ""
 "**Separate ecosystem:** If you have a project which has its own ecosystem, "
 "and the packages aren't really reusable by the greater PHP community, you "
@@ -10140,7 +10140,7 @@ msgstr ""
 "一例はWordPressプラグインです。"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:606
+#: ../doc/05-repositories.md:605
 msgid ""
 "For hosting your own packages, a native `composer` type of repository is "
 "recommended, which provides the best performance."
@@ -10150,18 +10150,18 @@ msgstr ""
 "一番の効率性が齎されるからです。"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:608
+#: ../doc/05-repositories.md:607
 msgid "There are a few tools that can help you create a `composer` repository."
 msgstr "`composer`リポジトリを作る上で、手助けになるツールはいくつかあります。"
 
 #. type: Title ###
-#: ../doc/05-repositories.md:609
+#: ../doc/05-repositories.md:608
 #, no-wrap
 msgid "Private Packagist"
 msgstr "私有Packagist"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:614
+#: ../doc/05-repositories.md:613
 msgid ""
 "[Private Packagist](https://packagist.com/) is a hosted or self-hosted "
 "application providing private package hosting as well as mirroring of "
@@ -10173,18 +10173,18 @@ msgstr ""
 "Packagistでも立てられていますが、自分で立てることもできます。"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:616
+#: ../doc/05-repositories.md:615
 msgid "Check out [Packagist.com](https://packagist.com/) for more information."
 msgstr "詳細は[Packagist.com](https://packagist.com/)をご確認ください。"
 
 #. type: Title ###
-#: ../doc/05-repositories.md:617
+#: ../doc/05-repositories.md:616
 #, no-wrap
 msgid "Satis"
 msgstr "Satis"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:621
+#: ../doc/05-repositories.md:620
 msgid ""
 "Satis is a static `composer` repository generator. It is a bit like an "
 "ultra- lightweight, static file-based version of packagist."
@@ -10194,7 +10194,7 @@ msgstr ""
 "す。"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:625
+#: ../doc/05-repositories.md:624
 msgid ""
 "You give it a `composer.json` containing repositories, typically VCS and "
 "package repository definitions. It will fetch all the packages that are "
@@ -10206,7 +10206,7 @@ msgstr ""
 "が`composer`リポジトリになります。"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:629
+#: ../doc/05-repositories.md:628
 msgid ""
 "Check [the satis GitHub repository](https://github.com/composer/satis) and "
 "the [handling private packages article](articles/handling-private-packages."
@@ -10217,13 +10217,13 @@ msgstr ""
 "md)をご確認ください。"
 
 #. type: Title ###
-#: ../doc/05-repositories.md:630
+#: ../doc/05-repositories.md:629
 #, no-wrap
 msgid "Artifact"
 msgstr "アーティファクト"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:638
+#: ../doc/05-repositories.md:637
 msgid ""
 "There are some cases, when there is no ability to have one of the previously "
 "mentioned repository types online, even the VCS one. A typical example could "
@@ -10241,7 +10241,7 @@ msgstr ""
 "す。"
 
 #. type: Fenced code block (json)
-#: ../doc/05-repositories.md:639
+#: ../doc/05-repositories.md:638
 #, no-wrap
 msgid ""
 "{\n"
@@ -10273,20 +10273,20 @@ msgstr ""
 "}\n"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:656
+#: ../doc/05-repositories.md:655
 msgid "Each zip artifact is a ZIP archive with `composer.json` in root folder:"
 msgstr ""
 "それぞれのzipアーティファクトとは、根幹のフォルダにある`composer.json`がある"
 "ZIPアーカイブです。"
 
 #. type: Fenced code block (shell)
-#: ../doc/05-repositories.md:657
+#: ../doc/05-repositories.md:656
 #, no-wrap
 msgid "unzip -l acme-corp-parser-10.3.5.zip\n"
 msgstr "unzip -l acme-corp-parser-10.3.5.zip\n"
 
 #. type: Fenced code block (text)
-#: ../doc/05-repositories.md:660
+#: ../doc/05-repositories.md:659
 #, no-wrap
 msgid ""
 "composer.json\n"
@@ -10296,7 +10296,7 @@ msgstr ""
 "...\n"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:669
+#: ../doc/05-repositories.md:668
 msgid ""
 "If there are two archives with different versions of a package, they are "
 "both imported. When an archive with a newer version is added in the artifact "
@@ -10310,13 +10310,13 @@ msgstr ""
 "されます。"
 
 #. type: Title ###
-#: ../doc/05-repositories.md:670
+#: ../doc/05-repositories.md:669
 #, no-wrap
 msgid "Path"
 msgstr "パス"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:675
+#: ../doc/05-repositories.md:674
 msgid ""
 "In addition to the artifact repository, you can use the path one, which "
 "allows you to depend on a local directory, either absolute or relative. This "
@@ -10327,14 +10327,14 @@ msgstr ""
 "モノリシックリポジトリを扱う場合に特に役立ちます。"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:677
+#: ../doc/05-repositories.md:676
 msgid ""
 "For instance, if you have the following directory structure in your "
 "repository:"
 msgstr "例えばリポジトリが以下のディレクトリ構造になっているとします。"
 
 #. type: Fenced code block (text)
-#: ../doc/05-repositories.md:677
+#: ../doc/05-repositories.md:676
 #, no-wrap
 msgid ""
 "...\n"
@@ -10356,7 +10356,7 @@ msgstr ""
 "...\n"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:690
+#: ../doc/05-repositories.md:689
 msgid ""
 "Then, to add the package `my/package` as a dependency, in your `apps/my-app/"
 "composer.json` file, you can use the following configuration:"
@@ -10365,7 +10365,7 @@ msgstr ""
 "package`を加えるには、以下の構成が使えます。"
 
 #. type: Fenced code block (json)
-#: ../doc/05-repositories.md:691
+#: ../doc/05-repositories.md:690
 #, no-wrap
 msgid ""
 "{\n"
@@ -10393,7 +10393,7 @@ msgstr ""
 "}\n"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:709
+#: ../doc/05-repositories.md:708
 msgid ""
 "If the package is a local VCS repository, the version may be inferred by the "
 "branch or tag that is currently checked out. Otherwise, the version should "
@@ -10407,7 +10407,7 @@ msgstr ""
 "これらの方法でバージョンが解決できない場合は、`dev-master`と見なされます。"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:713
+#: ../doc/05-repositories.md:712
 msgid ""
 "When the version cannot be inferred from the local VCS repository, or when "
 "you want to override the version, you can use the `versions` option when "
@@ -10417,7 +10417,7 @@ msgstr ""
 "ンを上書きしたい場合は、リポジトリの宣言時に`versions`オプションが使えます。"
 
 #. type: Fenced code block (json)
-#: ../doc/05-repositories.md:714
+#: ../doc/05-repositories.md:713
 #, no-wrap
 msgid ""
 "{\n"
@@ -10449,7 +10449,7 @@ msgstr ""
 "}\n"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:734
+#: ../doc/05-repositories.md:733
 msgid ""
 "The local package will be symlinked if possible, in which case the output in "
 "the console will read `Symlinking from ../../packages/my-package`. If "
@@ -10462,7 +10462,7 @@ msgstr ""
 "その場合端末の出力は`Mirrored from ../../packages/my-package`となります。"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:739
+#: ../doc/05-repositories.md:738
 msgid ""
 "Instead of default fallback strategy you can force to use symlink with "
 "`\"symlink\": true` or mirroring with `\"symlink\": false` option. Forcing "
@@ -10476,7 +10476,7 @@ msgstr ""
 "り生成したりする際に便利なことがあります。"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:743
+#: ../doc/05-repositories.md:742
 #, no-wrap
 msgid ""
 "> **Note:** On Windows, directory symlinks are implemented using NTFS junctions\n"
@@ -10487,7 +10487,7 @@ msgstr ""
 "> Windows 7より前のバージョンまたは`proc_open`が無効にされている場合は常にミラーリングが使用されます。\n"
 
 #. type: Fenced code block (json)
-#: ../doc/05-repositories.md:744
+#: ../doc/05-repositories.md:743
 #, no-wrap
 msgid ""
 "{\n"
@@ -10515,7 +10515,7 @@ msgstr ""
 "}\n"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:763
+#: ../doc/05-repositories.md:762
 #, no-wrap
 msgid ""
 "Leading tildes are expanded to the current user's home folder, and environment\n"
@@ -10529,7 +10529,7 @@ msgstr ""
 "`$HOME/git/mypackage`としたり`%USERPROFILE%/git/mypackage`としても同じことです。\n"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:766
+#: ../doc/05-repositories.md:765
 #, no-wrap
 msgid ""
 "> **Note:** Repository paths can also contain wildcards like `*` and `?`.\n"
@@ -10539,7 +10539,7 @@ msgstr ""
 "> 詳細については[PHPのglob関数](https://php.net/glob)を参照してください。\n"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:769
+#: ../doc/05-repositories.md:768
 msgid ""
 "You can configure the way the package's dist reference (which appears in the "
 "composer.lock file) is built."
@@ -10548,7 +10548,7 @@ msgstr ""
 "成できます。"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:777
+#: ../doc/05-repositories.md:776
 #, no-wrap
 msgid ""
 "The following modes exist:\n"
@@ -10567,7 +10567,7 @@ msgstr ""
 "  ただしパッケージフォルダがgitリポジトリを含んでいる場合、代わりにHEADコミットのハッシュが参照として使われます。\n"
 
 #. type: Fenced code block (json)
-#: ../doc/05-repositories.md:778
+#: ../doc/05-repositories.md:777
 #, no-wrap
 msgid ""
 "{\n"
@@ -10595,13 +10595,13 @@ msgstr ""
 "}\n"
 
 #. type: Title ##
-#: ../doc/05-repositories.md:792
+#: ../doc/05-repositories.md:791
 #, no-wrap
 msgid "Disabling Packagist.org"
 msgstr "Packagist.orgを無効にする"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:796
+#: ../doc/05-repositories.md:795
 msgid ""
 "You can disable the default Packagist.org repository by adding this to your "
 "`composer.json`:"
@@ -10610,7 +10610,7 @@ msgstr ""
 "す。"
 
 #. type: Fenced code block (json)
-#: ../doc/05-repositories.md:797
+#: ../doc/05-repositories.md:796
 #, no-wrap
 msgid ""
 "{\n"
@@ -10630,19 +10630,19 @@ msgstr ""
 "}\n"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:808
+#: ../doc/05-repositories.md:807
 msgid "You can disable Packagist.org globally by using the global config flag:"
 msgstr ""
 "大域的な構成フラグを使うことで、大域的にPackagist.orgを無効にできます。"
 
 #. type: Fenced code block (shell)
-#: ../doc/05-repositories.md:809
+#: ../doc/05-repositories.md:808
 #, no-wrap
 msgid "php composer.phar config -g repo.packagist false\n"
 msgstr "php composer.phar config -g repo.packagist false\n"
 
 #. type: Plain text
-#: ../doc/05-repositories.md:813
+#: ../doc/05-repositories.md:812
 msgid "&larr; [Schema](04-schema.md)  | [Config](06-config.md) &rarr;"
 msgstr "&larr; [スキーマ](04-schema.md)  | [設定](06-config.md) &rarr;"
 
