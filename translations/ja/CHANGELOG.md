@@ -1,3 +1,21 @@
+### [2.8.8] 2025-04-04
+
+  * バージョン検証でjson schemaの問題を修正 (#12367)
+  * 32ビットのマシンで走らせるときの問題を修正 (#12365)
+
+### [2.8.7] 2025-04-03
+
+  * 依存関係にあるjustinrainbow/json-schemaを6.xに更新 (#12348)
+  * Composerが開始する並列プロセスの最大数を制御する`COMPOSER_MAX_PARALLEL_PROCESS`環境変数を追加
+    (#12356)
+  * `diagnose`コマンドの出力にzstd/brotliの存在有無を追加
+  * エラー制御を修正し、非推奨の注意書きで散らからないようにしました (#12360)
+  * Composerの実行時に、InstalledVersionsが重複するデータを返していた点を修正 (#12225)
+  * `--with ...`制約の扱いを修正し、別名で置き換えられたパッケージに適用するようにしました (#12353)
+  * ベンダーディレクトリ内で、IDEのコードインスペクションに非推奨の警告が出てくる問題を修正 (#12331)
+  * json schemaの完全性の問題を修正 (#12332, #12321)
+  * パス内の.pharが付くファイルの自動読み込みでの問題を修正 (#12326)
+
 ### [2.8.6] 2025-02-25
 
   * `--with[-all]-dependencies`フラグを有効にする環境変数`COMPOSER_WITH_DEPENDENCIES`と`COMPOSER_WITH_ALL_DEPENDENCIES`を追加
@@ -283,6 +301,8 @@
   * プール最適化の工程を効率良くしました (#11638)。
   * `show -a <パッケージ名>`の効率良くしました (#11659)。
 
+[2.8.8]: https://github.com/composer/composer/compare/2.8.7...2.8.8
+[2.8.7]: https://github.com/composer/composer/compare/2.8.6...2.8.7
 [2.8.6]: https://github.com/composer/composer/compare/2.8.5...2.8.6
 [2.8.5]: https://github.com/composer/composer/compare/2.8.4...2.8.5
 [2.8.4]: https://github.com/composer/composer/compare/2.8.3...2.8.4

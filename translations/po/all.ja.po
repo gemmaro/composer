@@ -19,8 +19,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Composer\n"
-"POT-Creation-Date: 2025-03-27 15:34+0900\n"
-"PO-Revision-Date: 2025-03-27 15:38+0900\n"
+"POT-Creation-Date: 2025-04-05 15:59+0900\n"
+"PO-Revision-Date: 2025-04-05 16:01+0900\n"
 "Last-Translator: gemmaro <gemmaro.dev@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -5808,11 +5808,26 @@ msgstr ""
 #. type: Title ###
 #: ../doc/03-cli.md:1274
 #, no-wrap
+msgid "COMPOSER_MAX_PARALLEL_PROCESSES"
+msgstr "COMPOSER_MAX_PARALLEL_PROCESSES"
+
+#. type: Plain text
+#: ../doc/03-cli.md:1278
+msgid ""
+"Set to an an integer to configure how many processes can be executed in "
+"parallel.  This defaults to 10 and must be between 1 and 50."
+msgstr ""
+"整数を設定し、並列でいくつのプロセスを実行できるか構成します。\n"
+"既定では10で、1と50の間でなければなりません。"
+
+#. type: Title ###
+#: ../doc/03-cli.md:1279
+#, no-wrap
 msgid "COMPOSER_IPRESOLVE"
 msgstr "COMPOSER_IPRESOLVE"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1278
+#: ../doc/03-cli.md:1283
 msgid ""
 "Set to `4` or `6` to force IPv4 or IPv6 DNS resolution. This only works when "
 "the curl extension is used for downloads."
@@ -5821,13 +5836,13 @@ msgstr ""
 "ダウンロード用にcurl拡張が使用されている場合にのみ機能します。"
 
 #. type: Title ###
-#: ../doc/03-cli.md:1279
+#: ../doc/03-cli.md:1284
 #, no-wrap
 msgid "COMPOSER_SELF_UPDATE_TARGET"
 msgstr "COMPOSER_SELF_UPDATE_TARGET"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1282
+#: ../doc/03-cli.md:1287
 msgid ""
 "If set, makes the self-update command write the new Composer phar file into "
 "that path instead of overwriting itself. Useful for updating Composer on a "
@@ -5838,13 +5853,13 @@ msgstr ""
 "ムでComposerを更新するときに便利です。"
 
 #. type: Title ###
-#: ../doc/03-cli.md:1283
+#: ../doc/03-cli.md:1288
 #, no-wrap
 msgid "COMPOSER_DISABLE_NETWORK"
 msgstr "COMPOSER_DISABLE_NETWORK"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1287
+#: ../doc/03-cli.md:1292
 msgid ""
 "If set to `1`, disables network access (best effort). This can be used for "
 "debugging or to run Composer on a plane or a starship with poor connectivity."
@@ -5853,7 +5868,7 @@ msgstr ""
 "はComposerをデバッグしたり貧弱な接続環境下で走らせたりするのに使えます。"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1290
+#: ../doc/03-cli.md:1295
 msgid ""
 "If set to `prime`, GitHub VCS repositories will prime the cache, so it can "
 "then be used fully offline with `1`."
@@ -5862,13 +5877,13 @@ msgstr ""
 "くため、`1`で完全にオフラインで使えるようになります。"
 
 #. type: Title ###
-#: ../doc/03-cli.md:1291
+#: ../doc/03-cli.md:1296
 #, no-wrap
 msgid "COMPOSER_DEBUG_EVENTS"
 msgstr "COMPOSER_DEBUG_EVENTS"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1295
+#: ../doc/03-cli.md:1300
 msgid ""
 "If set to `1`, outputs information about events being dispatched, which can "
 "be useful for plugin authors to identify what is firing when exactly."
@@ -5878,13 +5893,13 @@ msgstr ""
 "ません。"
 
 #. type: Title ###
-#: ../doc/03-cli.md:1296
+#: ../doc/03-cli.md:1301
 #, no-wrap
 msgid "COMPOSER_SKIP_SCRIPTS"
 msgstr "COMPOSER_SKIP_SCRIPTS"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1299
+#: ../doc/03-cli.md:1304
 msgid ""
 "Accepts a comma-seperated list of event names, e.g. `post-install-cmd` for "
 "which scripts execution should be skipped."
@@ -5893,13 +5908,13 @@ msgstr ""
 "例えば、スクリプト実行をスキップするための`post-install-cmd`があります。"
 
 #. type: Title ###
-#: ../doc/03-cli.md:1300
+#: ../doc/03-cli.md:1305
 #, no-wrap
 msgid "COMPOSER_NO_AUDIT"
 msgstr "COMPOSER_NO_AUDIT"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1303
+#: ../doc/03-cli.md:1308
 msgid ""
 "If set to `1`, it is the equivalent of passing the `--no-audit` option to "
 "`require`, `update`, `remove` or `create-project` command."
@@ -5908,13 +5923,13 @@ msgstr ""
 "no-audit`コマンドを渡すことと等価になります。"
 
 #. type: Title ###
-#: ../doc/03-cli.md:1304
+#: ../doc/03-cli.md:1309
 #, no-wrap
 msgid "COMPOSER_NO_DEV"
 msgstr "COMPOSER_NO_DEV"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1309
+#: ../doc/03-cli.md:1314
 #, no-wrap
 msgid ""
 "If set to `1`, it is the equivalent of passing the `--update-no-dev` option to `require`\n"
@@ -5925,13 +5940,13 @@ msgstr ""
 "`COMPOSER_NO_DEV=0`を設定することで1回のコマンドについてこの設定を上書きできます。\n"
 
 #. type: Title ###
-#: ../doc/03-cli.md:1310
+#: ../doc/03-cli.md:1315
 #, no-wrap
 msgid "COMPOSER_PREFER_STABLE"
 msgstr "COMPOSER_PREFER_STABLE"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1314
+#: ../doc/03-cli.md:1319
 msgid ""
 "If set to `1`, it is the equivalent of passing the `--prefer-stable` option "
 "to `update` or `require`."
@@ -5940,13 +5955,13 @@ msgstr ""
 "価になります。"
 
 #. type: Title ###
-#: ../doc/03-cli.md:1315
+#: ../doc/03-cli.md:1320
 #, no-wrap
 msgid "COMPOSER_PREFER_LOWEST"
 msgstr "COMPOSER_PREFER_LOWEST"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1319
+#: ../doc/03-cli.md:1324
 msgid ""
 "If set to `1`, it is the equivalent of passing the `--prefer-lowest` option "
 "to `update` or `require`."
@@ -5955,13 +5970,13 @@ msgstr ""
 "価になります。"
 
 #. type: Title ###
-#: ../doc/03-cli.md:1320
+#: ../doc/03-cli.md:1325
 #, no-wrap
 msgid "COMPOSER_MINIMAL_CHANGES"
 msgstr "COMPOSER_MINIMAL_CHANGES"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1324
+#: ../doc/03-cli.md:1329
 msgid ""
 "If set to `1`, it is the equivalent of passing the `--minimal-changes` "
 "option to `update`, `require` or `remove`."
@@ -5970,13 +5985,13 @@ msgstr ""
 "を渡すことと等価になります。"
 
 #. type: Title ###
-#: ../doc/03-cli.md:1325
+#: ../doc/03-cli.md:1330
 #, no-wrap
 msgid "COMPOSER_IGNORE_PLATFORM_REQ or COMPOSER_IGNORE_PLATFORM_REQS"
 msgstr "COMPOSER_IGNORE_PLATFORM_REQやCOMPOSER_IGNORE_PLATFORM_REQS"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1329
+#: ../doc/03-cli.md:1334
 msgid ""
 "If `COMPOSER_IGNORE_PLATFORM_REQS` set to `1`, it is the equivalent of "
 "passing the `--ignore-platform-reqs` argument.  Otherwise, specifying a "
@@ -5989,7 +6004,7 @@ msgstr ""
 "らの特定の要件を無視します。"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1331
+#: ../doc/03-cli.md:1336
 msgid ""
 "For example, if a development workstation will never run database queries, "
 "this can be used to ignore the requirement for the database extensions to be "
@@ -6003,13 +6018,13 @@ msgstr ""
 "が有効になっていなくともパッケージをインストールします。"
 
 #. type: Title ###
-#: ../doc/03-cli.md:1332
+#: ../doc/03-cli.md:1337
 #, no-wrap
 msgid "COMPOSER_WITH_DEPENDENCIES"
 msgstr "COMPOSER_WITH_DEPENDENCIES"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1336
+#: ../doc/03-cli.md:1341
 msgid ""
 "If set to `1`, it is the equivalent of passing the `--with-dependencies` "
 "option to `update`, `require` or `remove`."
@@ -6018,13 +6033,13 @@ msgstr ""
 "ションを渡すことと同じです。"
 
 #. type: Title ###
-#: ../doc/03-cli.md:1337
+#: ../doc/03-cli.md:1342
 #, no-wrap
 msgid "COMPOSER_WITH_ALL_DEPENDENCIES"
 msgstr "COMPOSER_WITH_ALL_DEPENDENCIES"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1341
+#: ../doc/03-cli.md:1346
 msgid ""
 "If set to `1`, it is the equivalent of passing the `--with-all-dependencies` "
 "option to `update`, `require` or `remove`."
@@ -6033,7 +6048,7 @@ msgstr ""
 "プションを渡すことと同じです。"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1342
+#: ../doc/03-cli.md:1347
 msgid "&larr; [Libraries](02-libraries.md)  | [Schema](04-schema.md) &rarr;"
 msgstr ""
 "&larr; [ライブラリ](02-libraries.md)  | [スキーマ](04-schema.md) &rarr;"
