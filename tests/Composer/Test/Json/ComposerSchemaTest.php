@@ -27,8 +27,12 @@ class ComposerSchemaTest extends TestCase
             [
                 'property' => 'name',
                 'message' => 'Does not match the regex pattern ^[a-z0-9]([_.-]?[a-z0-9]+)*/[a-z0-9](([_.]|-{1,2})?[a-z0-9]+)*$',
-                'constraint' => 'pattern',
-                'pattern' => '^[a-z0-9]([_.-]?[a-z0-9]+)*/[a-z0-9](([_.]|-{1,2})?[a-z0-9]+)*$',
+                'constraint' => [
+                    'name' => 'pattern',
+                    'params' => [
+                        'pattern' => '^[a-z0-9]([_.-]?[a-z0-9]+)*/[a-z0-9](([_.]|-{1,2})?[a-z0-9]+)*$',
+                    ]
+                ],
             ],
         ];
 
@@ -47,14 +51,27 @@ class ComposerSchemaTest extends TestCase
             ['1.0.0-dev', true],
             ['1.0.0-alpha3', true],
             ['1.0.0-beta232', true],
+            ['10.4.13beta.2', true],
+            ['1.0.0.RC.15-dev', true],
             ['1.0.0-RC', true],
             ['v2.0.4-p', true],
             ['dev-master', true],
             ['0.2.5.4', true],
+            ['12345678-123456', true],
+            ['20100102-203040-p1', true],
+            ['2010-01-02.5', true],
+            ['0.2.5.4-rc.2', true],
+            ['dev-feature+issue-1', true],
+            ['1.0.0-alpha.3.1+foo/-bar', true],
+            ['00.01.03.04', true],
+            ['041.x-dev', true],
+            ['dev-foo bar', true],
 
             ['invalid', false],
-            ['1.0b', false],
-            ['1.0.0-', false],
+            ['1.0be', false],
+            ['1.0.0-meh', false],
+            ['feature-foo', false],
+            ['1.0 .2', false],
         ];
     }
 
@@ -70,9 +87,13 @@ class ComposerSchemaTest extends TestCase
             self::assertEquals([
                 [
                     'property' => 'version',
-                    'message' => 'Does not match the regex pattern ^v?\d+(\.\d+){0,3}(-(dev|(patch|p|alpha|a|beta|b|RC)\d*))?$|^dev-.*$',
-                    'constraint' => 'pattern',
-                    'pattern' => '^v?\d+(\.\d+){0,3}(-(dev|(patch|p|alpha|a|beta|b|RC)\d*))?$|^dev-.*$',
+                    'message' => 'Does not match the regex pattern ^v?\\d+(?:[.-]\\d+){0,3}[._-]?(?:(?:stable|beta|b|RC|rc|alpha|a|patch|pl|p)(?:(?:[.-]?\\d+)*+)?)?(?:[.-]?dev|\\.x-dev)?(?:\\+.*)?$|^dev-.*$',
+                    'constraint' => [
+                        'name' => 'pattern',
+                        'params' => [
+                            'pattern' => '^v?\\d+(?:[.-]\\d+){0,3}[._-]?(?:(?:stable|beta|b|RC|rc|alpha|a|patch|pl|p)(?:(?:[.-]?\\d+)*+)?)?(?:[.-]?dev|\\.x-dev)?(?:\\+.*)?$|^dev-.*$',
+                        ]
+                    ],
                 ],
             ], $this->check($json));
         }
@@ -88,7 +109,11 @@ class ComposerSchemaTest extends TestCase
     {
         $json = '{"name": "vendor/package", "description": "description", "require": {"a": ["b"]} }';
         self::assertEquals([
-            ['property' => 'require.a', 'message' => 'Array value found, but a string is required', 'constraint' => 'type'],
+            [
+                'property' => 'require.a',
+                'message' => 'Array value found, but a string is required',
+                'constraint' => ['name' => 'type', 'params' => ['found' => 'array', 'expected' => 'a string']],
+            ],
         ], $this->check($json));
     }
 
@@ -98,8 +123,12 @@ class ComposerSchemaTest extends TestCase
             [
                 'property' => 'minimum-stability',
                 'message' => 'Does not have a value in the enumeration ["dev","alpha","beta","rc","RC","stable"]',
-                'constraint' => 'enum',
-                'enum' => ['dev', 'alpha', 'beta', 'rc', 'RC', 'stable'],
+                'constraint' => [
+                    'name' => 'enum',
+                    'params' => [
+                        'enum' => ['dev', 'alpha', 'beta', 'rc', 'RC', 'stable'],
+                    ],
+                ],
             ],
         ];
 
@@ -137,7 +166,8 @@ class ComposerSchemaTest extends TestCase
     private function check(string $json)
     {
         $validator = new Validator();
-        $validator->check(json_decode($json), (object) ['$ref' => 'file://' . JsonFile::COMPOSER_SCHEMA_PATH]);
+        $json = json_decode($json);
+        $validator->validate($json, (object) ['$ref' => 'file://' . JsonFile::COMPOSER_SCHEMA_PATH]);
 
         if (!$validator->isValid()) {
             $errors = $validator->getErrors();
