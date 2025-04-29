@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Composer\n"
 "POT-Creation-Date: 2025-04-29 09:15+0900\n"
-"PO-Revision-Date: 2025-04-05 16:01+0900\n"
+"PO-Revision-Date: 2025-04-29 09:20+0900\n"
 "Last-Translator: gemmaro <gemmaro.dev@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -13464,18 +13464,14 @@ msgstr ""
 
 #. type: Plain text
 #: ../doc/articles/troubleshooting.md:4
-#, fuzzy, no-wrap
-#| msgid ""
-#| "<!--\n"
-#| "    tagline: Versions explained.\n"
-#| "-->\n"
+#, no-wrap
 msgid ""
 "<!--\n"
 "    tagline: Solving problems\n"
 "-->\n"
 msgstr ""
 "<!--\n"
-"    tagline: バージョンについての説明です。\n"
+"    tagline: 問題解決\n"
 "-->\n"
 
 #. type: Title #
@@ -13533,10 +13529,9 @@ msgstr ""
 
 #. type: Title ##
 #: ../doc/articles/troubleshooting.md:28
-#, fuzzy, no-wrap
-#| msgid "Package names"
+#, no-wrap
 msgid "Package not found"
-msgstr "パッケージ名"
+msgstr "パッケージが見付かりません"
 
 #. type: Bullet: '1. '
 #: ../doc/articles/troubleshooting.md:32
@@ -13639,10 +13634,9 @@ msgstr ""
 
 #. type: Title ##
 #: ../doc/articles/troubleshooting.md:80
-#, fuzzy, no-wrap
-#| msgid "Package version constraints"
+#, no-wrap
 msgid "Root package version detection"
-msgstr "パッケージバージョン制約"
+msgstr "根幹パッケージのバージョン制約"
 
 #. type: Plain text
 #: ../doc/articles/troubleshooting.md:85
@@ -13822,25 +13816,12 @@ msgstr ""
 
 #. type: Plain text
 #: ../doc/articles/troubleshooting.md:170
-#, fuzzy
-#| msgid ""
-#| "composer.json\n"
-#| "...\n"
 msgid "composer.json:"
-msgstr ""
-"composer.json\n"
-"...\n"
+msgstr "composer.json:"
 
 #. type: Fenced code block (json)
 #: ../doc/articles/troubleshooting.md:171
-#, fuzzy, no-wrap
-#| msgid ""
-#| "{\n"
-#| "    \"require\": {\n"
-#| "        \"php\": \">=7.4\",\n"
-#| "        \"ext-mbstring\": \"*\"\n"
-#| "    }\n"
-#| "}\n"
+#, no-wrap
 msgid ""
 "{\n"
 "    \"require\": {\n"
@@ -13851,38 +13832,30 @@ msgid ""
 msgstr ""
 "{\n"
 "    \"require\": {\n"
-"        \"php\": \">=7.4\",\n"
-"        \"ext-mbstring\": \"*\"\n"
+"        \"A\": \"0.2\",\n"
+"        \"B\": \"0.11 as 0.1\"\n"
 "    }\n"
 "}\n"
 
 #. type: Plain text
 #: ../doc/articles/troubleshooting.md:181
-#, fuzzy
-#| msgid ""
-#| "Check out [Packagist.com](https://packagist.com/) for more information."
 msgid "See [aliases](aliases.md) for more information."
-msgstr "詳細は[Packagist.com](https://packagist.com/)をご確認ください。"
+msgstr "詳細は[別称](aliases.md)をご確認ください。"
 
 #. type: Title ##
 #: ../doc/articles/troubleshooting.md:183
-#, fuzzy, no-wrap
-#| msgid "**--source:** Display where the config value is loaded from."
+#, no-wrap
 msgid "Figuring out where a config value came from"
-msgstr "**--source:** 設定値がどこから読み込まれたのかを表示します。"
+msgstr "構成値がどこから来たものか調べる"
 
 #. type: Plain text
 #: ../doc/articles/troubleshooting.md:186
-#, fuzzy
-#| msgid ""
-#| "Use `composer config --global home` to see the location of the home "
-#| "directory."
 msgid ""
 "Use `php composer.phar config --list --source` to see where each config "
 "value originated from."
 msgstr ""
-"`composer config --global home`を使ってホームディレクトリの場所を確認してくだ"
-"さい。"
+"`php composer.phar config --list --source`を使うと、それぞれの構成値の出自が"
+"わかります。"
 
 #. type: Title ##
 #: ../doc/articles/troubleshooting.md:187
@@ -13961,10 +13934,9 @@ msgstr ""
 
 #. type: Fenced code block (shell)
 #: ../doc/articles/troubleshooting.md:217
-#, fuzzy, no-wrap
-#| msgid "COMPOSER_MEMORY_LIMIT"
+#, no-wrap
 msgid "COMPOSER_MEMORY_LIMIT=-1 composer.phar <...>\n"
-msgstr "COMPOSER_MEMORY_LIMIT"
+msgstr "COMPOSER_MEMORY_LIMIT=-1 composer.phar <...>\n"
 
 #. type: Plain text
 #: ../doc/articles/troubleshooting.md:222
@@ -14279,17 +14251,14 @@ msgstr ""
 
 #. type: Plain text
 #: ../doc/articles/troubleshooting.md:355
-#, fuzzy
-#| msgid ""
-#| "Set to `4` or `6` to force IPv4 or IPv6 DNS resolution. This only works "
-#| "when the curl extension is used for downloads."
 msgid ""
 "Set the [`COMPOSER_IPRESOLVE=4`](../03-cli.md#composer-ipresolve) "
 "environment variable which will force curl to resolve domains using IPv4. "
 "This only works when the curl extension is used for downloads."
 msgstr ""
-"`4`ないし`6`に設定するとそれぞれIPv4ないしIPv6の解決を強制します。\n"
-"ダウンロード用にcurl拡張が使用されている場合にのみ機能します。"
+"[`COMPOSER_IPRESOLVE=4`](../03-cli.md#composer-ipresolve)環境変数を設定する"
+"と、curlをIPv4を使ってドメイン解決するよう強制します。\n"
+"これはcurl拡張がダウンロード用に使われるときだけ機能します。"
 
 #. type: Plain text
 #: ../doc/articles/troubleshooting.md:357
@@ -14354,10 +14323,8 @@ msgstr ""
 
 #. type: Plain text
 #: ../doc/articles/troubleshooting.md:384
-#, fuzzy
-#| msgid "Using Composer"
 msgid "Run Composer ..."
-msgstr "Composerを使う"
+msgstr "Composerを実行……"
 
 #. type: Plain text
 #: ../doc/articles/troubleshooting.md:386
@@ -14409,25 +14376,20 @@ msgstr ""
 
 #. type: Fenced code block (shell)
 #: ../doc/articles/troubleshooting.md:406
-#, fuzzy, no-wrap
-#| msgid "php composer.phar update\n"
+#, no-wrap
 msgid ""
 "ssh -t git@mygitserver.tld\n"
 "php composer.phar update\n"
-msgstr "php composer.phar update\n"
+msgstr ""
+"ssh -t git@mygitserver.tld\n"
+"php composer.phar update\n"
 
 #. type: Plain text
 #: ../doc/articles/troubleshooting.md:412
-#, fuzzy
-#| msgid ""
-#| "Read the [image description](https://hub.docker.com/r/composer/composer) "
-#| "for further usage information."
 msgid ""
 "See also https://github.com/composer/composer/issues/4180 for more "
 "information."
-msgstr ""
-"さらなる使い方の情報については[イメージの説明](https://hub.docker.com/r/"
-"composer/composer)をお読みください。"
+msgstr "詳しくは https://github.com/composer/composer/issues/4180 も参照。"
 
 #. type: Title ##
 #: ../doc/articles/troubleshooting.md:414
@@ -14472,10 +14434,9 @@ msgstr ""
 
 #. type: Fenced code block (shell)
 #: ../doc/articles/troubleshooting.md:434
-#, fuzzy, no-wrap
-#| msgid "php composer.phar update\n"
+#, no-wrap
 msgid "COMPOSER_POOL_OPTIMIZER=0 php composer.phar update\n"
-msgstr "php composer.phar update\n"
+msgstr "COMPOSER_POOL_OPTIMIZER=0 php composer.phar update\n"
 
 #. type: Plain text
 #: ../doc/articles/troubleshooting.md:440
