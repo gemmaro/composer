@@ -19,7 +19,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Composer\n"
-"POT-Creation-Date: 2025-04-05 15:59+0900\n"
+"POT-Creation-Date: 2025-04-29 09:15+0900\n"
 "PO-Revision-Date: 2025-04-05 16:01+0900\n"
 "Last-Translator: gemmaro <gemmaro.dev@gmail.com>\n"
 "Language-Team: none\n"
@@ -13461,6 +13461,1036 @@ msgstr ""
 "バージョン制約が自動で埋まります。\n"
 "バージョン制約を調整すると、ツールにより、合致する全てのリリースが強調されま"
 "す。"
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:4
+#, fuzzy, no-wrap
+#| msgid ""
+#| "<!--\n"
+#| "    tagline: Versions explained.\n"
+#| "-->\n"
+msgid ""
+"<!--\n"
+"    tagline: Solving problems\n"
+"-->\n"
+msgstr ""
+"<!--\n"
+"    tagline: バージョンについての説明です。\n"
+"-->\n"
+
+#. type: Title #
+#: ../doc/articles/troubleshooting.md:4
+#, no-wrap
+msgid "Troubleshooting"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:7
+msgid ""
+"This is a list of common pitfalls on using Composer, and how to avoid them."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/articles/troubleshooting.md:9
+#, no-wrap
+msgid "General"
+msgstr ""
+
+#. type: Bullet: '1. '
+#: ../doc/articles/troubleshooting.md:13
+msgid ""
+"When facing any kind of problems using Composer, be sure to **work with the "
+"latest version**. See [self-update](../03-cli.md#self-update) for details."
+msgstr ""
+
+#. type: Bullet: '2. '
+#: ../doc/articles/troubleshooting.md:16
+msgid ""
+"Before asking anyone, run [`composer diagnose`](../03-cli.md#diagnose) to "
+"check for common problems. If it all checks out, proceed to the next steps."
+msgstr ""
+
+#. type: Bullet: '3. '
+#: ../doc/articles/troubleshooting.md:19
+msgid ""
+"Make sure you have no problems with your setup by running the installer's "
+"checks via `curl -sS https://getcomposer.org/installer | php -- --check`."
+msgstr ""
+
+#. type: Bullet: '4. '
+#: ../doc/articles/troubleshooting.md:21
+msgid "Try clearing Composer's cache by running `composer clear-cache`."
+msgstr ""
+
+#. type: Bullet: '5. '
+#: ../doc/articles/troubleshooting.md:26
+msgid ""
+"Ensure you're **installing vendors straight from your `composer.json`** via "
+"`rm -rf vendor && composer update -v` when troubleshooting, excluding any "
+"possible interferences with existing vendor installations or `composer.lock` "
+"entries."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/articles/troubleshooting.md:28
+#, fuzzy, no-wrap
+#| msgid "Package names"
+msgid "Package not found"
+msgstr "パッケージ名"
+
+#. type: Bullet: '1. '
+#: ../doc/articles/troubleshooting.md:32
+msgid ""
+"Double-check you **don't have typos** in your `composer.json` or repository "
+"branches and tag names."
+msgstr ""
+
+#. type: Bullet: '2. '
+#: ../doc/articles/troubleshooting.md:36
+msgid ""
+"Be sure to **set the right [minimum-stability](../04-schema.md#minimum-"
+"stability)**. To get started or be sure this is no issue, set `minimum-"
+"stability` to \"dev\"."
+msgstr ""
+
+#. type: Bullet: '3. '
+#: ../doc/articles/troubleshooting.md:40
+msgid ""
+"Packages **not coming from [Packagist](https://packagist.org/)** should "
+"always be **defined in the root package** (the package depending on all "
+"vendors)."
+msgstr ""
+
+#. type: Bullet: '4. '
+#: ../doc/articles/troubleshooting.md:44
+msgid ""
+"Use the **same vendor and package name** throughout all branches and tags of "
+"your repository, especially when maintaining a third party fork and using "
+"`replace`."
+msgstr ""
+
+#. type: Bullet: '5. '
+#: ../doc/articles/troubleshooting.md:47
+msgid ""
+"If you are updating to a recently published version of a package, be aware "
+"that Packagist has a delay of up to 1 minute before new packages are visible "
+"to Composer."
+msgstr ""
+
+#. type: Bullet: '6. '
+#: ../doc/articles/troubleshooting.md:51
+msgid ""
+"If you are updating a single package, it may depend on newer versions "
+"itself.  In this case add the `--with-dependencies` argument **or** add all "
+"dependencies which need an update to the command."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/articles/troubleshooting.md:53
+#, no-wrap
+msgid "Package is not updating to the expected version"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:56
+msgid ""
+"Try running `php composer.phar why-not [package-name] [expected-version]`."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/articles/troubleshooting.md:58
+#, no-wrap
+msgid "Dependencies on the root package"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:62
+msgid ""
+"When your root package depends on a package which ends up depending "
+"(directly or indirectly) back on the root package itself, issues can occur "
+"in two cases:"
+msgstr ""
+
+#. type: Bullet: '1. '
+#: ../doc/articles/troubleshooting.md:67
+msgid ""
+"During development, if you are on a branch like `dev-main` and the branch "
+"has no [branch-alias](aliases.md#branch-alias) defined, and the dependency "
+"on the root package requires version `^2.0` for example, the `dev-main` "
+"version will not satisfy it.  The best solution here is to make sure you "
+"first define a branch alias."
+msgstr ""
+
+#. type: Bullet: '2. '
+#: ../doc/articles/troubleshooting.md:79
+msgid ""
+"In CI (Continuous Integration) runs, the problem might be that Composer is "
+"not able to detect the version of the root package properly. If it is a git "
+"clone it is generally alright and Composer will detect the version of the "
+"current branch, but some CIs do shallow clones so that process can fail when "
+"testing pull requests and feature branches. In these cases the branch alias "
+"may then not be recognized.  The best solution is to define the version you "
+"are on via an environment variable called `COMPOSER_ROOT_VERSION`. You set "
+"it to `dev-main` for example to define the root package's version as `dev-"
+"main`.  Use for example: `COMPOSER_ROOT_VERSION=dev-main composer install` "
+"to export the variable only for the call to composer, or you can define it "
+"globally in the CI env vars."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/articles/troubleshooting.md:80
+#, fuzzy, no-wrap
+#| msgid "Package version constraints"
+msgid "Root package version detection"
+msgstr "パッケージバージョン制約"
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:85
+msgid ""
+"Composer relies on knowing the version of the root package to resolve "
+"dependencies effectively. The version of the root package is determined "
+"using a hierarchical approach:"
+msgstr ""
+
+#. type: Bullet: '1. '
+#: ../doc/articles/troubleshooting.md:90
+msgid ""
+"**composer.json Version Field**: Firstly, Composer looks for a `version` "
+"field in the project's root `composer.json` file. If present, this field "
+"specifies the version of the root package directly. This is generally not "
+"recommended as it needs to be constantly updated, but it is an option."
+msgstr ""
+
+#. type: Bullet: '2. '
+#: ../doc/articles/troubleshooting.md:96
+msgid ""
+"**Environment Variable**: Composer then checks for the "
+"`COMPOSER_ROOT_VERSION` environment variable. This variable can be "
+"explicitly set by the user to define the version of the root package, "
+"providing a straightforward way to inform Composer of the exact version, "
+"especially in CI/CD environments or when the VCS method is not applicable."
+msgstr ""
+
+#. type: Bullet: '3. '
+#: ../doc/articles/troubleshooting.md:104
+msgid ""
+"**Version Control System (VCS) Inspection**: Composer then attempts to guess "
+"the version by interfacing with the version control system of the project. "
+"For instance, in projects versioned with Git, Composer executes specific Git "
+"commands to deduce the project's current version based on tags, branches, "
+"and commit history. If a `.git` directory is missing or the history is "
+"incomplete because CI is using a shallow clone for example, this detection "
+"may fail to find the correct version."
+msgstr ""
+
+#. type: Bullet: '4. '
+#: ../doc/articles/troubleshooting.md:106
+msgid ""
+"**Fallback**: If all else fails, Composer uses `1.0.0` as default version."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:111
+msgid ""
+"Note that relying on the default/fallback version might potentially lead to "
+"dependency resolution issues, especially when the root package depends on a "
+"package which ends up depending (directly or indirectly)  [back on the root "
+"package itself](#dependencies-on-the-root-package)."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/articles/troubleshooting.md:112
+#, no-wrap
+msgid "Network timeout issues, curl error"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:115
+msgid "If you see something along the lines of:"
+msgstr ""
+
+#. type: Fenced code block
+#: ../doc/articles/troubleshooting.md:116
+#, no-wrap
+msgid "Failed to download * curl error 28 while downloading * Operation timed out after 300000 milliseconds\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:123
+msgid ""
+"It means your network is probably so slow that a request took over "
+"300seconds to complete. This is the minimum timeout Composer will use, but "
+"you can increase it by increasing the `default_socket_timeout` value in your "
+"php.ini to something higher."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/articles/troubleshooting.md:125
+#, no-wrap
+msgid "Package not found in a Jenkins-build"
+msgstr ""
+
+#. type: Bullet: '1. '
+#: ../doc/articles/troubleshooting.md:128
+msgid "Check the [\"Package not found\"](#package-not-found) item above."
+msgstr ""
+
+#. type: Bullet: '2. '
+#: ../doc/articles/troubleshooting.md:136
+msgid ""
+"The git-clone / checkout within Jenkins leaves the branch in a \"detached "
+"HEAD\"-state. As a result, Composer may not able to identify the version of "
+"the current checked out branch and may not be able to resolve a [dependency "
+"on the root package](#dependencies-on-the-root-package).  To solve this "
+"problem, you can use the \"Additional Behaviours\" -> \"Check out to "
+"specific local branch\" in your Git-settings for your Jenkins-job, where "
+"your \"local branch\" shall be the same branch as you are checking out. "
+"Using this, the checkout will not be in detached state any more and the "
+"dependency on the root package should become satisfied."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/articles/troubleshooting.md:138
+#, no-wrap
+msgid "I have a dependency which contains a \"repositories\" definition in its composer.json, but it seems to be ignored."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:144
+msgid ""
+"The [`repositories`](../04-schema.md#repositories) configuration property is "
+"defined as [root-only](../04-schema.md#root-package). It is not inherited. "
+"You can read more about the reasons behind this in the \"[why can't Composer "
+"load repositories recursively?](../faqs/why-cant-composer-load-repositories-"
+"recursively.md)\" article.  The simplest work-around to this limitation, is "
+"moving or duplicating the `repositories` definition into your root composer."
+"json."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/articles/troubleshooting.md:146
+#, no-wrap
+msgid "I have locked a dependency to a specific commit but get unexpected results."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:151
+msgid ""
+"While Composer supports locking dependencies to a specific commit using the "
+"`#commit-ref` syntax, there are certain caveats that one should take into "
+"account. The most important one is [documented](../04-schema.md#package-"
+"links), but frequently overlooked:"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:158
+#, no-wrap
+msgid ""
+"> **Note:** While this is convenient at times, it should not be how you use\n"
+"> packages in the long term because it comes with a technical limitation. The\n"
+"> composer.json metadata will still be read from the branch name you specify\n"
+"> before the hash. Because of that in some cases it will not be a practical\n"
+"> workaround, and you should always try to switch to tagged releases as soon\n"
+"> as you can.\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:160
+msgid ""
+"There is no simple work-around to this limitation. It is therefore strongly "
+"recommended that you do not use it."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/articles/troubleshooting.md:162
+#, no-wrap
+msgid "Need to override a package version"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:166
+msgid ""
+"Let's say your project depends on package A, which in turn depends on a "
+"specific version of package B (say 0.1). But you need a different version of "
+"said package B (say 0.11)."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:168
+msgid "You can fix this by aliasing version 0.11 to 0.1:"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:170
+#, fuzzy
+#| msgid ""
+#| "composer.json\n"
+#| "...\n"
+msgid "composer.json:"
+msgstr ""
+"composer.json\n"
+"...\n"
+
+#. type: Fenced code block (json)
+#: ../doc/articles/troubleshooting.md:171
+#, fuzzy, no-wrap
+#| msgid ""
+#| "{\n"
+#| "    \"require\": {\n"
+#| "        \"php\": \">=7.4\",\n"
+#| "        \"ext-mbstring\": \"*\"\n"
+#| "    }\n"
+#| "}\n"
+msgid ""
+"{\n"
+"    \"require\": {\n"
+"        \"A\": \"0.2\",\n"
+"        \"B\": \"0.11 as 0.1\"\n"
+"    }\n"
+"}\n"
+msgstr ""
+"{\n"
+"    \"require\": {\n"
+"        \"php\": \">=7.4\",\n"
+"        \"ext-mbstring\": \"*\"\n"
+"    }\n"
+"}\n"
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:181
+#, fuzzy
+#| msgid ""
+#| "Check out [Packagist.com](https://packagist.com/) for more information."
+msgid "See [aliases](aliases.md) for more information."
+msgstr "詳細は[Packagist.com](https://packagist.com/)をご確認ください。"
+
+#. type: Title ##
+#: ../doc/articles/troubleshooting.md:183
+#, fuzzy, no-wrap
+#| msgid "**--source:** Display where the config value is loaded from."
+msgid "Figuring out where a config value came from"
+msgstr "**--source:** 設定値がどこから読み込まれたのかを表示します。"
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:186
+#, fuzzy
+#| msgid ""
+#| "Use `composer config --global home` to see the location of the home "
+#| "directory."
+msgid ""
+"Use `php composer.phar config --list --source` to see where each config "
+"value originated from."
+msgstr ""
+"`composer config --global home`を使ってホームディレクトリの場所を確認してくだ"
+"さい。"
+
+#. type: Title ##
+#: ../doc/articles/troubleshooting.md:187
+#, no-wrap
+msgid "Memory limit errors"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:190
+msgid ""
+"The first thing to do is to make sure you are running Composer 2, and if "
+"possible 2.2.0 or above."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:192
+msgid ""
+"Composer 1 used much more memory and upgrading to the latest version will "
+"give you much better and faster results."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:194
+msgid "Composer may sometimes fail on some commands with this message:"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:196
+#, no-wrap
+msgid "`PHP Fatal error:  Allowed memory size of XXXXXX bytes exhausted <...>`\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:198
+msgid "In this case, the PHP `memory_limit` should be increased."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:200
+#, no-wrap
+msgid "> **Note:** Composer internally increases the `memory_limit` to `1.5G`.\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:202
+msgid "To get the current `memory_limit` value, run:"
+msgstr ""
+
+#. type: Fenced code block (shell)
+#: ../doc/articles/troubleshooting.md:203
+#, no-wrap
+msgid "php -r \"echo ini_get('memory_limit').PHP_EOL;\"\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:209
+msgid ""
+"Try increasing the limit in your `php.ini` file (ex. `/etc/php5/cli/php.ini` "
+"for Debian-like systems):"
+msgstr ""
+
+#. type: Fenced code block (ini)
+#: ../doc/articles/troubleshooting.md:210
+#, no-wrap
+msgid ""
+"; Use -1 for unlimited or define an explicit value like 2G\n"
+"memory_limit = -1\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:216
+msgid ""
+"Composer also respects a memory limit defined by the `COMPOSER_MEMORY_LIMIT` "
+"environment variable:"
+msgstr ""
+
+#. type: Fenced code block (shell)
+#: ../doc/articles/troubleshooting.md:217
+#, fuzzy, no-wrap
+#| msgid "COMPOSER_MEMORY_LIMIT"
+msgid "COMPOSER_MEMORY_LIMIT=-1 composer.phar <...>\n"
+msgstr "COMPOSER_MEMORY_LIMIT"
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:222
+msgid "Or, you can increase the limit with a command-line argument:"
+msgstr ""
+
+#. type: Fenced code block (shell)
+#: ../doc/articles/troubleshooting.md:223
+#, no-wrap
+msgid "php -d memory_limit=-1 composer.phar <...>\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:228
+msgid ""
+"However, please note that setting the memory limit using these methods "
+"primarily addresses memory issues within Composer itself and its immediate "
+"processes. Child processes or external commands invoked by Composer may "
+"still require separate adjustments if they have their own memory "
+"requirements."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:230
+msgid ""
+"This issue can also happen on cPanel instances, when the shell fork bomb "
+"protection is activated. For more information, see the [documentation]"
+"(https://documentation.cpanel.net/display/68Docs/Shell+Fork+Bomb+Protection) "
+"of the fork bomb feature on the cPanel site."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/articles/troubleshooting.md:231
+#, no-wrap
+msgid "Xdebug impact on Composer"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:235
+msgid ""
+"To improve performance when the Xdebug extension is enabled, Composer "
+"automatically restarts PHP without it.  You can override this behavior by "
+"using an environment variable: `COMPOSER_ALLOW_XDEBUG=1`."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:239
+msgid ""
+"Composer will always show a warning if Xdebug is being used, but you can "
+"override this with an environment variable: "
+"`COMPOSER_DISABLE_XDEBUG_WARN=1`. If you see this warning unexpectedly, then "
+"the restart process has failed: please report this [issue](https://github."
+"com/composer/composer/issues)."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/articles/troubleshooting.md:241
+#, no-wrap
+msgid "\"The system cannot find the path specified\" (Windows)"
+msgstr ""
+
+#. type: Bullet: '1. '
+#: ../doc/articles/troubleshooting.md:248
+msgid "Open regedit."
+msgstr ""
+
+#. type: Bullet: '2. '
+#: ../doc/articles/troubleshooting.md:248
+msgid ""
+"Search for an `AutoRun` key inside "
+"`HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Command Processor`, "
+"`HKEY_CURRENT_USER\\Software\\Microsoft\\Command Processor` or "
+"`HKEY_LOCAL_MACHINE\\Software\\Wow6432Node\\Microsoft\\Command Processor`."
+msgstr ""
+
+#. type: Bullet: '3. '
+#: ../doc/articles/troubleshooting.md:248
+msgid ""
+"Check if it contains any path to a non-existent file, if it's the case, "
+"remove them."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/articles/troubleshooting.md:250
+#, no-wrap
+msgid "SSL certificate problem: unable to get local issuer certificate"
+msgstr ""
+
+#. type: Bullet: '1. '
+#: ../doc/articles/troubleshooting.md:261
+msgid ""
+"Check that your root certificate store / CA bundle is up to date. Run "
+"`composer diagnose -vvv` and look for `Checked CA file ...` or `Checked "
+"directory ...` lines in the first lines of output.  This will show you where "
+"Composer is looking for a CA bundle. You can get a [new cacert.pem from cURL]"
+"(https://curl.se/docs/caextract.html) and store it there."
+msgstr ""
+
+#. type: Bullet: '2. '
+#: ../doc/articles/troubleshooting.md:261
+msgid ""
+"If this did not help despite Composer finding a valid CA bundle, try "
+"disabling your antivirus and firewall software to see if that helps. We have "
+"seen issues where Avast on Windows for example would prevent Composer from "
+"functioning correctly. To disable the HTTPS scanning in Avast you can go in "
+"\"Protection > Core Shields > Web Shield > **uncheck** Enable HTTPS "
+"scanning\". If this helps you should report it to the software vendor so "
+"they can hopefully improve things."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/articles/troubleshooting.md:263
+#, no-wrap
+msgid "API rate limit and OAuth tokens"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:267
+msgid ""
+"Because of GitHub's rate limits on their API it can happen that Composer "
+"prompts for authentication asking your username and password so it can go "
+"ahead with its work."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:270
+msgid ""
+"If you would prefer not to provide your GitHub credentials to Composer you "
+"can manually create a token using the [procedure documented here]"
+"(authentication-for-private-packages.md#github-oauth)."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:272
+msgid "Now Composer should install/update without asking for authentication."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/articles/troubleshooting.md:274
+#, no-wrap
+msgid "proc_open(): fork failed errors"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:277
+msgid "If Composer shows proc_open() fork failed on some commands:"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:279
+msgid ""
+"`PHP Fatal error: Uncaught exception 'ErrorException' with message "
+"'proc_open(): fork failed - Cannot allocate memory' in phar`"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:281
+msgid ""
+"This could be happening because the VPS runs out of memory and has no Swap "
+"space enabled."
+msgstr ""
+
+#. type: Fenced code block (shell)
+#: ../doc/articles/troubleshooting.md:282
+#, no-wrap
+msgid "free -m\n"
+msgstr ""
+
+#. type: Fenced code block (text)
+#: ../doc/articles/troubleshooting.md:285
+#, no-wrap
+msgid ""
+"total used free shared buffers cached\n"
+"Mem: 2048 357 1690 0 0 237\n"
+"-/+ buffers/cache: 119 1928\n"
+"Swap: 0 0 0\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:293
+msgid "To enable the swap you can use for example:"
+msgstr ""
+
+#. type: Fenced code block (shell)
+#: ../doc/articles/troubleshooting.md:294
+#, no-wrap
+msgid ""
+"/bin/dd if=/dev/zero of=/var/swap.1 bs=1M count=1024\n"
+"/sbin/mkswap /var/swap.1\n"
+"/bin/chmod 0600 /var/swap.1\n"
+"/sbin/swapon /var/swap.1\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:301
+msgid ""
+"You can make a permanent swap file following this [tutorial](https://www."
+"digitalocean.com/community/tutorials/how-to-add-swap-on-ubuntu-14-04)."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/articles/troubleshooting.md:303
+#, no-wrap
+msgid "proc_open(): failed to open stream errors (Windows)"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:306
+msgid "If Composer shows proc_open(NUL) errors on Windows:"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:308
+msgid "`proc_open(NUL): failed to open stream: No such file or directory`"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:312
+msgid ""
+"This could be happening because you are working in a _OneDrive_ directory "
+"and using a version of PHP that does not support the file system semantics "
+"of this service. The issue was fixed in PHP 7.2.23 and 7.3.10."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:315
+msgid ""
+"Alternatively it could be because the Windows Null Service is not enabled. "
+"For more information, see this [issue](https://github.com/composer/composer/"
+"issues/7186#issuecomment-373134916)."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/articles/troubleshooting.md:317
+#, no-wrap
+msgid "Degraded Mode"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:326
+msgid ""
+"Due to some intermittent issues on Travis and other systems, we introduced a "
+"degraded network mode which helps Composer finish successfully but disables "
+"a few optimizations. This is enabled automatically when an issue is first "
+"detected. If you see this issue sporadically you probably don't have to "
+"worry (a slow or overloaded network can also cause those time outs), but if "
+"it appears repeatedly you might want to look at the options below to "
+"identify and resolve it."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:328
+msgid "If you have been pointed to this page, you want to check a few things:"
+msgstr ""
+
+#. type: Bullet: '- '
+#: ../doc/articles/troubleshooting.md:337
+msgid ""
+"If you are using ESET antivirus, go in \"Advanced Settings\" and disable "
+"\"HTTP-scanner\" under \"web access protection\""
+msgstr ""
+
+#. type: Bullet: '- '
+#: ../doc/articles/troubleshooting.md:337
+msgid ""
+"If you are using IPv6, try disabling it. If that solves your issues, get in "
+"touch with your ISP or server host, the problem is not at the Packagist "
+"level but in the routing rules between you and Packagist (i.e. the internet "
+"at large). The best way to get these fixed is to raise awareness to the "
+"network engineers that have the power to fix it.  Take a look at the next "
+"section for IPv6 workarounds."
+msgstr ""
+
+#. type: Bullet: '- '
+#: ../doc/articles/troubleshooting.md:337
+msgid "If none of the above helped, please report the error."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/articles/troubleshooting.md:339
+#, no-wrap
+msgid "Operation timed out (IPv6 issues)"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:342
+msgid ""
+"You may run into errors if IPv6 is not configured correctly. A common error "
+"is:"
+msgstr ""
+
+#. type: Fenced code block (text)
+#: ../doc/articles/troubleshooting.md:343
+#, no-wrap
+msgid ""
+"The \"https://getcomposer.org/version\" file could not be downloaded: failed to\n"
+"open stream: Operation timed out\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:350
+msgid ""
+"We recommend you fix your IPv6 setup. If that is not possible, you can try "
+"the following workarounds:"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:352
+#, no-wrap
+msgid "**Generic Workaround:**\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:355
+#, fuzzy
+#| msgid ""
+#| "Set to `4` or `6` to force IPv4 or IPv6 DNS resolution. This only works "
+#| "when the curl extension is used for downloads."
+msgid ""
+"Set the [`COMPOSER_IPRESOLVE=4`](../03-cli.md#composer-ipresolve) "
+"environment variable which will force curl to resolve domains using IPv4. "
+"This only works when the curl extension is used for downloads."
+msgstr ""
+"`4`ないし`6`に設定するとそれぞれIPv4ないしIPv6の解決を強制します。\n"
+"ダウンロード用にcurl拡張が使用されている場合にのみ機能します。"
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:357
+#, no-wrap
+msgid "**Workaround Linux:**\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:360
+msgid ""
+"On linux, it seems that running this command helps to make ipv4 traffic have "
+"a higher priority than ipv6, which is a better alternative than disabling "
+"ipv6 entirely:"
+msgstr ""
+
+#. type: Fenced code block (shell)
+#: ../doc/articles/troubleshooting.md:361
+#, no-wrap
+msgid "sudo sh -c \"echo 'precedence ::ffff:0:0/96 100' >> /etc/gai.conf\"\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:366
+#, no-wrap
+msgid "**Workaround Windows:**\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:368
+msgid ""
+"On windows the only way is to disable ipv6 entirely I am afraid (either in "
+"windows or in your home router)."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:370
+#, no-wrap
+msgid "**Workaround Mac OS X:**\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:372
+msgid "Get name of your network device:"
+msgstr ""
+
+#. type: Fenced code block (shell)
+#: ../doc/articles/troubleshooting.md:373
+#, no-wrap
+msgid "networksetup -listallnetworkservices\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:378
+msgid "Disable IPv6 on that device (in this case \"Wi-Fi\"):"
+msgstr ""
+
+#. type: Fenced code block (shell)
+#: ../doc/articles/troubleshooting.md:379
+#, no-wrap
+msgid "networksetup -setv6off Wi-Fi\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:384
+#, fuzzy
+#| msgid "Using Composer"
+msgid "Run Composer ..."
+msgstr "Composerを使う"
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:386
+msgid "You can enable IPv6 again with:"
+msgstr ""
+
+#. type: Fenced code block (shell)
+#: ../doc/articles/troubleshooting.md:387
+#, no-wrap
+msgid "networksetup -setv6automatic Wi-Fi\n"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:394
+msgid ""
+"That said, if this fixes your problem, please talk to your ISP about it to "
+"try to resolve the routing errors. That's the best way to get things "
+"resolved for everyone."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/articles/troubleshooting.md:396
+#, no-wrap
+msgid "Composer hangs with SSH ControlMaster"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:401
+msgid ""
+"When you try to install packages from a Git repository and you use the "
+"`ControlMaster` setting for your SSH connection, Composer might hang "
+"endlessly and you see a `sh` process in the `defunct` state in your process "
+"list."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:403
+msgid ""
+"The reason for this is a SSH Bug: https://bugzilla.mindrot.org/show_bug.cgi?"
+"id=1988"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:405
+msgid ""
+"As a workaround, open a SSH connection to your Git host before running "
+"Composer:"
+msgstr ""
+
+#. type: Fenced code block (shell)
+#: ../doc/articles/troubleshooting.md:406
+#, fuzzy, no-wrap
+#| msgid "php composer.phar update\n"
+msgid ""
+"ssh -t git@mygitserver.tld\n"
+"php composer.phar update\n"
+msgstr "php composer.phar update\n"
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:412
+#, fuzzy
+#| msgid ""
+#| "Read the [image description](https://hub.docker.com/r/composer/composer) "
+#| "for further usage information."
+msgid ""
+"See also https://github.com/composer/composer/issues/4180 for more "
+"information."
+msgstr ""
+"さらなる使い方の情報については[イメージの説明](https://hub.docker.com/r/"
+"composer/composer)をお読みください。"
+
+#. type: Title ##
+#: ../doc/articles/troubleshooting.md:414
+#, no-wrap
+msgid "Zip archives are not unpacked correctly."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:419
+msgid ""
+"Composer can unpack zipballs using either a system-provided `unzip` or `7z` "
+"(7-Zip) utility, or PHP's native `ZipArchive` class. On OSes where ZIP files "
+"can contain permissions and symlinks, we recommend installing `unzip` or "
+"`7z` as these features are not supported by `ZipArchive`."
+msgstr ""
+
+#. type: Title ##
+#: ../doc/articles/troubleshooting.md:421
+#, no-wrap
+msgid "Disabling the pool optimizer"
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:428
+msgid ""
+"In Composer, the `Pool` class contains all the packages that are relevant "
+"for the dependency resolving process. That is what is used to generate all "
+"the rules which are then passed on to the dependency solver.  In order to "
+"improve performance, Composer tries to optimize this `Pool` by removing "
+"useless package information early on."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:433
+msgid ""
+"If all goes well, you should never notice any issues with it but in case you "
+"run into an unexpected result such as an unresolvable set of dependencies or "
+"conflicts where you think Composer is wrong, you might want to disable the "
+"optimizer by using the environment variable `COMPOSER_POOL_OPTIMIZER` and "
+"run the update again like so:"
+msgstr ""
+
+#. type: Fenced code block (shell)
+#: ../doc/articles/troubleshooting.md:434
+#, fuzzy, no-wrap
+#| msgid "php composer.phar update\n"
+msgid "COMPOSER_POOL_OPTIMIZER=0 php composer.phar update\n"
+msgstr "php composer.phar update\n"
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:440
+msgid ""
+"Now double check if the result is still the same. It will take significantly "
+"longer and use a lot more memory to run the dependency resolving process."
+msgstr ""
+
+#. type: Plain text
+#: ../doc/articles/troubleshooting.md:442
+msgid ""
+"If the result is different, you likely hit a problem in the pool optimizer.  "
+"Please [report this issue](https://github.com/composer/composer/issues) so "
+"it can be fixed."
+msgstr ""
 
 #. type: Title #
 #: ../doc/faqs/how-to-install-composer-programmatically.md:1
