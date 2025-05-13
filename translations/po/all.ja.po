@@ -13478,7 +13478,7 @@ msgstr ""
 #: ../doc/articles/troubleshooting.md:4
 #, no-wrap
 msgid "Troubleshooting"
-msgstr ""
+msgstr "困ったときは"
 
 #. type: Plain text
 #: ../doc/articles/troubleshooting.md:7
