@@ -19,8 +19,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Composer\n"
-"POT-Creation-Date: 2025-04-29 09:15+0900\n"
-"PO-Revision-Date: 2025-04-29 09:20+0900\n"
+"POT-Creation-Date: 2025-05-13 20:59+0900\n"
+"PO-Revision-Date: 2025-05-13 20:58+0900\n"
 "Last-Translator: gemmaro <gemmaro.dev@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -1585,12 +1585,12 @@ msgstr "php composer.phar dump-autoload\n"
 #: ../doc/01-basic-usage.md:266
 msgid ""
 "This command will re-generate the `vendor/autoload.php` file.  See the "
-"[`dump-autoload`](03-cli.md#dump-autoload-dumpautoload-) section for more "
+"[`dump-autoload`](03-cli.md#dump-autoload-dumpautoload) section for more "
 "information."
 msgstr ""
 "このコマンドは`vendor/autoload.php`ファイルを再生成します。\n"
-"詳細は[`dump-autoload`](03-cli.md#dump-autoload-dumpautoload-)節を参照してく"
-"ださい。"
+"詳細は[`dump-autoload`](03-cli.md#dump-autoload-dumpautoload)節を参照してくだ"
+"さい。"
 
 #. type: Plain text
 #: ../doc/01-basic-usage.md:270
@@ -13462,6 +13462,419 @@ msgstr ""
 "バージョン制約を調整すると、ツールにより、合致する全てのリリースが強調されま"
 "す。"
 
+#. type: Title #
+#: ../doc/faqs/how-to-install-composer-programmatically.md:1
+#, no-wrap
+msgid "How do I install Composer programmatically?"
+msgstr "Composerをプログラムでインストールする方法"
+
+#. type: Plain text
+#: ../doc/faqs/how-to-install-composer-programmatically.md:6
+msgid ""
+"As noted on the download page, the installer script contains a checksum "
+"which changes when the installer code changes and as such it should not be "
+"relied upon in the long term."
+msgstr ""
+"ダウンロードページに附記したように、インストーラースクリプトにはチェックサム"
+"が含まれており、このチェックサムはインストーラのコードにより変化します。\n"
+"そのため長い目で見るとこの値に依るべきではありません。"
+
+#. type: Plain text
+#: ../doc/faqs/how-to-install-composer-programmatically.md:8
+msgid ""
+"An alternative is to use this script which only works with UNIX utilities:"
+msgstr ""
+"代替案はこのスクリプトを使うことです。\n"
+"UNIXのユーティリティがあってのみ動作します。"
+
+#. type: Fenced code block (shell)
+#: ../doc/faqs/how-to-install-composer-programmatically.md:9
+#, no-wrap
+msgid ""
+"#!/bin/sh\n"
+"\n"
+"EXPECTED_CHECKSUM=\"$(php -r 'copy(\"https://composer.github.io/installer.sig\", \"php://stdout\");')\"\n"
+"php -r \"copy('https://getcomposer.org/installer', 'composer-setup.php');\"\n"
+"ACTUAL_CHECKSUM=\"$(php -r \"echo hash_file('sha384', 'composer-setup.php');\")\"\n"
+"\n"
+"if [ \"$EXPECTED_CHECKSUM\" != \"$ACTUAL_CHECKSUM\" ]\n"
+"then\n"
+"    >&2 echo 'ERROR: Invalid installer checksum'\n"
+"    rm composer-setup.php\n"
+"    exit 1\n"
+"fi\n"
+"\n"
+"php composer-setup.php --quiet\n"
+"RESULT=$?\n"
+"rm composer-setup.php\n"
+"exit $RESULT\n"
+msgstr ""
+"#!/bin/sh\n"
+"\n"
+"EXPECTED_CHECKSUM=\"$(php -r 'copy(\"https://composer.github.io/installer.sig\", \"php://stdout\");')\"\n"
+"php -r \"copy('https://getcomposer.org/installer', 'composer-setup.php');\"\n"
+"ACTUAL_CHECKSUM=\"$(php -r \"echo hash_file('sha384', 'composer-setup.php');\")\"\n"
+"\n"
+"if [ \"$EXPECTED_CHECKSUM\" != \"$ACTUAL_CHECKSUM\" ]\n"
+"then\n"
+"    >&2 echo 'ERROR: Invalid installer checksum'\n"
+"    rm composer-setup.php\n"
+"    exit 1\n"
+"fi\n"
+"\n"
+"php composer-setup.php --quiet\n"
+"RESULT=$?\n"
+"rm composer-setup.php\n"
+"exit $RESULT\n"
+
+#. type: Plain text
+#: ../doc/faqs/how-to-install-composer-programmatically.md:31
+msgid ""
+"The script will exit with 1 in case of failure, or 0 on success, and is "
+"quiet if no error occurs."
+msgstr ""
+"スクリプトは失敗した場合に1で、成功した場合に0で、それぞれ終了します。\n"
+"また、何らエラーが起きなければ何も出ません。"
+
+#. type: Plain text
+#: ../doc/faqs/how-to-install-composer-programmatically.md:36
+msgid ""
+"Alternatively, if you want to rely on an exact copy of the installer, you "
+"can fetch a specific version from GitHub's history. The commit hash should "
+"be enough to give it uniqueness and authenticity as long as you can trust "
+"the GitHub servers.  For example:"
+msgstr ""
+"別案として、そっくりそのままのインストーラーに頼りたければ、GitHubの履歴から"
+"特定のバージョンを取得できます。\n"
+"GitHubのサーバーを信用できる限りにおいて、コミットハッシュは一意性と認証性を"
+"与えるに充分でしょう。\n"
+"例えば以下です。"
+
+#. type: Fenced code block (shell)
+#: ../doc/faqs/how-to-install-composer-programmatically.md:37
+#, no-wrap
+msgid "wget https://raw.githubusercontent.com/composer/getcomposer.org/f3108f64b4e1c1ce6eb462b159956461592b3e3e/web/installer -O - -q | php -- --quiet\n"
+msgstr "wget https://raw.githubusercontent.com/composer/getcomposer.org/f3108f64b4e1c1ce6eb462b159956461592b3e3e/web/installer -O - -q | php -- --quiet\n"
+
+#. type: Plain text
+#: ../doc/faqs/how-to-install-composer-programmatically.md:42
+msgid ""
+"You may replace the commit hash by whatever the last commit hash is on "
+"https://github.com/composer/getcomposer.org/commits/main"
+msgstr ""
+"コミットハッシュは https://github.com/composer/getcomposer.org/commits/main "
+"にある何かしら最新のコミットハッシュで置き換えると良いでしょう。"
+
+#. type: Title #
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:1
+#, no-wrap
+msgid "How to use Composer behind a proxy"
+msgstr "プロキシを隔ててComposerを使う方法"
+
+#. type: Plain text
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:5
+msgid ""
+"Composer, like many other tools, uses environment variables to control the "
+"use of a proxy server and supports:"
+msgstr ""
+"Composerは他の多くのツールと同様、環境変数を使ってプロキシサーバーの使用を制"
+"御します。\n"
+"以下に対応しています。"
+
+#. type: Bullet: '- '
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:10
+msgid "`http_proxy` - the proxy to use for HTTP requests"
+msgstr "`http_proxy` - HTTP要求を使うプロキシ"
+
+#. type: Bullet: '- '
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:10
+msgid "`https_proxy` - the proxy to use for HTTPS requests"
+msgstr "`https_proxy` - HTTPS要求を使うプロキシ"
+
+#. type: Bullet: '- '
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:10
+msgid ""
+"`CGI_HTTP_PROXY` - the proxy to use for HTTP requests in a non-CLI context"
+msgstr "`CGI_HTTP_PROXY` - HTTP要求をCLIの文脈ではないところで使うプロキシ"
+
+#. type: Bullet: '- '
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:10
+msgid "`no_proxy` - domains that do not require a proxy"
+msgstr "`no_proxy` - プロキシを必要としないドメイン"
+
+#. type: Plain text
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:14
+msgid ""
+"These named variables are a convention, rather than an official standard, "
+"and their evolution and usage across different operating systems and tools "
+"is complex. Composer prefers the use of lowercase names, but accepts "
+"uppercase names where appropriate."
+msgstr ""
+"これらの名前付き変数は慣習によるもので、公式の標準があるわけではありませ"
+"ん。\n"
+"また異なるオペレーティングシステムやツールに亙る進展や用法については複雑なも"
+"のとなっています。\n"
+"Composerでは小文字の名前が望ましいものの、適当な場合には大文字の名前も受け付"
+"けます。"
+
+#. type: Plain text
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:18
+msgid ""
+"Composer requires specific environment variables for HTTP and HTTPS "
+"requests. For example:"
+msgstr ""
+"ComposerはHTTPとHTTPSの要求に関して所定の環境変数を必要とします。\n"
+"例えば以下です。"
+
+#. type: Fenced code block
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:19
+#, no-wrap
+msgid ""
+"http_proxy=http://proxy.com:80\n"
+"https_proxy=http://proxy.com:80\n"
+msgstr ""
+"http_proxy=http://proxy.com:80\n"
+"https_proxy=http://proxy.com:80\n"
+
+#. type: Plain text
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:25
+msgid "Uppercase names can also be used."
+msgstr "大文字の名前も使えます。"
+
+#. type: Title ###
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:26
+#, no-wrap
+msgid "Non-CLI usage"
+msgstr "CLIでない使い方"
+
+#. type: Plain text
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:31
+msgid ""
+"Composer does not look for `http_proxy` or `HTTP_PROXY` in a non-CLI "
+"context. If you are running it this way (i.e. integration into a CMS or "
+"similar use case) you must use `CGI_HTTP_PROXY` for HTTP requests:"
+msgstr ""
+"ComposerはCLIでない文脈では`http_proxy`や`HTTP_PROXY`を探しません。\n"
+"このような方法で走らせている場合（例えばCMSや似たような用途に統合しているな"
+"ど）、HTTP要求用に`CGI_HTTP_PROXY`を使わなければなりません。"
+
+#. type: Fenced code block
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:32
+#, no-wrap
+msgid ""
+"CGI_HTTP_PROXY=http://proxy.com:80\n"
+"https_proxy=http://proxy.com:80\n"
+"\n"
+"# cgi_http_proxy can also be used\n"
+msgstr ""
+"CGI_HTTP_PROXY=http://proxy.com:80\n"
+"https_proxy=http://proxy.com:80\n"
+"\n"
+"# cgi_http_proxyも使えます\n"
+
+#. type: Plain text
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:41
+#, no-wrap
+msgid ""
+"> **Note:** CGI_HTTP_PROXY was introduced by Perl in 2001 to prevent request header manipulation and\n"
+"was popularized in 2016 when this vulnerability was widely reported: https://httpoxy.org\n"
+msgstr ""
+"> **補足：**\n"
+"> CGI_HTTP_PROXYは、要求ヘッダの操作を防ぐため、2001年にPerlで導入されました。\n"
+"> この脆弱性が広く報告された2016年に一般に認知されました。\n"
+"> https://httpoxy.org を参照してください。\n"
+
+#. type: Title ##
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:42
+#, no-wrap
+msgid "Syntax"
+msgstr "構文"
+
+#. type: Plain text
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:46
+msgid ""
+"Use `scheme://host:port` as in the examples above. Although a missing scheme "
+"defaults to http and a missing port defaults to 80/443 for http/https "
+"schemes, other tools might require these values."
+msgstr ""
+"上の例にある通り、`scheme://host:port`を使ってください。\n"
+"スキームが欠けているとhttpが既定になり、ポートが欠けているとhttpやhttpsのス"
+"キーム用に80や443の既定になりますが、その他のツールではこれらの値が必要になる"
+"ことがあります。"
+
+#. type: Plain text
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:49
+msgid ""
+"The host can be specified as an IP address using dotted quad notation for "
+"IPv4, or enclosed in square brackets for IPv6."
+msgstr ""
+"IPv4用のドットで4つに区切られた記法を使ったIPアドレスとしても、IPv6用に角括弧"
+"で囲まれた記法でも、ホストを指定できます。"
+
+#. type: Title ###
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:50
+#, no-wrap
+msgid "Authorization"
+msgstr "認証"
+
+#. type: Plain text
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:54
+msgid ""
+"Composer supports Basic authorization, using the `scheme://user:pass@host:"
+"port` syntax. Reserved url characters in either the user name or password "
+"must be percent-encoded. For example:"
+msgstr ""
+"Composerは`scheme://user:pass@host:port`構文を使ったBasic認証に対応していま"
+"す。\n"
+"利用者名ないしパスワード中の予約されたURLの文字はパーセント符号化されていなけ"
+"ればなりません。\n"
+"例えば以下です。"
+
+#. type: Fenced code block
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:55
+#, no-wrap
+msgid ""
+"user:  me@company\n"
+"pass:  p@ssw$rd\n"
+"proxy: http://proxy.com:80\n"
+"\n"
+"# percent-encoded authorization\n"
+"me%40company:p%40ssw%24rd\n"
+"\n"
+"scheme://me%40company:p%40ssw%24rd@proxy.com:80\n"
+msgstr ""
+"利用者：me@company\n"
+"パスワード：p@ssw$rd\n"
+"プロキシ：http://proxy.com:80\n"
+"\n"
+"# パーセント符号化された認証\n"
+"me%40company:p%40ssw%24rd\n"
+"\n"
+"scheme://me%40company:p%40ssw%24rd@proxy.com:80\n"
+
+#. type: Plain text
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:69
+#, no-wrap
+msgid ""
+"> **Note:** The user name and password components must be percent-encoded individually and then\n"
+"combined with the colon separator. The user name cannot contain a colon (even if percent-encoded),\n"
+"because the proxy will split the components on the first colon it finds.\n"
+msgstr ""
+"> **補足：**\n"
+"> 利用者名とパスワードの構成要素は個々にパーセント符号化され、それからコロンの区切り文字で連結しなければなりません。\n"
+"> 利用者名には（パーセント符号化されたとしても）コロンを含められません。\n"
+"> なぜならプロキシは最初に見付けたコロンで構成要素を分割するからです。\n"
+
+#. type: Title ##
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:70
+#, no-wrap
+msgid "HTTPS proxy servers"
+msgstr "HTTPSのプロキシサーバー"
+
+#. type: Plain text
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:74
+msgid ""
+"Composer supports HTTPS proxy servers, where HTTPS is the scheme used to "
+"connect to the proxy, but only from PHP 7.3 with curl version 7.52.0 and "
+"above."
+msgstr ""
+"ComposerはHTTPSのプロキシサーバーに対応しています。\n"
+"ここでのHTTPSはプロキシに接続されるために使われるスキームですが、PHP 7.3以降"
+"かつcurlのバージョン7.52.0以降のみです。"
+
+#. type: Fenced code block
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:75
+#, no-wrap
+msgid ""
+"http_proxy=https://proxy.com:443\n"
+"https_proxy=https://proxy.com:443\n"
+msgstr ""
+"http_proxy=https://proxy.com:443\n"
+"https_proxy=https://proxy.com:443\n"
+
+#. type: Title ##
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:80
+#, no-wrap
+msgid "Bypassing the proxy for specific domains"
+msgstr "特定のドメインでプロキシを迂回する"
+
+#. type: Plain text
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:84
+msgid ""
+"Use the `no_proxy` (or `NO_PROXY`) environment variable to set a comma-"
+"separated list of domains that the proxy should **not** be used for."
+msgstr ""
+"`no_proxy`（または`NO_PROXY`）を使うと、プロキシが使われるべき「でない」ドメ"
+"インのコンマ区切りリストが設定されます。"
+
+#. type: Fenced code block
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:85
+#, no-wrap
+msgid ""
+"no_proxy=example.com\n"
+"# Bypasses the proxy for example.com and its sub-domains\n"
+"\n"
+"no_proxy=www.example.com\n"
+"# Bypasses the proxy for www.example.com and its sub-domains, but not for example.com\n"
+msgstr ""
+"no_proxy=example.com\n"
+"# example.comとそのサブドメインについてはプロキシを迂回します。\n"
+"\n"
+"no_proxy=www.example.com\n"
+"# www.example.comとそのサブドメインについてはプロキシを迂回します。\n"
+"# example.comについては迂回されません。\n"
+
+#. type: Plain text
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:95
+msgid ""
+"A domain can be restricted to a particular port (e.g. `:80`) and can also be "
+"specified as an IP address or an IP address block in CIDR notation."
+msgstr ""
+"ドメインは特定のポート（例えば`:80`）に制限できます。\n"
+"またIPアドレスやCIDRの記法でIPアドレスのブロックとして指定することもできま"
+"す。"
+
+#. type: Plain text
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:98
+msgid ""
+"IPv6 addresses do not need to be enclosed in square brackets, like they are "
+"for http_proxy/https_proxy values, although this format is accepted."
+msgstr ""
+"IPv6アドレスはhttp_proxy/https_proxyの値と同様、角括弧で囲む必要はありませ"
+"ん。\n"
+"ただしこの形式は受け付けられます。"
+
+#. type: Plain text
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:100
+msgid "Setting the value to `*` will bypass the proxy for all requests."
+msgstr "値を`*`に設定すると全ての要求に対するプロキシを迂回します。"
+
+#. type: Plain text
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:102
+#, no-wrap
+msgid "> **Note:** A leading dot in the domain name has no significance and is removed prior to processing.\n"
+msgstr ""
+"> **補足：**\n"
+"> ドメインの先頭のドットには意味がありません。\n"
+"> 処理される前に取り除かれます。\n"
+
+#. type: Title ##
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:103
+#, no-wrap
+msgid "Deprecated environment variables"
+msgstr "廃止された環境変数"
+
+#. type: Plain text
+#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:106
+msgid ""
+"Composer originally provided `HTTP_PROXY_REQUEST_FULLURI` and "
+"`HTTPS_PROXY_REQUEST_FULLURI` to help mitigate issues with misbehaving "
+"proxies. These are no longer required or used."
+msgstr ""
+"Composerは元々`HTTP_PROXY_REQUEST_FULLURI`及び`HTTPS_PROXY_REQUEST_FULLURI`を"
+"提供してプロキシの良くない挙動を緩和しようとしていました。\n"
+"これらは必要ではなくなり、使われることもありません。"
+
 #. type: Plain text
 #: ../doc/articles/troubleshooting.md:4
 #, no-wrap
@@ -14452,416 +14865,3 @@ msgid ""
 "Please [report this issue](https://github.com/composer/composer/issues) so "
 "it can be fixed."
 msgstr ""
-
-#. type: Title #
-#: ../doc/faqs/how-to-install-composer-programmatically.md:1
-#, no-wrap
-msgid "How do I install Composer programmatically?"
-msgstr "Composerをプログラムでインストールする方法"
-
-#. type: Plain text
-#: ../doc/faqs/how-to-install-composer-programmatically.md:6
-msgid ""
-"As noted on the download page, the installer script contains a checksum "
-"which changes when the installer code changes and as such it should not be "
-"relied upon in the long term."
-msgstr ""
-"ダウンロードページに附記したように、インストーラースクリプトにはチェックサム"
-"が含まれており、このチェックサムはインストーラのコードにより変化します。\n"
-"そのため長い目で見るとこの値に依るべきではありません。"
-
-#. type: Plain text
-#: ../doc/faqs/how-to-install-composer-programmatically.md:8
-msgid ""
-"An alternative is to use this script which only works with UNIX utilities:"
-msgstr ""
-"代替案はこのスクリプトを使うことです。\n"
-"UNIXのユーティリティがあってのみ動作します。"
-
-#. type: Fenced code block (shell)
-#: ../doc/faqs/how-to-install-composer-programmatically.md:9
-#, no-wrap
-msgid ""
-"#!/bin/sh\n"
-"\n"
-"EXPECTED_CHECKSUM=\"$(php -r 'copy(\"https://composer.github.io/installer.sig\", \"php://stdout\");')\"\n"
-"php -r \"copy('https://getcomposer.org/installer', 'composer-setup.php');\"\n"
-"ACTUAL_CHECKSUM=\"$(php -r \"echo hash_file('sha384', 'composer-setup.php');\")\"\n"
-"\n"
-"if [ \"$EXPECTED_CHECKSUM\" != \"$ACTUAL_CHECKSUM\" ]\n"
-"then\n"
-"    >&2 echo 'ERROR: Invalid installer checksum'\n"
-"    rm composer-setup.php\n"
-"    exit 1\n"
-"fi\n"
-"\n"
-"php composer-setup.php --quiet\n"
-"RESULT=$?\n"
-"rm composer-setup.php\n"
-"exit $RESULT\n"
-msgstr ""
-"#!/bin/sh\n"
-"\n"
-"EXPECTED_CHECKSUM=\"$(php -r 'copy(\"https://composer.github.io/installer.sig\", \"php://stdout\");')\"\n"
-"php -r \"copy('https://getcomposer.org/installer', 'composer-setup.php');\"\n"
-"ACTUAL_CHECKSUM=\"$(php -r \"echo hash_file('sha384', 'composer-setup.php');\")\"\n"
-"\n"
-"if [ \"$EXPECTED_CHECKSUM\" != \"$ACTUAL_CHECKSUM\" ]\n"
-"then\n"
-"    >&2 echo 'ERROR: Invalid installer checksum'\n"
-"    rm composer-setup.php\n"
-"    exit 1\n"
-"fi\n"
-"\n"
-"php composer-setup.php --quiet\n"
-"RESULT=$?\n"
-"rm composer-setup.php\n"
-"exit $RESULT\n"
-
-#. type: Plain text
-#: ../doc/faqs/how-to-install-composer-programmatically.md:31
-msgid ""
-"The script will exit with 1 in case of failure, or 0 on success, and is "
-"quiet if no error occurs."
-msgstr ""
-"スクリプトは失敗した場合に1で、成功した場合に0で、それぞれ終了します。\n"
-"また、何らエラーが起きなければ何も出ません。"
-
-#. type: Plain text
-#: ../doc/faqs/how-to-install-composer-programmatically.md:36
-msgid ""
-"Alternatively, if you want to rely on an exact copy of the installer, you "
-"can fetch a specific version from GitHub's history. The commit hash should "
-"be enough to give it uniqueness and authenticity as long as you can trust "
-"the GitHub servers.  For example:"
-msgstr ""
-"別案として、そっくりそのままのインストーラーに頼りたければ、GitHubの履歴から"
-"特定のバージョンを取得できます。\n"
-"GitHubのサーバーを信用できる限りにおいて、コミットハッシュは一意性と認証性を"
-"与えるに充分でしょう。\n"
-"例えば以下です。"
-
-#. type: Fenced code block (shell)
-#: ../doc/faqs/how-to-install-composer-programmatically.md:37
-#, no-wrap
-msgid "wget https://raw.githubusercontent.com/composer/getcomposer.org/f3108f64b4e1c1ce6eb462b159956461592b3e3e/web/installer -O - -q | php -- --quiet\n"
-msgstr "wget https://raw.githubusercontent.com/composer/getcomposer.org/f3108f64b4e1c1ce6eb462b159956461592b3e3e/web/installer -O - -q | php -- --quiet\n"
-
-#. type: Plain text
-#: ../doc/faqs/how-to-install-composer-programmatically.md:42
-msgid ""
-"You may replace the commit hash by whatever the last commit hash is on "
-"https://github.com/composer/getcomposer.org/commits/main"
-msgstr ""
-"コミットハッシュは https://github.com/composer/getcomposer.org/commits/main "
-"にある何かしら最新のコミットハッシュで置き換えると良いでしょう。"
-
-#. type: Title #
-#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:1
-#, no-wrap
-msgid "How to use Composer behind a proxy"
-msgstr "プロキシを隔ててComposerを使う方法"
-
-#. type: Plain text
-#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:5
-msgid ""
-"Composer, like many other tools, uses environment variables to control the "
-"use of a proxy server and supports:"
-msgstr ""
-"Composerは他の多くのツールと同様、環境変数を使ってプロキシサーバーの使用を制"
-"御します。\n"
-"以下に対応しています。"
-
-#. type: Bullet: '- '
-#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:10
-msgid "`http_proxy` - the proxy to use for HTTP requests"
-msgstr "`http_proxy` - HTTP要求を使うプロキシ"
-
-#. type: Bullet: '- '
-#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:10
-msgid "`https_proxy` - the proxy to use for HTTPS requests"
-msgstr "`https_proxy` - HTTPS要求を使うプロキシ"
-
-#. type: Bullet: '- '
-#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:10
-msgid ""
-"`CGI_HTTP_PROXY` - the proxy to use for HTTP requests in a non-CLI context"
-msgstr "`CGI_HTTP_PROXY` - HTTP要求をCLIの文脈ではないところで使うプロキシ"
-
-#. type: Bullet: '- '
-#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:10
-msgid "`no_proxy` - domains that do not require a proxy"
-msgstr "`no_proxy` - プロキシを必要としないドメイン"
-
-#. type: Plain text
-#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:14
-msgid ""
-"These named variables are a convention, rather than an official standard, "
-"and their evolution and usage across different operating systems and tools "
-"is complex. Composer prefers the use of lowercase names, but accepts "
-"uppercase names where appropriate."
-msgstr ""
-"これらの名前付き変数は慣習によるもので、公式の標準があるわけではありませ"
-"ん。\n"
-"また異なるオペレーティングシステムやツールに亙る進展や用法については複雑なも"
-"のとなっています。\n"
-"Composerでは小文字の名前が望ましいものの、適当な場合には大文字の名前も受け付"
-"けます。"
-
-#. type: Plain text
-#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:18
-msgid ""
-"Composer requires specific environment variables for HTTP and HTTPS "
-"requests. For example:"
-msgstr ""
-"ComposerはHTTPとHTTPSの要求に関して所定の環境変数を必要とします。\n"
-"例えば以下です。"
-
-#. type: Fenced code block
-#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:19
-#, no-wrap
-msgid ""
-"http_proxy=http://proxy.com:80\n"
-"https_proxy=http://proxy.com:80\n"
-msgstr ""
-"http_proxy=http://proxy.com:80\n"
-"https_proxy=http://proxy.com:80\n"
-
-#. type: Plain text
-#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:25
-msgid "Uppercase names can also be used."
-msgstr "大文字の名前も使えます。"
-
-#. type: Title ###
-#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:26
-#, no-wrap
-msgid "Non-CLI usage"
-msgstr "CLIでない使い方"
-
-#. type: Plain text
-#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:31
-msgid ""
-"Composer does not look for `http_proxy` or `HTTP_PROXY` in a non-CLI "
-"context. If you are running it this way (i.e. integration into a CMS or "
-"similar use case) you must use `CGI_HTTP_PROXY` for HTTP requests:"
-msgstr ""
-"ComposerはCLIでない文脈では`http_proxy`や`HTTP_PROXY`を探しません。\n"
-"このような方法で走らせている場合（例えばCMSや似たような用途に統合しているな"
-"ど）、HTTP要求用に`CGI_HTTP_PROXY`を使わなければなりません。"
-
-#. type: Fenced code block
-#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:32
-#, no-wrap
-msgid ""
-"CGI_HTTP_PROXY=http://proxy.com:80\n"
-"https_proxy=http://proxy.com:80\n"
-"\n"
-"# cgi_http_proxy can also be used\n"
-msgstr ""
-"CGI_HTTP_PROXY=http://proxy.com:80\n"
-"https_proxy=http://proxy.com:80\n"
-"\n"
-"# cgi_http_proxyも使えます\n"
-
-#. type: Plain text
-#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:41
-#, no-wrap
-msgid ""
-"> **Note:** CGI_HTTP_PROXY was introduced by Perl in 2001 to prevent request header manipulation and\n"
-"was popularized in 2016 when this vulnerability was widely reported: https://httpoxy.org\n"
-msgstr ""
-"> **補足：**\n"
-"> CGI_HTTP_PROXYは、要求ヘッダの操作を防ぐため、2001年にPerlで導入されました。\n"
-"> この脆弱性が広く報告された2016年に一般に認知されました。\n"
-"> https://httpoxy.org を参照してください。\n"
-
-#. type: Title ##
-#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:42
-#, no-wrap
-msgid "Syntax"
-msgstr "構文"
-
-#. type: Plain text
-#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:46
-msgid ""
-"Use `scheme://host:port` as in the examples above. Although a missing scheme "
-"defaults to http and a missing port defaults to 80/443 for http/https "
-"schemes, other tools might require these values."
-msgstr ""
-"上の例にある通り、`scheme://host:port`を使ってください。\n"
-"スキームが欠けているとhttpが既定になり、ポートが欠けているとhttpやhttpsのス"
-"キーム用に80や443の既定になりますが、その他のツールではこれらの値が必要になる"
-"ことがあります。"
-
-#. type: Plain text
-#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:49
-msgid ""
-"The host can be specified as an IP address using dotted quad notation for "
-"IPv4, or enclosed in square brackets for IPv6."
-msgstr ""
-"IPv4用のドットで4つに区切られた記法を使ったIPアドレスとしても、IPv6用に角括弧"
-"で囲まれた記法でも、ホストを指定できます。"
-
-#. type: Title ###
-#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:50
-#, no-wrap
-msgid "Authorization"
-msgstr "認証"
-
-#. type: Plain text
-#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:54
-msgid ""
-"Composer supports Basic authorization, using the `scheme://user:pass@host:"
-"port` syntax. Reserved url characters in either the user name or password "
-"must be percent-encoded. For example:"
-msgstr ""
-"Composerは`scheme://user:pass@host:port`構文を使ったBasic認証に対応していま"
-"す。\n"
-"利用者名ないしパスワード中の予約されたURLの文字はパーセント符号化されていなけ"
-"ればなりません。\n"
-"例えば以下です。"
-
-#. type: Fenced code block
-#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:55
-#, no-wrap
-msgid ""
-"user:  me@company\n"
-"pass:  p@ssw$rd\n"
-"proxy: http://proxy.com:80\n"
-"\n"
-"# percent-encoded authorization\n"
-"me%40company:p%40ssw%24rd\n"
-"\n"
-"scheme://me%40company:p%40ssw%24rd@proxy.com:80\n"
-msgstr ""
-"利用者：me@company\n"
-"パスワード：p@ssw$rd\n"
-"プロキシ：http://proxy.com:80\n"
-"\n"
-"# パーセント符号化された認証\n"
-"me%40company:p%40ssw%24rd\n"
-"\n"
-"scheme://me%40company:p%40ssw%24rd@proxy.com:80\n"
-
-#. type: Plain text
-#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:69
-#, no-wrap
-msgid ""
-"> **Note:** The user name and password components must be percent-encoded individually and then\n"
-"combined with the colon separator. The user name cannot contain a colon (even if percent-encoded),\n"
-"because the proxy will split the components on the first colon it finds.\n"
-msgstr ""
-"> **補足：**\n"
-"> 利用者名とパスワードの構成要素は個々にパーセント符号化され、それからコロンの区切り文字で連結しなければなりません。\n"
-"> 利用者名には（パーセント符号化されたとしても）コロンを含められません。\n"
-"> なぜならプロキシは最初に見付けたコロンで構成要素を分割するからです。\n"
-
-#. type: Title ##
-#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:70
-#, no-wrap
-msgid "HTTPS proxy servers"
-msgstr "HTTPSのプロキシサーバー"
-
-#. type: Plain text
-#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:74
-msgid ""
-"Composer supports HTTPS proxy servers, where HTTPS is the scheme used to "
-"connect to the proxy, but only from PHP 7.3 with curl version 7.52.0 and "
-"above."
-msgstr ""
-"ComposerはHTTPSのプロキシサーバーに対応しています。\n"
-"ここでのHTTPSはプロキシに接続されるために使われるスキームですが、PHP 7.3以降"
-"かつcurlのバージョン7.52.0以降のみです。"
-
-#. type: Fenced code block
-#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:75
-#, no-wrap
-msgid ""
-"http_proxy=https://proxy.com:443\n"
-"https_proxy=https://proxy.com:443\n"
-msgstr ""
-"http_proxy=https://proxy.com:443\n"
-"https_proxy=https://proxy.com:443\n"
-
-#. type: Title ##
-#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:80
-#, no-wrap
-msgid "Bypassing the proxy for specific domains"
-msgstr "特定のドメインでプロキシを迂回する"
-
-#. type: Plain text
-#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:84
-msgid ""
-"Use the `no_proxy` (or `NO_PROXY`) environment variable to set a comma-"
-"separated list of domains that the proxy should **not** be used for."
-msgstr ""
-"`no_proxy`（または`NO_PROXY`）を使うと、プロキシが使われるべき「でない」ドメ"
-"インのコンマ区切りリストが設定されます。"
-
-#. type: Fenced code block
-#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:85
-#, no-wrap
-msgid ""
-"no_proxy=example.com\n"
-"# Bypasses the proxy for example.com and its sub-domains\n"
-"\n"
-"no_proxy=www.example.com\n"
-"# Bypasses the proxy for www.example.com and its sub-domains, but not for example.com\n"
-msgstr ""
-"no_proxy=example.com\n"
-"# example.comとそのサブドメインについてはプロキシを迂回します。\n"
-"\n"
-"no_proxy=www.example.com\n"
-"# www.example.comとそのサブドメインについてはプロキシを迂回します。\n"
-"# example.comについては迂回されません。\n"
-
-#. type: Plain text
-#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:95
-msgid ""
-"A domain can be restricted to a particular port (e.g. `:80`) and can also be "
-"specified as an IP address or an IP address block in CIDR notation."
-msgstr ""
-"ドメインは特定のポート（例えば`:80`）に制限できます。\n"
-"またIPアドレスやCIDRの記法でIPアドレスのブロックとして指定することもできま"
-"す。"
-
-#. type: Plain text
-#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:98
-msgid ""
-"IPv6 addresses do not need to be enclosed in square brackets, like they are "
-"for http_proxy/https_proxy values, although this format is accepted."
-msgstr ""
-"IPv6アドレスはhttp_proxy/https_proxyの値と同様、角括弧で囲む必要はありませ"
-"ん。\n"
-"ただしこの形式は受け付けられます。"
-
-#. type: Plain text
-#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:100
-msgid "Setting the value to `*` will bypass the proxy for all requests."
-msgstr "値を`*`に設定すると全ての要求に対するプロキシを迂回します。"
-
-#. type: Plain text
-#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:102
-#, no-wrap
-msgid "> **Note:** A leading dot in the domain name has no significance and is removed prior to processing.\n"
-msgstr ""
-"> **補足：**\n"
-"> ドメインの先頭のドットには意味がありません。\n"
-"> 処理される前に取り除かれます。\n"
-
-#. type: Title ##
-#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:103
-#, no-wrap
-msgid "Deprecated environment variables"
-msgstr "廃止された環境変数"
-
-#. type: Plain text
-#: ../doc/faqs/how-to-use-composer-behind-a-proxy.md:106
-msgid ""
-"Composer originally provided `HTTP_PROXY_REQUEST_FULLURI` and "
-"`HTTPS_PROXY_REQUEST_FULLURI` to help mitigate issues with misbehaving "
-"proxies. These are no longer required or used."
-msgstr ""
-"Composerは元々`HTTP_PROXY_REQUEST_FULLURI`及び`HTTPS_PROXY_REQUEST_FULLURI`を"
-"提供してプロキシの良くない挙動を緩和しようとしていました。\n"
-"これらは必要ではなくなり、使われることもありません。"

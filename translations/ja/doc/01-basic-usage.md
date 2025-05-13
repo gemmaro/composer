@@ -207,7 +207,7 @@ php composer.phar dump-autoload
 ```
 
 このコマンドは`vendor/autoload.php`ファイルを再生成します。
-詳細は[`dump-autoload`](03-cli.md#dump-autoload-dumpautoload-)節を参照してください。
+詳細は[`dump-autoload`](03-cli.md#dump-autoload-dumpautoload)節を参照してください。
 
 自動読み込みファイルを含めるとautoloaderインスタンスを返します。
 そのためインクルード呼び出しの返り値を変数に保持し、更に名前空間を追加できます。
