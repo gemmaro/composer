@@ -1,3 +1,11 @@
+### [2.8.9] 2025-05-13
+
+  * バージョン検証でのjson schemaの問題を修正 (#12376)
+  * `update --lock`後に無駄に`bump-after-update`し始めてしまう点を直しました (#12371)
+  * `ZipArchive`を使って解凍するとき、zip爆弾の偽陽性の判定がされてしまう点を直しました (#12409)
+  * 空のアーカイブが作られてしまっていた点を直しました (#12408)
+  * `composer <スクリプト名`で実行するとき、実行するスクリプトの出力を削除しました (#12383)
+
 ### [2.8.8] 2025-04-04
 
   * バージョン検証でjson schemaの問題を修正 (#12367)
@@ -301,6 +309,7 @@
   * プール最適化の工程を効率良くしました (#11638)。
   * `show -a <パッケージ名>`の効率良くしました (#11659)。
 
+[2.8.9]: https://github.com/composer/composer/compare/2.8.8...2.8.9
 [2.8.8]: https://github.com/composer/composer/compare/2.8.7...2.8.8
 [2.8.7]: https://github.com/composer/composer/compare/2.8.6...2.8.7
 [2.8.6]: https://github.com/composer/composer/compare/2.8.5...2.8.6
