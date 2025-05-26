@@ -19,6 +19,7 @@
 # 記事
 
 * [パッケージと制約](doc/articles/versions.md)
+* [困ったときは](doc/articles/troubleshooting.md)
 
 # 変更履歴
 
