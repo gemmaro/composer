@@ -3,6 +3,10 @@ translate:
 	./remove-untranslated-changelog ${CURDIR}/ja/CHANGELOG.md
 .PHONY: translate
 
+deploy: build
+	rsync -av ../book/ pi:/srv/www/composer/
+.PHONY: deploy
+
 build: tmp/mdbook
 	cd .. && translations/tmp/mdbook build
 .PHONY: build
