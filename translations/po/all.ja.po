@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Composer\n"
 "POT-Creation-Date: 2025-05-15 20:04+0900\n"
-"PO-Revision-Date: 2025-05-27 06:12+0900\n"
+"PO-Revision-Date: 2025-05-27 06:38+0900\n"
 "Last-Translator: gemmaro <gemmaro.dev@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -13914,6 +13914,9 @@ msgid ""
 "When facing any kind of problems using Composer, be sure to **work with the "
 "latest version**. See [self-update](../03-cli.md#self-update) for details."
 msgstr ""
+"Composerを使っていてどんな問題に直面したときも、必ず **最新版を使って** くだ"
+"さい。\n"
+"詳しくは[self-update](../03-cli.md#self-update)をご参照ください。"
 
 #. type: Bullet: '2. '
 #: ../doc/articles/troubleshooting.md:16
@@ -13921,6 +13924,10 @@ msgid ""
 "Before asking anyone, run [`composer diagnose`](../03-cli.md#diagnose) to "
 "check for common problems. If it all checks out, proceed to the next steps."
 msgstr ""
+"誰かに尋ねる前に、[`composer diagnose`](../03-cli.md#diagnose)を走らせてくだ"
+"さい。\n"
+"よくある問題を確認できます。\n"
+"全て確認したら、次の工程にお進みください。"
 
 #. type: Bullet: '3. '
 #: ../doc/articles/troubleshooting.md:19
@@ -13928,11 +13935,15 @@ msgid ""
 "Make sure you have no problems with your setup by running the installer's "
 "checks via `curl -sS https://getcomposer.org/installer | php -- --check`."
 msgstr ""
+"`curl -sS https://getcomposer.org/installer | php -- --check`としてインストー"
+"ラの検査を実行し、セットアップに問題がないことを確かめてください。"
 
 #. type: Bullet: '4. '
 #: ../doc/articles/troubleshooting.md:21
 msgid "Try clearing Composer's cache by running `composer clear-cache`."
 msgstr ""
+"`composer clear-cache`を走らせて、Composerのキャッシュを消去してみてくださ"
+"い。"
 
 #. type: Bullet: '5. '
 #: ../doc/articles/troubleshooting.md:26
@@ -13942,6 +13953,10 @@ msgid ""
 "possible interferences with existing vendor installations or `composer.lock` "
 "entries."
 msgstr ""
+"困ったときは`rm -rf vendor && composer update -v`とし、必ず**`composer.json`"
+"から直にvendorをインストール**してください。\n"
+"ただし、既存のvendorのインストールや`composer.lock`の項目についての障害が考え"
+"られる場合は除きます。"
 
 #. type: Title ##
 #: ../doc/articles/troubleshooting.md:28

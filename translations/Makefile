@@ -7,7 +7,7 @@ deploy: build
 	rsync -av ../book/ pi:/srv/www/composer/
 .PHONY: deploy
 
-build: tmp/mdbook
+build: tmp/mdbook translate
 	cd .. && translations/tmp/mdbook build
 .PHONY: build
 

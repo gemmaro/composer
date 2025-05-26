@@ -8,23 +8,21 @@
 
 ## 一般
 
-1. When facing any kind of problems using Composer, be sure to **work with
-   the latest version**. See [self-update](../03-cli.md#self-update) for
-   details.
+1. Composerを使っていてどんな問題に直面したときも、必ず **最新版を使って** ください。
+   詳しくは[self-update](../03-cli.md#self-update)をご参照ください。
 
-2. Before asking anyone, run [`composer diagnose`](../03-cli.md#diagnose) to
-   check for common problems. If it all checks out, proceed to the next
-   steps.
+2. 誰かに尋ねる前に、[`composer diagnose`](../03-cli.md#diagnose)を走らせてください。
+   よくある問題を確認できます。
+   全て確認したら、次の工程にお進みください。
 
-3. Make sure you have no problems with your setup by running the installer's
-   checks via `curl -sS https://getcomposer.org/installer | php -- --check`.
+3. `curl -sS https://getcomposer.org/installer | php --
+   --check`としてインストーラの検査を実行し、セットアップに問題がないことを確かめてください。
 
-4. Try clearing Composer's cache by running `composer clear-cache`.
+4. `composer clear-cache`を走らせて、Composerのキャッシュを消去してみてください。
 
-5. Ensure you're **installing vendors straight from your `composer.json`**
-   via `rm -rf vendor && composer update -v` when troubleshooting, excluding
-   any possible interferences with existing vendor installations or
-   `composer.lock` entries.
+5. 困ったときは`rm -rf vendor && composer update
+   -v`とし、必ず**`composer.json`から直にvendorをインストール**してください。
+   ただし、既存のvendorのインストールや`composer.lock`の項目についての障害が考えられる場合は除きます。
 
 
 ## パッケージが見付かりません
