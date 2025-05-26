@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Composer\n"
 "POT-Creation-Date: 2025-05-15 20:04+0900\n"
-"PO-Revision-Date: 2025-05-15 20:07+0900\n"
+"PO-Revision-Date: 2025-05-27 06:12+0900\n"
 "Last-Translator: gemmaro <gemmaro.dev@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -13900,13 +13900,13 @@ msgstr "困ったときは"
 #: ../doc/articles/troubleshooting.md:7
 msgid ""
 "This is a list of common pitfalls on using Composer, and how to avoid them."
-msgstr ""
+msgstr "以下はComposerを使う上でよくある罠とその回避方法です。"
 
 #. type: Title ##
 #: ../doc/articles/troubleshooting.md:9
 #, no-wrap
 msgid "General"
-msgstr ""
+msgstr "一般"
 
 #. type: Bullet: '1. '
 #: ../doc/articles/troubleshooting.md:13

@@ -14,3 +14,4 @@ Vagrantfile
 .php-cs-fixer.cache
 /node_modules/
 /book/
+/translations/tmp/
