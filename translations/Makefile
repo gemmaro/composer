@@ -4,7 +4,7 @@ translate:
 .PHONY: translate
 
 build: tmp/mdbook
-	cd ja && ../tmp/mdbook build
+	cd .. && translations/tmp/mdbook build
 .PHONY: build
 
 tmp/mdbook: tmp/mdbook-v0.4.51-x86_64-unknown-linux-gnu.tar.gz
