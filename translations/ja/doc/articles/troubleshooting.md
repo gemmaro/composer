@@ -20,8 +20,8 @@
 
 4. `composer clear-cache`を走らせて、Composerのキャッシュを消去してみてください。
 
-5. 困ったときは`rm -rf vendor && composer update
-   -v`とし、必ず**`composer.json`から直にvendorをインストール**してください。
+5. 困ったときは`rm -rf vendor && composer update -v`とし、必ず
+   **`composer.json`から直にvendorをインストール** してください。
    ただし、既存のvendorのインストールや`composer.lock`の項目についての障害が考えられる場合は除きます。
 
 

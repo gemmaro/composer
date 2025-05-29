@@ -13953,8 +13953,10 @@ msgid ""
 "possible interferences with existing vendor installations or `composer.lock` "
 "entries."
 msgstr ""
-"困ったときは`rm -rf vendor && composer update -v`とし、必ず **`composer.json`から直にvendorをインストール** してください。\n"
-"ただし、既存のvendorのインストールや`composer.lock`の項目についての障害が考えられる場合は除きます。"
+"困ったときは`rm -rf vendor && composer update -v`とし、必ず **`composer.json`"
+"から直にvendorをインストール** してください。\n"
+"ただし、既存のvendorのインストールや`composer.lock`の項目についての障害が考え"
+"られる場合は除きます。"
 
 #. type: Title ##
 #: ../doc/articles/troubleshooting.md:28
