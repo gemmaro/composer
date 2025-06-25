@@ -718,7 +718,7 @@ false`オプションでミラーリングしたりすることを強制でき�
 大域的な構成フラグを使うことで、大域的にPackagist.orgを無効にできます。
 
 ```shell
-php composer.phar config -g repo.packagist false
+php composer.phar config -g repo.packagist.org false
 ```
 
 &larr; [スキーマ](04-schema.md)  | [設定](06-config.md) &rarr;

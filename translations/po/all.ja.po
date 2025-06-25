@@ -19,8 +19,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Composer\n"
-"POT-Creation-Date: 2025-05-15 20:04+0900\n"
-"PO-Revision-Date: 2025-05-27 06:40+0900\n"
+"POT-Creation-Date: 2025-06-26 07:21+0900\n"
+"PO-Revision-Date: 2025-06-26 07:22+0900\n"
 "Last-Translator: gemmaro <gemmaro.dev@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -10656,8 +10656,8 @@ msgstr ""
 #. type: Fenced code block (shell)
 #: ../doc/05-repositories.md:808
 #, no-wrap
-msgid "php composer.phar config -g repo.packagist false\n"
-msgstr "php composer.phar config -g repo.packagist false\n"
+msgid "php composer.phar config -g repo.packagist.org false\n"
+msgstr "php composer.phar config -g repo.packagist.org false\n"
 
 #. type: Plain text
 #: ../doc/05-repositories.md:812
