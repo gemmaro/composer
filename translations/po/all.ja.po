@@ -19,8 +19,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Composer\n"
-"POT-Creation-Date: 2025-06-26 07:21+0900\n"
-"PO-Revision-Date: 2025-06-26 07:22+0900\n"
+"POT-Creation-Date: 2025-07-09 07:36+0900\n"
+"PO-Revision-Date: 2025-07-09 07:37+0900\n"
 "Last-Translator: gemmaro <gemmaro.dev@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -5817,11 +5817,11 @@ msgstr "COMPOSER_MAX_PARALLEL_PROCESSES"
 #. type: Plain text
 #: ../doc/03-cli.md:1280
 msgid ""
-"Set to an an integer to configure how many processes can be executed in "
+"Set to an integer to configure how many processes can be executed in "
 "parallel.  This defaults to 10 and must be between 1 and 50."
 msgstr ""
-"整数を設定し、並列でいくつのプロセスを実行できるか構成します。\n"
-"既定では10で、1と50の間でなければなりません。"
+"Set to an integer to configure how many processes can be executed in "
+"parallel.  This defaults to 10 and must be between 1 and 50."
 
 #. type: Title ###
 #: ../doc/03-cli.md:1281

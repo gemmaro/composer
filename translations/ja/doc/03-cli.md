@@ -1251,8 +1251,8 @@ VagrantやVirtualboxを使っていてファイルが存在しているのにも
 
 ### COMPOSER_MAX_PARALLEL_PROCESSES
 
-整数を設定し、並列でいくつのプロセスを実行できるか構成します。
-既定では10で、1と50の間でなければなりません。
+Set to an integer to configure how many processes can be executed in
+parallel.  This defaults to 10 and must be between 1 and 50.
 
 ### COMPOSER_IPRESOLVE
 
