@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Composer\n"
 "POT-Creation-Date: 2025-07-19 15:36+0900\n"
-"PO-Revision-Date: 2025-05-15 20:11+0900\n"
+"PO-Revision-Date: 2025-07-19 15:38+0900\n"
 "Last-Translator: gemmaro <gemmaro.dev@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -18,10 +18,9 @@ msgstr ""
 
 #. type: Title ###
 #: ../CHANGELOG.md:1
-#, fuzzy, no-wrap
-#| msgid "[2.8.9] 2025-05-13"
+#, no-wrap
 msgid "[2.8.10] 2025-07-10"
-msgstr "[2.8.9] 2025-05-13"
+msgstr "[2.8.10] 2025-07-10"
 
 #. type: Bullet: '  * '
 #: ../CHANGELOG.md:11
@@ -32,10 +31,8 @@ msgstr ""
 
 #. type: Bullet: '  * '
 #: ../CHANGELOG.md:11
-#, fuzzy
-#| msgid "Fixed compatibility issues with Symfony 7"
 msgid "Fixed forward compatibility with Symfony 7.4 (#12445)"
-msgstr "Symfony 7の互換性の問題を修正しました。"
+msgstr "Symfony 7.4との前方互換性の問題を修正しました (#12445)"
 
 #. type: Bullet: '  * '
 #: ../CHANGELOG.md:11
@@ -44,10 +41,8 @@ msgstr ""
 
 #. type: Bullet: '  * '
 #: ../CHANGELOG.md:11
-#, fuzzy
-#| msgid "Fixed support for a few newer funding formats (#12257)"
 msgid "Fixed support for new planner role in GitLab (#12426)"
-msgstr "新しい寄付の書式への対応を修正 (#12257)"
+msgstr "GitLabの新しいplannerロールへの対応を修正 (#12426)"
 
 #. type: Bullet: '  * '
 #: ../CHANGELOG.md:11
@@ -56,10 +51,8 @@ msgstr ""
 
 #. type: Bullet: '  * '
 #: ../CHANGELOG.md:11
-#, fuzzy
-#| msgid "Fixed json schema issues with version validation (#12376)"
 msgid "Fixed json schema issues with version validation (#12438)"
-msgstr "バージョン検証でのjson schemaの問題を修正 (#12376)"
+msgstr "バージョン検証でのjson schemaの問題を修正 (#12438)"
 
 #. type: Bullet: '  * '
 #: ../CHANGELOG.md:11
