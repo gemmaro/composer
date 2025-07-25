@@ -2,11 +2,11 @@
 
   * Fixed plugins appearing loaded despite not being loaded yet in some edge
     cases (#12442)
-  * Fixed forward compatibility with Symfony 7.4 (#12445)
+  * Symfony 7.4との前方互換性の問題を修正しました (#12445)
   * Fixed deprecation warning on PHP 8.4 when platform check fails (#12453)
-  * Fixed support for new planner role in GitLab (#12426)
+  * GitLabの新しいplannerロールへの対応を修正 (#12426)
   * Fixed Bitbucket regression introduced in 2.8.0 (#12462)
-  * Fixed json schema issues with version validation (#12438)
+  * バージョン検証でのjson schemaの問題を修正 (#12438)
   * Fixed git prompt breaking some systems (#12437)
   * Fixed warning on PHP 8.5 when curl is not loaded (#12472)
 

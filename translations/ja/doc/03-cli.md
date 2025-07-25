@@ -1314,4 +1314,14 @@ parallel.  This defaults to 10 and must be between 1 and 50.
 
 `1`に設定すると、`update`や`require`や`remove`に、`--with-all-dependencies`オプションを渡すことと同じです。
 
+### SHELL_VERBOSITY
+
+Since Composer uses [symfony/console](https://github.com/symfony/console),
+you can define the [verbosity
+level](https://symfony.com/doc/current/console/verbosity.html).
+`SHELL_VERBOSITY=-1` to hide the output of Composer (this is equivalent to
+using the CLI option `--quiet`).  Please note that this will apply to every
+tool that rely on `symfony/console`, you can set `SHELL_VERBOSITY=0` after
+the calls to Composer in order to restore the default verbosity level.
+
 &larr; [ライブラリ](02-libraries.md)  | [スキーマ](04-schema.md) &rarr;

@@ -19,8 +19,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Composer\n"
-"POT-Creation-Date: 2025-07-09 07:36+0900\n"
-"PO-Revision-Date: 2025-07-09 07:37+0900\n"
+"POT-Creation-Date: 2025-07-26 06:57+0900\n"
+"PO-Revision-Date: 2025-07-26 07:03+0900\n"
 "Last-Translator: gemmaro <gemmaro.dev@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -66,13 +66,11 @@ msgstr ""
 #. type: Plain text
 #: ../README.md:13
 msgid ""
-"[![Continuous Integration](https://github.com/composer/composer/workflows/"
-"Continuous%20Integration/badge.svg?branch=main)](https://github.com/composer/"
-"composer/actions)"
-msgstr ""
-"[![Continuous Integration](https://github.com/composer/composer/workflows/"
-"Continuous%20Integration/badge.svg?branch=main)](https://github.com/composer/"
-"composer/actions)"
+"[![Continuous Integration](https://github.com/composer/composer/actions/"
+"workflows/continuous-integration.yml/badge.svg?branch=main)](https://github."
+"com/composer/composer/actions/workflows/continuous-integration.yml?"
+"query=branch%3Amain)"
+msgstr "[![CI (Continuous Integration)](https://github.com/composer/composer/actions/workflows/continuous-integration.yml/badge.svg?branch=main)](https://github.com/composer/composer/actions/workflows/continuous-integration.yml?query=branch%3Amain)"
 
 #. type: Title -
 #: ../README.md:15
@@ -6050,8 +6048,30 @@ msgstr ""
 "`1`に設定すると、`update`や`require`や`remove`に、`--with-all-dependencies`オ"
 "プションを渡すことと同じです。"
 
-#. type: Plain text
+#. type: Title ###
 #: ../doc/03-cli.md:1349
+#, no-wrap
+msgid "SHELL_VERBOSITY"
+msgstr "SHELL_VERBOSITY"
+
+#. type: Plain text
+#: ../doc/03-cli.md:1357
+msgid ""
+"Since Composer uses [symfony/console](https://github.com/symfony/console), "
+"you can define the [verbosity level](https://symfony.com/doc/current/console/"
+"verbosity.html).  `SHELL_VERBOSITY=-1` to hide the output of Composer (this "
+"is equivalent to using the CLI option `--quiet`).  Please note that this "
+"will apply to every tool that rely on `symfony/console`, you can set "
+"`SHELL_VERBOSITY=0` after the calls to Composer in order to restore the "
+"default verbosity level."
+msgstr ""
+"Composerは[symfony/console](https://github.com/symfony/console)を使っているため、[冗長さの水準verbosity level](https://symfony.com/doc/current/console/verbosity.html)を定義できます。\n"
+"`SHELL_VERBOSITY=-1`とすると、Composerの出力を非表示にできます（これはCLIのオプション`--quiet`を使うのと同じです）。\n"
+"なお、これは`symfony/console`に依存するツール全てに適用されます。\n"
+"Composerを呼んだ後に`SHELL_VERBOSITY=0`と設定すれば、既定の冗長さの水準に復元できます。"
+
+#. type: Plain text
+#: ../doc/03-cli.md:1358
 msgid "&larr; [Libraries](02-libraries.md)  | [Schema](04-schema.md) &rarr;"
 msgstr ""
 "&larr; [ライブラリ](02-libraries.md)  | [スキーマ](04-schema.md) &rarr;"
