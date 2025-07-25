@@ -27,28 +27,22 @@
 
 ## パッケージが見付かりません
 
-1. Double-check you **don't have typos** in your `composer.json` or
-   repository branches and tag names.
+1. `composer.json`やリポジトリのブランチやタグ名で **誤植をしていないか** よくご確認ください。
 
-2. Be sure to **set the right
-   [minimum-stability](../04-schema.md#minimum-stability)**. To get started
-   or be sure this is no issue, set `minimum-stability` to "dev".
+2. 必ず **正しい[minimum-stability](../04-schema.md#minimum-stability)を設定**
+   してください。
+   始めたてのときや、これが問題になっていないことを確かめるには、`minimum-stability`を「dev」に設定してください。
 
-3. Packages **not coming from [Packagist](https://packagist.org/)** should
-   always be **defined in the root package** (the package depending on all
-   vendors).
+3. **[Packagist](https://packagist.org/)由来でない** パッケージはいつも（全てのベンダーに依存する）
+   **根幹パッケージに定義** すべきです。
 
-4. Use the **same vendor and package name** throughout all branches and tags
-   of your repository, especially when maintaining a third party fork and
-   using `replace`.
+4. リポジトリの全てのブランチとタグについて **同じベンダーとパッケージ名** をお使いください。
+   特にサードパーティーフォークを保守しており、`replace`を使っているときはそうです。
 
-5. If you are updating to a recently published version of a package, be
-   aware that Packagist has a delay of up to 1 minute before new packages
-   are visible to Composer.
+5. 最近公開されたバージョンのパッケージに更新しているときは、Packagistでは新しいパッケージがComposerで認識されるようになるまで1分まで遅延することがあります。
 
-6. If you are updating a single package, it may depend on newer versions
-   itself.  In this case add the `--with-dependencies` argument **or** add
-   all dependencies which need an update to the command.
+6. 1つのパッケージを更新している場合、その新しいバージョンに依存しているかもしれません。
+   この場合、コマンドに`--with-dependencies`引数を加えるか、 **もしくは** 更新が必要な全ての依存関係を加えてください。
 
 
 ## Package is not updating to the expected version

@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Composer\n"
 "POT-Creation-Date: 2025-07-26 06:57+0900\n"
-"PO-Revision-Date: 2025-07-26 07:03+0900\n"
+"PO-Revision-Date: 2025-07-26 07:12+0900\n"
 "Last-Translator: gemmaro <gemmaro.dev@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -70,7 +70,11 @@ msgid ""
 "workflows/continuous-integration.yml/badge.svg?branch=main)](https://github."
 "com/composer/composer/actions/workflows/continuous-integration.yml?"
 "query=branch%3Amain)"
-msgstr "[![CI (Continuous Integration)](https://github.com/composer/composer/actions/workflows/continuous-integration.yml/badge.svg?branch=main)](https://github.com/composer/composer/actions/workflows/continuous-integration.yml?query=branch%3Amain)"
+msgstr ""
+"[![CI (Continuous Integration)](https://github.com/composer/composer/actions/"
+"workflows/continuous-integration.yml/badge.svg?branch=main)](https://github."
+"com/composer/composer/actions/workflows/continuous-integration.yml?"
+"query=branch%3Amain)"
 
 #. type: Title -
 #: ../README.md:15
@@ -6065,10 +6069,14 @@ msgid ""
 "`SHELL_VERBOSITY=0` after the calls to Composer in order to restore the "
 "default verbosity level."
 msgstr ""
-"Composerは[symfony/console](https://github.com/symfony/console)を使っているため、[冗長さの水準verbosity level](https://symfony.com/doc/current/console/verbosity.html)を定義できます。\n"
-"`SHELL_VERBOSITY=-1`とすると、Composerの出力を非表示にできます（これはCLIのオプション`--quiet`を使うのと同じです）。\n"
+"Composerは[symfony/console](https://github.com/symfony/console)を使っているた"
+"め、[冗長さの水準verbosity level](https://symfony.com/doc/current/console/"
+"verbosity.html)を定義できます。\n"
+"`SHELL_VERBOSITY=-1`とすると、Composerの出力を非表示にできます（これはCLIのオ"
+"プション`--quiet`を使うのと同じです）。\n"
 "なお、これは`symfony/console`に依存するツール全てに適用されます。\n"
-"Composerを呼んだ後に`SHELL_VERBOSITY=0`と設定すれば、既定の冗長さの水準に復元できます。"
+"Composerを呼んだ後に`SHELL_VERBOSITY=0`と設定すれば、既定の冗長さの水準に復元"
+"できます。"
 
 #. type: Plain text
 #: ../doc/03-cli.md:1358
@@ -13990,6 +13998,8 @@ msgid ""
 "Double-check you **don't have typos** in your `composer.json` or repository "
 "branches and tag names."
 msgstr ""
+"`composer.json`やリポジトリのブランチやタグ名で **誤植をしていないか** よくご"
+"確認ください。"
 
 #. type: Bullet: '2. '
 #: ../doc/articles/troubleshooting.md:36
@@ -13998,6 +14008,10 @@ msgid ""
 "stability)**. To get started or be sure this is no issue, set `minimum-"
 "stability` to \"dev\"."
 msgstr ""
+"必ず **正しい[minimum-stability](../04-schema.md#minimum-stability)を設定** "
+"してください。\n"
+"始めたてのときや、これが問題になっていないことを確かめるには、`minimum-"
+"stability`を「dev」に設定してください。"
 
 #. type: Bullet: '3. '
 #: ../doc/articles/troubleshooting.md:40
@@ -14006,6 +14020,8 @@ msgid ""
 "always be **defined in the root package** (the package depending on all "
 "vendors)."
 msgstr ""
+"**[Packagist](https://packagist.org/)由来でない** パッケージはいつも（全ての"
+"ベンダーに依存する） **根幹パッケージに定義** すべきです。"
 
 #. type: Bullet: '4. '
 #: ../doc/articles/troubleshooting.md:44
@@ -14014,6 +14030,10 @@ msgid ""
 "your repository, especially when maintaining a third party fork and using "
 "`replace`."
 msgstr ""
+"リポジトリの全てのブランチとタグについて **同じベンダーとパッケージ名** をお"
+"使いください。\n"
+"特にサードパーティーフォークを保守しており、`replace`を使っているときはそうで"
+"す。"
 
 #. type: Bullet: '5. '
 #: ../doc/articles/troubleshooting.md:47
@@ -14022,6 +14042,8 @@ msgid ""
 "that Packagist has a delay of up to 1 minute before new packages are visible "
 "to Composer."
 msgstr ""
+"最近公開されたバージョンのパッケージに更新しているときは、Packagistでは新しい"
+"パッケージがComposerで認識されるようになるまで1分まで遅延することがあります。"
 
 #. type: Bullet: '6. '
 #: ../doc/articles/troubleshooting.md:51
@@ -14030,6 +14052,10 @@ msgid ""
 "itself.  In this case add the `--with-dependencies` argument **or** add all "
 "dependencies which need an update to the command."
 msgstr ""
+"1つのパッケージを更新している場合、その新しいバージョンに依存しているかもしれ"
+"ません。\n"
+"この場合、コマンドに`--with-dependencies`引数を加えるか、 **もしくは** 更新が"
+"必要な全ての依存関係を加えてください。"
 
 #. type: Title ##
 #: ../doc/articles/troubleshooting.md:53

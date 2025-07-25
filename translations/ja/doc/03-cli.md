@@ -1316,12 +1316,10 @@ parallel.  This defaults to 10 and must be between 1 and 50.
 
 ### SHELL_VERBOSITY
 
-Since Composer uses [symfony/console](https://github.com/symfony/console),
-you can define the [verbosity
-level](https://symfony.com/doc/current/console/verbosity.html).
-`SHELL_VERBOSITY=-1` to hide the output of Composer (this is equivalent to
-using the CLI option `--quiet`).  Please note that this will apply to every
-tool that rely on `symfony/console`, you can set `SHELL_VERBOSITY=0` after
-the calls to Composer in order to restore the default verbosity level.
+Composerは[symfony/console](https://github.com/symfony/console)を使っているため、[冗長さの水準verbosity
+level](https://symfony.com/doc/current/console/verbosity.html)を定義できます。
+`SHELL_VERBOSITY=-1`とすると、Composerの出力を非表示にできます（これはCLIのオプション`--quiet`を使うのと同じです）。
+なお、これは`symfony/console`に依存するツール全てに適用されます。
+Composerを呼んだ後に`SHELL_VERBOSITY=0`と設定すれば、既定の冗長さの水準に復元できます。
 
 &larr; [ライブラリ](02-libraries.md)  | [スキーマ](04-schema.md) &rarr;

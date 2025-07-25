@@ -9,8 +9,8 @@ ComposerはPHPのプロジェクトの依存関係を宣言し、管理し、イ
 
 詳細情報とドキュメントについては[https://getcomposer.org/](https://getcomposer.org/)を参照してください。
 
-[![Continuous
-Integration](https://github.com/composer/composer/actions/workflows/continuous-integration.yml/badge.svg?branch=main)](https://github.com/composer/composer/actions/workflows/continuous-integration.yml?query=branch%3Amain)
+[![CI (Continuous
+Integration)](https://github.com/composer/composer/actions/workflows/continuous-integration.yml/badge.svg?branch=main)](https://github.com/composer/composer/actions/workflows/continuous-integration.yml?query=branch%3Amain)
 
 インストールと使い方
 ----------
