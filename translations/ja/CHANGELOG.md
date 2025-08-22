@@ -1,3 +1,11 @@
+### [2.8.11] 2025-08-21
+
+  * PHP 8.5の非推奨の警告を修正しました (#12504, #12493, #12505)
+  * `bump`コマンドについて、0.x のバージョンの扱いを直しました (#12468)
+  * psr-4の警告を直しました。
+    シンボリックリンクされたディレクトリを使うときに表示されることがありました (#12480)
+  * `audit`コマンドについて、どの推奨制約が不正であっても失敗していた点を直しました (#12507)
+
 ### [2.8.10] 2025-07-10
 
   * Fixed plugins appearing loaded despite not being loaded yet in some edge
@@ -321,6 +329,7 @@
   * プール最適化の工程を効率良くしました (#11638)。
   * `show -a <パッケージ名>`の効率良くしました (#11659)。
 
+[2.8.11]: https://github.com/composer/composer/compare/2.8.10...2.8.11
 [2.8.10]: https://github.com/composer/composer/compare/2.8.9...2.8.10
 [2.8.9]: https://github.com/composer/composer/compare/2.8.8...2.8.9
 [2.8.8]: https://github.com/composer/composer/compare/2.8.7...2.8.8
