@@ -45,35 +45,28 @@
    この場合、コマンドに`--with-dependencies`引数を加えるか、 **もしくは** 更新が必要な全ての依存関係を加えてください。
 
 
-## Package is not updating to the expected version
+## パッケージが期待するバージョンに更新されない
 
-Try running `php composer.phar why-not [package-name] [expected-version]`.
+`php composer.phar why-not パッケージ名 期待するバージョン`を実行してみてください。
 
 
-## Dependencies on the root package
+## ルートパッケージへの依存関係
 
-When your root package depends on a package which ends up depending
-(directly or indirectly) back on the root package itself, issues can occur
-in two cases:
+ルートパッケージが何らかのパッケージに依存しており、そのパッケージから（直接ないし間接に）そのルートパッケージ自体に依存関係が戻ってしまうとき、問題は2通りで起こり得ます。
 
-1. During development, if you are on a branch like `dev-main` and the branch
-   has no [branch-alias](aliases.md#branch-alias) defined, and the
-   dependency on the root package requires version `^2.0` for example, the
-   `dev-main` version will not satisfy it.  The best solution here is to
-   make sure you first define a branch alias.
+1. 開発する際、`dev-main`のようなブランチにあり、ブランチに[ブランチ別称](aliases.md#branch-alias)が定義されておらず、ルートパッケージへの依存関係で例えばバージョン`^2.0`が必要であれば、`dev-main`バージョンは満たされません。
+   ここでの一番の解決策は、まずブランチ別称を定義していることを確かめることです。
 
-2. In CI (Continuous Integration) runs, the problem might be that Composer
-   is not able to detect the version of the root package properly. If it is
-   a git clone it is generally alright and Composer will detect the version
-   of the current branch, but some CIs do shallow clones so that process can
-   fail when testing pull requests and feature branches. In these cases the
-   branch alias may then not be recognized.  The best solution is to define
-   the version you are on via an environment variable called
-   `COMPOSER_ROOT_VERSION`. You set it to `dev-main` for example to define
-   the root package's version as `dev-main`.  Use for example:
-   `COMPOSER_ROOT_VERSION=dev-main composer install` to export the variable
-   only for the call to composer, or you can define it globally in the CI
-   env vars.
+2. CI (Continuous Integration)
+   が実行されるとき、問題はComposerがルートパッケージのバージョンを適切に検知できないことにあるかもしれません。
+   もしGitクローンであれば、一般には大丈夫で、Composerにより現在のブランチのバージョンが検出されるでしょう。
+   しかし、CIによってはシャロークローンをするため、プルリクエストや機能ブランチをテストするときにプロセスが失敗しかねません。
+   そうした場合、ブランチ別称は認識されないかもしれません。
+   一番の解決策は`COMPOSER_ROOT_VERSION`という環境変数で現在のバージョンを定義することです。
+   例えば`dev-main`に設定するとルートパッケージのバージョンは`dev-main`で定義されます。
+   使用例は`COMPOSER_ROOT_VERSION=dev-main composer
+   install`で、composerの呼び出しでのみ変数をエクスポートしています。
+   もしくはCIの環境変数に大域的に定義できます。
 
 ## 根幹パッケージのバージョン制約
 

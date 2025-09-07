@@ -19,8 +19,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Composer\n"
-"POT-Creation-Date: 2025-08-23 08:04+0900\n"
-"PO-Revision-Date: 2025-07-26 07:12+0900\n"
+"POT-Creation-Date: 2025-09-07 14:35+0900\n"
+"PO-Revision-Date: 2025-09-07 14:49+0900\n"
 "Last-Translator: gemmaro <gemmaro.dev@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -4996,21 +4996,23 @@ msgstr ""
 #: ../doc/03-cli.md:1003
 msgid ""
 "**--strict-psr:** Return a failed exit code (1) if PSR-4 or PSR-0 mapping "
-"errors are present. Requires --optimize to work."
+"errors are present in the current project (dependencies excluded). Requires "
+"`--optimize` to work."
 msgstr ""
-"**--strict-psr:** PSR-4またはPSR-0の対応付けでの失敗が存在する場合は、失敗の"
-"終了コード (1) を返します。\n"
-"動作には--optimizeが必要です。"
+"**--strict-psr:**\n"
+"現在のプロジェクトで、PSR-4またはPSR-0の対応付けで失敗する場合、失敗の終了"
+"コード (1) を返します。\n"
+"動作には`--optimize`が必要です。"
 
 #. type: Bullet: '* '
 #: ../doc/03-cli.md:1003
 msgid ""
 "**--strict-ambiguous:** Return a failed exit code (2) if the same class is "
-"found in multiple files. Requires --optimize to work."
+"found in multiple files. Requires `--optimize` to work."
 msgstr ""
 "**--strict-ambiguous:**\n"
 "複数ファイルに同じクラスがあるとき、失敗の終了コード (2) を返します。\n"
-"動作には--optimizeが必要です。"
+"動作には`--optimize`が必要です。"
 
 #. type: Title ##
 #: ../doc/03-cli.md:1004
@@ -14062,19 +14064,21 @@ msgstr ""
 #: ../doc/articles/troubleshooting.md:53
 #, no-wrap
 msgid "Package is not updating to the expected version"
-msgstr ""
+msgstr "パッケージが期待するバージョンに更新されない"
 
 #. type: Plain text
 #: ../doc/articles/troubleshooting.md:56
 msgid ""
 "Try running `php composer.phar why-not [package-name] [expected-version]`."
 msgstr ""
+"`php composer.phar why-not パッケージ名 期待するバージョン`を実行してみてくだ"
+"さい。"
 
 #. type: Title ##
 #: ../doc/articles/troubleshooting.md:58
 #, no-wrap
 msgid "Dependencies on the root package"
-msgstr ""
+msgstr "ルートパッケージへの依存関係"
 
 #. type: Plain text
 #: ../doc/articles/troubleshooting.md:62
@@ -14083,6 +14087,9 @@ msgid ""
 "(directly or indirectly) back on the root package itself, issues can occur "
 "in two cases:"
 msgstr ""
+"ルートパッケージが何らかのパッケージに依存しており、そのパッケージから（直接"
+"ないし間接に）そのルートパッケージ自体に依存関係が戻ってしまうとき、問題は2通"
+"りで起こり得ます。"
 
 #. type: Bullet: '1. '
 #: ../doc/articles/troubleshooting.md:67
@@ -14093,6 +14100,11 @@ msgid ""
 "version will not satisfy it.  The best solution here is to make sure you "
 "first define a branch alias."
 msgstr ""
+"開発する際、`dev-main`のようなブランチにあり、ブランチに[ブランチ別称]"
+"(aliases.md#branch-alias)が定義されておらず、ルートパッケージへの依存関係で例"
+"えばバージョン`^2.0`が必要であれば、`dev-main`バージョンは満たされません。\n"
+"ここでの一番の解決策は、まずブランチ別称を定義していることを確かめることで"
+"す。"
 
 #. type: Bullet: '2. '
 #: ../doc/articles/troubleshooting.md:79
@@ -14109,6 +14121,20 @@ msgid ""
 "to export the variable only for the call to composer, or you can define it "
 "globally in the CI env vars."
 msgstr ""
+"CI (Continuous Integration) が実行されるとき、問題はComposerがルートパッケー"
+"ジのバージョンを適切に検知できないことにあるかもしれません。\n"
+"もしGitクローンであれば、一般には大丈夫で、Composerにより現在のブランチのバー"
+"ジョンが検出されるでしょう。\n"
+"しかし、CIによってはシャロークローンをするため、プルリクエストや機能ブランチ"
+"をテストするときにプロセスが失敗しかねません。\n"
+"そうした場合、ブランチ別称は認識されないかもしれません。\n"
+"一番の解決策は`COMPOSER_ROOT_VERSION`という環境変数で現在のバージョンを定義す"
+"ることです。\n"
+"例えば`dev-main`に設定するとルートパッケージのバージョンは`dev-main`で定義さ"
+"れます。\n"
+"使用例は`COMPOSER_ROOT_VERSION=dev-main composer install`で、composerの呼び出"
+"しでのみ変数をエクスポートしています。\n"
+"もしくはCIの環境変数に大域的に定義できます。"
 
 #. type: Title ##
 #: ../doc/articles/troubleshooting.md:80
