@@ -485,4 +485,10 @@ archiveコマンドによる作られる、アーカイブの既定の対象パ�
 要件から何か欠けているものがあるとき、`install`時にエラーを無視します。
 状況としては、`composer.json`にある最新の変更点に対して、固定ファイルが最新でないときです。
 
+## update-with-minimal-changes
+
+既定で偽です。
+真にすると、更新するとき、遷移的な依存関係に絶対に必須なものだけ変更します。
+`COMPOSER_MINIMAL_CHANGES=1`環境変数で設定することもできます。
+
 &larr; [リポジトリ](05-repositories.md)  | [実行時](07-runtime.md) &rarr;

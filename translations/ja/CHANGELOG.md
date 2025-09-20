@@ -1,3 +1,13 @@
+### [2.8.12] 2025-09-19
+
+  * バージョン検証でのjson schemaの問題を修正 (#12512)
+  * PHP 8.5の非推奨の警告を修正しました (#12513)
+  * BitBucketのAPIトークンへの対応を修正 (#12515)
+  * バイナリを使うとき、パスの空白の扱いを修正 (#12524)
+  * `config --global`のパス解決での問題を直しました (#12537)
+  * パッケージを読み込むときに一時的に必要なメモリ使用量を減らしました (#12516)
+  * react/promise 2.xへの対応を無くしました
+
 ### [2.8.11] 2025-08-21
 
   * PHP 8.5の非推奨の警告を修正しました (#12504, #12493, #12505)
@@ -8,15 +18,14 @@
 
 ### [2.8.10] 2025-07-10
 
-  * Fixed plugins appearing loaded despite not being loaded yet in some edge
-    cases (#12442)
+  * 特殊な場合で、まだ読み込まれていないのにプラグインが読み込まれたものとして表示されてしまう事象を直しました (#12442)
   * Symfony 7.4との前方互換性の問題を修正しました (#12445)
-  * Fixed deprecation warning on PHP 8.4 when platform check fails (#12453)
+  * プラットフォーム検査が失敗したときのPHP 8.4の非推奨警告を直しました (#12453)
   * GitLabの新しいplannerロールへの対応を修正 (#12426)
-  * Fixed Bitbucket regression introduced in 2.8.0 (#12462)
+  * 2.8.0で入り込んでいたBitBucketの退行問題を直しました (#12462)
   * バージョン検証でのjson schemaの問題を修正 (#12438)
-  * Fixed git prompt breaking some systems (#12437)
-  * Fixed warning on PHP 8.5 when curl is not loaded (#12472)
+  * システムによってgitのプロンプトが崩れてしまうことがあった点を直しました (#12437)
+  * curlが読み込まれていないときのPHP 8.5での警告を直しました (#12472)
 
 ### [2.8.9] 2025-05-13
 
@@ -329,6 +338,7 @@
   * プール最適化の工程を効率良くしました (#11638)。
   * `show -a <パッケージ名>`の効率良くしました (#11659)。
 
+[2.8.12]: https://github.com/composer/composer/compare/2.8.11...2.8.12
 [2.8.11]: https://github.com/composer/composer/compare/2.8.10...2.8.11
 [2.8.10]: https://github.com/composer/composer/compare/2.8.9...2.8.10
 [2.8.9]: https://github.com/composer/composer/compare/2.8.8...2.8.9

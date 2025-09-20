@@ -19,8 +19,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Composer\n"
-"POT-Creation-Date: 2025-09-07 14:35+0900\n"
-"PO-Revision-Date: 2025-09-07 14:49+0900\n"
+"POT-Creation-Date: 2025-09-20 09:27+0900\n"
+"PO-Revision-Date: 2025-09-20 09:29+0900\n"
 "Last-Translator: gemmaro <gemmaro.dev@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -12124,8 +12124,26 @@ msgstr ""
 "状況としては、`composer.json`にある最新の変更点に対して、固定ファイルが最新で"
 "ないときです。"
 
-#. type: Plain text
+#. type: Title ##
 #: ../doc/06-config.md:508
+#, no-wrap
+msgid "update-with-minimal-changes"
+msgstr "update-with-minimal-changes"
+
+#. type: Plain text
+#: ../doc/06-config.md:513
+msgid ""
+"Defaults to `false`. If set to true, Composer will only perform absolutely "
+"necessary changes to transitive dependencies during update.  Can also be set "
+"via the `COMPOSER_MINIMAL_CHANGES=1` env var."
+msgstr ""
+"既定で偽です。\n"
+"真にすると、更新するとき、遷移的な依存関係に絶対に必須なものだけ変更しま"
+"す。\n"
+"`COMPOSER_MINIMAL_CHANGES=1`環境変数で設定することもできます。"
+
+#. type: Plain text
+#: ../doc/06-config.md:514
 msgid ""
 "&larr; [Repositories](05-repositories.md)  | [Runtime](07-runtime.md) &rarr;"
 msgstr ""
