@@ -411,7 +411,7 @@ Subversion自体にはブランチとタグの概念がないため、Composer�
 パッケージが副ディレクトリにある、例えば`/trunk/foo/bar/composer.json`と`/tags/1.0/foo/bar/composer.json`にあるなら、`"package-path"`オプションを副ディレクトリに設定することでComposerがアクセスできるようにさせられます。
 この例では`"package-path": "foo/bar/"`となるでしょう。
 
-私有Subversionリポジトリがあるなら設定のhttp-basic節に資格情報を保存しておけます（[スキーマ](04-schema.md)を参照）。
+私有Subversionリポジトリがあるなら設定のhttp-basic節に資格情報を保存しておけます（[構成](06-config.md#http-basic)を参照）。
 
 ```json
 {

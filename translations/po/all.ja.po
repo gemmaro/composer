@@ -19,8 +19,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Composer\n"
-"POT-Creation-Date: 2025-09-20 09:27+0900\n"
-"PO-Revision-Date: 2025-09-20 09:29+0900\n"
+"POT-Creation-Date: 2025-10-04 12:02+0900\n"
+"PO-Revision-Date: 2025-10-04 12:05+0900\n"
 "Last-Translator: gemmaro <gemmaro.dev@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -7256,12 +7256,11 @@ msgstr "conflict"
 #. type: Plain text
 #: ../doc/04-schema.md:433
 msgid ""
-"Map of packages that conflict with this version of this package. They will "
-"not be allowed to be installed together with your package."
+"Map of packages that are incompatible with this version of this package. "
+"They will not be allowed to be installed together with your package."
 msgstr ""
-"このバージョンのパッケージと競合するパッケージへの対応付けです。\n"
-"それらのパッケージがこのパッケージと共にインストールされるのを許容しないよう"
-"にします。"
+"このバージョンのこのパッケージと競合するパッケージの対応付けです。\n"
+"それらのパッケージをこのパッケージと共にインストールされるのを許しません。"
 
 #. type: Plain text
 #: ../doc/04-schema.md:438
@@ -9884,10 +9883,10 @@ msgstr ""
 #: ../doc/05-repositories.md:477
 msgid ""
 "If you have a private Subversion repository you can save credentials in the "
-"http-basic section of your config (See [Schema](04-schema.md)):"
+"http-basic section of your config (See [Config](06-config.md#http-basic)):"
 msgstr ""
 "私有Subversionリポジトリがあるなら設定のhttp-basic節に資格情報を保存しておけ"
-"ます（[スキーマ](04-schema.md)を参照）。"
+"ます（[構成](06-config.md#http-basic)を参照）。"
 
 #. type: Fenced code block (json)
 #: ../doc/05-repositories.md:478
