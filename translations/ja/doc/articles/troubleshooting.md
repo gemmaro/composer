@@ -50,29 +50,28 @@
 `php composer.phar why-not パッケージ名 期待するバージョン`を実行してみてください。
 
 
-## ルートパッケージへの依存関係
+## 根幹パッケージへの依存関係
 
-ルートパッケージが何らかのパッケージに依存しており、そのパッケージから（直接ないし間接に）そのルートパッケージ自体に依存関係が戻ってしまうとき、問題は2通りで起こり得ます。
+根幹パッケージが何らかのパッケージに依存しており、そのパッケージから（直接ないし間接に）その根幹パッケージ自体に依存関係が戻ってしまうとき、問題は2通りで起こり得ます。
 
-1. 開発する際、`dev-main`のようなブランチにあり、ブランチに[ブランチ別称](aliases.md#branch-alias)が定義されておらず、ルートパッケージへの依存関係で例えばバージョン`^2.0`が必要であれば、`dev-main`バージョンは満たされません。
+1. 開発する際、`dev-main`のようなブランチにあり、ブランチに[ブランチ別称](aliases.md#branch-alias)が定義されておらず、根幹パッケージへの依存関係で例えばバージョン`^2.0`が必要であれば、`dev-main`バージョンは満たされません。
    ここでの一番の解決策は、まずブランチ別称を定義していることを確かめることです。
 
 2. CI (Continuous Integration)
-   が実行されるとき、問題はComposerがルートパッケージのバージョンを適切に検知できないことにあるかもしれません。
+   が実行されるとき、問題はComposerが根幹パッケージのバージョンを適切に検知できないことにあるかもしれません。
    もしGitクローンであれば、一般には大丈夫で、Composerにより現在のブランチのバージョンが検出されるでしょう。
    しかし、CIによってはシャロークローンをするため、プルリクエストや機能ブランチをテストするときにプロセスが失敗しかねません。
    そうした場合、ブランチ別称は認識されないかもしれません。
    一番の解決策は`COMPOSER_ROOT_VERSION`という環境変数で現在のバージョンを定義することです。
-   例えば`dev-main`に設定するとルートパッケージのバージョンは`dev-main`で定義されます。
+   例えば`dev-main`に設定すると根幹パッケージのバージョンは`dev-main`で定義されます。
    使用例は`COMPOSER_ROOT_VERSION=dev-main composer
    install`で、composerの呼び出しでのみ変数をエクスポートしています。
    もしくはCIの環境変数に大域的に定義できます。
 
 ## 根幹パッケージのバージョン制約
 
-Composer relies on knowing the version of the root package to resolve
-dependencies effectively. The version of the root package is determined
-using a hierarchical approach:
+Composerでは根幹パッケージのバージョンが分かっていることによって、依存関係の解決を効率的にしています。
+根幹パッケージのバージョンは階層的な手法を使って決まります。
 
 1. **composer.json Version Field**: Firstly, Composer looks for a `version`
    field in the project's root `composer.json` file. If present, this field

@@ -171,8 +171,7 @@ Composer
 
 ### ignore-abandoned
 
-A list of abandoned package names that are reported but let the audit
-command pass.
+放棄されたパッケージ名のリストは、報告されますが、auditコマンドは合格になります。
 
 ```json
 {
@@ -265,19 +264,17 @@ CIのジョブでクローンされる私有リポジトリを参照するプロ
 
 ## forgejo-domains
 
-Defaults to `["codeberg.org"]`. A list of domains of Forgejo servers.  This
-is used if you use the `forgejo` repository type.
+既定では`["codeberg.org"]`です。
+Forgejoサーバーのドメインのリストです。
+`forgejo`リポジトリ種別を使う場合に使用されます。
 
 ## forgejo-token
 
-A list of domain names and username/access-tokens to authenticate against
-them. For example using `{"codeberg.org": {"username": "forgejo-user",
-"token": "access-token"}}` as the value of this option will let Composer
-authenticate against codeberg.org.  Please note: If the package is not
-hosted at codeberg.org the domain names must be also specified with the
-[`forgejo-domains`](06-config.md#forgejo-domains) option.  Further info can
-also be found
-[here](articles/authentication-for-private-packages.md#forgejo-token)
+ドメイン名とそのドメインで認証するためのユーザー名／アクセストークンのリストです。
+たとえば、このオプションの値として`{"codeberg.org": {"username": "forgejo-user", "token":
+"access-token"}}`を使うと、codeberg.orgに対して認証します。
+なお、パッケージがcodeberg.orgのドメイン名でホストされていない場合、ドメイン名も[`forgejo-domains`](06-config.md#forgejo-domains)オプションで指定する必要があります。
+詳細情報は[こちら](articles/authentication-for-private-packages.md#forgejo-token)にもあります。
 
 
 ## disable-tls

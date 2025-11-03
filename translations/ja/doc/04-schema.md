@@ -814,9 +814,8 @@ Yamlコンポーネントは`Symfony\Component\Yaml`以下にあります。
 > パッケージを探すとき、Composerは最初から最後までリポジトリを探し、最初に照合したものを拾います。
 > 既定ではPackagistが最後に加えられており、つまり独自のリポジトリがPackagistのパッケージより優先されるのです。
 
-Using JSON object notation is also possible. However, JSON key/value pairs
-are to be considered unordered so consistent behaviour cannot be guaranteed
-and is deprecated.
+JSONオブジェクト記法を使うこともできます。
+しかしJSONのキーバリュー対は順序なしとして見做されるため、一貫した挙動は保証されず、廃止されました。
 
 ```json
 {
@@ -829,7 +828,7 @@ and is deprecated.
 }
 ```
 
-It will be superseded by the name property
+nameプロパティで置き換わります。
 
 ```json
 {

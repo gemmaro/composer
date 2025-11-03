@@ -52,7 +52,7 @@ PHPのバージョン5.3.2から8.1まではComposer (2.2.x)のLTS対応でま�
 
 #### バイナリの依存関係
 
-- `unzip` (or `7z`/`7zz`)
+- `unzip`（ないし`7z`/`7zz`）
 - `gzip`
 - `tar`
 - `unrar`
@@ -63,11 +63,10 @@ PHPのバージョン5.3.2から8.1まではComposer (2.2.x)のLTS対応でま�
 - Perforce (`p4`)
 - Subversion (`svn`)
 
-The need for these binary dependencies may vary depending on individual use
-cases. For most users, only 2 dependencies are essential for Composer:
-`unzip` (or `7z`/`7zz`), and `git`. If the
-[`ext-zip`](https://www.php.net/manual/en/zip.installation.php) extension is
-available, only `git` is needed, but this is not recommended.
+これらのバイナリの依存関係の必要性は個々の用途によって様々です。
+殆どの利用者にとっては、Composerに必須な依存関係はたった2つです。
+`unzip`（または`7z`/`7zz`）と`git`です。
+[`ext-zip`](https://www.php.net/manual/en/zip.installation.php)拡張が使えるとき、必要なのは`git`だけですが、お勧めしません。
 
 作者
 --

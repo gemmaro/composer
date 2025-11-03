@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Composer\n"
 "POT-Creation-Date: 2025-11-03 19:27+0900\n"
-"PO-Revision-Date: 2025-10-04 12:07+0900\n"
+"PO-Revision-Date: 2025-11-03 20:48+0900\n"
 "Last-Translator: gemmaro <gemmaro.dev@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -209,10 +209,8 @@ msgstr "バイナリの依存関係"
 
 #. type: Bullet: '- '
 #: ../README.md:65
-#, fuzzy
-#| msgid "`7z` (or `7zz`)"
 msgid "`unzip` (or `7z`/`7zz`)"
-msgstr "`7z`（ないし`7zz`）"
+msgstr "`unzip`（ないし`7z`/`7zz`）"
 
 #. type: Bullet: '- '
 #: ../README.md:65
@@ -261,12 +259,6 @@ msgstr "Subversion (`svn`)"
 
 #. type: Plain text
 #: ../README.md:70
-#, fuzzy
-#| msgid ""
-#| "It's important to note that the need for these binary dependencies may "
-#| "vary depending on individual use cases. However, for most users, only 2 "
-#| "dependencies are essential for Composer: `7z` (or `7zz` or `unzip`), and "
-#| "`git`."
 msgid ""
 "The need for these binary dependencies may vary depending on individual use "
 "cases. For most users, only 2 dependencies are essential for Composer: "
@@ -274,10 +266,11 @@ msgid ""
 "manual/en/zip.installation.php) extension is available, only `git` is "
 "needed, but this is not recommended."
 msgstr ""
-"大事なことですが、これらのバイナリの依存関係の必要性は個々の用途によって様々"
-"です。\n"
-"しかし殆どの利用者にとっては、Composerに必須な依存関係はたった2つです。\n"
-"`7z`（または`7zz`や`unzip`）と`git`です。"
+"これらのバイナリの依存関係の必要性は個々の用途によって様々です。\n"
+"殆どの利用者にとっては、Composerに必須な依存関係はたった2つです。\n"
+"`unzip`（または`7z`/`7zz`）と`git`です。\n"
+"[`ext-zip`](https://www.php.net/manual/en/zip.installation.php)拡張が使えると"
+"き、必要なのは`git`だけですが、お勧めしません。"
 
 #. type: Title -
 #: ../README.md:72
@@ -4699,10 +4692,9 @@ msgstr "php composer.phar config --json extra.foo.bar '{\"baz\": true, \"qux\": 
 
 #. type: Title ##
 #: ../doc/03-cli.md:895
-#, fuzzy, no-wrap
-#| msgid "Repository"
+#, no-wrap
 msgid "repository / repo"
-msgstr "リポジトリ"
+msgstr "repository / repo"
 
 #. type: Plain text
 #: ../doc/03-cli.md:898
@@ -4710,6 +4702,8 @@ msgid ""
 "The `repo` command lets you manage repositories in your `composer.json`. It "
 "is a more powerful alternative to `composer config repositories.*`."
 msgstr ""
+"`repo`コマンドでは、`composer.json`のレポジトリを管理できます。\n"
+"`composer config repositories.*`の代わりになるもので、より強力です。"
 
 #. type: Fenced code block (shell)
 #: ../doc/03-cli.md:901
@@ -4726,29 +4720,37 @@ msgid ""
 "php composer.phar repo disable packagist\n"
 "php composer.phar repo enable packagist\n"
 msgstr ""
+"php composer.phar repo list\n"
+"php composer.phar repo add foo vcs https://github.com/acme/foo\n"
+"php composer.phar repo add bar '{\"type\":\"composer\",\"url\":\"https://repo.example.org\"}'\n"
+"php composer.phar repo add baz vcs https://example.org --before foo\n"
+"php composer.phar repo add qux vcs https://example.org --after bar\n"
+"php composer.phar repo remove foo\n"
+"php composer.phar repo set-url foo https://git.example.org/acme/foo\n"
+"php composer.phar repo get-url foo\n"
+"php composer.phar repo disable packagist\n"
+"php composer.phar repo enable packagist\n"
 
 #. type: Bullet: '- '
 #: ../doc/03-cli.md:921
 msgid "**--global (-g):** to modify the global `$COMPOSER_HOME/config.json`."
 msgstr ""
+"**--global (-g):** 大域的な `$COMPOSER_HOME/config.json` を変更します。"
 
 #. type: Bullet: '- '
 #: ../doc/03-cli.md:921
 msgid "**--file (-f):** to modify a specific file instead of composer.json."
-msgstr ""
+msgstr "**--file (-f):** composer.jsonの代わりに特定のファイルを変更します。"
 
 #. type: Bullet: '- '
 #: ../doc/03-cli.md:921
-#, fuzzy
-#| msgid ""
-#| "**--append:** When adding a repository, append it (lowest priority) to "
-#| "the existing ones instead of prepending it (highest priority)."
 msgid ""
 "**--append:** to add a repository with lower priority (by default "
 "repositories are prepended and have thus higher priority than existing ones)."
 msgstr ""
-"**--append:** リポジトリを追加するとき、既存のものの先頭に追加する（最優先）"
-"のではなく末尾に付ける（低優先）ようにします。"
+"**--append:** 低い優先度でリポジトリを追加します（既定ではリポジトリは前置さ"
+"れます。\n"
+"したがって既存のものより高い優先度があります）。"
 
 #. type: Bullet: '- '
 #: ../doc/03-cli.md:921
@@ -4756,6 +4758,8 @@ msgid ""
 "**--before <name>:** to insert the new repository before an existing "
 "repository named `<name>`."
 msgstr ""
+"**--before <名前>:** 新しいリポジトリを既存の `<名前>` という名前のリポジトリ"
+"の前に挿入します。"
 
 #. type: Bullet: '- '
 #: ../doc/03-cli.md:921
@@ -4764,6 +4768,9 @@ msgid ""
 "repository named `<name>`. The `<name>` must match an existing repository "
 "name."
 msgstr ""
+"**--after <名前>:** 新しいリポジトリを既存の `<名前>` というリポジトリの後に"
+"挿入します。\n"
+"`<名前>` は既存のリポジトリ名に合致しなければなりません。"
 
 #. type: Title ##
 #: ../doc/03-cli.md:922
@@ -6052,10 +6059,9 @@ msgstr ""
 
 #. type: Title ###
 #: ../doc/03-cli.md:1354
-#, fuzzy, no-wrap
-#| msgid "COMPOSER_PREFER_LOWEST"
+#, no-wrap
 msgid "COMPOSER_PREFER_DEV_OVER_PRERELEASE"
-msgstr "COMPOSER_PREFER_LOWEST"
+msgstr "COMPOSER_PREFER_DEV_OVER_PRERELEASE"
 
 #. type: Plain text
 #: ../doc/03-cli.md:1361
@@ -6066,6 +6072,11 @@ msgid ""
 "useful to test lowest versions while still preferring branches that may "
 "contain critical fixes over prerelease versions."
 msgstr ""
+"`1`に設定すると、`--prefer-stable`と`--prefer-lowest`が両方とも有効にされた状"
+"態で依存解決するとき、そして安定リリースがない場合に、devバージョンはalpha/"
+"beta/RCのバージョンより安定したものとして扱われます。\n"
+"最小のバージョンをテストしつつリリース前のバージョンに非常に重要な修正が含ま"
+"れる可能性があるブランチを優先したいときに便利です。"
 
 #. type: Title ###
 #: ../doc/03-cli.md:1362
@@ -8410,11 +8421,6 @@ msgstr ""
 
 #. type: Plain text
 #: ../doc/04-schema.md:874
-#, fuzzy
-#| msgid ""
-#| "Using JSON object notation is also possible. However, JSON key/value "
-#| "pairs are to be considered unordered so consistent behaviour cannot be "
-#| "guaranteed."
 msgid ""
 "Using JSON object notation is also possible. However, JSON key/value pairs "
 "are to be considered unordered so consistent behaviour cannot be guaranteed "
@@ -8422,7 +8428,7 @@ msgid ""
 msgstr ""
 "JSONオブジェクト記法を使うこともできます。\n"
 "しかしJSONのキーバリュー対は順序なしとして見做されるため、一貫した挙動は保証"
-"されません。"
+"されず、廃止されました。"
 
 #. type: Fenced code block (json)
 #: ../doc/04-schema.md:875
@@ -8449,20 +8455,11 @@ msgstr ""
 #. type: Plain text
 #: ../doc/04-schema.md:887
 msgid "It will be superseded by the name property"
-msgstr ""
+msgstr "nameプロパティで置き換わります。"
 
 #. type: Fenced code block (json)
 #: ../doc/04-schema.md:888
-#, fuzzy, no-wrap
-#| msgid ""
-#| "{\n"
-#| "    \"repositories\": {\n"
-#| "        \"foo\": {\n"
-#| "            \"type\": \"composer\",\n"
-#| "            \"url\": \"http://packages.foo.com\"\n"
-#| "        }\n"
-#| "    }\n"
-#| "}\n"
+#, no-wrap
 msgid ""
 "{\n"
 "    \"repositories\": [\n"
@@ -8475,12 +8472,13 @@ msgid ""
 "}\n"
 msgstr ""
 "{\n"
-"    \"repositories\": {\n"
-"        \"foo\": {\n"
+"    \"repositories\": [\n"
+"        {\n"
+"            \"name\": \"foo\",\n"
 "            \"type\": \"composer\",\n"
 "            \"url\": \"http://packages.foo.com\"\n"
 "        }\n"
-"    }\n"
+"    ]\n"
 "}\n"
 
 #. type: Title ###
@@ -11283,39 +11281,22 @@ msgstr ""
 # プロパティ名なので訳しません。
 #. type: Title ###
 #: ../doc/06-config.md:174
-#, fuzzy, no-wrap
-#| msgid "abandoned"
+#, no-wrap
 msgid "ignore-abandoned"
-msgstr "abandoned"
+msgstr "ignore-abandoned"
 
 #. type: Plain text
 #: ../doc/06-config.md:177
-#, fuzzy
-#| msgid ""
-#| "A list of advisory ids, remote ids or CVE ids that are reported but let "
-#| "the audit command pass."
 msgid ""
 "A list of abandoned package names that are reported but let the audit "
 "command pass."
 msgstr ""
-"勧告の識別子、リモートの識別子、CVEの識別子のリストです。\n"
-"報告はされますが監査コマンドは通過させます。"
+"放棄されたパッケージ名のリストは、報告されますが、auditコマンドは合格になりま"
+"す。"
 
 #. type: Fenced code block (json)
 #: ../doc/06-config.md:178
-#, fuzzy, no-wrap
-#| msgid ""
-#| "{\n"
-#| "    \"config\": {\n"
-#| "        \"audit\": {\n"
-#| "            \"ignore\": {\n"
-#| "                \"CVE-1234\": \"The affected component is not in use.\",\n"
-#| "                \"GHSA-xx\": \"The security fix was applied as a patch.\",\n"
-#| "                \"PKSA-yy\": \"Due to mitigations in place the update can be delayed.\"\n"
-#| "            }\n"
-#| "        }\n"
-#| "    }\n"
-#| "}\n"
+#, no-wrap
 msgid ""
 "{\n"
 "    \"config\": {\n"
@@ -11331,10 +11312,9 @@ msgstr ""
 "{\n"
 "    \"config\": {\n"
 "        \"audit\": {\n"
-"            \"ignore\": {\n"
-"                \"CVE-1234\": \"The affected component is not in use.\",\n"
-"                \"GHSA-xx\": \"The security fix was applied as a patch.\",\n"
-"                \"PKSA-yy\": \"Due to mitigations in place the update can be delayed.\"\n"
+"            \"ignore-abandoned\": {\n"
+"                \"acme/*\": \"Work schedule for removal next month.\",\n"
+"                \"acme/package\": \"The package is not in use\"\n"
 "            }\n"
 "        }\n"
 "    }\n"
@@ -11342,15 +11322,7 @@ msgstr ""
 
 #. type: Fenced code block (json)
 #: ../doc/06-config.md:193
-#, fuzzy, no-wrap
-#| msgid ""
-#| "{\n"
-#| "    \"config\": {\n"
-#| "        \"audit\": {\n"
-#| "            \"abandoned\": \"report\"\n"
-#| "        }\n"
-#| "    }\n"
-#| "}\n"
+#, no-wrap
 msgid ""
 "{\n"
 "    \"config\": {\n"
@@ -11363,7 +11335,7 @@ msgstr ""
 "{\n"
 "    \"config\": {\n"
 "        \"audit\": {\n"
-"            \"abandoned\": \"report\"\n"
+"            \"ignore-abandoned\": [\"acme/*\", \"acme/package\"]\n"
 "        }\n"
 "    }\n"
 "}\n"
@@ -11577,42 +11549,28 @@ msgstr ""
 
 #. type: Title ##
 #: ../doc/06-config.md:277
-#, fuzzy, no-wrap
-#| msgid "gitlab-domains"
+#, no-wrap
 msgid "forgejo-domains"
-msgstr "gitlab-domains"
+msgstr "forgejo-domains"
 
 #. type: Plain text
 #: ../doc/06-config.md:281
-#, fuzzy
-#| msgid ""
-#| "Defaults to `[\"gitlab.com\"]`. A list of domains of GitLab servers.  "
-#| "This is used if you use the `gitlab` repository type."
 msgid ""
 "Defaults to `[\"codeberg.org\"]`. A list of domains of Forgejo servers.  "
 "This is used if you use the `forgejo` repository type."
 msgstr ""
-"既定では`[\"gitlab.com\"]`です。\n"
-"GitLabサーバーのドメインのリストです。\n"
-"`gitlab`リポジトリ種別を使う場合に使用されます。"
+"既定では`[\"codeberg.org\"]`です。\n"
+"Forgejoサーバーのドメインのリストです。\n"
+"`forgejo`リポジトリ種別を使う場合に使用されます。"
 
 #. type: Title ##
 #: ../doc/06-config.md:282
 #, no-wrap
 msgid "forgejo-token"
-msgstr ""
+msgstr "forgejo-token"
 
 #. type: Plain text
 #: ../doc/06-config.md:291
-#, fuzzy
-#| msgid ""
-#| "A list of domain names and oauth keys. For example using "
-#| "`{\"gitlab.com\": \"oauthtoken\"}` as the value of this option will use "
-#| "`oauthtoken` to access private repositories on gitlab. Please note: If "
-#| "the package is not hosted at gitlab.com the domain names must be also "
-#| "specified with the [`gitlab-domains`](06-config.md#gitlab-domains) "
-#| "option.  Further info can also be found [here](articles/authentication-"
-#| "for-private-packages.md#gitlab-oauth)"
 msgid ""
 "A list of domain names and username/access-tokens to authenticate against "
 "them. For example using `{\"codeberg.org\": {\"username\": \"forgejo-user\", "
@@ -11623,13 +11581,16 @@ msgid ""
 "also be found [here](articles/authentication-for-private-packages.md#forgejo-"
 "token)"
 msgstr ""
-"ドメイン名とoauthキーのリストです。\n"
-"たとえば、このオプションの値として`{\"gitlab.com\": \"oauthtoken\"}`を使用す"
-"ると、`oauthtoken`を使用してgitlabの私有リポジトリにアクセスします。\n"
-"なお、パッケージがgitlab.comでホストされていない場合、ドメイン名も[`gitlab-"
-"domains`](06-config.md#gitlab-domains)オプションで指定する必要があります。\n"
-"詳細情報は[こちら](articles/authentication-for-private-packages.md#gitlab-"
-"oauth)にもあります。"
+"ドメイン名とそのドメインで認証するためのユーザー名／アクセストークンのリスト"
+"です。\n"
+"たとえば、このオプションの値として`{\"codeberg.org\": {\"username\": "
+"\"forgejo-user\", \"token\": \"access-token\"}}`を使うと、codeberg.orgに対し"
+"て認証します。\n"
+"なお、パッケージがcodeberg.orgのドメイン名でホストされていない場合、ドメイン"
+"名も[`forgejo-domains`](06-config.md#forgejo-domains)オプションで指定する必要"
+"があります。\n"
+"詳細情報は[こちら](articles/authentication-for-private-packages.md#forgejo-"
+"token)にもあります。"
 
 #. type: Title ##
 #: ../doc/06-config.md:293
@@ -14373,7 +14334,7 @@ msgstr ""
 #: ../doc/articles/troubleshooting.md:58
 #, no-wrap
 msgid "Dependencies on the root package"
-msgstr "ルートパッケージへの依存関係"
+msgstr "根幹パッケージへの依存関係"
 
 #. type: Plain text
 #: ../doc/articles/troubleshooting.md:62
@@ -14382,9 +14343,9 @@ msgid ""
 "(directly or indirectly) back on the root package itself, issues can occur "
 "in two cases:"
 msgstr ""
-"ルートパッケージが何らかのパッケージに依存しており、そのパッケージから（直接"
-"ないし間接に）そのルートパッケージ自体に依存関係が戻ってしまうとき、問題は2通"
-"りで起こり得ます。"
+"根幹パッケージが何らかのパッケージに依存しており、そのパッケージから（直接な"
+"いし間接に）その根幹パッケージ自体に依存関係が戻ってしまうとき、問題は2通りで"
+"起こり得ます。"
 
 #. type: Bullet: '1. '
 #: ../doc/articles/troubleshooting.md:67
@@ -14396,8 +14357,8 @@ msgid ""
 "first define a branch alias."
 msgstr ""
 "開発する際、`dev-main`のようなブランチにあり、ブランチに[ブランチ別称]"
-"(aliases.md#branch-alias)が定義されておらず、ルートパッケージへの依存関係で例"
-"えばバージョン`^2.0`が必要であれば、`dev-main`バージョンは満たされません。\n"
+"(aliases.md#branch-alias)が定義されておらず、根幹パッケージへの依存関係で例え"
+"ばバージョン`^2.0`が必要であれば、`dev-main`バージョンは満たされません。\n"
 "ここでの一番の解決策は、まずブランチ別称を定義していることを確かめることで"
 "す。"
 
@@ -14416,8 +14377,8 @@ msgid ""
 "to export the variable only for the call to composer, or you can define it "
 "globally in the CI env vars."
 msgstr ""
-"CI (Continuous Integration) が実行されるとき、問題はComposerがルートパッケー"
-"ジのバージョンを適切に検知できないことにあるかもしれません。\n"
+"CI (Continuous Integration) が実行されるとき、問題はComposerが根幹パッケージ"
+"のバージョンを適切に検知できないことにあるかもしれません。\n"
 "もしGitクローンであれば、一般には大丈夫で、Composerにより現在のブランチのバー"
 "ジョンが検出されるでしょう。\n"
 "しかし、CIによってはシャロークローンをするため、プルリクエストや機能ブランチ"
@@ -14425,8 +14386,8 @@ msgstr ""
 "そうした場合、ブランチ別称は認識されないかもしれません。\n"
 "一番の解決策は`COMPOSER_ROOT_VERSION`という環境変数で現在のバージョンを定義す"
 "ることです。\n"
-"例えば`dev-main`に設定するとルートパッケージのバージョンは`dev-main`で定義さ"
-"れます。\n"
+"例えば`dev-main`に設定すると根幹パッケージのバージョンは`dev-main`で定義され"
+"ます。\n"
 "使用例は`COMPOSER_ROOT_VERSION=dev-main composer install`で、composerの呼び出"
 "しでのみ変数をエクスポートしています。\n"
 "もしくはCIの環境変数に大域的に定義できます。"
@@ -14444,6 +14405,9 @@ msgid ""
 "dependencies effectively. The version of the root package is determined "
 "using a hierarchical approach:"
 msgstr ""
+"Composerでは根幹パッケージのバージョンが分かっていることによって、依存関係の"
+"解決を効率的にしています。\n"
+"根幹パッケージのバージョンは階層的な手法を使って決まります。"
 
 #. type: Bullet: '1. '
 #: ../doc/articles/troubleshooting.md:90

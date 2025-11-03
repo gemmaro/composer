@@ -905,8 +905,8 @@ php composer.phar config --json extra.foo.bar '{"baz": true, "qux": []}'
 
 ## repository / repo
 
-The `repo` command lets you manage repositories in your `composer.json`. It
-is a more powerful alternative to `composer config repositories.*`.
+`repo`コマンドでは、`composer.json`のレポジトリを管理できます。
+`composer config repositories.*`の代わりになるもので、より強力です。
 
 ### 使い方
 
@@ -925,16 +925,13 @@ php composer.phar repo enable packagist
 
 ### オプション
 
-- **--global (-g):** to modify the global `$COMPOSER_HOME/config.json`.
-- **--file (-f):** to modify a specific file instead of composer.json.
-- **--append:** to add a repository with lower priority (by default
-  repositories are prepended and have thus higher priority than existing
-  ones).
-- **--before <name>:** to insert the new repository before an existing
-  repository named `<name>`.
-- **--after <name>:** to insert the new repository after an existing
-  repository named `<name>`. The `<name>` must match an existing repository
-  name.
+- **--global (-g):** 大域的な `$COMPOSER_HOME/config.json` を変更します。
+- **--file (-f):** composer.jsonの代わりに特定のファイルを変更します。
+- **--append:** 低い優先度でリポジトリを追加します（既定ではリポジトリは前置されます。
+  したがって既存のものより高い優先度があります）。
+- **--before <名前>:** 新しいリポジトリを既存の `<名前>` という名前のリポジトリの前に挿入します。
+- **--after <名前>:** 新しいリポジトリを既存の `<名前>` というリポジトリの後に挿入します。
+  `<名前>` は既存のリポジトリ名に合致しなければなりません。
 
 ## create-project
 
@@ -1331,11 +1328,8 @@ parallel.  This defaults to 10 and must be between 1 and 50.
 
 ### COMPOSER_PREFER_DEV_OVER_PRERELEASE
 
-If set to `1`, when resolving dependencies with both `--prefer-stable` and
-`--prefer-lowest` enabled, dev versions are treated as more stable than
-alpha/beta/RC versions in cases where no stable release exists. This is
-useful to test lowest versions while still preferring branches that may
-contain critical fixes over prerelease versions.
+`1`に設定すると、`--prefer-stable`と`--prefer-lowest`が両方とも有効にされた状態で依存解決するとき、そして安定リリースがない場合に、devバージョンはalpha/beta/RCのバージョンより安定したものとして扱われます。
+最小のバージョンをテストしつつリリース前のバージョンに非常に重要な修正が含まれる可能性があるブランチを優先したいときに便利です。
 
 ### COMPOSER_MINIMAL_CHANGES
 
