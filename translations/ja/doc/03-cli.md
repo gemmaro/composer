@@ -903,6 +903,39 @@ php composer.phar config extra.foo.bar value
 php composer.phar config --json extra.foo.bar '{"baz": true, "qux": []}'
 ```
 
+## repository / repo
+
+The `repo` command lets you manage repositories in your `composer.json`. It
+is a more powerful alternative to `composer config repositories.*`.
+
+### 使い方
+
+```shell
+php composer.phar repo list
+php composer.phar repo add foo vcs https://github.com/acme/foo
+php composer.phar repo add bar '{"type":"composer","url":"https://repo.example.org"}'
+php composer.phar repo add baz vcs https://example.org --before foo
+php composer.phar repo add qux vcs https://example.org --after bar
+php composer.phar repo remove foo
+php composer.phar repo set-url foo https://git.example.org/acme/foo
+php composer.phar repo get-url foo
+php composer.phar repo disable packagist
+php composer.phar repo enable packagist
+```
+
+### オプション
+
+- **--global (-g):** to modify the global `$COMPOSER_HOME/config.json`.
+- **--file (-f):** to modify a specific file instead of composer.json.
+- **--append:** to add a repository with lower priority (by default
+  repositories are prepended and have thus higher priority than existing
+  ones).
+- **--before <name>:** to insert the new repository before an existing
+  repository named `<name>`.
+- **--after <name>:** to insert the new repository after an existing
+  repository named `<name>`. The `<name>` must match an existing repository
+  name.
+
 ## create-project
 
 Composerを使って既存のパッケージから新しいプロジェクトを作ることができます。
@@ -1295,6 +1328,14 @@ parallel.  This defaults to 10 and must be between 1 and 50.
 ### COMPOSER_PREFER_LOWEST
 
 `1`に設定すると`update`や`require`に`--prefer-lowest`オプションを渡すことと等価になります。
+
+### COMPOSER_PREFER_DEV_OVER_PRERELEASE
+
+If set to `1`, when resolving dependencies with both `--prefer-stable` and
+`--prefer-lowest` enabled, dev versions are treated as more stable than
+alpha/beta/RC versions in cases where no stable release exists. This is
+useful to test lowest versions while still preferring branches that may
+contain critical fixes over prerelease versions.
 
 ### COMPOSER_MINIMAL_CHANGES
 

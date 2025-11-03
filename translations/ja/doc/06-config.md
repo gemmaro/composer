@@ -169,6 +169,35 @@ Composer
 2.8以降、[`--abandoned`](03-cli.md#audit)コマンドラインオプションを介して、オプションをオーバーライドできます。
 このオプションにより、構成値と環境変数が共にオーバーライドされます。
 
+### ignore-abandoned
+
+A list of abandoned package names that are reported but let the audit
+command pass.
+
+```json
+{
+    "config": {
+        "audit": {
+            "ignore-abandoned": {
+                "acme/*": "Work schedule for removal next month.",
+                "acme/package": "The package is not in use"
+            }
+        }
+    }
+}
+```
+
+もしくは以下です。
+
+```json
+{
+    "config": {
+        "audit": {
+            "ignore-abandoned": ["acme/*", "acme/package"]
+        }
+    }
+}
+```
 
 ## use-parent-dir
 
@@ -233,6 +262,23 @@ GitLabサーバーのドメインのリストです。
 HTTPベーシック認証を使った[GitLabのCI_JOB_TOKEN](https://docs.gitlab.com/ee/ci/variables/predefined_variables.html#predefined-variables-reference)により、後々GitLab
 CIのジョブでクローンされる私有リポジトリを参照するプロジェクトを扱う際に役立ちます。
 既定では、Composerは私有リポジトリについてはgit-over-SSHのURLを生成し、公開リポジトリについてはHTTP(S)のみを生成します。
+
+## forgejo-domains
+
+Defaults to `["codeberg.org"]`. A list of domains of Forgejo servers.  This
+is used if you use the `forgejo` repository type.
+
+## forgejo-token
+
+A list of domain names and username/access-tokens to authenticate against
+them. For example using `{"codeberg.org": {"username": "forgejo-user",
+"token": "access-token"}}` as the value of this option will let Composer
+authenticate against codeberg.org.  Please note: If the package is not
+hosted at codeberg.org the domain names must be also specified with the
+[`forgejo-domains`](06-config.md#forgejo-domains) option.  Further info can
+also be found
+[here](articles/authentication-for-private-packages.md#forgejo-token)
+
 
 ## disable-tls
 
