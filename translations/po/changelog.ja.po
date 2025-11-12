@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Composer\n"
 "POT-Creation-Date: 2025-11-12 19:56+0900\n"
-"PO-Revision-Date: 2025-09-20 09:38+0900\n"
+"PO-Revision-Date: 2025-11-12 20:25+0900\n"
 "Last-Translator: gemmaro <gemmaro.dev@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -18,22 +18,21 @@ msgstr ""
 
 #. type: Title ###
 #: ../CHANGELOG.md:1
-#, fuzzy, no-wrap
-#| msgid "[2.8.3] 2024-11-17"
+#, no-wrap
 msgid "[2.9.0-RC1] 2025-11-07"
-msgstr "[2.8.3] 2024-11-17"
+msgstr "[2.9.0-RC1] 2025-11-07"
 
 #. type: Bullet: '  * '
 #: ../CHANGELOG.md:28
 msgid "Bumped `composer-plugin-api` to `2.9.0`"
-msgstr ""
+msgstr "`composer-plugin-api`を`2.9.0`に更新"
 
 #. type: Bullet: '  * '
 #: ../CHANGELOG.md:28
 msgid ""
 "Added automatic blocking of packages with security advisories from updates "
 "(#11956)"
-msgstr ""
+msgstr "セキュリティの勧告があるパッケージの更新を自動で阻止するようにしました (#11956)"
 
 #. type: Bullet: '  * '
 #: ../CHANGELOG.md:28
@@ -42,6 +41,8 @@ msgid ""
 "to package versions with known security advisories (defaults to `true`) "
 "(#11956)"
 msgstr ""
+"`audit > block-insecure`構成設定を追加しました。\n"
+"既知のセキュリティ勧告があるパッケージのバージョンに更新することを阻止するための制御をします（既定で`true`です） (#11956)"
 
 #. type: Bullet: '  * '
 #: ../CHANGELOG.md:28
@@ -49,6 +50,8 @@ msgid ""
 "Added `audit > block-abandoned` config setting to control blocking of "
 "updates to abandoned packages (defaults to `false`) (#11956)"
 msgstr ""
+"`audit > block-abandoned`構成設定を追加しました。\n"
+"放棄されたパッケージの更新を阻止する制御をします（既定で`false`です） (#11956)"
 
 #. type: Bullet: '  * '
 #: ../CHANGELOG.md:28
@@ -56,19 +59,17 @@ msgid ""
 "Added `audit > ignore-abandoned` config setting to ignore some packages "
 "(#12572)"
 msgstr ""
+"`audit > ignore-abandoned`構成設定を追加しました。\n"
+"一部のパッケージを無視することができます (#12572)"
 
 #. type: Bullet: '  * '
 #: ../CHANGELOG.md:28
-#, fuzzy
-#| msgid ""
-#| "Added `--ignore-severity` flag to the `audit` command to ignore one or "
-#| "more advisory severities (#12132)"
 msgid ""
 "Added `--ignore-unreachable` flag to `audit` command to allow running audit "
 "in environments that do not have access to some repos (#12470)"
 msgstr ""
-"`audit`コマンドに`--ignore-severity`フラグを追加しました。\n"
-"1つ以上の勧告の深刻度を無視します (#12132)"
+"`audit`コマンドに`--ignore-unreachable`フラグを追加しました。\n"
+"アクセスできないリポジトリがある環境で監査を実行できます (#12470)"
 
 #. type: Bullet: '  * '
 #: ../CHANGELOG.md:28
@@ -76,6 +77,8 @@ msgid ""
 "Added `repository` command to add, remove, or update repositories more "
 "easily (#12388)"
 msgstr ""
+"`repository`コマンドを追加しました。\n"
+"リポジトリの追加、削除、更新がもっと簡単になります (#12388)"
 
 #. type: Bullet: '  * '
 #: ../CHANGELOG.md:28
@@ -83,6 +86,8 @@ msgid ""
 "Updated `repositories` structure to contain a name attribute and being "
 "stored preferably as list instead of object (#12388)"
 msgstr ""
+"`repositories`構造を更新しました。\n"
+"名前の属性が含まれるようになり、オブジェクトではなくリストとして保管されます (#12388)"
 
 #. type: Bullet: '  * '
 #: ../CHANGELOG.md:28
@@ -90,6 +95,8 @@ msgid ""
 "Added support for `--minimal-changes` full updates where only packages that "
 "need changing to satisfy modified constraints are updated (#12349)"
 msgstr ""
+"`--minimal-changes`の対応を追加しました。\n"
+"変更した制約が更新されていることを満たすよう変える必要があるパッケージだけを完全に更新します (#12349)"
 
 #. type: Bullet: '  * '
 #: ../CHANGELOG.md:28
@@ -97,50 +104,44 @@ msgid ""
 "Added `update-with-minimal-changes` config setting (and "
 "`COMPOSER_MINIMAL_CHANGES` env var) to default to minimal changes (#12545)"
 msgstr ""
+"`update-with-minimal-changes`構成設定（と`COMPOSER_MINIMAL_CHANGES`環境変数）を追加します。\n"
+"既定を最小の変更にします (#12545)"
 
 #. type: Bullet: '  * '
 #: ../CHANGELOG.md:28
 msgid "Added support for `forgejo` / codeberg.org repositories (#12307)"
-msgstr ""
+msgstr "`forgejo` / codeberg.orgのリポジトリに対応しました (#12307)"
 
 #. type: Bullet: '  * '
 #: ../CHANGELOG.md:28
 msgid ""
 "Added automatic recovery of simple lock file conflicts when running `update` "
 "with a file that has a content-hash conflict (#11517)"
-msgstr ""
+msgstr "内容ハッシュの競合があるファイルで`update`を実行するとき、単純な固定ファイルが競合してから自動で復旧するようにしました (#11517)"
 
 #. type: Bullet: '  * '
 #: ../CHANGELOG.md:28
-#, fuzzy
-#| msgid "Added `hg` support for SSH urls (#11878)"
 msgid "Added support for HTTP/3 if libcurl supports it (#12363)"
-msgstr "SSHのURLに`hg`の対応を追加しました (#11878)。"
+msgstr "libcurlが対応している場合に、HTTP/3が追加されます (#12363)"
 
 #. type: Bullet: '  * '
 #: ../CHANGELOG.md:28
 msgid "Added support for custom header authentication (#12372)"
-msgstr ""
+msgstr "独自のヘッダー認証に対応しました (#12372)"
 
 #. type: Bullet: '  * '
 #: ../CHANGELOG.md:28
-#, fuzzy
-#| msgid "Added `hg` support for SSH urls (#11878)"
 msgid "Added support for client TLS certificates (#12406)"
-msgstr "SSHのURLに`hg`の対応を追加しました (#11878)。"
+msgstr "クライアントTLS証明書に対応しました (#12406)"
 
 #. type: Bullet: '  * '
 #: ../CHANGELOG.md:28
-#, fuzzy
-#| msgid ""
-#| "Added --locked flag to `show` command to see the packages from the "
-#| "composer.lock file"
 msgid ""
 "Added `--locked` flag to `licenses` command to show data from the lock file "
 "instead of installed packages (#12595)"
 msgstr ""
-"`show`コマンドに--lockedフラグを追加し、composer.lockファイル由来のパッケージ"
-"が表示されるようにしました。"
+"`licenses`コマンドに`--locked`フラグを追加しました。\n"
+"インストールされたパッケージではなく固定ファイルのデータを表示します (#12595)"
 
 #. type: Bullet: '  * '
 #: ../CHANGELOG.md:28
@@ -148,17 +149,13 @@ msgid ""
 "Added `SHELL_VERBOSITY` env var to control verbosity of shell scripts "
 "(#12473)"
 msgstr ""
+"`SHELL_VERBOSITY`環境変数を追加しました。\n"
+"シェルスクリプトの冗長性を制御します (#12473)"
 
 #. type: Bullet: '  * '
 #: ../CHANGELOG.md:28
-#, fuzzy
-#| msgid ""
-#| "Added support for `bump` command bumping `*` to `>=current version` "
-#| "(#11694)"
 msgid "Added support for running `init` without interaction (#12546)"
-msgstr ""
-"`bump`コマンドに、`*`を`>=現在のバージョン`に上げる対応を追加しました "
-"(#11694)。"
+msgstr "対話なしで`init`を実行する対応を入れました (#12546)"
 
 #. type: Bullet: '  * '
 #: ../CHANGELOG.md:28
@@ -166,18 +163,22 @@ msgid ""
 "Added `COMPOSER_PREFER_DEV_OVER_PRERELEASE` env var for use in development "
 "together with `--prefer-lowest` builds (#12585)"
 msgstr ""
+"`COMPOSER_PREFER_DEV_OVER_PRERELEASE`環境変数を追加しました。\n"
+"開発で`--prefer-lowest`での構築と組み合わせて使う用です (#12585)"
 
 #. type: Bullet: '  * '
 #: ../CHANGELOG.md:28
 msgid "Added support for Windows Sudo to elevate during self-update (#12543)"
 msgstr ""
+"Windows Sudoに対応しました。\n"
+"self-updateで昇格するようになりました (#12543)"
 
 #. type: Bullet: '  * '
 #: ../CHANGELOG.md:28
 msgid ""
 "Improved performance of script handlers by reducing ad-hoc autoloader "
 "creation (#12456)"
-msgstr ""
+msgstr "アドホックな自動読込器を作る処理を削減することでスクリプトを扱う処理の効率を改善しました (#12456)"
 
 #. type: Bullet: '  * '
 #: ../CHANGELOG.md:28
