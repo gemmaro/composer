@@ -198,6 +198,69 @@ Composer
 }
 ```
 
+### ignore-severity
+
+Defaults to `[]`. A list of severity levels that let the audit command pass
+even if there are security advisories with the given severity.
+
+```json
+{
+    "config": {
+        "audit": {
+            "ignore-severity": ["low"]
+        }
+    }
+}
+```
+
+### ignore-unreachable
+
+Defaults to `false`. Should unreachable repositories be ignored during a
+`composer audit`. This can be helpful if you are running the command in an
+environment from which not all repositories can be accessed.
+
+```json
+{
+    "config": {
+        "audit": {
+            "ignore-unreachable": true
+        }
+    }
+}
+```
+
+### block-insecure
+
+Defaults to `true`. If `true`, any package versions affected by security
+advisories cannot be used during a composer update/required/delete command
+unless the security advisories are ignored.
+
+```json
+{
+    "config": {
+        "audit": {
+            "block-insecure": false
+        }
+    }
+}
+```
+
+### block-abandoned
+
+Defaults to `false`. If `true`, any abandoned packages cannot be used during
+a composer update/required/delete command.
+
+
+```json
+{
+    "config": {
+        "audit": {
+            "block-abandoned": true
+        }
+    }
+}
+```
+
 ## use-parent-dir
 
 composer.jsonがないディレクトリでComposerを実行しており、その上のディレクトリにcomposer.jsonがある場合、Composerは既定で、そのディレクトリのcomposer.jsonを代わりに使用するかどうかを尋ねます。

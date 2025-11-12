@@ -342,7 +342,8 @@ php composer.phar remove vendor/package vendor/package2
 
 ### オプション
 
-* **--unused**（もう）直接ないし間接の依存関係ではない、使われていないパッケージを削除します。
+* **--unused:** Remove unused packages that are not a direct or indirect
+  dependency (anymore).
 * **--dev:** `require-dev`からパッケージを削除します。
 * **--dry-run:**
   実際には何もせず、コマンドを模擬します。
@@ -919,8 +920,8 @@ php composer.phar repo add qux vcs https://example.org --after bar
 php composer.phar repo remove foo
 php composer.phar repo set-url foo https://git.example.org/acme/foo
 php composer.phar repo get-url foo
-php composer.phar repo disable packagist
-php composer.phar repo enable packagist
+php composer.phar repo disable packagist.org
+php composer.phar repo enable packagist.org
 ```
 
 ### オプション
@@ -1052,10 +1053,15 @@ Composerのキャッシュディレクトリから全ての内容を削除しま
 
 ### オプション
 
-* **--format:** 出力の形式です。text、json、summaryの何れかです（既定では「text」）。
-* **--no-dev:** 出力から開発依存関係を除きます。
+* **--locked:** List licenses from the lock file, regardless of what is
+  currently in vendor dir.
+* **--format:** Format of the output: text, json or summary (default:
+  "text").
+* **--no-dev:** Remove dev dependencies from the output.
 
 ## run-script / run
+
+[スクリプト](articles/scripts.md)を手動で走らせるにはこのコマンドを使うことができます。スクリプト名と任意で必要な引数を与えます。
 
 ### オプション
 
@@ -1063,8 +1069,6 @@ Composerのキャッシュディレクトリから全ての内容を削除しま
 * **--dev:** 開発モードを設定します。
 * **--no-dev:** 開発モードを無効にします。
 * **--list (-l):** 利用者が定義したスクリプトを一覧にします。
-
-[スクリプト](articles/scripts.md)を手動で走らせるにはこのコマンドを使うことができます。スクリプト名と任意で必要な引数を与えます。
 
 ## exec
 
@@ -1126,11 +1130,10 @@ php composer.phar audit
 * **--locked:**
   固定ファイルのパッケージを監査します。
   現時点でベンダーディレクトリに何があるかは無視されます。
-* **--abandoned:**
-  放棄されたパッケージに対して動作します。
-  「ignore」「report」「fail」のどれかでなければなりません。
-  [audit.abandoned](06-config.md#abandoned)もご参照ください。
-  このフラグを渡すと、構成値と環境変数がオーバーライドされます。
+* **--abandoned:** Behavior on abandoned packages. Must be "ignore",
+  "report", or "fail".  See also
+  [config.audit.abandoned](06-config.md#abandoned).  Passing this flag will
+  override the config value and the environment variable.
 * **--ignore-severity:**
   特定の深刻度の水準の勧告を無視します。
   複数の深刻度を無視するために1回以上渡せます。
