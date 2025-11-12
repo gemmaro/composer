@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Composer\n"
 "POT-Creation-Date: 2025-11-12 19:56+0900\n"
-"PO-Revision-Date: 2025-11-03 20:48+0900\n"
+"PO-Revision-Date: 2025-11-12 20:00+0900\n"
 "Last-Translator: gemmaro <gemmaro.dev@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -3113,16 +3113,12 @@ msgstr "要件を削除した後は変更対象の要件がアンインストー
 
 #. type: Bullet: '* '
 #: ../doc/03-cli.md:365
-#, fuzzy
-#| msgid ""
-#| "**--unused** Remove unused packages that are not a direct or indirect "
-#| "dependency (anymore)"
 msgid ""
 "**--unused:** Remove unused packages that are not a direct or indirect "
 "dependency (anymore)."
 msgstr ""
-"**--unused**（もう）直接ないし間接の依存関係ではない、使われていないパッケー"
-"ジを削除します。"
+"**--unused：**\n"
+"直接ないし間接の依存関係ではない（なくなった）、使われていないパッケージを削除します。"
 
 #. type: Bullet: '* '
 #: ../doc/03-cli.md:365
@@ -4711,18 +4707,7 @@ msgstr ""
 
 #. type: Fenced code block (shell)
 #: ../doc/03-cli.md:901
-#, fuzzy, no-wrap
-#| msgid ""
-#| "php composer.phar repo list\n"
-#| "php composer.phar repo add foo vcs https://github.com/acme/foo\n"
-#| "php composer.phar repo add bar '{\"type\":\"composer\",\"url\":\"https://repo.example.org\"}'\n"
-#| "php composer.phar repo add baz vcs https://example.org --before foo\n"
-#| "php composer.phar repo add qux vcs https://example.org --after bar\n"
-#| "php composer.phar repo remove foo\n"
-#| "php composer.phar repo set-url foo https://git.example.org/acme/foo\n"
-#| "php composer.phar repo get-url foo\n"
-#| "php composer.phar repo disable packagist\n"
-#| "php composer.phar repo enable packagist\n"
+#, no-wrap
 msgid ""
 "php composer.phar repo list\n"
 "php composer.phar repo add foo vcs https://github.com/acme/foo\n"
@@ -4743,8 +4728,8 @@ msgstr ""
 "php composer.phar repo remove foo\n"
 "php composer.phar repo set-url foo https://git.example.org/acme/foo\n"
 "php composer.phar repo get-url foo\n"
-"php composer.phar repo disable packagist\n"
-"php composer.phar repo enable packagist\n"
+"php composer.phar repo disable packagist.org\n"
+"php composer.phar repo enable packagist.org\n"
 
 #. type: Bullet: '- '
 #: ../doc/03-cli.md:921
@@ -5146,37 +5131,30 @@ msgstr ""
 
 #. type: Bullet: '* '
 #: ../doc/03-cli.md:1049
-#, fuzzy
-#| msgid ""
-#| "**--locked:** Audit packages from the lock file, regardless of what is "
-#| "currently in vendor dir."
 msgid ""
 "**--locked:** List licenses from the lock file, regardless of what is "
 "currently in vendor dir."
 msgstr ""
 "**--locked:**\n"
 "固定ファイルのパッケージを監査します。\n"
-"現時点でベンダーディレクトリに何があるかは無視されます。"
+"現時点でベンダーディレクトリに何があるか無関係です。"
 
 #. type: Bullet: '* '
 #: ../doc/03-cli.md:1049
-#, fuzzy
-#| msgid ""
-#| "**--format:** Format of the output: text, json or summary (default: "
-#| "\"text\")"
 msgid ""
 "**--format:** Format of the output: text, json or summary (default: "
 "\"text\")."
 msgstr ""
-"**--format:** 出力の形式です。text、json、summaryの何れかです（既定では"
-"「text」）。"
+"**--format:**\n"
+"出力形式です。\n"
+"text、json、summaryの何れかです（既定では「text」）。"
 
 #. type: Bullet: '* '
 #: ../doc/03-cli.md:1049
-#, fuzzy
-#| msgid "**--no-dev:** Remove dev dependencies from the output"
 msgid "**--no-dev:** Remove dev dependencies from the output."
-msgstr "**--no-dev:** 出力から開発依存関係を除きます。"
+msgstr ""
+"**--no-dev:**\n"
+"出力から開発依存関係を除きます。"
 
 #. type: Title ##
 #: ../doc/03-cli.md:1050
@@ -5389,12 +5367,6 @@ msgstr ""
 
 #. type: Bullet: '* '
 #: ../doc/03-cli.md:1128
-#, fuzzy
-#| msgid ""
-#| "**--abandoned:** Behavior on abandoned packages. Must be \"ignore\", "
-#| "\"report\", or \"fail\".  See also [audit.abandoned](06-"
-#| "config.md#abandoned).  Passing this flag will override the config value "
-#| "and the environment variable."
 msgid ""
 "**--abandoned:** Behavior on abandoned packages. Must be \"ignore\", "
 "\"report\", or \"fail\".  See also [config.audit.abandoned](06-"
@@ -5404,7 +5376,7 @@ msgstr ""
 "**--abandoned:**\n"
 "放棄されたパッケージに対して動作します。\n"
 "「ignore」「report」「fail」のどれかでなければなりません。\n"
-"[audit.abandoned](06-config.md#abandoned)もご参照ください。\n"
+"[config.audit.abandoned](06-config.md#abandoned)もご参照ください。\n"
 "このフラグを渡すと、構成値と環境変数がオーバーライドされます。"
 
 #. type: Bullet: '* '
@@ -11397,15 +11369,7 @@ msgstr ""
 
 #. type: Fenced code block (json)
 #: ../doc/06-config.md:208
-#, fuzzy, no-wrap
-#| msgid ""
-#| "{\n"
-#| "    \"config\": {\n"
-#| "        \"audit\": {\n"
-#| "            \"abandoned\": \"report\"\n"
-#| "        }\n"
-#| "    }\n"
-#| "}\n"
+#, no-wrap
 msgid ""
 "{\n"
 "    \"config\": {\n"
@@ -11418,7 +11382,7 @@ msgstr ""
 "{\n"
 "    \"config\": {\n"
 "        \"audit\": {\n"
-"            \"abandoned\": \"report\"\n"
+"            \"ignore-severity\": [\"low\"]\n"
 "        }\n"
 "    }\n"
 "}\n"
@@ -11439,15 +11403,7 @@ msgstr ""
 
 #. type: Fenced code block (json)
 #: ../doc/06-config.md:223
-#, fuzzy, no-wrap
-#| msgid ""
-#| "{\n"
-#| "    \"config\": {\n"
-#| "        \"audit\": {\n"
-#| "            \"abandoned\": \"report\"\n"
-#| "        }\n"
-#| "    }\n"
-#| "}\n"
+#, no-wrap
 msgid ""
 "{\n"
 "    \"config\": {\n"
@@ -11460,7 +11416,7 @@ msgstr ""
 "{\n"
 "    \"config\": {\n"
 "        \"audit\": {\n"
-"            \"abandoned\": \"report\"\n"
+"            \"ignore-unreachable\": true\n"
 "        }\n"
 "    }\n"
 "}\n"
@@ -11481,15 +11437,7 @@ msgstr ""
 
 #. type: Fenced code block (json)
 #: ../doc/06-config.md:238
-#, fuzzy, no-wrap
-#| msgid ""
-#| "{\n"
-#| "    \"config\": {\n"
-#| "        \"audit\": {\n"
-#| "            \"abandoned\": \"report\"\n"
-#| "        }\n"
-#| "    }\n"
-#| "}\n"
+#, no-wrap
 msgid ""
 "{\n"
 "    \"config\": {\n"
@@ -11502,7 +11450,7 @@ msgstr ""
 "{\n"
 "    \"config\": {\n"
 "        \"audit\": {\n"
-"            \"abandoned\": \"report\"\n"
+"            \"block-insecure\": false\n"
 "        }\n"
 "    }\n"
 "}\n"
@@ -11510,10 +11458,9 @@ msgstr ""
 # プロパティ名なので訳しません。
 #. type: Title ###
 #: ../doc/06-config.md:248
-#, fuzzy, no-wrap
-#| msgid "abandoned"
+#, no-wrap
 msgid "block-abandoned"
-msgstr "abandoned"
+msgstr "block-abandoned"
 
 #. type: Plain text
 #: ../doc/06-config.md:251
@@ -11524,15 +11471,7 @@ msgstr ""
 
 #. type: Fenced code block (json)
 #: ../doc/06-config.md:253
-#, fuzzy, no-wrap
-#| msgid ""
-#| "{\n"
-#| "    \"config\": {\n"
-#| "        \"audit\": {\n"
-#| "            \"abandoned\": \"report\"\n"
-#| "        }\n"
-#| "    }\n"
-#| "}\n"
+#, no-wrap
 msgid ""
 "{\n"
 "    \"config\": {\n"
@@ -11545,7 +11484,7 @@ msgstr ""
 "{\n"
 "    \"config\": {\n"
 "        \"audit\": {\n"
-"            \"abandoned\": \"report\"\n"
+"            \"block-abandoned\": true\n"
 "        }\n"
 "    }\n"
 "}\n"
