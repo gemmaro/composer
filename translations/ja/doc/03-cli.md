@@ -194,6 +194,9 @@ php composer.phar update vendor/package:2.0.1 vendor/package2:3.0.*
   composer.lockを更新した後の監査過程を走らせません。[COMPOSER_NO_AUDIT](#composer-no-audit)も参照してください。
 * **--audit-format:** 監査の出力形式です。
   "table"、"plain"、"json"、または"summary"（既定）のどれかでなければなりません。
+* **--no-security-blocking:**
+  セキュリティ勧告があったり放棄されたりしているパッケージをインストールできます。
+  [COMPOSER_NO_SECURITY_BLOCKING](#composer-no-security-blocking)も参照。
 * **--lock:**
   パッケージのバージョンを更新せず、固定ファイルが期限切れであることについての警告を抑えるために固定ファイルを上書きします。
   ミラーやURLといったパッケージのメタデータが変更されていれば更新します。
@@ -296,6 +299,9 @@ php composer.phar require vendor/package vendor/package2
   composer.lockを更新した後の監査過程を走らせません。[COMPOSER_NO_AUDIT](#composer-no-audit)も参照してください。
 * **--audit-format:** 監査の出力形式です。
   "table"、"plain"、"json"、または"summary"（既定）のどれかでなければなりません。
+* **--no-security-blocking:**
+  セキュリティ勧告があったり放棄されたりしているパッケージをインストールできます。
+  [COMPOSER_NO_SECURITY_BLOCKING](#composer-no-security-blocking)も参照。
 * **--update-no-dev:**
   `--no-dev`オプションと共に依存関係の更新を走らせます。[COMPOSER_NO_DEV](#composer-no-dev)も参照してください。
 * **--update-with-dependencies (-w):**
@@ -342,8 +348,8 @@ php composer.phar remove vendor/package vendor/package2
 
 ### オプション
 
-* **--unused:** Remove unused packages that are not a direct or indirect
-  dependency (anymore).
+* **--unused：**
+  直接ないし間接の依存関係ではない（なくなった）、使われていないパッケージを削除します。
 * **--dev:** `require-dev`からパッケージを削除します。
 * **--dry-run:**
   実際には何もせず、コマンドを模擬します。
@@ -358,6 +364,9 @@ php composer.phar remove vendor/package vendor/package2
   [COMPOSER_NO_AUDIT](#composer-no-audit)も参照してください。
 * **--audit-format:** 監査の出力形式です。
   "table"、"plain"、"json"、または"summary"（既定）のどれかでなければなりません。
+* **--no-security-blocking:**
+  セキュリティ勧告があったり放棄されたりしているパッケージをインストールできます。
+  [COMPOSER_NO_SECURITY_BLOCKING](#composer-no-security-blocking)も参照。
 * **--update-no-dev:**
   --no-devオプションで依存関係の更新を走らせます。[COMPOSER_NO_DEV](#composer-no-dev)も参照してください。
 * **--update-with-dependencies (-w):**
@@ -906,22 +915,21 @@ php composer.phar config --json extra.foo.bar '{"baz": true, "qux": []}'
 
 ## repository / repo
 
-`repo`コマンドでは、`composer.json`のレポジトリを管理できます。
-`composer config repositories.*`の代わりになるもので、より強力です。
+`repo`コマンドでは`composer.json`のリポジトリを管理できます。
+`composer config repositories.*`を使ってリポジトリの構成を編集するより強力であり、お勧めです。
+使える種別と構成オプションについて、詳しくは[Repositories](05-repositories.md)の文書を参照してください。
 
 ### 使い方
 
 ```shell
-php composer.phar repo list
-php composer.phar repo add foo vcs https://github.com/acme/foo
-php composer.phar repo add bar '{"type":"composer","url":"https://repo.example.org"}'
-php composer.phar repo add baz vcs https://example.org --before foo
-php composer.phar repo add qux vcs https://example.org --after bar
-php composer.phar repo remove foo
-php composer.phar repo set-url foo https://git.example.org/acme/foo
-php composer.phar repo get-url foo
-php composer.phar repo disable packagist.org
-php composer.phar repo enable packagist.org
+repo [オプション] list
+repo [オプション] add [リポジトリ名] [リポジトリ種別] [url]
+repo [オプション] add [リポジトリ名] [jsonのリポジトリの定義]
+repo [オプション] remove [リポジトリ名]
+repo [オプション] set-url [リポジトリ名] [url]
+repo [オプション] get-url [リポジトリ名]
+repo [オプション] enable packagist.org
+repo [オプション] disable packagist.org
 ```
 
 ### オプション
@@ -933,6 +941,22 @@ php composer.phar repo enable packagist.org
 - **--before <名前>:** 新しいリポジトリを既存の `<名前>` という名前のリポジトリの前に挿入します。
 - **--after <名前>:** 新しいリポジトリを既存の `<名前>` というリポジトリの後に挿入します。
   `<名前>` は既存のリポジトリ名に合致しなければなりません。
+
+### 例
+
+```shell
+php composer.phar repo list
+php composer.phar repo add foo vcs https://github.com/acme/foo
+php composer.phar repo add bar composer https://repo.packagist.com/bar
+php composer.phar repo add zips '{"type":"artifact","url":"/path/to/dir/with/zips"}'
+php composer.phar repo add baz vcs https://example.org --before foo
+php composer.phar repo add qux vcs https://example.org --after bar
+php composer.phar repo remove foo
+php composer.phar repo set-url foo https://git.example.org/acme/foo
+php composer.phar repo get-url foo
+php composer.phar repo disable packagist.org
+php composer.phar repo enable packagist.org
+```
 
 ## create-project
 
@@ -994,6 +1018,9 @@ php composer.phar create-project doctrine/orm path "2.2.*"
   [COMPOSER_NO_AUDIT](#composer-no-audit)も参照してください。
 * **--audit-format:** 監査の出力形式です。
   "table"、"plain"、"json"、または"summary"（既定）のどれかでなければなりません。
+* **--no-security-blocking:**
+  セキュリティ勧告があったり放棄されたりしているパッケージをインストールできます。
+  [COMPOSER_NO_SECURITY_BLOCKING](#composer-no-security-blocking)も参照。
 * **--ignore-platform-reqs:**
   全てのプラットフォーム要件（`php`、`hhvm`、`lib-*`、`ext-*`）を無視し、ローカルマシンがたとえこれらを満たしていなくてもインストールを強行します。
   [`platform`](06-config.md#platform)設定オプションも参照してください。
@@ -1053,11 +1080,14 @@ Composerのキャッシュディレクトリから全ての内容を削除しま
 
 ### オプション
 
-* **--locked:** List licenses from the lock file, regardless of what is
-  currently in vendor dir.
-* **--format:** Format of the output: text, json or summary (default:
-  "text").
-* **--no-dev:** Remove dev dependencies from the output.
+* **--locked:**
+  固定ファイルのパッケージを監査します。
+  現時点でベンダーディレクトリに何があるか無関係です。
+* **--format:**
+  出力形式です。
+  text、json、summaryの何れかです（既定では「text」）。
+* **--no-dev:**
+  出力から開発依存関係を除きます。
 
 ## run-script / run
 
@@ -1130,10 +1160,11 @@ php composer.phar audit
 * **--locked:**
   固定ファイルのパッケージを監査します。
   現時点でベンダーディレクトリに何があるかは無視されます。
-* **--abandoned:** Behavior on abandoned packages. Must be "ignore",
-  "report", or "fail".  See also
-  [config.audit.abandoned](06-config.md#abandoned).  Passing this flag will
-  override the config value and the environment variable.
+* **--abandoned:**
+  放棄されたパッケージに対して動作します。
+  「ignore」「report」「fail」のどれかでなければなりません。
+  [config.audit.abandoned](06-config.md#abandoned)もご参照ください。
+  このフラグを渡すと、構成値と環境変数がオーバーライドされます。
 * **--ignore-severity:**
   特定の深刻度の水準の勧告を無視します。
   複数の深刻度を無視するために1回以上渡せます。
@@ -1314,7 +1345,17 @@ parallel.  This defaults to 10 and must be between 1 and 50.
 
 ### COMPOSER_NO_AUDIT
 
-`1`に設定すると、`require`、`update`、`remove`、`create-project`コマンドに`--no-audit`コマンドを渡すことと等価になります。
+`1`に設定すると、`require`、`update`、`remove`、`create-project`コマンドに`--no-audit`オプションを渡すことと等価になります。
+
+### COMPOSER_NO_SECURITY_BLOCKING
+
+`1`に設定すると、`require`、`update`、`remove`、`create-project`コマンドに`--no-security-blocking`オプションを渡すことと等価になります。これにより、セキュリティ勧告があったり放棄されたりしているパッケージをインストールできます。
+
+### COMPOSER_SECURITY_BLOCKING_ABANDONED
+
+`1`に設定すると、依存関係の解決で放棄されたパッケージの阻止を有効にします（`audit.block-abandoned`の構成を`true`に設定することと等価です）。
+`0`に設定すると、放棄されたパッケージの阻止を無効にします。
+なお`COMPOSER_NO_SECURITY_BLOCKING=1`が優先され、放棄されたパッケージの阻止を含めた、全てのセキュリティの阻止を無効に強制します。
 
 ### COMPOSER_NO_DEV
 

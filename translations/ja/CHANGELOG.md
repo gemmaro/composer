@@ -1,42 +1,51 @@
+### [2.9.1] 2025-11-13
+
+  * phpunitのバイナリプロキシでの退行問題を修正 (#12601)
+  * スクリプトハンドラーの自動読み込みの問題を修正 (#12606)
+  * 特定の場合でのCommand::setDescriptionのヌル呼び出しを修正 (#12605)
+  * --prefer-lowerでの構築が時折失敗していた点を修正。
+    既知の脆弱性があるバージョンの絞り込みのためでした (#12603)
+
+### [2.9.0] 2025-11-13
+
+  * --bump-after-updateの小規模な問題をいくつか修正 (#12598)
+  * 様々な文書の修正
+
 ### [2.9.0-RC1] 2025-11-07
 
-  * Bumped `composer-plugin-api` to `2.9.0`
-  * Added automatic blocking of packages with security advisories from
-    updates (#11956)
-  * Added `audit > block-insecure` config setting to control blocking of
-    updates to package versions with known security advisories (defaults to
-    `true`) (#11956)
-  * Added `audit > block-abandoned` config setting to control blocking of
-    updates to abandoned packages (defaults to `false`) (#11956)
-  * Added `audit > ignore-abandoned` config setting to ignore some packages
-    (#12572)
-  * Added `--ignore-unreachable` flag to `audit` command to allow running
-    audit in environments that do not have access to some repos (#12470)
-  * Added `repository` command to add, remove, or update repositories more
-    easily (#12388)
-  * Updated `repositories` structure to contain a name attribute and being
-    stored preferably as list instead of object (#12388)
-  * Added support for `--minimal-changes` full updates where only packages
-    that need changing to satisfy modified constraints are updated (#12349)
-  * Added `update-with-minimal-changes` config setting (and
-    `COMPOSER_MINIMAL_CHANGES` env var) to default to minimal changes
-    (#12545)
-  * Added support for `forgejo` / codeberg.org repositories (#12307)
-  * Added automatic recovery of simple lock file conflicts when running
-    `update` with a file that has a content-hash conflict (#11517)
-  * Added support for HTTP/3 if libcurl supports it (#12363)
-  * Added support for custom header authentication (#12372)
-  * Added support for client TLS certificates (#12406)
-  * Added `--locked` flag to `licenses` command to show data from the lock
-    file instead of installed packages (#12595)
-  * Added `SHELL_VERBOSITY` env var to control verbosity of shell scripts
-    (#12473)
-  * Added support for running `init` without interaction (#12546)
-  * Added `COMPOSER_PREFER_DEV_OVER_PRERELEASE` env var for use in
-    development together with `--prefer-lowest` builds (#12585)
-  * Added support for Windows Sudo to elevate during self-update (#12543)
-  * Improved performance of script handlers by reducing ad-hoc autoloader
-    creation (#12456)
+  * `composer-plugin-api`を`2.9.0`に更新
+  * セキュリティの勧告があるパッケージの更新を自動で阻止するようにしました (#11956)
+  * `audit > block-insecure`構成設定を追加しました。
+    既知のセキュリティ勧告があるパッケージのバージョンに更新することを阻止するための制御をします（既定で`true`です） (#11956)
+  * `audit > block-abandoned`構成設定を追加しました。
+    放棄されたパッケージの更新を阻止する制御をします（既定で`false`です） (#11956)
+  * `audit > ignore-abandoned`構成設定を追加しました。
+    一部のパッケージを無視することができます (#12572)
+  * `audit`コマンドに`--ignore-unreachable`フラグを追加しました。
+    アクセスできないリポジトリがある環境で監査を実行できます (#12470)
+  * `repository`コマンドを追加しました。
+    リポジトリの追加、削除、更新がもっと簡単になります (#12388)
+  * `repositories`構造を更新しました。
+    名前の属性が含まれるようになり、オブジェクトではなくリストとして保管されます (#12388)
+  * `--minimal-changes`の対応を追加しました。
+    変更した制約が更新されていることを満たすよう変える必要があるパッケージだけを完全に更新します (#12349)
+  * `update-with-minimal-changes`構成設定（と`COMPOSER_MINIMAL_CHANGES`環境変数）を追加します。
+    既定を最小の変更にします (#12545)
+  * `forgejo` / codeberg.orgのリポジトリに対応しました (#12307)
+  * 内容ハッシュの競合があるファイルで`update`を実行するとき、単純な固定ファイルが競合してから自動で復旧するようにしました (#11517)
+  * libcurlが対応している場合に、HTTP/3が追加されます (#12363)
+  * 独自のヘッダー認証に対応しました (#12372)
+  * クライアントTLS証明書に対応しました (#12406)
+  * `licenses`コマンドに`--locked`フラグを追加しました。
+    インストールされたパッケージではなく固定ファイルのデータを表示します (#12595)
+  * `SHELL_VERBOSITY`環境変数を追加しました。
+    シェルスクリプトの冗長性を制御します (#12473)
+  * 対話なしで`init`を実行する対応を入れました (#12546)
+  * `COMPOSER_PREFER_DEV_OVER_PRERELEASE`環境変数を追加しました。
+    開発で`--prefer-lowest`での構築と組み合わせて使う用です (#12585)
+  * Windows Sudoに対応しました。
+    self-updateで昇格するようになりました (#12543)
+  * アドホックな自動読込器を作る処理を削減することでスクリプトを扱う処理の効率を改善しました (#12456)
   * Fixed display of dist refs for dev versions when source is missing
     (#12562)
   * Fixed issue not showing abandoned warnings when a package is abandoned
@@ -384,6 +393,8 @@
   * プール最適化の工程を効率良くしました (#11638)。
   * `show -a <パッケージ名>`の効率良くしました (#11659)。
 
+[2.9.1]: https://github.com/composer/composer/compare/2.9.0...2.9.1
+[2.9.0]: https://github.com/composer/composer/compare/2.9.0-RC1...2.9.0
 [2.9.0-RC1]: https://github.com/composer/composer/compare/2.8.12...2.9.0-RC1
 [2.8.12]: https://github.com/composer/composer/compare/2.8.11...2.8.12
 [2.8.11]: https://github.com/composer/composer/compare/2.8.10...2.8.11

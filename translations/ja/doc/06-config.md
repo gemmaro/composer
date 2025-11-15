@@ -152,6 +152,10 @@ Composer 2.6では`report`が既定値であり、Composer 2.7以降では`fail`
 - `report`は、放棄されたパッケージが失敗として報告されるものの、非ゼロコードでコマンドが終了してしまわないようにする意味です。
 - `fail`は、放棄されたパッケージにより監査が非ゼロコードで失敗するようになる意味です。
 
+なお、これは監査にのみ適用されます。
+安全でないパッケージの阻止には適用されません。
+放棄されたパッケージの阻止を構成するには、[`block-abandoned`](#block-abandoned)オプションを参照。
+
 ```json
 {
     "config": {
@@ -200,8 +204,8 @@ Composer
 
 ### ignore-severity
 
-Defaults to `[]`. A list of severity levels that let the audit command pass
-even if there are security advisories with the given severity.
+既定は`[]`です。
+与えられた厳密さのセキュリティ勧告があるときでも監査コマンドを通すようにするセキュリティ水準のリストです。
 
 ```json
 {
@@ -215,9 +219,9 @@ even if there are security advisories with the given severity.
 
 ### ignore-unreachable
 
-Defaults to `false`. Should unreachable repositories be ignored during a
-`composer audit`. This can be helpful if you are running the command in an
-environment from which not all repositories can be accessed.
+既定で`false`です。
+到達できないリポジトリは`composer audit`のときに無視されます。
+全てのリポジトリはアクセスできない環境でコマンドを実行するときに役立つことがあります。
 
 ```json
 {
@@ -231,9 +235,10 @@ environment from which not all repositories can be accessed.
 
 ### block-insecure
 
-Defaults to `true`. If `true`, any package versions affected by security
-advisories cannot be used during a composer update/required/delete command
-unless the security advisories are ignored.
+既定で`true`です。
+`true`のとき、セキュリティ勧告の影響を受けるパッケージのバージョンはcomposer
+update/required/deleteコマンドで使えません。
+`true`でなければセキュリティ勧告は無視されます。
 
 ```json
 {
@@ -247,8 +252,8 @@ unless the security advisories are ignored.
 
 ### block-abandoned
 
-Defaults to `false`. If `true`, any abandoned packages cannot be used during
-a composer update/required/delete command.
+既定で`false`です。
+`true`のとき、任意の放棄されたパッケージがcomposerのupdate/required/deleteコマンドで使えません。
 
 
 ```json
