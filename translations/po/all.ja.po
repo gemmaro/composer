@@ -19,8 +19,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Composer\n"
-"POT-Creation-Date: 2025-11-15 16:34+0900\n"
-"PO-Revision-Date: 2025-11-15 16:51+0900\n"
+"POT-Creation-Date: 2025-11-20 18:48+0900\n"
+"PO-Revision-Date: 2025-11-20 19:56+0900\n"
 "Last-Translator: gemmaro <gemmaro.dev@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -5926,26 +5926,11 @@ msgstr ""
 #. type: Title ###
 #: ../doc/03-cli.md:1310
 #, no-wrap
-msgid "COMPOSER_AUDIT_ABANDONED"
-msgstr "COMPOSER_AUDIT_ABANDONED"
-
-#. type: Plain text
-#: ../doc/03-cli.md:1314
-msgid ""
-"Set to `ignore`, `report` or `fail` to override the [audit.abandoned](06-"
-"config.md#abandoned)  config option."
-msgstr ""
-"`ignore`、`report`、`fail`に設定すると、[audit.abandoned](06-"
-"config.md#abandoned)構成オプションをオーバーライドします。"
-
-#. type: Title ###
-#: ../doc/03-cli.md:1315
-#, no-wrap
 msgid "COMPOSER_MAX_PARALLEL_HTTP"
 msgstr "COMPOSER_MAX_PARALLEL_HTTP"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1321
+#: ../doc/03-cli.md:1316
 msgid ""
 "Set to an integer to configure how many files can be downloaded in parallel. "
 "This defaults to 12 and must be between 1 and 50. If your proxy has issues "
@@ -5958,13 +5943,13 @@ msgstr ""
 "この値を増加させても一般には効率性が上がる結果にはならないでしょう。"
 
 #. type: Title ###
-#: ../doc/03-cli.md:1322
+#: ../doc/03-cli.md:1317
 #, no-wrap
 msgid "COMPOSER_MAX_PARALLEL_PROCESSES"
 msgstr "COMPOSER_MAX_PARALLEL_PROCESSES"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1326
+#: ../doc/03-cli.md:1321
 msgid ""
 "Set to an integer to configure how many processes can be executed in "
 "parallel.  This defaults to 10 and must be between 1 and 50."
@@ -5973,13 +5958,13 @@ msgstr ""
 "parallel.  This defaults to 10 and must be between 1 and 50."
 
 #. type: Title ###
-#: ../doc/03-cli.md:1327
+#: ../doc/03-cli.md:1322
 #, no-wrap
 msgid "COMPOSER_IPRESOLVE"
 msgstr "COMPOSER_IPRESOLVE"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1331
+#: ../doc/03-cli.md:1326
 msgid ""
 "Set to `4` or `6` to force IPv4 or IPv6 DNS resolution. This only works when "
 "the curl extension is used for downloads."
@@ -5988,13 +5973,13 @@ msgstr ""
 "ダウンロード用にcurl拡張が使用されている場合にのみ機能します。"
 
 #. type: Title ###
-#: ../doc/03-cli.md:1332
+#: ../doc/03-cli.md:1327
 #, no-wrap
 msgid "COMPOSER_SELF_UPDATE_TARGET"
 msgstr "COMPOSER_SELF_UPDATE_TARGET"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1335
+#: ../doc/03-cli.md:1330
 msgid ""
 "If set, makes the self-update command write the new Composer phar file into "
 "that path instead of overwriting itself. Useful for updating Composer on a "
@@ -6005,13 +5990,13 @@ msgstr ""
 "ムでComposerを更新するときに便利です。"
 
 #. type: Title ###
-#: ../doc/03-cli.md:1336
+#: ../doc/03-cli.md:1331
 #, no-wrap
 msgid "COMPOSER_DISABLE_NETWORK"
 msgstr "COMPOSER_DISABLE_NETWORK"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1340
+#: ../doc/03-cli.md:1335
 msgid ""
 "If set to `1`, disables network access (best effort). This can be used for "
 "debugging or to run Composer on a plane or a starship with poor connectivity."
@@ -6020,7 +6005,7 @@ msgstr ""
 "はComposerをデバッグしたり貧弱な接続環境下で走らせたりするのに使えます。"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1343
+#: ../doc/03-cli.md:1338
 msgid ""
 "If set to `prime`, GitHub VCS repositories will prime the cache, so it can "
 "then be used fully offline with `1`."
@@ -6029,13 +6014,13 @@ msgstr ""
 "くため、`1`で完全にオフラインで使えるようになります。"
 
 #. type: Title ###
-#: ../doc/03-cli.md:1344
+#: ../doc/03-cli.md:1339
 #, no-wrap
 msgid "COMPOSER_DEBUG_EVENTS"
 msgstr "COMPOSER_DEBUG_EVENTS"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1348
+#: ../doc/03-cli.md:1343
 msgid ""
 "If set to `1`, outputs information about events being dispatched, which can "
 "be useful for plugin authors to identify what is firing when exactly."
@@ -6045,13 +6030,13 @@ msgstr ""
 "ません。"
 
 #. type: Title ###
-#: ../doc/03-cli.md:1349
+#: ../doc/03-cli.md:1344
 #, no-wrap
 msgid "COMPOSER_SKIP_SCRIPTS"
 msgstr "COMPOSER_SKIP_SCRIPTS"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1352
+#: ../doc/03-cli.md:1347
 msgid ""
 "Accepts a comma-seperated list of event names, e.g. `post-install-cmd` for "
 "which scripts execution should be skipped."
@@ -6060,19 +6045,34 @@ msgstr ""
 "例えば、スクリプト実行をスキップするための`post-install-cmd`があります。"
 
 #. type: Title ###
-#: ../doc/03-cli.md:1353
+#: ../doc/03-cli.md:1348
 #, no-wrap
 msgid "COMPOSER_NO_AUDIT"
 msgstr "COMPOSER_NO_AUDIT"
 
 #. type: Plain text
-#: ../doc/03-cli.md:1356
+#: ../doc/03-cli.md:1351
 msgid ""
 "If set to `1`, it is the equivalent of passing the `--no-audit` option to a "
 "`require`, `update`, `remove` or `create-project` command."
 msgstr ""
 "`1`に設定すると、`require`、`update`、`remove`、`create-project`コマンドに`--"
 "no-audit`オプションを渡すことと等価になります。"
+
+#. type: Title ###
+#: ../doc/03-cli.md:1352
+#, no-wrap
+msgid "COMPOSER_AUDIT_ABANDONED"
+msgstr "COMPOSER_AUDIT_ABANDONED"
+
+#. type: Plain text
+#: ../doc/03-cli.md:1356
+msgid ""
+"Set to `ignore`, `report` or `fail` to override the [audit.abandoned](06-"
+"config.md#abandoned)  config option."
+msgstr ""
+"`ignore`、`report`、`fail`に設定すると、[audit.abandoned](06-"
+"config.md#abandoned)構成オプションをオーバーライドします。"
 
 #. type: Title ###
 #: ../doc/03-cli.md:1357
@@ -6085,11 +6085,16 @@ msgstr "COMPOSER_NO_SECURITY_BLOCKING"
 msgid ""
 "If set to `1`, it is the equivalent of passing the `--no-security-blocking` "
 "option to a `require`, `update`, `remove`, or `create-project` command. This "
-"allows installing packages with security advisories or that are abandoned."
+"allows installing packages with security advisories or that are abandoned. "
+"It overrides the config option [audit.block-insecure](06-config.md#block-"
+"insecure)."
 msgstr ""
 "`1`に設定すると、`require`、`update`、`remove`、`create-project`コマンドに`--"
-"no-security-blocking`オプションを渡すことと等価になります。これにより、セキュ"
-"リティ勧告があったり放棄されたりしているパッケージをインストールできます。"
+"no-security-blocking`オプションを渡すことと等価になります。\n"
+"これにより、セキュリティ勧告があったり放棄されたりしているパッケージをインス"
+"トールできます。\n"
+"構成オプション[audit.block-insecure](06-config.md#block-insecure)をオーバーラ"
+"イドします。"
 
 #. type: Title ###
 #: ../doc/03-cli.md:1361
@@ -6102,15 +6107,18 @@ msgstr "COMPOSER_SECURITY_BLOCKING_ABANDONED"
 msgid ""
 "If set to `1`, enables blocking of abandoned packages during dependency "
 "resolution (equivalent to setting `audit.block-abandoned` config to `true`). "
-"If set to `0`, disables blocking of abandoned packages. Note that "
-"`COMPOSER_NO_SECURITY_BLOCKING=1` takes precedence and forces all security "
-"blocking to be disabled, including abandoned package blocking."
+"If set to `0`, disables blocking of abandoned packages. Note that this "
+"setting does not have any effect if security blocking is generally disabled. "
+"It overrides the config option [audit.block-abandoned](06-config.md#block-"
+"abandoned)."
 msgstr ""
-"`1`に設定すると、依存関係の解決で放棄されたパッケージの阻止を有効にします"
-"（`audit.block-abandoned`の構成を`true`に設定することと等価です）。\n"
+"`1`に設定すると、依存関係を解決するとき、放棄されたパッケージの阻止を有効にし"
+"ます（`audit.block-abandoned`の構成を`true`に設定することと等価です）。\n"
 "`0`に設定すると、放棄されたパッケージの阻止を無効にします。\n"
-"なお`COMPOSER_NO_SECURITY_BLOCKING=1`が優先され、放棄されたパッケージの阻止を"
-"含めた、全てのセキュリティの阻止を無効に強制します。"
+"なお、この設定はセキュリティの阻止が全般的に無効になっているときは、効果があ"
+"りません。\n"
+"構成オプション[audit.block-abandoned](06-config.md#block-abandoned)をオーバー"
+"ライドします。"
 
 #. type: Title ###
 #: ../doc/03-cli.md:1365
@@ -7202,7 +7210,7 @@ msgstr ""
 #: ../doc/04-schema.md:639 ../doc/04-schema.md:655 ../doc/04-schema.md:686
 #: ../doc/04-schema.md:714 ../doc/04-schema.md:735 ../doc/04-schema.md:826
 #: ../doc/04-schema.md:945 ../doc/04-schema.md:962 ../doc/06-config.md:14
-#: ../doc/06-config.md:571
+#: ../doc/06-config.md:669
 msgid "Example:"
 msgstr "例："
 
@@ -8749,7 +8757,7 @@ msgstr ""
 
 # プロパティ名なので訳しません。
 #. type: Title ###
-#: ../doc/04-schema.md:976 ../doc/06-config.md:150
+#: ../doc/04-schema.md:976 ../doc/06-config.md:187
 #, no-wrap
 msgid "abandoned"
 msgstr "abandoned"
@@ -11229,27 +11237,45 @@ msgstr ""
 "> 大域構成やパッケージ構成で文字列表記とハッシュ構成を混在させると、文字列表記は`*`パッケージパターンに解釈されます。\n"
 
 #. type: Plain text
-#: ../doc/06-config.md:119
-msgid "Security audit configuration options"
-msgstr "セキュリティ監査の構成オプション"
+#: ../doc/06-config.md:122
+msgid ""
+"Security audit and version blocking configuration options. Audit reports can "
+"be generated with `composer audit` and short format versions are "
+"automatically reported at the end of update or require commands. Version "
+"blocking discards package versions identified as insecure or abandoned, "
+"depending on configuration, before resolving dependencies, ensuring they "
+"cannot be installed."
+msgstr ""
+"セキュリティの監査とバージョンの遮断の構成オプションです。\n"
+"監査の報告は`composer audit`で生成でき、短い形式のものは自動でupdateないし"
+"requireコマンドの末尾で報告されます。\n"
+"バージョンの遮断では、安全でなかったり放棄されたりしているものと確認された"
+"パッケージのバージョンを、構成に応じて、依存関係を解決する前に無視します。\n"
+"これにより、そうしたパッケージがインストールされないようにします。"
 
 #. type: Title ###
-#: ../doc/06-config.md:120
+#: ../doc/06-config.md:123
 #, no-wrap
 msgid "ignore"
 msgstr "ignore"
 
 #. type: Plain text
-#: ../doc/06-config.md:123
+#: ../doc/06-config.md:126
 msgid ""
-"A list of advisory ids, remote ids or CVE ids that are reported but let the "
-"audit command pass."
+"A list of advisory ids, remote ids or CVE ids that are ignored in audit "
+"reports and/or version blocking."
 msgstr ""
 "勧告の識別子、リモートの識別子、CVEの識別子のリストです。\n"
-"報告はされますが監査コマンドは通過させます。"
+"これらは監査の報告やバージョンの遮断からは無視されます。"
+
+#. type: Title ####
+#: ../doc/06-config.md:127 ../doc/06-config.md:220
+#, no-wrap
+msgid "Simple format with reasons:"
+msgstr "理由付きの単純な形式："
 
 #. type: Fenced code block (json)
-#: ../doc/06-config.md:124
+#: ../doc/06-config.md:129
 #, no-wrap
 msgid ""
 "{\n"
@@ -11276,13 +11302,14 @@ msgstr ""
 "    }\n"
 "}\n"
 
-#. type: Plain text
-#: ../doc/06-config.md:139 ../doc/06-config.md:196
-msgid "or"
-msgstr "もしくは以下です。"
+#. type: Title ####
+#: ../doc/06-config.md:143 ../doc/06-config.md:235
+#, no-wrap
+msgid "Simple format without reasons:"
+msgstr "理由のない単純な形式："
 
 #. type: Fenced code block (json)
-#: ../doc/06-config.md:140
+#: ../doc/06-config.md:145
 #, no-wrap
 msgid ""
 "{\n"
@@ -11301,55 +11328,32 @@ msgstr ""
 "    }\n"
 "}\n"
 
-#. type: Plain text
-#: ../doc/06-config.md:153
-msgid ""
-"Defaults to `report` in Composer 2.6, and defaults to `fail` from Composer "
-"2.7 on. Defines whether the audit command reports abandoned packages or not, "
-"this has three possible values:"
-msgstr ""
-"Composer 2.6では`report`が既定値であり、Composer 2.7以降では`fail`が既定値で"
-"す。\n"
-"監査コマンドが放棄されたパッケージを報告するかどうかを定義するもので、3つの値"
-"を取り得ます。"
-
-#. type: Bullet: '- '
-#: ../doc/06-config.md:157
-msgid ""
-"`ignore` means the audit command does not consider abandoned packages at all."
-msgstr ""
-"`ignore`は、監査コマンドが放棄されたパッケージを全く考慮しないという意味で"
-"す。"
-
-#. type: Bullet: '- '
-#: ../doc/06-config.md:157
-msgid ""
-"`report` means abandoned packages are reported as an error but do not cause "
-"the command to exit with a non-zero code."
-msgstr ""
-"`report`は、放棄されたパッケージが失敗として報告されるものの、非ゼロコードで"
-"コマンドが終了してしまわないようにする意味です。"
-
-#. type: Bullet: '- '
-#: ../doc/06-config.md:157
-msgid ""
-"`fail` means abandoned packages will cause audits to fail with a non-zero "
-"code."
-msgstr ""
-"`fail`は、放棄されたパッケージにより監査が非ゼロコードで失敗するようになる意"
-"味です。"
+#. type: Title ####
+#: ../doc/06-config.md:155 ../doc/06-config.md:247 ../doc/06-config.md:291
+#, no-wrap
+msgid "Detailed format with apply scope:"
+msgstr "適用範囲付きの詳細な形式："
 
 #. type: Plain text
 #: ../doc/06-config.md:161
 msgid ""
-"Note, that this only applies to auditing, and not to the blocking of "
-"insecure packages. To configure abandoned packages blocking, see the [`block-"
-"abandoned`](#block-abandoned)  option."
+"The detailed format allows you to control whether an ignore applies to audit "
+"reports only, version blocking only, or both. The `apply` field accepts: - "
+"`audit` - Only ignore for audit reports (advisory doesn't appear in audit "
+"reports, but package is still blocked during updates)  - `block` - Only "
+"ignore for version blocking (package can be used during updates, but "
+"advisory still appears in audit reports)  - `all` - Ignore during audit "
+"reports and version blocking (default behavior)"
 msgstr ""
-"なお、これは監査にのみ適用されます。\n"
-"安全でないパッケージの阻止には適用されません。\n"
-"放棄されたパッケージの阻止を構成するには、[`block-abandoned`](#block-"
-"abandoned)オプションを参照。"
+"詳細な形式では、無視するための構成が、監査の報告だけか、バージョンの遮断のみ"
+"か、あるいはその両方かを制御できるようにします。\n"
+"`apply`フィールドは\n"
+"- `audit` - 監査の報告だけ無視します\n"
+"  （勧告は監査の報告に現れませんが、パッケージは更新するときに遮断されま"
+"す）\n"
+"- `block` - バージョンの遮断のみ無視します\n"
+"  （パッケージは更新中のみ使えますが、勧告は監査の報告に現れます）\n"
+"- `all` - 監査の報告とバージョンの遮断のときに無視されます（既定の動作）"
 
 #. type: Fenced code block (json)
 #: ../doc/06-config.md:162
@@ -11358,6 +11362,104 @@ msgid ""
 "{\n"
 "    \"config\": {\n"
 "        \"audit\": {\n"
+"            \"ignore\": {\n"
+"                \"CVE-1234\": {\n"
+"                    \"apply\": \"audit\",\n"
+"                    \"reason\": \"Not applicable to us, so don't report, but still want to make sure we don't use this version in updates.\"\n"
+"                },\n"
+"                \"GHSA-xx\": {\n"
+"                    \"apply\": \"block\",\n"
+"                    \"reason\": \"Workaround applied, can only fix next week, allow during updates but still report in audits\"\n"
+"                },\n"
+"                \"PKSA-yy\": {\n"
+"                    \"apply\": \"all\",\n"
+"                    \"reason\": \"False report, Ignore completely in all contexts\"\n"
+"                }\n"
+"            }\n"
+"        }\n"
+"    }\n"
+"}\n"
+msgstr ""
+"{\n"
+"    \"config\": {\n"
+"        \"audit\": {\n"
+"            \"ignore\": {\n"
+"                \"CVE-1234\": {\n"
+"                    \"apply\": \"audit\",\n"
+"                    \"reason\": \"Not applicable to us, so don't report, but still want to make sure we don't use this version in updates.\"\n"
+"                },\n"
+"                \"GHSA-xx\": {\n"
+"                    \"apply\": \"block\",\n"
+"                    \"reason\": \"Workaround applied, can only fix next week, allow during updates but still report in audits\"\n"
+"                },\n"
+"                \"PKSA-yy\": {\n"
+"                    \"apply\": \"all\",\n"
+"                    \"reason\": \"False report, Ignore completely in all contexts\"\n"
+"                }\n"
+"            }\n"
+"        }\n"
+"    }\n"
+"}\n"
+
+#. type: Plain text
+#: ../doc/06-config.md:186 ../doc/06-config.md:274 ../doc/06-config.md:316
+msgid "All formats can be mixed together in the same configuration."
+msgstr "これら全ての形式は同じ構成に混ぜて使えます。"
+
+#. type: Plain text
+#: ../doc/06-config.md:190
+msgid ""
+"Defaults to `fail` since Composer 2.7 (defaulted to `report` in Composer 2.6 "
+"that added the option). Defines whether and how audit reports should report "
+"abandoned packages. There are three possible values:"
+msgstr ""
+"Composer 2.7以降、既定で`fail`です（このオプションが追加されたComposer 2.6で"
+"は既定で`report`でした）。\n"
+"監査コマンドが放棄されたパッケージを報告するかどうかを定義するもので、3つの値"
+"を取り得ます。"
+
+#. type: Bullet: '- '
+#: ../doc/06-config.md:194
+msgid "`ignore` means audit reports do not consider abandoned packages at all."
+msgstr "`ignore`では、監査の報告で放棄されたパッケージを全く考慮しません。"
+
+#. type: Bullet: '- '
+#: ../doc/06-config.md:194
+msgid ""
+"`report` means abandoned packages are reported as an error but do not cause "
+"the composer audit command return a non-zero exit code."
+msgstr ""
+"`report`では、放棄されたパッケージが失敗として報告されるものの、composerの監"
+"査コマンドは非ゼロコードで終了しません。"
+
+#. type: Bullet: '- '
+#: ../doc/06-config.md:194
+msgid ""
+"`fail` means abandoned packages will cause the audit command to fail with a "
+"non-zero exit code."
+msgstr ""
+"`fail`では、放棄されたパッケージにより監査コマンドが非ゼロコードで失敗しま"
+"す。"
+
+#. type: Plain text
+#: ../doc/06-config.md:198
+msgid ""
+"Note, that this only applies to audit reports, this setting does not impact "
+"the blocking of insecure package versions. To configure blocking of "
+"abandoned packages, see the [`block-abandoned`](#block-abandoned)  option."
+msgstr ""
+"なお、これは監査の報告にのみ適用されます。\n"
+"この設定は安全でないパッケージの阻止には効果がありません。\n"
+"放棄されたパッケージの阻止を構成するには、[`block-abandoned`](#block-"
+"abandoned)オプションを参照。"
+
+#. type: Fenced code block (json)
+#: ../doc/06-config.md:199
+#, no-wrap
+msgid ""
+"{\n"
+"    \"config\": {\n"
+"        \"audit\": {\n"
 "            \"abandoned\": \"report\"\n"
 "        }\n"
 "    }\n"
@@ -11372,7 +11474,7 @@ msgstr ""
 "}\n"
 
 #. type: Plain text
-#: ../doc/06-config.md:173
+#: ../doc/06-config.md:210
 msgid ""
 "Since Composer 2.7, the option can be overridden via the "
 "[`COMPOSER_AUDIT_ABANDONED`](03-cli.md#composer-audit-abandoned) environment "
@@ -11382,7 +11484,7 @@ msgstr ""
 "abandoned)環境変数を介して、オプションをオーバーライドできます。"
 
 #. type: Plain text
-#: ../doc/06-config.md:177
+#: ../doc/06-config.md:214
 msgid ""
 "Since Composer 2.8, the option can be overridden via the [`--abandoned`](03-"
 "cli.md#audit) command line option, which overrides both the config value and "
@@ -11394,30 +11496,32 @@ msgstr ""
 
 # プロパティ名なので訳しません。
 #. type: Title ###
-#: ../doc/06-config.md:178
+#: ../doc/06-config.md:215
 #, no-wrap
 msgid "ignore-abandoned"
 msgstr "ignore-abandoned"
 
 #. type: Plain text
-#: ../doc/06-config.md:181
+#: ../doc/06-config.md:219
 msgid ""
-"A list of abandoned package names that are reported but let the audit "
-"command pass."
+"A list of abandoned package names that are ignored for audit reports and/or "
+"version blocking. Allows you to select packages that you want to keep using "
+"despite their abandoned state."
 msgstr ""
-"放棄されたパッケージ名のリストは、報告されますが、auditコマンドは合格になりま"
-"す。"
+"放棄されたパッケージ名のリストで、監査の報告やバージョンの遮断で無視されま"
+"す。\n"
+"放棄された状態であっても使い続けたいパッケージを選ぶことができます。"
 
 #. type: Fenced code block (json)
-#: ../doc/06-config.md:182
+#: ../doc/06-config.md:222
 #, no-wrap
 msgid ""
 "{\n"
 "    \"config\": {\n"
 "        \"audit\": {\n"
 "            \"ignore-abandoned\": {\n"
-"                \"acme/*\": \"Work schedule for removal next month.\",\n"
-"                \"acme/package\": \"The package is not in use\"\n"
+"                \"acme/*\": \"Work scheduled for removal next month.\",\n"
+"                \"acme/package\": \"Transitive dependency but unreachable and not in active use within our project context.\"\n"
 "            }\n"
 "        }\n"
 "    }\n"
@@ -11427,15 +11531,15 @@ msgstr ""
 "    \"config\": {\n"
 "        \"audit\": {\n"
 "            \"ignore-abandoned\": {\n"
-"                \"acme/*\": \"Work schedule for removal next month.\",\n"
-"                \"acme/package\": \"The package is not in use\"\n"
+"                \"acme/*\": \"Work scheduled for removal next month.\",\n"
+"                \"acme/package\": \"Transitive dependency but unreachable and not in active use within our project context.\"\n"
 "            }\n"
 "        }\n"
 "    }\n"
 "}\n"
 
 #. type: Fenced code block (json)
-#: ../doc/06-config.md:197
+#: ../doc/06-config.md:237
 #, no-wrap
 msgid ""
 "{\n"
@@ -11450,34 +11554,101 @@ msgstr ""
 "    \"config\": {\n"
 "        \"audit\": {\n"
 "            \"ignore-abandoned\": [\"acme/*\", \"acme/package\"]\n"
+"        }\n"
+"    }\n"
+"}\n"
+
+#. type: Plain text
+#: ../doc/06-config.md:253
+msgid ""
+"The detailed format allows you to control whether an ignore applies to audit "
+"reports only, version blocking only, or both. The `apply` field accepts: - "
+"`audit` - Only ignore for audit reports (package doesn't appear in audit "
+"reports, but is still blocked during updates if [`block-abandoned`](#block-"
+"abandoned) is enabled)  - `block` - Only ignore for version blocking "
+"(package can be used during updates even if [`block-abandoned`](#block-"
+"abandoned) is enabled, but still appears in audit reports)  - `all` - Ignore "
+"for audit reports and version blocking (default behavior)"
+msgstr ""
+"詳細な形式では、無視する設定が、監査の報告のみか、バージョンの遮断のみか、あ"
+"るいはその両方に適用されるかを制御できます。\n"
+"`apply`フィールドは以下を受け付けます。\n"
+"- `audit` - 監査の報告のみ無視します\n"
+"  （パッケージは監査の報告に現れませんが、[`block-abandoned`](#block-"
+"abandoned)が有効のときは更新のときに遮断されます）\n"
+"- `block` - バージョンの遮断のみ無視します\n"
+"  （[`block-abandoned`](#block-abandoned)が有効でもパッケージは更新のときに使"
+"えます。\n"
+"  ただし監査の報告には現れます）\n"
+"- `all` - 監査の報告とバージョンの遮断を無視します（既定の動作）"
+
+#. type: Fenced code block (json)
+#: ../doc/06-config.md:254
+#, no-wrap
+msgid ""
+"{\n"
+"    \"config\": {\n"
+"        \"audit\": {\n"
+"            \"ignore-abandoned\": {\n"
+"                \"acme/package\": {\n"
+"                    \"apply\": \"block\",\n"
+"                    \"reason\": \"Allow during updates but still report as abandoned\"\n"
+"                },\n"
+"                \"vendor/*\": {\n"
+"                    \"apply\": \"all\",\n"
+"                    \"reason\": \"We maintain these packages internally\"\n"
+"                }\n"
+"            }\n"
+"        }\n"
+"    }\n"
+"}\n"
+msgstr ""
+"{\n"
+"    \"config\": {\n"
+"        \"audit\": {\n"
+"            \"ignore-abandoned\": {\n"
+"                \"acme/package\": {\n"
+"                    \"apply\": \"block\",\n"
+"                    \"reason\": \"Allow during updates but still report as abandoned\"\n"
+"                },\n"
+"                \"vendor/*\": {\n"
+"                    \"apply\": \"all\",\n"
+"                    \"reason\": \"We maintain these packages internally\"\n"
+"                }\n"
+"            }\n"
 "        }\n"
 "    }\n"
 "}\n"
 
 #. type: Title ###
-#: ../doc/06-config.md:207
+#: ../doc/06-config.md:275
 #, no-wrap
 msgid "ignore-severity"
 msgstr "ignore-severity"
 
 #. type: Plain text
-#: ../doc/06-config.md:211
+#: ../doc/06-config.md:278
 msgid ""
-"Defaults to `[]`. A list of severity levels that let the audit command pass "
-"even if there are security advisories with the given severity."
+"Defaults to `[]`. A list of severity levels that are ignored for audit "
+"reports and/or version blocking."
 msgstr ""
 "既定は`[]`です。\n"
-"与えられた厳密さのセキュリティ勧告があるときでも監査コマンドを通すようにする"
-"セキュリティ水準のリストです。"
+"監査の報告やバージョンの遮断で無視されるセキュリティ水準のリストです。"
+
+#. type: Title ####
+#: ../doc/06-config.md:279
+#, no-wrap
+msgid "Simple format:"
+msgstr "単純な形式："
 
 #. type: Fenced code block (json)
-#: ../doc/06-config.md:212
+#: ../doc/06-config.md:281
 #, no-wrap
 msgid ""
 "{\n"
 "    \"config\": {\n"
 "        \"audit\": {\n"
-"            \"ignore-severity\": [\"low\"]\n"
+"            \"ignore-severity\": [\"low\", \"medium\"]\n"
 "        }\n"
 "    }\n"
 "}\n"
@@ -11485,31 +11656,91 @@ msgstr ""
 "{\n"
 "    \"config\": {\n"
 "        \"audit\": {\n"
-"            \"ignore-severity\": [\"low\"]\n"
+"            \"ignore-severity\": [\"low\", \"medium\"]\n"
+"        }\n"
+"    }\n"
+"}\n"
+
+#. type: Plain text
+#: ../doc/06-config.md:297
+msgid ""
+"The detailed format allows you to control whether an ignore applies to audit "
+"reports only, version blocking only, or both. The `apply` field accepts: - "
+"`audit` - Only ignore for audit reports (advisories with this severity don't "
+"appear in audit reports, but packages are still blocked during updates)  - "
+"`block` - Only ignore for version blocking (packages can be used during "
+"updates, but advisories with this severity still appear in audit reports)  - "
+"`all` - Ignore during both auditing and blocking (default behavior)"
+msgstr ""
+"詳細な形式では、無視する構成が、監査の報告のみか、バージョンの遮断のみか、あ"
+"るいはその両方に適用されるかを制御できます。\n"
+"`apply`フィールドは以下を受け付けます。\n"
+"- `audit` - 監査の報告のみ無視します\n"
+"  （この厳密さの勧告は監査の報告に現れませんが、パッケージは更新のとき遮断さ"
+"れます）\n"
+"- `block` - バージョンの遮断のみ無視します\n"
+"  （パッケージは更新のときは使えますが、この厳密さの勧告は監査の報告で現れま"
+"す）\n"
+"- `all` - 監査と遮断の両方で無視されます（既定の動作）"
+
+#. type: Fenced code block (json)
+#: ../doc/06-config.md:298
+#, no-wrap
+msgid ""
+"{\n"
+"    \"config\": {\n"
+"        \"audit\": {\n"
+"            \"ignore-severity\": {\n"
+"                \"low\": {\n"
+"                    \"apply\": \"all\"\n"
+"                },\n"
+"                \"medium\": {\n"
+"                    \"apply\": \"block\"\n"
+"                }\n"
+"            }\n"
+"        }\n"
+"    }\n"
+"}\n"
+msgstr ""
+"{\n"
+"    \"config\": {\n"
+"        \"audit\": {\n"
+"            \"ignore-severity\": {\n"
+"                \"low\": {\n"
+"                    \"apply\": \"all\"\n"
+"                },\n"
+"                \"medium\": {\n"
+"                    \"apply\": \"block\"\n"
+"                }\n"
+"            }\n"
 "        }\n"
 "    }\n"
 "}\n"
 
 #. type: Title ###
-#: ../doc/06-config.md:222
+#: ../doc/06-config.md:317
 #, no-wrap
 msgid "ignore-unreachable"
 msgstr "ignore-unreachable"
 
 #. type: Plain text
-#: ../doc/06-config.md:226
+#: ../doc/06-config.md:322
 msgid ""
 "Defaults to `false`. Should unreachable repositories be ignored during a "
 "`composer audit`. This can be helpful if you are running the command in an "
-"environment from which not all repositories can be accessed."
+"environment from which not all repositories can be accessed. This setting "
+"does not apply to version blocking or audit reports generated in other "
+"places than the `compoder audit` command."
 msgstr ""
 "既定で`false`です。\n"
 "到達できないリポジトリは`composer audit`のときに無視されます。\n"
 "全てのリポジトリはアクセスできない環境でコマンドを実行するときに役立つことが"
-"あります。"
+"あります。\n"
+"この設定は`composer audit`コマンド以外のところで生成されたバージョンの遮断や"
+"監査の報告には適用されません。"
 
 #. type: Fenced code block (json)
-#: ../doc/06-config.md:227
+#: ../doc/06-config.md:323
 #, no-wrap
 msgid ""
 "{\n"
@@ -11529,25 +11760,29 @@ msgstr ""
 "}\n"
 
 #. type: Title ###
-#: ../doc/06-config.md:237
+#: ../doc/06-config.md:333
 #, no-wrap
 msgid "block-insecure"
 msgstr "block-insecure"
 
 #. type: Plain text
-#: ../doc/06-config.md:241
+#: ../doc/06-config.md:338
 msgid ""
 "Defaults to `true`. If `true`, any package versions affected by security "
-"advisories cannot be used during a composer update/required/delete command "
-"unless the security advisories are ignored."
+"advisories will be blocked and cannot be used during a composer update/"
+"require/delete commands, unless the security advisories are ignored. If "
+"[`block-abandoned`](#block-abandoned) is enabled, version blocking will also "
+"prevent use of abandoned packages."
 msgstr ""
 "既定で`true`です。\n"
-"`true`のとき、セキュリティ勧告の影響を受けるパッケージのバージョンはcomposer "
-"update/required/deleteコマンドで使えません。\n"
-"`true`でなければセキュリティ勧告は無視されます。"
+"`true`のとき、セキュリティ勧告が無視されていなければ、セキュリティ勧告の影響"
+"を受けるパッケージのバージョンは遮断され、composer update/require/deleteコマ"
+"ンドで使えません。\n"
+"[`block-abandoned`](#block-abandoned)が有効であれば、バージョンの遮断では、放"
+"棄されたパッケージの使用も防ぎます。"
 
 #. type: Fenced code block (json)
-#: ../doc/06-config.md:242
+#: ../doc/06-config.md:339
 #, no-wrap
 msgid ""
 "{\n"
@@ -11568,23 +11803,26 @@ msgstr ""
 
 # プロパティ名なので訳しません。
 #. type: Title ###
-#: ../doc/06-config.md:252
+#: ../doc/06-config.md:349
 #, no-wrap
 msgid "block-abandoned"
 msgstr "block-abandoned"
 
 #. type: Plain text
-#: ../doc/06-config.md:255
+#: ../doc/06-config.md:353
 msgid ""
 "Defaults to `false`. If `true`, any abandoned packages cannot be used during "
-"a composer update/required/delete command."
+"a composer update/required/delete command. Only applies if version blocking "
+"is not disabled by setting [`block-insecure`](#block-insecure) to false."
 msgstr ""
 "既定で`false`です。\n"
-"`true`のとき、任意の放棄されたパッケージがcomposerのupdate/required/deleteコ"
-"マンドで使えません。"
+"`true`のとき、放棄されたパッケージはcomposerのupdate/required/deleteコマンド"
+"で使えません。\n"
+"[`block-insecure`](#block-insecure)が偽に設定されてバージョンの遮断が無効に"
+"なっていないときにのみ適用されます。"
 
 #. type: Fenced code block (json)
-#: ../doc/06-config.md:257
+#: ../doc/06-config.md:355
 #, no-wrap
 msgid ""
 "{\n"
@@ -11604,13 +11842,13 @@ msgstr ""
 "}\n"
 
 #. type: Title ##
-#: ../doc/06-config.md:267
+#: ../doc/06-config.md:365
 #, no-wrap
 msgid "use-parent-dir"
 msgstr "use-parent-dir"
 
 #. type: Plain text
-#: ../doc/06-config.md:272
+#: ../doc/06-config.md:370
 msgid ""
 "When running Composer in a directory where there is no composer.json, if "
 "there is one present in a directory above Composer will by default ask you "
@@ -11621,7 +11859,7 @@ msgstr ""
 "を代わりに使用するかどうかを尋ねます。"
 
 #. type: Plain text
-#: ../doc/06-config.md:275
+#: ../doc/06-config.md:373
 msgid ""
 "If you always want to answer yes to this prompt, you can set this config "
 "value to `true`. To never be prompted, set it to `false`. The default is "
@@ -11633,7 +11871,7 @@ msgstr ""
 "既定は`\"prompt\"`です。"
 
 #. type: Plain text
-#: ../doc/06-config.md:279
+#: ../doc/06-config.md:377
 #, no-wrap
 msgid ""
 "> **Note:** This config must be set in your global user-wide config for it\n"
@@ -11644,13 +11882,13 @@ msgstr ""
 "> 例えば`php composer.phar config --global use-parent-dir true`を使用して設定します。\n"
 
 #. type: Title ##
-#: ../doc/06-config.md:280
+#: ../doc/06-config.md:378
 #, no-wrap
 msgid "store-auths"
 msgstr "store-auths"
 
 #. type: Plain text
-#: ../doc/06-config.md:284
+#: ../doc/06-config.md:382
 msgid ""
 "What to do after prompting for authentication, one of: `true` (always "
 "store), `false` (do not store) and `\"prompt\"` (ask every time), defaults "
@@ -11661,13 +11899,13 @@ msgstr ""
 "何れか1つで、既定では`\"prompt\"`です。"
 
 #. type: Title ##
-#: ../doc/06-config.md:285
+#: ../doc/06-config.md:383
 #, no-wrap
 msgid "github-protocols"
 msgstr "github-protocols"
 
 #. type: Plain text
-#: ../doc/06-config.md:293
+#: ../doc/06-config.md:391
 msgid ""
 "Defaults to `[\"https\", \"ssh\", \"git\"]`. A list of protocols to use when "
 "cloning from github.com, in priority order. By default `git` is present but "
@@ -11686,13 +11924,13 @@ msgstr ""
 "URLをSSHのURLに上書きすることを取り止めます。"
 
 #. type: Title ##
-#: ../doc/06-config.md:294
+#: ../doc/06-config.md:392
 #, no-wrap
 msgid "github-oauth"
 msgstr "github-oauth"
 
 #. type: Plain text
-#: ../doc/06-config.md:302
+#: ../doc/06-config.md:400
 msgid ""
 "A list of domain names and oauth keys. For example using `{\"github.com\": "
 "\"oauthtoken\"}` as the value of this option will use `oauthtoken` to access "
@@ -11713,13 +11951,13 @@ msgstr ""
 "さい。"
 
 #. type: Title ##
-#: ../doc/06-config.md:303
+#: ../doc/06-config.md:401
 #, no-wrap
 msgid "gitlab-domains"
 msgstr "gitlab-domains"
 
 #. type: Plain text
-#: ../doc/06-config.md:307
+#: ../doc/06-config.md:405
 msgid ""
 "Defaults to `[\"gitlab.com\"]`. A list of domains of GitLab servers.  This "
 "is used if you use the `gitlab` repository type."
@@ -11729,13 +11967,13 @@ msgstr ""
 "`gitlab`リポジトリ種別を使う場合に使用されます。"
 
 #. type: Title ##
-#: ../doc/06-config.md:308
+#: ../doc/06-config.md:406
 #, no-wrap
 msgid "gitlab-oauth"
 msgstr "gitlab-oauth"
 
 #. type: Plain text
-#: ../doc/06-config.md:316
+#: ../doc/06-config.md:414
 msgid ""
 "A list of domain names and oauth keys. For example using `{\"gitlab.com\": "
 "\"oauthtoken\"}` as the value of this option will use `oauthtoken` to access "
@@ -11753,13 +11991,13 @@ msgstr ""
 "oauth)にもあります。"
 
 #. type: Title ##
-#: ../doc/06-config.md:317
+#: ../doc/06-config.md:415
 #, no-wrap
 msgid "gitlab-token"
 msgstr "gitlab-token"
 
 #. type: Plain text
-#: ../doc/06-config.md:330
+#: ../doc/06-config.md:428
 #, no-wrap
 msgid ""
 "A list of domain names and private tokens. Private token can be either simple\n"
@@ -11783,13 +12021,13 @@ msgstr ""
 "詳細情報は[こちら](articles/authentication-for-private-packages.md#gitlab-token)にもあります。\n"
 
 #. type: Title ##
-#: ../doc/06-config.md:331
+#: ../doc/06-config.md:429
 #, no-wrap
 msgid "gitlab-protocol"
 msgstr "gitlab-protocol"
 
 #. type: Plain text
-#: ../doc/06-config.md:340
+#: ../doc/06-config.md:438
 msgid ""
 "A protocol to force use of when creating a repository URL for the `source` "
 "value of the package metadata. One of `git` or `http`. (`https` is treated "
@@ -11811,13 +12049,13 @@ msgstr ""
 "ポジトリについてはHTTP(S)のみを生成します。"
 
 #. type: Title ##
-#: ../doc/06-config.md:341
+#: ../doc/06-config.md:439
 #, no-wrap
 msgid "forgejo-domains"
 msgstr "forgejo-domains"
 
 #. type: Plain text
-#: ../doc/06-config.md:345
+#: ../doc/06-config.md:443
 msgid ""
 "Defaults to `[\"codeberg.org\"]`. A list of domains of Forgejo servers.  "
 "This is used if you use the `forgejo` repository type."
@@ -11827,13 +12065,13 @@ msgstr ""
 "`forgejo`リポジトリ種別を使う場合に使用されます。"
 
 #. type: Title ##
-#: ../doc/06-config.md:346
+#: ../doc/06-config.md:444
 #, no-wrap
 msgid "forgejo-token"
 msgstr "forgejo-token"
 
 #. type: Plain text
-#: ../doc/06-config.md:355
+#: ../doc/06-config.md:453
 msgid ""
 "A list of domain names and username/access-tokens to authenticate against "
 "them. For example using `{\"codeberg.org\": {\"username\": \"forgejo-user\", "
@@ -11856,13 +12094,13 @@ msgstr ""
 "token)にもあります。"
 
 #. type: Title ##
-#: ../doc/06-config.md:357
+#: ../doc/06-config.md:455
 #, no-wrap
 msgid "disable-tls"
 msgstr "disable-tls"
 
 #. type: Plain text
-#: ../doc/06-config.md:364
+#: ../doc/06-config.md:462
 msgid ""
 "Defaults to `false`. If set to true all HTTPS URLs will be tried with HTTP "
 "instead and no network level encryption is performed. Enabling this is a "
@@ -11878,13 +12116,13 @@ msgstr ""
 "これを有効にすると、`secure-http`オプションが暗黙に無効になります。"
 
 #. type: Title ##
-#: ../doc/06-config.md:365
+#: ../doc/06-config.md:463
 #, no-wrap
 msgid "secure-http"
 msgstr "secure-http"
 
 #. type: Plain text
-#: ../doc/06-config.md:371
+#: ../doc/06-config.md:469
 msgid ""
 "Defaults to `true`. If set to true only HTTPS URLs are allowed to be "
 "downloaded via Composer. If you really absolutely need HTTP access to "
@@ -11900,13 +12138,13 @@ msgstr ""
 "り良い代替手段です。"
 
 #. type: Title ##
-#: ../doc/06-config.md:372
+#: ../doc/06-config.md:470
 #, no-wrap
 msgid "bitbucket-oauth"
 msgstr "bitbucket-oauth"
 
 #. type: Plain text
-#: ../doc/06-config.md:377
+#: ../doc/06-config.md:475
 msgid ""
 "A list of domain names and consumers. For example using `{\"bitbucket.org\": "
 "{\"consumer-key\": \"myKey\", \"consumer-secret\": \"mySecret\"}}`.  Read "
@@ -11919,13 +12157,13 @@ msgstr ""
 "packages.md#bitbucket-oauth)を読んでください。"
 
 #. type: Title ##
-#: ../doc/06-config.md:378
+#: ../doc/06-config.md:476
 #, no-wrap
 msgid "cafile"
 msgstr "cafile"
 
 #. type: Plain text
-#: ../doc/06-config.md:383
+#: ../doc/06-config.md:481
 msgid ""
 "Location of Certificate Authority file on local filesystem. In PHP 5.6+ you "
 "should rather set this via openssl.cafile in php.ini, although PHP 5.6+ "
@@ -11936,13 +12174,13 @@ msgstr ""
 "php.iniのopenssl.cafileを介してこれを設定すべきです。"
 
 #. type: Title ##
-#: ../doc/06-config.md:384
+#: ../doc/06-config.md:482
 #, no-wrap
 msgid "capath"
 msgstr "capath"
 
 #. type: Plain text
-#: ../doc/06-config.md:389
+#: ../doc/06-config.md:487
 msgid ""
 "If cafile is not specified or if the certificate is not found there, the "
 "directory pointed to by capath is searched for a suitable certificate.  "
@@ -11953,13 +12191,13 @@ msgstr ""
 "capathは正しくハッシュされた証明書ディレクトリでなければなりません。"
 
 #. type: Title ##
-#: ../doc/06-config.md:390
+#: ../doc/06-config.md:488
 #, no-wrap
 msgid "http-basic"
 msgstr "http-basic"
 
 #. type: Plain text
-#: ../doc/06-config.md:396
+#: ../doc/06-config.md:494
 msgid ""
 "A list of domain names and username/passwords to authenticate against them. "
 "For example using `{\"example.org\": {\"username\": \"alice\", \"password\": "
@@ -11975,13 +12213,13 @@ msgstr ""
 "packages.md#http-basic)を参照してください。"
 
 #. type: Title ##
-#: ../doc/06-config.md:397
+#: ../doc/06-config.md:495
 #, no-wrap
 msgid "bearer"
 msgstr "bearer"
 
 #. type: Plain text
-#: ../doc/06-config.md:402
+#: ../doc/06-config.md:500
 msgid ""
 "A list of domain names and tokens to authenticate against them. For example "
 "using `{\"example.org\": \"foo\"}` as the value of this option will let "
@@ -11994,13 +12232,13 @@ msgstr ""
 "認証を行うことができます。"
 
 #. type: Title ##
-#: ../doc/06-config.md:403
+#: ../doc/06-config.md:501
 #, no-wrap
 msgid "platform"
 msgstr "platform"
 
 #. type: Plain text
-#: ../doc/06-config.md:408
+#: ../doc/06-config.md:506
 msgid ""
 "Lets you fake platform packages (PHP and extensions) so that you can emulate "
 "a production env or define your target platform in the config. Example: "
@@ -12011,7 +12249,7 @@ msgstr ""
 "例えば`{\"php\": \"7.0.3\", \"ext-something\": \"4.0.3\"}`です。"
 
 #. type: Plain text
-#: ../doc/06-config.md:414
+#: ../doc/06-config.md:512
 msgid ""
 "This will make sure that no package requiring more than PHP 7.0.3 can be "
 "installed regardless of the actual PHP version you run locally. However it "
@@ -12029,7 +12267,7 @@ msgstr ""
 "`7.4.1`を最小のバージョンとして定義するパッケージは使用されません。"
 
 #. type: Plain text
-#: ../doc/06-config.md:418
+#: ../doc/06-config.md:516
 msgid ""
 "Therefore if you use this it is recommended, and safer, to also run the "
 "[`check-platform-reqs`](03-cli.md#check-platform-reqs) command as part of "
@@ -12040,7 +12278,7 @@ msgstr ""
 "より安全です。"
 
 #. type: Plain text
-#: ../doc/06-config.md:424
+#: ../doc/06-config.md:522
 msgid ""
 "If a dependency requires some extension that you do not have installed "
 "locally you may ignore it instead by passing `--ignore-platform-req=ext-foo` "
@@ -12057,7 +12295,7 @@ msgstr ""
 "発生する可能性があります。"
 
 #. type: Plain text
-#: ../doc/06-config.md:427
+#: ../doc/06-config.md:525
 msgid ""
 "If you have an extension installed locally but *not* on production, you may "
 "want to artificially hide it from Composer using `{\"ext-foo\": false}`."
@@ -12066,13 +12304,13 @@ msgstr ""
 "`{\"ext-foo\": false}`を使ってComposerから意図的に隠すこともできます。"
 
 #. type: Title ##
-#: ../doc/06-config.md:428
+#: ../doc/06-config.md:526
 #, no-wrap
 msgid "vendor-dir"
 msgstr "vendor-dir"
 
 #. type: Plain text
-#: ../doc/06-config.md:433
+#: ../doc/06-config.md:531
 msgid ""
 "Defaults to `vendor`. You can install dependencies into a different "
 "directory if you want to. `$HOME` and `~` will be replaced by your home "
@@ -12084,13 +12322,13 @@ msgstr ""
 "トリに置換されます。"
 
 #. type: Title ##
-#: ../doc/06-config.md:434
+#: ../doc/06-config.md:532
 #, no-wrap
 msgid "bin-dir"
 msgstr "bin-dir"
 
 #. type: Plain text
-#: ../doc/06-config.md:438
+#: ../doc/06-config.md:536
 msgid ""
 "Defaults to `vendor/bin`. If a project includes binaries, they will be "
 "symlinked into this directory."
@@ -12100,13 +12338,13 @@ msgstr ""
 "リックリンクが張られます。"
 
 #. type: Title ##
-#: ../doc/06-config.md:439
+#: ../doc/06-config.md:537
 #, no-wrap
 msgid "data-dir"
 msgstr "data-dir"
 
 #. type: Plain text
-#: ../doc/06-config.md:446
+#: ../doc/06-config.md:544
 #, no-wrap
 msgid ""
 "Defaults to `C:\\Users\\<user>\\AppData\\Roaming\\Composer` on Windows,\n"
@@ -12120,13 +12358,13 @@ msgstr ""
 "[COMPOSER_HOME](03-cli.md#composer-home)も参照してください。\n"
 
 #. type: Title ##
-#: ../doc/06-config.md:447
+#: ../doc/06-config.md:545
 #, no-wrap
 msgid "cache-dir"
 msgstr "cache-dir"
 
 #. type: Plain text
-#: ../doc/06-config.md:454
+#: ../doc/06-config.md:552
 #, no-wrap
 msgid ""
 "Defaults to `C:\\Users\\<user>\\AppData\\Local\\Composer` on Windows,\n"
@@ -12140,26 +12378,26 @@ msgstr ""
 "[COMPOSER_HOME](03-cli.md#composer-home)も参照してください。\n"
 
 #. type: Title ##
-#: ../doc/06-config.md:455
+#: ../doc/06-config.md:553
 #, no-wrap
 msgid "cache-files-dir"
 msgstr "cache-files-dir"
 
 #. type: Plain text
-#: ../doc/06-config.md:458
+#: ../doc/06-config.md:556
 msgid "Defaults to `$cache-dir/files`. Stores the zip archives of packages."
 msgstr ""
 "既定では`$cache-dir/files`です。\n"
 "パッケージのzipアーカイブを保管します。"
 
 #. type: Title ##
-#: ../doc/06-config.md:459
+#: ../doc/06-config.md:557
 #, no-wrap
 msgid "cache-repo-dir"
 msgstr "cache-repo-dir"
 
 #. type: Plain text
-#: ../doc/06-config.md:463
+#: ../doc/06-config.md:561
 msgid ""
 "Defaults to `$cache-dir/repo`. Stores repository metadata for the `composer` "
 "type and the VCS repos of type `svn`, `fossil`, `github` and `bitbucket`."
@@ -12169,13 +12407,13 @@ msgstr ""
 "`gitbucket`の種別のVCSリポジトリを保管します。"
 
 #. type: Title ##
-#: ../doc/06-config.md:464
+#: ../doc/06-config.md:562
 #, no-wrap
 msgid "cache-vcs-dir"
 msgstr "cache-vcs-dir"
 
 #. type: Plain text
-#: ../doc/06-config.md:468
+#: ../doc/06-config.md:566
 msgid ""
 "Defaults to `$cache-dir/vcs`. Stores VCS clones for loading VCS repository "
 "metadata for the `git`/`hg` types and to speed up installs."
@@ -12185,13 +12423,13 @@ msgstr ""
 "管し、インストールを高速にします。"
 
 #. type: Title ##
-#: ../doc/06-config.md:469
+#: ../doc/06-config.md:567
 #, no-wrap
 msgid "cache-files-ttl"
 msgstr "cache-files-ttl"
 
 #. type: Plain text
-#: ../doc/06-config.md:475
+#: ../doc/06-config.md:573
 msgid ""
 "Defaults to `15552000` (6 months). Composer caches all dist (zip, tar, ...)  "
 "packages that it downloads. Those are purged after six months of being "
@@ -12205,13 +12443,13 @@ msgstr ""
 "できるようにするものです。"
 
 #. type: Title ##
-#: ../doc/06-config.md:476
+#: ../doc/06-config.md:574
 #, no-wrap
 msgid "cache-files-maxsize"
 msgstr "cache-files-maxsize"
 
 #. type: Plain text
-#: ../doc/06-config.md:482
+#: ../doc/06-config.md:580
 msgid ""
 "Defaults to `300MiB`. Composer caches all dist (zip, tar, ...) packages that "
 "it downloads. When the garbage collection is periodically ran, this is the "
@@ -12227,13 +12465,13 @@ msgstr ""
 "されます。"
 
 #. type: Title ##
-#: ../doc/06-config.md:483
+#: ../doc/06-config.md:581
 #, no-wrap
 msgid "cache-read-only"
 msgstr "cache-read-only"
 
 #. type: Plain text
-#: ../doc/06-config.md:486
+#: ../doc/06-config.md:584
 msgid ""
 "Defaults to `false`. Whether to use the Composer cache in read-only mode."
 msgstr ""
@@ -12241,13 +12479,13 @@ msgstr ""
 "Composerのキャッシュを読取専用モードで使うかどうかを決めます。"
 
 #. type: Title ##
-#: ../doc/06-config.md:487
+#: ../doc/06-config.md:585
 #, no-wrap
 msgid "bin-compat"
 msgstr "bin-compat"
 
 #. type: Plain text
-#: ../doc/06-config.md:496
+#: ../doc/06-config.md:594
 msgid ""
 "Defaults to `auto`. Determines the compatibility of the binaries to be "
 "installed.  If it is `auto` then Composer only installs .bat proxy files "
@@ -12270,13 +12508,13 @@ msgstr ""
 "し、WindowsないしWSLでも.batファイルを作成しません。"
 
 #. type: Title ##
-#: ../doc/06-config.md:497
+#: ../doc/06-config.md:595
 #, no-wrap
 msgid "prepend-autoloader"
 msgstr "prepend-autoloader"
 
 #. type: Plain text
-#: ../doc/06-config.md:502
+#: ../doc/06-config.md:600
 msgid ""
 "Defaults to `true`. If `false`, the Composer autoloader will not be "
 "prepended to existing autoloaders. This is sometimes required to fix "
@@ -12289,13 +12527,13 @@ msgstr ""
 "す。"
 
 #. type: Title ##
-#: ../doc/06-config.md:503
+#: ../doc/06-config.md:601
 #, no-wrap
 msgid "autoloader-suffix"
 msgstr "autoloader-suffix"
 
 #. type: Plain text
-#: ../doc/06-config.md:509
+#: ../doc/06-config.md:607
 msgid ""
 "Defaults to `null`. When set to a non-empty string, this value will be used "
 "as a suffix for the generated Composer autoloader. If set to `null`, the "
@@ -12310,13 +12548,13 @@ msgstr ""
 "そうでなければ、乱択された接尾辞が生成されます。"
 
 #. type: Title ##
-#: ../doc/06-config.md:510
+#: ../doc/06-config.md:608
 #, no-wrap
 msgid "optimize-autoloader"
 msgstr "optimize-autoloader"
 
 #. type: Plain text
-#: ../doc/06-config.md:513
+#: ../doc/06-config.md:611
 msgid ""
 "Defaults to `false`. If `true`, always optimize when dumping the autoloader."
 msgstr ""
@@ -12324,13 +12562,13 @@ msgstr ""
 "`true`の場合、自動読み込み器を吐き出す際に常に最適化されます。"
 
 #. type: Title ##
-#: ../doc/06-config.md:514
+#: ../doc/06-config.md:612
 #, no-wrap
 msgid "sort-packages"
 msgstr "sort-packages"
 
 #. type: Plain text
-#: ../doc/06-config.md:518
+#: ../doc/06-config.md:616
 msgid ""
 "Defaults to `false`. If `true`, the `require` command keeps packages sorted "
 "by name in `composer.json` when adding a new package."
@@ -12340,13 +12578,13 @@ msgstr ""
 "マンドでパッケージが名前順に整列された状態に保たれます。"
 
 #. type: Title ##
-#: ../doc/06-config.md:519
+#: ../doc/06-config.md:617
 #, no-wrap
 msgid "classmap-authoritative"
 msgstr "classmap-authoritative"
 
 #. type: Plain text
-#: ../doc/06-config.md:523
+#: ../doc/06-config.md:621
 msgid ""
 "Defaults to `false`. If `true`, the Composer autoloader will only load "
 "classes from the classmap. Implies `optimize-autoloader`."
@@ -12357,13 +12595,13 @@ msgstr ""
 "暗に`optimize-autoloader`を有効にします。"
 
 #. type: Title ##
-#: ../doc/06-config.md:524
+#: ../doc/06-config.md:622
 #, no-wrap
 msgid "apcu-autoloader"
 msgstr "apcu-autoloader"
 
 #. type: Plain text
-#: ../doc/06-config.md:528
+#: ../doc/06-config.md:626
 msgid ""
 "Defaults to `false`. If `true`, the Composer autoloader will check for APCu "
 "and use it to cache found/not-found classes when the extension is enabled."
@@ -12373,13 +12611,13 @@ msgstr ""
 "にクラスの有無をキャッシュするのに使います。"
 
 #. type: Title ##
-#: ../doc/06-config.md:529
+#: ../doc/06-config.md:627
 #, no-wrap
 msgid "github-domains"
 msgstr "github-domains"
 
 #. type: Plain text
-#: ../doc/06-config.md:533
+#: ../doc/06-config.md:631
 msgid ""
 "Defaults to `[\"github.com\"]`. A list of domains to use in github mode. "
 "This is used for GitHub Enterprise setups."
@@ -12389,13 +12627,13 @@ msgstr ""
 "GitHub Enterpriseの準備で使われます。"
 
 #. type: Title ##
-#: ../doc/06-config.md:534
+#: ../doc/06-config.md:632
 #, no-wrap
 msgid "github-expose-hostname"
 msgstr "github-expose-hostname"
 
 #. type: Plain text
-#: ../doc/06-config.md:538
+#: ../doc/06-config.md:636
 msgid ""
 "Defaults to `true`. If `false`, the OAuth tokens created to access the "
 "github API will have a date instead of the machine hostname."
@@ -12405,13 +12643,13 @@ msgstr ""
 "ホスト名ではなく日付になります。"
 
 #. type: Title ##
-#: ../doc/06-config.md:539
+#: ../doc/06-config.md:637
 #, no-wrap
 msgid "use-github-api"
 msgstr "use-github-api"
 
 #. type: Plain text
-#: ../doc/06-config.md:546
+#: ../doc/06-config.md:644
 msgid ""
 "Defaults to `true`.  Similar to the `no-api` key on a specific repository, "
 "setting `use-github-api` to `false` will define the global behavior for all "
@@ -12427,13 +12665,13 @@ msgstr ""
 "を使うことを試みます。"
 
 #. type: Title ##
-#: ../doc/06-config.md:547
+#: ../doc/06-config.md:645
 #, no-wrap
 msgid "notify-on-install"
 msgstr "notify-on-install"
 
 #. type: Plain text
-#: ../doc/06-config.md:552
+#: ../doc/06-config.md:650
 msgid ""
 "Defaults to `true`. Composer allows repositories to define a notification "
 "URL, so that they get notified whenever a package from that repository is "
@@ -12445,13 +12683,13 @@ msgstr ""
 "このオプションはその挙動を無効にできます。"
 
 #. type: Title ##
-#: ../doc/06-config.md:553
+#: ../doc/06-config.md:651
 #, no-wrap
 msgid "discard-changes"
 msgstr "discard-changes"
 
 #. type: Plain text
-#: ../doc/06-config.md:560
+#: ../doc/06-config.md:658
 msgid ""
 "Defaults to `false` and can be any of `true`, `false` or `\"stash\"`. This "
 "option allows you to set the default style of handling dirty updates when in "
@@ -12468,13 +12706,13 @@ msgstr ""
 "ださい。"
 
 #. type: Title ##
-#: ../doc/06-config.md:561
+#: ../doc/06-config.md:659
 #, no-wrap
 msgid "archive-format"
 msgstr "archive-format"
 
 #. type: Plain text
-#: ../doc/06-config.md:564
+#: ../doc/06-config.md:662
 msgid ""
 "Defaults to `tar`. Overrides the default format used by the archive command."
 msgstr ""
@@ -12482,13 +12720,13 @@ msgstr ""
 "archiveコマンドにより使われる既定の形式を上書きします。"
 
 #. type: Title ##
-#: ../doc/06-config.md:565
+#: ../doc/06-config.md:663
 #, no-wrap
 msgid "archive-dir"
 msgstr "archive-dir"
 
 #. type: Plain text
-#: ../doc/06-config.md:569
+#: ../doc/06-config.md:667
 msgid ""
 "Defaults to `.`. Default destination for archives created by the archive "
 "command."
@@ -12497,7 +12735,7 @@ msgstr ""
 "archiveコマンドによる作られる、アーカイブの既定の対象パスです。"
 
 #. type: Fenced code block (json)
-#: ../doc/06-config.md:572
+#: ../doc/06-config.md:670
 #, no-wrap
 msgid ""
 "{\n"
@@ -12513,13 +12751,13 @@ msgstr ""
 "}\n"
 
 #. type: Title ##
-#: ../doc/06-config.md:580
+#: ../doc/06-config.md:678
 #, no-wrap
 msgid "htaccess-protect"
 msgstr "htaccess-protect"
 
 #. type: Plain text
-#: ../doc/06-config.md:584
+#: ../doc/06-config.md:682
 msgid ""
 "Defaults to `true`. If set to `false`, Composer will not create `.htaccess` "
 "files in the Composer home, cache, and data directories."
@@ -12529,13 +12767,13 @@ msgstr ""
 "リに`.htaccess`ファイルを作りません。"
 
 #. type: Title ##
-#: ../doc/06-config.md:585
+#: ../doc/06-config.md:683
 #, no-wrap
 msgid "lock"
 msgstr "lock"
 
 #. type: Plain text
-#: ../doc/06-config.md:589
+#: ../doc/06-config.md:687
 msgid ""
 "Defaults to `true`. If set to `false`, Composer will not create a "
 "`composer.lock` file and will ignore it if one is present."
@@ -12545,13 +12783,13 @@ msgstr ""
 "場合は無視します。"
 
 #. type: Title ##
-#: ../doc/06-config.md:590
+#: ../doc/06-config.md:688
 #, no-wrap
 msgid "platform-check"
 msgstr "platform-check"
 
 #. type: Plain text
-#: ../doc/06-config.md:595
+#: ../doc/06-config.md:693
 msgid ""
 "Defaults to `php-only` which only checks the PHP version. Set to `true` to "
 "also check the presence of extension. If set to `false`, Composer will not "
@@ -12564,13 +12802,13 @@ msgstr ""
 "`platform_check.php`ファイルを作成せず、requireもしません。"
 
 #. type: Title ##
-#: ../doc/06-config.md:596
+#: ../doc/06-config.md:694
 #, no-wrap
 msgid "secure-svn-domains"
 msgstr "secure-svn-domains"
 
 #. type: Plain text
-#: ../doc/06-config.md:603
+#: ../doc/06-config.md:701
 msgid ""
 "Defaults to `[]`. Lists domains which should be trusted/marked as using a "
 "secure Subversion/SVN transport. By default svn:// protocol is seen as "
@@ -12587,13 +12825,13 @@ msgstr ""
 "`secure-http`を完全に無効にするよりも優れた安全な代替手段です。"
 
 #. type: Title ##
-#: ../doc/06-config.md:604
+#: ../doc/06-config.md:702
 #, no-wrap
 msgid "bump-after-update"
 msgstr "bump-after-update"
 
 #. type: Plain text
-#: ../doc/06-config.md:609
+#: ../doc/06-config.md:707
 msgid ""
 "Defaults to `false` and can be any of `true`, `false`, `\"dev\"` or `\"no-"
 "dev\"`. If set to true, Composer will run the `bump` command after running "
@@ -12608,13 +12846,13 @@ msgstr ""
 "ます。"
 
 #. type: Title ##
-#: ../doc/06-config.md:610
+#: ../doc/06-config.md:708
 #, no-wrap
 msgid "allow-missing-requirements"
 msgstr "allow-missing-requirements"
 
 #. type: Plain text
-#: ../doc/06-config.md:615
+#: ../doc/06-config.md:713
 msgid ""
 "Defaults to `false`. Ignores error during `install` if there are any missing "
 "requirements - the lock file is not up to date with the latest changes in "
@@ -12626,13 +12864,13 @@ msgstr ""
 "ないときです。"
 
 #. type: Title ##
-#: ../doc/06-config.md:616
+#: ../doc/06-config.md:714
 #, no-wrap
 msgid "update-with-minimal-changes"
 msgstr "update-with-minimal-changes"
 
 #. type: Plain text
-#: ../doc/06-config.md:621
+#: ../doc/06-config.md:719
 msgid ""
 "Defaults to `false`. If set to true, Composer will only perform absolutely "
 "necessary changes to transitive dependencies during update.  Can also be set "
@@ -12644,7 +12882,7 @@ msgstr ""
 "`COMPOSER_MINIMAL_CHANGES=1`環境変数で設定することもできます。"
 
 #. type: Plain text
-#: ../doc/06-config.md:622
+#: ../doc/06-config.md:720
 msgid ""
 "&larr; [Repositories](05-repositories.md)  | [Runtime](07-runtime.md) &rarr;"
 msgstr ""

@@ -110,12 +110,17 @@ Composerを対話的に実行すると、プラグインを実行するかどう
 
 ## audit
 
-セキュリティ監査の構成オプション
+セキュリティの監査とバージョンの遮断の構成オプションです。
+監査の報告は`composer audit`で生成でき、短い形式のものは自動でupdateないしrequireコマンドの末尾で報告されます。
+バージョンの遮断では、安全でなかったり放棄されたりしているものと確認されたパッケージのバージョンを、構成に応じて、依存関係を解決する前に無視します。
+これにより、そうしたパッケージがインストールされないようにします。
 
 ### ignore
 
 勧告の識別子、リモートの識別子、CVEの識別子のリストです。
-報告はされますが監査コマンドは通過させます。
+これらは監査の報告やバージョンの遮断からは無視されます。
+
+#### 理由付きの単純な形式：
 
 ```json
 {
@@ -131,7 +136,7 @@ Composerを対話的に実行すると、プラグインを実行するかどう
 }
 ```
 
-もしくは以下です。
+#### 理由のない単純な形式：
 
 ```json
 {
@@ -143,17 +148,52 @@ Composerを対話的に実行すると、プラグインを実行するかどう
 }
 ```
 
+#### 適用範囲付きの詳細な形式：
+
+詳細な形式では、無視するための構成が、監査の報告だけか、バージョンの遮断のみか、あるいはその両方かを制御できるようにします。
+`apply`フィールドは
+- `audit` - 監査の報告だけ無視します
+  （勧告は監査の報告に現れませんが、パッケージは更新するときに遮断されます）
+- `block` - バージョンの遮断のみ無視します
+  （パッケージは更新中のみ使えますが、勧告は監査の報告に現れます）
+- `all` - 監査の報告とバージョンの遮断のときに無視されます（既定の動作）
+
+```json
+{
+    "config": {
+        "audit": {
+            "ignore": {
+                "CVE-1234": {
+                    "apply": "audit",
+                    "reason": "Not applicable to us, so don't report, but still want to make sure we don't use this version in updates."
+                },
+                "GHSA-xx": {
+                    "apply": "block",
+                    "reason": "Workaround applied, can only fix next week, allow during updates but still report in audits"
+                },
+                "PKSA-yy": {
+                    "apply": "all",
+                    "reason": "False report, Ignore completely in all contexts"
+                }
+            }
+        }
+    }
+}
+```
+
+これら全ての形式は同じ構成に混ぜて使えます。
+
 ### abandoned
 
-Composer 2.6では`report`が既定値であり、Composer 2.7以降では`fail`が既定値です。
+Composer 2.7以降、既定で`fail`です（このオプションが追加されたComposer 2.6では既定で`report`でした）。
 監査コマンドが放棄されたパッケージを報告するかどうかを定義するもので、3つの値を取り得ます。
 
-- `ignore`は、監査コマンドが放棄されたパッケージを全く考慮しないという意味です。
-- `report`は、放棄されたパッケージが失敗として報告されるものの、非ゼロコードでコマンドが終了してしまわないようにする意味です。
-- `fail`は、放棄されたパッケージにより監査が非ゼロコードで失敗するようになる意味です。
+- `ignore`では、監査の報告で放棄されたパッケージを全く考慮しません。
+- `report`では、放棄されたパッケージが失敗として報告されるものの、composerの監査コマンドは非ゼロコードで終了しません。
+- `fail`では、放棄されたパッケージにより監査コマンドが非ゼロコードで失敗します。
 
-なお、これは監査にのみ適用されます。
-安全でないパッケージの阻止には適用されません。
+なお、これは監査の報告にのみ適用されます。
+この設定は安全でないパッケージの阻止には効果がありません。
 放棄されたパッケージの阻止を構成するには、[`block-abandoned`](#block-abandoned)オプションを参照。
 
 ```json
@@ -175,22 +215,25 @@ Composer
 
 ### ignore-abandoned
 
-放棄されたパッケージ名のリストは、報告されますが、auditコマンドは合格になります。
+放棄されたパッケージ名のリストで、監査の報告やバージョンの遮断で無視されます。
+放棄された状態であっても使い続けたいパッケージを選ぶことができます。
+
+#### 理由付きの単純な形式：
 
 ```json
 {
     "config": {
         "audit": {
             "ignore-abandoned": {
-                "acme/*": "Work schedule for removal next month.",
-                "acme/package": "The package is not in use"
+                "acme/*": "Work scheduled for removal next month.",
+                "acme/package": "Transitive dependency but unreachable and not in active use within our project context."
             }
         }
     }
 }
 ```
 
-もしくは以下です。
+#### 理由のない単純な形式：
 
 ```json
 {
@@ -202,26 +245,91 @@ Composer
 }
 ```
 
-### ignore-severity
+#### 適用範囲付きの詳細な形式：
 
-既定は`[]`です。
-与えられた厳密さのセキュリティ勧告があるときでも監査コマンドを通すようにするセキュリティ水準のリストです。
+詳細な形式では、無視する設定が、監査の報告のみか、バージョンの遮断のみか、あるいはその両方に適用されるかを制御できます。
+`apply`フィールドは以下を受け付けます。
+- `audit` - 監査の報告のみ無視します
+
+（パッケージは監査の報告に現れませんが、[`block-abandoned`](#block-abandoned)が有効のときは更新のときに遮断されます）
+- `block` - バージョンの遮断のみ無視します
+  （[`block-abandoned`](#block-abandoned)が有効でもパッケージは更新のときに使えます。
+  ただし監査の報告には現れます）
+- `all` - 監査の報告とバージョンの遮断を無視します（既定の動作）
 
 ```json
 {
     "config": {
         "audit": {
-            "ignore-severity": ["low"]
+            "ignore-abandoned": {
+                "acme/package": {
+                    "apply": "block",
+                    "reason": "Allow during updates but still report as abandoned"
+                },
+                "vendor/*": {
+                    "apply": "all",
+                    "reason": "We maintain these packages internally"
+                }
+            }
         }
     }
 }
 ```
+
+これら全ての形式は同じ構成に混ぜて使えます。
+
+### ignore-severity
+
+既定は`[]`です。
+監査の報告やバージョンの遮断で無視されるセキュリティ水準のリストです。
+
+#### 単純な形式：
+
+```json
+{
+    "config": {
+        "audit": {
+            "ignore-severity": ["low", "medium"]
+        }
+    }
+}
+```
+
+#### 適用範囲付きの詳細な形式：
+
+詳細な形式では、無視する構成が、監査の報告のみか、バージョンの遮断のみか、あるいはその両方に適用されるかを制御できます。
+`apply`フィールドは以下を受け付けます。
+- `audit` - 監査の報告のみ無視します
+  （この厳密さの勧告は監査の報告に現れませんが、パッケージは更新のとき遮断されます）
+- `block` - バージョンの遮断のみ無視します
+  （パッケージは更新のときは使えますが、この厳密さの勧告は監査の報告で現れます）
+- `all` - 監査と遮断の両方で無視されます（既定の動作）
+
+```json
+{
+    "config": {
+        "audit": {
+            "ignore-severity": {
+                "low": {
+                    "apply": "all"
+                },
+                "medium": {
+                    "apply": "block"
+                }
+            }
+        }
+    }
+}
+```
+
+これら全ての形式は同じ構成に混ぜて使えます。
 
 ### ignore-unreachable
 
 既定で`false`です。
 到達できないリポジトリは`composer audit`のときに無視されます。
 全てのリポジトリはアクセスできない環境でコマンドを実行するときに役立つことがあります。
+この設定は`composer audit`コマンド以外のところで生成されたバージョンの遮断や監査の報告には適用されません。
 
 ```json
 {
@@ -236,9 +344,9 @@ Composer
 ### block-insecure
 
 既定で`true`です。
-`true`のとき、セキュリティ勧告の影響を受けるパッケージのバージョンはcomposer
-update/required/deleteコマンドで使えません。
-`true`でなければセキュリティ勧告は無視されます。
+`true`のとき、セキュリティ勧告が無視されていなければ、セキュリティ勧告の影響を受けるパッケージのバージョンは遮断され、composer
+update/require/deleteコマンドで使えません。
+[`block-abandoned`](#block-abandoned)が有効であれば、バージョンの遮断では、放棄されたパッケージの使用も防ぎます。
 
 ```json
 {
@@ -253,7 +361,8 @@ update/required/deleteコマンドで使えません。
 ### block-abandoned
 
 既定で`false`です。
-`true`のとき、任意の放棄されたパッケージがcomposerのupdate/required/deleteコマンドで使えません。
+`true`のとき、放棄されたパッケージはcomposerのupdate/required/deleteコマンドで使えません。
+[`block-insecure`](#block-insecure)が偽に設定されてバージョンの遮断が無効になっていないときにのみ適用されます。
 
 
 ```json

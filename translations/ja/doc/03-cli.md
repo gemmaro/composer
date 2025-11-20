@@ -1303,10 +1303,6 @@ VagrantやVirtualboxを使っていてファイルが存在しているのにも
 
 プロキシの環境変数の使い方についての詳細は、[プロキシのドキュメント](faqs/how-to-use-composer-behind-a-proxy.md)を参照してください。
 
-### COMPOSER_AUDIT_ABANDONED
-
-`ignore`、`report`、`fail`に設定すると、[audit.abandoned](06-config.md#abandoned)構成オプションをオーバーライドします。
-
 ### COMPOSER_MAX_PARALLEL_HTTP
 
 整数を指定し、並列で何個のファイルをダウンロードするか設定します。
@@ -1347,15 +1343,22 @@ parallel.  This defaults to 10 and must be between 1 and 50.
 
 `1`に設定すると、`require`、`update`、`remove`、`create-project`コマンドに`--no-audit`オプションを渡すことと等価になります。
 
+### COMPOSER_AUDIT_ABANDONED
+
+`ignore`、`report`、`fail`に設定すると、[audit.abandoned](06-config.md#abandoned)構成オプションをオーバーライドします。
+
 ### COMPOSER_NO_SECURITY_BLOCKING
 
-`1`に設定すると、`require`、`update`、`remove`、`create-project`コマンドに`--no-security-blocking`オプションを渡すことと等価になります。これにより、セキュリティ勧告があったり放棄されたりしているパッケージをインストールできます。
+`1`に設定すると、`require`、`update`、`remove`、`create-project`コマンドに`--no-security-blocking`オプションを渡すことと等価になります。
+これにより、セキュリティ勧告があったり放棄されたりしているパッケージをインストールできます。
+構成オプション[audit.block-insecure](06-config.md#block-insecure)をオーバーライドします。
 
 ### COMPOSER_SECURITY_BLOCKING_ABANDONED
 
-`1`に設定すると、依存関係の解決で放棄されたパッケージの阻止を有効にします（`audit.block-abandoned`の構成を`true`に設定することと等価です）。
+`1`に設定すると、依存関係を解決するとき、放棄されたパッケージの阻止を有効にします（`audit.block-abandoned`の構成を`true`に設定することと等価です）。
 `0`に設定すると、放棄されたパッケージの阻止を無効にします。
-なお`COMPOSER_NO_SECURITY_BLOCKING=1`が優先され、放棄されたパッケージの阻止を含めた、全てのセキュリティの阻止を無効に強制します。
+なお、この設定はセキュリティの阻止が全般的に無効になっているときは、効果がありません。
+構成オプション[audit.block-abandoned](06-config.md#block-abandoned)をオーバーライドします。
 
 ### COMPOSER_NO_DEV
 
