@@ -19,8 +19,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Composer\n"
-"POT-Creation-Date: 2025-11-20 18:48+0900\n"
-"PO-Revision-Date: 2025-11-20 19:56+0900\n"
+"POT-Creation-Date: 2025-11-22 20:29+0900\n"
+"PO-Revision-Date: 2025-11-22 20:30+0900\n"
 "Last-Translator: gemmaro <gemmaro.dev@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -11262,10 +11262,11 @@ msgstr "ignore"
 #. type: Plain text
 #: ../doc/06-config.md:126
 msgid ""
-"A list of advisory ids, remote ids or CVE ids that are ignored in audit "
-"reports and/or version blocking."
+"A list of advisory ids, remote ids, CVE ids or package names (not "
+"recommended) that are ignored in audit reports and/or version blocking."
 msgstr ""
-"勧告の識別子、リモートの識別子、CVEの識別子のリストです。\n"
+"勧告の識別子、リモートの識別子、CVEの識別子、パッケージ名（非推奨）のリストで"
+"す。\n"
 "これらは監査の報告やバージョンの遮断からは無視されます。"
 
 #. type: Title ####
