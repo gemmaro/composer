@@ -1216,6 +1216,10 @@ COMPOSER=composer-other.json php composer.phar install
 変数の内容はJSON形式のオブジェクトで、[http-basic、github-oauth、bitbucket-oauth、……といった必要に応じたもの](articles/authentication-for-private-packages.md)です。
 オブジェクトは[設定の仕様](06-config.md)に従います。
 
+### COMPOSER_BIN_COMPAT
+
+[`bin-compat`](06-config.md#bin-compat)構成設定をオーバーライドします。
+
 ### COMPOSER_BIN_DIR
 
 このオプションを設定すると`bin`ディレクトリ（[ベンダーバイナリ](articles/vendor-binaries.md)）を`vendor/bin`とは違う別のどこかに変更できます。
