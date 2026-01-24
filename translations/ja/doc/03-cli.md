@@ -974,7 +974,7 @@ Composerで新しいプロジェクトを作るためには`create-project`コ�
 ディレクトリがその時点で存在しなければインストールの過程で作られます。
 
 ```shell
-php composer.phar create-project doctrine/orm path "2.2.*"
+php composer.phar create-project composer/hello-world my-project
 ```
 
 プロジェクトに着手するための既存の`composer.json`があるディレクトリ内では、引数がなくともコマンドを走らせることができます。

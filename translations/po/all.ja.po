@@ -19,8 +19,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Composer\n"
-"POT-Creation-Date: 2025-12-13 05:51+0900\n"
-"PO-Revision-Date: 2025-12-13 05:52+0900\n"
+"POT-Creation-Date: 2026-01-24 09:32+0900\n"
+"PO-Revision-Date: 2026-01-24 09:33+0900\n"
 "Last-Translator: gemmaro <gemmaro.dev@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -4888,8 +4888,8 @@ msgstr "ディレクトリがその時点で存在しなければインストー
 #. type: Fenced code block (shell)
 #: ../doc/03-cli.md:958
 #, no-wrap
-msgid "php composer.phar create-project doctrine/orm path \"2.2.*\"\n"
-msgstr "php composer.phar create-project doctrine/orm path \"2.2.*\"\n"
+msgid "php composer.phar create-project composer/hello-world my-project\n"
+msgstr "php composer.phar create-project composer/hello-world my-project\n"
 
 #. type: Plain text
 #: ../doc/03-cli.md:964

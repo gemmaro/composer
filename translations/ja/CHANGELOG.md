@@ -1,3 +1,34 @@
+### [2.9.4] 2026-01-22
+
+  * diagnoseコマンドの出力に活性なプラグインを追加しました (#12706)
+  * `HTTP/3`がプロキシで問題を起こしていた点を修正 (#12598)
+  * `show`コマンドの、ユニコード文字を含む長い説明があるときの退行問題を修正 (#12704)
+  * 出力での不正なユニコードシーケンスの扱いについての退行問題を修正 (#12707)
+  * `git rev-list`の使い方を修正し、2.33より古いgitのバージョンに対応 (#12705)
+  * Windowsにおいてパスに`=`があるときの問題の対処方法を修正 (#12726)
+
+### [2.9.3] 2025-12-30
+
+  * Security: Fixed ANSI sequence injection (GHSA-59pp-r3rg-353g /
+    CVE-2025-67746)
+  * Fixed `COMPOSER_NO_SECURITY_BLOCKING` env var not being respected for
+    `updates` done via the `install` command, and added
+    `--no-security-blocking` flag to `install` as well (#12677)
+  * Fixed `update --lock` / `update mirrors` not working when locked
+    packages contain vulnerabilities (#12645)
+  * Fixed `client-certificate` authentication implementation (#12667)
+  * Fixed `php-ext` schema not being validated in ValidatingArrayLoader
+    (#12694)
+  * Fixed crash when `--bump-after-update` is used and the lock file is
+    disabled (#12660)
+  * macOSにおいてSecureTransportとLibreSSLの対応を修正 (#12615)
+  * Fixed display of reasons for why advisories are ignored (#12668)
+  * gitでlog.showSignatureが有効な場合の互換性の問題を修正 (#12666)
+  * Fixed curl downloader not retrying when a timeout (err 28) failure
+    occurs (#12662)
+  * Fixed EventDispatcher requiring a full Composer instance to function
+    (#12629)
+
 ### [2.9.2] 2025-11-19
 
   * Added new `--no-security-blocking` flag to disable/configure security
@@ -5,8 +36,7 @@
   * Added a way to set [`audit >
     ignore`](https://getcomposer.org/doc/06-config.md#detailed-format-with-apply-scope-)
     to act only on audits or only on security blocking (#12618, #12612)
-  * Fixed `config` command not being able to set the new audit settings
-    (#12609)
+  * `config`コマンドで新しい監査の設定を設定できなかった点を修正 (#12609)
   * Fixed handling audit.ignore to support CVE ids while doing security
     blocking, but advisory IDs are still preferred for performance reasons
     (#12624)
@@ -408,6 +438,8 @@
   * プール最適化の工程を効率良くしました (#11638)。
   * `show -a <パッケージ名>`の効率良くしました (#11659)。
 
+[2.9.4]: https://github.com/composer/composer/compare/2.9.3...2.9.4
+[2.9.3]: https://github.com/composer/composer/compare/2.9.2...2.9.3
 [2.9.2]: https://github.com/composer/composer/compare/2.9.1...2.9.2
 [2.9.1]: https://github.com/composer/composer/compare/2.9.0...2.9.1
 [2.9.0]: https://github.com/composer/composer/compare/2.9.0-RC1...2.9.0
