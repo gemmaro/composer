@@ -1,3 +1,26 @@
+### [2.9.4] 2026-01-22
+
+  * Added active plugins to the diagnose command output (#12706)
+  * Fixed `HTTP/3` causing issues with proxies (#12699)
+  * Fixed `show` command regression with long descriptions containing unicode characters (#12704)
+  * Fixed regression handling invalid unicode sequences in output (#12707)
+  * Fixed `git rev-list` usages to support older pre-2.33 git versions (#12705)
+  * Fixed issue handling paths with `=` in them on Windows (#12726)
+
+### [2.9.3] 2025-12-30
+
+  * Security: Fixed ANSI sequence injection (GHSA-59pp-r3rg-353g / CVE-2025-67746)
+  * Fixed `COMPOSER_NO_SECURITY_BLOCKING` env var not being respected for `updates` done via the `install` command, and added `--no-security-blocking` flag to `install` as well (#12677)
+  * Fixed `update --lock` / `update mirrors` not working when locked packages contain vulnerabilities (#12645)
+  * Fixed `client-certificate` authentication implementation (#12667)
+  * Fixed `php-ext` schema not being validated in ValidatingArrayLoader (#12694)
+  * Fixed crash when `--bump-after-update` is used and the lock file is disabled (#12660)
+  * Fixed support for SecureTransport + LibreSSL on macOS (#12615)
+  * Fixed display of reasons for why advisories are ignored (#12668)
+  * Fixed compatibility issues when git has log.showSignature enabled (#12666)
+  * Fixed curl downloader not retrying when a timeout (err 28) failure occurs (#12662)
+  * Fixed EventDispatcher requiring a full Composer instance to function (#12629)
+
 ### [2.9.2] 2025-11-19
 
   * Added new `--no-security-blocking` flag to disable/configure security blocking (#12617)
@@ -2095,6 +2118,8 @@
 
   * Initial release
 
+[2.9.4]: https://github.com/composer/composer/compare/2.9.3...2.9.4
+[2.9.3]: https://github.com/composer/composer/compare/2.9.2...2.9.3
 [2.9.2]: https://github.com/composer/composer/compare/2.9.1...2.9.2
 [2.9.1]: https://github.com/composer/composer/compare/2.9.0...2.9.1
 [2.9.0]: https://github.com/composer/composer/compare/2.9.0-RC1...2.9.0
