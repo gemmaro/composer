@@ -1,3 +1,9 @@
+### [2.9.5] 2026-01-29
+
+  * 新しく`pie`と`download-url-methods`への対応を追加 (#12727)
+  * linuxシステムのうち7zaとしてインストールされたときの、7zの検知を修正 (#12731)
+  * symfony/processのCVEにより、警告を修正。2.9.4には既に回避策が含まれます
+
 ### [2.9.4] 2026-01-22
 
   * diagnoseコマンドの出力に活性なプラグインを追加しました (#12706)
@@ -438,6 +444,7 @@
   * プール最適化の工程を効率良くしました (#11638)。
   * `show -a <パッケージ名>`の効率良くしました (#11659)。
 
+[2.9.5]: https://github.com/composer/composer/compare/2.9.4...2.9.5
 [2.9.4]: https://github.com/composer/composer/compare/2.9.3...2.9.4
 [2.9.3]: https://github.com/composer/composer/compare/2.9.2...2.9.3
 [2.9.2]: https://github.com/composer/composer/compare/2.9.1...2.9.2

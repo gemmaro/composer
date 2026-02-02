@@ -113,6 +113,11 @@ php composer.phar install
 * **--audit:** インストールが完了した後に監査を走らせます。
 * **--audit-format:** 監査の出力形式です。
   "table"、"plain"、"json"、または"summary"（既定）のどれかでなければなりません。
+* **--no-security-blocking:**
+  セキュリティ勧告があったり放棄されたりしているパッケージをインストールできます。
+  [COMPOSER_NO_SECURITY_BLOCKING](#composer-no-security-blocking)も参照。
+  固定ファイルが存在しないときにのみ適用されます。
+  固定ファイルからのインストールについては、Composerは脆弱性のあるパッケージを遮断しません。
 * **--optimize-autoloader (-o):** PSR-0の自動読み込みをクラス対応表に変換して自動読み込みを高速にします。
   実運用では特にお勧めしますが、走らせるのに少し時間が掛かることがあるので、現在は既定ではされません。
 * **--classmap-authoritative (-a):** クラス対応表からクラスのみを自動読み込みします。
@@ -1353,7 +1358,7 @@ parallel.  This defaults to 10 and must be between 1 and 50.
 
 ### COMPOSER_NO_SECURITY_BLOCKING
 
-`1`に設定すると、`require`、`update`、`remove`、`create-project`コマンドに`--no-security-blocking`オプションを渡すことと等価になります。
+`1`に設定すると、`require`、`update`、`remove`、`install`、`create-project`コマンドに`--no-security-blocking`オプションを渡すことと等価になります。
 これにより、セキュリティ勧告があったり放棄されたりしているパッケージをインストールできます。
 構成オプション[audit.block-insecure](06-config.md#block-insecure)をオーバーライドします。
 

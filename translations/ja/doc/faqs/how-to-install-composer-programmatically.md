@@ -39,3 +39,14 @@ wget https://raw.githubusercontent.com/composer/getcomposer.org/f3108f64b4e1c1ce
 
 コミットハッシュは https://github.com/composer/getcomposer.org/commits/main
 にある何かしら最新のコミットハッシュで置き換えると良いでしょう。
+
+## GitHub CLIユーティリティを使う (`gh`)
+
+gh CLIユーティリティを以下のように使って、`composer.phar`のダウンロードと検証ができます。
+
+```shell
+gh release --repo composer/composer download --pattern composer.phar
+gh attestation verify --repo composer/composer composer.phar
+```
+
+そのままcomposer.pharを使うか、その後で必要な場所に移動させてください。
