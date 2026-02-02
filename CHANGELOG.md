@@ -1,3 +1,9 @@
+### [2.9.5] 2026-01-29
+
+  * Added support for new `pie` `download-url-methods` (#12727)
+  * Fixed detection of 7z when installed as 7za on some linux systems (#12731)
+  * Fixed warning because of the symfony/process CVE, 2.9.4 had a workaround already
+
 ### [2.9.4] 2026-01-22
 
   * Added active plugins to the diagnose command output (#12706)
@@ -2118,6 +2124,7 @@
 
   * Initial release
 
+[2.9.5]: https://github.com/composer/composer/compare/2.9.4...2.9.5
 [2.9.4]: https://github.com/composer/composer/compare/2.9.3...2.9.4
 [2.9.3]: https://github.com/composer/composer/compare/2.9.2...2.9.3
 [2.9.2]: https://github.com/composer/composer/compare/2.9.1...2.9.2

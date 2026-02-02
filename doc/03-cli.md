@@ -116,6 +116,10 @@ resolution.
   terminals or scripts which don't handle backspace characters.
 * **--audit:** Run an audit after installation is complete.
 * **--audit-format:** Audit output format. Must be "table", "plain", "json", or "summary" (default).
+* **--no-security-blocking:** Allows installing packages with security advisories or that are abandoned.
+  Also see [COMPOSER_NO_SECURITY_BLOCKING](#composer-no-security-blocking).
+  Only applies when no lock file is present - for installs from a lock file Composer never blocks
+  vulnerable packages.
 * **--optimize-autoloader (-o):** Convert PSR-0/4 autoloading to classmap to get a faster
   autoloader. This is recommended especially for production, but can take
   a bit of time to run so it is currently not done by default.
@@ -1360,7 +1364,7 @@ config option.
 
 ### COMPOSER_NO_SECURITY_BLOCKING
 
-If set to `1`, it is the equivalent of passing the `--no-security-blocking` option to a `require`, `update`, `remove`, or `create-project` command. This allows installing packages with security advisories or that are abandoned. It overrides the config option [audit.block-insecure](06-config.md#block-insecure).
+If set to `1`, it is the equivalent of passing the `--no-security-blocking` option to a `require`, `update`, `remove`, `install`, or `create-project` command. This allows installing packages with security advisories or that are abandoned. It overrides the config option [audit.block-insecure](06-config.md#block-insecure).
 
 ### COMPOSER_SECURITY_BLOCKING_ABANDONED
 
