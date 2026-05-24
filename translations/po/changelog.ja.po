@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Composer\n"
 "POT-Creation-Date: 2026-05-24 18:13+0900\n"
-"PO-Revision-Date: 2026-02-03 08:04+0900\n"
+"PO-Revision-Date: 2026-05-24 18:18+0900\n"
 "Last-Translator: gemmaro <gemmaro.dev@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -18,10 +18,9 @@ msgstr ""
 
 #. type: Title ###
 #: ../CHANGELOG.md:1
-#, fuzzy, no-wrap
-#| msgid "[2.9.0-RC1] 2025-11-07"
+#, no-wrap
 msgid "[2.10.0-RC2] 2026-05-20"
-msgstr "[2.9.0-RC1] 2025-11-07"
+msgstr "[2.10.0-RC2] 2026-05-20"
 
 #. type: Bullet: '  * '
 #: ../CHANGELOG.md:10
@@ -52,10 +51,8 @@ msgstr ""
 
 #. type: Bullet: '  * '
 #: ../CHANGELOG.md:10
-#, fuzzy
-#| msgid "Fixed windows handling of process discovery (#12180)"
 msgid "Fixed --no-plugins handling regression (#12789)"
-msgstr "Windowsでのプロセス探索の扱いを修正 (#12180)"
+msgstr "--no-pluginsの扱いの退行問題を修正しました (#12789)"
 
 #. type: Bullet: '  * '
 #: ../CHANGELOG.md:10
@@ -71,10 +68,9 @@ msgstr ""
 
 #. type: Title ###
 #: ../CHANGELOG.md:11
-#, fuzzy, no-wrap
-#| msgid "[2.9.0-RC1] 2025-11-07"
+#, no-wrap
 msgid "[2.10.0-RC1] 2026-04-01"
-msgstr "[2.9.0-RC1] 2025-11-07"
+msgstr "[2.10.0-RC1] 2026-04-01"
 
 #. type: Bullet: '  * '
 #: ../CHANGELOG.md:29
@@ -165,10 +161,8 @@ msgstr ""
 
 #. type: Bullet: '  * '
 #: ../CHANGELOG.md:29
-#, fuzzy
-#| msgid "Fixed warning on PHP 8.5 when curl is not loaded (#12472)"
 msgid "Fixed warning being shown when lock file is disabled (#12760)"
-msgstr "curlが読み込まれていないときのPHP 8.5での警告を直しました (#12472)"
+msgstr "固定ファイルが無効のときに警告が表示される点を直しました (#12760)"
 
 #. type: Bullet: '  * '
 #: ../CHANGELOG.md:29 ../CHANGELOG.md:50
@@ -186,10 +180,9 @@ msgstr ""
 
 #. type: Title ###
 #: ../CHANGELOG.md:30
-#, fuzzy, no-wrap
-#| msgid "[2.8.9] 2025-05-13"
+#, no-wrap
 msgid "[2.9.8] 2026-05-13"
-msgstr "[2.8.9] 2025-05-13"
+msgstr "[2.9.8] 2026-05-13"
 
 #. type: Bullet: '  * '
 #: ../CHANGELOG.md:33
@@ -199,10 +192,9 @@ msgstr ""
 
 #. type: Title ###
 #: ../CHANGELOG.md:34
-#, fuzzy, no-wrap
-#| msgid "[2.9.5] 2026-01-29"
+#, no-wrap
 msgid "[2.9.7] 2026-04-14"
-msgstr "[2.9.5] 2026-01-29"
+msgstr "[2.9.7] 2026-04-14"
 
 #. type: Bullet: '  * '
 #: ../CHANGELOG.md:37
@@ -213,36 +205,23 @@ msgstr ""
 
 #. type: Title ###
 #: ../CHANGELOG.md:38
-#, fuzzy, no-wrap
-#| msgid "[2.9.5] 2026-01-29"
+#, no-wrap
 msgid "[2.9.6] 2026-04-14"
-msgstr "[2.9.5] 2026-01-29"
+msgstr "[2.9.6] 2026-04-14"
 
 #. type: Bullet: '  * '
 #: ../CHANGELOG.md:50
-#, fuzzy
-#| msgid ""
-#| "Security: Fixed command injection via malicious git branch name "
-#| "(GHSA-47f6-5gq3-vx9c / CVE-2024-35241)"
 msgid ""
 "Security: Fixed command injection via malicious Perforce reference (GHSA-"
 "gqw4-4w2p-838q / CVE-2026-40261)"
-msgstr ""
-"セキュリティ：悪意のあるgitブランチ名を介したコマンドインジェクションに対して"
-"修正しました (GHSA-47f6-5gq3-vx9c / CVE-2024-35241)。"
+msgstr "セキュリティ：悪意のあるPerforceの参照を介したコマンドインジェクションを直しました (GHSA-gqw4-4w2p-838q / CVE-2026-40261)"
 
 #. type: Bullet: '  * '
 #: ../CHANGELOG.md:50
-#, fuzzy
-#| msgid ""
-#| "Security: Fixed command injection via malicious git branch name "
-#| "(GHSA-47f6-5gq3-vx9c / CVE-2024-35241)"
 msgid ""
 "Security: Fixed command injection via malicious Perforce repository "
 "definition (GHSA-wg36-wvj6-r67p / CVE-2026-40176)"
-msgstr ""
-"セキュリティ：悪意のあるgitブランチ名を介したコマンドインジェクションに対して"
-"修正しました (GHSA-47f6-5gq3-vx9c / CVE-2024-35241)。"
+msgstr "セキュリティ：悪意のあるPerforceのリポジトリ定義を介したコマンドインジェクションを直しました (GHSA-wg36-wvj6-r67p / CVE-2026-40176)"
 
 #. type: Bullet: '  * '
 #: ../CHANGELOG.md:50
