@@ -93,15 +93,15 @@ Composerでは根幹パッケージのバージョンが分かっていること
    the history is incomplete because CI is using a shallow clone for
    example, this detection may fail to find the correct version.
 
-4. **Fallback**: If all else fails, Composer uses `1.0.0` as default
-   version.
+4. **フォールバック**：
+   もしすべてが失敗するなら、Composerは`1.0.0`を既定のバージョンとして使います。
 
 Note that relying on the default/fallback version might potentially lead to
 dependency resolution issues, especially when the root package depends on a
 package which ends up depending (directly or indirectly)  [back on the root
 package itself](#dependencies-on-the-root-package).
 
-## Network timeout issues, curl error
+## ネットワークの時間切れの問題、curlのエラー
 
 If you see something along the lines of:
 

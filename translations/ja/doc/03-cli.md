@@ -1473,7 +1473,7 @@ e.g. [policy.advisories.block](06-config.md#block).
 
 ### COMPOSER_NO_SECURITY_BLOCKING
 
-DEPRECATED, use [COMPOSER_NO_BLOCKING](#composer-no-blocking) instead.
+非推奨であり、[COMPOSER_NO_BLOCKING](#composer-no-blocking)を代用してください。
 
 If set to `1`, it is the equivalent of passing the `--no-security-blocking`
 option to a `require`, `update`, `remove`, `install`, or `create-project`
@@ -1505,8 +1505,7 @@ when both are set.
 
 ### COMPOSER_SECURITY_BLOCKING_ABANDONED
 
-DEPRECATED, use
-[COMPOSER_POLICY_ABANDONED_BLOCK](#composer-policy-abandoned-block) instead.
+非推奨であり、[COMPOSER_POLICY_ABANDONED_BLOCK](#composer-policy-abandoned-block)を代用してください。
 
 If set to `1`, enables blocking of abandoned packages during dependency
 resolution (equivalent to setting `audit.block-abandoned` config to

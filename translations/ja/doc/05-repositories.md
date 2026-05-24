@@ -319,7 +319,7 @@ lists are available.
   skip per-package metadata fetches for packages that cannot match any
   active list.
 
-  The summary endpoint must return JSON of the form:
+要約エンドポイントは以下の形式のJSONを返さなければなりません。
 
   ```json
   {
@@ -347,7 +347,7 @@ lists are available.
   list and return only the first 1000 or whatever you decide but make sure
   to limit this somehow.
 
-  The endpoint receives a JSON body of the form:
+エンドポイントは以下の形式のJSONの本文を受け取ります。
 
   ```json
   {
@@ -356,7 +356,7 @@ lists are available.
   }
   ```
 
-  and must return JSON of the form:
+そして以下の形式のJSONを返さなければなりません。
 
   ```json
   {
@@ -403,7 +403,7 @@ In a `composer.json` file, the `filter` key on a repository definition
 controls which lists advertised by that repository are honoured for audit
 reports and version blocking.
 
-Set `filter: false` to opt out of every list this repository advertises:
+`filter: false`を設定するとこのリポジトリの勧告のすべてのリストがオプトアウトされます。
 
 ```json
 {

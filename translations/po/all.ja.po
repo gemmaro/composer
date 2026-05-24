@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Composer\n"
 "POT-Creation-Date: 2026-05-24 18:13+0900\n"
-"PO-Revision-Date: 2026-05-24 18:32+0900\n"
+"PO-Revision-Date: 2026-05-24 18:48+0900\n"
 "Last-Translator: gemmaro <gemmaro.dev@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -4866,7 +4866,7 @@ msgstr ""
 #: ../doc/03-cli.md:960 ../doc/06-config.md:148
 #, no-wrap
 msgid "policy"
-msgstr ""
+msgstr "policy"
 
 #. type: Plain text
 #: ../doc/03-cli.md:963
@@ -4891,6 +4891,8 @@ msgid ""
 "policy [options] add-source [list-name] [source-type] [url]\n"
 "policy [options] add-source [list-name] [json-source-definition]\n"
 msgstr ""
+"policy [options] add-source [list-name] [source-type] [url]\n"
+"policy [options] add-source [list-name] [json-source-definition]\n"
 
 #. type: Plain text
 #: ../doc/03-cli.md:974
@@ -4906,6 +4908,8 @@ msgid ""
 "php composer.phar policy add-source my-list url https://example.org/list.json\n"
 "php composer.phar policy add-source my-list '{\"type\":\"url\",\"url\":\"https://example.org/list.json\"}'\n"
 msgstr ""
+"php composer.phar policy add-source my-list url https://example.org/list.json\n"
+"php composer.phar policy add-source my-list '{\"type\":\"url\",\"url\":\"https://example.org/list.json\"}'\n"
 
 #. type: Title ##
 #: ../doc/03-cli.md:987
@@ -6276,6 +6280,8 @@ msgstr "COMPOSER_NO_SECURITY_BLOCKING"
 #: ../doc/03-cli.md:1438
 msgid "DEPRECATED, use [COMPOSER_NO_BLOCKING](#composer-no-blocking) instead."
 msgstr ""
+"非推奨であり、[COMPOSER_NO_BLOCKING](#composer-no-blocking)を代用してくださ"
+"い。"
 
 #. type: Plain text
 #: ../doc/03-cli.md:1440
@@ -6361,6 +6367,8 @@ msgid ""
 "DEPRECATED, use [COMPOSER_POLICY_ABANDONED_BLOCK](#composer-policy-abandoned-"
 "block) instead."
 msgstr ""
+"非推奨であり、[COMPOSER_POLICY_ABANDONED_BLOCK](#composer-policy-abandoned-"
+"block)を代用してください。"
 
 #. type: Plain text
 #: ../doc/03-cli.md:1460
@@ -10018,7 +10026,7 @@ msgstr ""
 #: ../doc/05-repositories.md:329
 #, no-wrap
 msgid "filter"
-msgstr ""
+msgstr "filter"
 
 #. type: Plain text
 #: ../doc/05-repositories.md:334
@@ -10045,6 +10053,17 @@ msgid ""
 "    }\n"
 "}\n"
 msgstr ""
+"{\n"
+"    \"metadata-url\": \"/p2/%package%.json\",\n"
+"    \"filter\": {\n"
+"        \"metadata\": true,\n"
+"        \"lists\": {\n"
+"            \"malware\": { \"enabled\": true },\n"
+"            \"typosquatting\": { \"enabled\": true }\n"
+"        },\n"
+"        \"summary-url\": \"/p2/filter-summary.json\"\n"
+"    }\n"
+"}\n"
 
 #. type: Bullet: '- '
 #: ../doc/05-repositories.md:360
@@ -10079,7 +10098,7 @@ msgstr ""
 #: ../doc/05-repositories.md:362
 #, no-wrap
 msgid "  The summary endpoint must return JSON of the form:\n"
-msgstr ""
+msgstr "要約エンドポイントは以下の形式のJSONを返さなければなりません。\n"
 
 #. type: Fenced code block (json)
 #: ../doc/05-repositories.md:363
@@ -10130,7 +10149,7 @@ msgstr ""
 #: ../doc/05-repositories.md:388
 #, no-wrap
 msgid "  The endpoint receives a JSON body of the form:\n"
-msgstr ""
+msgstr "エンドポイントは以下の形式のJSONの本文を受け取ります。\n"
 
 #. type: Fenced code block (json)
 #: ../doc/05-repositories.md:389
@@ -10141,12 +10160,16 @@ msgid ""
 "      \"lists\": [\"malware\"]\n"
 "  }\n"
 msgstr ""
+"  {\n"
+"      \"packages\": [\"pkg://composer/vendor/package\", \"pkg://composer/other/package\"],\n"
+"      \"lists\": [\"malware\"]\n"
+"  }\n"
 
 #. type: Plain text
 #: ../doc/05-repositories.md:397
 #, no-wrap
 msgid "  and must return JSON of the form:\n"
-msgstr ""
+msgstr "そして以下の形式のJSONを返さなければなりません。\n"
 
 #. type: Fenced code block (json)
 #: ../doc/05-repositories.md:398
@@ -10245,6 +10268,8 @@ msgstr ""
 msgid ""
 "Set `filter: false` to opt out of every list this repository advertises:"
 msgstr ""
+"`filter: false`を設定するとこのリポジトリの勧告のすべてのリストがオプトアウト"
+"されます。"
 
 #. type: Fenced code block (json)
 #: ../doc/05-repositories.md:444
@@ -11819,7 +11844,7 @@ msgstr ""
 #: ../doc/06-config.md:116
 #, no-wrap
 msgid "source-fallback"
-msgstr ""
+msgstr "source-fallback"
 
 #. type: Plain text
 #: ../doc/06-config.md:122
@@ -11849,7 +11874,7 @@ msgstr ""
 #. type: Plain text
 #: ../doc/06-config.md:132
 msgid "This can also be specified on the command line:"
-msgstr ""
+msgstr "これはコマンドラインでも指定できます。"
 
 #. type: Fenced code block (bash)
 #: ../doc/06-config.md:133
@@ -11858,17 +11883,19 @@ msgid ""
 "composer install --no-source-fallback\n"
 "composer update --source-fallback\n"
 msgstr ""
+"composer install --no-source-fallback\n"
+"composer update --source-fallback\n"
 
 #. type: Plain text
 #: ../doc/06-config.md:139
 msgid "Or via the `COMPOSER_SOURCE_FALLBACK` environment variable:"
-msgstr ""
+msgstr "あるいは`COMPOSER_SOURCE_FALLBACK`環境変数を介してもできます。"
 
 #. type: Fenced code block (bash)
 #: ../doc/06-config.md:140
 #, no-wrap
 msgid "COMPOSER_SOURCE_FALLBACK=0 composer install\n"
-msgstr ""
+msgstr "COMPOSER_SOURCE_FALLBACK=0 composer install\n"
 
 #. type: Plain text
 #: ../doc/06-config.md:147
@@ -11893,7 +11920,7 @@ msgstr ""
 #. type: Plain text
 #: ../doc/06-config.md:156
 msgid "Set to `false` to disable all policy enforcement:"
-msgstr ""
+msgstr "`false`に設定するとすべてのポリシーの促進が無効になります。"
 
 #. type: Fenced code block (json)
 #: ../doc/06-config.md:157
@@ -11924,12 +11951,12 @@ msgstr ""
 #: ../doc/06-config.md:169
 #, no-wrap
 msgid "advisories"
-msgstr ""
+msgstr "advisories"
 
 #. type: Plain text
 #: ../doc/06-config.md:172
 msgid "Configuration for packages affected by security advisories."
-msgstr ""
+msgstr "セキュリティの勧告により影響を受けるパッケージのための構成です。"
 
 #. type: Title ####
 #: ../doc/06-config.md:173 ../doc/06-config.md:310 ../doc/06-config.md:374
@@ -11992,7 +12019,7 @@ msgstr ""
 #. type: Bullet: '- '
 #: ../doc/06-config.md:197
 msgid "`ignore` — advisories are not reported"
-msgstr ""
+msgstr "`ignore`は、勧告が報告されません"
 
 #. type: Bullet: '- '
 #: ../doc/06-config.md:197
@@ -12121,7 +12148,7 @@ msgstr ""
 #: ../doc/06-config.md:246 ../doc/06-config.md:289 ../doc/06-config.md:530
 #, no-wrap
 msgid "With scoping:"
-msgstr ""
+msgstr "スコープ付き："
 
 #. type: Plain text
 #: ../doc/06-config.md:250
@@ -12188,6 +12215,8 @@ msgid ""
 "A list of advisory severity levels to ignore: `low`, `medium`, `high`, "
 "`critical`."
 msgstr ""
+"無視する勧告のセキュリティの水準のリストであり、`low`、`medium`、`high`、"
+"`critical`の何れかです。"
 
 #. type: Fenced code block (json)
 #: ../doc/06-config.md:277
@@ -12283,11 +12312,13 @@ msgstr ""
 #: ../doc/06-config.md:330
 msgid "Defaults to `fail`. How `composer audit` treats abandoned packages."
 msgstr ""
+"既定で`fail`です。\n"
+"どのように`composer audit`が放棄されたパッケージを扱うかを決めます。"
 
 #. type: Bullet: '- '
 #: ../doc/06-config.md:334
 msgid "`ignore` — abandoned packages are not reported"
-msgstr ""
+msgstr "`ignore`は、放棄されたパッケージが報告されません"
 
 #. type: Bullet: '- '
 #: ../doc/06-config.md:334
@@ -12388,18 +12419,20 @@ msgstr ""
 #: ../doc/06-config.md:370
 #, no-wrap
 msgid "malware"
-msgstr ""
+msgstr "malware"
 
 #. type: Plain text
 #: ../doc/06-config.md:373
 msgid "Configuration for packages flagged as containing malware."
-msgstr ""
+msgstr "マルウェアを含むものとして旗が立ったパッケージのための構成です。"
 
 #. type: Plain text
 #: ../doc/06-config.md:377
 msgid ""
 "Defaults to `true`. When `true`, packages flagged as malware are blocked."
 msgstr ""
+"既定で`true`です。\n"
+"`true`のとき、マルウェアとして旗が立ったパッケージは阻害されます。"
 
 #. type: Title ####
 #: ../doc/06-config.md:378
@@ -12411,21 +12444,24 @@ msgstr "block-scope"
 #: ../doc/06-config.md:381
 msgid "Defaults to `all`. Controls which commands trigger blocking:"
 msgstr ""
+"既定で`all`です。\n"
+"これはどのコマンドが阻害のきっかけとなるかを制御するものです。"
 
 #. type: Bullet: '- '
 #: ../doc/06-config.md:385
 msgid "`all` — block during both `update`/`require`/`remove` and `install`"
 msgstr ""
+"`all`では、`update`/`require`/`remove`と`install`の両方の間に阻害します"
 
 #. type: Bullet: '- '
 #: ../doc/06-config.md:385
 msgid "`update` — block only during `update`/`require`/`remove`"
-msgstr ""
+msgstr "`update`では、`update`/`require`/`remove`の間でのみ阻害します"
 
 #. type: Bullet: '- '
 #: ../doc/06-config.md:385
 msgid "`install` — block only during `install`"
-msgstr ""
+msgstr "`install`では、`install`の間でのみ阻害します"
 
 #. type: Fenced code block (json)
 #: ../doc/06-config.md:386
@@ -12455,6 +12491,8 @@ msgstr ""
 #: ../doc/06-config.md:401
 msgid "Defaults to `fail`. Same values as [advisories.audit](#audit)."
 msgstr ""
+"既定で`fail`です。\n"
+"[advisories.audit](#audit)と同じ値です。"
 
 #. type: Plain text
 #: ../doc/06-config.md:406
@@ -12472,7 +12510,7 @@ msgstr "ignore-source"
 #. type: Plain text
 #: ../doc/06-config.md:410
 msgid "A list of source names to exclude from malware checks."
-msgstr ""
+msgstr "マルウェアの検査から除かれるソースの名前のリストです。"
 
 #. type: Fenced code block (json)
 #: ../doc/06-config.md:411
@@ -12545,7 +12583,7 @@ msgstr ""
 #: ../doc/06-config.md:442
 #, no-wrap
 msgid "Custom lists"
-msgstr ""
+msgstr "独自のリスト"
 
 #. type: Plain text
 #: ../doc/06-config.md:447
@@ -12638,7 +12676,7 @@ msgstr ""
 #: ../doc/06-config.md:484
 #, no-wrap
 msgid "Simple list (ignore all versions):"
-msgstr ""
+msgstr "単純なリスト（すべてのバージョンを無視）："
 
 #. type: Fenced code block (json)
 #: ../doc/06-config.md:486
@@ -12668,7 +12706,7 @@ msgstr ""
 #: ../doc/06-config.md:498
 #, no-wrap
 msgid "With reason:"
-msgstr ""
+msgstr "理由付き："
 
 #. type: Fenced code block (json)
 #: ../doc/06-config.md:500
@@ -12772,7 +12810,7 @@ msgstr ""
 #: ../doc/06-config.md:549
 #, no-wrap
 msgid "Multiple rules for the same package:"
-msgstr ""
+msgstr "同じパッケージのための複数の規則："
 
 #. type: Fenced code block (json)
 #: ../doc/06-config.md:551
@@ -12837,7 +12875,7 @@ msgstr ""
 #: ../doc/06-config.md:578
 #, no-wrap
 msgid "How `config.audit` interacts with `config.policy`"
-msgstr ""
+msgstr "`config.audit`はどのように`config.policy`と相互作用するか"
 
 #. type: Plain text
 #: ../doc/06-config.md:582
@@ -13049,6 +13087,8 @@ msgstr "これら全ての形式は同じ構成に混ぜて使えます。"
 #, no-wrap
 msgid "> **Deprecated.** Use [`config.policy.abandoned.audit`](#audit-1) instead.\n"
 msgstr ""
+"> **非推奨です。**\n"
+"> [`config.policy.abandoned.audit`](#audit-1)を代用してください。\n"
 
 #. type: Plain text
 #: ../doc/06-config.md:673
@@ -13376,6 +13416,8 @@ msgstr ""
 #, no-wrap
 msgid "> **Deprecated.** Use [`config.policy.ignore-unreachable`](#ignore-unreachable) instead.\n"
 msgstr ""
+"> **非推奨です。**\n"
+"> [`config.policy.ignore-unreachable`](#ignore-unreachable)を代用してください。\n"
 
 #. type: Plain text
 #: ../doc/06-config.md:813
@@ -13424,6 +13466,8 @@ msgstr "block-insecure"
 #, no-wrap
 msgid "> **Deprecated.** Use [`config.policy.advisories.block`](#block) instead.\n"
 msgstr ""
+"> **非推奨です。**\n"
+"> [`config.policy.advisories.block`](#block)を代用してください。\n"
 
 #. type: Plain text
 #: ../doc/06-config.md:831
@@ -13473,6 +13517,8 @@ msgstr "block-abandoned"
 #, no-wrap
 msgid "> **Deprecated.** Use [`config.policy.abandoned.block`](#block-1) instead.\n"
 msgstr ""
+"> **非推奨です。**\n"
+"> [`config.policy.abandoned.block`](#block-1)を代用してください。\n"
 
 #. type: Plain text
 #: ../doc/06-config.md:848
@@ -16643,6 +16689,8 @@ msgstr ""
 msgid ""
 "**Fallback**: If all else fails, Composer uses `1.0.0` as default version."
 msgstr ""
+"**フォールバック**：\n"
+"もしすべてが失敗するなら、Composerは`1.0.0`を既定のバージョンとして使います。"
 
 #. type: Plain text
 #: ../doc/articles/troubleshooting.md:111
@@ -16657,7 +16705,7 @@ msgstr ""
 #: ../doc/articles/troubleshooting.md:112
 #, no-wrap
 msgid "Network timeout issues, curl error"
-msgstr ""
+msgstr "ネットワークの時間切れの問題、curlのエラー"
 
 #. type: Plain text
 #: ../doc/articles/troubleshooting.md:115
@@ -16668,7 +16716,7 @@ msgstr ""
 #: ../doc/articles/troubleshooting.md:116
 #, no-wrap
 msgid "Failed to download * curl error 28 while downloading * Operation timed out after 300000 milliseconds\n"
-msgstr ""
+msgstr "Failed to download * curl error 28 while downloading * Operation timed out after 300000 milliseconds\n"
 
 #. type: Plain text
 #: ../doc/articles/troubleshooting.md:123

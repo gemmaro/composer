@@ -123,14 +123,14 @@ and fail immediately if the preferred source is unavailable.
 }
 ```
 
-This can also be specified on the command line:
+これはコマンドラインでも指定できます。
 
 ```bash
 composer install --no-source-fallback
 composer update --source-fallback
 ```
 
-Or via the `COMPOSER_SOURCE_FALLBACK` environment variable:
+あるいは`COMPOSER_SOURCE_FALLBACK`環境変数を介してもできます。
 
 ```bash
 COMPOSER_SOURCE_FALLBACK=0 composer install
@@ -149,7 +149,7 @@ prevents insecure or otherwise flagged package versions from being installed
 during `composer update`, `require`, or `remove` and for the malware
 detection additionally during a `composer install`.
 
-Set to `false` to disable all policy enforcement:
+`false`に設定するとすべてのポリシーの促進が無効になります。
 
 ```json
 {
@@ -165,7 +165,7 @@ Set to `false` to disable all policy enforcement:
 
 ### advisories
 
-Configuration for packages affected by security advisories.
+セキュリティの勧告により影響を受けるパッケージのための構成です。
 
 #### block
 
@@ -190,7 +190,7 @@ advisories are blocked and cannot be installed during
 Defaults to `fail`. How `composer audit` treats packages with security
 advisories.
 
-- `ignore` — advisories are not reported
+- `ignore`は、勧告が報告されません
 - `report` — advisories are reported but do not cause a non-zero exit code
 - `fail`では、勧告により`composer audit`に非ゼロコードの失敗が引き起こされます。
 
@@ -243,7 +243,7 @@ where the ignore applies.
 }
 ```
 
-##### With scoping:
+##### スコープ付き：
 
 `on-block: false` means the advisory no longer blocks updates but is still
 reported in audit.  `on-audit: false` means the advisory still blocks
@@ -272,8 +272,7 @@ format](#ignore-format) for all supported syntax variants.
 
 #### ignore-severity
 
-A list of advisory severity levels to ignore: `low`, `medium`, `high`,
-`critical`.
+無視する勧告のセキュリティの水準のリストであり、`low`、`medium`、`high`、`critical`の何れかです。
 
 ##### 単純なリスト：
 
@@ -289,7 +288,7 @@ A list of advisory severity levels to ignore: `low`, `medium`, `high`,
 }
 ```
 
-##### With scoping:
+##### スコープ付き：
 
 ```json
 {
@@ -329,9 +328,10 @@ during `update`/`require`/`remove`.
 
 #### audit
 
-Defaults to `fail`. How `composer audit` treats abandoned packages.
+既定で`fail`です。
+どのように`composer audit`が放棄されたパッケージを扱うかを決めます。
 
-- `ignore` — abandoned packages are not reported
+- `ignore`は、放棄されたパッケージが報告されません
 - `report`では、放棄されたパッケージが報告されるものの非ゼロコードの終了を引き起こしません。
 - `fail`では、放棄されたパッケージにより`composer audit`は非ゼロのコードでの終了が引き起こされます。
 
@@ -374,19 +374,21 @@ for all supported syntax variants.
 
 ### malware
 
-Configuration for packages flagged as containing malware.
+マルウェアを含むものとして旗が立ったパッケージのための構成です。
 
 #### block
 
-Defaults to `true`. When `true`, packages flagged as malware are blocked.
+既定で`true`です。
+`true`のとき、マルウェアとして旗が立ったパッケージは阻害されます。
 
 #### block-scope
 
-Defaults to `all`. Controls which commands trigger blocking:
+既定で`all`です。
+これはどのコマンドが阻害のきっかけとなるかを制御するものです。
 
-- `all` — block during both `update`/`require`/`remove` and `install`
-- `update` — block only during `update`/`require`/`remove`
-- `install` — block only during `install`
+- `all`では、`update`/`require`/`remove`と`install`の両方の間に阻害します
+- `update`では、`update`/`require`/`remove`の間でのみ阻害します
+- `install`では、`install`の間でのみ阻害します
 
 ```json
 {
@@ -402,7 +404,8 @@ Defaults to `all`. Controls which commands trigger blocking:
 
 #### audit
 
-Defaults to `fail`. Same values as [advisories.audit](#audit).
+既定で`fail`です。
+[advisories.audit](#audit)と同じ値です。
 
 #### ignore
 
@@ -411,7 +414,7 @@ format](#ignore-format) for all supported syntax variants.
 
 #### ignore-source
 
-A list of source names to exclude from malware checks.
+マルウェアの検査から除かれるソースの名前のリストです。
 
 ```json
 {
@@ -446,7 +449,7 @@ are: `audit`, `install`, and `update`.
 }
 ```
 
-### Custom lists
+### 独自のリスト
 
 In addition to the built-in `advisories`, `malware`, and `abandoned` lists,
 you can define named custom policy lists. A custom list receives its data
@@ -493,7 +496,7 @@ The `ignore` key on every list accepts package name patterns with optional
 version constraints and per-rule scoping. All formats may be mixed in the
 same map.
 
-##### Simple list (ignore all versions):
+##### 単純なリスト（すべてのバージョンを無視）：
 
 ```json
 {
@@ -507,7 +510,7 @@ same map.
 }
 ```
 
-##### With reason:
+##### 理由付き：
 
 ```json
 {
@@ -539,7 +542,7 @@ same map.
 }
 ```
 
-##### With scoping:
+##### スコープ付き：
 
 `on-block: false` ignores only for audit (the package is still blocked
 during updates as on-block ignoring is disabled).  `on-audit: false` ignores
@@ -559,7 +562,7 @@ only for blocking (the package is still reported in audit).
 }
 ```
 
-##### Multiple rules for the same package:
+##### 同じパッケージのための複数の規則：
 
 ```json
 {
@@ -588,7 +591,7 @@ only for blocking (the package is still reported in audit).
 バージョンの遮断では、安全でなかったり放棄されたりしているものと確認されたパッケージのバージョンを、構成に応じて、依存関係を解決する前に無視します。
 これにより、そうしたパッケージがインストールされないようにします。
 
-### How `config.audit` interacts with `config.policy`
+### `config.audit`はどのように`config.policy`と相互作用するか
 
 The legacy `config.audit` keys are only read as a fallback when the
 corresponding [`config.policy`](#policy) block is **absent**. The fallback
@@ -692,7 +695,8 @@ is all-or-nothing per built-in list:
 
 ### abandoned
 
-> **Deprecated.** Use [`config.policy.abandoned.audit`](#audit-1) instead.
+> **非推奨です。**
+> [`config.policy.abandoned.audit`](#audit-1)を代用してください。
 
 Composer 2.7以降、既定で`fail`です（このオプションが追加されたComposer 2.6では既定で`report`でした）。
 監査コマンドが放棄されたパッケージを報告するかどうかを定義するもので、3つの値を取り得ます。
@@ -841,7 +845,8 @@ Composer
 
 ### ignore-unreachable
 
-> **Deprecated.** Use [`config.policy.ignore-unreachable`](#ignore-unreachable) instead.
+> **非推奨です。**
+> [`config.policy.ignore-unreachable`](#ignore-unreachable)を代用してください。
 
 既定で`false`です。
 到達できないリポジトリは`composer audit`のときに無視されます。
@@ -860,7 +865,8 @@ Composer
 
 ### block-insecure
 
-> **Deprecated.** Use [`config.policy.advisories.block`](#block) instead.
+> **非推奨です。**
+> [`config.policy.advisories.block`](#block)を代用してください。
 
 既定で`true`です。
 `true`のとき、セキュリティ勧告が無視されていなければ、セキュリティ勧告の影響を受けるパッケージのバージョンは遮断され、composer
@@ -879,7 +885,8 @@ update/require/deleteコマンドで使えません。
 
 ### block-abandoned
 
-> **Deprecated.** Use [`config.policy.abandoned.block`](#block-1) instead.
+> **非推奨です。**
+> [`config.policy.abandoned.block`](#block-1)を代用してください。
 
 既定で`false`です。
 `true`のとき、放棄されたパッケージはcomposerのupdate/required/deleteコマンドで使えません。
