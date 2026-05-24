@@ -29,10 +29,7 @@ Integration)](https://github.com/composer/composer/actions/workflows/continuous-
 コミュニティ
 ------
 
-Follow [@packagist](https://X.com/packagist) or
-[@seldaek](https://X.com/seldaek) on X for announcements, or check the
-[#composerphp](https://X.com/search?q=%23composerphp&src=typed_query&f=live)
-hashtag.
+告知についてはXで[@packagist](https://X.com/packagist)または[@seldaek](https://X.com/seldaek)をフォローしたり、[#composerphp](https://X.com/search?q=%23composerphp&src=typed_query&f=live)ハッシュタグを確認したりしてください。
 
 サポートについては、Stack
 Overflowで[Composerに関係する良い質問](https://stackoverflow.com/questions/tagged/composer-php)がされてきました。

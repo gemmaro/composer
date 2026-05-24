@@ -8,7 +8,7 @@
     update/install/audit policies. This replaces and deprecates most of the
     `audit` config (#12804 for implementation, #12786 for RFC/upgrade docs)
   * Enabled blocking of malware packages at `install` time by default
-  * Fixed --no-plugins handling regression (#12789)
+  * --no-pluginsの扱いの退行問題を修正しました (#12789)
   * Fixed regression in startup performance when many scripts are defined
     (#12832)
   * Improved classmap dumping performance
@@ -40,7 +40,7 @@
     (#12737)
   * Fixed error reporting for clarity when a constraint cannot be parsed
     (#12743)
-  * Fixed warning being shown when lock file is disabled (#12760)
+  * 固定ファイルが無効のときに警告が表示される点を直しました (#12760)
   * Fixed inconsistent treatment of SingleCommandApplication script commands
     wrt autoloading (#12758)
   * Fixed some platform package parsing failing when Composer runs in web
@@ -58,10 +58,10 @@
 
 ### [2.9.6] 2026-04-14
 
-  * Security: Fixed command injection via malicious Perforce reference
-    (GHSA-gqw4-4w2p-838q / CVE-2026-40261)
-  * Security: Fixed command injection via malicious Perforce repository
-    definition (GHSA-wg36-wvj6-r67p / CVE-2026-40176)
+  * セキュリティ：悪意のあるPerforceの参照を介したコマンドインジェクションを直しました (GHSA-gqw4-4w2p-838q /
+    CVE-2026-40261)
+  * セキュリティ：悪意のあるPerforceのリポジトリ定義を介したコマンドインジェクションを直しました (GHSA-wg36-wvj6-r67p
+    / CVE-2026-40176)
   * Security: Fixed git credentials remaining in git mirror .git/config
     after clone or update failed (2bcbfc3d)
   * Security: Fixed usage of insecure 3DES ciphers when ext-curl is missing

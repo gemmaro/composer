@@ -192,7 +192,7 @@ advisories.
 
 - `ignore` — advisories are not reported
 - `report` — advisories are reported but do not cause a non-zero exit code
-- `fail` — advisories cause `composer audit` to exit with a non-zero code
+- `fail`では、勧告により`composer audit`に非ゼロコードの失敗が引き起こされます。
 
 ```json
 {
@@ -212,7 +212,7 @@ A list of advisory IDs (CVE, GHSA, PKSA, …) to ignore. Each entry can
 optionally include a reason and scoping (`on-block`/`on-audit`) to limit
 where the ignore applies.
 
-##### Simple list:
+##### 単純なリスト：
 
 ```json
 {
@@ -226,7 +226,7 @@ where the ignore applies.
 }
 ```
 
-##### With reasons:
+##### 理由付き：
 
 ```json
 {
@@ -275,7 +275,7 @@ format](#ignore-format) for all supported syntax variants.
 A list of advisory severity levels to ignore: `low`, `medium`, `high`,
 `critical`.
 
-##### Simple list:
+##### 単純なリスト：
 
 ```json
 {
@@ -308,7 +308,7 @@ A list of advisory severity levels to ignore: `low`, `medium`, `high`,
 
 ### abandoned
 
-Configuration for abandoned packages.
+放棄されたパッケージ用の構成です。
 
 #### block
 
@@ -332,10 +332,8 @@ during `update`/`require`/`remove`.
 Defaults to `fail`. How `composer audit` treats abandoned packages.
 
 - `ignore` — abandoned packages are not reported
-- `report` — abandoned packages are reported but do not cause a non-zero
-  exit code
-- `fail` — abandoned packages cause `composer audit` to exit with a non-zero
-  code
+- `report`では、放棄されたパッケージが報告されるものの非ゼロコードの終了を引き起こしません。
+- `fail`では、放棄されたパッケージにより`composer audit`は非ゼロのコードでの終了が引き起こされます。
 
 ```json
 {
@@ -489,7 +487,7 @@ used as custom list names: `package`, `packages`, `license`, `licence`,
 `minimum-release-age`. Composer rejects any colliding key both at schema
 validation time (`composer validate`) and at config load time.
 
-### ignore format
+### ignoreの形式
 
 The `ignore` key on every list accepts package name patterns with optional
 version constraints and per-rule scoping. All formats may be mixed in the
@@ -525,7 +523,7 @@ same map.
 }
 ```
 
-##### With version constraint:
+##### パッケージ制約付き：
 
 ```json
 {

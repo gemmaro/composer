@@ -118,19 +118,20 @@ php composer.phar install
 * **--audit:** インストールが完了した後に監査を走らせます。
 * **--audit-format:** 監査の出力形式です。
   "table"、"plain"、"json"、または"summary"（既定）のどれかでなければなりません。
-* **--no-security-blocking:** DEPRECATED, use `--no-blocking`
-  instead. Allows installing packages with security advisories or that are
-  abandoned. Also see
-  [COMPOSER_NO_SECURITY_BLOCKING](#composer-no-security-blocking).
-* **--no-blocking:** Disables all policy blocking during this command. Also
-  see [COMPOSER_NO_BLOCKING](#composer-no-blocking).
+* **--no-security-blocking:**
+  非推奨であり、`--no-blocking`を代用してください。
+  セキュリティ勧告があったり放棄されたりしているパッケージのインストールを許容します。
+  [COMPOSER_NO_SECURITY_BLOCKING](#composer-no-security-blocking)も参照。
+* **--no-blocking:**
+  このコマンドの間はすべてのポリシーによる遮断を無効にします。
+  [COMPOSER_NO_BLOCKING](#composer-no-blocking)も参照。
 * **--optimize-autoloader (-o):** PSR-0の自動読み込みをクラス対応表に変換して自動読み込みを高速にします。
   実運用では特にお勧めしますが、走らせるのに少し時間が掛かることがあるので、現在は既定ではされません。
 * **--classmap-authoritative (-a):** クラス対応表からクラスのみを自動読み込みします。
   暗黙裡に`--optimize-autoloader`を有効にします。
-* **--strict-psr-autoloader:** Return a failed exit code (6) if PSR-4 or
-  PSR-0 mapping errors are present in the current project (dependencies
-  excluded). Requires `--optimize-autoloader` to work.
+* **--strict-psr-autoloader:**
+  現在のプロジェクトで（依存関係は除き）PSR-4またはPSR-0の対応付けのエラーが存在するなら失敗の終了コード (6) を返します。
+  動作には`--optimize-autoloader`が必要です。
 * **--apcu-autoloader:** APCuを使って、クラスの有無をキャッシュします。
 * **--apcu-autoloader-prefix:** APCu自動読み込み器のキャッシュ用に独自の接頭辞を使います。
   暗黙裡に`--apcu-autoloader`を有効にします。
@@ -213,12 +214,13 @@ php composer.phar update vendor/package:2.0.1 vendor/package2:3.0.*
   composer.lockを更新した後の監査過程を走らせません。[COMPOSER_NO_AUDIT](#composer-no-audit)も参照してください。
 * **--audit-format:** 監査の出力形式です。
   "table"、"plain"、"json"、または"summary"（既定）のどれかでなければなりません。
-* **--no-security-blocking:** DEPRECATED, use `--no-blocking`
-  instead. Allows installing packages with security advisories or that are
-  abandoned. Also see
-  [COMPOSER_NO_SECURITY_BLOCKING](#composer-no-security-blocking).
-* **--no-blocking:** Disables all policy blocking during this command. Also
-  see [COMPOSER_NO_BLOCKING](#composer-no-blocking).
+* **--no-security-blocking:**
+  非推奨であり、`--no-blocking`を代用してください。
+  セキュリティ勧告があったり放棄されたりしているパッケージのインストールを許容します。
+  [COMPOSER_NO_SECURITY_BLOCKING](#composer-no-security-blocking)も参照。
+* **--no-blocking:**
+  このコマンドの間はすべてのポリシーによる遮断を無効にします。
+  [COMPOSER_NO_BLOCKING](#composer-no-blocking)も参照。
 * **--lock:**
   パッケージのバージョンを更新せず、固定ファイルが期限切れであることについての警告を抑えるために固定ファイルを上書きします。
   ミラーやURLといったパッケージのメタデータが変更されていれば更新します。
@@ -240,9 +242,9 @@ php composer.phar update vendor/package:2.0.1 vendor/package2:3.0.*
   特に実運用で推奨されますが、走らせるのに少し時間が掛かるため、現時点では既定では有効になっていません。
 * **--classmap-authoritative (-a):** クラス対応表からクラスのみを自動読み込みします。
   暗黙裡に`--optimize-autoloader`を有効にします。
-* **--strict-psr-autoloader:** Return a failed exit code (6) if PSR-4 or
-  PSR-0 mapping errors are present in the current project (dependencies
-  excluded). Requires `--optimize-autoloader` to work.
+* **--strict-psr-autoloader:**
+  現在のプロジェクトで（依存関係は除き）PSR-4またはPSR-0の対応付けのエラーが存在するなら失敗の終了コード (6) を返します。
+  動作には`--optimize-autoloader`が必要です。
 * **--apcu-autoloader:** APCuを使って、クラスの有無をキャッシュします。
 * **--apcu-autoloader-prefix:** APCu自動読み込み器のキャッシュ用に独自の接頭辞を使います。
   暗黙裡に`--apcu-autoloader`を有効にします。
@@ -329,12 +331,13 @@ php composer.phar require vendor/package vendor/package2
   composer.lockを更新した後の監査過程を走らせません。[COMPOSER_NO_AUDIT](#composer-no-audit)も参照してください。
 * **--audit-format:** 監査の出力形式です。
   "table"、"plain"、"json"、または"summary"（既定）のどれかでなければなりません。
-* **--no-security-blocking:** DEPRECATED, use `--no-blocking`
-  instead. Allows installing packages with security advisories or that are
-  abandoned. Also see
-  [COMPOSER_NO_SECURITY_BLOCKING](#composer-no-security-blocking).
-* **--no-blocking:** Disables all policy blocking during this command. Also
-  see [COMPOSER_NO_BLOCKING](#composer-no-blocking).
+* **--no-security-blocking:**
+  非推奨であり、`--no-blocking`を代用してください。
+  セキュリティ勧告があったり放棄されたりしているパッケージのインストールを許容します。
+  [COMPOSER_NO_SECURITY_BLOCKING](#composer-no-security-blocking)も参照。
+* **--no-blocking:**
+  このコマンドの間はすべてのポリシーによる遮断を無効にします。
+  [COMPOSER_NO_BLOCKING](#composer-no-blocking)も参照。
 * **--update-no-dev:**
   `--no-dev`オプションと共に依存関係の更新を走らせます。[COMPOSER_NO_DEV](#composer-no-dev)も参照してください。
 * **--update-with-dependencies (-w):**
@@ -397,12 +400,13 @@ php composer.phar remove vendor/package vendor/package2
   [COMPOSER_NO_AUDIT](#composer-no-audit)も参照してください。
 * **--audit-format:** 監査の出力形式です。
   "table"、"plain"、"json"、または"summary"（既定）のどれかでなければなりません。
-* **--no-security-blocking:** DEPRECATED, use `--no-blocking`
-  instead. Allows installing packages with security advisories or that are
-  abandoned. Also see
-  [COMPOSER_NO_SECURITY_BLOCKING](#composer-no-security-blocking).
-* **--no-blocking:** Disables all policy blocking during this command. Also
-  see [COMPOSER_NO_BLOCKING](#composer-no-blocking).
+* **--no-security-blocking:**
+  非推奨であり、`--no-blocking`を代用してください。
+  セキュリティ勧告があったり放棄されたりしているパッケージのインストールを許容します。
+  [COMPOSER_NO_SECURITY_BLOCKING](#composer-no-security-blocking)も参照。
+* **--no-blocking:**
+  このコマンドの間はすべてのポリシーによる遮断を無効にします。
+  [COMPOSER_NO_BLOCKING](#composer-no-blocking)も参照。
 * **--update-no-dev:**
   --no-devオプションで依存関係の更新を走らせます。[COMPOSER_NO_DEV](#composer-no-dev)も参照してください。
 * **--update-with-dependencies (-w):**
@@ -979,11 +983,11 @@ repo [オプション] disable packagist.org
 - **--file (-f):** composer.jsonの代わりに特定のファイルを変更します。
 - **--append:** 低い優先度でリポジトリを追加します（既定ではリポジトリは前置されます。
   したがって既存のものより高い優先度があります）。
-- **--before [name]:** to insert the new repository before an existing
-  repository named `[name]`.
-- **--after [name]:** to insert the new repository after an existing
-  repository named `[name]`. The `[name]` must match an existing repository
-  name.
+- **--before [名前]:**
+  新しいリポジトリを既存の `[名前]` という名前のリポジトリの前に挿入します。
+- **--after [名前]:**
+  新しいリポジトリを既存の `[名前]` というリポジトリの後に挿入します。
+  `[名前]` は既存のリポジトリ名に合致しなければなりません。
 
 ### 例
 
@@ -1098,12 +1102,13 @@ php composer.phar create-project composer/hello-world my-project
   [COMPOSER_NO_AUDIT](#composer-no-audit)も参照してください。
 * **--audit-format:** 監査の出力形式です。
   "table"、"plain"、"json"、または"summary"（既定）のどれかでなければなりません。
-* **--no-security-blocking:** DEPRECATED, use `--no-blocking`
-  instead. Allows installing packages with security advisories or that are
-  abandoned. Also see
-  [COMPOSER_NO_SECURITY_BLOCKING](#composer-no-security-blocking).
-* **--no-blocking:** Disables all policy blocking during this command. Also
-  see [COMPOSER_NO_BLOCKING](#composer-no-blocking).
+* **--no-security-blocking:**
+  非推奨であり、`--no-blocking`を代用してください。
+  セキュリティ勧告があったり放棄されたりしているパッケージのインストールを許容します。
+  [COMPOSER_NO_SECURITY_BLOCKING](#composer-no-security-blocking)も参照。
+* **--no-blocking:**
+  このコマンドの間はすべてのポリシーによる遮断を無効にします。
+  [COMPOSER_NO_BLOCKING](#composer-no-blocking)も参照。
 * **--ignore-platform-reqs:**
   全てのプラットフォーム要件（`php`、`hhvm`、`lib-*`、`ext-*`）を無視し、ローカルマシンがたとえこれらを満たしていなくてもインストールを強行します。
   [`platform`](06-config.md#platform)設定オプションも参照してください。
@@ -1228,17 +1233,16 @@ api](https://packagist.org/apidoc#list-security-advisories)を使い、セキュ
 `composer.json`の`repositories`節で指定されたときは、他のリポジトリが使われます。
 このコマンドでは、放棄されたパッケージも検出されます。
 
-The audit command determines if there are vulnerable, abandoned, or filtered
-packages and returns the following exit codes based on the findings:
+監査コマンドでは、脆弱であったり、放棄されていたり、遮断されたパッケージがあるなら、見つかったものに基づいて、以下の終了コードを返します。
 
 * `0` は、問題なし
 * `1` は、脆弱なパッケージ
 * `2` は、放棄されたパッケージ
 * `3` は、脆弱なパッケージと放棄されたパッケージ
-* `4` Filtered packages.
-* `5` Vulnerable and filtered packages.
-* `6` Abandoned and filtered packages.
-* `7` Vulnerable, abandoned, and filtered packages.
+* `4` は、遮断されたパッケージ
+* `5` は、脆弱なパッケージと遮断されたパッケージ
+* `6` は、放棄されたパッケージと遮断されたパッケージ
+* `7` は、脆弱なパッケージと放棄されたパッケージと遮断されたパッケージ
 
 ```shell
 php composer.phar audit
@@ -1436,8 +1440,8 @@ parallel.  This defaults to 10 and must be between 1 and 50.
 
 ### COMPOSER_SKIP_SCRIPTS
 
-Accepts a comma-separated list of event names, e.g. `post-install-cmd` for
-which scripts execution should be skipped.
+イベント名のコンマ区切りリストを受け付けます。
+例えば、スクリプト実行をスキップするための`post-install-cmd`があります。
 
 ### COMPOSER_NO_AUDIT
 

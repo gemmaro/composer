@@ -214,14 +214,18 @@ msgstr "[2.9.6] 2026-04-14"
 msgid ""
 "Security: Fixed command injection via malicious Perforce reference (GHSA-"
 "gqw4-4w2p-838q / CVE-2026-40261)"
-msgstr "セキュリティ：悪意のあるPerforceの参照を介したコマンドインジェクションを直しました (GHSA-gqw4-4w2p-838q / CVE-2026-40261)"
+msgstr ""
+"セキュリティ：悪意のあるPerforceの参照を介したコマンドインジェクションを直し"
+"ました (GHSA-gqw4-4w2p-838q / CVE-2026-40261)"
 
 #. type: Bullet: '  * '
 #: ../CHANGELOG.md:50
 msgid ""
 "Security: Fixed command injection via malicious Perforce repository "
 "definition (GHSA-wg36-wvj6-r67p / CVE-2026-40176)"
-msgstr "セキュリティ：悪意のあるPerforceのリポジトリ定義を介したコマンドインジェクションを直しました (GHSA-wg36-wvj6-r67p / CVE-2026-40176)"
+msgstr ""
+"セキュリティ：悪意のあるPerforceのリポジトリ定義を介したコマンドインジェク"
+"ションを直しました (GHSA-wg36-wvj6-r67p / CVE-2026-40176)"
 
 #. type: Bullet: '  * '
 #: ../CHANGELOG.md:50

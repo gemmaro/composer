@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Composer\n"
 "POT-Creation-Date: 2026-05-24 18:13+0900\n"
-"PO-Revision-Date: 2026-02-03 08:01+0900\n"
+"PO-Revision-Date: 2026-05-24 18:32+0900\n"
 "Last-Translator: gemmaro <gemmaro.dev@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -129,21 +129,15 @@ msgstr "コミュニティ"
 
 #. type: Plain text
 #: ../README.md:32
-#, fuzzy
-#| msgid ""
-#| "Follow [@packagist](https://twitter.com/packagist) or [@seldaek](https://"
-#| "twitter.com/seldaek) on Twitter for announcements, or check the "
-#| "[#composerphp](https://twitter.com/search?"
-#| "q=%23composerphp&src=typed_query&f=live) hashtag."
 msgid ""
 "Follow [@packagist](https://X.com/packagist) or [@seldaek](https://X.com/"
 "seldaek) on X for announcements, or check the [#composerphp](https://X.com/"
 "search?q=%23composerphp&src=typed_query&f=live) hashtag."
 msgstr ""
-"告知についてはTwitterで[@packagist](https://twitter.com/packagist)または"
-"[@seldaek](https://twitter.com/seldaek)をフォローしたり、[#composerphp]"
-"(https://twitter.com/search?q=%23composerphp&src=typed_query&f=live)ハッシュ"
-"タグを確認したりしてください。"
+"告知についてはXで[@packagist](https://X.com/packagist)または[@seldaek]"
+"(https://X.com/seldaek)をフォローしたり、[#composerphp](https://X.com/search?"
+"q=%23composerphp&src=typed_query&f=live)ハッシュタグを確認したりしてくださ"
+"い。"
 
 #. type: Plain text
 #: ../README.md:35
@@ -285,31 +279,21 @@ msgstr "作者"
 
 #. type: Bullet: '- '
 #: ../README.md:76
-#, fuzzy
-#| msgid ""
-#| "Nils Adermann | [GitHub](https://github.com/naderman)  | [Twitter]"
-#| "(https://twitter.com/naderman) | <naderman@naderman.de> | [naderman.de]"
-#| "(https://naderman.de)"
 msgid ""
 "Nils Adermann | [GitHub](https://github.com/naderman)  | [X](https://X.com/"
 "naderman) | <naderman@naderman.de> | [naderman.de](https://naderman.de)"
 msgstr ""
-"Nils Adermann | [GitHub](https://github.com/naderman)  | [Twitter](https://"
-"twitter.com/naderman) | <naderman@naderman.de> | [naderman.de](https://"
-"naderman.de)"
+"Nils Adermann | [GitHub](https://github.com/naderman)  | [X](https://X.com/"
+"naderman) | <naderman@naderman.de> | [naderman.de](https://naderman.de)"
 
 #. type: Bullet: '- '
 #: ../README.md:76
-#, fuzzy
-#| msgid ""
-#| "Jordi Boggiano | [GitHub](https://github.com/Seldaek) | [Twitter](https://"
-#| "twitter.com/seldaek) | <j.boggiano@seld.be> | [seld.be](https://seld.be)"
 msgid ""
 "Jordi Boggiano | [GitHub](https://github.com/Seldaek) | [X](https://X.com/"
 "seldaek) | <j.boggiano@seld.be> | [seld.be](https://seld.be)"
 msgstr ""
-"Jordi Boggiano | [GitHub](https://github.com/Seldaek) | [Twitter](https://"
-"twitter.com/seldaek) | <j.boggiano@seld.be> | [seld.be](https://seld.be)"
+"Jordi Boggiano | [GitHub](https://github.com/Seldaek) | [X](https://X.com/"
+"seldaek) | <j.boggiano@seld.be> | [seld.be](https://seld.be)"
 
 #. type: Plain text
 #: ../README.md:78
@@ -2623,37 +2607,27 @@ msgstr ""
 #. type: Bullet: '* '
 #: ../doc/03-cli.md:144 ../doc/03-cli.md:255 ../doc/03-cli.md:338
 #: ../doc/03-cli.md:386 ../doc/03-cli.md:1067
-#, fuzzy
-#| msgid ""
-#| "**--no-security-blocking:** Allows installing packages with security "
-#| "advisories or that are abandoned. Also see [COMPOSER_NO_SECURITY_BLOCKING]"
-#| "(#composer-no-security-blocking)."
 msgid ""
 "**--no-security-blocking:** DEPRECATED, use `--no-blocking` instead. Allows "
 "installing packages with security advisories or that are abandoned. Also see "
 "[COMPOSER_NO_SECURITY_BLOCKING](#composer-no-security-blocking)."
 msgstr ""
 "**--no-security-blocking:**\n"
-"セキュリティ勧告があったり放棄されたりしているパッケージをインストールできま"
-"す。\n"
+"非推奨であり、`--no-blocking`を代用してください。\n"
+"セキュリティ勧告があったり放棄されたりしているパッケージのインストールを許容"
+"します。\n"
 "[COMPOSER_NO_SECURITY_BLOCKING](#composer-no-security-blocking)も参照。"
 
 #. type: Bullet: '* '
 #: ../doc/03-cli.md:144 ../doc/03-cli.md:255 ../doc/03-cli.md:338
 #: ../doc/03-cli.md:386 ../doc/03-cli.md:1067
-#, fuzzy
-#| msgid ""
-#| "**--no-security-blocking:** Allows installing packages with security "
-#| "advisories or that are abandoned. Also see [COMPOSER_NO_SECURITY_BLOCKING]"
-#| "(#composer-no-security-blocking)."
 msgid ""
 "**--no-blocking:** Disables all policy blocking during this command. Also "
 "see [COMPOSER_NO_BLOCKING](#composer-no-blocking)."
 msgstr ""
-"**--no-security-blocking:**\n"
-"セキュリティ勧告があったり放棄されたりしているパッケージをインストールできま"
-"す。\n"
-"[COMPOSER_NO_SECURITY_BLOCKING](#composer-no-security-blocking)も参照。"
+"**--no-blocking:**\n"
+"このコマンドの間はすべてのポリシーによる遮断を無効にします。\n"
+"[COMPOSER_NO_BLOCKING](#composer-no-blocking)も参照。"
 
 #. type: Bullet: '* '
 #: ../doc/03-cli.md:144 ../doc/03-cli.md:386 ../doc/03-cli.md:454
@@ -2680,20 +2654,15 @@ msgstr ""
 
 #. type: Bullet: '* '
 #: ../doc/03-cli.md:144 ../doc/03-cli.md:255
-#, fuzzy
-#| msgid ""
-#| "**--strict-psr:** Return a failed exit code (1) if PSR-4 or PSR-0 mapping "
-#| "errors are present in the current project (dependencies excluded). "
-#| "Requires `--optimize` to work."
 msgid ""
 "**--strict-psr-autoloader:** Return a failed exit code (6) if PSR-4 or PSR-0 "
 "mapping errors are present in the current project (dependencies excluded). "
 "Requires `--optimize-autoloader` to work."
 msgstr ""
-"**--strict-psr:**\n"
-"現在のプロジェクトで、PSR-4またはPSR-0の対応付けで失敗する場合、失敗の終了"
-"コード (1) を返します。\n"
-"動作には`--optimize`が必要です。"
+"**--strict-psr-autoloader:**\n"
+"現在のプロジェクトで（依存関係は除き）PSR-4またはPSR-0の対応付けのエラーが存"
+"在するなら失敗の終了コード (6) を返します。\n"
+"動作には`--optimize-autoloader`が必要です。"
 
 #. type: Bullet: '* '
 #: ../doc/03-cli.md:144 ../doc/03-cli.md:255 ../doc/03-cli.md:338
@@ -4841,32 +4810,23 @@ msgstr ""
 
 #. type: Bullet: '- '
 #: ../doc/03-cli.md:943
-#, fuzzy
-#| msgid ""
-#| "**--before <name>:** to insert the new repository before an existing "
-#| "repository named `<name>`."
 msgid ""
 "**--before [name]:** to insert the new repository before an existing "
 "repository named `[name]`."
 msgstr ""
-"**--before <名前>:** 新しいリポジトリを既存の `<名前>` という名前のリポジトリ"
-"の前に挿入します。"
+"**--before [名前]:**\n"
+"新しいリポジトリを既存の `[名前]` という名前のリポジトリの前に挿入します。"
 
 #. type: Bullet: '- '
 #: ../doc/03-cli.md:943
-#, fuzzy
-#| msgid ""
-#| "**--after <name>:** to insert the new repository after an existing "
-#| "repository named `<name>`. The `<name>` must match an existing repository "
-#| "name."
 msgid ""
 "**--after [name]:** to insert the new repository after an existing "
 "repository named `[name]`. The `[name]` must match an existing repository "
 "name."
 msgstr ""
-"**--after <名前>:** 新しいリポジトリを既存の `<名前>` というリポジトリの後に"
-"挿入します。\n"
-"`<名前>` は既存のリポジトリ名に合致しなければなりません。"
+"**--after [名前]:**\n"
+"新しいリポジトリを既存の `[名前]` というリポジトリの後に挿入します。\n"
+"`[名前]` は既存のリポジトリ名に合致しなければなりません。"
 
 #. type: Title ###
 #: ../doc/03-cli.md:944 ../doc/03-cli.md:980
@@ -5493,17 +5453,12 @@ msgstr ""
 
 #. type: Plain text
 #: ../doc/03-cli.md:1183
-#, fuzzy
-#| msgid ""
-#| "The audit command determines if there are vulnerable or abandoned "
-#| "packages and returns the following exit codes based on the findings:"
 msgid ""
 "The audit command determines if there are vulnerable, abandoned, or filtered "
 "packages and returns the following exit codes based on the findings:"
 msgstr ""
-"監査コマンドでは、脆弱なパッケージや放棄されたパッケージがあるか判定されま"
-"す。\n"
-"見つかったものに基づいて、以下の終了コードを返します。"
+"監査コマンドでは、脆弱であったり、放棄されていたり、遮断されたパッケージがあ"
+"るなら、見つかったものに基づいて、以下の終了コードを返します。"
 
 #. type: Bullet: '* '
 #: ../doc/03-cli.md:1192
@@ -5527,31 +5482,23 @@ msgstr "`3` は、脆弱なパッケージと放棄されたパッケージ"
 
 #. type: Bullet: '* '
 #: ../doc/03-cli.md:1192
-#, fuzzy
-#| msgid "`1` Vulnerable packages;"
 msgid "`4` Filtered packages."
-msgstr "`1` は、脆弱なパッケージ"
+msgstr "`4` は、遮断されたパッケージ"
 
 #. type: Bullet: '* '
 #: ../doc/03-cli.md:1192
-#, fuzzy
-#| msgid "`3` Vulnerable and abandoned packages."
 msgid "`5` Vulnerable and filtered packages."
-msgstr "`3` は、脆弱なパッケージと放棄されたパッケージ"
+msgstr "`5` は、脆弱なパッケージと遮断されたパッケージ"
 
 #. type: Bullet: '* '
 #: ../doc/03-cli.md:1192
-#, fuzzy
-#| msgid "`2` Abandoned packages;"
 msgid "`6` Abandoned and filtered packages."
-msgstr "`2` は、放棄されたパッケージ"
+msgstr "`6` は、放棄されたパッケージと遮断されたパッケージ"
 
 #. type: Bullet: '* '
 #: ../doc/03-cli.md:1192
-#, fuzzy
-#| msgid "`3` Vulnerable and abandoned packages."
 msgid "`7` Vulnerable, abandoned, and filtered packages."
-msgstr "`3` は、脆弱なパッケージと放棄されたパッケージ"
+msgstr "`7` は、脆弱なパッケージと放棄されたパッケージと遮断されたパッケージ"
 
 #. type: Fenced code block (shell)
 #: ../doc/03-cli.md:1193
@@ -6226,10 +6173,6 @@ msgstr "COMPOSER_SKIP_SCRIPTS"
 
 #. type: Plain text
 #: ../doc/03-cli.md:1416
-#, fuzzy
-#| msgid ""
-#| "Accepts a comma-seperated list of event names, e.g. `post-install-cmd` "
-#| "for which scripts execution should be skipped."
 msgid ""
 "Accepts a comma-separated list of event names, e.g. `post-install-cmd` for "
 "which scripts execution should be skipped."
@@ -6274,10 +6217,9 @@ msgstr ""
 
 #. type: Title ###
 #: ../doc/03-cli.md:1425
-#, fuzzy, no-wrap
-#| msgid "COMPOSER_IPRESOLVE"
+#, no-wrap
 msgid "COMPOSER_POLICY"
-msgstr "COMPOSER_IPRESOLVE"
+msgstr "COMPOSER_POLICY"
 
 #. type: Plain text
 #: ../doc/03-cli.md:1428
@@ -6297,10 +6239,9 @@ msgstr ""
 
 #. type: Title ###
 #: ../doc/03-cli.md:1431
-#, fuzzy, no-wrap
-#| msgid "COMPOSER_NO_SECURITY_BLOCKING"
+#, no-wrap
 msgid "COMPOSER_NO_BLOCKING"
-msgstr "COMPOSER_NO_SECURITY_BLOCKING"
+msgstr "COMPOSER_NO_BLOCKING"
 
 #. type: Plain text
 #: ../doc/03-cli.md:1434
@@ -6361,10 +6302,9 @@ msgstr ""
 
 #. type: Title ###
 #: ../doc/03-cli.md:1441
-#, fuzzy, no-wrap
-#| msgid "COMPOSER_NO_SECURITY_BLOCKING"
+#, no-wrap
 msgid "COMPOSER_POLICY_ADVISORIES_BLOCK"
-msgstr "COMPOSER_NO_SECURITY_BLOCKING"
+msgstr "COMPOSER_POLICY_ADVISORIES_BLOCK"
 
 #. type: Plain text
 #: ../doc/03-cli.md:1444
@@ -6376,10 +6316,9 @@ msgstr ""
 
 #. type: Title ###
 #: ../doc/03-cli.md:1445
-#, fuzzy, no-wrap
-#| msgid "COMPOSER_NO_SECURITY_BLOCKING"
+#, no-wrap
 msgid "COMPOSER_POLICY_MALWARE_BLOCK"
-msgstr "COMPOSER_NO_SECURITY_BLOCKING"
+msgstr "COMPOSER_POLICY_MALWARE_BLOCK"
 
 #. type: Plain text
 #: ../doc/03-cli.md:1448
@@ -6391,10 +6330,9 @@ msgstr ""
 
 #. type: Title ###
 #: ../doc/03-cli.md:1449
-#, fuzzy, no-wrap
-#| msgid "COMPOSER_AUDIT_ABANDONED"
+#, no-wrap
 msgid "COMPOSER_POLICY_ABANDONED_BLOCK"
-msgstr "COMPOSER_AUDIT_ABANDONED"
+msgstr "COMPOSER_POLICY_ABANDONED_BLOCK"
 
 #. type: Plain text
 #: ../doc/03-cli.md:1452
@@ -6518,10 +6456,9 @@ msgstr ""
 
 #. type: Title ###
 #: ../doc/03-cli.md:1485
-#, fuzzy, no-wrap
-#| msgid "COMPOSER_CAFILE"
+#, no-wrap
 msgid "COMPOSER_SOURCE_FALLBACK"
-msgstr "COMPOSER_CAFILE"
+msgstr "COMPOSER_SOURCE_FALLBACK"
 
 #. type: Plain text
 #: ../doc/03-cli.md:1490
@@ -10146,16 +10083,7 @@ msgstr ""
 
 #. type: Fenced code block (json)
 #: ../doc/05-repositories.md:363
-#, fuzzy, no-wrap
-#| msgid ""
-#| "{\n"
-#| "    \"autoload\": {\n"
-#| "        \"psr-4\": {\n"
-#| "            \"Monolog\\\\\": \"src/\",\n"
-#| "            \"Vendor\\\\Namespace\\\\\": \"\"\n"
-#| "        }\n"
-#| "    }\n"
-#| "}\n"
+#, no-wrap
 msgid ""
 "  {\n"
 "      \"filter\": {\n"
@@ -10166,14 +10094,14 @@ msgid ""
 "      }\n"
 "  }\n"
 msgstr ""
-"{\n"
-"    \"autoload\": {\n"
-"        \"psr-4\": {\n"
-"            \"Monolog\\\\\": \"src/\",\n"
-"            \"Vendor\\\\Namespace\\\\\": \"\"\n"
-"        }\n"
-"    }\n"
-"}\n"
+"  {\n"
+"      \"filter\": {\n"
+"          \"malware\": {\n"
+"              \"vendor/package\": \">=1.0.0,<1.2.0\",\n"
+"              \"other/package\": \"*\"\n"
+"          }\n"
+"      }\n"
+"  }\n"
 
 #. type: Plain text
 #: ../doc/05-repositories.md:376
@@ -10222,27 +10150,7 @@ msgstr ""
 
 #. type: Fenced code block (json)
 #: ../doc/05-repositories.md:398
-#, fuzzy, no-wrap
-#| msgid ""
-#| "{\n"
-#| "    \"repositories\": [\n"
-#| "        {\n"
-#| "            \"type\": \"package\",\n"
-#| "            \"package\": [\n"
-#| "                {\n"
-#| "                    \"name\": \"foo/bar\",\n"
-#| "                    \"version\": \"1.0.0\",\n"
-#| "                    ...\n"
-#| "                },\n"
-#| "                {\n"
-#| "                    \"name\": \"foo/bar\",\n"
-#| "                    \"version\": \"2.0.0\",\n"
-#| "                    ...\n"
-#| "                }\n"
-#| "            ]\n"
-#| "        }\n"
-#| "    ]\n"
-#| "}\n"
+#, no-wrap
 msgid ""
 "  {\n"
 "      \"filter\": {\n"
@@ -10258,25 +10166,19 @@ msgid ""
 "      }\n"
 "  }\n"
 msgstr ""
-"{\n"
-"    \"repositories\": [\n"
-"        {\n"
-"            \"type\": \"package\",\n"
-"            \"package\": [\n"
-"                {\n"
-"                    \"name\": \"foo/bar\",\n"
-"                    \"version\": \"1.0.0\",\n"
-"                    ...\n"
-"                },\n"
-"                {\n"
-"                    \"name\": \"foo/bar\",\n"
-"                    \"version\": \"2.0.0\",\n"
-"                    ...\n"
-"                }\n"
-"            ]\n"
-"        }\n"
-"    ]\n"
-"}\n"
+"  {\n"
+"      \"filter\": {\n"
+"          \"malware\": [\n"
+"              {\n"
+"                  \"package\": \"vendor/package\",\n"
+"                  \"constraint\": \">=1.0.0,<1.2.0\",\n"
+"                  \"url\": \"https://example.org/filters/123\",\n"
+"                  \"reason\": \"Malware\",\n"
+"                  \"id\": \"PKFE-xxxx-xxxx-xxxx\"\n"
+"              }\n"
+"          ]\n"
+"      }\n"
+"  }\n"
 
 #. type: Plain text
 #: ../doc/05-repositories.md:417
@@ -10296,22 +10198,7 @@ msgstr ""
 
 #. type: Fenced code block (json)
 #: ../doc/05-repositories.md:421
-#, fuzzy, no-wrap
-#| msgid ""
-#| "{\n"
-#| "    \"config\": {\n"
-#| "        \"audit\": {\n"
-#| "            \"ignore-severity\": {\n"
-#| "                \"low\": {\n"
-#| "                    \"apply\": \"all\"\n"
-#| "                },\n"
-#| "                \"medium\": {\n"
-#| "                    \"apply\": \"block\"\n"
-#| "                }\n"
-#| "            }\n"
-#| "        }\n"
-#| "    }\n"
-#| "}\n"
+#, no-wrap
 msgid ""
 "{\n"
 "    \"packages\": {\n"
@@ -10330,17 +10217,18 @@ msgid ""
 "}\n"
 msgstr ""
 "{\n"
-"    \"config\": {\n"
-"        \"audit\": {\n"
-"            \"ignore-severity\": {\n"
-"                \"low\": {\n"
-"                    \"apply\": \"all\"\n"
-"                },\n"
-"                \"medium\": {\n"
-"                    \"apply\": \"block\"\n"
-"                }\n"
+"    \"packages\": {\n"
+"        \"vendor/package\": [{ ... }]\n"
+"    },\n"
+"    \"filter\": {\n"
+"        \"malware\": [\n"
+"            {\n"
+"                \"constraint\": \">=1.0.0,<1.2.0\",\n"
+"                \"url\": \"https://example.org/filters/123\",\n"
+"                \"reason\": \"Malware\",\n"
+"                \"id\": \"PKFE-xxxx-xxxx-xxxx\"\n"
 "            }\n"
-"        }\n"
+"        ]\n"
 "    }\n"
 "}\n"
 
@@ -10360,16 +10248,7 @@ msgstr ""
 
 #. type: Fenced code block (json)
 #: ../doc/05-repositories.md:444
-#, fuzzy, no-wrap
-#| msgid ""
-#| "{\n"
-#| "    \"repositories\": [\n"
-#| "        {\n"
-#| "            \"type\": \"composer\",\n"
-#| "            \"url\": \"https://example.org\"\n"
-#| "        }\n"
-#| "    ]\n"
-#| "}\n"
+#, no-wrap
 msgid ""
 "{\n"
 "    \"repositories\": [\n"
@@ -10385,7 +10264,8 @@ msgstr ""
 "    \"repositories\": [\n"
 "        {\n"
 "            \"type\": \"composer\",\n"
-"            \"url\": \"https://example.org\"\n"
+"            \"url\": \"https://example.org\",\n"
+"            \"filter\": false\n"
 "        }\n"
 "    ]\n"
 "}\n"
@@ -10399,19 +10279,7 @@ msgstr ""
 
 #. type: Fenced code block (json)
 #: ../doc/05-repositories.md:458
-#, fuzzy, no-wrap
-#| msgid ""
-#| "{\n"
-#| "    \"repositories\": [\n"
-#| "        {\n"
-#| "            \"type\": \"path\",\n"
-#| "            \"url\": \"../../packages/*\",\n"
-#| "            \"options\": {\n"
-#| "                \"symlink\": false\n"
-#| "            }\n"
-#| "        }\n"
-#| "    ]\n"
-#| "}\n"
+#, no-wrap
 msgid ""
 "{\n"
 "    \"repositories\": [\n"
@@ -10428,10 +10296,10 @@ msgstr ""
 "{\n"
 "    \"repositories\": [\n"
 "        {\n"
-"            \"type\": \"path\",\n"
-"            \"url\": \"../../packages/*\",\n"
-"            \"options\": {\n"
-"                \"symlink\": false\n"
+"            \"type\": \"composer\",\n"
+"            \"url\": \"https://example.org\",\n"
+"            \"filter\": {\n"
+"                \"untrusted-list\": false\n"
 "            }\n"
 "        }\n"
 "    ]\n"
@@ -11964,13 +11832,7 @@ msgstr ""
 
 #. type: Fenced code block (json)
 #: ../doc/06-config.md:123
-#, fuzzy, no-wrap
-#| msgid ""
-#| "{\n"
-#| "    \"config\": {\n"
-#| "        \"allow-plugins\": false\n"
-#| "    }\n"
-#| "}\n"
+#, no-wrap
 msgid ""
 "{\n"
 "    \"config\": {\n"
@@ -11980,7 +11842,7 @@ msgid ""
 msgstr ""
 "{\n"
 "    \"config\": {\n"
-"        \"allow-plugins\": false\n"
+"        \"source-fallback\": false\n"
 "    }\n"
 "}\n"
 
@@ -12035,13 +11897,7 @@ msgstr ""
 
 #. type: Fenced code block (json)
 #: ../doc/06-config.md:157
-#, fuzzy, no-wrap
-#| msgid ""
-#| "{\n"
-#| "    \"config\": {\n"
-#| "        \"allow-plugins\": false\n"
-#| "    }\n"
-#| "}\n"
+#, no-wrap
 msgid ""
 "{\n"
 "    \"config\": {\n"
@@ -12051,7 +11907,7 @@ msgid ""
 msgstr ""
 "{\n"
 "    \"config\": {\n"
-"        \"allow-plugins\": false\n"
+"        \"policy\": false\n"
 "    }\n"
 "}\n"
 
@@ -12077,10 +11933,9 @@ msgstr ""
 
 #. type: Title ####
 #: ../doc/06-config.md:173 ../doc/06-config.md:310 ../doc/06-config.md:374
-#, fuzzy, no-wrap
-#| msgid "lock"
+#, no-wrap
 msgid "block"
-msgstr "lock"
+msgstr "block"
 
 #. type: Plain text
 #: ../doc/06-config.md:177
@@ -12105,15 +11960,7 @@ msgstr ""
 
 #. type: Fenced code block (json)
 #: ../doc/06-config.md:178
-#, fuzzy, no-wrap
-#| msgid ""
-#| "{\n"
-#| "    \"config\": {\n"
-#| "        \"audit\": {\n"
-#| "            \"block-insecure\": false\n"
-#| "        }\n"
-#| "    }\n"
-#| "}\n"
+#, no-wrap
 msgid ""
 "{\n"
 "    \"config\": {\n"
@@ -12127,8 +11974,10 @@ msgid ""
 msgstr ""
 "{\n"
 "    \"config\": {\n"
-"        \"audit\": {\n"
-"            \"block-insecure\": false\n"
+"        \"policy\": {\n"
+"            \"advisories\": {\n"
+"                \"block\": false\n"
+"            }\n"
 "        }\n"
 "    }\n"
 "}\n"
@@ -12159,26 +12008,14 @@ msgstr ""
 
 #. type: Bullet: '- '
 #: ../doc/06-config.md:197
-#, fuzzy
-#| msgid ""
-#| "`fail` means abandoned packages will cause the audit command to fail with "
-#| "a non-zero exit code."
 msgid "`fail` — advisories cause `composer audit` to exit with a non-zero code"
 msgstr ""
-"`fail`では、放棄されたパッケージにより監査コマンドが非ゼロコードで失敗しま"
+"`fail`では、勧告により`composer audit`に非ゼロコードの失敗が引き起こされま"
 "す。"
 
 #. type: Fenced code block (json)
 #: ../doc/06-config.md:198
-#, fuzzy, no-wrap
-#| msgid ""
-#| "{\n"
-#| "    \"config\": {\n"
-#| "        \"audit\": {\n"
-#| "            \"abandoned\": \"report\"\n"
-#| "        }\n"
-#| "    }\n"
-#| "}\n"
+#, no-wrap
 msgid ""
 "{\n"
 "    \"config\": {\n"
@@ -12192,18 +12029,19 @@ msgid ""
 msgstr ""
 "{\n"
 "    \"config\": {\n"
-"        \"audit\": {\n"
-"            \"abandoned\": \"report\"\n"
+"        \"policy\": {\n"
+"            \"advisories\": {\n"
+"                \"audit\": \"report\"\n"
+"            }\n"
 "        }\n"
 "    }\n"
 "}\n"
 
 #. type: Title ####
 #: ../doc/06-config.md:210
-#, fuzzy, no-wrap
-#| msgid "ignore"
+#, no-wrap
 msgid "ignore-id"
-msgstr "ignore"
+msgstr "ignore-id"
 
 #. type: Plain text
 #: ../doc/06-config.md:214
@@ -12215,22 +12053,13 @@ msgstr ""
 
 #. type: Title #####
 #: ../doc/06-config.md:215 ../doc/06-config.md:275
-#, fuzzy, no-wrap
-#| msgid "Simple format:"
+#, no-wrap
 msgid "Simple list:"
-msgstr "単純な形式："
+msgstr "単純なリスト："
 
 #. type: Fenced code block (json)
 #: ../doc/06-config.md:217
-#, fuzzy, no-wrap
-#| msgid ""
-#| "{\n"
-#| "    \"config\": {\n"
-#| "        \"audit\": {\n"
-#| "            \"ignore\": [\"CVE-1234\", \"GHSA-xx\", \"PKSA-yy\"]\n"
-#| "        }\n"
-#| "    }\n"
-#| "}\n"
+#, no-wrap
 msgid ""
 "{\n"
 "    \"config\": {\n"
@@ -12244,37 +12073,23 @@ msgid ""
 msgstr ""
 "{\n"
 "    \"config\": {\n"
-"        \"audit\": {\n"
-"            \"ignore\": [\"CVE-1234\", \"GHSA-xx\", \"PKSA-yy\"]\n"
+"        \"policy\": {\n"
+"            \"advisories\": {\n"
+"                \"ignore-id\": [\"CVE-1234\", \"GHSA-xx\"]\n"
+"            }\n"
 "        }\n"
 "    }\n"
 "}\n"
 
 #. type: Title #####
 #: ../doc/06-config.md:229
-#, fuzzy, no-wrap
-#| msgid "Simple format with reasons:"
+#, no-wrap
 msgid "With reasons:"
-msgstr "理由付きの単純な形式："
+msgstr "理由付き："
 
 #. type: Fenced code block (json)
 #: ../doc/06-config.md:231
-#, fuzzy, no-wrap
-#| msgid ""
-#| "{\n"
-#| "    \"config\": {\n"
-#| "        \"audit\": {\n"
-#| "            \"ignore-severity\": {\n"
-#| "                \"low\": {\n"
-#| "                    \"apply\": \"all\"\n"
-#| "                },\n"
-#| "                \"medium\": {\n"
-#| "                    \"apply\": \"block\"\n"
-#| "                }\n"
-#| "            }\n"
-#| "        }\n"
-#| "    }\n"
-#| "}\n"
+#, no-wrap
 msgid ""
 "{\n"
 "    \"config\": {\n"
@@ -12291,13 +12106,11 @@ msgid ""
 msgstr ""
 "{\n"
 "    \"config\": {\n"
-"        \"audit\": {\n"
-"            \"ignore-severity\": {\n"
-"                \"low\": {\n"
-"                    \"apply\": \"all\"\n"
-"                },\n"
-"                \"medium\": {\n"
-"                    \"apply\": \"block\"\n"
+"        \"policy\": {\n"
+"            \"advisories\": {\n"
+"                \"ignore-id\": {\n"
+"                    \"CVE-1234\": \"Not affected.\",\n"
+"                    \"GHSA-xx\": \"Patch applied.\"\n"
 "                }\n"
 "            }\n"
 "        }\n"
@@ -12320,22 +12133,7 @@ msgstr ""
 
 #. type: Fenced code block (json)
 #: ../doc/06-config.md:251
-#, fuzzy, no-wrap
-#| msgid ""
-#| "{\n"
-#| "    \"config\": {\n"
-#| "        \"audit\": {\n"
-#| "            \"ignore-severity\": {\n"
-#| "                \"low\": {\n"
-#| "                    \"apply\": \"all\"\n"
-#| "                },\n"
-#| "                \"medium\": {\n"
-#| "                    \"apply\": \"block\"\n"
-#| "                }\n"
-#| "            }\n"
-#| "        }\n"
-#| "    }\n"
-#| "}\n"
+#, no-wrap
 msgid ""
 "{\n"
 "    \"config\": {\n"
@@ -12352,13 +12150,11 @@ msgid ""
 msgstr ""
 "{\n"
 "    \"config\": {\n"
-"        \"audit\": {\n"
-"            \"ignore-severity\": {\n"
-"                \"low\": {\n"
-"                    \"apply\": \"all\"\n"
-"                },\n"
-"                \"medium\": {\n"
-"                    \"apply\": \"block\"\n"
+"        \"policy\": {\n"
+"            \"advisories\": {\n"
+"                \"ignore-id\": {\n"
+"                    \"CVE-1234\": {\"on-block\": false, \"reason\": \"Patch applied, still want blocking.\"},\n"
+"                    \"GHSA-xx\":  {\"on-audit\": false, \"reason\": \"False positive, still report.\"}\n"
 "                }\n"
 "            }\n"
 "        }\n"
@@ -12395,15 +12191,7 @@ msgstr ""
 
 #. type: Fenced code block (json)
 #: ../doc/06-config.md:277
-#, fuzzy, no-wrap
-#| msgid ""
-#| "{\n"
-#| "    \"config\": {\n"
-#| "        \"audit\": {\n"
-#| "            \"ignore-severity\": [\"low\", \"medium\"]\n"
-#| "        }\n"
-#| "    }\n"
-#| "}\n"
+#, no-wrap
 msgid ""
 "{\n"
 "    \"config\": {\n"
@@ -12417,30 +12205,17 @@ msgid ""
 msgstr ""
 "{\n"
 "    \"config\": {\n"
-"        \"audit\": {\n"
-"            \"ignore-severity\": [\"low\", \"medium\"]\n"
+"        \"policy\": {\n"
+"            \"advisories\": {\n"
+"                \"ignore-severity\": [\"low\", \"medium\"]\n"
+"            }\n"
 "        }\n"
 "    }\n"
 "}\n"
 
 #. type: Fenced code block (json)
 #: ../doc/06-config.md:291
-#, fuzzy, no-wrap
-#| msgid ""
-#| "{\n"
-#| "    \"config\": {\n"
-#| "        \"audit\": {\n"
-#| "            \"ignore-severity\": {\n"
-#| "                \"low\": {\n"
-#| "                    \"apply\": \"all\"\n"
-#| "                },\n"
-#| "                \"medium\": {\n"
-#| "                    \"apply\": \"block\"\n"
-#| "                }\n"
-#| "            }\n"
-#| "        }\n"
-#| "    }\n"
-#| "}\n"
+#, no-wrap
 msgid ""
 "{\n"
 "    \"config\": {\n"
@@ -12457,13 +12232,11 @@ msgid ""
 msgstr ""
 "{\n"
 "    \"config\": {\n"
-"        \"audit\": {\n"
-"            \"ignore-severity\": {\n"
-"                \"low\": {\n"
-"                    \"apply\": \"all\"\n"
-"                },\n"
-"                \"medium\": {\n"
-"                    \"apply\": \"block\"\n"
+"        \"policy\": {\n"
+"            \"advisories\": {\n"
+"                \"ignore-severity\": {\n"
+"                    \"low\":    {\"on-block\": false},\n"
+"                    \"medium\": {\"on-audit\": false, \"reason\": \"Handled via WAF\"}\n"
 "                }\n"
 "            }\n"
 "        }\n"
@@ -12472,10 +12245,8 @@ msgstr ""
 
 #. type: Plain text
 #: ../doc/06-config.md:309
-#, fuzzy
-#| msgid "`3` Vulnerable and abandoned packages."
 msgid "Configuration for abandoned packages."
-msgstr "`3` は、脆弱なパッケージと放棄されたパッケージ"
+msgstr "放棄されたパッケージ用の構成です。"
 
 #. type: Plain text
 #: ../doc/06-config.md:314
@@ -12486,15 +12257,7 @@ msgstr ""
 
 #. type: Fenced code block (json)
 #: ../doc/06-config.md:315
-#, fuzzy, no-wrap
-#| msgid ""
-#| "{\n"
-#| "    \"config\": {\n"
-#| "        \"audit\": {\n"
-#| "            \"block-abandoned\": true\n"
-#| "        }\n"
-#| "    }\n"
-#| "}\n"
+#, no-wrap
 msgid ""
 "{\n"
 "    \"config\": {\n"
@@ -12508,8 +12271,10 @@ msgid ""
 msgstr ""
 "{\n"
 "    \"config\": {\n"
-"        \"audit\": {\n"
-"            \"block-abandoned\": true\n"
+"        \"policy\": {\n"
+"            \"abandoned\": {\n"
+"                \"block\": true\n"
+"            }\n"
 "        }\n"
 "    }\n"
 "}\n"
@@ -12526,41 +12291,25 @@ msgstr ""
 
 #. type: Bullet: '- '
 #: ../doc/06-config.md:334
-#, fuzzy
-#| msgid ""
-#| "`report` means abandoned packages are reported as an error but do not "
-#| "cause the composer audit command return a non-zero exit code."
 msgid ""
 "`report` — abandoned packages are reported but do not cause a non-zero exit "
 "code"
 msgstr ""
-"`report`では、放棄されたパッケージが失敗として報告されるものの、composerの監"
-"査コマンドは非ゼロコードで終了しません。"
+"`report`では、放棄されたパッケージが報告されるものの非ゼロコードの終了を引き"
+"起こしません。"
 
 #. type: Bullet: '- '
 #: ../doc/06-config.md:334
-#, fuzzy
-#| msgid ""
-#| "`fail` means abandoned packages will cause the audit command to fail with "
-#| "a non-zero exit code."
 msgid ""
 "`fail` — abandoned packages cause `composer audit` to exit with a non-zero "
 "code"
 msgstr ""
-"`fail`では、放棄されたパッケージにより監査コマンドが非ゼロコードで失敗しま"
-"す。"
+"`fail`では、放棄されたパッケージにより`composer audit`は非ゼロのコードでの終"
+"了が引き起こされます。"
 
 #. type: Fenced code block (json)
 #: ../doc/06-config.md:335
-#, fuzzy, no-wrap
-#| msgid ""
-#| "{\n"
-#| "    \"config\": {\n"
-#| "        \"audit\": {\n"
-#| "            \"abandoned\": \"report\"\n"
-#| "        }\n"
-#| "    }\n"
-#| "}\n"
+#, no-wrap
 msgid ""
 "{\n"
 "    \"config\": {\n"
@@ -12574,8 +12323,10 @@ msgid ""
 msgstr ""
 "{\n"
 "    \"config\": {\n"
-"        \"audit\": {\n"
-"            \"abandoned\": \"report\"\n"
+"        \"policy\": {\n"
+"            \"abandoned\": {\n"
+"                \"audit\": \"report\"\n"
+"            }\n"
 "        }\n"
 "    }\n"
 "}\n"
@@ -12605,22 +12356,7 @@ msgstr ""
 
 #. type: Fenced code block (json)
 #: ../doc/06-config.md:355
-#, fuzzy, no-wrap
-#| msgid ""
-#| "{\n"
-#| "    \"config\": {\n"
-#| "        \"audit\": {\n"
-#| "            \"ignore-severity\": {\n"
-#| "                \"low\": {\n"
-#| "                    \"apply\": \"all\"\n"
-#| "                },\n"
-#| "                \"medium\": {\n"
-#| "                    \"apply\": \"block\"\n"
-#| "                }\n"
-#| "            }\n"
-#| "        }\n"
-#| "    }\n"
-#| "}\n"
+#, no-wrap
 msgid ""
 "{\n"
 "    \"config\": {\n"
@@ -12637,13 +12373,11 @@ msgid ""
 msgstr ""
 "{\n"
 "    \"config\": {\n"
-"        \"audit\": {\n"
-"            \"ignore-severity\": {\n"
-"                \"low\": {\n"
-"                    \"apply\": \"all\"\n"
-"                },\n"
-"                \"medium\": {\n"
-"                    \"apply\": \"block\"\n"
+"        \"policy\": {\n"
+"            \"abandoned\": {\n"
+"                \"ignore\": {\n"
+"                    \"acme/*\": \"Scheduled for replacement next quarter.\",\n"
+"                    \"vendor/legacy\": {\"on-block\": false, \"reason\": \"Allow in updates but still report.\"}\n"
 "                }\n"
 "            }\n"
 "        }\n"
@@ -12669,10 +12403,9 @@ msgstr ""
 
 #. type: Title ####
 #: ../doc/06-config.md:378
-#, fuzzy, no-wrap
-#| msgid "block-insecure"
+#, no-wrap
 msgid "block-scope"
-msgstr "block-insecure"
+msgstr "block-scope"
 
 #. type: Plain text
 #: ../doc/06-config.md:381
@@ -12696,15 +12429,7 @@ msgstr ""
 
 #. type: Fenced code block (json)
 #: ../doc/06-config.md:386
-#, fuzzy, no-wrap
-#| msgid ""
-#| "{\n"
-#| "    \"config\": {\n"
-#| "        \"audit\": {\n"
-#| "            \"block-insecure\": false\n"
-#| "        }\n"
-#| "    }\n"
-#| "}\n"
+#, no-wrap
 msgid ""
 "{\n"
 "    \"config\": {\n"
@@ -12718,8 +12443,10 @@ msgid ""
 msgstr ""
 "{\n"
 "    \"config\": {\n"
-"        \"audit\": {\n"
-"            \"block-insecure\": false\n"
+"        \"policy\": {\n"
+"            \"malware\": {\n"
+"                \"block-scope\": \"update\"\n"
+"            }\n"
 "        }\n"
 "    }\n"
 "}\n"
@@ -12738,10 +12465,9 @@ msgstr ""
 
 #. type: Title ####
 #: ../doc/06-config.md:407
-#, fuzzy, no-wrap
-#| msgid "igorw/event-source"
+#, no-wrap
 msgid "ignore-source"
-msgstr "igorw/event-source"
+msgstr "ignore-source"
 
 #. type: Plain text
 #: ../doc/06-config.md:410
@@ -12750,15 +12476,7 @@ msgstr ""
 
 #. type: Fenced code block (json)
 #: ../doc/06-config.md:411
-#, fuzzy, no-wrap
-#| msgid ""
-#| "{\n"
-#| "    \"config\": {\n"
-#| "        \"audit\": {\n"
-#| "            \"ignore-unreachable\": true\n"
-#| "        }\n"
-#| "    }\n"
-#| "}\n"
+#, no-wrap
 msgid ""
 "{\n"
 "    \"config\": {\n"
@@ -12772,8 +12490,10 @@ msgid ""
 msgstr ""
 "{\n"
 "    \"config\": {\n"
-"        \"audit\": {\n"
-"            \"ignore-unreachable\": true\n"
+"        \"policy\": {\n"
+"            \"malware\": {\n"
+"                \"ignore-source\": [\"aikido\"]\n"
+"            }\n"
 "        }\n"
 "    }\n"
 "}\n"
@@ -12803,15 +12523,7 @@ msgstr ""
 
 #. type: Fenced code block (json)
 #: ../doc/06-config.md:432
-#, fuzzy, no-wrap
-#| msgid ""
-#| "{\n"
-#| "    \"config\": {\n"
-#| "        \"audit\": {\n"
-#| "            \"ignore-unreachable\": true\n"
-#| "        }\n"
-#| "    }\n"
-#| "}\n"
+#, no-wrap
 msgid ""
 "{\n"
 "    \"config\": {\n"
@@ -12823,8 +12535,8 @@ msgid ""
 msgstr ""
 "{\n"
 "    \"config\": {\n"
-"        \"audit\": {\n"
-"            \"ignore-unreachable\": true\n"
+"        \"policy\": {\n"
+"            \"ignore-unreachable\": [\"install\", \"update\", \"audit\"]\n"
 "        }\n"
 "    }\n"
 "}\n"
@@ -12846,22 +12558,7 @@ msgstr ""
 
 #. type: Fenced code block (json)
 #: ../doc/06-config.md:448
-#, fuzzy, no-wrap
-#| msgid ""
-#| "{\n"
-#| "    \"config\": {\n"
-#| "        \"audit\": {\n"
-#| "            \"ignore-severity\": {\n"
-#| "                \"low\": {\n"
-#| "                    \"apply\": \"all\"\n"
-#| "                },\n"
-#| "                \"medium\": {\n"
-#| "                    \"apply\": \"block\"\n"
-#| "                }\n"
-#| "            }\n"
-#| "        }\n"
-#| "    }\n"
-#| "}\n"
+#, no-wrap
 msgid ""
 "{\n"
 "    \"config\": {\n"
@@ -12882,13 +12579,15 @@ msgid ""
 msgstr ""
 "{\n"
 "    \"config\": {\n"
-"        \"audit\": {\n"
-"            \"ignore-severity\": {\n"
-"                \"low\": {\n"
-"                    \"apply\": \"all\"\n"
-"                },\n"
-"                \"medium\": {\n"
-"                    \"apply\": \"block\"\n"
+"        \"policy\": {\n"
+"            \"my-list\": {\n"
+"                \"block\": true,\n"
+"                \"audit\": \"fail\",\n"
+"                \"sources\": [\n"
+"                    {\"type\": \"url\", \"url\": \"https://example.org/policy-list.json\"}\n"
+"                ],\n"
+"                \"ignore\": {\n"
+"                    \"vendor/package\": \"Assessed and accepted.\"\n"
 "                }\n"
 "            }\n"
 "        }\n"
@@ -12923,10 +12622,9 @@ msgstr ""
 
 #. type: Title ###
 #: ../doc/06-config.md:479
-#, fuzzy, no-wrap
-#| msgid "Simple format:"
+#, no-wrap
 msgid "ignore format"
-msgstr "単純な形式："
+msgstr "ignoreの形式"
 
 #. type: Plain text
 #: ../doc/06-config.md:483
@@ -12944,15 +12642,7 @@ msgstr ""
 
 #. type: Fenced code block (json)
 #: ../doc/06-config.md:486
-#, fuzzy, no-wrap
-#| msgid ""
-#| "{\n"
-#| "    \"config\": {\n"
-#| "        \"audit\": {\n"
-#| "            \"ignore-abandoned\": [\"acme/*\", \"acme/package\"]\n"
-#| "        }\n"
-#| "    }\n"
-#| "}\n"
+#, no-wrap
 msgid ""
 "{\n"
 "    \"config\": {\n"
@@ -12966,8 +12656,10 @@ msgid ""
 msgstr ""
 "{\n"
 "    \"config\": {\n"
-"        \"audit\": {\n"
-"            \"ignore-abandoned\": [\"acme/*\", \"acme/package\"]\n"
+"        \"policy\": {\n"
+"            \"<list>\": {\n"
+"                \"ignore\": [\"vendor/package\", \"acme/*\"]\n"
+"            }\n"
 "        }\n"
 "    }\n"
 "}\n"
@@ -12980,22 +12672,7 @@ msgstr ""
 
 #. type: Fenced code block (json)
 #: ../doc/06-config.md:500
-#, fuzzy, no-wrap
-#| msgid ""
-#| "{\n"
-#| "    \"config\": {\n"
-#| "        \"audit\": {\n"
-#| "            \"ignore-severity\": {\n"
-#| "                \"low\": {\n"
-#| "                    \"apply\": \"all\"\n"
-#| "                },\n"
-#| "                \"medium\": {\n"
-#| "                    \"apply\": \"block\"\n"
-#| "                }\n"
-#| "            }\n"
-#| "        }\n"
-#| "    }\n"
-#| "}\n"
+#, no-wrap
 msgid ""
 "{\n"
 "    \"config\": {\n"
@@ -13011,13 +12688,10 @@ msgid ""
 msgstr ""
 "{\n"
 "    \"config\": {\n"
-"        \"audit\": {\n"
-"            \"ignore-severity\": {\n"
-"                \"low\": {\n"
-"                    \"apply\": \"all\"\n"
-"                },\n"
-"                \"medium\": {\n"
-"                    \"apply\": \"block\"\n"
+"        \"policy\": {\n"
+"            \"<list>\": {\n"
+"                \"ignore\": {\n"
+"                    \"vendor/package\": \"Assessed, no risk.\"\n"
 "                }\n"
 "            }\n"
 "        }\n"
@@ -13026,29 +12700,13 @@ msgstr ""
 
 #. type: Title #####
 #: ../doc/06-config.md:514
-#, fuzzy, no-wrap
-#| msgid "Writing Version Constraints"
+#, no-wrap
 msgid "With version constraint:"
-msgstr "パッケージ制約を書く"
+msgstr "パッケージ制約付き："
 
 #. type: Fenced code block (json)
 #: ../doc/06-config.md:516
-#, fuzzy, no-wrap
-#| msgid ""
-#| "{\n"
-#| "    \"config\": {\n"
-#| "        \"audit\": {\n"
-#| "            \"ignore-severity\": {\n"
-#| "                \"low\": {\n"
-#| "                    \"apply\": \"all\"\n"
-#| "                },\n"
-#| "                \"medium\": {\n"
-#| "                    \"apply\": \"block\"\n"
-#| "                }\n"
-#| "            }\n"
-#| "        }\n"
-#| "    }\n"
-#| "}\n"
+#, no-wrap
 msgid ""
 "{\n"
 "    \"config\": {\n"
@@ -13064,13 +12722,10 @@ msgid ""
 msgstr ""
 "{\n"
 "    \"config\": {\n"
-"        \"audit\": {\n"
-"            \"ignore-severity\": {\n"
-"                \"low\": {\n"
-"                    \"apply\": \"all\"\n"
-"                },\n"
-"                \"medium\": {\n"
-"                    \"apply\": \"block\"\n"
+"        \"policy\": {\n"
+"            \"<list>\": {\n"
+"                \"ignore\": {\n"
+"                    \"vendor/package\": {\"constraint\": \"^2.0\", \"reason\": \"Only v2 is affected.\"}\n"
 "                }\n"
 "            }\n"
 "        }\n"
@@ -13087,22 +12742,7 @@ msgstr ""
 
 #. type: Fenced code block (json)
 #: ../doc/06-config.md:535
-#, fuzzy, no-wrap
-#| msgid ""
-#| "{\n"
-#| "    \"config\": {\n"
-#| "        \"audit\": {\n"
-#| "            \"ignore-severity\": {\n"
-#| "                \"low\": {\n"
-#| "                    \"apply\": \"all\"\n"
-#| "                },\n"
-#| "                \"medium\": {\n"
-#| "                    \"apply\": \"block\"\n"
-#| "                }\n"
-#| "            }\n"
-#| "        }\n"
-#| "    }\n"
-#| "}\n"
+#, no-wrap
 msgid ""
 "{\n"
 "    \"config\": {\n"
@@ -13118,13 +12758,10 @@ msgid ""
 msgstr ""
 "{\n"
 "    \"config\": {\n"
-"        \"audit\": {\n"
-"            \"ignore-severity\": {\n"
-"                \"low\": {\n"
-"                    \"apply\": \"all\"\n"
-"                },\n"
-"                \"medium\": {\n"
-"                    \"apply\": \"block\"\n"
+"        \"policy\": {\n"
+"            \"<list>\": {\n"
+"                \"ignore\": {\n"
+"                    \"vendor/package\": {\"on-audit\": false, \"reason\": \"Workaround applied; keep reporting.\"}\n"
 "                }\n"
 "            }\n"
 "        }\n"
@@ -13139,22 +12776,7 @@ msgstr ""
 
 #. type: Fenced code block (json)
 #: ../doc/06-config.md:551
-#, fuzzy, no-wrap
-#| msgid ""
-#| "{\n"
-#| "    \"config\": {\n"
-#| "        \"audit\": {\n"
-#| "            \"ignore-severity\": {\n"
-#| "                \"low\": {\n"
-#| "                    \"apply\": \"all\"\n"
-#| "                },\n"
-#| "                \"medium\": {\n"
-#| "                    \"apply\": \"block\"\n"
-#| "                }\n"
-#| "            }\n"
-#| "        }\n"
-#| "    }\n"
-#| "}\n"
+#, no-wrap
 msgid ""
 "{\n"
 "    \"config\": {\n"
@@ -13173,13 +12795,13 @@ msgid ""
 msgstr ""
 "{\n"
 "    \"config\": {\n"
-"        \"audit\": {\n"
-"            \"ignore-severity\": {\n"
-"                \"low\": {\n"
-"                    \"apply\": \"all\"\n"
-"                },\n"
-"                \"medium\": {\n"
-"                    \"apply\": \"block\"\n"
+"        \"policy\": {\n"
+"            \"<list>\": {\n"
+"                \"ignore\": {\n"
+"                    \"vendor/package\": [\n"
+"                        {\"constraint\": \"^1.0\", \"on-audit\": false},\n"
+"                        {\"constraint\": \"^2.0\", \"reason\": \"v2 is patched.\"}\n"
+"                    ]\n"
 "                }\n"
 "            }\n"
 "        }\n"
