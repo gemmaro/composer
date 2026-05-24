@@ -29,7 +29,10 @@ Integration)](https://github.com/composer/composer/actions/workflows/continuous-
 コミュニティ
 ------
 
-告知についてはTwitterで[@packagist](https://twitter.com/packagist)または[@seldaek](https://twitter.com/seldaek)をフォローしたり、[#composerphp](https://twitter.com/search?q=%23composerphp&src=typed_query&f=live)ハッシュタグを確認したりしてください。
+Follow [@packagist](https://X.com/packagist) or
+[@seldaek](https://X.com/seldaek) on X for announcements, or check the
+[#composerphp](https://X.com/search?q=%23composerphp&src=typed_query&f=live)
+hashtag.
 
 サポートについては、Stack
 Overflowで[Composerに関係する良い質問](https://stackoverflow.com/questions/tagged/composer-php)がされてきました。
@@ -72,10 +75,10 @@ PHPのバージョン5.3.2から8.1まではComposer (2.2.x)のLTS対応でま�
 --
 
 - Nils Adermann | [GitHub](https://github.com/naderman)  |
-  [Twitter](https://twitter.com/naderman) | <naderman@naderman.de> |
+  [X](https://X.com/naderman) | <naderman@naderman.de> |
   [naderman.de](https://naderman.de)
 - Jordi Boggiano | [GitHub](https://github.com/Seldaek) |
-  [Twitter](https://twitter.com/seldaek) | <j.boggiano@seld.be> |
+  [X](https://X.com/seldaek) | <j.boggiano@seld.be> |
   [seld.be](https://seld.be)
 
 本プロジェクトに参加している[貢献者](https://github.com/composer/composer/contributors)の一覧もご参照ください。

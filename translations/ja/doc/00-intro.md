@@ -162,6 +162,9 @@ COPY --from=composer/composer:latest-bin /composer /usr/bin/composer
 COPY --from=composer/composer:2-bin /composer /usr/bin/composer
 ```
 
+**Note:** you need to manually install other runtime dependencies inside your image when using this method;
+see also https://github.com/composer/composer/blob/main/README.md#binary-dependencies.
+
 さらなる使い方の情報については[イメージの説明](https://hub.docker.com/r/composer/composer)をお読みください。
 
 **補足：** Docker固有の問題は[composer/dockerリポジトリ](https://github.com/composer/docker/issues)に報告されると良いでしょう。

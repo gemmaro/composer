@@ -98,6 +98,11 @@ php composer.phar install
   Composerがパッケージの開発版用の`source`を自動的に使う、以前の挙動にしたければ、`--prefer-install=auto`を使ってください。
   [config.preferred-install](06-config.md#preferred-install)も参照してください。
   このフラグを渡すと、設定値より優先されます。
+* **--source-fallback / --no-source-fallback:** Override the
+  [config.source-fallback](06-config.md#source-fallback)  setting. When
+  disabled, Composer will not fall back to an alternative download source
+  (e.g., from dist to source or vice versa) if the preferred one fails. Also
+  see [COMPOSER_SOURCE_FALLBACK](#composer-source-fallback).
 * **--dry-run:**
   実際にはパッケージをインストールすることなくインストールの過程を進めたいときは`--dry-run`を使うことができます。
   インストールを模擬して何が起こるのかを示します。
@@ -113,15 +118,19 @@ php composer.phar install
 * **--audit:** インストールが完了した後に監査を走らせます。
 * **--audit-format:** 監査の出力形式です。
   "table"、"plain"、"json"、または"summary"（既定）のどれかでなければなりません。
-* **--no-security-blocking:**
-  セキュリティ勧告があったり放棄されたりしているパッケージをインストールできます。
-  [COMPOSER_NO_SECURITY_BLOCKING](#composer-no-security-blocking)も参照。
-  固定ファイルが存在しないときにのみ適用されます。
-  固定ファイルからのインストールについては、Composerは脆弱性のあるパッケージを遮断しません。
+* **--no-security-blocking:** DEPRECATED, use `--no-blocking`
+  instead. Allows installing packages with security advisories or that are
+  abandoned. Also see
+  [COMPOSER_NO_SECURITY_BLOCKING](#composer-no-security-blocking).
+* **--no-blocking:** Disables all policy blocking during this command. Also
+  see [COMPOSER_NO_BLOCKING](#composer-no-blocking).
 * **--optimize-autoloader (-o):** PSR-0の自動読み込みをクラス対応表に変換して自動読み込みを高速にします。
   実運用では特にお勧めしますが、走らせるのに少し時間が掛かることがあるので、現在は既定ではされません。
 * **--classmap-authoritative (-a):** クラス対応表からクラスのみを自動読み込みします。
   暗黙裡に`--optimize-autoloader`を有効にします。
+* **--strict-psr-autoloader:** Return a failed exit code (6) if PSR-4 or
+  PSR-0 mapping errors are present in the current project (dependencies
+  excluded). Requires `--optimize-autoloader` to work.
 * **--apcu-autoloader:** APCuを使って、クラスの有無をキャッシュします。
 * **--apcu-autoloader-prefix:** APCu自動読み込み器のキャッシュ用に独自の接頭辞を使います。
   暗黙裡に`--apcu-autoloader`を有効にします。
@@ -187,6 +196,11 @@ php composer.phar update vendor/package:2.0.1 vendor/package2:3.0.*
   Composerがパッケージの開発版用の`source`を自動的に使う、以前の挙動にしたければ、`--prefer-install=auto`を使ってください。
   [config.preferred-install](06-config.md#preferred-install)も参照してください。
   このフラグを渡すと、設定値より優先されます。
+* **--source-fallback / --no-source-fallback:** Override the
+  [config.source-fallback](06-config.md#source-fallback)  setting. When
+  disabled, Composer will not fall back to an alternative download source
+  (e.g., from dist to source or vice versa) if the preferred one fails. Also
+  see [COMPOSER_SOURCE_FALLBACK](#composer-source-fallback).
 * **--dry-run:**
   実際には何もせず、コマンドを模擬します。
 * **--dev:** `require-dev`に挙げられたパッケージをインストールします（既定の挙動です）。
@@ -199,9 +213,12 @@ php composer.phar update vendor/package:2.0.1 vendor/package2:3.0.*
   composer.lockを更新した後の監査過程を走らせません。[COMPOSER_NO_AUDIT](#composer-no-audit)も参照してください。
 * **--audit-format:** 監査の出力形式です。
   "table"、"plain"、"json"、または"summary"（既定）のどれかでなければなりません。
-* **--no-security-blocking:**
-  セキュリティ勧告があったり放棄されたりしているパッケージをインストールできます。
-  [COMPOSER_NO_SECURITY_BLOCKING](#composer-no-security-blocking)も参照。
+* **--no-security-blocking:** DEPRECATED, use `--no-blocking`
+  instead. Allows installing packages with security advisories or that are
+  abandoned. Also see
+  [COMPOSER_NO_SECURITY_BLOCKING](#composer-no-security-blocking).
+* **--no-blocking:** Disables all policy blocking during this command. Also
+  see [COMPOSER_NO_BLOCKING](#composer-no-blocking).
 * **--lock:**
   パッケージのバージョンを更新せず、固定ファイルが期限切れであることについての警告を抑えるために固定ファイルを上書きします。
   ミラーやURLといったパッケージのメタデータが変更されていれば更新します。
@@ -223,6 +240,9 @@ php composer.phar update vendor/package:2.0.1 vendor/package2:3.0.*
   特に実運用で推奨されますが、走らせるのに少し時間が掛かるため、現時点では既定では有効になっていません。
 * **--classmap-authoritative (-a):** クラス対応表からクラスのみを自動読み込みします。
   暗黙裡に`--optimize-autoloader`を有効にします。
+* **--strict-psr-autoloader:** Return a failed exit code (6) if PSR-4 or
+  PSR-0 mapping errors are present in the current project (dependencies
+  excluded). Requires `--optimize-autoloader` to work.
 * **--apcu-autoloader:** APCuを使って、クラスの有無をキャッシュします。
 * **--apcu-autoloader-prefix:** APCu自動読み込み器のキャッシュ用に独自の接頭辞を使います。
   暗黙裡に`--apcu-autoloader`を有効にします。
@@ -294,6 +314,11 @@ php composer.phar require vendor/package vendor/package2
   Composerがパッケージの開発版用の`source`を自動的に使う、以前の挙動にしたければ、`--prefer-install=auto`を使ってください。
   [config.preferred-install](06-config.md#preferred-install)も参照してください。
   このフラグを渡すと、設定値より優先されます。
+* **--source-fallback / --no-source-fallback:** Override the
+  [config.source-fallback](06-config.md#source-fallback)  setting. When
+  disabled, Composer will not fall back to an alternative download source
+  (e.g., from dist to source or vice versa) if the preferred one fails. Also
+  see [COMPOSER_SOURCE_FALLBACK](#composer-source-fallback).
 * **--no-progress:**
   進捗表示を除きます。
   バックスペース文字を扱わない端末やスクリプトではこの表示があることで散らかってしまうからです。
@@ -304,9 +329,12 @@ php composer.phar require vendor/package vendor/package2
   composer.lockを更新した後の監査過程を走らせません。[COMPOSER_NO_AUDIT](#composer-no-audit)も参照してください。
 * **--audit-format:** 監査の出力形式です。
   "table"、"plain"、"json"、または"summary"（既定）のどれかでなければなりません。
-* **--no-security-blocking:**
-  セキュリティ勧告があったり放棄されたりしているパッケージをインストールできます。
-  [COMPOSER_NO_SECURITY_BLOCKING](#composer-no-security-blocking)も参照。
+* **--no-security-blocking:** DEPRECATED, use `--no-blocking`
+  instead. Allows installing packages with security advisories or that are
+  abandoned. Also see
+  [COMPOSER_NO_SECURITY_BLOCKING](#composer-no-security-blocking).
+* **--no-blocking:** Disables all policy blocking during this command. Also
+  see [COMPOSER_NO_BLOCKING](#composer-no-blocking).
 * **--update-no-dev:**
   `--no-dev`オプションと共に依存関係の更新を走らせます。[COMPOSER_NO_DEV](#composer-no-dev)も参照してください。
 * **--update-with-dependencies (-w):**
@@ -369,9 +397,12 @@ php composer.phar remove vendor/package vendor/package2
   [COMPOSER_NO_AUDIT](#composer-no-audit)も参照してください。
 * **--audit-format:** 監査の出力形式です。
   "table"、"plain"、"json"、または"summary"（既定）のどれかでなければなりません。
-* **--no-security-blocking:**
-  セキュリティ勧告があったり放棄されたりしているパッケージをインストールできます。
-  [COMPOSER_NO_SECURITY_BLOCKING](#composer-no-security-blocking)も参照。
+* **--no-security-blocking:** DEPRECATED, use `--no-blocking`
+  instead. Allows installing packages with security advisories or that are
+  abandoned. Also see
+  [COMPOSER_NO_SECURITY_BLOCKING](#composer-no-security-blocking).
+* **--no-blocking:** Disables all policy blocking during this command. Also
+  see [COMPOSER_NO_BLOCKING](#composer-no-blocking).
 * **--update-no-dev:**
   --no-devオプションで依存関係の更新を走らせます。[COMPOSER_NO_DEV](#composer-no-dev)も参照してください。
 * **--update-with-dependencies (-w):**
@@ -438,6 +469,11 @@ php composer.phar reinstall "acme/*"
   Composerがパッケージの開発版用の`source`を自動的に使う、以前の挙動にしたければ、`--prefer-install=auto`を使ってください。
   [config.preferred-install](06-config.md#preferred-install)も参照してください。
   このフラグを渡すと、設定値より優先されます。
+* **--source-fallback / --no-source-fallback:** Override the
+  [config.source-fallback](06-config.md#source-fallback)  setting. When
+  disabled, Composer will not fall back to an alternative download source
+  (e.g., from dist to source or vice versa) if the preferred one fails. Also
+  see [COMPOSER_SOURCE_FALLBACK](#composer-source-fallback).
 * **--no-autoloader:** 自動読み込み器の生成を飛ばします。
 * **--no-progress:**
   進捗表示を除きます。
@@ -943,9 +979,11 @@ repo [オプション] disable packagist.org
 - **--file (-f):** composer.jsonの代わりに特定のファイルを変更します。
 - **--append:** 低い優先度でリポジトリを追加します（既定ではリポジトリは前置されます。
   したがって既存のものより高い優先度があります）。
-- **--before <名前>:** 新しいリポジトリを既存の `<名前>` という名前のリポジトリの前に挿入します。
-- **--after <名前>:** 新しいリポジトリを既存の `<名前>` というリポジトリの後に挿入します。
-  `<名前>` は既存のリポジトリ名に合致しなければなりません。
+- **--before [name]:** to insert the new repository before an existing
+  repository named `[name]`.
+- **--after [name]:** to insert the new repository after an existing
+  repository named `[name]`. The `[name]` must match an existing repository
+  name.
 
 ### 例
 
@@ -961,6 +999,38 @@ php composer.phar repo set-url foo https://git.example.org/acme/foo
 php composer.phar repo get-url foo
 php composer.phar repo disable packagist.org
 php composer.phar repo enable packagist.org
+```
+
+## policy
+
+The `policy` command lets you manage custom policy lists and their sources
+in your `composer.json` under `config.policy`. A source points Composer at a
+remote URL which provides the list of packages the policy applies to. Adding
+a source to a list that does not yet exist will create the list entry
+automatically.
+
+Built-in lists (`advisories`, `malware`, `abandoned`) do not accept sources and are rejected. To change their settings, use `composer config policy.<list>.<field>` instead — see the [policy](06-config.md#policy) config documentation.
+
+### 使い方
+
+```shell
+policy [options] add-source [list-name] [source-type] [url]
+policy [options] add-source [list-name] [json-source-definition]
+```
+
+Currently only `url` is supported as `source-type`, and URLs must start with
+`https://`.
+
+### オプション
+
+- **--global (-g):** 大域的な `$COMPOSER_HOME/config.json` を変更します。
+- **--file (-f):** composer.jsonの代わりに特定のファイルを変更します。
+
+### 例
+
+```shell
+php composer.phar policy add-source my-list url https://example.org/list.json
+php composer.phar policy add-source my-list '{"type":"url","url":"https://example.org/list.json"}'
 ```
 
 ## create-project
@@ -996,6 +1066,11 @@ php composer.phar create-project composer/hello-world my-project
   Composerがパッケージの開発版用の`source`を自動的に使う、以前の挙動にしたければ、`--prefer-install=auto`を使ってください。
   [config.preferred-install](06-config.md#preferred-install)も参照してください。
   このフラグを渡すと、設定値より優先されます。
+* **--source-fallback / --no-source-fallback:** Override the
+  [config.source-fallback](06-config.md#source-fallback)  setting. When
+  disabled, Composer will not fall back to an alternative download source
+  (e.g., from dist to source or vice versa) if the preferred one fails. Also
+  see [COMPOSER_SOURCE_FALLBACK](#composer-source-fallback).
 * **--repository:**
   パッケージを探索するための独自のリポジトリを与えます。このリポジトリはpackagistの代わりに使われます。`composer`ディレクトリを指すHTTP
   URLでも、ローカルの`packages.json`ファイルへのパスでも、あるいは[リポジトリ](04-schema.md#repositories)キーが受け付けるものに似たJSON文字列でも大丈夫です。複数回使って複数のリポジトリを設定できます。
@@ -1023,15 +1098,23 @@ php composer.phar create-project composer/hello-world my-project
   [COMPOSER_NO_AUDIT](#composer-no-audit)も参照してください。
 * **--audit-format:** 監査の出力形式です。
   "table"、"plain"、"json"、または"summary"（既定）のどれかでなければなりません。
-* **--no-security-blocking:**
-  セキュリティ勧告があったり放棄されたりしているパッケージをインストールできます。
-  [COMPOSER_NO_SECURITY_BLOCKING](#composer-no-security-blocking)も参照。
+* **--no-security-blocking:** DEPRECATED, use `--no-blocking`
+  instead. Allows installing packages with security advisories or that are
+  abandoned. Also see
+  [COMPOSER_NO_SECURITY_BLOCKING](#composer-no-security-blocking).
+* **--no-blocking:** Disables all policy blocking during this command. Also
+  see [COMPOSER_NO_BLOCKING](#composer-no-blocking).
 * **--ignore-platform-reqs:**
   全てのプラットフォーム要件（`php`、`hhvm`、`lib-*`、`ext-*`）を無視し、ローカルマシンがたとえこれらを満たしていなくてもインストールを強行します。
   [`platform`](06-config.md#platform)設定オプションも参照してください。
 * **--ignore-platform-req:**
   特定のプラットフォーム要件（`php`、`hhvm`、`lib-*`、`ext-*`）を無視して、たとえローカルマシンが満たしていなかったとしても、インストールを強行します。
   ワイルドカードを使って複数の要件を無視できます。
+* **--require:** Require additional package(s) to be added to composer.json
+  after installing the project. If a lock file is present it will be deleted
+  and an update will be run instead of install. Can be specified multiple
+  times for multiple packages. Should be in format `foo/bar:1.0.0` format if
+  you want to specify a constraint.
 * **--ask:** 利用者に新しいプロジェクトの対象ディレクトリを入れてもらうようにします。
 
 ## dump-autoload / dumpautoload
@@ -1145,13 +1228,17 @@ api](https://packagist.org/apidoc#list-security-advisories)を使い、セキュ
 `composer.json`の`repositories`節で指定されたときは、他のリポジトリが使われます。
 このコマンドでは、放棄されたパッケージも検出されます。
 
-監査コマンドでは、脆弱なパッケージや放棄されたパッケージがあるか判定されます。
-見つかったものに基づいて、以下の終了コードを返します。
+The audit command determines if there are vulnerable, abandoned, or filtered
+packages and returns the following exit codes based on the findings:
 
 * `0` は、問題なし
 * `1` は、脆弱なパッケージ
 * `2` は、放棄されたパッケージ
 * `3` は、脆弱なパッケージと放棄されたパッケージ
+* `4` Filtered packages.
+* `5` Vulnerable and filtered packages.
+* `6` Abandoned and filtered packages.
+* `7` Vulnerable, abandoned, and filtered packages.
 
 ```shell
 php composer.phar audit
@@ -1173,6 +1260,10 @@ php composer.phar audit
 * **--ignore-severity:**
   特定の深刻度の水準の勧告を無視します。
   複数の深刻度を無視するために1回以上渡せます。
+* **--filtered:** Behavior on packages matched by `malware` and custom
+  filter lists. Must be "ignore", "report", or "fail". Overrides the
+  per-list `audit` setting (`config.policy.malware.audit` and every custom
+  list's `audit`) for the duration of this command.
 
 ## help
 
@@ -1345,8 +1436,8 @@ parallel.  This defaults to 10 and must be between 1 and 50.
 
 ### COMPOSER_SKIP_SCRIPTS
 
-イベント名のコンマ区切りリストを受け付けます。
-例えば、スクリプト実行をスキップするための`post-install-cmd`があります。
+Accepts a comma-separated list of event names, e.g. `post-install-cmd` for
+which scripts execution should be skipped.
 
 ### COMPOSER_NO_AUDIT
 
@@ -1354,20 +1445,70 @@ parallel.  This defaults to 10 and must be between 1 and 50.
 
 ### COMPOSER_AUDIT_ABANDONED
 
-`ignore`、`report`、`fail`に設定すると、[audit.abandoned](06-config.md#abandoned)構成オプションをオーバーライドします。
+Set to `ignore`, `report` or `fail` to override the
+[policy.abandoned.audit](06-config.md#audit) config option. Has no effect
+when `policy.abandoned` is set to `false` in composer.json.
+
+### COMPOSER_POLICY
+
+Main policy switch. Set to `0` to disable all policy enforcement on updates
+and audit, or `1` to enable it. Setting this to `1` will use the policy
+configuration in the composer.json. If you want to override the config
+value, use `composer config policy 1` instead.
+
+When set to `0`, all per-list overrides below are ignored — the whole policy
+config is short-circuited to disabled.
+
+### COMPOSER_NO_BLOCKING
+
+If set to `1`, it is the equivalent of passing the `--no-blocking` option to
+a `require`, `update`, `remove`, `install`, or `create-project`
+command. This disables all policy blocking during this command. It overrides
+the `block` config option for each configured policy
+e.g. [policy.advisories.block](06-config.md#block).
 
 ### COMPOSER_NO_SECURITY_BLOCKING
 
-`1`に設定すると、`require`、`update`、`remove`、`install`、`create-project`コマンドに`--no-security-blocking`オプションを渡すことと等価になります。
-これにより、セキュリティ勧告があったり放棄されたりしているパッケージをインストールできます。
-構成オプション[audit.block-insecure](06-config.md#block-insecure)をオーバーライドします。
+DEPRECATED, use [COMPOSER_NO_BLOCKING](#composer-no-blocking) instead.
+
+If set to `1`, it is the equivalent of passing the `--no-security-blocking`
+option to a `require`, `update`, `remove`, `install`, or `create-project`
+command. This allows installing packages with security advisories or that
+are abandoned. It overrides the config option
+[policy.advisories.block](06-config.md#block).
+
+### COMPOSER_POLICY_ADVISORIES_BLOCK
+
+If set to `1`, enables blocking of packages with security advisories during
+dependency resolution (equivalent to setting `policy.advisories.block` to
+`true`). If set to `0`, disables blocking.
+
+### COMPOSER_POLICY_MALWARE_BLOCK
+
+If set to `1`, enables blocking of packages flagged as malware during
+dependency resolution (equivalent to setting `policy.malware.block` to
+`true`). If set to `0`, disables blocking.
+
+### COMPOSER_POLICY_ABANDONED_BLOCK
+
+If set to `1`, enables blocking of abandoned packages during dependency
+resolution (equivalent to setting `policy.abandoned.block` to `true`). If
+set to `0`, disables blocking.
+
+Takes precedence over the legacy
+[COMPOSER_SECURITY_BLOCKING_ABANDONED](#composer-security-blocking-abandoned)
+when both are set.
 
 ### COMPOSER_SECURITY_BLOCKING_ABANDONED
 
-`1`に設定すると、依存関係を解決するとき、放棄されたパッケージの阻止を有効にします（`audit.block-abandoned`の構成を`true`に設定することと等価です）。
-`0`に設定すると、放棄されたパッケージの阻止を無効にします。
-なお、この設定はセキュリティの阻止が全般的に無効になっているときは、効果がありません。
-構成オプション[audit.block-abandoned](06-config.md#block-abandoned)をオーバーライドします。
+DEPRECATED, use
+[COMPOSER_POLICY_ABANDONED_BLOCK](#composer-policy-abandoned-block) instead.
+
+If set to `1`, enables blocking of abandoned packages during dependency
+resolution (equivalent to setting `audit.block-abandoned` config to
+`true`). If set to `0`, disables blocking of abandoned packages. It
+overrides the config option
+[audit.block-abandoned](06-config.md#block-abandoned).
 
 ### COMPOSER_NO_DEV
 
@@ -1386,6 +1527,13 @@ parallel.  This defaults to 10 and must be between 1 and 50.
 
 `1`に設定すると、`--prefer-stable`と`--prefer-lowest`が両方とも有効にされた状態で依存解決するとき、そして安定リリースがない場合に、devバージョンはalpha/beta/RCのバージョンより安定したものとして扱われます。
 最小のバージョンをテストしつつリリース前のバージョンに非常に重要な修正が含まれる可能性があるブランチを優先したいときに便利です。
+
+### COMPOSER_SOURCE_FALLBACK
+
+If set to `0`, Composer will not fall back to an alternative download source
+when the preferred one fails. Equivalent to passing
+`--no-source-fallback`. See also
+[config.source-fallback](06-config.md#source-fallback).
 
 ### COMPOSER_MINIMAL_CHANGES
 
