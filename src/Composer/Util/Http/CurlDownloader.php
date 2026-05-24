@@ -181,6 +181,14 @@ class CurlDownloader
             $this->config->prohibitUrlByConfig($url, $this->io, $options);
         }
 
+        if (
+            isset($options['prevent_url_access_callable']) &&
+            is_callable($options['prevent_url_access_callable']) &&
+            $options['prevent_url_access_callable']($url)
+        ) {
+            throw new TransportException('Access to "'.$url.'" is blocked.');
+        }
+
         $curlHandle = curl_init();
         $headerHandle = fopen('php://temp/maxmemory:32768', 'w+b');
         if (false === $headerHandle) {
@@ -324,8 +332,6 @@ class CurlDownloader
 
     public function tick(): void
     {
-        static $timeoutWarning = false;
-
         if (count($this->jobs) === 0) {
             return;
         }
@@ -369,11 +375,6 @@ class CurlDownloader
                         $error = curl_strerror($errno);
                     }
                     $progress['error_code'] = $errno;
-
-                    if ($errno === 28 /* CURLE_OPERATION_TIMEDOUT */ && \PHP_VERSION_ID >= 70300 && $progress['namelookup_time'] === 0.0 && !$timeoutWarning) {
-                        $timeoutWarning = true;
-                        $this->io->writeError('<warning>A connection timeout was encountered. If you intend to run Composer without connecting to the internet, run the command again prefixed with COMPOSER_DISABLE_NETWORK=1 to make Composer run in offline mode.</warning>');
-                    }
 
                     if (
                         (!isset($job['options']['http']['method']) || $job['options']['http']['method'] === 'GET')
@@ -575,7 +576,7 @@ class CurlDownloader
     private function isAuthenticatedRetryNeeded(array $job, Response $response): array
     {
         if (in_array($response->getStatusCode(), [401, 403]) && $job['attributes']['retryAuthFailure']) {
-            $result = $this->authHelper->promptAuthIfNeeded($job['url'], $job['origin'], $response->getStatusCode(), $response->getStatusMessage(), $response->getHeaders(), $job['attributes']['retries']);
+            $result = $this->authHelper->promptAuthIfNeeded($job['url'], $job['origin'], $response->getStatusCode(), $response->getStatusMessage(), $response->getHeaders(), $job['attributes']['retries'], $response->getBody());
 
             if ($result['retry']) {
                 return $result;

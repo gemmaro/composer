@@ -81,7 +81,7 @@ class AuthHelper
      *                                retried, if storeAuth is true then on a successful retry the authentication should be persisted to auth.json
      * @phpstan-return array{retry: bool, storeAuth: 'prompt'|bool}
      */
-    public function promptAuthIfNeeded(string $url, string $origin, int $statusCode, ?string $reason = null, array $headers = [], int $retryCount = 0): array
+    public function promptAuthIfNeeded(string $url, string $origin, int $statusCode, ?string $reason = null, array $headers = [], int $retryCount = 0, ?string $responseBody = null): array
     {
         $storeAuth = false;
 
@@ -118,11 +118,24 @@ class AuthHelper
                     $rateLimit['reset']
                 )."\n";
             } else {
-                $message .= 'Could not fetch '.$url.', please ';
-                if ($this->io->hasAuthentication($origin)) {
-                    $message .= 'review your configured GitHub OAuth token or enter a new one to access private repos';
+                // Try to extract a more specific error message from GitHub's API response
+                $gitHubApiMessage = null;
+                if ($responseBody !== null) {
+                    $decoded = json_decode($responseBody, true);
+                    if (is_array($decoded) && isset($decoded['message']) && is_string($decoded['message'])) {
+                        $gitHubApiMessage = $decoded['message'];
+                    }
+                }
+
+                if ($gitHubApiMessage !== null) {
+                    $message .= 'Could not fetch '.$url.': '.$gitHubApiMessage;
                 } else {
-                    $message .= 'create a GitHub OAuth token to access private repos';
+                    $message .= 'Could not fetch '.$url.', please ';
+                    if ($this->io->hasAuthentication($origin)) {
+                        $message .= 'review your configured GitHub OAuth token or enter a new one to access private repos';
+                    } else {
+                        $message .= 'create a GitHub OAuth token to access private repos';
+                    }
                 }
             }
 
@@ -257,7 +270,9 @@ class AuthHelper
             $options['http']['header'] = [];
         }
         $headers = &$options['http']['header'];
-        if ($this->io->hasAuthentication($origin)) {
+        $authOrigin = self::findAuthOrigin($this->io, $origin);
+        if ($authOrigin !== null) {
+            $origin = $authOrigin;
             $authenticationDisplayMessage = null;
             $auth = $this->io->getAuthentication($origin);
             if ($auth['password'] === 'bearer') {
@@ -313,11 +328,23 @@ class AuthHelper
                 $this->io->writeError($authenticationDisplayMessage, true, IOInterface::DEBUG);
                 $this->displayedOriginAuthentications[$origin] = $authenticationDisplayMessage;
             }
-        } elseif (in_array($origin, ['api.bitbucket.org', 'api.github.com'], true)) {
-            return $this->addAuthenticationOptions($options, str_replace('api.', '', $origin), $url);
         }
 
         return $options;
+    }
+
+    public static function findAuthOrigin(IOInterface $io, string $origin ): ?string
+    {
+        if ($io->hasAuthentication($origin)) {
+            return $origin;
+        }
+        if (in_array($origin, ['api.bitbucket.org', 'api.github.com'], true)) {
+            $canonical = str_replace('api.', '', $origin);
+            if ($io->hasAuthentication($canonical)) {
+                return $canonical;
+            }
+        }
+        return null;
     }
 
     /**

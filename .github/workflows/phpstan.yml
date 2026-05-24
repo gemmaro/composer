@@ -8,6 +8,10 @@ on:
     paths-ignore:
       - 'doc/**'
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 env:
   COMPOSER_FLAGS: "--ansi --no-interaction --prefer-dist"
   SYMFONY_PHPUNIT_VERSION: ""
@@ -33,20 +37,23 @@ jobs:
 
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
 
-      - uses: shivammathur/setup-php@44454db4f0199b8b9685a5d763dc37cbf79108e1 # 2.36.0
+      - uses: shivammathur/setup-php@accd6127cb78bee3e8082180cb391013d204ef9f # 2.37.0
         with:
           coverage: "none"
           extensions: "intl, zip"
           ini-values: "memory_limit=-1"
           php-version: "${{ matrix.php-version }}"
+          tools: "composer:snapshot"
 
       - name: "Determine composer cache directory"
         id: "determine-composer-cache-directory"
         run: "echo \"directory=$(composer config cache-dir)\" >> $GITHUB_OUTPUT"
 
       - name: "Cache dependencies installed with composer"
-        uses: actions/cache@8b402f58fbc84540c8b491a91e594a4576fec3d7 # v5.0.2
+        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
         with:
           path: "${{ steps.determine-composer-cache-directory.outputs.directory }}"
           key: "php-${{ matrix.php-version }}-symfony-php-unit-version-${{ env.SYMFONY_PHPUNIT_VERSION }}-${{ hashFiles('**/composer.lock') }}"
@@ -54,11 +61,11 @@ jobs:
 
       - name: "Install highest dependencies"
         if: "matrix.experimental == true"
-        run: "composer config platform --unset && composer update ${{ env.COMPOSER_FLAGS }}"
+        run: 'composer config platform --unset && composer update $COMPOSER_FLAGS'
 
       - name: "Install locked dependencies"
         if: "matrix.experimental == false"
-        run: "composer config platform --unset && composer install ${{ env.COMPOSER_FLAGS }}"
+        run: 'composer config platform --unset && composer install $COMPOSER_FLAGS'
 
       - name: "Initialize PHPUnit sources"
         run: "vendor/bin/simple-phpunit --filter NO_TEST_JUST_AUTOLOAD_THANKS"

@@ -104,6 +104,9 @@ resolution.
   To get the legacy behavior where Composer use `source` automatically for dev
   versions of packages, use `--prefer-install=auto`. See also [config.preferred-install](06-config.md#preferred-install).
   Passing this flag will override the config value.
+* **--source-fallback / --no-source-fallback:** Override the [config.source-fallback](06-config.md#source-fallback)
+  setting. When disabled, Composer will not fall back to an alternative download source
+  (e.g., from dist to source or vice versa) if the preferred one fails. Also see [COMPOSER_SOURCE_FALLBACK](#composer-source-fallback).
 * **--dry-run:** If you want to run through an installation without actually
   installing a package, you can use `--dry-run`. This will simulate the
   installation and show you what would happen.
@@ -116,15 +119,15 @@ resolution.
   terminals or scripts which don't handle backspace characters.
 * **--audit:** Run an audit after installation is complete.
 * **--audit-format:** Audit output format. Must be "table", "plain", "json", or "summary" (default).
-* **--no-security-blocking:** Allows installing packages with security advisories or that are abandoned.
-  Also see [COMPOSER_NO_SECURITY_BLOCKING](#composer-no-security-blocking).
-  Only applies when no lock file is present - for installs from a lock file Composer never blocks
-  vulnerable packages.
+* **--no-security-blocking:** DEPRECATED, use `--no-blocking` instead. Allows installing packages with security advisories or that are abandoned. Also see [COMPOSER_NO_SECURITY_BLOCKING](#composer-no-security-blocking).
+* **--no-blocking:** Disables all policy blocking during this command. Also see [COMPOSER_NO_BLOCKING](#composer-no-blocking).
 * **--optimize-autoloader (-o):** Convert PSR-0/4 autoloading to classmap to get a faster
   autoloader. This is recommended especially for production, but can take
   a bit of time to run so it is currently not done by default.
 * **--classmap-authoritative (-a):** Autoload classes from the classmap only.
   Implicitly enables `--optimize-autoloader`.
+* **--strict-psr-autoloader:** Return a failed exit code (6) if PSR-4 or PSR-0 mapping errors
+  are present in the current project (dependencies excluded). Requires `--optimize-autoloader` to work.
 * **--apcu-autoloader:** Use APCu to cache found/not-found classes.
 * **--apcu-autoloader-prefix:** Use a custom prefix for the APCu autoloader cache.
   Implicitly enables `--apcu-autoloader`.
@@ -196,13 +199,17 @@ php composer.phar update vendor/package:2.0.1 vendor/package2:3.0.*
   To get the legacy behavior where Composer use `source` automatically for dev
   versions of packages, use `--prefer-install=auto`. See also [config.preferred-install](06-config.md#preferred-install).
   Passing this flag will override the config value.
+* **--source-fallback / --no-source-fallback:** Override the [config.source-fallback](06-config.md#source-fallback)
+  setting. When disabled, Composer will not fall back to an alternative download source
+  (e.g., from dist to source or vice versa) if the preferred one fails. Also see [COMPOSER_SOURCE_FALLBACK](#composer-source-fallback).
 * **--dry-run:** Simulate the command without actually doing anything.
 * **--dev:** Install packages listed in `require-dev` (this is the default behavior).
 * **--no-dev:** Skip installing packages listed in `require-dev`. The autoloader generation skips the `autoload-dev` rules. Also see [COMPOSER_NO_DEV](#composer-no-dev).
 * **--no-install:** Does not run the install step after updating the composer.lock file.
 * **--no-audit:** Does not run the audit steps after updating the composer.lock file. Also see [COMPOSER_NO_AUDIT](#composer-no-audit).
 * **--audit-format:** Audit output format. Must be "table", "plain", "json", or "summary" (default).
-* **--no-security-blocking:** Allows installing packages with security advisories or that are abandoned. Also see [COMPOSER_NO_SECURITY_BLOCKING](#composer-no-security-blocking).
+* **--no-security-blocking:** DEPRECATED, use `--no-blocking` instead. Allows installing packages with security advisories or that are abandoned. Also see [COMPOSER_NO_SECURITY_BLOCKING](#composer-no-security-blocking).
+* **--no-blocking:** Disables all policy blocking during this command. Also see [COMPOSER_NO_BLOCKING](#composer-no-blocking).
 * **--lock:** Overwrites the lock file hash to suppress warning about the lock file being out of
   date without updating package versions. Package metadata like mirrors and URLs are updated if
   they changed.
@@ -217,6 +224,8 @@ php composer.phar update vendor/package:2.0.1 vendor/package2:3.0.*
   a bit of time to run, so it is currently not done by default.
 * **--classmap-authoritative (-a):** Autoload classes from the classmap only.
   Implicitly enables `--optimize-autoloader`.
+* **--strict-psr-autoloader:** Return a failed exit code (6) if PSR-4 or PSR-0 mapping errors
+  are present in the current project (dependencies excluded). Requires `--optimize-autoloader` to work.
 * **--apcu-autoloader:** Use APCu to cache found/not-found classes.
 * **--apcu-autoloader-prefix:** Use a custom prefix for the APCu autoloader cache.
   Implicitly enables `--apcu-autoloader`.
@@ -289,13 +298,17 @@ If you do not want to install the new dependencies immediately you can call it w
   To get the legacy behavior where Composer use `source` automatically for dev
   versions of packages, use `--prefer-install=auto`. See also [config.preferred-install](06-config.md#preferred-install).
   Passing this flag will override the config value.
+* **--source-fallback / --no-source-fallback:** Override the [config.source-fallback](06-config.md#source-fallback)
+  setting. When disabled, Composer will not fall back to an alternative download source
+  (e.g., from dist to source or vice versa) if the preferred one fails. Also see [COMPOSER_SOURCE_FALLBACK](#composer-source-fallback).
 * **--no-progress:** Removes the progress display that can mess with some
   terminals or scripts which don't handle backspace characters.
 * **--no-update:** Disables the automatic update of the dependencies (implies --no-install).
 * **--no-install:** Does not run the install step after updating the composer.lock file.
 * **--no-audit:** Does not run the audit steps after updating the composer.lock file. Also see [COMPOSER_NO_AUDIT](#composer-no-audit).
 * **--audit-format:** Audit output format. Must be "table", "plain", "json", or "summary" (default).
-* **--no-security-blocking:** Allows installing packages with security advisories or that are abandoned. Also see [COMPOSER_NO_SECURITY_BLOCKING](#composer-no-security-blocking).
+* **--no-security-blocking:** DEPRECATED, use `--no-blocking` instead. Allows installing packages with security advisories or that are abandoned. Also see [COMPOSER_NO_SECURITY_BLOCKING](#composer-no-security-blocking).
+* **--no-blocking:** Disables all policy blocking during this command. Also see [COMPOSER_NO_BLOCKING](#composer-no-blocking).
 * **--update-no-dev:** Run the dependency update with the `--no-dev` option. Also see [COMPOSER_NO_DEV](#composer-no-dev).
 * **--update-with-dependencies (-w):** Also update dependencies of the newly required packages, except those that are root requirements. Can also be set via the COMPOSER_WITH_DEPENDENCIES=1 env var.
 * **--update-with-all-dependencies (-W):** Also update dependencies of the newly required packages, including those that are root requirements. Can also be set via the COMPOSER_WITH_ALL_DEPENDENCIES=1 env var.
@@ -346,7 +359,8 @@ uninstalled.
 * **--no-install:** Does not run the install step after updating the composer.lock file.
 * **--no-audit:** Does not run the audit steps after installation is complete. Also see [COMPOSER_NO_AUDIT](#composer-no-audit).
 * **--audit-format:** Audit output format. Must be "table", "plain", "json", or "summary" (default).
-* **--no-security-blocking:** Allows installing packages with security advisories or that are abandoned. Also see [COMPOSER_NO_SECURITY_BLOCKING](#composer-no-security-blocking).
+* **--no-security-blocking:** DEPRECATED, use `--no-blocking` instead. Allows installing packages with security advisories or that are abandoned. Also see [COMPOSER_NO_SECURITY_BLOCKING](#composer-no-security-blocking).
+* **--no-blocking:** Disables all policy blocking during this command. Also see [COMPOSER_NO_BLOCKING](#composer-no-blocking).
 * **--update-no-dev:** Run the dependency update with the --no-dev option. Also see [COMPOSER_NO_DEV](#composer-no-dev).
 * **--update-with-dependencies (-w):** Also update dependencies of the removed packages. Can also be set via the COMPOSER_WITH_DEPENDENCIES=1 env var.
   (Deprecated, is now default behavior)
@@ -417,6 +431,9 @@ php composer.phar reinstall "acme/*"
   To get the legacy behavior where Composer use `source` automatically for dev
   versions of packages, use `--prefer-install=auto`. See also [config.preferred-install](06-config.md#preferred-install).
   Passing this flag will override the config value.
+* **--source-fallback / --no-source-fallback:** Override the [config.source-fallback](06-config.md#source-fallback)
+  setting. When disabled, Composer will not fall back to an alternative download source
+  (e.g., from dist to source or vice versa) if the preferred one fails. Also see [COMPOSER_SOURCE_FALLBACK](#composer-source-fallback).
 * **--no-autoloader:** Skips autoloader generation.
 * **--no-progress:** Removes the progress display that can mess with some
   terminals or scripts which don't handle backspace characters.
@@ -921,8 +938,8 @@ repo [options] disable packagist.org
 - **--global (-g):** to modify the global `$COMPOSER_HOME/config.json`.
 - **--file (-f):** to modify a specific file instead of composer.json.
 - **--append:** to add a repository with lower priority (by default repositories are prepended and have thus higher priority than existing ones).
-- **--before <name>:** to insert the new repository before an existing repository named `<name>`.
-- **--after <name>:** to insert the new repository after an existing repository named `<name>`. The `<name>` must match an existing repository name.
+- **--before [name]:** to insert the new repository before an existing repository named `[name]`.
+- **--after [name]:** to insert the new repository after an existing repository named `[name]`. The `[name]` must match an existing repository name.
 
 ### Examples
 
@@ -938,6 +955,33 @@ php composer.phar repo set-url foo https://git.example.org/acme/foo
 php composer.phar repo get-url foo
 php composer.phar repo disable packagist.org
 php composer.phar repo enable packagist.org
+```
+
+## policy
+
+The `policy` command lets you manage custom policy lists and their sources in your `composer.json` under `config.policy`. A source points Composer at a remote URL which provides the list of packages the policy applies to. Adding a source to a list that does not yet exist will create the list entry automatically.
+
+Built-in lists (`advisories`, `malware`, `abandoned`) do not accept sources and are rejected. To change their settings, use `composer config policy.<list>.<field>` instead — see the [policy](06-config.md#policy) config documentation.
+
+### Usage
+
+```shell
+policy [options] add-source [list-name] [source-type] [url]
+policy [options] add-source [list-name] [json-source-definition]
+```
+
+Currently only `url` is supported as `source-type`, and URLs must start with `https://`.
+
+### Options
+
+- **--global (-g):** to modify the global `$COMPOSER_HOME/config.json`.
+- **--file (-f):** to modify a specific file instead of composer.json.
+
+### Examples
+
+```shell
+php composer.phar policy add-source my-list url https://example.org/list.json
+php composer.phar policy add-source my-list '{"type":"url","url":"https://example.org/list.json"}'
 ```
 
 ## create-project
@@ -979,6 +1023,9 @@ By default the command checks for the packages on packagist.org.
   To get the legacy behavior where Composer use `source` automatically for dev
   versions of packages, use `--prefer-install=auto`. See also [config.preferred-install](06-config.md#preferred-install).
   Passing this flag will override the config value.
+* **--source-fallback / --no-source-fallback:** Override the [config.source-fallback](06-config.md#source-fallback)
+  setting. When disabled, Composer will not fall back to an alternative download source
+  (e.g., from dist to source or vice versa) if the preferred one fails. Also see [COMPOSER_SOURCE_FALLBACK](#composer-source-fallback).
 * **--repository:** Provide a custom repository to search for the package,
   which will be used instead of packagist. Can be either an HTTP URL pointing
   to a `composer` repository, a path to a local `packages.json` file, or a
@@ -1002,7 +1049,8 @@ By default the command checks for the packages on packagist.org.
 * **--no-install:** Disables installation of the vendors.
 * **--no-audit:** Does not run the audit steps after installation is complete. Also see [COMPOSER_NO_AUDIT](#composer-no-audit).
 * **--audit-format:** Audit output format. Must be "table", "plain", "json", or "summary" (default).
-* **--no-security-blocking:** Allows installing packages with security advisories or that are abandoned. Also see [COMPOSER_NO_SECURITY_BLOCKING](#composer-no-security-blocking).
+* **--no-security-blocking:** DEPRECATED, use `--no-blocking` instead. Allows installing packages with security advisories or that are abandoned. Also see [COMPOSER_NO_SECURITY_BLOCKING](#composer-no-security-blocking).
+* **--no-blocking:** Disables all policy blocking during this command. Also see [COMPOSER_NO_BLOCKING](#composer-no-blocking).
 * **--ignore-platform-reqs:** ignore all platform requirements (`php`, `hhvm`,
   `lib-*` and `ext-*`) and force the installation even if the local machine does
   not fulfill these.
@@ -1010,6 +1058,11 @@ By default the command checks for the packages on packagist.org.
 * **--ignore-platform-req:** ignore a specific platform requirement(`php`,
   `hhvm`, `lib-*` and `ext-*`) and force the installation even if the local machine
   does not fulfill it. Multiple requirements can be ignored via wildcard.
+* **--require:** Require additional package(s) to be added to composer.json after
+  installing the project. If a lock file is present it will be deleted and an
+  update will be run instead of install. Can be specified multiple times for
+  multiple packages. Should be in format `foo/bar:1.0.0` format if you want to
+  specify a constraint.
 * **--ask:** Ask the user to provide a target directory for the new project.
 
 ## dump-autoload / dumpautoload
@@ -1125,13 +1178,17 @@ vulnerability advisories using the [Packagist.org api](https://packagist.org/api
 or other repositories if specified in the `repositories` section of `composer.json`.
 The command also detects abandoned packages.
 
-The audit command determines if there are vulnerable or abandoned packages and returns the following exit codes based on
+The audit command determines if there are vulnerable, abandoned, or filtered packages and returns the following exit codes based on
 the findings:
 
 * `0` No issues;
 * `1` Vulnerable packages;
 * `2` Abandoned packages;
 * `3` Vulnerable and abandoned packages.
+* `4` Filtered packages.
+* `5` Vulnerable and filtered packages.
+* `6` Abandoned and filtered packages.
+* `7` Vulnerable, abandoned, and filtered packages.
 
 ```shell
 php composer.phar audit
@@ -1147,6 +1204,10 @@ php composer.phar audit
   flag will override the config value and the environment variable.
 * **--ignore-severity:** Ignore advisories of a certain severity level. Can be passed one or more
   time to ignore multiple severities.
+* **--filtered:** Behavior on packages matched by `malware` and custom filter
+  lists. Must be "ignore", "report", or "fail". Overrides the per-list `audit`
+  setting (`config.policy.malware.audit` and every custom list's `audit`) for
+  the duration of this command.
 
 ## help
 
@@ -1351,7 +1412,7 @@ useful for plugin authors to identify what is firing when exactly.
 
 ### COMPOSER_SKIP_SCRIPTS
 
-Accepts a comma-seperated list of event names, e.g. `post-install-cmd` for which scripts execution should be skipped.
+Accepts a comma-separated list of event names, e.g. `post-install-cmd` for which scripts execution should be skipped.
 
 ### COMPOSER_NO_AUDIT
 
@@ -1359,16 +1420,43 @@ If set to `1`, it is the equivalent of passing the `--no-audit` option to a `req
 
 ### COMPOSER_AUDIT_ABANDONED
 
-Set to `ignore`, `report` or `fail` to override the [audit.abandoned](06-config.md#abandoned)
-config option.
+Set to `ignore`, `report` or `fail` to override the [policy.abandoned.audit](06-config.md#audit) config option. Has no effect when `policy.abandoned` is set to `false` in composer.json.
+
+### COMPOSER_POLICY
+
+Main policy switch. Set to `0` to disable all policy enforcement on updates and audit, or `1` to enable it. Setting this to `1` will use the policy configuration in the composer.json. If you want to override the config value, use `composer config policy 1` instead.
+
+When set to `0`, all per-list overrides below are ignored — the whole policy config is short-circuited to disabled.
+
+### COMPOSER_NO_BLOCKING
+
+If set to `1`, it is the equivalent of passing the `--no-blocking` option to a `require`, `update`, `remove`, `install`, or `create-project` command. This disables all policy blocking during this command. It overrides the `block` config option for each configured policy e.g. [policy.advisories.block](06-config.md#block).
 
 ### COMPOSER_NO_SECURITY_BLOCKING
 
-If set to `1`, it is the equivalent of passing the `--no-security-blocking` option to a `require`, `update`, `remove`, `install`, or `create-project` command. This allows installing packages with security advisories or that are abandoned. It overrides the config option [audit.block-insecure](06-config.md#block-insecure).
+DEPRECATED, use [COMPOSER_NO_BLOCKING](#composer-no-blocking) instead.
+
+If set to `1`, it is the equivalent of passing the `--no-security-blocking` option to a `require`, `update`, `remove`, `install`, or `create-project` command. This allows installing packages with security advisories or that are abandoned. It overrides the config option [policy.advisories.block](06-config.md#block).
+
+### COMPOSER_POLICY_ADVISORIES_BLOCK
+
+If set to `1`, enables blocking of packages with security advisories during dependency resolution (equivalent to setting `policy.advisories.block` to `true`). If set to `0`, disables blocking.
+
+### COMPOSER_POLICY_MALWARE_BLOCK
+
+If set to `1`, enables blocking of packages flagged as malware during dependency resolution (equivalent to setting `policy.malware.block` to `true`). If set to `0`, disables blocking.
+
+### COMPOSER_POLICY_ABANDONED_BLOCK
+
+If set to `1`, enables blocking of abandoned packages during dependency resolution (equivalent to setting `policy.abandoned.block` to `true`). If set to `0`, disables blocking.
+
+Takes precedence over the legacy [COMPOSER_SECURITY_BLOCKING_ABANDONED](#composer-security-blocking-abandoned) when both are set.
 
 ### COMPOSER_SECURITY_BLOCKING_ABANDONED
 
-If set to `1`, enables blocking of abandoned packages during dependency resolution (equivalent to setting `audit.block-abandoned` config to `true`). If set to `0`, disables blocking of abandoned packages. Note that this setting does not have any effect if security blocking is generally disabled. It overrides the config option [audit.block-abandoned](06-config.md#block-abandoned).
+DEPRECATED, use [COMPOSER_POLICY_ABANDONED_BLOCK](#composer-policy-abandoned-block) instead.
+
+If set to `1`, enables blocking of abandoned packages during dependency resolution (equivalent to setting `audit.block-abandoned` config to `true`). If set to `0`, disables blocking of abandoned packages. It overrides the config option [audit.block-abandoned](06-config.md#block-abandoned).
 
 ### COMPOSER_NO_DEV
 
@@ -1393,6 +1481,12 @@ If set to `1`, when resolving dependencies with both `--prefer-stable` and
 alpha/beta/RC versions in cases where no stable release exists. This is useful
 to test lowest versions while still preferring branches that may contain
 critical fixes over prerelease versions.
+
+### COMPOSER_SOURCE_FALLBACK
+
+If set to `0`, Composer will not fall back to an alternative download source when the
+preferred one fails. Equivalent to passing `--no-source-fallback`. See also
+[config.source-fallback](06-config.md#source-fallback).
 
 ### COMPOSER_MINIMAL_CHANGES
 
