@@ -108,48 +108,58 @@ Composerを対話的に実行すると、プラグインを実行するかどう
 > より限定されたパターンは、より緩いパターンの前に来るべきです。
 > 大域構成やパッケージ構成で文字列表記とハッシュ構成を混在させると、文字列表記は`*`パッケージパターンに解釈されます。
 
+> **Tip:** If you want a source checkout for some packages so you can make
+> local edits, but only on your own machine (not in CI), prefer configuring
+> `preferred-install` globally rather than committing it to the project. For
+> example:
+>
+> ```
+> composer config --global preferred-install.my-vendor/* source
+> ```
+>
+> CI then keeps installing from `dist` by default, while your dev machine
+> always pulls those packages from source. This avoids relying on a source
+> install failure to fall back to dist, and saves CI from attempting a clone
+> first, which keep the output leaner and your CI faster.
+
 ## source-fallback
 
-Defaults to `true`. When set to `true`, Composer will automatically fall
-back to an alternative installation source (e.g., from dist to source or
-vice versa)  when a download fails. Set to `false` to disable this behavior
-and fail immediately if the preferred source is unavailable.
+> **Deprecated:** This option is deprecated and will be removed in Composer 2.11.
+> Do not set it unless you absolutely need to. It exists as a temporary opt-in
+> while we disable the dist → source fallback for security reasons (silently
+> switching from a dist to a less-trusted or manipulated source checkout has
+> security implications). If you have a legitimate use case for re-enabling
+> the dist → source fallback and do not want us to remove it in 2.11, please
+> open an issue at https://github.com/composer/composer/issues to let us know.
+
+Defaults to `false`. When set to `true`, a failed **dist** install will fall
+back to a **source** checkout. This option only governs the dist → source
+direction; falling back from a failed source checkout to the dist artifact
+is always allowed regardless of this setting.
 
 ```json
 {
     "config": {
-        "source-fallback": false
+        "source-fallback": true
     }
 }
 ```
 
-これはコマンドラインでも指定できます。
-
-```bash
-composer install --no-source-fallback
-composer update --source-fallback
-```
-
-あるいは`COMPOSER_SOURCE_FALLBACK`環境変数を介してもできます。
-
-```bash
-COMPOSER_SOURCE_FALLBACK=0 composer install
-```
-
-> **Note:** When this option is disabled and a download fails, Composer will
-> immediately throw an error instead of trying alternative sources. Make sure
-> your preferred installation source (`preferred-install`) is correctly configured.
+> **補足：**
+> このオプションが既定値 (`false`) にありdistのダウンロードが失敗するなら、
+> Composerはソースのチェックアウトを試みる代わりに直ちにエラーを投げます。
+> 希望のインストールソース (`preferred-install`) が正しく構成されていることをご確認ください。
 
 ## policy
 
-Unified security and package policy configuration. Controls security
-advisories, malware detection, abandoned packages, and custom policy
-lists. Audit reports can be generated with `composer audit`; blocking
-prevents insecure or otherwise flagged package versions from being installed
-during `composer update`, `require`, or `remove` and for the malware
-detection additionally during a `composer install`.
+Unified dependency policy configuration. Controls Composer behavior for
+dependencies with security advisories, flagged as malware, abandoned
+packages, and custom dependency policies. Audit reports can be generated
+with `composer audit`; blocking prevents insecure or otherwise flagged
+package versions from being installed during `composer update`, `require`,
+or `remove` and malware also during a `composer install`.
 
-`false`に設定するとすべてのポリシーの促進が無効になります。
+`false`に設定するとすべての依存関係のポリシーの促進が無効になります。
 
 ```json
 {
@@ -159,9 +169,8 @@ detection additionally during a `composer install`.
 }
 ```
 
-> **Migrating from `config.audit`?** See
-> [How `config.audit` interacts with `config.policy`](#how-configaudit-interacts-with-configpolicy)
-> for how the legacy keys are still honored as a fallback while you migrate.
+> **`config.audit`からの移行ですか？**
+> 移行の際に以前のキーがどのように今なおフォールバックとして尊重されているかについては、[どのように`config.audit`が`config.policy`と対応するか](#how-config-audit-interacts-with-config-policy)を参照。
 
 ### advisories
 
@@ -169,9 +178,8 @@ detection additionally during a `composer install`.
 
 #### block
 
-Defaults to `true`. When `true`, package versions with active security
-advisories are blocked and cannot be installed during
-`update`/`require`/`remove` unless the advisory or package is ignored.
+既定で`true`です。
+`true`のとき、その勧告かパッケージが無視されない限りは、活性なセキュリティ勧告付きのパッケージは遮断され`update`/`require`/`remove`の間にインストールできません。
 
 ```json
 {
@@ -191,7 +199,7 @@ Defaults to `fail`. How `composer audit` treats packages with security
 advisories.
 
 - `ignore`は、勧告が報告されません
-- `report` — advisories are reported but do not cause a non-zero exit code
+- `report`では、勧告は報告されるものの非ゼロの終了コードになりません。
 - `fail`では、勧告により`composer audit`に非ゼロコードの失敗が引き起こされます。
 
 ```json
@@ -266,7 +274,7 @@ updates but is no longer reported in audit.
 
 #### ignore
 
-A list of package names to ignore for security advisories. Supports
+A list of package names to ignore for security advisory handling. Supports
 wildcards and optional version constraints. See the [ignore
 format](#ignore-format) for all supported syntax variants.
 
@@ -347,9 +355,8 @@ during `update`/`require`/`remove`.
 }
 ```
 
-Can be overridden via the
-[`COMPOSER_AUDIT_ABANDONED`](03-cli.md#composer-audit-abandoned)
-environment variable or the [`--abandoned`](03-cli.md#audit) CLI option.
+[`COMPOSER_AUDIT_ABANDONED`](03-cli.md#composer-audit-abandoned)環境変数または[`--abandoned`](03-cli.md#audit)
+CLIオプションを介してオーバーライドできます。
 
 #### ignore
 
@@ -374,12 +381,12 @@ for all supported syntax variants.
 
 ### malware
 
-マルウェアを含むものとして旗が立ったパッケージのための構成です。
+マルウェアを含むものとして旗が立ったパッケージのバージョンのための構成です。
 
 #### block
 
 既定で`true`です。
-`true`のとき、マルウェアとして旗が立ったパッケージは阻害されます。
+`true`のとき、マルウェアとして旗が立ったパッケージのバージョンは遮断されます。
 
 #### block-scope
 
@@ -430,14 +437,14 @@ format](#ignore-format) for all supported syntax variants.
 
 ### ignore-unreachable
 
-Defaults to `["update", "install"]`. When the operation is ignored,
-repositories and policy sources that are unreachable or return a non-200
-response are silently ignored rather than causing an error. Useful in
-environments where not all package repositories are accessible.
+Defaults to `["update", "install"]`. When the operation is listed here,
+repositories and policies with URL sources that are unreachable or return a
+non-200 response are silently ignored rather than causing an error. Useful
+in environments where not all package repositories are accessible.
 
-Set to `true` to ignore unreachable repositories and policy sources for all
-operations and to `false` to ignore them for no operations.  Possible values
-are: `audit`, `install`, and `update`.
+Set to `true` to ignore unreachable repositories and custom dependency
+policy sources for all operations and to `false` to ignore them for no
+operations. Possible values are: `audit`, `install`, and `update`.
 
 ```json
 {
@@ -449,22 +456,23 @@ are: `audit`, `install`, and `update`.
 }
 ```
 
-### 独自のリスト
+### 独自の依存関係のポリシー
 
-In addition to the built-in `advisories`, `malware`, and `abandoned` lists,
-you can define named custom policy lists. A custom list receives its data
-from one or more URL sources (configured by package repositories or set
-explicitly here).
+In addition to the built-in `advisories`, `malware`, and `abandoned`
+dependency policies, you can define named custom dependency policies. A
+custom dependency policy needs its own set of package versions, supplied by
+one or more sources (advertised by package repositories or set explicitly
+here).
 
 ```json
 {
     "config": {
         "policy": {
-            "my-list": {
+            "my-policy": {
                 "block": true,
                 "audit": "fail",
                 "sources": [
-                    {"type": "url", "url": "https://example.org/policy-list.json"}
+                    {"type": "url", "url": "https://example.org/my-bad-packages-list.json"}
                 ],
                 "ignore": {
                     "vendor/package": "Assessed and accepted."
@@ -479,22 +487,76 @@ Source URLs must use `https://`. `http://` and other schemes are rejected
 both at schema validation time (`composer validate`) and at config load
 time.
 
-Custom list names must not conflict with the reserved names `advisories`,
-`malware`, or `abandoned`, and must not start with `ignore` (the only
-`ignore`-prefixed key allowed at this level is the documented
+A `url` source is queried the same way as a repository's
+[`api-url`](05-repositories.md#filter): Composer sends a POST request with
+the relevant package PURLs and the custom dependency policy name, and
+expects the matching filter entries back. The request is not cached
+client-side because each request body is different. Implementors should be
+aware that large amounts (a few hundred would be normal) of package names
+can be submitted. The submitted PURLs are the full set of candidate package
+names gathered *before* dependency resolution, so they identify packages by
+name only (no version constraints yet), and not every submitted package will
+necessarily be selected by the resolver afterwards.
+
+エンドポイントは以下の形式のJSONの本文を受け取ります。
+
+```json
+{
+    "packages": ["pkg://composer/vendor/package", "pkg://composer/other/package"],
+    "lists": ["my-policy"]
+}
+```
+
+The request body reuses the wire format of a Composer repository's
+[`api-url`](05-repositories.md#filter).  There, a single endpoint can serve
+several named filter lists (for example `malware` and `typosquatting`), so
+`lists` is an array naming which of them Composer wants, and the response is
+a `filter` object keyed by list name. A custom dependency policy has no such
+multiplexing: its `url` source exists only to serve that one
+policy. Composer therefore always sends the policy name as the sole element
+of `lists` (so the array carries exactly one value here), and the endpoint
+should treat any list name it receives as referring to that policy.
+
+要約エンドポイントは以下の形式のJSONを返さなければなりません。
+
+```json
+{
+    "filter": [
+        {
+            "package": "vendor/package",
+            "constraint": ">=1.0.0,<1.2.0",
+            "url": "https://example.org/filters/123",
+            "reason": "Assessed and rejected.",
+            "id": "PKFE-xxxx-xxxx-xxxx"
+        }
+    ]
+}
+```
+
+Because the `url` source only ever serves this one policy, the response
+drops the per-list keying used by a repository's `api-url` (where `filter`
+is an object mapping each requested list name to its entries). Here `filter`
+is instead a flat array of entries that all belong to this policy. The
+`package` and `constraint` fields are required on each entry; `url`,
+`reason`, and `id` are optional.  Entries whose package does not match a
+package in the request are ignored.
+
+Custom dependency policy names must not conflict with the reserved names
+`advisories`, `malware`, or `abandoned`, and must not start with `ignore`
+(the only `ignore`-prefixed key allowed at this level is the documented
 `ignore-unreachable` setting).
 
-The following names are reserved for future built-in lists and cannot be
-used as custom list names: `package`, `packages`, `license`, `licence`,
-`licenses`, `licences`, `support`, `maintenance`, `security`,
-`minimum-release-age`. Composer rejects any colliding key both at schema
-validation time (`composer validate`) and at config load time.
+The following names are reserved for future built-in dependency policies and
+cannot be used as custom dependency policy names: `package`, `packages`,
+`license`, `licence`, `licenses`, `licences`, `support`, `maintenance`,
+`security`, `minimum-release-age`. Composer rejects any colliding key both
+at schema validation time (`composer validate`) and at config load time.
 
 ### ignoreの形式
 
-The `ignore` key on every list accepts package name patterns with optional
-version constraints and per-rule scoping. All formats may be mixed in the
-same map.
+The `ignore` key on every dependency policy accepts package name patterns
+with optional version constraints and per-rule scoping. All formats may be
+mixed in the same map.
 
 ##### 単純なリスト（すべてのバージョンを無視）：
 
@@ -502,7 +564,7 @@ same map.
 {
     "config": {
         "policy": {
-            "<list>": {
+            "<policy>": {
                 "ignore": ["vendor/package", "acme/*"]
             }
         }
@@ -516,7 +578,7 @@ same map.
 {
     "config": {
         "policy": {
-            "<list>": {
+            "<policy>": {
                 "ignore": {
                     "vendor/package": "Assessed, no risk."
                 }
@@ -532,7 +594,7 @@ same map.
 {
     "config": {
         "policy": {
-            "<list>": {
+            "<policy>": {
                 "ignore": {
                     "vendor/package": {"constraint": "^2.0", "reason": "Only v2 is affected."}
                 }
@@ -552,7 +614,7 @@ only for blocking (the package is still reported in audit).
 {
     "config": {
         "policy": {
-            "<list>": {
+            "<policy>": {
                 "ignore": {
                     "vendor/package": {"on-audit": false, "reason": "Workaround applied; keep reporting."}
                 }
@@ -568,7 +630,7 @@ only for blocking (the package is still reported in audit).
 {
     "config": {
         "policy": {
-            "<list>": {
+            "<policy>": {
                 "ignore": {
                     "vendor/package": [
                         {"constraint": "^1.0", "on-audit": false},
@@ -594,8 +656,8 @@ only for blocking (the package is still reported in audit).
 ### `config.audit`はどのように`config.policy`と相互作用するか
 
 The legacy `config.audit` keys are only read as a fallback when the
-corresponding [`config.policy`](#policy) block is **absent**. The fallback
-is all-or-nothing per built-in list:
+corresponding [`config.policy`](#policy) section is **absent**. The fallback
+is all-or-nothing per built-in dependency policy:
 
 - If [`config.policy.advisories`](#advisories) is set (to any value,
   including `false`), every advisories-related `audit.*` key
@@ -605,8 +667,8 @@ is all-or-nothing per built-in list:
   [`policy.advisories.ignore`](#ignore), and
   [`policy.advisories.ignore-severity`](#ignore-severity) are
   read. Mix-and-matching, e.g. setting `policy.advisories.block` while
-  expecting `audit.ignore-severity` to still apply, is not supported —
-  migrate all advisories-related settings together.
+  expecting `audit.ignore-severity` to still apply, is not
+  supported. Migrate all advisories-related settings together.
 - If [`config.policy.abandoned`](#abandoned) is set (to any value, including
   `false`), every abandoned-related `audit.*` key
   ([`audit.block-abandoned`](#block-abandoned),
@@ -615,9 +677,9 @@ is all-or-nothing per built-in list:
   only [`policy.abandoned.block`](#block-1),
   [`policy.abandoned.audit`](#audit-1), and
   [`policy.abandoned.ignore`](#ignore-1) are read.
-- The two built-in lists are independent: configuring `policy.advisories`
-  while leaving the abandoned settings under `audit.*` is allowed and vice
-  versa.
+- The two built-in dependency policies are independent: configuring
+  `policy.advisories` while leaving the abandoned settings under `audit.*`
+  is allowed and vice versa.
 - Setting [`policy.ignore-unreachable`](#ignore-unreachable) supersedes the
   legacy [`audit.ignore-unreachable`](#ignore-unreachable-1) key.
 
@@ -1063,6 +1125,12 @@ vendor-dirと以下の全ての`*-dir`オプション中では、`$HOME`と`~`�
 既定では、Windowsでは`C:\Users\<user>\AppData\Roaming\Composer`、XDG Base Directory Specificationsに従うunixシステムでは`$XDG_DATA_HOME/composer`、その他のunixシステムでは`$COMPOSER_HOME`です。
 現在、過去のcomposer.pharファイルを保存して古いバージョンにロールバックできるようにするためにのみ使用されています。
 [COMPOSER_HOME](03-cli.md#composer-home)も参照してください。
+
+Because `self-update --rollback` restores a previously stored
+`composer.phar` from this directory, it must be writable only by the user
+that owns the Composer installation and should be treated as a trusted
+location. A directory writable by other users would let them plant a
+malicious phar that a privileged rollback would install.
 
 ## cache-dir
 

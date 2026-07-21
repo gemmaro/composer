@@ -103,7 +103,7 @@ package itself](#dependencies-on-the-root-package).
 
 ## ネットワークの時間切れの問題、curlのエラー
 
-If you see something along the lines of:
+以下のように行が続くさまが見られるなら……
 
 ```
 Failed to download * curl error 28 while downloading * Operation timed out after 300000 milliseconds
@@ -115,9 +115,9 @@ you can increase it by increasing the `default_socket_timeout` value in your
 php.ini to something higher.
 
 
-## Package not found in a Jenkins-build
+## パッケージがJenkinsのビルドで見つかりません
 
-1. Check the ["Package not found"](#package-not-found) item above.
+1. 上記の[「パッケージが見つかりません」](#package-not-found)の項目をご確認ください。
 
 2. The git-clone / checkout within Jenkins leaves the branch in a "detached
    HEAD"-state. As a result, Composer may not able to identify the version

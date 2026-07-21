@@ -1,3 +1,47 @@
+### [2.10.2] 2026-07-01
+
+  * セキュリティ：パッケージ名を検証 (GHSA-499r-g7pc-vmp9)
+  * セキュリティ：パスの巡回に対してパッケージのバイナリパスを検証 (GHSA-gjfg-22fp-rrxx)
+  * セキュリティ：冗長な出力でURLに埋め込まれた利用者名／トークンを除去 (GHSA-g6xq-892h-64w3)
+  * セキュリティ：HTTPの応答からのHTTPリダイレクトのみ追従 (#12948)
+  * セキュリティ：安全でないPHPのバージョンでpharのメタ情報の脱直列化を防止 (#12946)
+  * セキュリティ：応答の本文のデータの漏洩を避けるためhttp応答でのJSONの構文解析のエラーを衛生化 (#12959)
+  * じきEOLになるバージョンを使うときにself-updateコマンドにおける警告の出力を追加 (#12920)
+  * GitHubのコード読込みURLが400を返したときのダウンロードの再挑戦を追加 (#12962)
+  * `audit`コマンドが監査の結果を標準出力に出力するよう修正しました (#12904)
+  * バックスペース文字が未修飾の出力に出力されていた点を修正 (#12925)
+  * xdebugの有効によりセキュリティ勧告の遮断が問題を起こしていた点を修正 (#12935)
+  * 提供側パッケージが、自身を提供するパッケージに対して提案を隠していた点を修正 (#12933)
+  * xdebugの有効によりセキュリティ勧告の遮断が問題を起こしていた点を修正 (#12935)
+
+### [2.10.1] 2026-06-04
+
+  * Security: Fixed shell escaping when opening an editor (#12903)
+  * Security: Verify backup phar signature before restoring it when using
+    self-update --rollback (#12918)
+  * Fixed `source-fallback` also disabling fallbacks to dist install when
+    source is the preferred install method (#12888)
+  * Fixed source -> dist package updates wiping the .git dir without
+    checking for local changes first (#12912)
+  * Fixed GitHub token prompt happening multiple times on parallel auth
+    failures (#12913)
+  * Fixed warnings from Composer repositories being printed twice in some
+    cases (#12907)
+
+### [2.10.0] 2026-05-28
+
+  * BC Break / Security: Disabled automatic fallback to source checkout if
+    dist/zip install fails, we have introduced a new `source-fallback`
+    config option as a temporary way to restore the old behavior, but if you
+    need this talk to us as we plan to remove it entirely in 2.11 (#12885)
+  * BC Break: Minor break for `audit` consumers, the exit code is now always
+    0 (success) or 1 if anything failed the audit (#12881)
+  * Security: Hardened output filtering of URLs to reduce chances of token
+    leaks (#12882, #12886)
+  * Security: Fixed handling of uppercase schemes in URL validation that
+    might have allowed https requirement bypass (#12884)
+  * `audit`コマンドがvendorディレクトリが存在しないときに成功のオードを返していた点を修正しました (#12880)
+
 ### [2.10.0-RC2] 2026-05-20
 
   * Since 2.10.0-RC1, fixes in 2.9.6 - 2.9.8, many of which security
@@ -526,6 +570,9 @@
   * プール最適化の工程を効率良くしました (#11638)。
   * `show -a <パッケージ名>`の効率良くしました (#11659)。
 
+[2.10.2]: https://github.com/composer/composer/compare/2.10.1...2.10.2
+[2.10.1]: https://github.com/composer/composer/compare/2.10.0...2.10.1
+[2.10.0]: https://github.com/composer/composer/compare/2.10.0-RC2...2.10.0
 [2.10.0-RC2]: https://github.com/composer/composer/compare/2.10.0-RC1...2.10.0-RC2
 [2.10.0-RC1]: https://github.com/composer/composer/compare/2.9.5...2.10.0-RC1
 [2.9.8]: https://github.com/composer/composer/compare/2.9.7...2.9.8
