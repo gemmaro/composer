@@ -39,7 +39,9 @@ class DownloadManager
     /** @var array<string, DownloaderInterface> */
     private $downloaders = [];
     /** @var bool */
-    private $sourceFallback = true;
+    private $sourceFallback = false;
+    /** @var bool */
+    private $sourceFallbackDeprecationWarned = false;
 
     /**
      * Initializes download manager.
@@ -96,6 +98,12 @@ class DownloadManager
      */
     public function setSourceFallback(bool $sourceFallback): self
     {
+        if ($sourceFallback && !$this->sourceFallbackDeprecationWarned) {
+            $this->io->writeError('<warning>The source-fallback option is deprecated and will be removed in Composer 2.11 as automatic fallback between dist and source has security implications.</warning>');
+            $this->io->writeError('<warning>If you have a legitimate use case and do not want us to remove it in 2.11, please open an issue at https://github.com/composer/composer/issues to let us know.</warning>');
+            $this->sourceFallbackDeprecationWarned = true;
+        }
+
         $this->sourceFallback = $sourceFallback;
 
         return $this;
@@ -203,14 +211,19 @@ class DownloadManager
             $package->setInstallationSource($source);
 
             $downloader = $this->getDownloaderForPackage($package);
-            if (!$downloader) {
+            if (null === $downloader) {
                 return \React\Promise\resolve(null);
             }
 
             $handleError = function ($e) use ($sources, $source, $package, $io, $download) {
                 if ($e instanceof \RuntimeException && !$e instanceof IrrecoverableDownloadException) {
-                    if (count($sources) === 0 || !$this->sourceFallback) {
-                        if (!$this->sourceFallback && count($sources) > 0) {
+                    $nextSource = $sources[0] ?? null;
+                    // Only fallback from dist to source is gated by the sourceFallback flag, as it can
+                    // silently switch to less-trusted code or cause other issues where people rely on dists.
+                    // Falling back the other way around (source -> dist) is always allowed.
+                    $blocked = $nextSource === 'source' && !$this->sourceFallback;
+                    if ($nextSource === null || $blocked) {
+                        if ($blocked) {
                             $io->writeError(
                                 '    <warning>Failed to download '.
                                 $package->getPrettyName().
@@ -309,13 +322,18 @@ class DownloadManager
         $initialDownloader = $this->getDownloaderForPackage($initial);
 
         // no downloaders present means update from metapackage to metapackage, nothing to do
-        if (!$initialDownloader && !$downloader) {
+        if (null === $initialDownloader && null === $downloader) {
             return \React\Promise\resolve(null);
         }
 
         // if we have a downloader present before, but not after, the package became a metapackage and its files should be removed
-        if (!$downloader) {
+        if (null === $downloader) {
             return $initialDownloader->remove($initial, $targetDir);
+        }
+
+        // we had no downloader but now have one, so a metapackage became a concrete package and we just install it
+        if (null === $initialDownloader) {
+            return $downloader->install($target, $targetDir);
         }
 
         $initialType = $this->getDownloaderType($initialDownloader);
@@ -336,7 +354,17 @@ class DownloadManager
 
         // if downloader type changed, or update failed and user asks for reinstall,
         // we wipe the dir and do a new install instead of updating it
-        $promise = $initialDownloader->remove($initial, $targetDir);
+        $promise = \React\Promise\resolve(null);
+        if ($initialType !== $targetType) {
+            // on a type change the existing source install is about to be wiped, so
+            // run its uninstall guard first to avoid silently dropping local changes
+            // in a modified VCS checkout
+            $promise = $initialDownloader->prepare('uninstall', $initial, $targetDir);
+        }
+
+        $promise = $promise->then(function ($res) use ($initialDownloader, $initial, $targetDir): PromiseInterface {
+            return $initialDownloader->remove($initial, $targetDir);
+        });
 
         return $promise->then(function ($res) use ($target, $targetDir): PromiseInterface {
             return $this->install($target, $targetDir);

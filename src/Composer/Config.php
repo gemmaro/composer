@@ -21,6 +21,7 @@ use Composer\Policy\ListPolicyConfig;
 use Composer\Policy\PolicyConfig;
 use Composer\Util\Platform;
 use Composer\Util\ProcessExecutor;
+use Composer\Util\Url;
 
 /**
  * @author Jordi Boggiano <j.boggiano@seld.be>
@@ -94,7 +95,7 @@ class Config
         'client-certificate' => [],
         'forgejo-domains' => ['codeberg.org'],
         'forgejo-token' => [],
-        'source-fallback' => true,
+        'source-fallback' => false,
     ];
 
     /** @var array<string, mixed> */
@@ -398,7 +399,6 @@ class Config
             // booleans with env var support
             case 'cache-read-only':
             case 'htaccess-protect':
-            case 'source-fallback':
                 // convert foo-bar to COMPOSER_FOO_BAR and check if it exists since it overrides the local config
                 $env = 'COMPOSER_' . strtoupper(strtr($key, '-', '_'));
 
@@ -416,6 +416,7 @@ class Config
             case 'secure-http':
             case 'use-github-api':
             case 'lock':
+            case 'source-fallback':
                 // special case for secure-http
                 if ($key === 'secure-http' && $this->get('disable-tls') === true) {
                     return false;
@@ -691,12 +692,12 @@ class Config
     public function prohibitUrlByConfig(string $url, ?IOInterface $io = null, array $repoOptions = []): void
     {
         // Return right away if the URL is malformed or custom (see issue #5173), but only for non-HTTP(S) URLs
-        if (false === filter_var($url, FILTER_VALIDATE_URL) && !Preg::isMatch('{^https?://}', $url)) {
+        if (false === filter_var($url, FILTER_VALIDATE_URL) && !Preg::isMatch('{^https?://}i', $url)) {
             return;
         }
 
         // Extract scheme and throw exception on known insecure protocols
-        $scheme = parse_url($url, PHP_URL_SCHEME);
+        $scheme = strtolower((string) parse_url($url, PHP_URL_SCHEME));
         $hostname = parse_url($url, PHP_URL_HOST);
         if (in_array($scheme, ['http', 'git', 'ftp', 'svn'])) {
             if ($this->get('secure-http')) {
@@ -705,10 +706,10 @@ class Config
                         return;
                     }
 
-                    throw new TransportException("Your configuration does not allow connections to $url. See https://getcomposer.org/doc/06-config.md#secure-svn-domains for details.");
+                    throw new TransportException("Your configuration does not allow connections to " . Url::sanitize($url) . ". See https://getcomposer.org/doc/06-config.md#secure-svn-domains for details.");
                 }
 
-                throw new TransportException("Your configuration does not allow connections to $url. See https://getcomposer.org/doc/06-config.md#secure-http for details.");
+                throw new TransportException("Your configuration does not allow connections to " . Url::sanitize($url) . ". See https://getcomposer.org/doc/06-config.md#secure-http for details.");
             }
             if ($io !== null) {
                 if (is_string($hostname)) {

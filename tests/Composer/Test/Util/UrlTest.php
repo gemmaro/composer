@@ -70,27 +70,76 @@ class UrlTest extends TestCase
         self::assertSame($expected, Url::sanitize($url));
     }
 
+    /**
+     * @dataProvider sanitizeProvider
+     */
+    public function testSanitizeIsIdempotent(string $expected, string $url): void
+    {
+        self::assertSame($expected, Url::sanitize(Url::sanitize($url)));
+    }
+
+    /**
+     * @dataProvider isAllowedRedirectProvider
+     */
+    public function testIsAllowedRedirect(bool $expected, string $url): void
+    {
+        self::assertSame($expected, Url::isAllowedRedirect($url));
+    }
+
+    public static function isAllowedRedirectProvider(): array
+    {
+        return [
+            [true, 'http://example.org/foo'],
+            [true, 'https://example.org/foo'],
+            [true, 'HTTPS://example.org/foo'],
+            [false, 'file://localhost/etc/passwd'],
+            [false, 'file:///etc/passwd'],
+            [false, 'phar://archive.phar/file'],
+            [false, 'data://text/plain;base64,Zm9v'],
+            [false, 'ftp://example.org/foo'],
+            [false, '/foo/bar'],
+            [false, 'example.org/foo'],
+        ];
+    }
+
     public static function sanitizeProvider(): array
     {
         return [
+            // empty input safe (callers may pass `$x ?? ''` for nullable URLs)
+            ['', ''],
             // with scheme
             ['https://foo:***@example.org/', 'https://foo:bar@example.org/'],
             ['https://foo@example.org/', 'https://foo@example.org/'],
             ['https://example.org/', 'https://example.org/'],
-            ['http://***:***@example.org', 'http://10a8f08e8d7b7b9:foo@example.org'],
+            ['http://10a***:***@example.org', 'http://10a8f08e8d7b7b9:foo@example.org'],
             ['https://foo:***@example.org:123/', 'https://foo:bar@example.org:123/'],
             ['https://example.org/foo/bar?access_token=***', 'https://example.org/foo/bar?access_token=abcdef'],
             ['https://example.org/foo/bar?foo=bar&access_token=***', 'https://example.org/foo/bar?foo=bar&access_token=abcdef'],
-            ['https://***:***@github.com/acme/repo', 'https://ghp_1234567890abcdefghijklmnopqrstuvwxyzAB:x-oauth-basic@github.com/acme/repo'],
-            ['https://***:***@github.com/acme/repo', 'https://github_pat_1234567890abcdefghijkl_1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVW:x-oauth-basic@github.com/acme/repo'],
+            ['https://ghp***:***@github.com/acme/repo', 'https://ghp_1234567890abcdefghijklmnopqrstuvwxyzAB:x-oauth-basic@github.com/acme/repo'],
+            ['https://git***:***@github.com/acme/repo', 'https://github_pat_1234567890abcdefghijkl_1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVW:x-oauth-basic@github.com/acme/repo'],
+            ['http://abc***:***@example.org:123/', 'http://abcdefghijkl:bar@example.org:123/'],
+            ['https://abc***:***@example.org:123/', 'https://abcdefghijklmnop:bar@example.org:123/'],
+            // token/long username in the user slot without a password (e.g. https://TOKEN@host)
+            ['https://ghp***@github.com/acme/repo', 'https://ghp_1234567890abcdefghijklmnopqrstuvwxyzAB@github.com/acme/repo'],
+            ['https://git***@github.com/acme/repo', 'https://github_pat_1234567890abcdefghijkl_1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVW@github.com/acme/repo'],
+            ['http://10a***@example.org', 'http://10a8f08e8d7b7b9@example.org'],
+            ['https://abc***@example.org:123/', 'https://abcdefghijklmnop@example.org:123/'],
+            // well-known non-secret credential markers are shown verbatim even though they are 12char+
+            ['https://x-token-auth:***@bitbucket.org/acme/repo', 'https://x-token-auth:secret@bitbucket.org/acme/repo'],
+            ['https://gitlab-ci-token:***@gitlab.example.org/', 'https://gitlab-ci-token:realtoken@gitlab.example.org/'],
             // without scheme
             ['foo:***@example.org/', 'foo:bar@example.org/'],
             ['foo@example.org/', 'foo@example.org/'],
             ['example.org/', 'example.org/'],
-            ['***:***@example.org', '10a8f08e8d7b7b9:foo@example.org'],
+            ['10a***:***@example.org', '10a8f08e8d7b7b9:foo@example.org'],
             ['foo:***@example.org:123/', 'foo:bar@example.org:123/'],
             ['example.org/foo/bar?access_token=***', 'example.org/foo/bar?access_token=abcdef'],
             ['example.org/foo/bar?foo=bar&access_token=***', 'example.org/foo/bar?foo=bar&access_token=abcdef'],
+            ['abc***:***@example.org:123/', 'abcdefghijkl:bar@example.org:123/'],
+            ['abc***:***@example.org:123/', 'abcdefghijklmnop:bar@example.org:123/'],
+            ['ghp***@github.com/acme/repo', 'ghp_1234567890abcdefghijklmnopqrstuvwxyzAB@github.com/acme/repo'],
+            ['10a***@example.org', '10a8f08e8d7b7b9@example.org'],
+            ['abc***@example.org:123/', 'abcdefghijklmnop@example.org:123/'],
         ];
     }
 }

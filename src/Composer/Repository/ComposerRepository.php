@@ -181,7 +181,7 @@ class ComposerRepository extends ArrayRepository implements ConfigurableReposito
 
         $urlBits = parse_url(strtr($repoConfig['url'], '\\', '/'));
         if ($urlBits === false || empty($urlBits['scheme'])) {
-            throw new \UnexpectedValueException('Invalid url given for Composer repository: '.$repoConfig['url']);
+            throw new \UnexpectedValueException('Invalid url given for Composer repository: '.Url::sanitize($repoConfig['url']));
         }
 
         if (!isset($repoConfig['options'])) {
@@ -519,6 +519,8 @@ class ComposerRepository extends ArrayRepository implements ConfigurableReposito
             $url .= '?filter='.urlencode($packageFilter);
             $result = $this->httpDownloader->get($url, $this->options)->decodeJson();
 
+            HttpDownloader::outputWarnings($this->io, $this->url, $result);
+
             return $result['packageNames'];
         }
 
@@ -531,6 +533,9 @@ class ComposerRepository extends ArrayRepository implements ConfigurableReposito
         }
 
         $result = $this->httpDownloader->get($url, $this->options)->decodeJson();
+
+        HttpDownloader::outputWarnings($this->io, $this->url, $result);
+
         if (!$this->cache->isReadOnly()) {
             $this->cache->write($cacheKey, implode("\n", $result['packageNames']));
         }
@@ -618,6 +623,8 @@ class ComposerRepository extends ArrayRepository implements ConfigurableReposito
 
             $search = $this->httpDownloader->get($url, $this->options)->decodeJson();
 
+            HttpDownloader::outputWarnings($this->io, $this->url, $search);
+
             if (empty($search['results'])) {
                 return [];
             }
@@ -652,6 +659,8 @@ class ComposerRepository extends ArrayRepository implements ConfigurableReposito
             if (Preg::isMatchStrictGroups('{^\^(?P<query>(?P<vendor>[a-z0-9_.-]+)/[a-z0-9_.-]*)\*?$}i', $query, $match) && $this->listUrl !== null) {
                 $url = $this->listUrl . '?vendor='.urlencode($match['vendor']).'&filter='.urlencode($match['query'].'*');
                 $result = $this->httpDownloader->get($url, $this->options)->decodeJson();
+
+                HttpDownloader::outputWarnings($this->io, $this->url, $result);
 
                 $results = [];
                 foreach ($result['packageNames'] as $name) {
@@ -770,8 +779,10 @@ class ComposerRepository extends ArrayRepository implements ConfigurableReposito
 
             $response = $this->httpDownloader->get($apiUrl, $options);
             $warned = false;
+            $advisoryData = $response->decodeJson();
+            HttpDownloader::outputWarnings($this->io, $this->url, $advisoryData);
             /** @var string $name */
-            foreach ($response->decodeJson()['advisories'] as $name => $list) {
+            foreach ($advisoryData['advisories'] as $name => $list) {
                 if (!isset($packageConstraintMap[$name])) {
                     if (!$warned) {
                         $this->io->writeError('<warning>'.$this->getRepoName().' returned names which were not requested in response to the security-advisories API. '.$name.' was not requested but is present in the response. Requested names were: '.implode(', ', array_keys($packageConstraintMap)).'</warning>');
@@ -831,6 +842,7 @@ class ComposerRepository extends ArrayRepository implements ConfigurableReposito
                 $configuredLists
             );
             $decoded = $response->decodeJson();
+            HttpDownloader::outputWarnings($this->io, $this->url, $decoded);
             if (!isset($decoded['filter']) || !is_array($decoded['filter'])) {
                 throw new TransportException('Filter api-url '.$this->filterConfig->apiUrl.' returned an unexpected response for '.$this->getRepoName(), 0);
             }
@@ -1006,6 +1018,8 @@ class ComposerRepository extends ArrayRepository implements ConfigurableReposito
                 }
                 throw $e;
             }
+
+            HttpDownloader::outputWarnings($this->io, $this->url, $apiResult);
 
             foreach ($apiResult['providers'] as $provider) {
                 $result[$provider['name']] = $provider;
@@ -1436,7 +1450,7 @@ class ComposerRepository extends ArrayRepository implements ConfigurableReposito
         }
 
         if (!extension_loaded('openssl') && strpos($this->url, 'https') === 0) {
-            throw new \RuntimeException('You must enable the openssl extension in your php.ini to load information from '.$this->url);
+            throw new \RuntimeException('You must enable the openssl extension in your php.ini to load information from '.Url::sanitize($this->url));
         }
 
         if ($cachedData = $this->cache->read('packages.json')) {
@@ -1801,7 +1815,7 @@ class ComposerRepository extends ArrayRepository implements ConfigurableReposito
 
                 if ($cacheKey && ($contents = $this->cache->read($cacheKey))) {
                     if (!$this->degradedMode) {
-                        $this->io->writeError('<warning>'.$this->url.' could not be fully loaded ('.$e->getMessage().'), package information was loaded from the local cache and may be out of date</warning>');
+                        $this->io->writeError('<warning>'.Url::sanitize($this->url).' could not be fully loaded ('.$e->getMessage().'), package information was loaded from the local cache and may be out of date</warning>');
                     }
                     $this->degradedMode = true;
                     $data = JsonFile::parseJson($contents, $this->cache->getRoot().$cacheKey);
@@ -1878,7 +1892,7 @@ class ComposerRepository extends ArrayRepository implements ConfigurableReposito
             }
 
             if (!$this->degradedMode) {
-                $this->io->writeError('<warning>'.$this->url.' could not be fully loaded ('.$e->getMessage().'), package information was loaded from the local cache and may be out of date</warning>');
+                $this->io->writeError('<warning>'.Url::sanitize($this->url).' could not be fully loaded ('.$e->getMessage().'), package information was loaded from the local cache and may be out of date</warning>');
             }
             $this->degradedMode = true;
 
@@ -1978,7 +1992,7 @@ class ComposerRepository extends ArrayRepository implements ConfigurableReposito
             }
 
             if (!$degradedMode) {
-                $io->writeError('<warning>'.$url.' could not be fully loaded ('.$e->getMessage().'), package information was loaded from the local cache and may be out of date</warning>');
+                $io->writeError('<warning>'.Url::sanitize($url).' could not be fully loaded ('.$e->getMessage().'), package information was loaded from the local cache and may be out of date</warning>');
             }
             $degradedMode = true;
 

@@ -1,3 +1,36 @@
+### [2.10.2] 2026-07-01
+
+  * Security: Validate package names (GHSA-499r-g7pc-vmp9)
+  * Security: Validate package bin paths against path traversal (GHSA-gjfg-22fp-rrxx)
+  * Security: Sanitize URL-embedded usernames/token in verbose output (GHSA-g6xq-892h-64w3)
+  * Security: Only follow HTTP redirects from HTTP responses (#12948)
+  * Security: Prevent phar metadata unserialization on unsafe PHP versions (#12946)
+  * Security: Sanitize JSON parse errors in http responses to avoid leaking response body data (#12959)
+  * Added warning output in self-update command when using a soon-to-be EOL version (#12920)
+  * Added download retry when a GitHub codeload URL returns a 400 (#12962)
+  * Fixed `audit` command to output the audit result to stdout (#12904)
+  * Fixed backspace characters being output to non-decorated output (#12925)
+  * Fixed security advisory blocking causing issues with xdebug enabled (#12935)
+  * Fixed provider packages hiding suggestions for the package they provide themselves (#12933)
+  * Fixed security advisory blocking causing issues with xdebug enabled (#12935)
+
+### [2.10.1] 2026-06-04
+
+  * Security: Fixed shell escaping when opening an editor (#12903)
+  * Security: Verify backup phar signature before restoring it when using self-update --rollback (#12918)
+  * Fixed `source-fallback` also disabling fallbacks to dist install when source is the preferred install method (#12888)
+  * Fixed source -> dist package updates wiping the .git dir without checking for local changes first (#12912)
+  * Fixed GitHub token prompt happening multiple times on parallel auth failures (#12913)
+  * Fixed warnings from Composer repositories being printed twice in some cases (#12907)
+
+### [2.10.0] 2026-05-28
+
+  * BC Break / Security: Disabled automatic fallback to source checkout if dist/zip install fails, we have introduced a new `source-fallback` config option as a temporary way to restore the old behavior, but if you need this talk to us as we plan to remove it entirely in 2.11 (#12885)
+  * BC Break: Minor break for `audit` consumers, the exit code is now always 0 (success) or 1 if anything failed the audit (#12881)
+  * Security: Hardened output filtering of URLs to reduce chances of token leaks (#12882, #12886)
+  * Security: Fixed handling of uppercase schemes in URL validation that might have allowed https requirement bypass (#12884)
+  * Fixed `audit` command returning a success code when the vendor dir was not present (#12880)
+
 ### [2.10.0-RC2] 2026-05-20
 
   * Since 2.10.0-RC1, fixes in 2.9.6 - 2.9.8, many of which security relevant, are also included
@@ -2174,6 +2207,9 @@
 
   * Initial release
 
+[2.10.2]: https://github.com/composer/composer/compare/2.10.1...2.10.2
+[2.10.1]: https://github.com/composer/composer/compare/2.10.0...2.10.1
+[2.10.0]: https://github.com/composer/composer/compare/2.10.0-RC2...2.10.0
 [2.10.0-RC2]: https://github.com/composer/composer/compare/2.10.0-RC1...2.10.0-RC2
 [2.10.0-RC1]: https://github.com/composer/composer/compare/2.9.5...2.10.0-RC1
 [2.9.8]: https://github.com/composer/composer/compare/2.9.7...2.9.8
