@@ -1,0 +1,57 @@
+name: "Continuous Integration (32bit)"
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - 'doc/**'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  COMPOSER_FLAGS: "--ansi --no-interaction --no-progress --prefer-dist"
+  COMPOSER_UPDATE_FLAGS: ""
+
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    name: "CI"
+
+    runs-on: ubuntu-latest
+    container: shivammathur/node:latest-i386@sha256:4423e9d5afa33b58f0371bc4f857c6ddf06ecc37937ac914dc984ff8d0e5a4b6
+
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: shivammathur/setup-php@f3e473d116dcccaddc5834248c87452386958240 # 2.37.2
+        with:
+          coverage: "none"
+          extensions: "intl, zip"
+          ini-values: "memory_limit=-1, phar.readonly=0, error_reporting=E_ALL, display_errors=On, display_startup_errors=On"
+          php-version: "8.4"
+          tools: "composer:snapshot"
+
+      - name: "Install dependencies from composer.lock using composer binary provided by system"
+        run: 'composer install $COMPOSER_FLAGS'
+
+      - name: "Run install again using composer binary from source"
+        run: 'bin/composer install $COMPOSER_FLAGS'
+
+      - name: "Make source binary the one used by default"
+        run: |
+          echo -e "$(pwd)/bin\n$(cat $GITHUB_PATH)" > $GITHUB_PATH
+          echo -e "COMPOSER_BINARY=$(pwd)/bin/composer" >> $GITHUB_ENV
+          git config --global --add safe.directory $(pwd)
+
+      - name: "Prepare git environment"
+        run: "git config --global user.name composer && git config --global user.email composer@example.com"
+
+      - name: "Run tests"
+        run: "vendor/bin/simple-phpunit --verbose"

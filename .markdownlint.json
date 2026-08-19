@@ -1,0 +1,7 @@
+{
+  "no-inline-html": false,
+  "first-line-heading": false,
+  "header-increment": false,
+  "header-style": false,
+  "line-length": false
+}

@@ -1,0 +1,607 @@
+<!DOCTYPE HTML>
+<html lang="ja" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>困ったときは - Composer</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="../../favicon-8114d1fc.png">
+        <link rel="stylesheet" href="../../css/variables-8adf115d.css">
+        <link rel="stylesheet" href="../../css/general-e96d0476.css">
+        <link rel="stylesheet" href="../../css/chrome-d279d366.css">
+        <link rel="stylesheet" href="../../css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="../../highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="../../tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../../ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../searchindex-3a1a50d7.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc-934cb743.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Composer</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/gemmaro/composer" title="Git repository" aria-label="Git repository">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <!--
+    tagline: 問題解決
+-->
+<h1 id="困ったときは"><a class="header" href="#困ったときは">困ったときは</a></h1>
+<p>以下はComposerを使う上でよくある罠とその回避方法です。</p>
+<h2 id="一般"><a class="header" href="#一般">一般</a></h2>
+<ol>
+<li>
+<p>Composerを使っていてどんな問題に直面したときも、必ず <strong>最新版を使って</strong> ください。
+詳しくは<a href="../03-cli.html#self-update">self-update</a>をご参照ください。</p>
+</li>
+<li>
+<p>誰かに尋ねる前に、<a href="../03-cli.html#diagnose"><code>composer diagnose</code></a>を走らせてください。
+よくある問題を確認できます。
+全て確認したら、次の工程にお進みください。</p>
+</li>
+<li>
+<p><code>curl -sS https://getcomposer.org/installer | php -- --check</code>としてインストーラの検査を実行し、セットアップに問題がないことを確かめてください。</p>
+</li>
+<li>
+<p><code>composer clear-cache</code>を走らせて、Composerのキャッシュを消去してみてください。</p>
+</li>
+<li>
+<p>困ったときは<code>rm -rf vendor &amp;&amp; composer update -v</code>とし、必ず
+<strong><code>composer.json</code>から直にvendorをインストール</strong> してください。
+ただし、既存のvendorのインストールや<code>composer.lock</code>の項目についての障害が考えられる場合は除きます。</p>
+</li>
+</ol>
+<h2 id="パッケージが見付かりません"><a class="header" href="#パッケージが見付かりません">パッケージが見付かりません</a></h2>
+<ol>
+<li>
+<p><code>composer.json</code>やリポジトリのブランチやタグ名で <strong>誤植をしていないか</strong> よくご確認ください。</p>
+</li>
+<li>
+<p>必ず <strong>正しい<a href="../04-schema.html#minimum-stability">minimum-stability</a>を設定</strong>
+してください。
+始めたてのときや、これが問題になっていないことを確かめるには、<code>minimum-stability</code>を「dev」に設定してください。</p>
+</li>
+<li>
+<p><strong><a href="https://packagist.org/">Packagist</a>由来でない</strong> パッケージはいつも（全てのベンダーに依存する）
+<strong>根幹パッケージに定義</strong> すべきです。</p>
+</li>
+<li>
+<p>リポジトリの全てのブランチとタグについて <strong>同じベンダーとパッケージ名</strong> をお使いください。
+特にサードパーティーフォークを保守しており、<code>replace</code>を使っているときはそうです。</p>
+</li>
+<li>
+<p>最近公開されたバージョンのパッケージに更新しているときは、Packagistでは新しいパッケージがComposerで認識されるようになるまで1分まで遅延することがあります。</p>
+</li>
+<li>
+<p>1つのパッケージを更新している場合、その新しいバージョンに依存しているかもしれません。
+この場合、コマンドに<code>--with-dependencies</code>引数を加えるか、 <strong>もしくは</strong> 更新が必要な全ての依存関係を加えてください。</p>
+</li>
+</ol>
+<h2 id="パッケージが期待するバージョンに更新されない"><a class="header" href="#パッケージが期待するバージョンに更新されない">パッケージが期待するバージョンに更新されない</a></h2>
+<p><code>php composer.phar why-not パッケージ名 期待するバージョン</code>を実行してみてください。</p>
+<h2 id="根幹パッケージへの依存関係"><a class="header" href="#根幹パッケージへの依存関係">根幹パッケージへの依存関係</a></h2>
+<p>根幹パッケージが何らかのパッケージに依存しており、そのパッケージから（直接ないし間接に）その根幹パッケージ自体に依存関係が戻ってしまうとき、問題は2通りで起こり得ます。</p>
+<ol>
+<li>
+<p>開発する際、<code>dev-main</code>のようなブランチにあり、ブランチに<a href="aliases.html#branch-alias">ブランチ別称</a>が定義されておらず、根幹パッケージへの依存関係で例えばバージョン<code>^2.0</code>が必要であれば、<code>dev-main</code>バージョンは満たされません。
+ここでの一番の解決策は、まずブランチ別称を定義していることを確かめることです。</p>
+</li>
+<li>
+<p>CI (Continuous Integration)
+が実行されるとき、問題はComposerが根幹パッケージのバージョンを適切に検知できないことにあるかもしれません。
+もしGitクローンであれば、一般には大丈夫で、Composerにより現在のブランチのバージョンが検出されるでしょう。
+しかし、CIによってはシャロークローンをするため、プルリクエストや機能ブランチをテストするときにプロセスが失敗しかねません。
+そうした場合、ブランチ別称は認識されないかもしれません。
+一番の解決策は<code>COMPOSER_ROOT_VERSION</code>という環境変数で現在のバージョンを定義することです。
+例えば<code>dev-main</code>に設定すると根幹パッケージのバージョンは<code>dev-main</code>で定義されます。
+使用例は<code>COMPOSER_ROOT_VERSION=dev-main composer install</code>で、composerの呼び出しでのみ変数をエクスポートしています。
+もしくはCIの環境変数に大域的に定義できます。</p>
+</li>
+</ol>
+<h2 id="根幹パッケージのバージョン制約"><a class="header" href="#根幹パッケージのバージョン制約">根幹パッケージのバージョン制約</a></h2>
+<p>Composerでは根幹パッケージのバージョンが分かっていることによって、依存関係の解決を効率的にしています。
+根幹パッケージのバージョンは階層的な手法を使って決まります。</p>
+<ol>
+<li>
+<p><strong>composer.json Version Field</strong>: Firstly, Composer looks for a <code>version</code>
+field in the project’s root <code>composer.json</code> file. If present, this field
+specifies the version of the root package directly. This is generally not
+recommended as it needs to be constantly updated, but it is an option.</p>
+</li>
+<li>
+<p><strong>Environment Variable</strong>: Composer then checks for the
+<code>COMPOSER_ROOT_VERSION</code> environment variable. This variable can be
+explicitly set by the user to define the version of the root package,
+providing a straightforward way to inform Composer of the exact version,
+especially in CI/CD environments or when the VCS method is not
+applicable.</p>
+</li>
+<li>
+<p><strong>Version Control System (VCS) Inspection</strong>: Composer then attempts to
+guess the version by interfacing with the version control system of the
+project. For instance, in projects versioned with Git, Composer executes
+specific Git commands to deduce the project’s current version based on
+tags, branches, and commit history. If a <code>.git</code> directory is missing or
+the history is incomplete because CI is using a shallow clone for
+example, this detection may fail to find the correct version.</p>
+</li>
+<li>
+<p><strong>フォールバック</strong>：
+もしすべてが失敗するなら、Composerは<code>1.0.0</code>を既定のバージョンとして使います。</p>
+</li>
+</ol>
+<p>Note that relying on the default/fallback version might potentially lead to
+dependency resolution issues, especially when the root package depends on a
+package which ends up depending (directly or indirectly)  <a href="#dependencies-on-the-root-package">back on the root
+package itself</a>.</p>
+<h2 id="ネットワークの時間切れの問題curlのエラー"><a class="header" href="#ネットワークの時間切れの問題curlのエラー">ネットワークの時間切れの問題、curlのエラー</a></h2>
+<p>以下のように行が続くさまが見られるなら……</p>
+<pre><code>Failed to download * curl error 28 while downloading * Operation timed out after 300000 milliseconds
+</code></pre>
+<p>It means your network is probably so slow that a request took over
+300seconds to complete. This is the minimum timeout Composer will use, but
+you can increase it by increasing the <code>default_socket_timeout</code> value in your
+php.ini to something higher.</p>
+<h2 id="パッケージがjenkinsのビルドで見つかりません"><a class="header" href="#パッケージがjenkinsのビルドで見つかりません">パッケージがJenkinsのビルドで見つかりません</a></h2>
+<ol>
+<li>
+<p>上記の<a href="#package-not-found">「パッケージが見つかりません」</a>の項目をご確認ください。</p>
+</li>
+<li>
+<p>The git-clone / checkout within Jenkins leaves the branch in a “detached
+HEAD”-state. As a result, Composer may not able to identify the version
+of the current checked out branch and may not be able to resolve a
+<a href="#dependencies-on-the-root-package">dependency on the root package</a>.  To
+solve this problem, you can use the “Additional Behaviours” -&gt; “Check out
+to specific local branch” in your Git-settings for your Jenkins-job,
+where your “local branch” shall be the same branch as you are checking
+out. Using this, the checkout will not be in detached state any more and
+the dependency on the root package should become satisfied.</p>
+</li>
+</ol>
+<h2 id="i-have-a-dependency-which-contains-a-repositories-definition-in-its-composerjson-but-it-seems-to-be-ignored"><a class="header" href="#i-have-a-dependency-which-contains-a-repositories-definition-in-its-composerjson-but-it-seems-to-be-ignored">I have a dependency which contains a “repositories” definition in its composer.json, but it seems to be ignored.</a></h2>
+<p>The <a href="../04-schema.html#repositories"><code>repositories</code></a> configuration property is
+defined as <a href="../04-schema.html#root-package">root-only</a>. It is not
+inherited. You can read more about the reasons behind this in the “<a href="../faqs/why-cant-composer-load-repositories-recursively.html">why
+can’t Composer load repositories
+recursively?</a>”
+article.  The simplest work-around to this limitation, is moving or
+duplicating the <code>repositories</code> definition into your root composer.json.</p>
+<h2 id="i-have-locked-a-dependency-to-a-specific-commit-but-get-unexpected-results"><a class="header" href="#i-have-locked-a-dependency-to-a-specific-commit-but-get-unexpected-results">I have locked a dependency to a specific commit but get unexpected results.</a></h2>
+<p>While Composer supports locking dependencies to a specific commit using the
+<code>#commit-ref</code> syntax, there are certain caveats that one should take into
+account. The most important one is
+<a href="../04-schema.html#package-links">documented</a>, but frequently overlooked:</p>
+<blockquote>
+<p><strong>Note:</strong> While this is convenient at times, it should not be how you use
+packages in the long term because it comes with a technical limitation. The
+composer.json metadata will still be read from the branch name you specify
+before the hash. Because of that in some cases it will not be a practical
+workaround, and you should always try to switch to tagged releases as soon
+as you can.</p>
+</blockquote>
+<p>There is no simple work-around to this limitation. It is therefore strongly
+recommended that you do not use it.</p>
+<h2 id="need-to-override-a-package-version"><a class="header" href="#need-to-override-a-package-version">Need to override a package version</a></h2>
+<p>Let’s say your project depends on package A, which in turn depends on a
+specific version of package B (say 0.1). But you need a different version of
+said package B (say 0.11).</p>
+<p>You can fix this by aliasing version 0.11 to 0.1:</p>
+<p>composer.json:</p>
+<pre><code class="language-json">{
+    "require": {
+        "A": "0.2",
+        "B": "0.11 as 0.1"
+    }
+}
+</code></pre>
+<p>詳細は<a href="aliases.html">別称</a>をご確認ください。</p>
+<h2 id="構成値がどこから来たものか調べる"><a class="header" href="#構成値がどこから来たものか調べる">構成値がどこから来たものか調べる</a></h2>
+<p><code>php composer.phar config --list --source</code>を使うと、それぞれの構成値の出自がわかります。</p>
+<h2 id="memory-limit-errors"><a class="header" href="#memory-limit-errors">Memory limit errors</a></h2>
+<p>The first thing to do is to make sure you are running Composer 2, and if
+possible 2.2.0 or above.</p>
+<p>Composer 1 used much more memory and upgrading to the latest version will
+give you much better and faster results.</p>
+<p>Composer may sometimes fail on some commands with this message:</p>
+<p><code>PHP Fatal error:  Allowed memory size of XXXXXX bytes exhausted &lt;...&gt;</code></p>
+<p>In this case, the PHP <code>memory_limit</code> should be increased.</p>
+<blockquote>
+<p><strong>Note:</strong> Composer internally increases the <code>memory_limit</code> to <code>1.5G</code>.</p>
+</blockquote>
+<p>To get the current <code>memory_limit</code> value, run:</p>
+<pre><code class="language-shell">php -r "echo ini_get('memory_limit').PHP_EOL;"
+</code></pre>
+<p>Try increasing the limit in your <code>php.ini</code> file (ex. <code>/etc/php5/cli/php.ini</code>
+for Debian-like systems):</p>
+<pre><code class="language-ini">; Use -1 for unlimited or define an explicit value like 2G
+memory_limit = -1
+</code></pre>
+<p>Composer also respects a memory limit defined by the <code>COMPOSER_MEMORY_LIMIT</code>
+environment variable:</p>
+<pre><code class="language-shell">COMPOSER_MEMORY_LIMIT=-1 composer.phar &lt;...&gt;
+</code></pre>
+<p>Or, you can increase the limit with a command-line argument:</p>
+<pre><code class="language-shell">php -d memory_limit=-1 composer.phar &lt;...&gt;
+</code></pre>
+<p>However, please note that setting the memory limit using these methods
+primarily addresses memory issues within Composer itself and its immediate
+processes. Child processes or external commands invoked by Composer may
+still require separate adjustments if they have their own memory
+requirements.</p>
+<p>This issue can also happen on cPanel instances, when the shell fork bomb
+protection is activated. For more information, see the
+<a href="https://documentation.cpanel.net/display/68Docs/Shell+Fork+Bomb+Protection">documentation</a>
+of the fork bomb feature on the cPanel site.</p>
+<h2 id="xdebug-impact-on-composer"><a class="header" href="#xdebug-impact-on-composer">Xdebug impact on Composer</a></h2>
+<p>To improve performance when the Xdebug extension is enabled, Composer
+automatically restarts PHP without it.  You can override this behavior by
+using an environment variable: <code>COMPOSER_ALLOW_XDEBUG=1</code>.</p>
+<p>Composer will always show a warning if Xdebug is being used, but you can
+override this with an environment variable:
+<code>COMPOSER_DISABLE_XDEBUG_WARN=1</code>. If you see this warning unexpectedly, then
+the restart process has failed: please report this
+<a href="https://github.com/composer/composer/issues">issue</a>.</p>
+<h2 id="the-system-cannot-find-the-path-specified-windows"><a class="header" href="#the-system-cannot-find-the-path-specified-windows">“The system cannot find the path specified” (Windows)</a></h2>
+<ol>
+<li>Open regedit.</li>
+<li>Search for an <code>AutoRun</code> key inside
+<code>HKEY_LOCAL_MACHINE\Software\Microsoft\Command Processor</code>,
+<code>HKEY_CURRENT_USER\Software\Microsoft\Command Processor</code> or
+<code>HKEY_LOCAL_MACHINE\Software\Wow6432Node\Microsoft\Command Processor</code>.</li>
+<li>Check if it contains any path to a non-existent file, if it’s the case,
+remove them.</li>
+</ol>
+<h2 id="ssl-certificate-problem-unable-to-get-local-issuer-certificate"><a class="header" href="#ssl-certificate-problem-unable-to-get-local-issuer-certificate">SSL certificate problem: unable to get local issuer certificate</a></h2>
+<ol>
+<li>Check that your root certificate store / CA bundle is up to date. Run
+<code>composer diagnose -vvv</code> and look for <code>Checked CA file ...</code> or <code>Checked directory ...</code> lines in the first lines of output.  This will show you
+where Composer is looking for a CA bundle. You can get a <a href="https://curl.se/docs/caextract.html">new cacert.pem
+from cURL</a> and store it there.</li>
+<li>If this did not help despite Composer finding a valid CA bundle, try
+disabling your antivirus and firewall software to see if that helps. We
+have seen issues where Avast on Windows for example would prevent
+Composer from functioning correctly. To disable the HTTPS scanning in
+Avast you can go in “Protection &gt; Core Shields &gt; Web Shield &gt; <strong>uncheck</strong>
+Enable HTTPS scanning”. If this helps you should report it to the
+software vendor so they can hopefully improve things.</li>
+</ol>
+<h2 id="api-rate-limit-and-oauth-tokens"><a class="header" href="#api-rate-limit-and-oauth-tokens">API rate limit and OAuth tokens</a></h2>
+<p>Because of GitHub’s rate limits on their API it can happen that Composer
+prompts for authentication asking your username and password so it can go
+ahead with its work.</p>
+<p>If you would prefer not to provide your GitHub credentials to Composer you
+can manually create a token using the <a href="authentication-for-private-packages.html#github-oauth">procedure documented
+here</a>.</p>
+<p>Now Composer should install/update without asking for authentication.</p>
+<h2 id="proc_open-fork-failed-errors"><a class="header" href="#proc_open-fork-failed-errors">proc_open(): fork failed errors</a></h2>
+<p>If Composer shows proc_open() fork failed on some commands:</p>
+<p><code>PHP Fatal error: Uncaught exception 'ErrorException' with message 'proc_open(): fork failed - Cannot allocate memory' in phar</code></p>
+<p>This could be happening because the VPS runs out of memory and has no Swap
+space enabled.</p>
+<pre><code class="language-shell">free -m
+</code></pre>
+<pre><code class="language-text">total used free shared buffers cached
+Mem: 2048 357 1690 0 0 237
+-/+ buffers/cache: 119 1928
+Swap: 0 0 0
+</code></pre>
+<p>To enable the swap you can use for example:</p>
+<pre><code class="language-shell">/bin/dd if=/dev/zero of=/var/swap.1 bs=1M count=1024
+/sbin/mkswap /var/swap.1
+/bin/chmod 0600 /var/swap.1
+/sbin/swapon /var/swap.1
+</code></pre>
+<p>You can make a permanent swap file following this
+<a href="https://www.digitalocean.com/community/tutorials/how-to-add-swap-on-ubuntu-14-04">tutorial</a>.</p>
+<h2 id="proc_open-failed-to-open-stream-errors-windows"><a class="header" href="#proc_open-failed-to-open-stream-errors-windows">proc_open(): failed to open stream errors (Windows)</a></h2>
+<p>If Composer shows proc_open(NUL) errors on Windows:</p>
+<p><code>proc_open(NUL): failed to open stream: No such file or directory</code></p>
+<p>This could be happening because you are working in a <em>OneDrive</em> directory
+and using a version of PHP that does not support the file system semantics
+of this service. The issue was fixed in PHP 7.2.23 and 7.3.10.</p>
+<p>Alternatively it could be because the Windows Null Service is not
+enabled. For more information, see this
+<a href="https://github.com/composer/composer/issues/7186#issuecomment-373134916">issue</a>.</p>
+<h2 id="degraded-mode"><a class="header" href="#degraded-mode">Degraded Mode</a></h2>
+<p>Due to some intermittent issues on Travis and other systems, we introduced a
+degraded network mode which helps Composer finish successfully but disables
+a few optimizations. This is enabled automatically when an issue is first
+detected. If you see this issue sporadically you probably don’t have to
+worry (a slow or overloaded network can also cause those time outs), but if
+it appears repeatedly you might want to look at the options below to
+identify and resolve it.</p>
+<p>If you have been pointed to this page, you want to check a few things:</p>
+<ul>
+<li>If you are using ESET antivirus, go in “Advanced Settings” and disable
+“HTTP-scanner” under “web access protection”</li>
+<li>If you are using IPv6, try disabling it. If that solves your issues, get
+in touch with your ISP or server host, the problem is not at the Packagist
+level but in the routing rules between you and Packagist (i.e. the
+internet at large). The best way to get these fixed is to raise awareness
+to the network engineers that have the power to fix it.  Take a look at
+the next section for IPv6 workarounds.</li>
+<li>If none of the above helped, please report the error.</li>
+</ul>
+<h2 id="operation-timed-out-ipv6-issues"><a class="header" href="#operation-timed-out-ipv6-issues">Operation timed out (IPv6 issues)</a></h2>
+<p>You may run into errors if IPv6 is not configured correctly. A common error
+is:</p>
+<pre><code class="language-text">The "https://getcomposer.org/version" file could not be downloaded: failed to
+open stream: Operation timed out
+</code></pre>
+<p>We recommend you fix your IPv6 setup. If that is not possible, you can try
+the following workarounds:</p>
+<p><strong>Generic Workaround:</strong></p>
+<p><a href="../03-cli.html#composer-ipresolve"><code>COMPOSER_IPRESOLVE=4</code></a>環境変数を設定すると、curlをIPv4を使ってドメイン解決するよう強制します。
+これはcurl拡張がダウンロード用に使われるときだけ機能します。</p>
+<p><strong>Workaround Linux:</strong></p>
+<p>On linux, it seems that running this command helps to make ipv4 traffic have
+a higher priority than ipv6, which is a better alternative than disabling
+ipv6 entirely:</p>
+<pre><code class="language-shell">sudo sh -c "echo 'precedence ::ffff:0:0/96 100' &gt;&gt; /etc/gai.conf"
+</code></pre>
+<p><strong>Workaround Windows:</strong></p>
+<p>On windows the only way is to disable ipv6 entirely I am afraid (either in
+windows or in your home router).</p>
+<p><strong>Workaround Mac OS X:</strong></p>
+<p>Get name of your network device:</p>
+<pre><code class="language-shell">networksetup -listallnetworkservices
+</code></pre>
+<p>Disable IPv6 on that device (in this case “Wi-Fi”):</p>
+<pre><code class="language-shell">networksetup -setv6off Wi-Fi
+</code></pre>
+<p>Composerを実行……</p>
+<p>You can enable IPv6 again with:</p>
+<pre><code class="language-shell">networksetup -setv6automatic Wi-Fi
+</code></pre>
+<p>That said, if this fixes your problem, please talk to your ISP about it to
+try to resolve the routing errors. That’s the best way to get things
+resolved for everyone.</p>
+<h2 id="composer-hangs-with-ssh-controlmaster"><a class="header" href="#composer-hangs-with-ssh-controlmaster">Composer hangs with SSH ControlMaster</a></h2>
+<p>When you try to install packages from a Git repository and you use the
+<code>ControlMaster</code> setting for your SSH connection, Composer might hang
+endlessly and you see a <code>sh</code> process in the <code>defunct</code> state in your process
+list.</p>
+<p>The reason for this is a SSH Bug:
+https://bugzilla.mindrot.org/show_bug.cgi?id=1988</p>
+<p>As a workaround, open a SSH connection to your Git host before running
+Composer:</p>
+<pre><code class="language-shell">ssh -t git@mygitserver.tld
+php composer.phar update
+</code></pre>
+<p>詳しくは https://github.com/composer/composer/issues/4180 も参照。</p>
+<h2 id="zip-archives-are-not-unpacked-correctly"><a class="header" href="#zip-archives-are-not-unpacked-correctly">Zip archives are not unpacked correctly.</a></h2>
+<p>Composer can unpack zipballs using either a system-provided <code>unzip</code> or <code>7z</code>
+(7-Zip) utility, or PHP’s native <code>ZipArchive</code> class. On OSes where ZIP files
+can contain permissions and symlinks, we recommend installing <code>unzip</code> or
+<code>7z</code> as these features are not supported by <code>ZipArchive</code>.</p>
+<h2 id="disabling-the-pool-optimizer"><a class="header" href="#disabling-the-pool-optimizer">Disabling the pool optimizer</a></h2>
+<p>In Composer, the <code>Pool</code> class contains all the packages that are relevant
+for the dependency resolving process. That is what is used to generate all
+the rules which are then passed on to the dependency solver.  In order to
+improve performance, Composer tries to optimize this <code>Pool</code> by removing
+useless package information early on.</p>
+<p>If all goes well, you should never notice any issues with it but in case you
+run into an unexpected result such as an unresolvable set of dependencies or
+conflicts where you think Composer is wrong, you might want to disable the
+optimizer by using the environment variable <code>COMPOSER_POOL_OPTIMIZER</code> and
+run the update again like so:</p>
+<pre><code class="language-shell">COMPOSER_POOL_OPTIMIZER=0 php composer.phar update
+</code></pre>
+<p>Now double check if the result is still the same. It will take significantly
+longer and use a lot more memory to run the dependency resolving process.</p>
+<p>If the result is different, you likely hit a problem in the pool optimizer.
+Please <a href="https://github.com/composer/composer/issues">report this issue</a> so
+it can be fixed.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../doc/articles/versions.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="../../CHANGELOG.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../doc/articles/versions.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="../../CHANGELOG.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr-ef4e11c1.min.js"></script>
+        <script src="../../mark-09e88c2c.min.js"></script>
+        <script src="../../searcher-09f2665d.js"></script>
+
+        <script src="../../clipboard-1626706a.min.js"></script>
+        <script src="../../highlight-abc7f01d.js"></script>
+        <script src="../../book-609e4cb8.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>
