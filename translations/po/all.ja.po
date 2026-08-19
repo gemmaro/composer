@@ -19,8 +19,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Composer\n"
-"POT-Creation-Date: 2026-07-21 16:27+0900\n"
-"PO-Revision-Date: 2026-07-21 17:11+0900\n"
+"POT-Creation-Date: 2026-08-19 13:57+0900\n"
+"PO-Revision-Date: 2026-08-19 14:43+0900\n"
 "Last-Translator: gemmaro <gemmaro.dev@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -323,11 +323,62 @@ msgstr ""
 #. type: Title -
 #: ../README.md:85
 #, no-wrap
+msgid "Sponsors"
+msgstr "協賛"
+
+#. type: Plain text
+#: ../README.md:88
+msgid ""
+"Thank you to our sponsors for supporting the ongoing development and "
+"maintenance of Composer and Packagist.org! See [getcomposer.org/sponsor]"
+"(https://getcomposer.org/sponsor/) for more information on becoming a "
+"sponsor."
+msgstr ""
+"ComposerとPackagist.orgの進行中の開発と保守を支援していただいている協賛者に感"
+"謝します！\n"
+"協賛者になることについてより詳しい情報は[getcomposer.org/sponsor](https://"
+"getcomposer.org/sponsor/)をご参照ください。"
+
+#. type: Plain text
+#: ../README.md:102
+#, no-wrap
+msgid ""
+"<p align=\"center\">\n"
+"    <a href=\"https://packagist.com/?utm_source=composer\"><img src=\"https://packagist.org/img/sponsors/private-packagist-dark.svg\" alt=\"Private Packagist\" height=\"60\" hspace=\"15\"></a>\n"
+"    <a href=\"https://www.aikido.dev/?utm_source=composer\"><img src=\"https://packagist.org/img/sponsors/aikido-dark.svg\" alt=\"Aikido\" height=\"60\" hspace=\"15\"></a>\n"
+"    <a href=\"https://www.sovereign.tech/?utm_source=composer\"><img src=\"https://packagist.org/img/sponsors/sovereign-tech-agency-dark.svg\" alt=\"Sovereign Tech Fund\" height=\"60\" hspace=\"15\"></a>\n"
+"    <a href=\"https://aws.amazon.com/?utm_source=composer\"><img src=\"https://packagist.org/img/sponsors/aws-dark.svg\" alt=\"AWS\" height=\"60\" hspace=\"15\"></a>\n"
+"    <a href=\"https://socket.dev/?utm_source=composer\"><img src=\"https://packagist.org/img/sponsors/socket-dark.svg\" alt=\"Socket\" height=\"60\" hspace=\"15\"></a>\n"
+"    <a href=\"https://upsun.com/?utm_source=composer\"><img src=\"https://packagist.org/img/sponsors/upsun-dark.svg\" alt=\"Upsun\" height=\"60\" hspace=\"15\"></a>\n"
+"    <a href=\"https://www.sonatype.com/?utm_source=composer\"><img src=\"https://packagist.org/img/sponsors/sonatype-dark.svg\" alt=\"Sonatype\" height=\"60\" hspace=\"15\"></a>\n"
+"    <a href=\"https://bunny.net/?utm_source=composer\"><img src=\"https://packagist.org/img/sponsors/bunny-net-dark.svg\" alt=\"Bunny.net\" height=\"60\" hspace=\"15\"></a>\n"
+"    <a href=\"https://tideways.com/?utm_source=composer\"><img src=\"https://packagist.org/img/sponsors/tideways-dark.svg\" alt=\"Tideways\" height=\"60\" hspace=\"15\"></a>\n"
+"    <a href=\"https://datadog.com/?utm_source=composer\"><img src=\"https://packagist.org/img/sponsors/datadog-dark.svg\" alt=\"Datadog\" height=\"60\" hspace=\"15\"></a>\n"
+"    <a href=\"https://www.algolia.com/?utm_source=composer\"><img src=\"https://packagist.org/img/sponsors/algolia-dark.svg\" alt=\"Algolia\" height=\"60\" hspace=\"15\"></a>\n"
+"</p>\n"
+msgstr ""
+"<p align=\"center\">\n"
+"    <a href=\"https://packagist.com/?utm_source=composer\"><img src=\"https://packagist.org/img/sponsors/private-packagist-dark.svg\" alt=\"Private Packagist\" height=\"60\" hspace=\"15\"></a>\n"
+"    <a href=\"https://www.aikido.dev/?utm_source=composer\"><img src=\"https://packagist.org/img/sponsors/aikido-dark.svg\" alt=\"Aikido\" height=\"60\" hspace=\"15\"></a>\n"
+"    <a href=\"https://www.sovereign.tech/?utm_source=composer\"><img src=\"https://packagist.org/img/sponsors/sovereign-tech-agency-dark.svg\" alt=\"Sovereign Tech Fund\" height=\"60\" hspace=\"15\"></a>\n"
+"    <a href=\"https://aws.amazon.com/?utm_source=composer\"><img src=\"https://packagist.org/img/sponsors/aws-dark.svg\" alt=\"AWS\" height=\"60\" hspace=\"15\"></a>\n"
+"    <a href=\"https://socket.dev/?utm_source=composer\"><img src=\"https://packagist.org/img/sponsors/socket-dark.svg\" alt=\"Socket\" height=\"60\" hspace=\"15\"></a>\n"
+"    <a href=\"https://upsun.com/?utm_source=composer\"><img src=\"https://packagist.org/img/sponsors/upsun-dark.svg\" alt=\"Upsun\" height=\"60\" hspace=\"15\"></a>\n"
+"    <a href=\"https://www.sonatype.com/?utm_source=composer\"><img src=\"https://packagist.org/img/sponsors/sonatype-dark.svg\" alt=\"Sonatype\" height=\"60\" hspace=\"15\"></a>\n"
+"    <a href=\"https://bunny.net/?utm_source=composer\"><img src=\"https://packagist.org/img/sponsors/bunny-net-dark.svg\" alt=\"Bunny.net\" height=\"60\" hspace=\"15\"></a>\n"
+"    <a href=\"https://tideways.com/?utm_source=composer\"><img src=\"https://packagist.org/img/sponsors/tideways-dark.svg\" alt=\"Tideways\" height=\"60\" hspace=\"15\"></a>\n"
+"    <a href=\"https://datadog.com/?utm_source=composer\"><img src=\"https://packagist.org/img/sponsors/datadog-dark.svg\" alt=\"Datadog\" height=\"60\" hspace=\"15\"></a>\n"
+"    <a href=\"https://www.algolia.com/?utm_source=composer\"><img src=\"https://packagist.org/img/sponsors/algolia-dark.svg\" alt=\"Algolia\" height=\"60\" hspace=\"15\"></a>\n"
+"</p>\n"
+
+#. type: Title -
+#: ../README.md:104
+#, no-wrap
 msgid "License"
 msgstr "利用許諾"
 
 #. type: Plain text
-#: ../README.md:88
+#: ../README.md:107
 msgid ""
 "Composer is licensed under the MIT License - see the [LICENSE](LICENSE) file "
 "for details."
@@ -336,13 +387,13 @@ msgstr ""
 "詳細は[LICENSE](LICENSE)をご参照ください。"
 
 #. type: Title -
-#: ../README.md:90
+#: ../README.md:109
 #, no-wrap
 msgid "Acknowledgments"
 msgstr "謝辞"
 
 #. type: Bullet: '- '
-#: ../README.md:93
+#: ../README.md:112
 msgid ""
 "This project's Solver started out as a PHP port of openSUSE's [Libzypp "
 "satsolver](https://en.opensuse.org/openSUSE:Libzypp_satsolver)."
@@ -4443,6 +4494,8 @@ msgid ""
 "you are running, Composer tells you which PHP version you would need and "
 "that you are pinned to an older release line."
 msgstr ""
+"更新時、今いるバージョンや更新先のバージョンが保守終了であるか、または致命的なセキュリティの修正のみが取得される保守終了が間近のより古いバージョン系列であれば、Composerは警告し、最新安定リリースを指し示します。\n"
+"より新しいComposerのバージョンは存在するものの走らせているものより新しいPHPのバージョンが要求されるなら、Composerは必要になるPHPのバージョンがどれかと今はより古いリリース系列に釘付けされていることを伝えます。"
 
 #. type: Plain text
 #: ../doc/03-cli.md:827
@@ -4459,6 +4512,11 @@ msgid ""
 "cannot be verified this way, so a rollback to one asks for confirmation when "
 "run interactively."
 msgstr ""
+"`--rollback`で作成されたバックアップは[`data-dir`](06-config.md#data-dir)中に保管され、ダウンロードの検証に使われる公開鍵は`COMPOSER_HOME`中に保管されます。\n"
+"両方のディレクトリはComposerのインストール物を所有する利用者によってのみ書き込みできなければならず信頼されたものとして扱われるべきです。\n"
+"つまり他の利用者により書き込めるディレクトリは悪意のある`composer.phar`を植え付けるために使われ得り、特権つきの`self-update --rollback`でインストールされるでしょう。\n"
+"タグ付きリリースにロールバックするときは、インストールされる前にバックアップはgetcomposer.orgより公開された署名に対して検証されます（不一致または署名がダウンロードできなければロールバックは中座されます）。\n"
+"ただしスナップショット／開発版の構築物はこのように検証できませんから、対話的に走らせているときはそれらへのロールバックで確定するか尋ねます。"
 
 #. type: Bullet: '* '
 #: ../doc/03-cli.md:841
@@ -4904,12 +4962,18 @@ msgid ""
 "policy applies to. Adding a source for a dependency policy that does not yet "
 "exist will create the policy automatically."
 msgstr ""
+"`policy`コマンドでは`composer.json`中の`config.policy`配下で独自の依存関係の方針とそのソースを管理します。\n"
+"ソースはその方針が適用する先のパッケージのバージョンの集合を提供する遠隔のURLをComposerに指し示します。\n"
+"まだ存在しない依存関係の方針のためのソースを追加すると自動でその方針が作成されます。"
 
 #. type: Plain text
 #: ../doc/03-cli.md:969
 #, no-wrap
 msgid "Built-in dependency policies (`advisories`, `malware`, `abandoned`) do not accept sources and are rejected. To change their settings, use `composer config policy.<policy>.<field>` instead — see the [policy](06-config.md#policy) config documentation.\n"
 msgstr ""
+"組み込みの依存関係の方針 (`advisories`, `malware`, `abandoned`) はソースを受け付けず却下します。\n"
+"設定を変えるには、代わりに`composer config policy.<方針>.<フィールド>`を使ってください。\n"
+"構成の文書については[方針](06-config.md#policy)をご参照ください。"
 
 #. type: Fenced code block (shell)
 #: ../doc/03-cli.md:972
@@ -5110,6 +5174,7 @@ msgstr "**--remove-vcs:** プロンプト無しにVCSメタデータを強制削
 msgid "**--no-install:** Disables installation of the vendors."
 msgstr "**--no-install:** ベンダーのインストールを無効にします。"
 
+# TODO: formatの表現が重複しています、上流に報告
 #. type: Bullet: '* '
 #: ../doc/03-cli.md:1068
 msgid ""
@@ -5119,6 +5184,11 @@ msgid ""
 "times for multiple packages. Should be in format `foo/bar:1.0.0` format if "
 "you want to specify a constraint."
 msgstr ""
+"**--require:**\n"
+"プロジェクトをインストールした後に追加のパッケージをcomposer.jsonへ追加することを要求。\n"
+"固定ファイルが存在するなら削除されインストールの代わりに更新が走ります。\n"
+"複数のパッケージ用に複数回指定できます。\n"
+"制約を指定したければ`foo/bar:1.0.0`の形式にすべきです。"
 
 #. type: Bullet: '* '
 #: ../doc/03-cli.md:1068
@@ -5689,6 +5759,11 @@ msgid ""
 "to PHP 8.0 or newer. If you cannot upgrade and accept the risk, set this to 1 to allow\n"
 "Composer to process these archives anyway. PHP 8.0+ is unaffected and ignores this setting.\n"
 msgstr ""
+"この環境変数はPHPのバージョン8.0より前でのみ効果があります。\n"
+"それらのバージョンではComposerは`tar`/`phar`の配布物のアーカイブを読んだり抽出したりすることを拒絶しますが、それはPHP < 8.0では信頼されない入力にそうすることは安全でないからです。\n"
+"推奨される修正はPHP 8.0かそれより新しいものへ更新することです。\n"
+"更新できず危険性を受け入れるなら、これを1に設定するととにもかくにもComposerがこれらのアーカイブを処理することを許容します。\n"
+"PHP 8.0+では影響がなくこの設定を無視します。"
 
 #. type: Title ###
 #: ../doc/03-cli.md:1251
@@ -5883,7 +5958,7 @@ msgid ""
 "This directory holds the public keys used to verify Composer downloads "
 "during `self-update`, so it must be writable only by the user that owns the "
 "Composer installation and should be treated as a trusted location."
-msgstr ""
+msgstr "このディレクトリには`self-update`の間にComposerのダウンロード物を検証するために使われる公開鍵が保管されるため、Composerのインストール物を所有する利用者によってのみ書き込みできなければならず信頼された場所として扱われるべきです。"
 
 #. type: Title ####
 #: ../doc/03-cli.md:1318
@@ -6254,6 +6329,10 @@ msgid ""
 "this to `1` will use the policy configuration in the composer.json. If you "
 "want to change the config value, use `composer config policy 1` instead."
 msgstr ""
+"主要な依存関係の方針のスイッチです。\n"
+"`0`に設定すると更新、インストール、監査での全ての依存関係の方針の促進が無効となり、あるいは`1`とすればそれを有効にします。\n"
+"これを`1`に設定するとcomposer.json中での方針の構成を使います。\n"
+"構成値を変えたければ、代わりに`composer config policy 1`を使ってください。"
 
 #. type: Plain text
 #: ../doc/03-cli.md:1434
@@ -6327,6 +6406,8 @@ msgid ""
 "dependency resolution (equivalent to setting `policy.advisories.block` to "
 "`true`). If set to `0`, disables blocking."
 msgstr ""
+"`1`に設定すると、依存関係の解決の最中にセキュリティ勧告付きのパッケージの遮断を有効にします（設定の`policy.advisories.block`を`true`にすることと等価）。\n"
+"`0`に設定すれば、遮断を無効にします。"
 
 #. type: Title ###
 #: ../doc/03-cli.md:1449
@@ -6341,6 +6422,8 @@ msgid ""
 "dependency resolution (equivalent to setting `policy.malware.block` to "
 "`true`). If set to `0`, disables blocking."
 msgstr ""
+"`1`に設定すれば、依存関係の解決の最中にマルウェアとして旗が立てられたパッケージの遮断を有効にします（設定の`policy.malware.block`を`true`にすることと等価）。\n"
+"`0`に設定すれば、遮断を無効にします。"
 
 #. type: Title ###
 #: ../doc/03-cli.md:1453
@@ -6355,6 +6438,8 @@ msgid ""
 "resolution (equivalent to setting `policy.abandoned.block` to `true`). If "
 "set to `0`, disables blocking."
 msgstr ""
+"`1`に設定すれば、依存関係の解決の最中に放棄されたパッケージの遮断を有効にします（`policy.abandoned.block`を`true`に設定することと等価）。\n"
+"`0`に設定すれば、遮断を無効にします。"
 
 #. type: Plain text
 #: ../doc/03-cli.md:1458
@@ -6362,7 +6447,7 @@ msgid ""
 "Value takes precedence over the value of the legacy variable "
 "[COMPOSER_SECURITY_BLOCKING_ABANDONED](#composer-security-blocking-"
 "abandoned) when it's set to a different value."
-msgstr ""
+msgstr "この値に古い変数[COMPOSER_SECURITY_BLOCKING_ABANDONED](#composer-security-blocking-abandoned)と違った値に設定されている場合はその設定の値より優先されます。"
 
 #. type: Title ###
 #: ../doc/03-cli.md:1459

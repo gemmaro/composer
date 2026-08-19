@@ -86,6 +86,26 @@ PHPのバージョン5.3.2から8.1まではComposer (2.2.x)のLTS対応でま�
 慎重を要する問題については全て[security@packagist.org](mailto:security@packagist.org)にお送りください。
 ありがとうございます。
 
+協賛
+--
+
+ComposerとPackagist.orgの進行中の開発と保守を支援していただいている協賛者に感謝します！
+協賛者になることについてより詳しい情報は[getcomposer.org/sponsor](https://getcomposer.org/sponsor/)をご参照ください。
+
+<p align="center">
+    <a href="https://packagist.com/?utm_source=composer"><img src="https://packagist.org/img/sponsors/private-packagist-dark.svg" alt="Private Packagist" height="60" hspace="15"></a>
+    <a href="https://www.aikido.dev/?utm_source=composer"><img src="https://packagist.org/img/sponsors/aikido-dark.svg" alt="Aikido" height="60" hspace="15"></a>
+    <a href="https://www.sovereign.tech/?utm_source=composer"><img src="https://packagist.org/img/sponsors/sovereign-tech-agency-dark.svg" alt="Sovereign Tech Fund" height="60" hspace="15"></a>
+    <a href="https://aws.amazon.com/?utm_source=composer"><img src="https://packagist.org/img/sponsors/aws-dark.svg" alt="AWS" height="60" hspace="15"></a>
+    <a href="https://socket.dev/?utm_source=composer"><img src="https://packagist.org/img/sponsors/socket-dark.svg" alt="Socket" height="60" hspace="15"></a>
+    <a href="https://upsun.com/?utm_source=composer"><img src="https://packagist.org/img/sponsors/upsun-dark.svg" alt="Upsun" height="60" hspace="15"></a>
+    <a href="https://www.sonatype.com/?utm_source=composer"><img src="https://packagist.org/img/sponsors/sonatype-dark.svg" alt="Sonatype" height="60" hspace="15"></a>
+    <a href="https://bunny.net/?utm_source=composer"><img src="https://packagist.org/img/sponsors/bunny-net-dark.svg" alt="Bunny.net" height="60" hspace="15"></a>
+    <a href="https://tideways.com/?utm_source=composer"><img src="https://packagist.org/img/sponsors/tideways-dark.svg" alt="Tideways" height="60" hspace="15"></a>
+    <a href="https://datadog.com/?utm_source=composer"><img src="https://packagist.org/img/sponsors/datadog-dark.svg" alt="Datadog" height="60" hspace="15"></a>
+    <a href="https://www.algolia.com/?utm_source=composer"><img src="https://packagist.org/img/sponsors/algolia-dark.svg" alt="Algolia" height="60" hspace="15"></a>
+</p>
+
 利用許諾
 ----
 
